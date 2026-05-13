@@ -1,0 +1,68 @@
+/* Global Header Compact Overrides */
+.header-one .header-main-one {
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+    transition: all 0.3s ease;
+}
+
+.header-one.sticky .header-main-one {
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+
+/* Compact CTA Button */
+.vrm-btn-compact {
+    padding: 8px 24px !important;
+    font-size: 14px !important;
+    height: 44px !important;
+    line-height: 26px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* Nav Hover Arrows Rotation */
+.nav-main .mainmenu>li.has-droupdown>a::before {
+    content: "\f078" !important;
+    /* Force to always show the down caret */
+    transition: transform 0.3s ease !important;
+}
+
+.nav-main .mainmenu>li.has-droupdown:hover>a::before {
+    transform: translateY(-50%) rotate(180deg) !important;
+    /* Preserve absolute vertical centering */
+    content: "\f078" !important;
+    /* Keep it the down arrow to just visually spin it */
+}
+
+/* Mega Menu Full Width Overrides */
+.header-main-one .container {
+    position: relative !important;
+}
+
+.nav-main .mainmenu>li.has-droupdown {
+    position: static !important;
+    /* Make mega menu ignore li bounds */
+}
+
+.mega-menu-container {
+    position: absolute !important;
+    z-index: 999999 !important;
+    width: calc(100% - 30px) !important;
+    max-width: none !important;
+    left: 15px !important;
+    right: 15px !important;
+    margin: 0 !important;
+    top: 100% !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Ensure inner panels are transparent to let the glass effect show */
+.mega-menu-container .left-panel,
+.mega-menu-container .platforms-panel,
+.mega-menu-container .sub-products-panel {
+    background: transparent !important;
+}
