@@ -14,16 +14,26 @@ const ContactUs = () => {
     const [loading, setLoading] = useState(false);
     const [status, setStatus] = useState({ type: '', message: '' });
 
-    useLayoutEffect(() => {
-        if (location.hash) {
-            const targetId = location.hash.replace('#', '');
-            const element = document.getElementById(targetId);
-            if (element) {
-                // Native smooth scroll; CSS will handle header offset via scroll-margin-top
-                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        }
+   useEffect(() => {
+    if (location.state?.scrollToContact) {
+        const timeoutId = setTimeout(() => {
+            const element = document.getElementById('contact-section-wrapper');
 
+            if (element) {
+                const y =
+                    element.getBoundingClientRect().top +
+                    window.scrollY -
+                    100; // Adjusted offset to align perfectly
+
+                window.scrollTo({
+                    top: y,
+                    behavior: 'smooth',
+                });
+            }
+        }, 500); // Increased timeout to ensure layout shifts are done
+        
+        return () => clearTimeout(timeoutId);
+    }
 }, [location]);
 
     const handleSubmit = async (e) => {
@@ -94,7 +104,7 @@ const ContactUs = () => {
             </div>
 
             {/* 2. Get In Touch & Form Section - Floating Card Layout */}
-            <div className="vrm-full-width-section bg-light ptb--100 position-relative" style={{ marginTop: '-80px', zIndex: '2' }}>
+            <div id="contact-section-wrapper" className="vrm-full-width-section bg-light ptb--100 position-relative" style={{ marginTop: '-80px', zIndex: '2' }}>
                 <div className="container">
                     <div className="row g-5">
                         {/* Left Side: Contact Info with Decorative BG */}
@@ -155,8 +165,11 @@ const ContactUs = () => {
 
                         {/* Right Side: Premium Contact Form */}
                         <div className="col-lg-7 wow fadeInUp" data-wow-delay=".4s">
-                            <div id="contact-form" className="contact-form-premium-wrapper">
-                                <h3 className="mb-4 fw-bold">Send us a Message</h3>
+                            {/* <div className="contact-form-premium-wrapper"> */}
+                            <div id="send-message-section" className="contact-form-premium-wrapper">
+                                 <h3 className="mb-4 fw-bold">
+                                             Send us a Message
+                                 </h3>
                                 {status.message && (
                                     <div className={`alert ${status.type === 'success' ? 'alert-success' : 'alert-danger'} mb-4`} role="alert">
                                         {status.message}
@@ -211,6 +224,7 @@ const ContactUs = () => {
                                 </form>
                             </div>
                         </div>
+                        
                     </div>
                 </div>
             </div>

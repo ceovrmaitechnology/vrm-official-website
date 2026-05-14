@@ -58,7 +58,7 @@ function HeaderOne({ className }) {
                                     <Nav />
                                 </div>
                                 <div className="button-area d-flex align-items-center">
-                                    <Link to="/contactus#contact-form" className="rts-btn btn-primary vrm-btn-compact">
+                                    <Link to="/contactus" state={{ scrollToContact: true }} className="rts-btn btn-primary vrm-btn-compact">
                                         Let's Connect
                                     </Link>
                                     <button
