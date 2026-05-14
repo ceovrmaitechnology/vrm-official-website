@@ -39,7 +39,7 @@ function HeaderOne({ className }) {
 
     return (
 
-        <div>
+        <div style={{ minHeight: headerHeight !== 'auto' ? `${headerHeight}px` : 'auto' }}>
 
             {/* start header area */}
             <header ref={headerRef} className={`header--sticky header-one ${isSticky ? 'sticky' : ''} ${className || ''}`}>

@@ -14,27 +14,41 @@ const ContactUs = () => {
     const [loading, setLoading] = useState(false);
     const [status, setStatus] = useState({ type: '', message: '' });
 
-   useEffect(() => {
-    if (location.state?.scrollToContact) {
-        const timeoutId = setTimeout(() => {
-            const element = document.getElementById('contact-section-wrapper');
+    useEffect(() => {
+        if (location.state?.scrollToContact) {
+            let attempts = 0;
+            
+            const performScroll = () => {
+                const element = document.getElementById('contact-section-wrapper');
+                if (element) {
+                    const y = element.getBoundingClientRect().top + window.scrollY - 100;
+                    window.scrollTo({
+                        top: y,
+                        behavior: 'smooth',
+                    });
+                }
+            };
 
-            if (element) {
-                const y =
-                    element.getBoundingClientRect().top +
-                    window.scrollY -
-                    100; // Adjusted offset to align perfectly
+            // Attempt to scroll immediately
+            performScroll();
 
-                window.scrollTo({
-                    top: y,
-                    behavior: 'smooth',
-                });
-            }
-        }, 500); // Increased timeout to ensure layout shifts are done
-        
-        return () => clearTimeout(timeoutId);
-    }
-}, [location]);
+            // Setup an interval to try a few more times as layout shifts settle (images loading)
+            const intervalId = setInterval(() => {
+                performScroll();
+                attempts++;
+                
+                // Stop trying after about 1.5 seconds (3 attempts * 500ms)
+                if (attempts >= 3) {
+                    clearInterval(intervalId);
+                }
+            }, 500);
+            
+            // Clean up state so we don't re-scroll if user refreshes the page
+            window.history.replaceState({}, document.title);
+
+            return () => clearInterval(intervalId);
+        }
+    }, [location]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -112,7 +126,7 @@ const ContactUs = () => {
                             <div className="contact-left-area pe-lg-5 pt-lg-5">
                                 <h2 className="title fw-bold mb-4 text-dark display-6">Contact Information</h2>
                                 <p className="disc mb-5 text-muted">
-                                    Our team is available 24/7 to answer your queries. Reach out through any of our official channels.
+                                    Our team is available 24/7 to answer your queries. Reach out through any of our official channels
                                 </p>
 
                                 <div className="contact-details mt-5">
