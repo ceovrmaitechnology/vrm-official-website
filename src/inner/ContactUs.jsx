@@ -1,5 +1,4 @@
-
-import React, { useEffect, useState, useLayoutEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import HeaderOne from '../components/header/HeaderOne';
 import FooterOne from '../components/footer/FooterOne';
 import GlobalMap from '../components/map/GlobalMap';
@@ -14,40 +13,63 @@ const ContactUs = () => {
     const [loading, setLoading] = useState(false);
     const [status, setStatus] = useState({ type: '', message: '' });
 
-    useEffect(() => {
+    const getScrollTargetId = () => {
         if (location.state?.scrollToContact) {
-            let attempts = 0;
-            
-            const performScroll = () => {
-                const element = document.getElementById('contact-section-wrapper');
-                if (element) {
-                    const y = element.getBoundingClientRect().top + window.scrollY - 100;
-                    window.scrollTo({
-                        top: y,
-                        behavior: 'smooth',
-                    });
-                }
-            };
-
-            // Attempt to scroll immediately
-            performScroll();
-
-            // Setup an interval to try a few more times as layout shifts settle (images loading)
-            const intervalId = setInterval(() => {
-                performScroll();
-                attempts++;
-                
-                // Stop trying after about 1.5 seconds (3 attempts * 500ms)
-                if (attempts >= 3) {
-                    clearInterval(intervalId);
-                }
-            }, 500);
-            
-            // Clean up state so we don't re-scroll if user refreshes the page
-            window.history.replaceState({}, document.title);
-
-            return () => clearInterval(intervalId);
+            return 'send-message';
         }
+        if (location.state?.scrollTo) {
+            return location.state.scrollTo;
+        }
+        if (location.state?.scroll) {
+            return location.state.scroll;
+        }
+        if (location.hash) {
+            return location.hash.replace('#', '');
+        }
+        const params = new URLSearchParams(location.search);
+        return params.get('scroll');
+    };
+
+    const resolveScrollTargetId = (targetId) => {
+        if (!targetId) return null;
+        if (targetId === 'send-message') return 'send-message-section';
+        if (targetId === 'contact-form' || targetId === 'contact-section-wrapper') return 'send-message-section';
+        return targetId;
+    };
+
+    const scrollToElement = (element) => {
+        if (!element) return false;
+        const header = document.querySelector('header');
+        const headerHeight = header?.offsetHeight || 96;
+        const elementTop = element.getBoundingClientRect().top + window.pageYOffset;
+        const scrollTarget = Math.max(elementTop - headerHeight - 16, 0);
+        window.scrollTo({ top: scrollTarget, behavior: 'smooth' });
+        return true;
+    };
+
+    const scrollToSection = (targetId) => {
+        const resolvedId = resolveScrollTargetId(targetId);
+        if (!resolvedId) return false;
+        const element = document.getElementById(resolvedId);
+        return scrollToElement(element);
+    };
+
+    useEffect(() => {
+        const targetId = getScrollTargetId();
+        if (!targetId) return;
+
+        let attempts = 0;
+        const maxAttempts = 20;
+
+        const tryScroll = () => {
+            attempts += 1;
+            const didScroll = scrollToSection(targetId);
+            if (!didScroll && attempts < maxAttempts) {
+                window.setTimeout(tryScroll, 150);
+            }
+        };
+
+        tryScroll();
     }, [location]);
 
     const handleSubmit = async (e) => {
@@ -118,15 +140,15 @@ const ContactUs = () => {
             </div>
 
             {/* 2. Get In Touch & Form Section - Floating Card Layout */}
-            <div id="contact-section-wrapper" className="vrm-full-width-section bg-light ptb--100 position-relative" style={{ marginTop: '-80px', zIndex: '2' }}>
+            <div className="vrm-full-width-section bg-light ptb--100 position-relative" style={{ marginTop: '-80px', zIndex: '2' }}>
                 <div className="container">
-                    <div className="row g-5">
+                    <div id="contact-section-wrapper" className="row g-5">
                         {/* Left Side: Contact Info with Decorative BG */}
                         <div className="col-lg-5 wow fadeInUp" data-wow-delay=".2s">
                             <div className="contact-left-area pe-lg-5 pt-lg-5">
                                 <h2 className="title fw-bold mb-4 text-dark display-6">Contact Information</h2>
                                 <p className="disc mb-5 text-muted">
-                                    Our team is available 24/7 to answer your queries. Reach out through any of our official channels
+                                    Our team is available 24/7 to answer your queries. Reach out through any of our official channels.
                                 </p>
 
                                 <div className="contact-details mt-5">
@@ -178,12 +200,9 @@ const ContactUs = () => {
                         </div>
 
                         {/* Right Side: Premium Contact Form */}
-                        <div className="col-lg-7 wow fadeInUp" data-wow-delay=".4s">
-                            {/* <div className="contact-form-premium-wrapper"> */}
-                            <div id="send-message-section" className="contact-form-premium-wrapper">
-                                 <h3 className="mb-4 fw-bold">
-                                             Send us a Message
-                                 </h3>
+                        <div id="send-message-section" className="col-lg-7 wow fadeInUp" data-wow-delay=".4s">
+                            <div id="contact-form" className="contact-form-premium-wrapper">
+                                <h3 className="mb-4 fw-bold">Send us a Message</h3>
                                 {status.message && (
                                     <div className={`alert ${status.type === 'success' ? 'alert-success' : 'alert-danger'} mb-4`} role="alert">
                                         {status.message}
@@ -238,7 +257,6 @@ const ContactUs = () => {
                                 </form>
                             </div>
                         </div>
-                        
                     </div>
                 </div>
             </div>
