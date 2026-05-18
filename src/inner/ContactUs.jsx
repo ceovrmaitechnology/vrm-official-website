@@ -93,7 +93,7 @@ const ContactUs = () => {
         }
 
         try {
-            const response = await fetch('/api/contact', {
+            const response = await fetch('/api/contact' ,{
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
@@ -148,7 +148,7 @@ const ContactUs = () => {
                             <div className="contact-left-area pe-lg-5 pt-lg-5">
                                 <h2 className="title fw-bold mb-4 text-dark display-6">Contact Information</h2>
                                 <p className="disc mb-5 text-muted">
-                                    Our team is available 24/7 to answer your queries. Reach out through any of our official channels.
+                                    Our team is available 24/7 to answer your queries. Reach out through any of our official channels
                                 </p>
 
                                 <div className="contact-details mt-5">

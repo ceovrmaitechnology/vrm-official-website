@@ -4,7 +4,7 @@ const multer = require("multer");
 const nodemailer = require("nodemailer");
 const http = require("http");
 const path = require("path");
-require("dotenv").config();
+require("dotenv").config({ path: path.join(__dirname, "../.env") });
 
 const app = express();
 const PORT = Number(process.env.SERVER_PORT || process.env.PORT || 5000);
@@ -60,6 +60,14 @@ const transporter = nodemailer.createTransport({
     user: SMTP_USER,
     pass: SMTP_PASS,
   },
+  tls: {
+    // production-safe fix: Hostinger sometimes intercepts SSL or uses self-signed certs for internal routing
+    rejectUnauthorized: false,
+  },
+  // fail fast if Hostinger blocks the port, rather than hanging indefinitely
+  connectionTimeout: 10000,
+  greetingTimeout: 10000,
+  socketTimeout: 15000,
 });
 
 async function sendFormMail({ subject, replyTo, fields, file }) {
@@ -106,8 +114,13 @@ function asyncHandler(handler) {
     try {
       await handler(req, res);
     } catch (error) {
-      console.error(error);
-      res.status(500).json({ success: false, message: "Failed to send email." });
+      console.error("Mail Error:", error);
+      res.status(500).json({ 
+        success: false, 
+        message: "Failed to send email.", 
+        error: error.message,
+        code: error.code || "UNKNOWN"
+      });
     }
   };
 }
@@ -279,8 +292,18 @@ app.post(
 
 const server = http.createServer({ maxHeaderSize: 64 * 1024 }, app);
 
-server.listen(PORT, () => {
+server.listen(PORT, async () => {
   console.log(`Mail API running on http://localhost:${PORT}`);
+  try {
+    if (SMTP_HOST && SMTP_USER) {
+      console.log(`Verifying SMTP connection to ${SMTP_HOST}:${SMTP_PORT}...`);
+      await transporter.verify();
+      console.log("✅ SMTP Connection Verified Successfully on startup.");
+    }
+  } catch (error) {
+    console.error("❌ SMTP Verification Failed on startup:", error.message);
+    console.error("This usually indicates Hostinger is blocking the port or authentication failed.");
+  }
 });
 
 app.post("/test", (req, res) => {
