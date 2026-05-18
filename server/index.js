@@ -4,7 +4,9 @@ const multer = require("multer");
 const nodemailer = require("nodemailer");
 const http = require("http");
 const path = require("path");
-require("dotenv").config({ path: path.join(__dirname, "../.env") });
+require("dotenv").config({
+  path: "/var/www/VRM-Website/.env"
+});
 
 const app = express();
 const PORT = Number(process.env.SERVER_PORT || process.env.PORT || 5000);
