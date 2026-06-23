@@ -1,0 +1,74 @@
+/* Why Choose Us Footer Section */
+.vrm-footer-why__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.vrm-footer-why__card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 40px 25px;
+    text-align: center;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.vrm-footer-why__card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(59, 78, 204, 0.4);
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.vrm-footer-why__card .icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, rgba(59, 78, 204, 0.2) 0%, rgba(59, 78, 204, 0.05) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px;
+    color: #3B4ECC;
+    font-size: 28px;
+    transition: all 0.4s ease;
+    border: 1px solid rgba(59, 78, 204, 0.1);
+}
+
+.vrm-footer-why__card:hover .icon {
+    background: #3B4ECC;
+    color: #ffffff;
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 0 20px rgba(59, 78, 204, 0.4);
+}
+
+.vrm-footer-why__card h3 {
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.vrm-footer-why__card p {
+    font-size: 14px;
+    color: #a0a0a0;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* Responsive for Why Choose Us Footer */
+@media (max-width: 991px) {
+    .vrm-footer-why__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 575px) {
+    .vrm-footer-why__grid {
+        grid-template-columns: 1fr;
+    }
+}

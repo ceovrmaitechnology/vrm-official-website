@@ -1,0 +1,298 @@
+/* CTA Banner Styles (Solutions Overview) */
+.vrm-cta-banner {
+    background: linear-gradient(135deg, #1b277c 0%, #11142c 100%);
+    padding: 100px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.vrm-cta-banner__content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.vrm-cta-banner .pre-title {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.8);
+    display: block;
+    margin-bottom: 20px;
+}
+
+.vrm-cta-banner .title {
+    font-size: 48px;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.2;
+    margin-bottom: 25px;
+}
+
+.vrm-cta-banner .desc {
+    font-size: 20px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 40px;
+}
+
+.vrm-cta-banner .btn-white {
+    background: #ffffff;
+    color: #3B4ECC;
+    padding: 16px 36px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.vrm-cta-banner .btn-white:hover {
+    background: #f0f0f0;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+    .vrm-cta-banner {
+        padding: 60px 0;
+    }
+
+    .vrm-cta-banner .title {
+        font-size: 32px;
+    }
+
+    .vrm-cta-banner .desc {
+        font-size: 16px;
+    }
+}
+
+/* Cards reuse existing classes but ensuring overrides if needed */
+.vrm-hero__cards {
+    /* Keep this as is for grid layout or rename if it conflicts */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 0 15px;
+}
+
+.vrm-hero__card {
+    background: #ffffff;
+    border: 1px solid rgba(59, 78, 204, 0.1);
+    border-radius: 16px;
+    padding: 30px;
+    transition: all 0.3s ease;
+    text-align: left;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.vrm-hero__card h3 {
+    color: #11142c;
+}
+
+.vrm-hero__card p {
+    color: #666666;
+}
+
+/* Products Highlight Section */
+.vrm-products-highlight {
+    background: #ffffff;
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.vrm-products-highlight h2,
+.vrm-products-highlight .vrm-overview__eyebrow {
+    color: #11142c !important;
+    text-align: center !important;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Product Cards - Enterprise Style */
+.vrm-hero__cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* Force 3 columns */
+    gap: 30px;
+    padding: 0 15px;
+}
+
+@media (max-width: 991px) {
+    .vrm-hero__cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 767px) {
+    .vrm-hero__cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+.vrm-product-card {
+    background: #ffffff;
+    border: 1px solid #EAEAEA;
+    border-radius: 12px;
+    padding: 50px 40px;
+    min-height: 480px;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    text-align: left;
+    z-index: 1;
+    /* For stacking context */
+}
+
+/* Background Image Style */
+.vrm-product-card-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.18;
+    /* Default visibility - faint but visible (15-20%) */
+    z-index: -1;
+    transition: opacity 0.4s ease, transform 0.5s ease;
+}
+
+.vrm-product-card:hover .vrm-product-card-bg {
+    opacity: 0.45;
+    /* More visible on hover (40-50%) */
+    transform: scale(1.05);
+    /* Subtle Zoom effect */
+}
+
+.vrm-product-card:hover {
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+    border-color: transparent;
+    transform: translateY(-5px);
+}
+
+/* Ensure text readability against higher opacity image on hover */
+.vrm-product-card:hover h3,
+.vrm-product-card:hover p,
+.vrm-product-card:hover .vrm-btn-detail {
+    text-shadow: 0 0 15px rgba(255, 255, 255, 1);
+}
+
+.vrm-product-card__content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    z-index: 2;
+    position: relative;
+}
+
+.vrm-hero__icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.vrm-hero__icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.vrm-product-card h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #11142c;
+    margin-bottom: 16px;
+    line-height: 1.2;
+}
+
+.vrm-product-card p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555555;
+    margin-bottom: 10px;
+    flex-grow: 1;
+}
+
+/* Link Style - "Detail ->" */
+.vrm-btn-detail {
+    display: inline-flex;
+    align-items: center;
+    font-weight: 700;
+    color: #11142c;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+    margin-top: auto;
+    position: relative;
+}
+
+.vrm-btn-detail i {
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+    font-size: 14px;
+}
+
+.vrm-product-card:hover .vrm-btn-detail {
+    text-decoration: underline;
+    color: #3B4ECC;
+    /* Add brand blue on hover */
+}
+
+.vrm-product-card:hover .vrm-btn-detail i {
+    transform: translateX(5px);
+}
+
+/* Hover Glow Effect */
+.vrm-product-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(circle at 50% 50%, rgba(59, 78, 204, 0.15) 0%, transparent 70%),
+        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(59, 78, 204, 0.05) 3px, transparent 4px);
+    /* Tech lines pattern */
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.vrm-product-card:hover::before {
+    opacity: 1;
+}
+
+.vrm-product-card::after {
+    content: '';
+    position: absolute;
+    bottom: -50%;
+    right: -20%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(59, 78, 204, 0.2) 0%, transparent 70%);
+    filter: blur(40px);
+    opacity: 0;
+    transition: all 0.6s ease;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.vrm-product-card:hover::after {
+    opacity: 1;
+    transform: scale(1.2);
+}

@@ -1,0 +1,449 @@
+/* About Us Page Specific Styles */
+
+/* Solid white header panel for the About page */
+.about-page .header-one.about-header-panel:not(.sticky) {
+    position: relative !important;
+    background: #ffffff !important;
+    border-bottom: 1px solid rgba(17, 29, 94, 0.08);
+    box-shadow: 0 10px 30px rgba(17, 29, 94, 0.08);
+}
+
+.about-page .header-one.about-header-panel:not(.sticky) .header-main-one {
+    background: #ffffff !important;
+}
+
+.about-page .header-one.about-header-panel:not(.sticky) .mainmenu li a,
+.about-page .header-one.about-header-panel:not(.sticky) .nav-link {
+    color: #111D5E !important;
+}
+
+.about-page .header-one.about-header-panel:not(.sticky) .mainmenu li a:hover,
+.about-page .header-one.about-header-panel:not(.sticky) .nav-link:hover {
+    color: #3B4ECC !important;
+}
+
+/* =======================================
+   Hero Section
+   ======================================= */
+.about-hero {
+    position: relative;
+    padding: 220px 0 160px;
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    margin-top: 0;
+    overflow: hidden;
+}
+
+/* Text Protection Gradient (Left-to-Right) */
+.about-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.3) 50%, transparent 100%);
+    z-index: 1;
+}
+
+.about-hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+.about-hero__badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+}
+
+.about-hero__title {
+    font-size: 52px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    color: #ffffff;
+}
+
+.about-hero__desc {
+    font-size: 18px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 600px;
+    margin-bottom: 0;
+}
+
+
+/* =======================================
+   Innovation Section
+   ======================================= */
+.about-innovation {
+    padding: 100px 0;
+    background: #fff;
+}
+
+.about-innovation .section-label {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #3B4ECC;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.about-innovation .section-title {
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1.2;
+    color: #1c2539;
+    margin-bottom: 25px;
+}
+
+.about-innovation .section-desc {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #5d666e;
+    margin-bottom: 20px;
+}
+
+.about-innovation img {
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+
+/* =======================================
+   Progress Bars
+   ======================================= */
+.about-progress-wrapper {
+    margin-top: 40px;
+}
+
+.single-progress {
+    margin-bottom: 25px;
+}
+
+.progress-top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.progress-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1c2539;
+    margin: 0;
+}
+
+.persectage {
+    font-weight: 700;
+    color: #3B4ECC;
+}
+
+.meter {
+    height: 8px;
+    background: #e9ecef;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+}
+
+.meter span {
+    display: block;
+    height: 100%;
+    background: #3B4ECC;
+    border-radius: 4px;
+    width: 0;
+    /* Animated via JS/style */
+    transition: width 1s ease-in-out;
+}
+
+
+/* =======================================
+   Mission & Vision
+   ======================================= */
+.about-mission-vision {
+    padding: 80px 0;
+    background: #f8f9fa;
+}
+
+.vrm-mission-vision-bg {
+    background: linear-gradient(135deg, #1b277c 0%, #11142c 100%) !important;
+}
+
+.mv-card {
+    background: #fff;
+    padding: 40px;
+    border-radius: 16px;
+    border: 1px solid #eee;
+    height: 100%;
+    transition: all 0.4s ease;
+}
+
+.mv-card-premium {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    z-index: 1;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    /* Removes the white background jump */
+    background-color: #11142c;
+}
+
+.mv-card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #11142c;
+    opacity: 0.85;
+    /* Resting 15% visibility of image */
+    transition: opacity 0.5s ease;
+    z-index: 1;
+}
+
+.mv-card-premium:hover .mv-card-overlay {
+    opacity: 0.50;
+    /* Hover 50% visibility of image */
+}
+
+.mv-card-premium:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.mv-card:not(.mv-card-premium):hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+    border-color: #3B4ECC;
+}
+
+.mv-card-content {
+    position: relative;
+    z-index: 2;
+}
+
+.mv-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(59, 78, 204, 0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: #3B4ECC;
+    margin-bottom: 20px;
+}
+
+.mv-card-premium .mv-icon {
+    background: rgba(255, 255, 255, 0.1);
+    color: #4CC9F0;
+}
+
+.mv-title {
+    font-size: 24px;
+    font-weight: 800;
+    color: #1c2539;
+    margin-bottom: 15px;
+}
+
+.mv-card-premium .mv-title {
+    color: #ffffff;
+}
+
+.mv-desc {
+    font-size: 16px;
+    color: #5d666e;
+    line-height: 1.6;
+}
+
+.mv-card-premium .mv-desc {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+
+/* =======================================
+   Services Section (What We Provide)
+   ======================================= */
+.about-services {
+    padding: 100px 0;
+    background: #fff;
+}
+
+.service-card-about {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.service-card-about:hover {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+    transform: translateY(-5px);
+    border-color: #3B4ECC;
+}
+
+.service-thumb {
+    position: relative;
+    overflow: hidden;
+    height: 250px;
+    background: #f8f9fa;
+}
+
+.service-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 0;
+    transition: transform 0.5s ease;
+}
+
+.service-card-about:hover .service-thumb img {
+    transform: scale(1.03);
+}
+
+.service-content {
+    padding: 30px;
+}
+
+.service-icon-about {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+.service-title-about {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1c2539;
+    margin-bottom: 15px;
+}
+
+.service-desc-about {
+    font-size: 15px;
+    color: #5d666e;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.read-more-btn {
+    font-size: 14px;
+    font-weight: 700;
+    color: #3B4ECC;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: gap 0.3s;
+}
+
+.read-more-btn:hover {
+    gap: 8px;
+    color: #111D5E;
+}
+
+
+/* =======================================
+   CTA Section
+   ======================================= */
+.about-cta {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #1b277c 0%, #11142c 100%);
+    color: #fff;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-cta__title {
+    font-size: 42px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.about-cta__desc {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 600px;
+    margin: 0 auto 40px;
+}
+
+
+/* =======================================
+   Why Choose Us (Accordion)
+   ======================================= */
+.about-why-choose {
+    padding: 100px 0;
+    background: #f8f9fa;
+}
+
+.accordion-item-about {
+    border: none;
+    margin-bottom: 15px;
+    border-radius: 12px !important;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+.accordion-button-about {
+    font-size: 18px;
+    font-weight: 700;
+    color: #111D5E;
+    padding: 20px 25px;
+    background: #fff;
+    box-shadow: none;
+}
+
+.accordion-button-about:not(.collapsed) {
+    color: #3B4ECC;
+    background: #fff;
+    box-shadow: none;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.accordion-body-about {
+    font-size: 16px;
+    color: #5d666e;
+    line-height: 1.7;
+    padding: 25px;
+    background: #fff;
+}
+
+
+/* =======================================
+   Responsive
+   ======================================= */
+@media (max-width: 991px) {
+    .about-hero {
+        padding: 140px 0 80px;
+        min-height: auto;
+    }
+
+    .about-hero__title {
+        font-size: 42px;
+    }
+
+    .about-innovation .section-title {
+        font-size: 32px;
+    }
+}
