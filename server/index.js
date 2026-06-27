@@ -132,13 +132,33 @@ app.get("/api/health", (_req, res) => {
 app.post(
   "/api/contact",
   asyncHandler(async (req, res) => {
-    const { name, email, phone, inquiryType, subject, message } = req.body;
-    if (!name || !email || !message) {
-      return res.status(400).json({ success: false, message: "Name, email, and message are required." });
+    if (!req.body || typeof req.body !== "object") {
+      return res.status(400).json({
+        success: false,
+        message: "Request body is required.",
+      });
+    }
+
+    const {
+      name = "",
+      email = "",
+      phone = "",
+      inquiryType = "",
+      subject = "",
+      message = "",
+    } = req.body;
+
+    if (!name.trim() || !email.trim() || !message.trim()) {
+      return res.status(400).json({
+        success: false,
+        message: "Name, email, and message are required.",
+      });
     }
 
     await sendFormMail({
-      subject: `Website Contact Form | ${subject || inquiryType || "General Inquiry"}`,
+      subject: `Website Contact Form | ${
+        subject || inquiryType || "General Inquiry"
+      }`,
       replyTo: email,
       fields: {
         Name: name,
@@ -150,7 +170,10 @@ app.post(
       },
     });
 
-    res.json({ success: true });
+    return res.json({
+      success: true,
+      message: "Your message has been sent successfully.",
+    });
   })
 );
 
