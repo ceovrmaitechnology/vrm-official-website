@@ -179,7 +179,7 @@ const ContactUs = () => {
                                             <h5>Visit Us</h5>
                                             <p>Come see our innovation hub</p>
                                             <a 
-                                                href="https://maps.app.goo.gl/bP1HQb2iwtecFHbU9" 
+                                                href="https://www.google.com/maps/search/?api=1&query=VRM+AI+Technology+(OPC)+Pvt.Ltd,+Door+No,209,+1ST+Floor,+No.147,+5th+St,+Poriyalar+Nagar,+Tiruppalai,+Madurai,+Tamil+Nadu+625014" 
                                                 target="_blank" 
                                                 rel="noopener noreferrer" 
                                                 className="contact-link"
@@ -302,13 +302,13 @@ const ContactUs = () => {
                                 <h4 className="title mb-3">Development Center</h4>
                                 <p className="disc text-muted">
                                     <a
-                                        href="https://maps.app.goo.gl/bP1HQb2iwtecFHbU9"
+                                        href="https://www.google.com/maps/search/?api=1&query=VRM+AI+Technology+(OPC)+Pvt.Ltd,+Door+No,209,+1ST+Floor,+No.147,+5th+St,+Poriyalar+Nagar,+Tiruppalai,+Madurai,+Tamil+Nadu+625014"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="text-muted text-decoration-none hover-primary"
                                     >
-                                        No.147, Door No 209, 1STFloor, 5th St,<br />
-                                        Poriyalar Nagar, Tiruppalai Madurai,<br />
+                                        Door No,209, 1ST Floor, No.147, 5th St,<br />
+                                        Poriyalar Nagar, Tiruppalai, Madurai,<br />
                                         Tamil Nadu 625014
                                     </a>
                                 </p>
