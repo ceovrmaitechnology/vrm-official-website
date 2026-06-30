@@ -42,7 +42,7 @@ export default function Nav() {
 
         // Products - Workflow.AI
         'screensage': { title: "ScreenSage", description: "Automated candidate screening to save time.", link: "/products/workflow/screensage", linkText: "View Product", image: "/assets/images/workflow/screensage/screensage-image.png" },
-        'videosage': { title: "VideoSage", description: "AI video interviews for deeper candidate insights.", link: "/products/workflow/videosage", linkText: "Book Demo", image: "/assets/images/workflow/videosage/videosage-image.png" },
+        'videosage': { title: "VideoSage", description: "AI video interviews for deeper candidate insights.", link: "/products/workflow/videosage", linkText: "Book Demo", image: "/assets/images/workflow/videosage/videosage-image-3.png" },
         'codesage': { title: "CodeSage", description: "Intelligent coding assessment platform.", link: "/products/workflow/codesage", linkText: "View Product", image: "/assets/images/workflow/codesage/codesage-image.png" },
 
         // Products - GrowthFlowAI

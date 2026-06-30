@@ -36,6 +36,10 @@ const ContactUs = () => {
     const resolveScrollTargetId = (targetId) => {
         if (!targetId) return null;
         if (targetId === 'send-message' || targetId === 'send-message-section' || targetId === 'contact-form') {
+            const isMobile = window.innerWidth < 992;
+            if (isMobile) {
+                return 'send-message-section';
+            }
             return 'contact-section-wrapper';
         }
         return targetId;
@@ -45,7 +49,14 @@ const ContactUs = () => {
         if (!element) return false;
         const header = document.querySelector('header');
         const headerHeight = header?.offsetHeight || 96;
-        const elementTop = element.getBoundingClientRect().top + window.pageYOffset;
+        
+        let elementTop = 0;
+        let curr = element;
+        while (curr) {
+            elementTop += curr.offsetTop;
+            curr = curr.offsetParent;
+        }
+        
         const scrollTarget = Math.max(elementTop - headerHeight - 16, 0);
         window.scrollTo({ top: scrollTarget, behavior: 'auto' });
         return true;

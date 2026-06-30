@@ -163,6 +163,8 @@ function AICallingAgent() {
                         navigation
                         pagination={{ clickable: true }}
                         autoplay={{ delay: 3000, disableOnInteraction: false }}
+                        observer={true}
+                        observeParents={true}
                         breakpoints={{
                             640: { slidesPerView: 1 },
                             768: { slidesPerView: 2 },

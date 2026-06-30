@@ -48,6 +48,8 @@ function TestimonialCarousel({ items, paginationClass }) {
                 loop={items.length > 3}
                 grabCursor={true}
                 watchOverflow={true}
+                observer={true}
+                observeParents={true}
                 autoplay={{
                     delay: 3500,
                     disableOnInteraction: false,
