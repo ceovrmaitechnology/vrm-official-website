@@ -2258,3 +2258,42 @@
         font-size: 22px;
     }
 }
+
+/* ==========================================================================
+   Mobile Responsiveness Overrides (All Devices Viewport Fixes)
+   ========================================================================== */
+
+/* 1. Global Side Menu & Overlay Z-Index staging to hide scroll-to-top button */
+.side-bar {
+    z-index: 999999 !important;
+}
+#anywhere-home {
+    z-index: 999998 !important;
+}
+.progress-wrap {
+    z-index: 99997 !important; /* Float above content, but sit behind sidebar overlay */
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 767px) {
+    /* 2. Product Card Padding & Auto-height to adjust dynamically on mobile */
+    .vrm-product-card {
+        padding: 30px 20px !important;
+        min-height: auto !important;
+    }
+
+    /* 3. Product Card Background Image Readability on Mobile */
+    .vrm-product-card-bg {
+        opacity: 0.03 !important; /* Make background mockup images very faint to ensure description text is readable */
+        background-position: right bottom !important; /* Move watermark text away from top-left icon */
+    }
+
+    /* 4. Compact Floating Action Button on mobile to prevent blocking text */
+    .progress-wrap {
+        right: 15px !important;
+        bottom: 15px !important;
+        width: 38px !important;
+        height: 38px !important;
+    }
+}
+

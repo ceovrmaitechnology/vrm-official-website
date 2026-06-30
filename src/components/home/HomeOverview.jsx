@@ -92,7 +92,7 @@ function HomeOverview() {
                                 title: "VideoSage",
                                 desc: "AI-powered video intelligence for analysis, summarization, and rapid content search.",
                                 link: "/products/workflow/videosage",
-                                bgImage: "assets/images/workflow/videosage/videosage-image.png"
+                                bgImage: "assets/images/workflow/videosage/videosage-image-3.png"
                             },
                             {
                                 id: 3,

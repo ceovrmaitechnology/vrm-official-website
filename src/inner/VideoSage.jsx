@@ -16,9 +16,8 @@ function VideoSage() {
     }, []);
 
     const images = [
-        "/assets/images/workflow/videosage/videosage-image.png",
-        "/assets/images/workflow/videosage/videosage-image-2.png",
-        "/assets/images/workflow/videosage/videosage-image-3.png"
+        "/assets/images/workflow/videosage/videosage-image-3.png",
+        "/assets/images/workflow/videosage/videosage-image-2.png"
     ];
 
     return (
@@ -54,7 +53,7 @@ function VideoSage() {
                         </div>
                         <div className="col-lg-5">
                             <div className="banner-image-two wow fadeInUp" data-wow-delay=".3s">
-                                <img src="/assets/images/workflow/videosage/videosage-image.png" alt="VideoSage Interface" style={{ borderRadius: '20px', boxShadow: '0 20px 50px rgba(0,0,0,0.3)' }} />
+                                <img src="/assets/images/workflow/videosage/videosage-image-3.png" alt="VideoSage Interface" style={{ borderRadius: '20px', boxShadow: '0 20px 50px rgba(0,0,0,0.3)' }} />
                             </div>
                         </div>
                     </div>
@@ -109,7 +108,7 @@ function VideoSage() {
                     <div className="row justify-content-center">
                         <div className="col-lg-10">
                             <div className="video-wrapper wow fadeInUp" data-wow-delay=".3s" style={{ borderRadius: '20px', overflow: 'hidden', boxShadow: '0 20px 60px rgba(0,0,0,0.15)' }}>
-                                <video width="100%" controls poster="/assets/images/workflow/videosage/videosage-image.png">
+                                <video width="100%" controls poster="/assets/images/workflow/videosage/videosage-image-3.png">
                                     <source src="/assets/images/workflow/screensage/AI_Bot_Interviews_Person_Via_Zoom.mp4" type="video/mp4" />
                                     Your browser does not support the video tag.
                                 </video>
@@ -140,6 +139,8 @@ function VideoSage() {
                                 pagination={{ clickable: true }}
                                 autoplay={{ delay: 3000 }}
                                 loop={true}
+                                observer={true}
+                                observeParents={true}
                                 breakpoints={{
                                     768: { slidesPerView: 2 },
                                     1024: { slidesPerView: 2 },

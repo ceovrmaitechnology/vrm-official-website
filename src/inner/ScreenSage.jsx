@@ -140,6 +140,8 @@ function ScreenSage() {
                                 pagination={{ clickable: true }}
                                 autoplay={{ delay: 3000 }}
                                 loop={true}
+                                observer={true}
+                                observeParents={true}
                                 breakpoints={{
                                     768: { slidesPerView: 2 },
                                     1024: { slidesPerView: 2 },

@@ -100,7 +100,7 @@ function Workflow() {
                     <div className="row g-5 align-items-center">
                         <div className="col-lg-6 order-lg-2 wow fadeInRight" data-wow-delay=".2s">
                             <div className="thumbnail">
-                                <img src="/assets/images/workflow/videosage/videosage-image.png" alt="VideoSage" style={{ borderRadius: '15px', boxShadow: '0 10px 30px rgba(0,0,0,0.1)' }} />
+                                <img src="/assets/images/workflow/videosage/videosage-image-3.png" alt="VideoSage" style={{ borderRadius: '15px', boxShadow: '0 10px 30px rgba(0,0,0,0.1)' }} />
                             </div>
                         </div>
                         <div className="col-lg-6 order-lg-1 wow fadeInLeft" data-wow-delay=".2s">
