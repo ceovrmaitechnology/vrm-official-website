@@ -7,7 +7,6 @@ import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
 import { Link } from 'react-router-dom';
 
-
 function BusinessCaseTwo() {
     return (
         <div>

@@ -188,7 +188,7 @@ app.post(
     }
 
     await sendFormMail({
-      subject: "GrowthFlow | Client Acquisition Form",
+      subject: "VRM AI | Client Acquisition Form",
       replyTo: email,
       fields: {
         Name: name,
@@ -242,7 +242,7 @@ app.post(
     }
 
     await sendFormMail({
-      subject: `GrowthFlow | Job Applicant Form | ${position}`,
+      subject: `VRM AI | Job Applicant Form | ${position}`,
       replyTo: email,
       fields: {
         "Full Name": full_name,
@@ -269,7 +269,7 @@ app.post(
     }
 
     await sendFormMail({
-      subject: "GrowthFlow | Organization Requirement Form",
+      subject: "VRM AI | Organization Requirement Form",
       replyTo: email,
       fields: {
         "Company Name": company_name,
@@ -297,7 +297,7 @@ app.post(
     }
 
     await sendFormMail({
-      subject: "GrowthFlow | Business Acquisition Form",
+      subject: "VRM AI | Business Acquisition Form",
       replyTo: email,
       fields: {
         "Business Name": business_name,

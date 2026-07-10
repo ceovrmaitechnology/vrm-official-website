@@ -1,12 +1,11 @@
 import { Link } from 'react-router-dom';
 
-
 import HeaderOne from "../components/header/HeaderOne";
 
 import FooterOne from "../components/footer/FooterOne";
 import Breadcrumb from "./Breadcrumb";
 
-function BlogGrid() {
+function BlogDetailsDefault() {
     const breadcrumbs = [
         { label: 'Home', link: '/' },
         { label: 'Blog Details' }
@@ -76,7 +75,7 @@ function BlogGrid() {
                                             dictumst vivamus odio nulla fusce auctor into suscipit
                                             habitasse class congue potenti iaculis”
                                         </h5>
-                                        <a href="#" className="name">
+                                        <a href="/" className="name">
                                             Daniel X. Horrar
                                         </a>
                                         <span>Author</span>
@@ -98,7 +97,7 @@ function BlogGrid() {
                                             <div className="thumbnail details">
                                                 <img
                                                     src="assets/images/blog/details/01.jpg"
-                                                    alt="finbiz_buseness"
+                                                    alt="VRM AI Solutions Strategy meeting"
                                                 />
                                             </div>
                                         </div>
@@ -106,7 +105,7 @@ function BlogGrid() {
                                             <div className="thumbnail details">
                                                 <img
                                                     src="assets/images/blog/details/02.jpg"
-                                                    alt="finbiz_buseness"
+                                                    alt="VRM AI Solutions Office workplace"
                                                 />
                                             </div>
                                         </div>
@@ -126,7 +125,7 @@ function BlogGrid() {
                                             <div className="thumbnail details mb_sm--15">
                                                 <img
                                                     src="assets/images/blog/details/03.jpg"
-                                                    alt="finbiz_buseness"
+                                                    alt="VRM AI Solutions Consulting session"
                                                 />
                                             </div>
                                         </div>
@@ -206,7 +205,7 @@ function BlogGrid() {
                                         <div className="thumbnail details mb_sm--15">
                                             <img
                                                 src="assets/images/blog/details/author.jpg"
-                                                alt="finbiz_buseness"
+                                                alt="VRM AI Author Profile"
                                             />
                                         </div>
                                         <div className="author-details team">
@@ -237,7 +236,7 @@ function BlogGrid() {
                                             </div>
                                         </form>
                                     </div>
-                                    <a className="rts-btn btn-primary" href="#">
+                                    <a className="rts-btn btn-primary" href="/">
                                         Submit Message
                                     </a>
                                 </div>
@@ -275,7 +274,7 @@ function BlogGrid() {
                                     {/* single categoris */}
                                     <ul className="single-categories">
                                         <li>
-                                            <a href="#">
+                                            <a href="/">
                                                 Business Solution <i className="far fa-long-arrow-right" />
                                             </a>
                                         </li>
@@ -284,7 +283,7 @@ function BlogGrid() {
                                     {/* single categoris */}
                                     <ul className="single-categories">
                                         <li>
-                                            <a href="#">
+                                            <a href="/">
                                                 Strategy Growth
                                                 <i className="far fa-long-arrow-right" />
                                             </a>
@@ -294,7 +293,7 @@ function BlogGrid() {
                                     {/* single categoris */}
                                     <ul className="single-categories">
                                         <li>
-                                            <a href="#">
+                                            <a href="/">
                                                 Finance Solution
                                                 <i className="far fa-long-arrow-right" />
                                             </a>
@@ -304,7 +303,7 @@ function BlogGrid() {
                                     {/* single categoris */}
                                     <ul className="single-categories">
                                         <li>
-                                            <a href="#">
+                                            <a href="/">
                                                 Investment Policy
                                                 <i className="far fa-long-arrow-right" />
                                             </a>
@@ -314,7 +313,7 @@ function BlogGrid() {
                                     {/* single categoris */}
                                     <ul className="single-categories">
                                         <li>
-                                            <a href="#">
+                                            <a href="/">
                                                 Tax Managment
                                                 <i className="far fa-long-arrow-right" />
                                             </a>
@@ -333,7 +332,7 @@ function BlogGrid() {
                                     {/* recent-post */}
                                     <div className="recent-post-single">
                                         <div className="thumbnail">
-                                            <a href="#">
+                                            <a href="/">
                                                 <img
                                                     src="assets/images/blog/details/recent-post/01.png"
                                                     alt="Blog_post"
@@ -345,7 +344,7 @@ function BlogGrid() {
                                                 <i className="fal fa-clock" />
                                                 <span>15 Jan, 2023</span>
                                             </div>
-                                            <a className="post-title" href="#">
+                                            <a className="post-title" href="/">
                                                 <h6 className="title">
                                                     We would love to share a similar experience
                                                 </h6>
@@ -356,7 +355,7 @@ function BlogGrid() {
                                     {/* recent-post */}
                                     <div className="recent-post-single">
                                         <div className="thumbnail">
-                                            <a href="#">
+                                            <a href="/">
                                                 <img
                                                     src="assets/images/blog/details/recent-post/02.png"
                                                     alt="Blog_post"
@@ -368,7 +367,7 @@ function BlogGrid() {
                                                 <i className="fal fa-clock" />
                                                 <span>15 Jan, 2023</span>
                                             </div>
-                                            <a className="post-title" href="#">
+                                            <a className="post-title" href="/">
                                                 <h6 className="title">
                                                     We would love to share a similar experience
                                                 </h6>
@@ -379,7 +378,7 @@ function BlogGrid() {
                                     {/* recent-post */}
                                     <div className="recent-post-single">
                                         <div className="thumbnail">
-                                            <a href="#">
+                                            <a href="/">
                                                 <img
                                                     src="assets/images/blog/details/recent-post/03.png"
                                                     alt="Blog_post"
@@ -391,7 +390,7 @@ function BlogGrid() {
                                                 <i className="fal fa-clock" />
                                                 <span>15 Jan, 2023</span>
                                             </div>
-                                            <a className="post-title" href="#">
+                                            <a className="post-title" href="/">
                                                 <h6 className="title">
                                                     We would love to share a similar experience
                                                 </h6>
@@ -402,7 +401,7 @@ function BlogGrid() {
                                     {/* recent-post */}
                                     <div className="recent-post-single">
                                         <div className="thumbnail">
-                                            <a href="#">
+                                            <a href="/">
                                                 <img
                                                     src="assets/images/blog/details/recent-post/04.png"
                                                     alt="Blog_post"
@@ -414,7 +413,7 @@ function BlogGrid() {
                                                 <i className="fal fa-clock" />
                                                 <span>15 Jan, 2023</span>
                                             </div>
-                                            <a className="post-title" href="#">
+                                            <a className="post-title" href="/">
                                                 <h6 className="title">
                                                     We would love to share a similar experience
                                                 </h6>
@@ -433,19 +432,19 @@ function BlogGrid() {
                                 <div className="wized-body">
                                     <div className="gallery-inner">
                                         <div className="row-1 single-row">
-                                            <a href="#">
+                                            <a href="/">
                                                 <img
                                                     src="assets/images/blog/details/gallery/01.png"
                                                     alt="Gallery"
                                                 />
                                             </a>
-                                            <a href="#">
+                                            <a href="/">
                                                 <img
                                                     src="assets/images/blog/details/gallery/02.png"
                                                     alt="Gallery"
                                                 />
                                             </a>
-                                            <a href="#">
+                                            <a href="/">
                                                 <img
                                                     src="assets/images/blog/details/gallery/03.png"
                                                     alt="Gallery"
@@ -453,19 +452,19 @@ function BlogGrid() {
                                             </a>
                                         </div>
                                         <div className="row-2 single-row">
-                                            <a href="#">
+                                            <a href="/">
                                                 <img
                                                     src="assets/images/blog/details/gallery/04.png"
                                                     alt="Gallery"
                                                 />
                                             </a>
-                                            <a href="#">
+                                            <a href="/">
                                                 <img
                                                     src="assets/images/blog/details/gallery/05.png"
                                                     alt="Gallery"
                                                 />
                                             </a>
-                                            <a href="#">
+                                            <a href="/">
                                                 <img
                                                     src="assets/images/blog/details/gallery/06.png"
                                                     alt="Gallery"
@@ -483,15 +482,15 @@ function BlogGrid() {
                                 </div>
                                 <div className="wized-body">
                                     <div className="tags-wrapper">
-                                        <a href="#">Services</a>
-                                        <a href="#">Business</a>
-                                        <a href="#">Growth</a>
-                                        <a href="#">Finance</a>
-                                        <a href="#">UI/UX Design</a>
-                                        <a href="#">Solution</a>
-                                        <a href="#">Speed</a>
-                                        <a href="#">Strategy</a>
-                                        <a href="#">Technology</a>
+                                        <a href="/">Services</a>
+                                        <a href="/">Business</a>
+                                        <a href="/">Growth</a>
+                                        <a href="/">Finance</a>
+                                        <a href="/">UI/UX Design</a>
+                                        <a href="/">Solution</a>
+                                        <a href="/">Speed</a>
+                                        <a href="/">Strategy</a>
+                                        <a href="/">Technology</a>
                                     </div>
                                 </div>
                             </div>
@@ -499,15 +498,15 @@ function BlogGrid() {
                             {/* single wizered start */}
                             <div className="rts-single-wized contact">
                                 <div className="wized-header">
-                                    <a href="#">
+                                    <a href="/">
                                         <img src="assets/images/logo/logo.jpeg" alt="Business_logo" />
                                     </a>
                                 </div>
                                 <div className="wized-body">
                                     <h5 className="title">Need Help? We Are Here To Help You</h5>
-                                    <a className="rts-btn btn-primary" href="contactus.html">
+                                    <Link className="rts-btn btn-primary" to={'/contactus'}>
                                         Contact Us
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                             {/* single wizered End */}
@@ -518,11 +517,10 @@ function BlogGrid() {
             </div>
             {/* rts blog mlist area End */}
 
-
             <FooterOne />
 
         </div>
     )
 }
 
-export default BlogGrid
+export default BlogDetailsDefault

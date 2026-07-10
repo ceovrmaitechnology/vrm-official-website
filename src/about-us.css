@@ -27,10 +27,8 @@
    ======================================= */
 .about-hero {
     position: relative;
-    padding: 220px 0 160px;
-    min-height: 85vh;
-    display: flex;
-    align-items: center;
+    padding: 160px 0 100px;
+    background: linear-gradient(135deg, #1b277c 0%, #11142c 100%) !important;
     color: #fff;
     margin-top: 0;
     overflow: hidden;
@@ -38,14 +36,7 @@
 
 /* Text Protection Gradient (Left-to-Right) */
 .about-hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.3) 50%, transparent 100%);
-    z-index: 1;
+    display: none !important;
 }
 
 .about-hero .container {
@@ -431,19 +422,112 @@
 
 
 /* =======================================
-   Responsive
+   Responsive — About Us Page
    ======================================= */
 @media (max-width: 991px) {
     .about-hero {
         padding: 140px 0 80px;
         min-height: auto;
     }
-
     .about-hero__title {
-        font-size: 42px;
+        font-size: 38px;
     }
-
+    .about-hero__desc {
+        font-size: 16px;
+        max-width: 100%;
+    }
     .about-innovation .section-title {
+        font-size: 30px;
+    }
+    .about-innovation .section-desc {
+        font-size: 16px;
+    }
+    .about-innovation {
+        padding: 70px 0;
+    }
+    .about-mission-vision,
+    .about-services,
+    .about-why-choose,
+    .about-cta {
+        padding: 70px 0;
+    }
+    .mv-card {
+        padding: 28px;
+        margin-bottom: 20px;
+    }
+    .about-cta__title {
         font-size: 32px;
+    }
+    .about-cta__desc {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 767px) {
+    .about-hero {
+        padding: 110px 0 60px;
+        min-height: auto;
+    }
+    .about-hero__title {
+        font-size: 28px;
+        line-height: 1.25;
+    }
+    .about-hero__desc {
+        font-size: 14px;
+    }
+    .about-innovation .section-title,
+    .about-cta__title {
+        font-size: 24px;
+    }
+    .about-innovation .section-desc,
+    .about-cta__desc {
+        font-size: 14px;
+    }
+    .about-innovation,
+    .about-mission-vision,
+    .about-services,
+    .about-why-choose,
+    .about-cta {
+        padding: 55px 0;
+    }
+    .mv-card {
+        padding: 22px 18px;
+    }
+    .mv-title {
+        font-size: 20px;
+    }
+    .service-thumb {
+        height: 200px;
+    }
+    .service-content {
+        padding: 20px;
+    }
+    .service-title-about {
+        font-size: 17px;
+    }
+    .accordion-button-about {
+        font-size: 15px;
+        padding: 15px 18px;
+    }
+    .accordion-body-about {
+        font-size: 14px;
+        padding: 18px;
+    }
+}
+
+@media (max-width: 575px) {
+    .about-hero {
+        padding: 90px 0 50px;
+    }
+    .about-hero__title {
+        font-size: 24px;
+    }
+    .about-hero__badge {
+        font-size: 12px;
+        padding: 6px 14px;
+    }
+    .about-innovation .section-title,
+    .about-cta__title {
+        font-size: 20px;
     }
 }

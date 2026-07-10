@@ -58,7 +58,7 @@ function ServiceNine() {
                                     Purus dui eget sollicitudin curae leo proin platea cras, morbi
                                     torquent massa
                                 </p>
-                                <a href="#" className="rts-btn btn-primary-2">
+                                <a href="/" className="rts-btn btn-primary-2">
                                     Read More
                                 </a>
                             </div>
@@ -106,7 +106,7 @@ function ServiceNine() {
                                     Purus dui eget sollicitudin curae leo proin platea cras, morbi
                                     torquent massa
                                 </p>
-                                <a href="#" className="rts-btn btn-primary-2">
+                                <a href="/" className="rts-btn btn-primary-2">
                                     Read More
                                 </a>
                             </div>
@@ -154,7 +154,7 @@ function ServiceNine() {
                                     Purus dui eget sollicitudin curae leo proin platea cras, morbi
                                     torquent massa
                                 </p>
-                                <a href="#" className="rts-btn btn-primary-2">
+                                <a href="/" className="rts-btn btn-primary-2">
                                     Read More
                                 </a>
                             </div>

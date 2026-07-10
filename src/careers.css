@@ -1,32 +1,39 @@
-/* Careers Page Specific Styles */
+/* Solid white header panel for the Careers page */
+.careers-page .header-one.careers-header-panel:not(.sticky) {
+    position: relative !important;
+    background: #ffffff !important;
+    border-bottom: 1px solid rgba(17, 29, 94, 0.08);
+    box-shadow: 0 10px 30px rgba(17, 29, 94, 0.08);
+}
+
+.careers-page .header-one.careers-header-panel:not(.sticky) .header-main-one {
+    background: #ffffff !important;
+}
+
+.careers-page .header-one.careers-header-panel:not(.sticky) .mainmenu li a,
+.careers-page .header-one.careers-header-panel:not(.sticky) .nav-link {
+    color: #111D5E !important;
+}
+
+.careers-page .header-one.careers-header-panel:not(.sticky) .mainmenu li a:hover,
+.careers-page .header-one.careers-header-panel:not(.sticky) .nav-link:hover {
+    color: #3B4ECC !important;
+}
 
 /* =======================================
    Hero Section
    ======================================= */
 .careers-hero {
     position: relative;
-    padding: 180px 0 120px;
-    background-size: cover !important;
-    background-position: center !important;
-    background-repeat: no-repeat !important;
-    min-height: 75vh;
-    display: flex;
-    align-items: center;
+    padding: 100px 0 100px;
+    background: linear-gradient(135deg, #1b277c 0%, #11142c 100%) !important;
     color: #fff;
-    margin-top: -100px;
-    /* Pull behind transparent header if applicable, or adjust based on header */
+    margin-top: 0;
 }
 
 /* Text Protection Gradient (Left-to-Right) */
 .careers-hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.3) 50%, transparent 100%);
-    z-index: 1;
+    display: none !important;
 }
 
 .careers-hero .container {

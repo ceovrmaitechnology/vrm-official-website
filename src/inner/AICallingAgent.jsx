@@ -177,7 +177,7 @@ function AICallingAgent() {
                             { title: "Financial Services", desc: "Secure banking support, fraud alerts, and EMI reminders.", img: "/assets/images/service/03.jpg" },
                             { title: "Healthcare", desc: "Patient scheduling, post-care follow-ups, and triage.", img: "/assets/images/service/02.jpg" },
                             { title: "Retail & E-Commerce", desc: "Order tracking, 24/7 support, and personalized offers.", img: "/assets/images/service/04.jpg" },
-                            { title: "Real Estate", desc: "Lead qualification, property viewing, and tenant support.", img: "/assets/images/service/04.jpg" },
+                            { title: "Real Estate", desc: "Lead qualification, property viewing, and tenant support.", img: "/assets/images/service/08.jpg" },
                             { title: "Logistics", desc: "Delivery coordination, driver support, and tracking updates.", img: "/assets/images/service/05.jpg" },
                             { title: "Hospitality", desc: "Booking management, concierge services, and guest feedback.", img: "/assets/images/service/06.jpg" }
                         ].map((industry, index) => (

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import HeaderOne from '../components/header/HeaderOne';
 import FooterOne from '../components/footer/FooterOne';
 import GlobalMap from '../components/map/GlobalMap';
@@ -122,7 +123,6 @@ const ContactUs = () => {
             setPhone('');
             setStatus({ type: 'success', message: 'Message sent successfully. Our team will contact you soon.' });
         } catch (error) {
-            console.error('Contact form error:', error);
             setStatus({ type: 'error', message: 'Failed to send message. Please try again.' });
         } finally {
             setLoading(false);
@@ -131,6 +131,19 @@ const ContactUs = () => {
 
     return (
         <div className="contact-us-page basic-font-family">
+            <Helmet>
+        <title>Contact Us | VRM AI Technology</title>
+        <meta name="description" content="Get in touch with VRM AI Technology. Contact our team for AI solutions, product demos, partnerships, or support. Offices in Bengaluru and San Francisco." />
+        <meta property="og:title" content="Contact VRM AI Technology" />
+        <meta property="og:description" content="Get in touch with VRM AI Technology. Contact our team for AI solutions, product demos, partnerships, or support. Offices in Bengaluru and San Francisco." />
+                <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
+        <link rel="canonical" href="https://www.vrmaitechnology.com/contactus" />
+      
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="Contact VRM AI Technology" />
+                <meta name="twitter:description" content="Get in touch with VRM AI Technology. Contact our team for AI solutions, product demos, partnerships, or support. Offices in Bengaluru and San Francisco." />
+                <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
+            </Helmet>
             <HeaderOne className="header-white-text" />
 
             {/* 1. Premium Hero Section */}
@@ -195,7 +208,7 @@ const ContactUs = () => {
                                                 rel="noopener noreferrer" 
                                                 className="contact-link"
                                             >
-                                                VRM AI Technologies, Madurai & Bengaluru, India.
+                                                VRM AI Technology, Madurai & Bengaluru, India.
                                             </a>
                                         </div>
                                     </div>
@@ -280,7 +293,6 @@ const ContactUs = () => {
                     </div>
                 </div>
             </div>
-
 
             <div className="vrm-full-width-section vrm-enterprise-gradient ptb--50 text-white position-relative overflow-hidden p-0 m-0">
                 <div className="w-100 p-0 m-0" style={{ opacity: '0.8' }}>
@@ -444,10 +456,6 @@ const ContactUs = () => {
                                         <i className="fas fa-location-arrow"></i>
                                         <span>San Francisco, CA 94107, United States</span>
                                     </li>
-                                    {/* <li>
-                                        <i className="fas fa-phone-alt"></i>
-                                        <span>+91 8123348355</span>
-                                    </li> */}
                                     <li>
                                         <i className="fas fa-envelope"></i>
                                         <span>contactus@vrmaitechnology.com</span>
@@ -491,7 +499,7 @@ const ContactUs = () => {
                                     </li>
                                     <li>
                                         <i className="fas fa-phone-alt"></i>
-                                        <span>+91 8123348355</span>
+                                        <span>+91 81233 48355</span>
                                     </li>
                                     <li>
                                         <i className="fas fa-envelope"></i>

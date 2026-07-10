@@ -6,7 +6,6 @@ const BlogTwoMain = (props) => {
     return (
         <>
 
-
             <div className="thumbnail">
                 <Link to={`/blog/${blogID}`}>
                     <img src={`assets/images/blog/${blogImage}`} alt="blog-area" />

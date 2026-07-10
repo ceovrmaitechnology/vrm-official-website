@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import NavOnepage from './NavOnepage';
 import SideMenu from './SideMenu';
 
-
 function HeaderOneOnepage() {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -51,9 +50,9 @@ function HeaderOneOnepage() {
                             <div className="col-lg-6 d-xl-block d-none">
                                 <div className="left">
                                     <div className="mail">
-                                        <Link to={'mailto:webmaster@example.com'}>
-                                            <i className="fal fa-envelope" /> info@finbiz.com
-                                        </Link>
+                                        <a href="mailto:contactus@vrmaitechnology.com">
+                                            <i className="fal fa-envelope" /> contactus@vrmaitechnology.com
+                                        </a>
                                     </div>
                                     <div className="working-time">
                                         <p>
@@ -108,7 +107,7 @@ function HeaderOneOnepage() {
                             <div className="col-xl-3 col-lg-4 col-md-4 col-sm-4 col-4">
                                 <div className="thumbnail">
                                     <Link to={'/'} >
-                                        <img src="/assets/images/logo/logo.jpeg" alt="finbiz-logo" />
+                                        <img src="/assets/images/logo/logo.jpeg" alt="VRM AI Technology official logo" />
                                     </Link>
                                 </div>
                             </div>
@@ -171,8 +170,6 @@ function HeaderOneOnepage() {
             </div>
 
             <div id="anywhere-home" className={isSearchVisible ? 'bgshow' : ''} onClick={handleBackgroundClick}></div>
-
-
 
             <SideMenu isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
         </div>

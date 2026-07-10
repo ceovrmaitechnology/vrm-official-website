@@ -36,7 +36,7 @@ function HeaderNine() {
                             <div className="col-xl-3 col-lg-4 col-md-4 col-sm-4 col-6">
                                 <div className="thumbnail">
                                     <Link to={'#'}>
-                                        <img src="assets/images/logo/logo.jpeg" alt="finbiz-logo" />
+                                        <img src="assets/images/logo/logo.jpeg" alt="VRM AI Technology official logo" />
                                     </Link>
                                 </div>
                             </div>

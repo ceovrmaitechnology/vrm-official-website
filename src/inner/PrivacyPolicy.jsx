@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import HeaderOne from "../components/header/HeaderOne";
 import FooterOne from "../components/footer/FooterOne";
 import Breadcrumb from "./Breadcrumb";
@@ -18,6 +19,19 @@ function PrivacyPolicy() {
     return (
         <div className="privacy-policy-page basic-font-family">
             <HeaderOne />
+            <Helmet>
+                <title>Privacy Policy | VRM AI Technology</title>
+                <meta name="description" content="Read the Privacy Policy of VRM AI Technology to understand how we collect, protect, and use your personal information across our platform and services." />
+                <meta property="og:title" content="Privacy Policy — VRM AI Technology" />
+                <meta property="og:description" content="Read the Privacy Policy of VRM AI Technology to understand how we collect, protect, and use your personal information across our platform and services." />
+                <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
+                <link rel="canonical" href="https://www.vrmaitechnology.com/privacy-policy" />
+            
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="Privacy Policy — VRM AI Technology" />
+                <meta name="twitter:description" content="Read the Privacy Policy of VRM AI Technology to understand how we collect, protect, and use your personal information across our platform and services." />
+                <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
+            </Helmet>
             <Breadcrumb title="Privacy Policy" breadcrumbs={breadcrumbs} />
 
             <div className="rts-section-gap bg-white">

@@ -64,14 +64,14 @@ function TestimonialThree() {
                                             </div>
                                             <div className="footer">
                                                 <div className="left">
-                                                    <a className="thumbnail" href="#">
+                                                    <a className="thumbnail" href="/">
                                                         <img
                                                             src="assets/images/testimonials/07.png"
                                                             alt="testimonials_image"
                                                         />
                                                     </a>
                                                     <div className="desig">
-                                                        <a href="#">
+                                                        <a href="/">
                                                             <h6 className="title">Jasmine Lemon</h6>
                                                         </a>
                                                         <p>
@@ -83,27 +83,27 @@ function TestimonialThree() {
                                                     <div className="stars-area">
                                                         <ul>
                                                             <li>
-                                                                <a href="#">
+                                                                <a href="/">
                                                                     <i className="fas fa-star" />
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="#">
+                                                                <a href="/">
                                                                     <i className="fas fa-star" />
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="#">
+                                                                <a href="/">
                                                                     <i className="fas fa-star" />
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="#">
+                                                                <a href="/">
                                                                     <i className="fas fa-star" />
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="#">
+                                                                <a href="/">
                                                                     <i className="fas fa-star" />
                                                                 </a>
                                                             </li>
@@ -127,14 +127,14 @@ function TestimonialThree() {
                                             </div>
                                             <div className="footer">
                                                 <div className="left">
-                                                    <a className="thumbnail" href="#">
+                                                    <a className="thumbnail" href="/">
                                                         <img
                                                             src="assets/images/testimonials/07.png"
                                                             alt="testimonials_image"
                                                         />
                                                     </a>
                                                     <div className="desig">
-                                                        <a href="#">
+                                                        <a href="/">
                                                             <h6 className="title">Jasmine Lemon</h6>
                                                         </a>
                                                         <p>
@@ -146,27 +146,27 @@ function TestimonialThree() {
                                                     <div className="stars-area">
                                                         <ul>
                                                             <li>
-                                                                <a href="#">
+                                                                <a href="/">
                                                                     <i className="fas fa-star" />
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="#">
+                                                                <a href="/">
                                                                     <i className="fas fa-star" />
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="#">
+                                                                <a href="/">
                                                                     <i className="fas fa-star" />
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="#">
+                                                                <a href="/">
                                                                     <i className="fas fa-star" />
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="#">
+                                                                <a href="/">
                                                                     <i className="fas fa-star" />
                                                                 </a>
                                                             </li>
@@ -190,14 +190,14 @@ function TestimonialThree() {
                                             </div>
                                             <div className="footer">
                                                 <div className="left">
-                                                    <a className="thumbnail" href="#">
+                                                    <a className="thumbnail" href="/">
                                                         <img
                                                             src="assets/images/testimonials/07.png"
                                                             alt="testimonials_image"
                                                         />
                                                     </a>
                                                     <div className="desig">
-                                                        <a href="#">
+                                                        <a href="/">
                                                             <h6 className="title">Jasmine Lemon</h6>
                                                         </a>
                                                         <p>
@@ -209,27 +209,27 @@ function TestimonialThree() {
                                                     <div className="stars-area">
                                                         <ul>
                                                             <li>
-                                                                <a href="#">
+                                                                <a href="/">
                                                                     <i className="fas fa-star" />
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="#">
+                                                                <a href="/">
                                                                     <i className="fas fa-star" />
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="#">
+                                                                <a href="/">
                                                                     <i className="fas fa-star" />
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="#">
+                                                                <a href="/">
                                                                     <i className="fas fa-star" />
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="#">
+                                                                <a href="/">
                                                                     <i className="fas fa-star" />
                                                                 </a>
                                                             </li>
@@ -253,14 +253,14 @@ function TestimonialThree() {
                                             </div>
                                             <div className="footer">
                                                 <div className="left">
-                                                    <a className="thumbnail" href="#">
+                                                    <a className="thumbnail" href="/">
                                                         <img
                                                             src="assets/images/testimonials/07.png"
                                                             alt="testimonials_image"
                                                         />
                                                     </a>
                                                     <div className="desig">
-                                                        <a href="#">
+                                                        <a href="/">
                                                             <h6 className="title">Jasmine Lemon</h6>
                                                         </a>
                                                         <p>
@@ -272,27 +272,27 @@ function TestimonialThree() {
                                                     <div className="stars-area">
                                                         <ul>
                                                             <li>
-                                                                <a href="#">
+                                                                <a href="/">
                                                                     <i className="fas fa-star" />
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="#">
+                                                                <a href="/">
                                                                     <i className="fas fa-star" />
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="#">
+                                                                <a href="/">
                                                                     <i className="fas fa-star" />
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="#">
+                                                                <a href="/">
                                                                     <i className="fas fa-star" />
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="#">
+                                                                <a href="/">
                                                                     <i className="fas fa-star" />
                                                                 </a>
                                                             </li>
@@ -303,7 +303,6 @@ function TestimonialThree() {
                                         </div>
                                         {/* single testimonials area End */}
                                     </SwiperSlide>
-
 
                                 </Swiper>
                             </div>

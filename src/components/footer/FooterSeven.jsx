@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-
 function FooterSeven() {
     return (
         <div>
@@ -31,7 +30,7 @@ function FooterSeven() {
                                     <h5 className="wized-title">Our Services</h5>
                                     <img
                                         src="assets/images/footer/under-title-2.png"
-                                        alt="finbiz_footer"
+                                        alt="VRM AI Technology footer logo"
                                     />
                                 </div>
                                 <div className="wized-2-body">
@@ -77,7 +76,7 @@ function FooterSeven() {
                                     <h5 className="wized-title">Contact Us</h5>
                                     <img
                                         src="assets/images/footer/under-title-2.png"
-                                        alt="finbiz_footer"
+                                        alt="VRM AI Technology footer logo"
                                     />
                                 </div>
                                 <div className="wized-2-body">
@@ -87,7 +86,7 @@ function FooterSeven() {
                                         </div>
                                         <div className="disc">
                                             <span>Call Us 24/7</span>
-                                            <Link to={'#'}>(+256) 2145.2156</Link>
+                                            <Link to={'#'}>+91 81233 48355</Link>
                                         </div>
                                     </div>
                                     <div className="contact-info-1">
@@ -96,7 +95,7 @@ function FooterSeven() {
                                         </div>
                                         <div className="disc">
                                             <span>Work with us</span>
-                                            <Link to={'#'}>info@vrmgroups.com</Link>
+                                            <a href="mailto:contactus@vrmaitechnology.com">contactus@vrmaitechnology.com</a>
                                         </div>
                                     </div>
                                 </div>
@@ -134,18 +133,18 @@ function FooterSeven() {
                         <div className="col-lg-12">
                             <div className="copyright-h-2-wrapper">
                                 <p className="disc">
-                                    VRM AI Technologies - Copyright 2025. All rights reserved.
+                                    VRM AI Technology - Copyright 2025. All rights reserved.
                                 </p>
                                 <div className="right">
                                     <ul>
                                         <li>
-                                            <Link href="blog-list.html">Company News</Link>
+                                            <Link to={'/blog-list'}>Company News</Link>
                                         </li>
                                         <li>
                                             <Link to={'#'}>Faq</Link>
                                         </li>
                                         <li>
-                                            <Link href="contactus.html">Contact</Link>
+                                            <Link to={'/contactus'}>Contact</Link>
                                         </li>
                                     </ul>
                                 </div>

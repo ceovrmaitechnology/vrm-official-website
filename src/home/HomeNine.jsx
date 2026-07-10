@@ -8,12 +8,7 @@ import CaseSeven from "../components/businesscase/CaseSeven";
 import TestimonialNine from "../components/testimonials/TestimonialNine";
 import BlogSix from "../components/blog/BlogSix";
 
-
-
-
 import FooterEight from "../components/footer/FooterEight";
-
-
 
 function HomeOne() {
     return (
@@ -27,9 +22,6 @@ function HomeOne() {
             <CaseSeven />
             <TestimonialNine />
             <BlogSix />
-
-
-
 
             <FooterEight />
 

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function CallToAction() {
     return (
@@ -10,7 +11,7 @@ function CallToAction() {
                     <div className="row">
                         <div className="cta-h2-wrapper text-center">
                             <div className="icon">
-                                <a href="#">
+                                <a href="/">
                                     <i className="fas fa-phone-alt" style={{ color: '#fff' }} />
                                 </a>
                             </div>
@@ -19,12 +20,12 @@ function CallToAction() {
                                     Contact Our AI Agents For Business Solutions{" "}
                                     <span style={{ color: '#a5b4fc' }}>(24/7 Available)</span>
                                 </p>
-                                <a href="tel:+919876543210" className="number text-white">
+                                <a href="tel:+918123348355" className="number text-white">
                                     +91 81233 48355
                                 </a>
-                                <a href="/contactus" className="rts-btn btn-primary-2" style={{ background: '#fff', color: '#1b277c' }}>
+                                <Link to="/contactus" className="rts-btn btn-primary-2" style={{ background: '#fff', color: '#1b277c' }}>
                                     Contact Us
-                                </a>
+                                </Link>
                             </div>
                         </div>
                     </div>

@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 
 const BlogTwoMain = (props) => {
-    const { blogID, blogImage, blogTitle, blogPublishedDate } = props;
+    const { blogID, blogImage, blogTitle } = props;
     return (
         <>
             <Link to={`/blog/${blogID}`} className="thumbnail">

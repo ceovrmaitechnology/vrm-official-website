@@ -179,3 +179,7 @@ project.zip
 Thumbs.db
 ehthumbs.db
 Desktop.ini
+
+# Custom log/txt artifacts
+build_output.txt
+build_output_utf8.txt

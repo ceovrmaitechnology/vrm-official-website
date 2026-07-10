@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import WOW from 'wow.js';
 import HeaderOne from "../components/header/HeaderOne";
 import BannerOne from "../components/banner/BannerOne";
@@ -7,18 +8,7 @@ import AboutOne from "../components/about/AboutOne";
 import ServiceOne from "../components/service/ServiceOne";
 import BusinessGoalOne from "../components/businessgoal/BusinessGoalOne";
 import WorkflowTestimonials from "../components/testimonials/WorkflowTestimonials";
-// import Counterup from "../components/counterup/Counterup";
-// import GalleryOne from "../components/gallery/GalleryOne";
-// import BrandOne from "../components/brand/BrandOne";
-// import TeamOne from "../components/team/TeamOne";
-// import Feature from "../components/feature/Feature";
-// import TestimonialOne from "../components/testimonials/TestimonialOne";
-// import BlogOne from "../components/blog/BlogOne";
 import ContactForm from "../components/contactform/ContactForm";
-
-
-
-
 import FooterOne from "../components/footer/FooterOne";
 import WhyChooseUsFooter from "../components/whychooseus/WhyChooseUsFooter";
 
@@ -36,6 +26,19 @@ function HomeOne() {
 
   return (
     <div>
+      <Helmet>
+        <title>VRM AI Technology | AI Software & Product Development</title>
+        <meta name="description" content="VRM AI Technology delivers GenAI platforms, ML systems, and automation products for enterprises. Explore Workflow.AI, People Connect, AI Buddy, and more." />
+        <meta property="og:title" content="VRM AI Technology | AI Software & Product Development" />
+        <meta property="og:description" content="VRM AI Technology delivers GenAI platforms, ML systems, and automation products for enterprises. Explore Workflow.AI, People Connect, AI Buddy, and more." />
+                <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
+        <link rel="canonical" href="https://www.vrmaitechnology.com/" />
+      
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="VRM AI Technology | AI Software & Product Development" />
+                <meta name="twitter:description" content="VRM AI Technology delivers GenAI platforms, ML systems, and automation products for enterprises. Explore Workflow.AI, People Connect, AI Buddy, and more." />
+                <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
+            </Helmet>
       <HeaderOne className="header-transparent header-white-text" />
       <BannerOne />
       <HomeOverview />
@@ -43,16 +46,9 @@ function HomeOne() {
       <ServiceOne />
       <BusinessGoalOne />
       <WorkflowTestimonials
-        title="Why teams keep choosing Workflow.AI"
-        description="Hiring teams use Workflow.AI to move faster with better screening quality, while candidates get a cleaner and more consistent interview experience."
+        title="Why teams keep choosing WorkflowAI.in"
+        description="Hiring teams use WorkflowAI.in to move faster with better screening quality, while candidates get a cleaner and more consistent interview experience."
       />
-      {/* <Counterup /> */}
-      {/* <GalleryOne /> */}
-      {/* <BrandOne />
-      <TeamOne /> */}
-      {/* <Feature />
-      <TestimonialOne /> */}
-      {/* <BlogOne /> */}
       <ContactForm />
       <WhyChooseUsFooter />
       <FooterOne />

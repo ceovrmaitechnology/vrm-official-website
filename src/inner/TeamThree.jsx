@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-
+import React from 'react';
 
 import HeaderOne from "../components/header/HeaderOne";
 
@@ -7,8 +6,7 @@ import { Link } from 'react-router-dom';
 import FooterOne from "../components/footer/FooterOne";
 import Breadcrumb from "./Breadcrumb";
 
-
-function ProjectThree() {
+function TeamThree() {
     const breadcrumbs = [
         { label: 'Home', link: '/' },
         { label: 'Team Style 3' }
@@ -253,12 +251,10 @@ function ProjectThree() {
             </div>
             {/* rts team two area End */}
 
-
-
             <FooterOne />
 
         </div>
     )
 }
 
-export default ProjectThree
+export default TeamThree

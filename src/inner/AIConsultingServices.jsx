@@ -1,5 +1,5 @@
-
 import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import HeaderOne from '../components/header/HeaderOne';
 import FooterOne from '../components/footer/FooterOne';
@@ -20,6 +20,19 @@ function AIConsultingServices() {
         <div className="rts-ai-consulting-services">
             {/* Header: White text mode for dark gradient hero */}
             <HeaderOne className="header-white-text" />
+            <Helmet>
+                <title>AI Consulting Services | Strategy & Execution | VRM AI</title>
+                <meta name="description" content="AI consulting by VRM AI Technology. We design data-driven AI strategies, ML model architectures, and enterprise solutions for global business scale." />
+                <meta property="og:title" content="AI Consulting Services — Strategy, Architecture & Execution" />
+                <meta property="og:description" content="AI consulting by VRM AI Technology. We design data-driven AI strategies, ML model architectures, and enterprise solutions for global business scale." />
+                <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
+                <link rel="canonical" href="https://www.vrmaitechnology.com/solutions/ai-consulting-services" />
+            
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="AI Consulting Services — Strategy, Architecture & Execution" />
+                <meta name="twitter:description" content="AI consulting by VRM AI Technology. We design data-driven AI strategies, ML model architectures, and enterprise solutions for global business scale." />
+                <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
+            </Helmet>
 
             {/* 1. Hero Section - Enterprise Gradient */}
             <div className="vrm-full-width-section vrm-enterprise-gradient">
@@ -43,7 +56,7 @@ function AIConsultingServices() {
                         </div>
                         <div className="col-lg-5">
                             <div className="banner-image-two wow fadeInUp" data-wow-delay=".3s">
-                                <img src="/assets/images/Solutions/AIConsultingService.png" alt="AI Consulting" />
+                                <img src="/assets/images/Solutions/AIConsultingService.png" alt="AI Consulting" style={{ borderRadius: '20px', boxShadow: '0 20px 50px rgba(0,0,0,0.2)' }} />
                             </div>
                         </div>
                     </div>

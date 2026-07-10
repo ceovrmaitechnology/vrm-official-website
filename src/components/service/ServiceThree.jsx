@@ -66,10 +66,10 @@ function ServiceThree() {
                                                         lobortis nam potenti
                                                     </p>
                                                 </div>
-                                                <Link href="service-details.html" className="over_link" />
+                                                <Link to={'/service-details'} className="over_link" />
                                             </div>
                                             <Link
-                                                href="service-details.html"
+                                                to={'/service-details'}
                                                 className="rts-btn btn-primary-3"
                                             >
                                                 {" "}
@@ -98,10 +98,10 @@ function ServiceThree() {
                                                         lobortis nam potenti
                                                     </p>
                                                 </div>
-                                                <Link href="service-details.html" className="over_link" />
+                                                <Link to={'/service-details'} className="over_link" />
                                             </div>
                                             <Link
-                                                href="service-details.html"
+                                                to={'/service-details'}
                                                 className="rts-btn btn-primary-3"
                                             >
                                                 {" "}
@@ -130,10 +130,10 @@ function ServiceThree() {
                                                         lobortis nam potenti
                                                     </p>
                                                 </div>
-                                                <Link href="service-details.html" className="over_link" />
+                                                <Link to={'/service-details'} className="over_link" />
                                             </div>
                                             <Link
-                                                href="service-details.html"
+                                                to={'/service-details'}
                                                 className="rts-btn btn-primary-3"
                                             >
                                                 {" "}
@@ -162,10 +162,10 @@ function ServiceThree() {
                                                         lobortis nam potenti
                                                     </p>
                                                 </div>
-                                                <Link href="service-details.html" className="over_link" />
+                                                <Link to={'/service-details'} className="over_link" />
                                             </div>
                                             <Link
-                                                href="service-details.html"
+                                                to={'/service-details'}
                                                 className="rts-btn btn-primary-3"
                                             >
                                                 {" "}
@@ -194,10 +194,10 @@ function ServiceThree() {
                                                         lobortis nam potenti
                                                     </p>
                                                 </div>
-                                                <Link href="service-details.html" className="over_link" />
+                                                <Link to={'/service-details'} className="over_link" />
                                             </div>
                                             <Link
-                                                href="service-details.html"
+                                                to={'/service-details'}
                                                 className="rts-btn btn-primary-3"
                                             >
                                                 {" "}
@@ -226,10 +226,10 @@ function ServiceThree() {
                                                         lobortis nam potenti
                                                     </p>
                                                 </div>
-                                                <Link href="service-details.html" className="over_link" />
+                                                <Link to={'/service-details'} className="over_link" />
                                             </div>
                                             <Link
-                                                href="service-details.html"
+                                                to={'/service-details'}
                                                 className="rts-btn btn-primary-3"
                                             >
                                                 {" "}

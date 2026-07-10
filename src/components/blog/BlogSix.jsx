@@ -6,7 +6,6 @@ import { Navigation, Scrollbar, A11y, EffectFade, Autoplay } from 'swiper/module
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
-import { Link } from 'react-router-dom';
 import post from '../../data/post.json';
 import BlogOneMain from './BlogOneMain';
 

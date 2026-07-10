@@ -27,7 +27,6 @@ function HeaderSeven() {
         };
     }, []);
 
-
     return (
         <div>
             <header className={`header--sticky header-one six  ${isSticky ? 'sticky' : ''}`}>
@@ -45,11 +44,11 @@ function HeaderSeven() {
                                 <div className="right">
                                     <div className="mail">
                                         <i className="fas fa-envelope" />
-                                        <Link to={'#'}>info@example.com</Link>
+                                        <a href="mailto:contactus@vrmaitechnology.com">contactus@vrmaitechnology.com</a>
                                     </div>
                                     <div className="call">
                                         <i className="fas fa-phone-alt" />
-                                        <Link to={'#'}>Hoteline: +210-9856988</Link>
+                                        <a href="tel:+918123348355">Hotline: +91 81233 48355</a>
                                     </div>
                                 </div>
                             </div>
@@ -62,7 +61,7 @@ function HeaderSeven() {
                             <div className="col-xl-3 col-lg-4 col-md-4 col-sm-4 col-4">
                                 <div className="thumbnail">
                                     <Link to={'/'}>
-                                        <img src="assets/images/logo/logo.jpeg" alt="finbiz-logo" />
+                                        <img src="assets/images/logo/logo.jpeg" alt="VRM AI Technology official logo" />
                                     </Link>
                                 </div>
                             </div>

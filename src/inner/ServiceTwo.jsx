@@ -4,9 +4,6 @@ import Breadcrumb from "./Breadcrumb";
 import ServiceEleven from "../components/service/ServiceEleven";
 import PricingThree from "../components/pricing/PricingThree";
 
-
-
-
 import FooterOne from "../components/footer/FooterOne";
 
 function OurService() {
@@ -21,7 +18,6 @@ function OurService() {
             <Breadcrumb title="Our Service" breadcrumbs={breadcrumbs} />
             <ServiceEleven />
             <PricingThree />
-
 
             <FooterOne />
 

@@ -7,8 +7,7 @@ import { Link } from 'react-router-dom';
 import FooterOne from "../components/footer/FooterOne";
 import Breadcrumb from "./Breadcrumb";
 
-
-function ProjectThree() {
+function BlogList() {
     const breadcrumbs = [
         { label: 'Home', link: '/' },
         { label: 'Blog List' }
@@ -92,7 +91,7 @@ function ProjectThree() {
                                     {/* single categoris */}
                                     <ul className="single-categories">
                                         <li>
-                                            <Link href="#">
+                                            <Link to={'#'}>
                                                 Business Solution <i className="far fa-long-arrow-right" />
                                             </Link>
                                         </li>
@@ -101,7 +100,7 @@ function ProjectThree() {
                                     {/* single categoris */}
                                     <ul className="single-categories">
                                         <li>
-                                            <Link href="#">
+                                            <Link to={'#'}>
                                                 Solution Model
                                                 <i className="far fa-long-arrow-right" />
                                             </Link>
@@ -111,7 +110,7 @@ function ProjectThree() {
                                     {/* single categoris */}
                                     <ul className="single-categories">
                                         <li>
-                                            <Link href="#">
+                                            <Link to={'#'}>
                                                 More Business <i className="far fa-long-arrow-right" />
                                             </Link>
                                         </li>
@@ -120,8 +119,8 @@ function ProjectThree() {
                                     {/* single categoris */}
                                     <ul className="single-categories">
                                         <li>
-                                            <Link href="#">
-                                                Finbiz Solution <i className="far fa-long-arrow-right" />
+                                            <Link to={'#'}>
+                                                VRM AI Solutions <i className="far fa-long-arrow-right" />
                                             </Link>
                                         </li>
                                     </ul>
@@ -129,7 +128,7 @@ function ProjectThree() {
                                     {/* single categoris */}
                                     <ul className="single-categories">
                                         <li>
-                                            <Link href="#">
+                                            <Link to={'#'}>
                                                 Consulting Busiuness
                                                 <i className="far fa-long-arrow-right" />
                                             </Link>
@@ -148,7 +147,7 @@ function ProjectThree() {
                                     {/* recent-post */}
                                     <div className="recent-post-single">
                                         <div className="thumbnail">
-                                            <Link href="#">
+                                            <Link to={'#'}>
                                                 <img
                                                     src="assets/images/blog/details/recent-post/01.png"
                                                     alt="Blog_post"
@@ -160,7 +159,7 @@ function ProjectThree() {
                                                 <i className="fal fa-clock" />
                                                 <span>15 Jan, 2023</span>
                                             </div>
-                                            <Link className="post-title" href="#">
+                                            <Link className="post-title" to={'#'}>
                                                 <h6 className="title">
                                                     We would love to share a similar experience
                                                 </h6>
@@ -171,7 +170,7 @@ function ProjectThree() {
                                     {/* recent-post */}
                                     <div className="recent-post-single">
                                         <div className="thumbnail">
-                                            <Link href="#">
+                                            <Link to={'#'}>
                                                 <img
                                                     src="assets/images/blog/details/recent-post/02.png"
                                                     alt="Blog_post"
@@ -183,7 +182,7 @@ function ProjectThree() {
                                                 <i className="fal fa-clock" />
                                                 <span>15 Jan, 2023</span>
                                             </div>
-                                            <Link className="post-title" href="#">
+                                            <Link className="post-title" to={'#'}>
                                                 <h6 className="title">
                                                     We would love to share a similar experience
                                                 </h6>
@@ -194,7 +193,7 @@ function ProjectThree() {
                                     {/* recent-post */}
                                     <div className="recent-post-single">
                                         <div className="thumbnail">
-                                            <Link href="#">
+                                            <Link to={'#'}>
                                                 <img
                                                     src="assets/images/blog/details/recent-post/03.png"
                                                     alt="Blog_post"
@@ -206,7 +205,7 @@ function ProjectThree() {
                                                 <i className="fal fa-clock" />
                                                 <span>15 Jan, 2023</span>
                                             </div>
-                                            <Link className="post-title" href="#">
+                                            <Link className="post-title" to={'#'}>
                                                 <h6 className="title">
                                                     We would love to share a similar experience
                                                 </h6>
@@ -217,7 +216,7 @@ function ProjectThree() {
                                     {/* recent-post */}
                                     <div className="recent-post-single">
                                         <div className="thumbnail">
-                                            <Link href="#">
+                                            <Link to={'#'}>
                                                 <img
                                                     src="assets/images/blog/details/recent-post/04.png"
                                                     alt="Blog_post"
@@ -229,7 +228,7 @@ function ProjectThree() {
                                                 <i className="fal fa-clock" />
                                                 <span>15 Jan, 2023</span>
                                             </div>
-                                            <Link className="post-title" href="#">
+                                            <Link className="post-title" to={'#'}>
                                                 <h6 className="title">
                                                     We would love to share a similar experience
                                                 </h6>
@@ -248,19 +247,19 @@ function ProjectThree() {
                                 <div className="wized-body">
                                     <div className="gallery-inner">
                                         <div className="row-1 single-row">
-                                            <Link href="#">
+                                            <Link to={'#'}>
                                                 <img
                                                     src="assets/images/blog/details/gallery/01.png"
                                                     alt="Gallery"
                                                 />
                                             </Link>
-                                            <Link href="#">
+                                            <Link to={'#'}>
                                                 <img
                                                     src="assets/images/blog/details/gallery/02.png"
                                                     alt="Gallery"
                                                 />
                                             </Link>
-                                            <Link href="#">
+                                            <Link to={'#'}>
                                                 <img
                                                     src="assets/images/blog/details/gallery/03.png"
                                                     alt="Gallery"
@@ -268,19 +267,19 @@ function ProjectThree() {
                                             </Link>
                                         </div>
                                         <div className="row-2 single-row">
-                                            <Link href="#">
+                                            <Link to={'#'}>
                                                 <img
                                                     src="assets/images/blog/details/gallery/04.png"
                                                     alt="Gallery"
                                                 />
                                             </Link>
-                                            <Link href="#">
+                                            <Link to={'#'}>
                                                 <img
                                                     src="assets/images/blog/details/gallery/05.png"
                                                     alt="Gallery"
                                                 />
                                             </Link>
-                                            <Link href="#">
+                                            <Link to={'#'}>
                                                 <img
                                                     src="assets/images/blog/details/gallery/06.png"
                                                     alt="Gallery"
@@ -298,15 +297,15 @@ function ProjectThree() {
                                 </div>
                                 <div className="wized-body">
                                     <div className="tags-wrapper">
-                                        <Link href="#">Services</Link>
-                                        <Link href="#">Business</Link>
-                                        <Link href="#">Growth</Link>
-                                        <Link href="#">Finance</Link>
-                                        <Link href="#">UI/UX Design</Link>
-                                        <Link href="#">Solution</Link>
-                                        <Link href="#">Speed</Link>
-                                        <Link href="#">Strategy</Link>
-                                        <Link href="#">Technology</Link>
+                                        <Link to={'#'}>Services</Link>
+                                        <Link to={'#'}>Business</Link>
+                                        <Link to={'#'}>Growth</Link>
+                                        <Link to={'#'}>Finance</Link>
+                                        <Link to={'#'}>UI/UX Design</Link>
+                                        <Link to={'#'}>Solution</Link>
+                                        <Link to={'#'}>Speed</Link>
+                                        <Link to={'#'}>Strategy</Link>
+                                        <Link to={'#'}>Technology</Link>
                                     </div>
                                 </div>
                             </div>
@@ -314,13 +313,13 @@ function ProjectThree() {
                             {/* single wized start */}
                             <div className="rts-single-wized contact">
                                 <div className="wized-header">
-                                    <Link href="#">
+                                    <Link to="#">
                                         <img src="assets/images/logo/logo.jpeg" alt="Business_logo" />
                                     </Link>
                                 </div>
                                 <div className="wized-body">
                                     <h5 className="title">Need Help? We Are Here To Help You</h5>
-                                    <Link className="rts-btn btn-primary" href="contactus.html">
+                                    <Link className="rts-btn btn-primary" to={'/contactus'}>
                                         Contact Us
                                     </Link>
                                 </div>
@@ -338,4 +337,4 @@ function ProjectThree() {
     )
 }
 
-export default ProjectThree
+export default BlogList

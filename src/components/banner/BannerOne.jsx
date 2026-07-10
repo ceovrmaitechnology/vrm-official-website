@@ -1,38 +1,27 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import InteractiveParticles from './InteractiveParticles';
 
 function BannerOne() {
     return (
         <div>
             {/* Top Video Section - Full Screen */}
             <section className="vrm-hero rts-banner-area" id="banner" style={{ position: 'relative', overflow: 'hidden', height: '100vh', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end', paddingBottom: '30px', backgroundColor: '#ffffff' }}>
-                {/* <video
+                <video
                     className="vrm-home-hero-video"
                     autoPlay
                     loop
                     muted
                     playsInline
+                    onLoadedData={() => console.log("✅ Video loaded")}
+                    onPlay={() => console.log("▶️ Video playing")}
+                    onError={(e) => console.log("❌ Video error", e)}
                 >
-                    <source src="/assets/images/home/VRM hero section website video.mp4" type="video/mp4" />
+                    <source
+                        src="/assets/images/home/vrm-hero-video.mp4"
+                        type="video/mp4"
+                    />
                     Your browser does not support the video tag.
-                </video> */}
-                <video
-    className="vrm-home-hero-video"
-    autoPlay
-    loop
-    muted
-    playsInline
-    onLoadedData={() => console.log("✅ Video loaded")}
-    onPlay={() => console.log("▶️ Video playing")}
-    onError={(e) => console.log("❌ Video error", e)}
->
-    <source
-        src="/assets/images/home/vrm-hero-video.mp4"
-        type="video/mp4"
-    />
-    Your browser does not support the video tag.
-</video>
+                </video>
 
                 {/* Content Overlay */}
                 <div className="container" style={{ position: 'relative', zIndex: 3 }}>

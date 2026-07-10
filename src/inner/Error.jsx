@@ -1,18 +1,21 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import HeaderOne from "../components/header/HeaderOne";
 
 import { Link } from 'react-router-dom';
 import FooterOne from "../components/footer/FooterOne";
 
-
-
 function Error() {
-
 
     return (
         <div className=''>
 
             <HeaderOne />
+            <Helmet>
+                <title>Page Not Found | VRM AI Technology</title>
+                <meta name="description" content="Sorry, the page you are looking for does not exist on VRM AI Technology." />
+                <meta name="robots" content="noindex, follow" />
+            </Helmet>
 
             {/* rts- 404 area start */}
             <div className="rts-404-area rts-section-gap">

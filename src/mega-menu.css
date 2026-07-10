@@ -303,3 +303,10 @@
 #mobile-menu-active .mobile-menu-link.tag.mt-2 {
     margin-top: 30px !important;
 }
+
+/* Programmatic close of mega menu on link click */
+.mega-menu-container.force-hide {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}

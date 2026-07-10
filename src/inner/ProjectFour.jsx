@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-
+import React from 'react';
 
 import HeaderOne from "../components/header/HeaderOne";
 
@@ -7,8 +6,7 @@ import { Link } from 'react-router-dom';
 import FooterOne from "../components/footer/FooterOne";
 import Breadcrumb from "./Breadcrumb";
 
-
-function ProjectThree() {
+function ProjectFour() {
     const breadcrumbs = [
         { label: 'Home', link: '/' },
         { label: 'Portfolio Style 4' }
@@ -19,7 +17,6 @@ function ProjectThree() {
             <HeaderOne />
 
             <Breadcrumb title="Portfolio Style 4" breadcrumbs={breadcrumbs} />
-
 
             {/*portfolio-area start*/}
             <section className="portfolio-area style-4 pt--120 pb--120 pt_xs--60 pt_xs--60">
@@ -138,13 +135,10 @@ function ProjectThree() {
             </section>
             {/*portfolio-area end*/}
 
-
-
-
             <FooterOne />
 
         </div>
     )
 }
 
-export default ProjectThree
+export default ProjectFour

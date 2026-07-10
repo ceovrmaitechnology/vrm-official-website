@@ -77,7 +77,7 @@ function HeaderTen() {
                 <div className="main-header">
                     <div className="content">
                         <div className="header-left">
-                            <Link className="thumbnail" href="index.html">
+                            <Link className="thumbnail" to={'/'}>
                                 <img src="assets/images/logo/logo.jpeg" alt="" />
                             </Link>
                             <NavOnepage />
@@ -100,9 +100,9 @@ function HeaderTen() {
                                 </div>
                                 <div className="number-area">
                                     <span>Call us anytime</span>
-                                    <Link href="tel:123-456-7890">
-                                        <h6 className="call">+256 21458.2146</h6>
-                                    </Link>
+                                    <a href="tel:+918123348355">
+                                        <h6 className="call">+91 81233 48355</h6>
+                                    </a>
                                 </div>
                             </div>
                             <Link className="rts-btn btn-primary-2 menu-block-none" to={'#'}>

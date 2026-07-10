@@ -153,7 +153,7 @@
     padding-bottom: 5px;
     border-bottom: 2px solid #3B4ECC !important;
     display: inline-block;
-    width: 100%;
+    width: max-content;
 }
 
 a.vrm-footer-sub-title {
@@ -426,4 +426,45 @@ a.vrm-footer-sub-title:hover {
     .vrm-copyright-text {
         text-align: center;
     }
+}
+
+/* Responsive Desktop Margins for alignment shifting */
+@media (min-width: 992px) {
+    .vrm-footer-widget-solutions {
+        margin-left: 45px !important;
+    }
+    .vrm-footer-widget-products {
+        margin-left: 15px !important;
+    }
+    .vrm-footer-widget-organization {
+        margin-left: 35px !important;
+    }
+}
+
+/* Footer Dropdown for Workflow.AI */
+.vrm-footer-dropdown {
+    position: relative;
+}
+
+.vrm-footer-dropdown-menu {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+    list-style: none;
+    padding-left: 15px !important;
+}
+
+.vrm-footer-dropdown:hover .vrm-footer-dropdown-menu {
+    max-height: 150px;
+    opacity: 1;
+    visibility: visible;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.vrm-footer-dropdown:hover .vrm-footer-chevron {
+    transform: rotate(180deg);
+    color: #3B4ECC !important;
 }

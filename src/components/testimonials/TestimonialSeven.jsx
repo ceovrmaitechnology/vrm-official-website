@@ -5,14 +5,6 @@ import { Navigation, Scrollbar, A11y, EffectFade, Autoplay } from 'swiper/module
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
-import 'swiper/css/scrollbar';
-import { Link } from 'react-router-dom';
-
-
-
-
-
-
 function TestimonialSeven() {
     return (
         <div>
@@ -59,7 +51,7 @@ function TestimonialSeven() {
                                     >
                                         <SwiperSlide>
                                             <div className="testimonials-7-style">
-                                                <a className="thumb" href="#">
+                                                <a className="thumb" href="/">
                                                     <img src="assets/images/testimonials/08.png" alt="image" />
                                                 </a>
                                                 <div className="body">
@@ -72,7 +64,7 @@ function TestimonialSeven() {
                                                 </div>
                                                 <div className="footer">
                                                     <div className="name-area">
-                                                        <a href="#">
+                                                        <a href="/">
                                                             <h6 className="title">Andrew Smith</h6>
                                                         </a>
                                                         <span>Zoko Author</span>
@@ -89,7 +81,7 @@ function TestimonialSeven() {
                                         </SwiperSlide>
                                         <SwiperSlide>
                                             <div className="testimonials-7-style">
-                                                <a className="thumb" href="#">
+                                                <a className="thumb" href="/">
                                                     <img src="assets/images/testimonials/08.png" alt="image" />
                                                 </a>
                                                 <div className="body">
@@ -102,7 +94,7 @@ function TestimonialSeven() {
                                                 </div>
                                                 <div className="footer">
                                                     <div className="name-area">
-                                                        <a href="#">
+                                                        <a href="/">
                                                             <h6 className="title">Andrew Smith</h6>
                                                         </a>
                                                         <span>Zoko Author</span>
@@ -119,7 +111,7 @@ function TestimonialSeven() {
                                         </SwiperSlide>
                                         <SwiperSlide>
                                             <div className="testimonials-7-style">
-                                                <a className="thumb" href="#">
+                                                <a className="thumb" href="/">
                                                     <img src="assets/images/testimonials/08.png" alt="image" />
                                                 </a>
                                                 <div className="body">
@@ -132,7 +124,7 @@ function TestimonialSeven() {
                                                 </div>
                                                 <div className="footer">
                                                     <div className="name-area">
-                                                        <a href="#">
+                                                        <a href="/">
                                                             <h6 className="title">Andrew Smith</h6>
                                                         </a>
                                                         <span>Zoko Author</span>
@@ -149,7 +141,7 @@ function TestimonialSeven() {
                                         </SwiperSlide>
                                         <SwiperSlide>
                                             <div className="testimonials-7-style">
-                                                <a className="thumb" href="#">
+                                                <a className="thumb" href="/">
                                                     <img src="assets/images/testimonials/08.png" alt="image" />
                                                 </a>
                                                 <div className="body">
@@ -162,7 +154,7 @@ function TestimonialSeven() {
                                                 </div>
                                                 <div className="footer">
                                                     <div className="name-area">
-                                                        <a href="#">
+                                                        <a href="/">
                                                             <h6 className="title">Andrew Smith</h6>
                                                         </a>
                                                         <span>Zoko Author</span>

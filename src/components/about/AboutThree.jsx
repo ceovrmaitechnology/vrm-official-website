@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 function AboutThree() {
 
     const [isVideoOpen, setIsVideoOpen] = useState(false);
@@ -47,7 +46,7 @@ function AboutThree() {
                                         alt="business_about-sm"
                                     />
                                 </div>
-                                <a href="#" className="vedio-icone">
+                                <a href="/" className="vedio-icone">
                                     <span id="play-video" className="video-play-button" onClick={openVideo}>
                                         <img
                                             src="assets/images/about/shape/play-btn.png"
@@ -58,7 +57,7 @@ function AboutThree() {
                                     {isVideoOpen && (
                                         <div id="video-overlay" className="video-overlay open">
                                             {/* Close button for the video overlay */}
-                                            <a className="video-overlay-close" href="#" onClick={closeVideo}>
+                                            <a className="video-overlay-close" href="/" onClick={closeVideo}>
                                                 ×
                                             </a>
                                             {/* Video iframe */}
@@ -163,19 +162,19 @@ function AboutThree() {
                                     <div className="col-l2">
                                         <div className="rts-user-three-wrapper">
                                             <div className="user-wrapper">
-                                                <a href="#">
+                                                <a href="/">
                                                     <img
                                                         src="assets/images/about/main/user/01.png"
                                                         alt="Business_User"
                                                     />
                                                 </a>
-                                                <a href="#">
+                                                <a href="/">
                                                     <img
                                                         src="assets/images/about/main/user/02.png"
                                                         alt="Business_User"
                                                     />
                                                 </a>
-                                                <a href="#">
+                                                <a href="/">
                                                     <img
                                                         src="assets/images/about/main/user/03.png"
                                                         alt="Business_User"
@@ -187,7 +186,7 @@ function AboutThree() {
                                                 <span>Active Reviews</span>
                                             </div>
                                             <a
-                                                href="#"
+                                                href="/"
                                                 className="rts-btn btn-primary-3 color-h-black ml--35"
                                             >
                                                 Get Started

@@ -15,8 +15,6 @@ import BlogOne from "../components/blog/BlogOne";
 import ContactForm from "../components/contactform/ContactForm";
 import MapOne from "../components/map/MapOne";
 
-
-
 import FooterOne from "../components/footer/FooterOne";
 
 function HomeOne() {
@@ -40,9 +38,6 @@ function HomeOne() {
             <BlogOne />
             <ContactForm />
             <MapOne />
-
-
-
 
             <FooterOne />
 

@@ -3,8 +3,6 @@ import HeaderOne from "../components/header/HeaderOne";
 import Breadcrumb from "./Breadcrumb";
 import { Link } from 'react-router-dom';
 
-
-
 import FooterOne from "../components/footer/FooterOne";
 
 function OurService() {
@@ -17,7 +15,6 @@ function OurService() {
 
             <HeaderOne />
             <Breadcrumb title="Our Services" breadcrumbs={breadcrumbs} />
-
 
             {/* latest service area */}
             <div className="rts-service-area rts-section-gap bg-service-h2 ptb--120 mt--0">
@@ -117,7 +114,6 @@ function OurService() {
                 </div>
             </div>
             {/* latest service area End */}
-
 
             <FooterOne />
 

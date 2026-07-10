@@ -108,7 +108,7 @@ function WhyChooseFour() {
                                     <div className="information">
                                         <h5 className="title">Transparency and Trust</h5>
                                         <p className="disc">
-                                            With VRM AI Technologies, you can expect open communication, honesty, and
+                                            With VRM AI Technology, you can expect open communication, honesty, and
                                             integrity in all our interactions. Your trust is of utmost
                                             importance to us,
                                         </p>
@@ -190,7 +190,7 @@ function WhyChooseFour() {
                                     <div className="information">
                                         <h5 className="title">Expertise That Matters</h5>
                                         <p className="disc">
-                                            With VRM AI Technologies, you can expect open communication, honesty, and
+                                            With VRM AI Technology, you can expect open communication, honesty, and
                                             integrity in all our interactions. Your trust is of utmost
                                             importance to us,
                                         </p>
@@ -264,7 +264,7 @@ function WhyChooseFour() {
                                     <div className="information">
                                         <h5 className="title">A True Partnership</h5>
                                         <p className="disc">
-                                            With VRM AI Technologies, you can expect open communication, honesty, and
+                                            With VRM AI Technology, you can expect open communication, honesty, and
                                             integrity in all our interactions. Your trust is of utmost
                                             importance to us,
                                         </p>

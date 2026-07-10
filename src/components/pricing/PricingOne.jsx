@@ -33,7 +33,6 @@ function PricingOne() {
                         </div>
                     </div>
 
-
                     {/* Wrapper for Tab Content */}
                     <div className="tab-content-wrapper mt--80">
                         {activeKey === 'home' && (

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 function BusinessGoalOne() {
     return (
@@ -8,7 +8,7 @@ function BusinessGoalOne() {
                 <div className="container">
                     <div className="row align-items-stretch">
                         {/* business goal left */}
-                        <div className="col-lg-6 d-none d-lg-flex h-100">
+                        <div className="col-lg-6 mb_md--30 mb_sm--30 d-flex h-100">
                             <div className="business-goal-one wow fadeInUp w-100 h-100 d-flex position-relative" data-wow-delay=".2s">
                                 <img
                                     className="w-100 h-100 flex-grow-1"

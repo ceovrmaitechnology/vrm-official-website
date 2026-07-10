@@ -21,22 +21,22 @@ function TeamFour() {
                                 <div className="social-area">
                                     <ul className="social-wrapper">
                                         <li>
-                                            <a href="#">
+                                            <a href="/">
                                                 <i className="fab fa-facebook-f" />
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#">
+                                            <a href="/">
                                                 <i className="fab fa-twitter" />
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#">
+                                            <a href="/">
                                                 <i className="fab fa-linkedin-in" />
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#">
+                                            <a href="/">
                                                 <i className="fab fa-instagram" />
                                             </a>
                                         </li>
@@ -46,7 +46,7 @@ function TeamFour() {
                                     <img src="assets/images/team/tm/14.jpg" alt="" />
                                 </div>
                                 <div className="content">
-                                    <a href="#">
+                                    <a href="/">
                                         <h5 className="title">Andreas Menor</h5>
                                     </a>
                                     <span className="desig">Sr. Manager</span>
@@ -60,22 +60,22 @@ function TeamFour() {
                                 <div className="social-area">
                                     <ul className="social-wrapper">
                                         <li>
-                                            <a href="#">
+                                            <a href="/">
                                                 <i className="fab fa-facebook-f" />
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#">
+                                            <a href="/">
                                                 <i className="fab fa-twitter" />
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#">
+                                            <a href="/">
                                                 <i className="fab fa-linkedin-in" />
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#">
+                                            <a href="/">
                                                 <i className="fab fa-instagram" />
                                             </a>
                                         </li>
@@ -85,7 +85,7 @@ function TeamFour() {
                                     <img src="assets/images/team/tm/15.jpg" alt="" />
                                 </div>
                                 <div className="content">
-                                    <a href="#">
+                                    <a href="/">
                                         <h5 className="title">Andreas Menor</h5>
                                     </a>
                                     <span className="desig">Sr. Manager</span>
@@ -99,22 +99,22 @@ function TeamFour() {
                                 <div className="social-area">
                                     <ul className="social-wrapper">
                                         <li>
-                                            <a href="#">
+                                            <a href="/">
                                                 <i className="fab fa-facebook-f" />
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#">
+                                            <a href="/">
                                                 <i className="fab fa-twitter" />
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#">
+                                            <a href="/">
                                                 <i className="fab fa-linkedin-in" />
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#">
+                                            <a href="/">
                                                 <i className="fab fa-instagram" />
                                             </a>
                                         </li>
@@ -124,7 +124,7 @@ function TeamFour() {
                                     <img src="assets/images/team/tm/16.jpg" alt="" />
                                 </div>
                                 <div className="content">
-                                    <a href="#">
+                                    <a href="/">
                                         <h5 className="title">Andreas Menor</h5>
                                     </a>
                                     <span className="desig">Sr. Manager</span>
@@ -138,22 +138,22 @@ function TeamFour() {
                                 <div className="social-area">
                                     <ul className="social-wrapper">
                                         <li>
-                                            <a href="#">
+                                            <a href="/">
                                                 <i className="fab fa-facebook-f" />
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#">
+                                            <a href="/">
                                                 <i className="fab fa-twitter" />
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#">
+                                            <a href="/">
                                                 <i className="fab fa-linkedin-in" />
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#">
+                                            <a href="/">
                                                 <i className="fab fa-instagram" />
                                             </a>
                                         </li>
@@ -163,7 +163,7 @@ function TeamFour() {
                                     <img src="assets/images/team/tm/17.jpg" alt="" />
                                 </div>
                                 <div className="content">
-                                    <a href="#">
+                                    <a href="/">
                                         <h5 className="title">Andreas Menor</h5>
                                     </a>
                                     <span className="desig">Sr. Manager</span>

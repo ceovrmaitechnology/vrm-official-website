@@ -7,9 +7,6 @@ import FooterOne from "../components/footer/FooterOne";
 
 import { Tabs, Tab, TabContent } from 'react-bootstrap';
 
-
-
-
 function OurService() {
     const breadcrumbs = [
         { label: 'Home', link: '/' },
@@ -22,7 +19,6 @@ function OurService() {
 
             <HeaderOne />
             <Breadcrumb title="Pricing Plane" breadcrumbs={breadcrumbs} />
-
 
             {/* rts pricing area start */}
             <div className="rts-pricing-area rts-section-gap">
@@ -115,9 +111,9 @@ function OurService() {
                                                         </span>
                                                     </div>
                                                     {/* single pricing End */}
-                                                    <a className="rts-btn btn-primary" href="#">
+                                                    <Link className="rts-btn btn-primary" to="/contactus#send-message">
                                                         Buy This
-                                                    </a>
+                                                    </Link>
                                                 </div>
                                                 {/* pricing body end */}
                                             </div>
@@ -186,9 +182,9 @@ function OurService() {
                                                         </span>
                                                     </div>
                                                     {/* single pricing End */}
-                                                    <a className="rts-btn btn-primary" href="#">
+                                                    <Link className="rts-btn btn-primary" to="/contactus#send-message">
                                                         Buy This
-                                                    </a>
+                                                    </Link>
                                                 </div>
                                                 {/* pricing body end */}
                                             </div>
@@ -257,9 +253,9 @@ function OurService() {
                                                         </span>
                                                     </div>
                                                     {/* single pricing End */}
-                                                    <a className="rts-btn btn-primary" href="#">
+                                                    <Link className="rts-btn btn-primary" to="/contactus#send-message">
                                                         Buy This
-                                                    </a>
+                                                    </Link>
                                                 </div>
                                                 {/* pricing body end */}
                                             </div>
@@ -334,9 +330,9 @@ function OurService() {
                                                         </span>
                                                     </div>
                                                     {/* single pricing End */}
-                                                    <a className="rts-btn btn-primary" href="#">
+                                                    <Link className="rts-btn btn-primary" to="/contactus#send-message">
                                                         Buy This
-                                                    </a>
+                                                    </Link>
                                                 </div>
                                                 {/* pricing body end */}
                                             </div>
@@ -405,9 +401,9 @@ function OurService() {
                                                         </span>
                                                     </div>
                                                     {/* single pricing End */}
-                                                    <a className="rts-btn btn-primary" href="#">
+                                                    <Link className="rts-btn btn-primary" to="/contactus#send-message">
                                                         Buy This
-                                                    </a>
+                                                    </Link>
                                                 </div>
                                                 {/* pricing body end */}
                                             </div>
@@ -476,9 +472,9 @@ function OurService() {
                                                         </span>
                                                     </div>
                                                     {/* single pricing End */}
-                                                    <a className="rts-btn btn-primary" href="#">
+                                                    <Link className="rts-btn btn-primary" to="/contactus#send-message">
                                                         Buy This
-                                                    </a>
+                                                    </Link>
                                                 </div>
                                                 {/* pricing body end */}
                                             </div>
@@ -492,7 +488,6 @@ function OurService() {
                 </div>
             </div>
             {/* rts pricing area end */}
-
 
             <FooterOne />
 

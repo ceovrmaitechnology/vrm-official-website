@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 function BannerFive() {
 
-
     return (
         <div>
             {/* banner area start three */}
@@ -46,7 +45,6 @@ function BannerFive() {
             {/* banner area end three */}
         </div>
     )
-
 
 }
 

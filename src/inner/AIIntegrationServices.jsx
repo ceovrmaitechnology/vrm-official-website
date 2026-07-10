@@ -1,5 +1,5 @@
-
 import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import HeaderOne from '../components/header/HeaderOne';
 import FooterOne from '../components/footer/FooterOne';
@@ -18,25 +18,33 @@ function AIIntegrationServices() {
     return (
         <div className="rts-ai-integration-services">
             <HeaderOne />
+            <Helmet>
+                <title>AI Integration Services | API & Data Pipelines | VRM AI</title>
+                <meta name="description" content="Embed AI workflows into your existing enterprise IT systems with expert integration services. REST APIs, Kafka pipelines, and containerized deployments." />
+                <meta property="og:title" content="AI Integration Services — Secure API & Data Pipeline Engineering" />
+                <meta property="og:description" content="Embed AI workflows into your existing enterprise IT systems with expert integration services. REST APIs, Kafka pipelines, and containerized deployments." />
+                <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
+                <link rel="canonical" href="https://www.vrmaitechnology.com/solutions/ai-integration-services" />
+            
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="AI Integration Services — Secure API & Data Pipeline Engineering" />
+                <meta name="twitter:description" content="Embed AI workflows into your existing enterprise IT systems with expert integration services. REST APIs, Kafka pipelines, and containerized deployments." />
+                <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
+            </Helmet>
 
-            {/* 1. Hero Section - Enterprise Gradient & Background Image */}
-            <div className="vrm-full-width-section ptb--120 position-relative" style={{
-                backgroundImage: 'linear-gradient(rgba(17, 20, 44, 0.85), rgba(27, 39, 124, 0.9)), url(/assets/images/banner/03.jpg)',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                backgroundRepeat: 'no-repeat'
-            }}>
-                <div className="container position-relative z-index-1">
+            {/* 1. Hero Section - Enterprise Gradient */}
+            <div className="vrm-full-width-section vrm-enterprise-gradient">
+                <div className="container">
                     <div className="row align-items-center">
-                        <div className="col-lg-7 text-start">
+                        <div className="col-lg-7">
                             <div className="banner-content-two">
                                 <span className="pre-title wow fadeInUp text-white-50" data-wow-delay=".1s">
                                     AI Integration
                                 </span>
-                                <h1 className="title wow fadeInUp text-white" data-wow-delay=".2s" style={{ fontSize: '60px', fontWeight: '700', lineHeight: '1.2' }}>
+                                <h1 className="title wow fadeInUp text-white" data-wow-delay=".2s">
                                     AI Integration Service
                                 </h1>
-                                <p className="disc wow fadeInUp text-white-50 mt-4 mb-5" data-wow-delay=".3s" style={{ maxWidth: '650px', fontSize: '18px', lineHeight: '1.6' }}>
+                                <p className="disc wow fadeInUp text-white-50" data-wow-delay=".3s">
                                     Seamlessly integrate advanced AI capabilities into your existing enterprise systems. Our AI integration services ensure secure, scalable, and high-performance implementation across platforms, enabling automation, intelligence, and operational efficiency.
                                 </p>
                                 <div className="button-area wow fadeInUp" data-wow-delay=".4s">
@@ -46,7 +54,7 @@ function AIIntegrationServices() {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-lg-5 d-none d-lg-block">
+                        <div className="col-lg-5">
                             <div className="banner-image-two wow fadeInUp" data-wow-delay=".3s">
                                 <img src="/assets/images/Solutions/AIIntegration.png" alt="AI Integration Services" style={{ borderRadius: '20px', boxShadow: '0 20px 50px rgba(0,0,0,0.2)' }} />
                             </div>

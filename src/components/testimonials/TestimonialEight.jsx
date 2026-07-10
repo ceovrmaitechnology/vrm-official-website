@@ -19,7 +19,7 @@ function TestimonialEight() {
                                 <h2 className="title mt--15">Our Client Reviews</h2>
                             </div>
                             <div className="button-area">
-                                <a href="#" className="rts-btn btn-primary-2">
+                                <a href="/" className="rts-btn btn-primary-2">
                                     See All Reviews
                                 </a>
                             </div>
@@ -50,14 +50,14 @@ function TestimonialEight() {
                                         {/* single client reviews */}
                                         <div className="rts-client-reviews-h2">
                                             <div className="review-header">
-                                                <a href="#" className="thumbnail">
+                                                <a href="/" className="thumbnail">
                                                     <img
                                                         src="assets/images/testimonials/02.png"
                                                         alt="testimonials_area"
                                                     />
                                                 </a>
                                                 <div className="discription">
-                                                    <a href="#">
+                                                    <a href="/">
                                                         <h6 className="title">David Smith</h6>
                                                     </a>
                                                     <span>Finance</span>
@@ -70,7 +70,7 @@ function TestimonialEight() {
                                                     rhoncus mauris dignissim ante”
                                                 </p>
                                                 <div className="body-end">
-                                                    <a href="#">
+                                                    <a href="/">
                                                         <img
                                                             src="assets/images/testimonials/icon/logo-01.png"
                                                             alt="Client_logo"
@@ -92,14 +92,14 @@ function TestimonialEight() {
                                         {/* single client reviews */}
                                         <div className="rts-client-reviews-h2">
                                             <div className="review-header">
-                                                <a href="#" className="thumbnail">
+                                                <a href="/" className="thumbnail">
                                                     <img
                                                         src="assets/images/testimonials/02.png"
                                                         alt="testimonials_area"
                                                     />
                                                 </a>
                                                 <div className="discription">
-                                                    <a href="#">
+                                                    <a href="/">
                                                         <h6 className="title">David Smith</h6>
                                                     </a>
                                                     <span>Finance</span>
@@ -112,7 +112,7 @@ function TestimonialEight() {
                                                     rhoncus mauris dignissim ante”
                                                 </p>
                                                 <div className="body-end">
-                                                    <a href="#">
+                                                    <a href="/">
                                                         <img
                                                             src="assets/images/testimonials/icon/logo-01.png"
                                                             alt="Client_logo"
@@ -134,14 +134,14 @@ function TestimonialEight() {
                                         {/* single client reviews */}
                                         <div className="rts-client-reviews-h2">
                                             <div className="review-header">
-                                                <a href="#" className="thumbnail">
+                                                <a href="/" className="thumbnail">
                                                     <img
                                                         src="assets/images/testimonials/02.png"
                                                         alt="testimonials_area"
                                                     />
                                                 </a>
                                                 <div className="discription">
-                                                    <a href="#">
+                                                    <a href="/">
                                                         <h6 className="title">David Smith</h6>
                                                     </a>
                                                     <span>Finance</span>
@@ -154,7 +154,7 @@ function TestimonialEight() {
                                                     rhoncus mauris dignissim ante”
                                                 </p>
                                                 <div className="body-end">
-                                                    <a href="#">
+                                                    <a href="/">
                                                         <img
                                                             src="assets/images/testimonials/icon/logo-01.png"
                                                             alt="Client_logo"
@@ -176,14 +176,14 @@ function TestimonialEight() {
                                         {/* single client reviews */}
                                         <div className="rts-client-reviews-h2">
                                             <div className="review-header">
-                                                <a href="#" className="thumbnail">
+                                                <a href="/" className="thumbnail">
                                                     <img
                                                         src="assets/images/testimonials/02.png"
                                                         alt="testimonials_area"
                                                     />
                                                 </a>
                                                 <div className="discription">
-                                                    <a href="#">
+                                                    <a href="/">
                                                         <h6 className="title">David Smith</h6>
                                                     </a>
                                                     <span>Finance</span>
@@ -196,7 +196,7 @@ function TestimonialEight() {
                                                     rhoncus mauris dignissim ante”
                                                 </p>
                                                 <div className="body-end">
-                                                    <a href="#">
+                                                    <a href="/">
                                                         <img
                                                             src="assets/images/testimonials/icon/logo-01.png"
                                                             alt="Client_logo"
@@ -218,14 +218,14 @@ function TestimonialEight() {
                                         {/* single client reviews */}
                                         <div className="rts-client-reviews-h2">
                                             <div className="review-header">
-                                                <a href="#" className="thumbnail">
+                                                <a href="/" className="thumbnail">
                                                     <img
                                                         src="assets/images/testimonials/02.png"
                                                         alt="testimonials_area"
                                                     />
                                                 </a>
                                                 <div className="discription">
-                                                    <a href="#">
+                                                    <a href="/">
                                                         <h6 className="title">David Smith</h6>
                                                     </a>
                                                     <span>Finance</span>
@@ -238,7 +238,7 @@ function TestimonialEight() {
                                                     rhoncus mauris dignissim ante”
                                                 </p>
                                                 <div className="body-end">
-                                                    <a href="#">
+                                                    <a href="/">
                                                         <img
                                                             src="assets/images/testimonials/icon/logo-01.png"
                                                             alt="Client_logo"
@@ -260,14 +260,14 @@ function TestimonialEight() {
                                         {/* single client reviews */}
                                         <div className="rts-client-reviews-h2">
                                             <div className="review-header">
-                                                <a href="#" className="thumbnail">
+                                                <a href="/" className="thumbnail">
                                                     <img
                                                         src="assets/images/testimonials/02.png"
                                                         alt="testimonials_area"
                                                     />
                                                 </a>
                                                 <div className="discription">
-                                                    <a href="#">
+                                                    <a href="/">
                                                         <h6 className="title">David Smith</h6>
                                                     </a>
                                                     <span>Finance</span>
@@ -280,7 +280,7 @@ function TestimonialEight() {
                                                     rhoncus mauris dignissim ante”
                                                 </p>
                                                 <div className="body-end">
-                                                    <a href="#">
+                                                    <a href="/">
                                                         <img
                                                             src="assets/images/testimonials/icon/logo-01.png"
                                                             alt="Client_logo"

@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './home-overview.css';
 
-
 function HomeOverview() {
     return (
         <>
@@ -29,7 +28,7 @@ function HomeOverview() {
                             id: 1,
                             icon: "assets/images/service/icon/01.svg",
                             title: "AI Consulting Services",
-                            desc: "Our AI Consulting Services help organizations unlock the true potential of Artificial Intelligence. We guide businesses through every stage of their AI journey from strategy and feasibility analysis to development, deployment, and optimization.",
+                            desc: "Empowering your business with strategic AI guidance. We help you identify opportunities, evaluate feasibility, and build a clear roadmap to integrate artificial intelligence into your business model.",
                             link: "/solutions/ai-consulting-services",
                             bgImage: "assets/images/about/1.jpeg"
                         },
@@ -37,17 +36,17 @@ function HomeOverview() {
                             id: 2,
                             icon: "assets/images/service/icon/02.svg",
                             title: "AI Development Services",
-                            desc: "Our AI Development Services focus on designing, building, and deploying advanced AI-powered systems tailored to your business needs. We transform complex ideas into scalable, secure, and high-performance AI applications that enhance efficiency, automate workflows, and accelerate innovation.",
+                            desc: "Building custom, high-performance AI solutions. From intelligent chatbots to machine learning models, we transform your complex business requirements into scalable, secure, and production-ready applications.",
                             link: "/solutions/ai-development-services",
                             bgImage: "assets/images/about/2.jpeg"
                         },
                         {
                             id: 3,
-                            icon: "assets/images/service/icon/03.svg",
-                            title: "Our Products",
-                            desc: "AI-powered interview automation platform designed to streamline and modernize the hiring process. It enables organizations to conduct structured, intelligent, and scalable candidate evaluations through advanced AI technology.",
-                            link: "/products/workflow",
-                            bgImage: "assets/images/about/3.jpeg"
+                            icon: "assets/images/service/icon/04.svg",
+                            title: "AI Chatbot Development",
+                            desc: "Developing intelligent, conversational AI chatbots. We design custom NLP solutions, automate customer support, and deploy smart virtual assistants to enhance engagement across all channels.",
+                            link: "/solutions/ai-chatbot-development",
+                            bgImage: "assets/images/about/04.jpg"
                         }
                     ].map((product) => (
                         <div key={product.id} className="vrm-product-card wow fadeInUp" data-wow-delay=".3s">
@@ -69,34 +68,48 @@ function HomeOverview() {
                     ))}
                 </div>
             </section>
+
             {/* Products Highlight Section */}
-            <section className="vrm-products-highlight" style={{ paddingTop: '100px', paddingBottom: '90px' }}>
+            <section className="vrm-products-highlight">
                 <div className="container">
+                    {/* Workflow Section */}
                     <div className="vrm-overview__section-header wow fadeInUp" data-wow-delay=".2s" style={{ textAlign: 'center', marginBottom: '50px' }}>
                         <p className="vrm-overview__eyebrow" style={{ color: '#3B4ECC', fontWeight: '700', textAlign: 'center', margin: '0 auto', display: 'block' }}>Products Highlight</p>
-                        <h2 className="title" style={{ textAlign: 'center', margin: '0 auto' }}>Intelligent Products Powered by WorkFlow.AI</h2>
+                        <h2 className="title" style={{ textAlign: 'center', margin: '0 auto' }}>Intelligent Products Powered by WorkflowAI.in</h2>
                     </div>
-                    <div className="vrm-hero__cards">
+                    <div className="vrm-hero__cards--two-columns" style={{ marginBottom: '80px' }}>
                         {[
                             {
                                 id: 1,
+                                icon: "assets/images/service/icon/04.svg",
+                                category: "Resume Intelligence",
+                                title: "Xpress Screening",
+                                desc: "AI-powered resume parsing and candidate matching that evaluates, structures, and ranks talent at scale.",
+                                link: "/products/workflow/xpress-screening",
+                                bgImage: "assets/images/workflow/xpress-screening/xpress-screening-image.png"
+                            },
+                            {
+                                id: 2,
                                 icon: "assets/images/service/icon/01.svg",
+                                category: "Smart Assessment",
                                 title: "ScreenSage",
                                 desc: "Smart screen monitoring & insights to keep distributed teams aligned, secure, and compliant.",
                                 link: "/products/workflow/screensage",
                                 bgImage: "assets/images/workflow/screensage/screensage-image.png"
                             },
                             {
-                                id: 2,
+                                id: 3,
                                 icon: "assets/images/service/icon/02.svg",
+                                category: "Video Intelligence",
                                 title: "VideoSage",
                                 desc: "AI-powered video intelligence for analysis, summarization, and rapid content search.",
                                 link: "/products/workflow/videosage",
                                 bgImage: "assets/images/workflow/videosage/videosage-image-3.png"
                             },
                             {
-                                id: 3,
+                                id: 4,
                                 icon: "assets/images/service/icon/03.svg",
+                                category: "Technical Evaluation",
                                 title: "CodeSage",
                                 desc: "Intelligent code analysis & automation to accelerate delivery and improve software quality.",
                                 link: "/products/workflow/codesage",
@@ -112,6 +125,91 @@ function HomeOverview() {
                                     <div className="vrm-hero__icon">
                                         <img src={product.icon} alt={product.title} />
                                     </div>
+                                    <span style={{ 
+                                        fontSize: '13px', 
+                                        fontWeight: '700', 
+                                        textTransform: 'uppercase', 
+                                        color: '#3B4ECC', 
+                                        letterSpacing: '1px', 
+                                        display: 'block', 
+                                        marginBottom: '8px' 
+                                    }}>
+                                        {product.category}
+                                    </span>
+                                    <h3>{product.title}</h3>
+                                    <p>{product.desc}</p>
+                                    <Link className="vrm-btn-detail" to={product.link}>
+                                        Read More <i className="fas fa-arrow-right"></i>
+                                    </Link>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* Standalone Products Section */}
+                    <div className="vrm-overview__section-header wow fadeInUp" data-wow-delay=".2s" style={{ textAlign: 'center', marginBottom: '50px' }}>
+                        <p className="vrm-overview__eyebrow" style={{ color: '#3B4ECC', fontWeight: '700', textAlign: 'center', margin: '0 auto', display: 'block' }}>Dedicated Engines</p>
+                        <h2 className="title" style={{ textAlign: 'center', margin: '0 auto' }}>Specialized AI Solutions for Enterprise Outreach & Training</h2>
+                    </div>
+                    <div className="vrm-hero__cards--two-columns">
+                        {[
+                            {
+                                id: 5,
+                                icon: "assets/images/service/icon/04.svg",
+                                category: "Interactive Voice Training",
+                                title: "AI Buddy",
+                                desc: "AI-powered voice coaching, pronunciation analysis, and multilingual conversation practice.",
+                                link: "/products/aibuddy",
+                                bgImage: "assets/images/aibuddy/aibuddy-image.png"
+                            },
+                            {
+                                id: 6,
+                                icon: "assets/images/service/icon/02.svg",
+                                category: "Citizen Engagement",
+                                title: "People Connect",
+                                desc: "AI-powered citizen engagement, issue verification, and decision intelligence platform.",
+                                link: "/products/people-connect",
+                                bgImage: "assets/images/people-connect/people-connect-image.png"
+                            },
+                            {
+                                id: 7,
+                                icon: "assets/images/service/icon/01.svg",
+                                category: "HR Offboarding",
+                                title: "Ai Exit Interview",
+                                desc: "AI-powered employee exit interview automation, retry engine, and HR insights platform.",
+                                link: "/products/exitinterview",
+                                bgImage: "assets/images/exitinterview/exitinterview-image.png"
+                            },
+                            {
+                                id: 8,
+                                icon: "assets/images/service/icon/03.svg",
+                                category: "Scalable Messaging",
+                                title: "WhatsApp Automation",
+                                desc: "AI-powered WhatsApp Business automation platform for customer communication, marketing, and scheduling.",
+                                link: "/products/whatsapp",
+                                bgImage: "assets/images/whatsapp/whatsapp-hero-v2.png"
+                            }
+                        ].map((product) => (
+                            <div key={product.id} className="vrm-product-card wow fadeInUp" data-wow-delay=".3s">
+                                <div
+                                    className="vrm-product-card-bg"
+                                    style={{ backgroundImage: `url(${product.bgImage})` }}
+                                ></div>
+                                <div className="vrm-product-card__content">
+                                    <div className="vrm-hero__icon">
+                                        <img src={product.icon} alt={product.title} />
+                                    </div>
+                                    <span style={{ 
+                                        fontSize: '13px', 
+                                        fontWeight: '700', 
+                                        textTransform: 'uppercase', 
+                                        color: '#3B4ECC', 
+                                        letterSpacing: '1px', 
+                                        display: 'block', 
+                                        marginBottom: '8px' 
+                                    }}>
+                                        {product.category}
+                                    </span>
                                     <h3>{product.title}</h3>
                                     <p>{product.desc}</p>
                                     <Link className="vrm-btn-detail" to={product.link}>
@@ -128,5 +226,3 @@ function HomeOverview() {
 }
 
 export default HomeOverview;
-
-

@@ -1,5 +1,5 @@
-
 import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import HeaderOne from '../components/header/HeaderOne';
 import FooterOne from '../components/footer/FooterOne';
@@ -18,8 +18,21 @@ function AIDevelopmentServices() {
     return (
         <div className="rts-ai-development-services">
             <HeaderOne className="header-white-text" />
+            <Helmet>
+                <title>AI Development Services | Custom AI Engineering | VRM AI</title>
+                <meta name="description" content="End-to-end custom AI development services including Machine Learning, Computer Vision, and Natural Language Processing for enterprise pipelines." />
+                <meta property="og:title" content="AI Development Services — Custom NLP, CV & ML Engineering" />
+                <meta property="og:description" content="End-to-end custom AI development services including Machine Learning, Computer Vision, and Natural Language Processing for enterprise pipelines." />
+                <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
+                <link rel="canonical" href="https://www.vrmaitechnology.com/solutions/ai-development-services" />
+            
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="AI Development Services — Custom NLP, CV & ML Engineering" />
+                <meta name="twitter:description" content="End-to-end custom AI development services including Machine Learning, Computer Vision, and Natural Language Processing for enterprise pipelines." />
+                <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
+            </Helmet>
             {/* 1. Hero Section - Enterprise Gradient */}
-            <div className="vrm-full-width-section vrm-enterprise-gradient ptb--80">
+            <div className="vrm-full-width-section vrm-enterprise-gradient">
                 <div className="container">
                     <div className="row align-items-center">
                         <div className="col-lg-7">

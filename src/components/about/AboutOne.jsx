@@ -56,11 +56,11 @@ function AboutOne() {
                         </div>
                         {/* about right */}
                         {/* about-right Start*/}
-                        <div className="col-lg-6 col-md-12 col-sm-12 col-12 order-lg-2 order-md-1 order-sm-1 order-1 d-none d-lg-flex h-100">
+                        <div className="col-lg-6 col-md-12 col-sm-12 col-12 order-lg-2 order-md-1 order-sm-1 order-1 mb_md--30 mb_sm--30 d-flex h-100">
                             <div className="about-one-thumbnail w-100 h-100 position-relative">
                                 <img
-                                    src="assets/images/home/home-1.png"
-                                    alt="about-finbiz"
+                                    src="assets/images/home/woman-phone-thumbsup.png"
+                                    alt="about-vrm"
                                     className="w-100 h-100"
                                     style={{ borderRadius: '16px' }}
                                 />

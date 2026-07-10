@@ -59,13 +59,13 @@ function TeamTwo() {
                                                 <span>Consultant</span>
                                             </div>
                                             <div className="acquaintance-social">
-                                                <Link href="#">
+                                                <Link to="#">
                                                     <i className="fab fa-facebook-f" />
                                                 </Link>
-                                                <Link href="#">
+                                                <Link to="#">
                                                     <i className="fab fa-twitter" />
                                                 </Link>
-                                                <Link href="#">
+                                                <Link to="#">
                                                     <i className="fab fa-instagram" />
                                                 </Link>
                                             </div>
@@ -87,13 +87,13 @@ function TeamTwo() {
                                                 <span>Consultant</span>
                                             </div>
                                             <div className="acquaintance-social">
-                                                <Link href="#">
+                                                <Link to="#">
                                                     <i className="fab fa-facebook-f" />
                                                 </Link>
-                                                <Link href="#">
+                                                <Link to="#">
                                                     <i className="fab fa-twitter" />
                                                 </Link>
-                                                <Link href="#">
+                                                <Link to="#">
                                                     <i className="fab fa-instagram" />
                                                 </Link>
                                             </div>
@@ -115,13 +115,13 @@ function TeamTwo() {
                                                 <span>Consultant</span>
                                             </div>
                                             <div className="acquaintance-social">
-                                                <Link href="#">
+                                                <Link to="#">
                                                     <i className="fab fa-facebook-f" />
                                                 </Link>
-                                                <Link href="#">
+                                                <Link to="#">
                                                     <i className="fab fa-twitter" />
                                                 </Link>
-                                                <Link href="#">
+                                                <Link to="#">
                                                     <i className="fab fa-instagram" />
                                                 </Link>
                                             </div>
@@ -143,13 +143,13 @@ function TeamTwo() {
                                                 <span>Consultant</span>
                                             </div>
                                             <div className="acquaintance-social">
-                                                <Link href="#">
+                                                <Link to="#">
                                                     <i className="fab fa-facebook-f" />
                                                 </Link>
-                                                <Link href="#">
+                                                <Link to="#">
                                                     <i className="fab fa-twitter" />
                                                 </Link>
-                                                <Link href="#">
+                                                <Link to="#">
                                                     <i className="fab fa-instagram" />
                                                 </Link>
                                             </div>
@@ -171,13 +171,13 @@ function TeamTwo() {
                                                 <span>Consultant</span>
                                             </div>
                                             <div className="acquaintance-social">
-                                                <Link href="#">
+                                                <Link to="#">
                                                     <i className="fab fa-facebook-f" />
                                                 </Link>
-                                                <Link href="#">
+                                                <Link to="#">
                                                     <i className="fab fa-twitter" />
                                                 </Link>
-                                                <Link href="#">
+                                                <Link to="#">
                                                     <i className="fab fa-instagram" />
                                                 </Link>
                                             </div>
@@ -199,13 +199,13 @@ function TeamTwo() {
                                                 <span>Consultant</span>
                                             </div>
                                             <div className="acquaintance-social">
-                                                <Link href="#">
+                                                <Link to="#">
                                                     <i className="fab fa-facebook-f" />
                                                 </Link>
-                                                <Link href="#">
+                                                <Link to="#">
                                                     <i className="fab fa-twitter" />
                                                 </Link>
-                                                <Link href="#">
+                                                <Link to="#">
                                                     <i className="fab fa-instagram" />
                                                 </Link>
                                             </div>

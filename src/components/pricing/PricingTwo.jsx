@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Tabs, Tab, TabContent } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-
 function PricingTwo() {
     const [activeKey, setActiveKey] = useState('home');
     return (

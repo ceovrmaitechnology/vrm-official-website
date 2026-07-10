@@ -15,7 +15,7 @@ function CallToActionSeven() {
                                     <span>Right Now Here!</span>
                                 </h2>
                                 <div className="callto-action-contact-area">
-                                    <a href="#" className="rts-btn btn-primary-2">
+                                    <a href="/" className="rts-btn btn-primary-2">
                                         Make Appointment
                                     </a>
                                     <div className="call-area">
@@ -35,8 +35,8 @@ function CallToActionSeven() {
                                         </div>
                                         <div className="number-area">
                                             <span>Need Help?</span>
-                                            <a href="tel:123-456-7890">
-                                                <h6 className="call">+256 21458.2146</h6>
+                                            <a href="tel:+918123348355">
+                                                <h6 className="call">+91 81233 48355</h6>
                                             </a>
                                         </div>
                                     </div>

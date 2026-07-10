@@ -61,22 +61,22 @@ function TestimonialNine() {
                         <div className="row">
                             <div className="client-wrapper-one">
                                 <Link to={'#'}>
-                                    <img src="assets/images/client/01.png" alt="business_finbiz" />
+                                    <img src="assets/images/client/01.png" alt="VRM AI partner logo" />
                                 </Link>
                                 <Link to={'#'}>
-                                    <img src="assets/images/client/02.png" alt="business_finbiz" />
+                                    <img src="assets/images/client/02.png" alt="VRM AI partner logo" />
                                 </Link>
                                 <Link to={'#'}>
-                                    <img src="assets/images/client/03.png" alt="business_finbiz" />
+                                    <img src="assets/images/client/03.png" alt="VRM AI partner logo" />
                                 </Link>
                                 <Link to={'#'}>
-                                    <img src="assets/images/client/04.png" alt="business_finbiz" />
+                                    <img src="assets/images/client/04.png" alt="VRM AI partner logo" />
                                 </Link>
                                 <Link to={'#'}>
-                                    <img src="assets/images/client/05.png" alt="business_finbiz" />
+                                    <img src="assets/images/client/05.png" alt="VRM AI partner logo" />
                                 </Link>
                                 <Link to={'#'}>
-                                    <img src="assets/images/client/06.png" alt="business_finbiz" />
+                                    <img src="assets/images/client/06.png" alt="VRM AI partner logo" />
                                 </Link>
                             </div>
                         </div>

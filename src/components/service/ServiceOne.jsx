@@ -29,7 +29,7 @@ function ServiceOne() {
                                     <div className="thumbnail">
                                         <img
                                             src="assets/images/service/icon/04.svg"
-                                            alt="finbiz_service"
+                                            alt="AI automation service dashboard"
                                         />
                                     </div>
                                     <div className="service-details">
@@ -56,7 +56,7 @@ function ServiceOne() {
                                     <div className="thumbnail">
                                         <img
                                             src="assets/images/service/icon/05.svg"
-                                            alt="finbiz_service"
+                                            alt="AI automation service dashboard"
                                         />
                                     </div>
                                     <div className="service-details">
@@ -83,7 +83,7 @@ function ServiceOne() {
                                     <div className="thumbnail">
                                         <img
                                             src="assets/images/service/icon/06.svg"
-                                            alt="finbiz_service"
+                                            alt="AI automation service dashboard"
                                         />
                                     </div>
                                     <div className="service-details">
@@ -128,7 +128,7 @@ function ServiceOne() {
                                         </h3>
                                     </div>
                                     <div className="cta-right">
-                                        <Link className="rts-btn btn-white" href="appoinment.html">
+                                        <Link className="rts-btn btn-white" to={'/contactus'}>
                                             Lets Work Together
                                         </Link>
                                     </div>

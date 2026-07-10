@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 function WhyChooseUs() {
     return (
@@ -57,17 +58,17 @@ function WhyChooseUs() {
                                         </div>
                                     </div>
                                     <div className="support-team">
-                                        <a href="team-details.html" className="thumbnail">
+                                        <Link to={'/team-details'} className="thumbnail">
                                             <img
                                                 src="assets/images/business-goal/team.png"
                                                 alt="Image-team"
                                             />
-                                        </a>
+                                        </Link>
                                         <div className="details">
                                             <span>24/7 Support Team</span>
-                                            <a href="team-details.html">
+                                            <Link to={'/team-details'}>
                                                 <h6 className="title">(+214) 2158.31598</h6>
-                                            </a>
+                                            </Link>
                                         </div>
                                     </div>
                                 </div>

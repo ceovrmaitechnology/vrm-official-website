@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-
+import React from 'react';
 
 import HeaderOne from "../components/header/HeaderOne";
 
@@ -7,8 +6,7 @@ import { Link } from 'react-router-dom';
 import FooterOne from "../components/footer/FooterOne";
 import Breadcrumb from "./Breadcrumb";
 
-
-function ProjectThree() {
+function TeamDetails() {
     const breadcrumbs = [
         { label: 'Home', link: '/' },
         { label: 'Team Style 1' }
@@ -144,7 +142,7 @@ function ProjectThree() {
                                         </div>
                                         <h6 className="experience">Business Expert</h6>
                                         <div className="date">
-                                            2016 - Present <span>(Finbiz)</span>
+                                            2016 - Present <span>(VRM AI)</span>
                                         </div>
                                     </div>
                                     <div className="single-skill">
@@ -155,7 +153,7 @@ function ProjectThree() {
                                         </div>
                                         <h6 className="experience">Finance Manager</h6>
                                         <div className="date">
-                                            2016 - Present <span>(Finbiz)</span>
+                                            2016 - Present <span>(VRM AI)</span>
                                         </div>
                                     </div>
                                     <div className="single-skill">
@@ -166,7 +164,7 @@ function ProjectThree() {
                                         </div>
                                         <h6 className="experience">Junior Technician</h6>
                                         <div className="date">
-                                            2016 - Present <span>(Finbiz)</span>
+                                            2016 - Present <span>(VRM AI)</span>
                                         </div>
                                     </div>
                                     <div className="single-skill">
@@ -177,7 +175,7 @@ function ProjectThree() {
                                         </div>
                                         <h6 className="experience">Junior Architect</h6>
                                         <div className="date">
-                                            2016 - Present <span>(Finbiz)</span>
+                                            2016 - Present <span>(VRM AI)</span>
                                         </div>
                                     </div>
                                 </div>
@@ -188,11 +186,10 @@ function ProjectThree() {
                 </div>
             </div>
 
-
             <FooterOne />
 
         </div>
     )
 }
 
-export default ProjectThree
+export default TeamDetails

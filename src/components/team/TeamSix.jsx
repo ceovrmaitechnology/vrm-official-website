@@ -21,29 +21,29 @@ function TeamSix() {
                             {/* single team area start */}
                             <div className="team-style-ten bg_image">
                                 <div className="thumbnail-image-team">
-                                    <a href="#" className="thumbnail">
+                                    <a href="/" className="thumbnail">
                                         <img src="assets/images/team/tm/01.jpg" alt="team" />
                                     </a>
                                     <ul className="social-team-10">
                                         <li>
-                                            <a href="#">
+                                            <a href="/">
                                                 <i className="fab fa-facebook-f" />
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#">
+                                            <a href="/">
                                                 <i className="fab fa-twitter" />
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#">
+                                            <a href="/">
                                                 <i className="fab fa-linkedin-in" />
                                             </a>
                                         </li>
                                     </ul>
                                 </div>
                                 <div className="body">
-                                    <a href="#">
+                                    <a href="/">
                                         <h5 className="title">Archer Graham</h5>
                                     </a>
                                     <span>Finance Manager</span>
@@ -55,29 +55,29 @@ function TeamSix() {
                             {/* single team area start */}
                             <div className="team-style-ten bg_image">
                                 <div className="thumbnail-image-team">
-                                    <a href="#" className="thumbnail">
+                                    <a href="/" className="thumbnail">
                                         <img src="assets/images/team/tm/02.jpg" alt="team" />
                                     </a>
                                     <ul className="social-team-10">
                                         <li>
-                                            <a href="#">
+                                            <a href="/">
                                                 <i className="fab fa-facebook-f" />
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#">
+                                            <a href="/">
                                                 <i className="fab fa-twitter" />
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#">
+                                            <a href="/">
                                                 <i className="fab fa-linkedin-in" />
                                             </a>
                                         </li>
                                     </ul>
                                 </div>
                                 <div className="body">
-                                    <a href="#">
+                                    <a href="/">
                                         <h5 className="title">Thomas Johnson</h5>
                                     </a>
                                     <span>Finance Manager</span>
@@ -89,29 +89,29 @@ function TeamSix() {
                             {/* single team area start */}
                             <div className="team-style-ten bg_image">
                                 <div className="thumbnail-image-team">
-                                    <a href="#" className="thumbnail">
+                                    <a href="/" className="thumbnail">
                                         <img src="assets/images/team/tm/03.jpg" alt="team" />
                                     </a>
                                     <ul className="social-team-10">
                                         <li>
-                                            <a href="#">
+                                            <a href="/">
                                                 <i className="fab fa-facebook-f" />
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#">
+                                            <a href="/">
                                                 <i className="fab fa-twitter" />
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#">
+                                            <a href="/">
                                                 <i className="fab fa-linkedin-in" />
                                             </a>
                                         </li>
                                     </ul>
                                 </div>
                                 <div className="body">
-                                    <a href="#">
+                                    <a href="/">
                                         <h5 className="title"> Grace Turner</h5>
                                     </a>
                                     <span>Finance Manager</span>
@@ -123,29 +123,29 @@ function TeamSix() {
                             {/* single team area start */}
                             <div className="team-style-ten bg_image">
                                 <div className="thumbnail-image-team">
-                                    <a href="#" className="thumbnail">
+                                    <a href="/" className="thumbnail">
                                         <img src="assets/images/team/tm/04.jpg" alt="team" />
                                     </a>
                                     <ul className="social-team-10">
                                         <li>
-                                            <a href="#">
+                                            <a href="/">
                                                 <i className="fab fa-facebook-f" />
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#">
+                                            <a href="/">
                                                 <i className="fab fa-twitter" />
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#">
+                                            <a href="/">
                                                 <i className="fab fa-linkedin-in" />
                                             </a>
                                         </li>
                                     </ul>
                                 </div>
                                 <div className="body">
-                                    <a href="#">
+                                    <a href="/">
                                         <h5 className="title">Victoria Wright</h5>
                                     </a>
                                     <span>Finance Manager</span>

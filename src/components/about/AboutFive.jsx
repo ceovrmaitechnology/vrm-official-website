@@ -74,8 +74,8 @@ function AboutFive() {
                                         <img src="assets/images/about/main/user/05.png" alt="call" />
                                         <div className="details-area">
                                             <span>Call us anytime</span>
-                                            <a href="#" className="number">
-                                                +256 214582146
+                                            <a href="/" className="number">
+                                                +91 81233 48355
                                             </a>
                                         </div>
                                     </div>

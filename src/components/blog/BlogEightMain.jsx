@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 
 const BlogGridMain = (props) => {
-    const { blogID, blogImage, blogTitle, blogPublishedDate } = props;
+    const { blogID, blogImage, blogTitle } = props;
     return (
         <>
             <div className="rts-blog-h-2-wrapper">

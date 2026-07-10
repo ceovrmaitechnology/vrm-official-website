@@ -3,7 +3,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 
 const BlogGridMain = (props) => {
-    const { blogID, blogImage, blogTitle, blogCategory, blogPublishedDate } = props;
+    const { blogID, blogImage, blogTitle, blogCategory } = props;
     return (
         <>
             <div className="blog-header">

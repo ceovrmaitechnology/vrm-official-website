@@ -22,7 +22,7 @@ function AboutFour() {
                         </div>
                         <div className="col-lg-6">
                             <div className="text-start home-seven-about">
-                                <p className="pre-title">More About Finbiz</p>
+                                <p className="pre-title">More About VRM AI</p>
                                 <h3 className="title">
                                     Our Consulting For All Kind Of Finance Services
                                 </h3>

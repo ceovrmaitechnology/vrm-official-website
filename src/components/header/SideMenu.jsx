@@ -62,21 +62,10 @@ function SideMenu({ isSidebarOpen, toggleSidebar }) {
                                     </ul>
                                 </li>
 
-                                <li className="has-droupdown menu-item">
-                                    <Link className="menu-link" to={'#'} onClick={(e) => { e.preventDefault(); toggleMenu(2); }}>
+                                <li className="menu-item">
+                                    <Link className="menu-link" to={'/products'} onClick={toggleSidebar}>
                                         Products
                                     </Link>
-                                    <ul className={`submenu ${openMenu === 2 ? 'active' : ''}`}>
-                                        <li className="mobile-menu-link tag">WorkFlow.AI</li>
-                                        <li className="mobile-menu-link"><Link to={'/products/workflow/screensage'} onClick={toggleSidebar}>ScreenSage</Link></li>
-                                        <li className="mobile-menu-link"><Link to={'/products/workflow/videosage'} onClick={toggleSidebar}>VideoSage</Link></li>
-                                        <li className="mobile-menu-link"><Link to={'/products/workflow/codesage'} onClick={toggleSidebar}>CodeSage</Link></li>
-                                        <li className="mobile-menu-link tag mt-2">GrowthFlowAI</li>
-                                        <li className="mobile-menu-link"><Link to={'/business-acquisition-form'} onClick={toggleSidebar}>Business Acquisition</Link></li>
-                                        <li className="mobile-menu-link"><Link to={'/client-acquisition-form'} onClick={toggleSidebar}>Client Acquisition</Link></li>
-                                        <li className="mobile-menu-link"><Link to={'/job-applicant-form'} onClick={toggleSidebar}>Job Applicant</Link></li>
-                                        <li className="mobile-menu-link"><Link to={'/organization-form'} onClick={toggleSidebar}>Organization</Link></li>
-                                    </ul>
                                 </li>
 
                                 <li className="menu-item">

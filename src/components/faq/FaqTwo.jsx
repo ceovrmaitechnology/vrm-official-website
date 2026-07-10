@@ -1,7 +1,6 @@
 import React from 'react'
 import Accordion from 'react-bootstrap/Accordion';
 
-
 function FaqTwo() {
     return (
         <div>
@@ -34,7 +33,7 @@ function FaqTwo() {
                                                 </Accordion.Body>
                                             </Accordion.Item>
                                             <Accordion.Item eventKey="2">
-                                                <Accordion.Header>Finbiz Company Solution</Accordion.Header>
+                                                <Accordion.Header>VRM AI Company Solution</Accordion.Header>
                                                 <Accordion.Body>
                                                     Neque parturient sed nascetur facilisis suscipit ridiculus magna lobortis imperdiet vivamus est aliquam euismod nec quam convallis ornare justo
                                                 </Accordion.Body>

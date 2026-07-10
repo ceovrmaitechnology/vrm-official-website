@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function CtaEight() {
     return (
@@ -9,7 +10,7 @@ function CtaEight() {
                     <div className="row">
                         <div className="cta-h2-wrapper text-center">
                             <div className="icon">
-                                <a href="#">
+                                <a href="/">
                                     <i className="fas fa-phone-alt" />
                                 </a>
                             </div>
@@ -18,12 +19,12 @@ function CtaEight() {
                                     Contact Our Agent For Any kind off Business Help{" "}
                                     <span>(24/7 Available)</span>
                                 </p>
-                                <a href="tel:123-456-7890p123" className="number">
-                                    +215 2153.2159
+                                <a href="tel:+918123348355" className="number">
+                                    +91 81233 48355
                                 </a>
-                                <a href="#" className="rts-btn btn-primary-2">
+                                <Link to="/contactus" className="rts-btn btn-primary-2">
                                     Contact Us
-                                </a>
+                                </Link>
                             </div>
                         </div>
                     </div>
