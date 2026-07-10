@@ -1,5 +1,5 @@
-
 import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import HeaderOne from '../components/header/HeaderOne';
 import FooterOne from '../components/footer/FooterOne';
@@ -18,6 +18,19 @@ function MachineLearningServices() {
     return (
         <div className="rts-machine-learning-services">
             <HeaderOne className="header-white-text" />
+            <Helmet>
+                <title>Machine Learning Services | Deep Learning | VRM AI</title>
+                <meta name="description" content="Deploy custom machine learning models and deep neural networks with VRM AI Technology. Integrate ML systems into enterprise pipelines for real-time inference." />
+                <meta property="og:title" content="Machine Learning Services — Custom Neural Networks & Deep Learning" />
+                <meta property="og:description" content="Deploy custom machine learning models and deep neural networks with VRM AI Technology. Integrate ML systems into enterprise pipelines for real-time inference." />
+                <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
+                <link rel="canonical" href="https://www.vrmaitechnology.com/solutions/machine-learning-services" />
+            
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="Machine Learning Services — Custom Neural Networks & Deep Learning" />
+                <meta name="twitter:description" content="Deploy custom machine learning models and deep neural networks with VRM AI Technology. Integrate ML systems into enterprise pipelines for real-time inference." />
+                <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
+            </Helmet>
             {/* 1. Hero Section - Enterprise Gradient */}
             <div className="vrm-full-width-section vrm-enterprise-gradient">
                 <div className="container">

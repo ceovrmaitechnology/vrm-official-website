@@ -42,23 +42,22 @@ import BlogDetails from '../inner/BlogDetails';
 import BlogDetailsDefault from '../inner/BlogDetailsDefault';
 import ContactUs from '../inner/ContactUs';
 import Careers from '../inner/Careers';
-import GrowthFlow from '../inner/GrowthFlow';
-import ClientAcquisitionForm from '../inner/ClientAcquisitionForm';
-import BusinessAcquisitionForm from '../inner/BusinessAcquisitionForm';
-import JobApplicantForm from '../inner/JobApplicantForm';
-import OrganizationForm from '../inner/OrganizationForm';
 import Workflow from '../inner/Workflow';
+import XpressScreening from '../inner/XpressScreening';
 import ScreenSage from '../inner/ScreenSage';
 import VideoSage from '../inner/VideoSage';
 import CodeSage from '../inner/CodeSage';
+import AiBuddy from '../inner/AiBuddy';
+import PeopleConnect from '../inner/PeopleConnect';
+import AiExitInterview from '../inner/AiExitInterview';
 import AICallingAgent from '../inner/AICallingAgent';
 import AIConsultingServices from '../inner/AIConsultingServices';
 import AIChatbotDevelopment from '../inner/AIChatbotDevelopment';
 import AIDevelopmentServices from '../inner/AIDevelopmentServices';
 import AIIntegrationServices from '../inner/AIIntegrationServices';
 import MachineLearningServices from '../inner/MachineLearningServices';
-
-
+import WhatsAppAutomation from '../inner/WhatsAppAutomation';
+import ProductsOverview from '../inner/ProductsOverview';
 
 // onepage
 import OnepageOne from '../onepage/OnepageOne';
@@ -71,9 +70,6 @@ import OnepageSeven from '../onepage/OnepageSeven';
 import OnepageEight from '../onepage/OnepageEight';
 import OnepageNine from '../onepage/OnepageNine';
 import OnepageTen from '../onepage/OnepageTen';
-
-
-
 
 function RouterPage() {
     return (
@@ -119,15 +115,16 @@ function RouterPage() {
                     <Route path="/blog-details-default" element={<BlogDetailsDefault />}></Route>
                     <Route path="/contactus" element={<ContactUs />}></Route>
                     <Route path="/careers" element={<Careers />}></Route>
-                    <Route path="/products/growthflowai" element={<GrowthFlow />}></Route>
-                    <Route path="/client-acquisition-form" element={<ClientAcquisitionForm />}></Route>
-                    <Route path="/business-acquisition-form" element={<BusinessAcquisitionForm />}></Route>
-                    <Route path="/job-applicant-form" element={<JobApplicantForm />}></Route>
-                    <Route path="/organization-form" element={<OrganizationForm />}></Route>
+                    <Route path="/products" element={<ProductsOverview />}></Route>
                     <Route path="/products/workflow" element={<Workflow />}></Route>
+                    <Route path="/products/workflow/xpress-screening" element={<XpressScreening />}></Route>
                     <Route path="/products/workflow/screensage" element={<ScreenSage />}></Route>
                     <Route path="/products/workflow/videosage" element={<VideoSage />}></Route>
                     <Route path="/products/workflow/codesage" element={<CodeSage />}></Route>
+                    <Route path="/products/aibuddy" element={<AiBuddy />}></Route>
+                    <Route path="/products/people-connect" element={<PeopleConnect />}></Route>
+                    <Route path="/products/exitinterview" element={<AiExitInterview />}></Route>
+                    <Route path="/products/whatsapp" element={<WhatsAppAutomation />}></Route>
                     <Route path="/solutions/ai-calling-agent" element={<AICallingAgent />}></Route>
                     <Route path="/solutions/ai-consulting-services" element={<AIConsultingServices />}></Route>
                     <Route path="/solutions/ai-chatbot-development" element={<AIChatbotDevelopment />}></Route>

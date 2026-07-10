@@ -7,9 +7,6 @@ import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
 import { Link } from 'react-router-dom';
 
-
-
-
 function BannerEight() {
     return (
         <div>
@@ -98,7 +95,7 @@ function BannerEight() {
                                                 </p>
                                                 <div className="button-group">
                                                     <Link
-                                                        href="price-plan.html"
+                                                        to="/pricing-plane"
                                                         className="rts-btn btn-primary-2"
                                                     >
                                                         Get Started

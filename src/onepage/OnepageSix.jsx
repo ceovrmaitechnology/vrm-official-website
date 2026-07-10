@@ -13,9 +13,6 @@ import BrandOne from "../components/brand/BrandOne";
 import TestimonialFive from "../components/testimonials/TestimonialFive";
 import BlogSix from "../components/blog/BlogSix";
 
-
-
-
 import FooterSix from "../components/footer/FooterSix";
 
 function HomeOne() {

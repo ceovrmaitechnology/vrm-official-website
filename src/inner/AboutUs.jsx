@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import HeaderOne from "../components/header/HeaderOne";
 import { Link } from 'react-router-dom';
 import FooterOne from "../components/footer/FooterOne";
@@ -8,34 +9,40 @@ import '../about-us.css'; // Import custom styles
 function AboutUs() {
     return (
         <div className='about-page'>
+            <Helmet>
+                <title>About Us | VRM AI Technology</title>
+                <meta name="description" content="Learn about VRM AI Technology — a born Gen AI company delivering intelligent platforms, ML systems, and AI consulting for enterprises worldwide." />
+                <meta property="og:title" content="About VRM AI Technology" />
+                <meta property="og:description" content="Learn about VRM AI Technology — a born Gen AI company delivering intelligent platforms, ML systems, and AI consulting for enterprises worldwide." />
+                <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
+                <link rel="canonical" href="https://www.vrmaitechnology.com/about-us" />
+            
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="About VRM AI Technology" />
+                <meta name="twitter:description" content="Learn about VRM AI Technology — a born Gen AI company delivering intelligent platforms, ML systems, and AI consulting for enterprises worldwide." />
+                <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
+            </Helmet>
             <HeaderOne className="about-header-panel" />
 
             {/* Hero Section */}
-            <div className="about-hero" style={{ minHeight: '100vh' }}>
-                {/* Background Blur Layer */}
-                <div style={{
-                    position: 'absolute', top: '-5%', left: '-5%', width: '110%', height: '110%',
-                    backgroundImage: 'url(/assets/images/about/about-1.png)', backgroundSize: 'cover', backgroundPosition: 'top center',
-                    filter: 'blur(30px)', opacity: 0.9, zIndex: 0
-                }}></div>
-
-                {/* Background Sharp Layer (Contained & Shifted Down) */}
-                <div style={{
-                    position: 'absolute', top: '120px', left: 0, width: '100%', height: 'calc(100% - 120px)',
-                    backgroundImage: 'url(/assets/images/about/about-1.png)', backgroundSize: 'contain', backgroundPosition: 'top center', backgroundRepeat: 'no-repeat',
-                    zIndex: 0
-                }}></div>
-
-                <div className="container" style={{ position: 'relative', zIndex: 2 }}>
-                    <div className="row">
-                        <div className="col-lg-6 col-md-8">
-                            <div className="about-hero__badge">
-                                Our Solutions
+            <div className="about-hero">
+                <div className="container">
+                    <div className="row align-items-center g-5">
+                        <div className="col-lg-6">
+                            <div className="about-hero-content text-start">
+                                <div className="about-hero__badge">
+                                    Our Solutions
+                                </div>
+                                <h1 className="about-hero__title text-white">About Us</h1>
+                                <p className="about-hero__desc text-white-50">
+                                    VRM AI Technology has pioneered AI services and products, consistently delivering measurable business value with the latest generative AI technology and automation.
+                                </p>
                             </div>
-                            <h1 className="about-hero__title">About Us</h1>
-                            <p className="about-hero__desc">
-                                VRM AI Technology has pioneered AI services and products, consistently delivering measurable business value with the latest generative AI technology and automation.
-                            </p>
+                        </div>
+                        <div className="col-lg-6">
+                            <div className="about-hero-image wow fadeInUp" data-wow-delay=".3s" style={{ borderRadius: '20px', overflow: 'hidden', boxShadow: '0 20px 50px rgba(0,0,0,0.3)' }}>
+                                <img src="/assets/images/about/about-1-v2.png" alt="VRM AI Team" style={{ width: '100%', height: '400px', objectFit: 'cover', display: 'block', objectPosition: 'center 15%' }} />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -98,7 +105,7 @@ function AboutUs() {
                 <div className="container">
                     <div className="row g-4 align-items-stretch">
                         <div className="col-md-6 d-flex">
-                            <div className="mv-card mv-card-premium w-100" style={{ backgroundImage: 'url(/assets/images/about/mission-bg.jpg)' }}>
+                            <div className="mv-card mv-card-premium w-100" style={{ backgroundImage: 'url(/assets/images/about/05-v2.jpg)' }}>
                                 <div className="mv-card-overlay"></div>
                                 <div className="mv-card-content">
                                     <div className="mv-icon">
@@ -112,7 +119,7 @@ function AboutUs() {
                             </div>
                         </div>
                         <div className="col-md-6 d-flex">
-                            <div className="mv-card mv-card-premium w-100" style={{ backgroundImage: 'url(/assets/images/about/vision-bg.jpg)' }}>
+                            <div className="mv-card mv-card-premium w-100" style={{ backgroundImage: 'url(/assets/images/about/04-v2.jpg)' }}>
                                 <div className="mv-card-overlay"></div>
                                 <div className="mv-card-content">
                                     <div className="mv-icon">
@@ -214,9 +221,9 @@ function AboutUs() {
                                 </Accordion>
                             </div>
                         </div>
-                        <div className="col-lg-6 d-none d-lg-flex h-100">
-                            <div className="thumbnail w-100 h-100 position-relative">
-                                <img src="/assets/images/faq/02.png" alt="Why Choose Us" className="w-100 h-100" style={{ objectFit: 'cover', borderRadius: '16px', boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }} />
+                        <div className="col-lg-6 d-none d-lg-flex align-items-center justify-content-center">
+                            <div className="thumbnail position-relative" style={{ maxWidth: '480px', width: '100%', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 20px 40px rgba(0,0,0,0.15)' }}>
+                                <img src="/assets/images/faq/02.png" alt="Why Choose Us" style={{ width: '100%', height: 'auto', objectFit: 'cover', display: 'block' }} />
                             </div>
                         </div>
                     </div>

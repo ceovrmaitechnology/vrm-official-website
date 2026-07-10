@@ -17,8 +17,9 @@ function ScreenSage() {
 
     const images = [
         "/assets/images/workflow/screensage/screensage-image.png",
-        "/assets/images/workflow/screensage/screensage-image-2.png",
-        "/assets/images/workflow/screensage/screensage-image-3.png"
+        "/assets/images/workflow/screensage/screensage-gallery-1.png",
+        "/assets/images/workflow/screensage/screensage-gallery-2.png",
+        "/assets/images/workflow/screensage/screensage-gallery-3.png"
     ];
 
     return (
@@ -109,8 +110,8 @@ function ScreenSage() {
                     <div className="row justify-content-center">
                         <div className="col-lg-10">
                             <div className="video-wrapper wow fadeInUp" data-wow-delay=".3s" style={{ borderRadius: '20px', overflow: 'hidden', boxShadow: '0 20px 60px rgba(0,0,0,0.15)' }}>
-                                <video width="100%" controls poster="/assets/images/workflow/screensage/screensage-image.png">
-                                    <source src="/assets/images/workflow/screensage/AI_Bot_Interviews_Person_Via_Zoom.mp4" type="video/mp4" />
+                                <video width="100%" controls preload="metadata">
+                                    <source src="/assets/images/workflow/screensage/screensage-promo.mp4" type="video/mp4" />
                                     Your browser does not support the video tag.
                                 </video>
                             </div>

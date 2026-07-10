@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 function CallToActionFive() {
     return (
@@ -14,9 +15,9 @@ function CallToActionFive() {
                                         Need Any Marketing Solutions? Contact With Us
                                     </h3>
                                 </div>
-                                <a className="rts-btn btn-secondary-3" href="contactus.html">
+                                <Link className="rts-btn btn-secondary-3" to="/contactus">
                                     Lets Work Together
-                                </a>
+                                </Link>
                             </div>
                         </div>
                     </div>

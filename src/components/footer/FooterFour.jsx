@@ -18,12 +18,12 @@ function FooterFour() {
                                 </p>
                                 <ul className="social-three-wrapper">
                                     <li>
-                                        <a href="#">
+                                        <a href="/">
                                             <i className="fab fa-facebook-f" />
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <a href="/">
                                             <i className="fab fa-twitter" />
                                         </a>
                                     </li>
@@ -38,7 +38,7 @@ function FooterFour() {
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <a href="/">
                                             <i className="fab fa-skype" />
                                         </a>
                                     </li>
@@ -62,7 +62,7 @@ function FooterFour() {
                                                     </ul>
                                                     <div className="info">
                                                         <span>Call Us 24/7</span>
-                                                        <a href="#">(+256) 2145.2156</a>
+                                                        <a href="/">+91 81233 48355</a>
                                                     </div>
                                                 </div>
                                                 <div className="single">
@@ -73,7 +73,7 @@ function FooterFour() {
                                                     </ul>
                                                     <div className="info">
                                                         <span>Work with us</span>
-                                                        <a href="#">info@vrmgroups.com</a>
+                                                        <a href="mailto:contactus@vrmaitechnology.com">contactus@vrmaitechnology.com</a>
                                                     </div>
                                                 </div>
                                                 <div className="single">
@@ -84,7 +84,7 @@ function FooterFour() {
                                                     </ul>
                                                     <div className="info">
                                                         <span>Our Location</span>
-                                                        <a href="#">
+                                                        <a href="/">
                                                             XYZ Hilton Street, 125 <br />
                                                             Town United State
                                                         </a>
@@ -180,7 +180,7 @@ function FooterFour() {
                         <div className="row">
                             <div className="col-12">
                                 <p className="disc text-center ptb--25">
-                                    VRM AI Technologies - Copyright 2025. All rights reserved.
+                                    VRM AI Technology - Copyright 2025. All rights reserved.
                                 </p>
                             </div>
                         </div>

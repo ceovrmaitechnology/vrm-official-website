@@ -12,12 +12,7 @@ import TestimonialEight from "../components/testimonials/TestimonialEight";
 import PricingOne from "../components/pricing/PricingOne";
 import ContactFormFour from "../components/contactform/ContactFormFour";
 
-
-
 import BlogEight from "../components/blog/BlogEight";
-
-
-
 
 import FooterSeven from "../components/footer/FooterSeven";
 
@@ -38,11 +33,7 @@ function HomeOne() {
             <PricingOne />
             <ContactFormFour />
 
-
-
             <BlogEight />
-
-
 
             <FooterSeven />
 

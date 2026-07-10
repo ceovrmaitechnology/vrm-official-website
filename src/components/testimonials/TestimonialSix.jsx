@@ -5,11 +5,6 @@ import { Navigation, Scrollbar, A11y, EffectFade, Autoplay } from 'swiper/module
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
-import 'swiper/css/scrollbar';
-import { Link } from 'react-router-dom';
-
-
-
 function TestimonialSix() {
     return (
         <div>

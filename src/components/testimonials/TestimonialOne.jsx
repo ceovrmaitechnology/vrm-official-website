@@ -54,7 +54,7 @@ function TestimonialOne() {
                                                         />
                                                     </div>
                                                     <div className="details">
-                                                        <a href="#">
+                                                        <a href="/">
                                                             <h5 className="title">David Smith</h5>
                                                         </a>
                                                         <span>JHKL Owner</span>
@@ -80,7 +80,7 @@ function TestimonialOne() {
                                                         />
                                                     </div>
                                                     <div className="details">
-                                                        <a href="#">
+                                                        <a href="/">
                                                             <h5 className="title">David Smith</h5>
                                                         </a>
                                                         <span>JHKL Owner</span>
@@ -106,7 +106,7 @@ function TestimonialOne() {
                                                         />
                                                     </div>
                                                     <div className="details">
-                                                        <a href="#">
+                                                        <a href="/">
                                                             <h5 className="title">David Smith</h5>
                                                         </a>
                                                         <span>JHKL Owner</span>

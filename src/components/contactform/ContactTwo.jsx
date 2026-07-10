@@ -29,7 +29,7 @@ function ContactTwo() {
                                             </div>
                                             <div className="discription">
                                                 <span>Need any help?</span>
-                                                <h5 className="title-sm">+254 21456.21458</h5>
+                                                <h5 className="title-sm"><a href="tel:+918123348355" style={{ color: "inherit" }}>+91 81233 48355</a></h5>
                                             </div>
                                         </div>
                                         {/* single-contact info End */}
@@ -43,7 +43,7 @@ function ContactTwo() {
                                             </div>
                                             <div className="discription">
                                                 <span>Email us anytime</span>
-                                                <h5 className="title-sm">info@example.com</h5>
+                                                <h5 className="title-sm"><a href="mailto:contactus@vrmaitechnology.com" style={{ color: "inherit" }}>contactus@vrmaitechnology.com</a></h5>
                                             </div>
                                         </div>
                                         {/* single-contact info End */}

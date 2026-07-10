@@ -8,7 +8,6 @@ import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
 import { Link } from 'react-router-dom';
 
-
 function GalleryOne() {
     return (
         <div>
@@ -95,7 +94,7 @@ function GalleryOne() {
                                                         />
                                                     </div>
                                                     <Link to={'/project-details'}>
-                                                        <h4 className="title">Finbiz Pro Business</h4>
+                                                        <h4 className="title">VRM AI Pro Business</h4>
                                                     </Link>
                                                     <span>Case Study, Growth</span>
                                                     <p className="disc">
@@ -151,7 +150,6 @@ function GalleryOne() {
                                         </div>
                                     </SwiperSlide>
                                 </Swiper>
-
 
                                 <div className="swiper-button-next" />
                                 <div className="swiper-button-prev" />

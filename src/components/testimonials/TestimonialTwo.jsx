@@ -5,8 +5,6 @@ import { Navigation, Scrollbar, A11y, EffectFade, Autoplay } from 'swiper/module
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
-import { Link } from 'react-router-dom';
-
 
 function TestimonialTwo() {
     return (
@@ -21,7 +19,7 @@ function TestimonialTwo() {
                                 <h2 className="title mt--15">Our Client Reviews</h2>
                             </div>
                             <div className="button-area">
-                                <a href="#" className="rts-btn btn-primary-2">
+                                <a href="/" className="rts-btn btn-primary-2">
                                     See All Reviews
                                 </a>
                             </div>
@@ -52,14 +50,14 @@ function TestimonialTwo() {
                                         {/* single client reviews */}
                                         <div className="rts-client-reviews-h2">
                                             <div className="review-header">
-                                                <a href="#" className="thumbnail">
+                                                <a href="/" className="thumbnail">
                                                     <img
                                                         src="assets/images/testimonials/02.png"
                                                         alt="testimonials_area"
                                                     />
                                                 </a>
                                                 <div className="discription">
-                                                    <a href="#">
+                                                    <a href="/">
                                                         <h6 className="title">David Smith</h6>
                                                     </a>
                                                     <span>Finance</span>
@@ -72,7 +70,7 @@ function TestimonialTwo() {
                                                     rhoncus mauris dignissim ante”
                                                 </p>
                                                 <div className="body-end">
-                                                    <a href="#">
+                                                    <a href="/">
                                                         <img
                                                             src="assets/images/testimonials/icon/logo-01.png"
                                                             alt="Client_logo"
@@ -94,14 +92,14 @@ function TestimonialTwo() {
                                         {/* single client reviews */}
                                         <div className="rts-client-reviews-h2">
                                             <div className="review-header">
-                                                <a href="#" className="thumbnail">
+                                                <a href="/" className="thumbnail">
                                                     <img
                                                         src="assets/images/testimonials/03.png"
                                                         alt="testimonials_area"
                                                     />
                                                 </a>
                                                 <div className="discription">
-                                                    <a href="#">
+                                                    <a href="/">
                                                         <h6 className="title">Mark Jone</h6>
                                                     </a>
                                                     <span>Finance</span>
@@ -114,7 +112,7 @@ function TestimonialTwo() {
                                                     rhoncus mauris dignissim ante”
                                                 </p>
                                                 <div className="body-end">
-                                                    <a href="#">
+                                                    <a href="/">
                                                         <img
                                                             src="assets/images/testimonials/icon/logo-02.png"
                                                             alt="Client_logo"
@@ -136,14 +134,14 @@ function TestimonialTwo() {
                                         {/* single client reviews */}
                                         <div className="rts-client-reviews-h2">
                                             <div className="review-header">
-                                                <a href="#" className="thumbnail">
+                                                <a href="/" className="thumbnail">
                                                     <img
                                                         src="assets/images/testimonials/04.png"
                                                         alt="testimonials_area"
                                                     />
                                                 </a>
                                                 <div className="discription">
-                                                    <a href="#">
+                                                    <a href="/">
                                                         <h6 className="title">Lord Korn</h6>
                                                     </a>
                                                     <span>Finance</span>
@@ -156,7 +154,7 @@ function TestimonialTwo() {
                                                     rhoncus mauris dignissim ante”
                                                 </p>
                                                 <div className="body-end">
-                                                    <a href="#">
+                                                    <a href="/">
                                                         <img
                                                             src="assets/images/testimonials/icon/logo-03.png"
                                                             alt="Client_logo"
@@ -178,14 +176,14 @@ function TestimonialTwo() {
                                         {/* single client reviews */}
                                         <div className="rts-client-reviews-h2">
                                             <div className="review-header">
-                                                <a href="#" className="thumbnail">
+                                                <a href="/" className="thumbnail">
                                                     <img
                                                         src="assets/images/testimonials/02.png"
                                                         alt="testimonials_area"
                                                     />
                                                 </a>
                                                 <div className="discription">
-                                                    <a href="#">
+                                                    <a href="/">
                                                         <h6 className="title">David Smith</h6>
                                                     </a>
                                                     <span>Finance</span>
@@ -198,7 +196,7 @@ function TestimonialTwo() {
                                                     rhoncus mauris dignissim ante”
                                                 </p>
                                                 <div className="body-end">
-                                                    <a href="#">
+                                                    <a href="/">
                                                         <img
                                                             src="assets/images/testimonials/icon/logo-01.png"
                                                             alt="Client_logo"
@@ -220,14 +218,14 @@ function TestimonialTwo() {
                                         {/* single client reviews */}
                                         <div className="rts-client-reviews-h2">
                                             <div className="review-header">
-                                                <a href="#" className="thumbnail">
+                                                <a href="/" className="thumbnail">
                                                     <img
                                                         src="assets/images/testimonials/03.png"
                                                         alt="testimonials_area"
                                                     />
                                                 </a>
                                                 <div className="discription">
-                                                    <a href="#">
+                                                    <a href="/">
                                                         <h6 className="title">Mark Jone</h6>
                                                     </a>
                                                     <span>Finance</span>
@@ -240,7 +238,7 @@ function TestimonialTwo() {
                                                     rhoncus mauris dignissim ante”
                                                 </p>
                                                 <div className="body-end">
-                                                    <a href="#">
+                                                    <a href="/">
                                                         <img
                                                             src="assets/images/testimonials/icon/logo-02.png"
                                                             alt="Client_logo"
@@ -262,14 +260,14 @@ function TestimonialTwo() {
                                         {/* single client reviews */}
                                         <div className="rts-client-reviews-h2">
                                             <div className="review-header">
-                                                <a href="#" className="thumbnail">
+                                                <a href="/" className="thumbnail">
                                                     <img
                                                         src="assets/images/testimonials/04.png"
                                                         alt="testimonials_area"
                                                     />
                                                 </a>
                                                 <div className="discription">
-                                                    <a href="#">
+                                                    <a href="/">
                                                         <h6 className="title">Lord Korn</h6>
                                                     </a>
                                                     <span>Finance</span>
@@ -282,7 +280,7 @@ function TestimonialTwo() {
                                                     rhoncus mauris dignissim ante”
                                                 </p>
                                                 <div className="body-end">
-                                                    <a href="#">
+                                                    <a href="/">
                                                         <img
                                                             src="assets/images/testimonials/icon/logo-03.png"
                                                             alt="Client_logo"

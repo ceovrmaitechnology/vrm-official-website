@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import HeaderOne from "../components/header/HeaderOne";
 import FooterOne from "../components/footer/FooterOne";
 import Breadcrumb from "./Breadcrumb";
@@ -18,6 +19,19 @@ function TermsConditions() {
     return (
         <div className="terms-conditions-page basic-font-family">
             <HeaderOne />
+            <Helmet>
+                <title>Terms of Service | VRM AI Technology</title>
+                <meta name="description" content="Review the Terms of Service for using VRM AI Technology platforms and services. Understand your rights and responsibilities as a user of our products." />
+                <meta property="og:title" content="Terms of Service — VRM AI Technology" />
+                <meta property="og:description" content="Review the Terms of Service for using VRM AI Technology platforms and services. Understand your rights and responsibilities as a user of our products." />
+                <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
+                <link rel="canonical" href="https://www.vrmaitechnology.com/terms-conditions" />
+            
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="Terms of Service — VRM AI Technology" />
+                <meta name="twitter:description" content="Review the Terms of Service for using VRM AI Technology platforms and services. Understand your rights and responsibilities as a user of our products." />
+                <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
+            </Helmet>
             <Breadcrumb title="Terms of Service" breadcrumbs={breadcrumbs} />
 
             <div className="rts-section-gap bg-white">
@@ -33,7 +47,7 @@ function TermsConditions() {
 
                                 <h4 className="mt-5">1. Terms</h4>
                                 <p>
-                                    By accessing the website at http://localhost:3001 or any of our properties, you are agreeing to be bound by these terms of service, all applicable laws and regulations, and agree that you are responsible for compliance with any applicable local laws.
+                                    By accessing the website at https://www.vrmaitechnology.com or any of our properties, you are agreeing to be bound by these terms of service, all applicable laws and regulations, and agree that you are responsible for compliance with any applicable local laws.
                                 </p>
 
                                 <h4 className="mt-5">2. Use License</h4>

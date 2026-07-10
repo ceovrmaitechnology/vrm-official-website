@@ -1,13 +1,12 @@
 import { Link, useParams, } from 'react-router-dom';
 
-
 import HeaderOne from "../components/header/HeaderOne";
 
 import FooterOne from "../components/footer/FooterOne";
 import Breadcrumb from "./Breadcrumb";
 import post from '../data/post.json';
 
-function BlogGrid() {
+function BlogDetails() {
     const breadcrumbs = [
         { label: 'Home', link: '/' },
         { label: 'Blog Details' }
@@ -105,7 +104,7 @@ function BlogGrid() {
                                             <div className="thumbnail details">
                                                 <img
                                                     src="/assets/images/blog/details/01.jpg"
-                                                    alt="finbiz_buseness"
+                                                    alt="VRM AI Solutions Strategy meeting"
                                                 />
                                             </div>
                                         </div>
@@ -113,7 +112,7 @@ function BlogGrid() {
                                             <div className="thumbnail details">
                                                 <img
                                                     src="/assets/images/blog/details/02.jpg"
-                                                    alt="finbiz_buseness"
+                                                    alt="VRM AI Solutions Office workplace"
                                                 />
                                             </div>
                                         </div>
@@ -133,7 +132,7 @@ function BlogGrid() {
                                             <div className="thumbnail details mb_sm--15">
                                                 <img
                                                     src="/assets/images/blog/details/03.jpg"
-                                                    alt="finbiz_buseness"
+                                                    alt="VRM AI Solutions Consulting session"
                                                 />
                                             </div>
                                         </div>
@@ -213,7 +212,7 @@ function BlogGrid() {
                                         <div className="thumbnail details mb_sm--15">
                                             <img
                                                 src="/assets/images/blog/details/author.jpg"
-                                                alt="finbiz_buseness"
+                                                alt="VRM AI Author Profile"
                                             />
                                         </div>
                                         <div className="author-details team">
@@ -512,7 +511,7 @@ function BlogGrid() {
                                 </div>
                                 <div className="wized-body">
                                     <h5 className="title">Need Help? We Are Here To Help You</h5>
-                                    <Link className="rts-btn btn-primary" href="contactus.html">
+                                    <Link className="rts-btn btn-primary" to={'/contactus'}>
                                         Contact Us
                                     </Link>
                                 </div>
@@ -525,11 +524,10 @@ function BlogGrid() {
             </div>
             {/* rts blog mlist area End */}
 
-
             <FooterOne />
 
         </div>
     )
 }
 
-export default BlogGrid
+export default BlogDetails

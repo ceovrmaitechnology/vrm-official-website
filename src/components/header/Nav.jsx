@@ -15,17 +15,9 @@ export default function Nav() {
     const defaultWorkflowContent = {
         title: "Workflow.AI Modules",
         description: "Streamline your recruitment process with our advanced AI-driven screening and interviewing tools.",
-        link: "/products/workflow",
+        link: "/products",
         linkText: "Explore Modules",
         image: "/assets/images/service/desk.jpg"
-    };
-
-    const defaultGrowthFlowContent = {
-        title: "GrowthFlowAI Suite",
-        description: "Accelerate your business growth with intelligent acquisition and organizational strategies.",
-        link: "/products/growthflowai",
-        linkText: "Explore Suite",
-        image: "/assets/images/business-goal/01.jpg"
     };
 
     const [featuredContent, setFeaturedContent] = useState(defaultSolutionsContent);
@@ -40,16 +32,66 @@ export default function Nav() {
         'calling-agent': { title: "AI Calling Agent", description: "Automated calling systems for efficient communication.", link: "/solutions/ai-calling-agent", linkText: "Learn More", image: "/assets/images/service/06.jpg" },
         'ml-services': { title: "Machine Learning", description: "Advanced ML models to drive data-backed decisions.", link: "/solutions/machine-learning-services", linkText: "Learn More", image: "/assets/images/service/07.jpg" },
 
-        // Products - Workflow.AI
-        'screensage': { title: "ScreenSage", description: "Automated candidate screening to save time.", link: "/products/workflow/screensage", linkText: "View Product", image: "/assets/images/workflow/screensage/screensage-image.png" },
+        // Products - Workflow.AI Modules
+        'xpress-screening': { title: "Xpress Screening", description: "AI-powered resume parsing and candidate matching.", link: "/products/workflow/xpress-screening", linkText: "View Product", image: "/assets/images/workflow/xpress-screening/xpress-screening-image.png" },
+        'screensage': { title: "ScreenSage", description: "Automated candidate screening and monitoring.", link: "/products/workflow/screensage", linkText: "View Product", image: "/assets/images/workflow/screensage/screensage-image.png" },
         'videosage': { title: "VideoSage", description: "AI video interviews for deeper candidate insights.", link: "/products/workflow/videosage", linkText: "Book Demo", image: "/assets/images/workflow/videosage/videosage-image-3.png" },
         'codesage': { title: "CodeSage", description: "Intelligent coding assessment platform.", link: "/products/workflow/codesage", linkText: "View Product", image: "/assets/images/workflow/codesage/codesage-image.png" },
 
-        // Products - GrowthFlowAI
-        'business-acquisition': { title: "Business Acquisition", description: "Strategies to acquire and grow businesses.", link: "/business-acquisition-form", linkText: "Start Now", image: "/assets/images/business-goal/01.jpg" },
-        'client-acquisition': { title: "Client Acquisition", description: "Tools to find and convert high-value clients.", link: "/client-acquisition-form", linkText: "Get Clients", image: "/assets/images/business-goal/02.jpg" },
-        'job-applicant': { title: "Job Applicant", description: "Streamline your application process.", link: "/job-applicant-form", linkText: "Apply Now", image: "/assets/images/business-goal/03.jpg" },
-        'organization': { title: "Organization", description: "Optimize your organizational structure.", link: "/organization-form", linkText: "Optimize", image: "/assets/images/business-goal/04.jpg" },
+        // Products - AI Products
+        'workflow': { title: "Workflow.AI", description: "Streamline your recruitment process with our advanced AI-driven screening and interviewing tools.", link: "/products/workflow", linkText: "View Product", image: "/assets/images/service/desk.jpg" },
+        'aibuddy': { 
+            title: "AI Buddy", 
+            description: "Interactive speech simulation and voice coaching.", 
+            link: "/products/aibuddy", 
+            linkText: "View Product", 
+            image: "/assets/images/aibuddy/aibuddy-image.png",
+            features: [
+                "Real-time speech simulation",
+                "Voice analytics & coaching",
+                "Interactive roleplay scenarios",
+                "Pronunciation feedback"
+            ]
+        },
+        'people-connect': { 
+            title: "People Connect", 
+            description: "AI-powered citizen engagement platform.", 
+            link: "/products/people-connect", 
+            linkText: "View Product", 
+            image: "/assets/images/people-connect/people-connect-image.png",
+            features: [
+                "Citizen engagement portal",
+                "Real-time grievance tracking",
+                "Public sentiment analysis",
+                "Automated communication"
+            ]
+        },
+        'exitinterview': { 
+            title: "AI Exit Interview", 
+            description: "Automate exit interviews with conversational AI.", 
+            link: "/products/exitinterview", 
+            linkText: "View Product", 
+            image: "/assets/images/exitinterview/exitinterview-image.png",
+            features: [
+                "Conversational exit interviews",
+                "Sentiment & feedback analysis",
+                "Attrition insights & reports",
+                "Automated scheduling"
+            ]
+        },
+        'whatsapp': { 
+            title: "WhatsApp Automation", 
+            description: "Manage automated chats, broadcasts, and support.", 
+            link: "/products/whatsapp", 
+            linkText: "View Product", 
+            image: "/assets/images/whatsapp/whatsapp-hero-v2.png",
+            features: [
+                "Multi-agent chat support",
+                "Automated broadcast alerts",
+                "Interactive chatbots",
+                "Performance analytics"
+            ]
+        },
     };
 
     const handleLinkHover = (key) => {
@@ -58,14 +100,11 @@ export default function Nav() {
         }
     };
 
-
-
-    // Handler to switch content on hover (for Products tabs)
     const handleTabHover = (menuName) => {
         setActiveSubMenu(menuName);
-        // Also reset featured content to that tab's default
-        if (menuName === 'workflow') setFeaturedContent(defaultWorkflowContent);
-        if (menuName === 'growthflow') setFeaturedContent(defaultGrowthFlowContent);
+        if (menuName === 'workflow') {
+            setFeaturedContent(defaultWorkflowContent);
+        }
     };
 
     return (
@@ -134,8 +173,8 @@ export default function Nav() {
                     </li>
 
                     <li className="has-droupdown" onMouseEnter={() => handleTabHover('workflow')}>
-                        <Link className="nav-link" to={'#'} onClick={(e) => e.preventDefault()}>Products</Link>
-                        <div className="mega-menu-container products-refactored-menu">
+                        <Link className="nav-link" to={'/products'}>Products</Link>
+                        <div className="mega-menu-container products-refactored-menu" style={{ width: '900px', left: '-200px' }}>
                             <div className="platforms-panel">
                                 <ul>
                                     <li>
@@ -149,17 +188,56 @@ export default function Nav() {
                                     </li>
                                     <li>
                                         <Link
-                                            to="/products/growthflowai"
-                                            className={`platform-btn ${activeSubMenu === 'growthflow' ? 'active' : ''}`}
-                                            onMouseEnter={() => handleTabHover('growthflow')}
+                                            to="/products/aibuddy"
+                                            className={`platform-btn ${activeSubMenu === 'aibuddy' ? 'active' : ''}`}
+                                            onMouseEnter={() => {
+                                                setActiveSubMenu('aibuddy');
+                                                handleLinkHover('aibuddy');
+                                            }}
                                         >
-                                            GrowthFlowAI <i className="far fa-chevron-right"></i>
+                                            AI Buddy
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link
+                                            to="/products/people-connect"
+                                            className={`platform-btn ${activeSubMenu === 'people-connect' ? 'active' : ''}`}
+                                            onMouseEnter={() => {
+                                                setActiveSubMenu('people-connect');
+                                                handleLinkHover('people-connect');
+                                            }}
+                                        >
+                                            People Connect
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link
+                                            to="/products/exitinterview"
+                                            className={`platform-btn ${activeSubMenu === 'exitinterview' ? 'active' : ''}`}
+                                            onMouseEnter={() => {
+                                                setActiveSubMenu('exitinterview');
+                                                handleLinkHover('exitinterview');
+                                            }}
+                                        >
+                                            AI Exit Interview
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link
+                                            to="/products/whatsapp"
+                                            className={`platform-btn ${activeSubMenu === 'whatsapp' ? 'active' : ''}`}
+                                            onMouseEnter={() => {
+                                                setActiveSubMenu('whatsapp');
+                                                handleLinkHover('whatsapp');
+                                            }}
+                                        >
+                                            WhatsApp Automation
                                         </Link>
                                     </li>
                                 </ul>
                             </div>
                             <div className="sub-products-panel">
-                                {activeSubMenu === 'workflow' && (
+                                {activeSubMenu === 'workflow' ? (
                                     <div className="fade-in">
                                         <h5 style={{
                                             marginBottom: '10px',
@@ -167,15 +245,24 @@ export default function Nav() {
                                             fontSize: '18px',
                                             fontWeight: '800',
                                             paddingLeft: '10px'
-                                        }}>Workflow.AI</h5>
+                                        }}>Workflow.AI Modules</h5>
                                         <ul style={{ paddingLeft: '0' }}>
+                                            <li style={{ marginBottom: '5px' }}>
+                                                <Link
+                                                    to={'/products/workflow/xpress-screening'}
+                                                    onMouseEnter={() => handleLinkHover('xpress-screening')}
+                                                    style={{ paddingLeft: '20px', fontSize: '15px' }}
+                                                >
+                                                    <i className="far fa-file-search" style={{ width: '20px', color: '#3B4ECC' }}></i> Xpress Screening
+                                                </Link>
+                                            </li>
                                             <li style={{ marginBottom: '5px' }}>
                                                 <Link
                                                     to={'/products/workflow/screensage'}
                                                     onMouseEnter={() => handleLinkHover('screensage')}
                                                     style={{ paddingLeft: '20px', fontSize: '15px' }}
                                                 >
-                                                    <i className="far fa-video" style={{ width: '20px', color: '#3B4ECC' }}></i> ScreenSage
+                                                    <i className="far fa-desktop" style={{ width: '20px', color: '#3B4ECC' }}></i> ScreenSage
                                                 </Link>
                                             </li>
                                             <li style={{ marginBottom: '5px' }}>
@@ -184,7 +271,7 @@ export default function Nav() {
                                                     onMouseEnter={() => handleLinkHover('videosage')}
                                                     style={{ paddingLeft: '20px', fontSize: '15px' }}
                                                 >
-                                                    <i className="far fa-camera-movie" style={{ width: '20px', color: '#3B4ECC' }}></i> VideoSage
+                                                    <i className="far fa-video" style={{ width: '20px', color: '#3B4ECC' }}></i> VideoSage
                                                 </Link>
                                             </li>
                                             <li style={{ marginBottom: '5px' }}>
@@ -198,16 +285,37 @@ export default function Nav() {
                                             </li>
                                         </ul>
                                     </div>
-                                )}
-                                {activeSubMenu === 'growthflow' && (
-                                    <div className="fade-in">
-                                        <h5>GrowthFlowAI Suite</h5>
-                                        <ul>
-                                            <li><Link to={'/business-acquisition-form'} onMouseEnter={() => handleLinkHover('business-acquisition')}><i className="far fa-briefcase"></i> Business Acquisition</Link></li>
-                                            <li><Link to={'/client-acquisition-form'} onMouseEnter={() => handleLinkHover('client-acquisition')}><i className="far fa-user-chart"></i> Client Acquisition</Link></li>
-                                            <li><Link to={'/job-applicant-form'} onMouseEnter={() => handleLinkHover('job-applicant')}><i className="far fa-file-user"></i> Job Applicant</Link></li>
-                                            <li><Link to={'/organization-form'} onMouseEnter={() => handleLinkHover('organization')}><i className="far fa-sitemap"></i> Organization</Link></li>
-                                        </ul>
+                                ) : (
+                                    <div className="fade-in" style={{ padding: '0 10px' }}>
+                                        <h5 style={{
+                                            marginBottom: '8px',
+                                            color: '#111D5E',
+                                            fontSize: '18px',
+                                            fontWeight: '800'
+                                        }}>{featuredContent.title}</h5>
+                                        <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.5', marginBottom: '15px' }}>
+                                            {featuredContent.description}
+                                        </p>
+                                        {featuredContent.features && (
+                                            <ul style={{ paddingLeft: '0', listStyle: 'none', margin: '0' }}>
+                                                {featuredContent.features.map((feature, idx) => (
+                                                    <li key={idx} style={{ 
+                                                        fontSize: '13.5px', 
+                                                        color: '#444', 
+                                                        marginBottom: '8px',
+                                                        display: 'flex',
+                                                        alignItems: 'center'
+                                                    }}>
+                                                        <i className="far fa-check-circle" style={{ 
+                                                            color: '#3B4ECC', 
+                                                            marginRight: '8px',
+                                                            fontSize: '14px' 
+                                                        }}></i>
+                                                        {feature}
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        )}
                                     </div>
                                 )}
                             </div>
@@ -239,7 +347,7 @@ export default function Nav() {
                                     }}></div>
                                     <div style={{ position: 'relative', zIndex: 2 }}>
                                         <h4 style={{ color: '#fff', marginBottom: '10px' }}>{featuredContent.title}</h4>
-                                        <p style={{ color: 'rgba(255,255,255,0.9)', marginBottom: '20px' }}>{featuredContent.description}</p>
+                                        <p style={{ color: 'rgba(255,255,255,0.85)', marginBottom: '20px' }}>{featuredContent.description}</p>
                                         <Link to={featuredContent.link} className="explore-btn" style={{ background: '#fff', color: '#333', border: 'none', padding: '10px 20px', borderRadius: '5px', fontWeight: '500' }}>{featuredContent.linkText}</Link>
                                     </div>
                                 </div>
@@ -255,5 +363,3 @@ export default function Nav() {
         </div>
     )
 }
-
-

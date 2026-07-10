@@ -63,12 +63,12 @@ function BusinessGroth() {
                                         in dignissim
                                     </p>
                                     <div className="button-area-business-groth">
-                                        <a href="#" className="rts-btn btn-primary six">
+                                        <a href="/" className="rts-btn btn-primary six">
                                             Read More
                                         </a>
                                         <div className="vedio-icone">
                                             {/* Video Play Button */}
-                                            <a id="play-video" className="video-play-button" href="#" onClick={openVideo}>
+                                            <a id="play-video" className="video-play-button" href="/" onClick={openVideo}>
                                                 <span />
                                                 <span className="outer-text">Watch Video</span>
                                             </a>
@@ -77,7 +77,7 @@ function BusinessGroth() {
                                             {isVideoOpen && (
                                                 <div id="video-overlay" className="video-overlay open">
                                                     {/* Close button for the video overlay */}
-                                                    <a className="video-overlay-close" href="#" onClick={closeVideo}>
+                                                    <a className="video-overlay-close" href="/" onClick={closeVideo}>
                                                         ×
                                                     </a>
                                                     {/* Video iframe */}

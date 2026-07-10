@@ -16,7 +16,6 @@ import BlogThree from "../components/blog/BlogThree";
 import CallToActionThree from "../components/calltoaction/CallToActionThree";
 import FooterThree from "../components/footer/FooterThree";
 
-
 function HomeThree() {
     return (
         <div className='home-yellow'>

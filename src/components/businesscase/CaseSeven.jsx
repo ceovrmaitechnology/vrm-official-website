@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
 import { Navigation, Scrollbar, A11y, EffectFade, Autoplay } from 'swiper/modules';
@@ -48,36 +49,36 @@ function CaseSeven() {
                                         }}
                                     >
                                         <SwiperSlide>
-                                            <a
-                                                href="project-details.html"
+                                            <Link
+                                                to="/project-details"
                                                 className="thumbnail-image-case-11"
                                             >
                                                 <img src="assets/images/product/11.png" alt="product" />
-                                            </a>
+                                            </Link>
                                         </SwiperSlide>
                                         <SwiperSlide>
-                                            <a
-                                                href="project-details.html"
+                                            <Link
+                                                to="/project-details"
                                                 className="thumbnail-image-case-11"
                                             >
                                                 <img src="assets/images/product/11.png" alt="product" />
-                                            </a>
+                                            </Link>
                                         </SwiperSlide>
                                         <SwiperSlide>
-                                            <a
-                                                href="project-details.html"
+                                            <Link
+                                                to="/project-details"
                                                 className="thumbnail-image-case-11"
                                             >
                                                 <img src="assets/images/product/11.png" alt="product" />
-                                            </a>
+                                            </Link>
                                         </SwiperSlide>
                                         <SwiperSlide>
-                                            <a
-                                                href="project-details.html"
+                                            <Link
+                                                to="/project-details"
                                                 className="thumbnail-image-case-11"
                                             >
                                                 <img src="assets/images/product/11.png" alt="product" />
-                                            </a>
+                                            </Link>
                                         </SwiperSlide>
 
                                     </Swiper>

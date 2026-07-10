@@ -17,7 +17,9 @@ function CodeSage() {
 
     const images = [
         "/assets/images/workflow/codesage/codesage-image.png",
-        "/assets/images/workflow/codesage/codesage-image-2.png"
+        "/assets/images/workflow/codesage/codesage-image-2.png",
+        "/assets/images/workflow/codesage/codesage-image-3.png",
+        "/assets/images/workflow/codesage/codesage-image-4.png"
     ];
 
     return (
@@ -108,7 +110,10 @@ function CodeSage() {
                     <div className="row justify-content-center">
                         <div className="col-lg-10">
                             <div className="video-wrapper wow fadeInUp" data-wow-delay=".3s" style={{ borderRadius: '20px', overflow: 'hidden', boxShadow: '0 20px 60px rgba(0,0,0,0.15)' }}>
-                                <img src="/assets/images/workflow/codesage/codesage-image.png" alt="CodeSage Interface" style={{ width: '100%', display: 'block' }} />
+                                <video width="100%" controls preload="metadata">
+                                    <source src="/assets/images/workflow/codesage/codesage-promo.mp4" type="video/mp4" />
+                                    Your browser does not support the video tag.
+                                </video>
                             </div>
                         </div>
                     </div>

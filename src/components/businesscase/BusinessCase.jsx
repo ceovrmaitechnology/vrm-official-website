@@ -7,7 +7,6 @@ import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
 import { Link } from 'react-router-dom';
 
-
 function BusinessCase() {
     return (
         <div>
@@ -159,7 +158,6 @@ function BusinessCase() {
                                         {/* single business case End */}
                                     </SwiperSlide>
                                 </Swiper>
-
 
                             </div>
                         </div>

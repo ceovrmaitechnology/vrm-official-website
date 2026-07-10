@@ -21,7 +21,7 @@ function BannerSeven() {
                                     HR consulting expertise that helps your business thrive.
                                 </p>
                                 <a
-                                    href="#"
+                                    href="/"
                                     className="rts-btn btn-primary-5 style-six rounded-2 seven"
                                 >
                                     Let’s Work Together

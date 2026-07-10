@@ -1,14 +1,12 @@
 import React from 'react';
 
-
 import HeaderOne from "../components/header/HeaderOne";
 
 import { Link } from 'react-router-dom';
 import FooterOne from "../components/footer/FooterOne";
 import Breadcrumb from "./Breadcrumb";
 
-
-function ProjectThree() {
+function ProjectFive() {
     const breadcrumbs = [
         { label: 'Home', link: '/' },
         { label: 'Portfolio Style 5' }
@@ -19,7 +17,6 @@ function ProjectThree() {
             <HeaderOne />
 
             <Breadcrumb title="Portfolio Style 5" breadcrumbs={breadcrumbs} />
-
 
             <>
                 {/*portfolio-area start*/}
@@ -140,14 +137,10 @@ function ProjectThree() {
                 {/*portfolio-area end*/}
             </>
 
-
-
-
-
             <FooterOne />
 
         </div>
     )
 }
 
-export default ProjectThree
+export default ProjectFive

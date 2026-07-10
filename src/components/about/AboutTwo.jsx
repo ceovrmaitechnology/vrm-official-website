@@ -59,7 +59,7 @@ function AboutTwo() {
                                                     </div>
                                                     <a
                                                         className="rts-btn btn-primary-2 color-h-black"
-                                                        href="#"
+                                                        href="/"
                                                     >
                                                         Contact Us
                                                     </a>
@@ -91,7 +91,7 @@ function AboutTwo() {
                                                     </div>
                                                     <a
                                                         className="rts-btn btn-primary-2 color-h-black"
-                                                        href="#"
+                                                        href="/"
                                                     >
                                                         Contact Us
                                                     </a>
@@ -124,7 +124,7 @@ function AboutTwo() {
                                                     </div>
                                                     <a
                                                         className="rts-btn btn-primary-2 color-h-black"
-                                                        href="#"
+                                                        href="/"
                                                     >
                                                         Contact Us
                                                     </a>

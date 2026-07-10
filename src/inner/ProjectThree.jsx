@@ -1,12 +1,10 @@
-import React, { useState } from 'react';
-
+import React from 'react';
 
 import HeaderOne from "../components/header/HeaderOne";
 
 import { Link } from 'react-router-dom';
 import FooterOne from "../components/footer/FooterOne";
 import Breadcrumb from "./Breadcrumb";
-
 
 function ProjectThree() {
     const breadcrumbs = [
@@ -19,7 +17,6 @@ function ProjectThree() {
             <HeaderOne />
 
             <Breadcrumb title="Portfolio Style 3" breadcrumbs={breadcrumbs} />
-
 
             {/*portfolio-area start*/}
             <section className="portfolio-area style-3 pt--110 pb--90 pt--md--60 pb--md-30 pt_xs--60 pb_xs--30">
@@ -38,10 +35,10 @@ function ProjectThree() {
                                 <div className="portfolio-text">
                                     <div className="text">
                                         <p className="p-category">
-                                            <Link href="#">Development</Link>
+                                            <Link to="#">Development</Link>
                                         </p>
                                         <div className="p-title">
-                                            <Link href="#">Digital Startup Agency</Link>
+                                            <Link to="#">Digital Startup Agency</Link>
                                         </div>
                                     </div>
                                 </div>
@@ -60,10 +57,10 @@ function ProjectThree() {
                                 <div className="portfolio-text">
                                     <div className="text">
                                         <p className="p-category">
-                                            <Link href="#">Branding</Link>
+                                            <Link to="#">Branding</Link>
                                         </p>
                                         <div className="p-title">
-                                            <Link href="#">Business Growth Check</Link>
+                                            <Link to="#">Business Growth Check</Link>
                                         </div>
                                     </div>
                                 </div>
@@ -82,10 +79,10 @@ function ProjectThree() {
                                 <div className="portfolio-text">
                                     <div className="text">
                                         <p className="p-category">
-                                            <Link href="#">Design</Link>
+                                            <Link to="#">Design</Link>
                                         </p>
                                         <div className="p-title">
-                                            <Link href="#">Digital Business Path</Link>
+                                            <Link to="#">Digital Business Path</Link>
                                         </div>
                                     </div>
                                 </div>
@@ -104,10 +101,10 @@ function ProjectThree() {
                                 <div className="portfolio-text">
                                     <div className="text">
                                         <p className="p-category">
-                                            <Link href="#">Branding</Link>
+                                            <Link to="#">Branding</Link>
                                         </p>
                                         <div className="p-title">
-                                            <Link href="#">Mobile App Design</Link>
+                                            <Link to="#">Mobile App Design</Link>
                                         </div>
                                     </div>
                                 </div>
@@ -126,10 +123,10 @@ function ProjectThree() {
                                 <div className="portfolio-text">
                                     <div className="text">
                                         <p className="p-category">
-                                            <Link href="#">Marketing</Link>
+                                            <Link to="#">Marketing</Link>
                                         </p>
                                         <div className="p-title">
-                                            <Link href="#">SEO Marketing Website</Link>
+                                            <Link to="#">SEO Marketing Website</Link>
                                         </div>
                                     </div>
                                 </div>
@@ -148,10 +145,10 @@ function ProjectThree() {
                                 <div className="portfolio-text">
                                     <div className="text">
                                         <p className="p-category">
-                                            <Link href="#">Design</Link>
+                                            <Link to="#">Design</Link>
                                         </p>
                                         <div className="p-title">
-                                            <Link href="#">Creative Fashion Designer</Link>
+                                            <Link to="#">Creative Fashion Designer</Link>
                                         </div>
                                     </div>
                                 </div>
@@ -161,7 +158,6 @@ function ProjectThree() {
                 </div>
             </section>
             {/*portfolio-area end*/}
-
 
             <FooterOne />
 

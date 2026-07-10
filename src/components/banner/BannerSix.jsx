@@ -23,10 +23,10 @@ function BannerSix() {
                                     parturient
                                 </p>
                                 <div className="button-area">
-                                    <a href="#" className="rts-btn btn-primary six mr--30">
+                                    <a href="/" className="rts-btn btn-primary six mr--30">
                                         Our Services
                                     </a>
-                                    <a href="#" className="rts-btn btn-primary deactive">
+                                    <a href="/" className="rts-btn btn-primary deactive">
                                         Free Consultant
                                     </a>
                                 </div>

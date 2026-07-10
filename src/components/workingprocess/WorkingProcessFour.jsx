@@ -36,7 +36,7 @@ function WorkingProcessFour() {
                                 <p className="disc">
                                     Dictum stem tristique conubia arturie ornare vivamus euismod
                                 </p>
-                                <a href="#" className="rts-btn btn-primary-5 rounded-2">
+                                <a href="/" className="rts-btn btn-primary-5 rounded-2">
                                     <i className="fal fa-arrow-right" />
                                 </a>
                             </div>
@@ -52,7 +52,7 @@ function WorkingProcessFour() {
                                 <p className="disc">
                                     Dictum stem tristique conubia arturie ornare vivamus euismod
                                 </p>
-                                <a href="#" className="rts-btn btn-primary-5 rounded-2">
+                                <a href="/" className="rts-btn btn-primary-5 rounded-2">
                                     <i className="fal fa-arrow-right" />
                                 </a>
                             </div>
@@ -68,7 +68,7 @@ function WorkingProcessFour() {
                                 <p className="disc">
                                     Dictum stem tristique conubia arturie ornare vivamus euismod
                                 </p>
-                                <a href="#" className="rts-btn btn-primary-5 rounded-2">
+                                <a href="/" className="rts-btn btn-primary-5 rounded-2">
                                     <i className="fal fa-arrow-right" />
                                 </a>
                             </div>
@@ -84,7 +84,7 @@ function WorkingProcessFour() {
                                 <p className="disc">
                                     Dictum stem tristique conubia arturie ornare vivamus euismod
                                 </p>
-                                <a href="#" className="rts-btn btn-primary-5 rounded-2">
+                                <a href="/" className="rts-btn btn-primary-5 rounded-2">
                                     <i className="fal fa-arrow-right" />
                                 </a>
                             </div>

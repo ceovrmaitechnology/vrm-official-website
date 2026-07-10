@@ -5,9 +5,6 @@ import ServiceTen from "../components/service/ServiceTen";
 import FaqTwo from "../components/faq/FaqTwo";
 import PricingThree from "../components/pricing/PricingThree";
 
-
-
-
 import FooterOne from "../components/footer/FooterOne";
 
 function OurService() {
@@ -23,7 +20,6 @@ function OurService() {
             <ServiceTen />
             <FaqTwo />
             <PricingThree />
-
 
             <FooterOne />
 

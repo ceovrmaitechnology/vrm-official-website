@@ -4,8 +4,6 @@ import Breadcrumb from "./Breadcrumb";
 import { Link } from 'react-router-dom';
 import TeamTwo from "../components/team/TeamTwo";
 
-
-
 import FooterOne from "../components/footer/FooterOne";
 
 function Appoinment() {
@@ -18,7 +16,6 @@ function Appoinment() {
 
             <HeaderOne />
             <Breadcrumb title="Appoinment" breadcrumbs={breadcrumbs} />
-
 
             {/* rts circle progress area */}
             <div className="rts-circle-progress-area rts-section-gap">
@@ -100,7 +97,6 @@ function Appoinment() {
                 </div>
             </div>
             {/* rts circle progress area End */}
-
 
             {/* contact area start */}
             <div className="rts-contact-area contact-one appoinment background-contact-appoinment">

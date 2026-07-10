@@ -1,14 +1,10 @@
-import React, { useState } from 'react';
-
-
-
+import React from 'react';
 
 import HeaderOne from "../components/header/HeaderOne";
 
 import { Link } from 'react-router-dom';
 import FooterOne from "../components/footer/FooterOne";
 import Breadcrumb from "./Breadcrumb";
-
 
 function Project() {
     const breadcrumbs = [
@@ -22,7 +18,6 @@ function Project() {
 
             <Breadcrumb title="Portfolio Style 2" breadcrumbs={breadcrumbs} />
 
-
             {/*case-study-area start*/}
             <section className="case-study-area case-bg2 nav-style-1 pt--115 pt_md--60 pt_xs--60 pb--115 pb_md--60 pb_xs--60">
                 <div className="container">
@@ -31,7 +26,7 @@ function Project() {
                             <div className="item">
                                 <div className="cases-wrapper2">
                                     <div className="item-image">
-                                        <img src="assets/images/product/06.jpg" alt="Image" />
+                                        <img src="assets/images/product/06.jpg" alt="Digital Startup Agency" />
                                     </div>
                                     <div className="item-content">
                                         <h6>Solution</h6>
@@ -53,7 +48,7 @@ function Project() {
                             <div className="item">
                                 <div className="cases-wrapper2">
                                     <div className="item-image">
-                                        <img src="assets/images/product/02.jpg" alt="Image" />
+                                        <img src="assets/images/product/02.jpg" alt="Business Growth Check" />
                                     </div>
                                     <div className="item-content">
                                         <h6>Marketing</h6>
@@ -75,7 +70,7 @@ function Project() {
                             <div className="item">
                                 <div className="cases-wrapper2">
                                     <div className="item-image">
-                                        <img src="assets/images/product/03.jpg" alt="Image" />
+                                        <img src="assets/images/product/03.jpg" alt="Digital Business Path" />
                                     </div>
                                     <div className="item-content">
                                         <h6>Business Growth</h6>
@@ -97,7 +92,7 @@ function Project() {
                             <div className="item">
                                 <div className="cases-wrapper2">
                                     <div className="item-image">
-                                        <img src="assets/images/product/04.jpg" alt="Image" />
+                                        <img src="assets/images/product/04.jpg" alt="Business Growth Model" />
                                     </div>
                                     <div className="item-content">
                                         <h6>Marketing</h6>
@@ -119,7 +114,7 @@ function Project() {
                             <div className="item">
                                 <div className="cases-wrapper2">
                                     <div className="item-image">
-                                        <img src="assets/images/product/05.jpg" alt="Image" />
+                                        <img src="assets/images/product/05.jpg" alt="Strategy Growth Check" />
                                     </div>
                                     <div className="item-content">
                                         <h6>Solution</h6>
@@ -141,7 +136,7 @@ function Project() {
                             <div className="item">
                                 <div className="cases-wrapper2">
                                     <div className="item-image">
-                                        <img src="assets/images/product/06.jpg" alt="Image" />
+                                        <img src="assets/images/product/06.jpg" alt="Marketing Solution" />
                                     </div>
                                     <div className="item-content">
                                         <h6>Business Growth</h6>
@@ -163,7 +158,6 @@ function Project() {
                 </div>
             </section>
             {/*case-study-area end*/}
-
 
             <FooterOne />
 

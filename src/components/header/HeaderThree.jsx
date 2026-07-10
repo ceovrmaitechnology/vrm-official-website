@@ -34,7 +34,7 @@ function HeaderThree() {
                         <div className="col-lg-6">
                             <p className="top-left">
                                 Are you ready to grow up your business?{" "}
-                                <Link href="contactus.html">
+                                <Link to={'/contactus'}>
                                     Contact Us <i className="far fa-arrow-right" />
                                 </Link>
                             </p>
@@ -43,12 +43,12 @@ function HeaderThree() {
                             <div className="header-top-right">
                                 <div className="single-right email">
                                     <i className="fas fa-envelope" />
-                                    <Link to={'#'}>info@example.com</Link>
+                                    <a href="mailto:contactus@vrmaitechnology.com">contactus@vrmaitechnology.com</a>
                                 </div>
                                 <div className="single-right call">
                                     <i className="far fa-phone-volume" />
                                     <span>Hotline:</span>
-                                    <Link to={'#'}>+210-9856988</Link>
+                                    <a href="tel:+918123348355">+91 81233 48355</a>
                                 </div>
                             </div>
                         </div>

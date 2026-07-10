@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 function CounterupFour() {
     return (
@@ -16,9 +17,9 @@ function CounterupFour() {
                                             make your insurance better
                                         </h3>
                                     </div>
-                                    <a className="rts-btn btn-primary-5 six" href="contactus.html">
+                                    <Link className="rts-btn btn-primary-5 six" to="/contactus">
                                         Lets Work Together
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </div>

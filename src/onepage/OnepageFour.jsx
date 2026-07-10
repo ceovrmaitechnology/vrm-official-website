@@ -10,10 +10,6 @@ import ContactFormThree from "../components/contactform/ContactFormThree";
 import BlogFour from "../components/blog/BlogFour";
 import BradnFour from "../components/brand/BradnFour";
 
-
-
-
-
 import FooterFour from "../components/footer/FooterFour";
 
 function HomeOne() {

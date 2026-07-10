@@ -18,7 +18,7 @@ function HeaderOne({ className }) {
         if (headerRef.current) {
             setHeaderHeight(headerRef.current.offsetHeight);
         }
-    }, [isSticky]); // Re-calculate if needed, or just initially. But sticky changes class which might change height? No, sticky class makes it fixed.
+    }, [isSticky]);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -31,7 +31,6 @@ function HeaderOne({ className }) {
 
         window.addEventListener('scroll', handleScroll);
 
-        // Clean up the event listener on component unmount
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
@@ -49,7 +48,7 @@ function HeaderOne({ className }) {
                             <div className="col-xl-2 col-lg-2 col-md-4 col-sm-4 col-4">
                                 <div className="thumbnail">
                                     <Link to={'/'} >
-                                        <img src="/assets/images/logo/logo.png" alt="VRM AI Technologies Logo" />
+                                        <img src="/assets/images/logo/logo.png" alt="VRM AI Technology Logo" />
                                     </Link>
                                 </div>
                             </div>
@@ -75,11 +74,10 @@ function HeaderOne({ className }) {
                 </div>
             </header>
 
-
             {/* End header area */}
 
             <SideMenu isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
-        </div >
+        </div>
     )
 }
 

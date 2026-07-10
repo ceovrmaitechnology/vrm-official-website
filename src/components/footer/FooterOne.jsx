@@ -8,7 +8,7 @@ function FooterOne() {
             <div className="container">
                 <div className="row">
                     {/* Column 1: Company Info */}
-                    <div className="col-lg-4 col-md-6 col-sm-12">
+                    <div className="col-lg-3 col-md-6 col-sm-12">
                         <div className="vrm-footer-widget">
                             <Link to="/" className="vrm-footer-logo">
                                 <img src="/assets/images/logo/logo.png" alt="VRM AI Technology" className="img-fluid" />
@@ -34,22 +34,21 @@ function FooterOne() {
                         </div>
                     </div>
 
-                    {/* Column 2: Contact Info */}
                     <div className="col-lg-2 col-md-6 col-sm-12">
                         <div className="vrm-footer-widget">
                             <h5 className="vrm-footer-title">Contact</h5>
                             <ul className="vrm-footer-links">
                                 <li className="vrm-contact-link">
                                     <span className="vrm-contact-label">Email</span>
-                                    <a href="mailto:contactus@vrmaitechnology.com" className="vrm-contact-value">contactus@vrmaitechnology.com</a>
+                                    <a href="mailto:contactus@vrmaitechnology.com" className="vrm-contact-value" style={{ fontSize: '13px' }}>contactus@vrmaitechnology.com</a>
                                 </li>
                                 <li className="vrm-contact-link">
                                     <span className="vrm-contact-label">Sales</span>
-                                    <a href="mailto:sales@vrmaitechnology.com" className="vrm-contact-value">sales@vrmaitechnology.com</a>
+                                    <a href="mailto:sales@vrmaitechnology.com" className="vrm-contact-value" style={{ fontSize: '13px' }}>sales@vrmaitechnology.com</a>
                                 </li>
                                 <li className="vrm-contact-link">
                                     <span className="vrm-contact-label">Phone</span>
-                                    <a href="tel:+919876543210" className="vrm-contact-value">+91 81233 48355</a>
+                                    <a href="tel:+918123348355" className="vrm-contact-value" style={{ fontSize: '13px' }}>+91 81233 48355</a>
                                 </li>
                             </ul>
                             <div className="vrm-footer-global mt-4">
@@ -59,12 +58,11 @@ function FooterOne() {
                         </div>
                     </div>
 
-                    {/* Column 3: Solutions */}
-                    <div className="col-lg-2 col-md-6 col-sm-12">
-                        <div className="vrm-footer-widget">
+                    <div className="col-lg-3 col-md-6 col-sm-12">
+                        <div className="vrm-footer-widget vrm-footer-widget-solutions">
                             <h5 className="vrm-footer-title">Solutions</h5>
 
-                            <h6 className="vrm-footer-sub-title">AI Consulting & Strategy</h6>
+                            <h6 className="vrm-footer-sub-title" style={{ marginTop: '0px' }}>AI Consulting & Strategy</h6>
                             <ul className="vrm-footer-links">
                                 <li><Link to="/solutions/ai-consulting-services">AI Consulting Services</Link></li>
                                 <li><Link to="/solutions/ai-integration-services">AI Integration Services</Link></li>
@@ -84,31 +82,40 @@ function FooterOne() {
                         </div>
                     </div>
 
-                    {/* Column 4: Products */}
                     <div className="col-lg-2 col-md-6 col-sm-12">
-                        <div className="vrm-footer-widget">
+                        <div className="vrm-footer-widget vrm-footer-widget-products">
                             <h5 className="vrm-footer-title">Products</h5>
-
-                            <Link to="/products/workflow" className="vrm-footer-sub-title">Workflow.AI Modules</Link>
-                            <ul className="vrm-footer-links">
-                                <li><Link to="/products/workflow/screensage">ScreenSage</Link></li>
-                                <li><Link to="/products/workflow/videosage">VideoSage</Link></li>
-                                <li><Link to="/products/workflow/codesage">CodeSage</Link></li>
-                            </ul>
-
-                            <Link to="/products/growthflowai" className="vrm-footer-sub-title">GrowthFlowAI Suite</Link>
-                            <ul className="vrm-footer-links">
-                                <li><Link to="/business-acquisition-form">Business Acquisition</Link></li>
-                                <li><Link to="/client-acquisition-form">Client Acquisition</Link></li>
-                                <li><Link to="/job-applicant-form">Job Applicant</Link></li>
-                                <li><Link to="/organization-form">Organization</Link></li>
+                             <ul className="vrm-footer-links">
+                                <li className="vrm-footer-dropdown" style={{ marginBottom: '18px' }}>
+                                    <Link to="/products/workflow" style={{ fontWeight: '700', color: '#11142c', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.5px', display: 'inline-flex', alignItems: 'center' }}>
+                                        Workflow.AI <i className="far fa-chevron-down ms-2 vrm-footer-chevron" style={{ fontSize: '9px', transition: 'transform 0.3s' }}></i>
+                                    </Link>
+                                    <ul className="vrm-footer-dropdown-menu" style={{ listStyle: 'none', paddingLeft: '15px' }}>
+                                        <li style={{ marginBottom: '8px' }}><Link to="/products/workflow/xpress-screening" style={{ fontSize: '13px' }}>Xpress Screening</Link></li>
+                                        <li style={{ marginBottom: '8px' }}><Link to="/products/workflow/screensage" style={{ fontSize: '13px' }}>ScreenSage</Link></li>
+                                        <li style={{ marginBottom: '8px' }}><Link to="/products/workflow/videosage" style={{ fontSize: '13px' }}>VideoSage</Link></li>
+                                        <li style={{ marginBottom: '0px' }}><Link to="/products/workflow/codesage" style={{ fontSize: '13px' }}>CodeSage</Link></li>
+                                    </ul>
+                                </li>
+                                <li style={{ marginBottom: '18px' }}>
+                                    <Link to="/products/aibuddy" style={{ fontWeight: '700', color: '#11142c', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>AI Buddy</Link>
+                                </li>
+                                <li style={{ marginBottom: '18px' }}>
+                                    <Link to="/products/people-connect" style={{ fontWeight: '700', color: '#11142c', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>People Connect</Link>
+                                </li>
+                                <li style={{ marginBottom: '18px' }}>
+                                    <Link to="/products/exitinterview" style={{ fontWeight: '700', color: '#11142c', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Ai Exit Interview</Link>
+                                </li>
+                                <li style={{ marginBottom: '0px' }}>
+                                    <Link to="/products/whatsapp" style={{ fontWeight: '700', color: '#11142c', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>WhatsApp Automation</Link>
+                                </li>
                             </ul>
                         </div>
                     </div>
 
                     {/* Column 5: Organization */}
                     <div className="col-lg-2 col-md-6 col-sm-12">
-                        <div className="vrm-footer-widget">
+                        <div className="vrm-footer-widget vrm-footer-widget-organization">
                             <h5 className="vrm-footer-title">Organization</h5>
                             <ul className="vrm-footer-links">
                                 <li><Link to="/about-us">About Us</Link></li>

@@ -18,7 +18,105 @@
 .vrm-enterprise-gradient {
     background: linear-gradient(183deg, #1b277c, #0e1022 40%, #1b2674) !important;
     color: #ffffff;
+    position: relative;
+    overflow: hidden;
 }
+
+/* Improve hero description text readability on dark gradient backgrounds */
+.vrm-enterprise-gradient .text-white-50,
+.vrm-enterprise-gradient p.disc,
+.vrm-enterprise-gradient .ai-agent-hero-desc,
+.vrm-hero .text-white-50,
+.vrm-hero p.disc {
+    color: rgba(255, 255, 255, 0.88) !important;
+    opacity: 1 !important;
+}
+
+/* Ensure all hero headings inside dark gradient and hero sections are white and readable */
+.vrm-enterprise-gradient .title,
+.vrm-enterprise-gradient h1,
+.vrm-enterprise-gradient .ai-agent-hero-title,
+.vrm-hero .title,
+.vrm-hero h1 {
+    color: #ffffff !important;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Transparent Header: Top-Level Link Dropdown Indicator (Arrow) must be white, NOT black */
+.header-white-text:not(.sticky) .mainmenu>li.has-droupdown>a::before,
+.header-white-text:not(.sticky) .main-header .main-menu .has-dropdown>a::after {
+    color: #ffffff !important;
+}
+
+.header-white-text:not(.sticky) .mainmenu>li.has-droupdown:hover>a::before,
+.header-white-text:not(.sticky) .main-header .main-menu .has-dropdown:hover>a::after {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Solutions Mega Menu inside header: force dark links inside the white dropdown panel */
+.mega-menu-container .left-panel .service-category ul li a {
+    color: #1c2539 !important;
+}
+
+.mega-menu-container .left-panel .service-category ul li a:hover {
+    color: var(--color-primary) !important;
+}
+
+/* Products Mega Menu inside header: force dark links and background styles */
+.products-refactored-menu .platforms-panel ul li .platform-btn {
+    color: #555555 !important;
+}
+
+.products-refactored-menu .platforms-panel ul li .platform-btn:hover,
+.products-refactored-menu .platforms-panel ul li .platform-btn.active {
+    color: var(--color-primary) !important;
+    background: #ffffff !important;
+}
+
+.products-refactored-menu .sub-products-panel ul li a {
+    color: #555555 !important;
+}
+
+.products-refactored-menu .sub-products-panel ul li a:hover {
+    color: var(--color-primary) !important;
+    background: #f0f4ff !important;
+}
+
+/* White CTA Buttons override in hero sections */
+.vrm-enterprise-gradient .rts-btn.btn-white,
+.vrm-hero .rts-btn.btn-white {
+    background-color: #ffffff !important;
+    color: #3b4ecc !important;
+    font-weight: 700 !important;
+    border: 2px solid #ffffff !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15) !important;
+}
+
+.vrm-enterprise-gradient .rts-btn.btn-white:hover,
+.vrm-hero .rts-btn.btn-white:hover {
+    background-color: #3b4ecc !important;
+    color: #ffffff !important;
+    border-color: #3b4ecc !important;
+    box-shadow: 0 6px 20px rgba(59, 78, 204, 0.4) !important;
+}
+
+/* Ghost CTA Buttons override in hero sections */
+.vrm-enterprise-gradient .vrm-btn-ghost,
+.vrm-hero .vrm-btn-ghost {
+    background-color: transparent !important;
+    color: #ffffff !important;
+    border: 2px solid rgba(255, 255, 255, 0.8) !important;
+    backdrop-filter: blur(5px) !important;
+}
+
+.vrm-enterprise-gradient .vrm-btn-ghost:hover,
+.vrm-hero .vrm-btn-ghost:hover {
+    background-color: #ffffff !important;
+    color: #1b277c !important;
+    border-color: #ffffff !important;
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2) !important;
+}
+
 
 /* Default Header Styling (Pure White, High Z-Index) */
 .header-one {
@@ -750,6 +848,17 @@
     opacity: 1;
 }
 
+/* Fix text visibility inside default white industry cards placed inside dark gradient backgrounds */
+.vrm-enterprise-gradient .vrm-industry-card .title:not(.text-white) {
+    color: #11142c !important;
+    text-shadow: none !important;
+}
+
+.vrm-enterprise-gradient .vrm-industry-card p.disc:not(.text-white-50):not(.text-white),
+.vrm-enterprise-gradient .vrm-industry-card p:not(.text-white-50):not(.text-white) {
+    color: #555555 !important;
+}
+
 /* ==========================================================================
    AI Calling Agent Page Specific Styles - Enterprise Grade
    ========================================================================== */
@@ -1097,6 +1206,11 @@
     color: #ffffff !important;
 }
 
+/* Banner Section Background */
+#banner {
+    background: #ffffff !important;
+}
+
 /* Hero Button Responsive Styles */
 .vrm-hero-btn {
     padding: 12px 30px;
@@ -1139,13 +1253,7 @@
 
 /* VideoSage Section Styling */
 #videosage {
-    background-color: #1B277D !important;
-}
-
-#videosage .title,
-#videosage .pre-title,
-#videosage .disc {
-    color: #ffffff !important;
+    background-color: #ffffff !important;
 }
 
 /* Modern Feature Cards (Pastel Style) */
@@ -1489,6 +1597,8 @@
 .vrm-equal-height-swiper {
     padding-bottom: 50px !important;
     /* Space for pagination */
+    max-width: 1200px !important; /* Standard site container width for 3 slides */
+    margin: 0 auto !important;
 }
 
 .vrm-equal-height-swiper .swiper-wrapper {
@@ -1499,14 +1609,6 @@
     height: auto;
 }
 
-.gallery-item {
-    height: 100%;
-}
-
-.gallery-item img {
-    height: 100%;
-    object-fit: cover;
-}
 
 /* FIX: Button Text Visibility & Brand Background */
 .vrm-btn.bg-white {
@@ -2297,3 +2399,93 @@
     }
 }
 
+
+
+/* ==========================================================================
+   Product Pages — 16:9 Aspect Ratio for All Images & Videos
+   ========================================================================== */
+
+/* Hero banner image (col-lg-5 thumbnail in all product hero sections) */
+.banner-image-two {
+    width: 100%;
+    aspect-ratio: 1.5 / 1; /* Force the exact 3:2 landscape aspect ratio of the original git images */
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.banner-image-two img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+    border-radius: 20px;
+}
+
+/* "In Action" video wrapper — enforce 16:9 */
+.video-wrapper {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: #000;
+}
+
+.video-wrapper video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+/* ProductsOverview page — thumbnail images in alternating rows */
+.rts-about-area .thumbnail {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.rts-about-area .thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 15px;
+}
+
+/* Unified Product Mockup Thumbnail Style (Match the exact 3:2 landscape size and full-width of the git commit) */
+.vrm-product-thumbnail {
+    width: 100%;
+    aspect-ratio: 1.5 / 1; /* Match the exact 3:2 landscape aspect ratio from git */
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+}
+
+.vrm-product-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 20px;
+}
+
+.gallery-item {
+    width: 100%;
+    aspect-ratio: 1.5 / 1; /* Match the exact 1536x1024 (3:2) landscape aspect ratio of the git commit images */
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    border: 1px solid #eee;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gallery-item img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+}

@@ -13,11 +13,6 @@ import TestimonialSeven from "../components/testimonials/TestimonialSeven";
 import CaseSix from "../components/businesscase/CaseSix";
 import BlogSeven from "../components/blog/BlogSeven";
 
-
-
-
-
-
 import FooterOne from "../components/footer/FooterOne";
 
 function HomeOne() {
@@ -37,8 +32,6 @@ function HomeOne() {
             <TestimonialSeven />
             <CaseSix />
             <BlogSeven />
-
-
 
             <FooterOne />
 

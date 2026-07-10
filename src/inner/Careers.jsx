@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import HeaderOne from "../components/header/HeaderOne";
-// import Breadcrumb from "./Breadcrumb"; // Removed in favor of Hero
 import { Link } from 'react-router-dom';
 import FooterOne from "../components/footer/FooterOne";
 import { Modal } from 'react-bootstrap';
@@ -42,7 +42,6 @@ function Careers() {
                 setSubmitStatus({ type: 'error', message: 'Failed to submit application. Please try again later.' });
             }
         } catch (error) {
-            console.error("Submission error:", error);
             setSubmitStatus({ type: 'error', message: 'An error occurred while submitting your application.' });
         } finally {
             setIsSubmitting(false);
@@ -101,23 +100,43 @@ function Careers() {
 
     return (
         <div className='careers-page'>
-            <HeaderOne className="header-white-text" />
+            <Helmet>
+        <title>Careers | VRM AI Technology</title>
+        <meta name="description" content="Join VRM AI Technology — a born Gen AI company. Explore open roles in AI engineering, product design, and more. Build the future of intelligent automation." />
+        <meta property="og:title" content="Careers at VRM AI Technology" />
+        <meta property="og:description" content="Join VRM AI Technology — a born Gen AI company. Explore open roles in AI engineering, product design, and more. Build the future of intelligent automation." />
+                <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
+        <link rel="canonical" href="https://www.vrmaitechnology.com/careers" />
+      
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="Careers at VRM AI Technology" />
+                <meta name="twitter:description" content="Join VRM AI Technology — a born Gen AI company. Explore open roles in AI engineering, product design, and more. Build the future of intelligent automation." />
+                <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
+            </Helmet>
+            <HeaderOne className="careers-header-panel" />
 
             {/* Hero Section */}
-            <div className="careers-hero" style={{ backgroundImage: 'url("/assets/images/about/careers page.jpg.jpeg")' }}>
+            <div className="careers-hero">
                 <div className="container">
-                    <div className="row">
-                        <div className="col-lg-6 col-md-8">
-                            <div className="about-hero__badge">
-                                Work With Us
+                    <div className="row align-items-center g-5">
+                        <div className="col-lg-6">
+                            <div className="careers-hero-content text-start">
+                                <div className="about-hero__badge">
+                                    Work With Us
+                                </div>
+                                <h1 className="careers-hero__title text-white">Careers</h1>
+                                <p className="careers-hero__desc text-white-50">
+                                    We're solving humanity's toughest challenges with intelligent automation.
+                                    Bring your passion and expertise to a team that's redefining what's possible.
+                                </p>
+                                <div className="careers-hero__actions">
+                                    <a href="#openings" className="rts-btn btn-primary">Explore Open Roles</a>
+                                </div>
                             </div>
-                            <h1 className="careers-hero__title">Careers</h1>
-                            <p className="careers-hero__desc">
-                                We're solving humanity's toughest challenges with intelligent automation.
-                                Bring your passion and expertise to a team that's redefining what's possible.
-                            </p>
-                            <div className="careers-hero__actions">
-                                <a href="#openings" className="rts-btn btn-primary">Explore Open Roles</a>
+                        </div>
+                        <div className="col-lg-6">
+                            <div className="careers-hero-image wow fadeInUp" data-wow-delay=".3s" style={{ borderRadius: '20px', overflow: 'hidden', boxShadow: '0 20px 50px rgba(0,0,0,0.3)' }}>
+                                <img src="/assets/images/career/careers-hero-v2.png" alt="Working at VRM" style={{ width: '100%', height: '400px', objectFit: 'cover', display: 'block', objectPosition: 'center 20%' }} />
                             </div>
                         </div>
                     </div>
@@ -142,7 +161,7 @@ function Careers() {
                         </div>
                         <div className="col-lg-6 d-none d-lg-flex h-100">
                             <div className="w-100 h-100 position-relative">
-                                <img src="/assets/images/career/career-1.png" alt="Working at VRM" className="w-100 h-100" style={{ objectFit: 'cover', borderRadius: '16px', boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }} />
+                                <img src="/assets/images/career/career-1-v2.png" alt="Working at VRM" className="w-100 h-100" style={{ objectFit: 'cover', borderRadius: '16px', boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }} />
                             </div>
                         </div>
                     </div>

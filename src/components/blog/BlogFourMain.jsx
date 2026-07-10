@@ -2,10 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 
 const BlogTwoMain = (props) => {
-    const { blogID, blogImage, blogTitle, blogPublishedDate } = props;
+    const { blogID, blogImage, blogTitle } = props;
     return (
         <>
-
 
             <div className="service-one-inner-four">
                 <div className="big-thumbnail-area">

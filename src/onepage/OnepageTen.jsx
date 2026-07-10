@@ -10,11 +10,7 @@ import BrandOne from "../components/brand/BrandOne";
 import TestimonialThree from "../components/testimonials/TestimonialThree";
 import BlogNine from "../components/blog/BlogNine";
 
-
-
-
 import FooterSeven from "../components/footer/FooterSeven";
-
 
 function HomeThree() {
     return (
@@ -30,7 +26,6 @@ function HomeThree() {
             <BrandOne />
             <TestimonialThree />
             <BlogNine />
-
 
             <FooterSeven />
 

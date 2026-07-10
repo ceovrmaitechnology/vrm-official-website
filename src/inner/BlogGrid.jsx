@@ -8,7 +8,6 @@ import FooterOne from "../components/footer/FooterOne";
 import Breadcrumb from "./Breadcrumb";
 import BlogListMain from './BlogListMain';
 
-
 function BlogGrid() {
     const breadcrumbs = [
         { label: 'Home', link: '/' },
@@ -322,13 +321,13 @@ function BlogGrid() {
                             {/* single wized start */}
                             <div className="rts-single-wized contact">
                                 <div className="wized-header">
-                                    <Link href="index.html">
+                                    <Link to={'/'}>
                                         <img src="assets/images/logo/logo.jpeg" alt="Business_logo" />
                                     </Link>
                                 </div>
                                 <div className="wized-body">
                                     <h5 className="title">Need Help? We Are Here To Help You</h5>
-                                    <Link className="rts-btn btn-primary" href="contactus.html">
+                                    <Link className="rts-btn btn-primary" to={'/contactus'}>
                                         Contact Us
                                     </Link>
                                 </div>

@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-
 function ServiceEleven() {
     return (
         <div>
@@ -25,7 +24,7 @@ function ServiceEleven() {
                                 <div className="thumbnail">
                                     <img
                                         src="assets/images/service/icon/01.svg"
-                                        alt="finbiz_service"
+                                        alt="AI automation service dashboard"
                                     />
                                 </div>
                                 <div className="service-details">
@@ -53,7 +52,7 @@ function ServiceEleven() {
                                 <div className="thumbnail">
                                     <img
                                         src="assets/images/service/icon/02.svg"
-                                        alt="finbiz_service"
+                                        alt="AI automation service dashboard"
                                     />
                                 </div>
                                 <div className="service-details">
@@ -81,7 +80,7 @@ function ServiceEleven() {
                                 <div className="thumbnail">
                                     <img
                                         src="assets/images/service/icon/03.svg"
-                                        alt="finbiz_service"
+                                        alt="AI automation service dashboard"
                                     />
                                 </div>
                                 <div className="service-details">
@@ -109,7 +108,7 @@ function ServiceEleven() {
                                 <div className="thumbnail">
                                     <img
                                         src="assets/images/service/icon/04.svg"
-                                        alt="finbiz_service"
+                                        alt="AI automation service dashboard"
                                     />
                                 </div>
                                 <div className="service-details">
@@ -137,7 +136,7 @@ function ServiceEleven() {
                                 <div className="thumbnail">
                                     <img
                                         src="assets/images/service/icon/05.svg"
-                                        alt="finbiz_service"
+                                        alt="AI automation service dashboard"
                                     />
                                 </div>
                                 <div className="service-details">
@@ -165,7 +164,7 @@ function ServiceEleven() {
                                 <div className="thumbnail">
                                     <img
                                         src="assets/images/service/icon/06.svg"
-                                        alt="finbiz_service"
+                                        alt="AI automation service dashboard"
                                     />
                                 </div>
                                 <div className="service-details">

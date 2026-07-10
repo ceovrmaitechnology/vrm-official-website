@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-
-
 function BusinessGoalThree() {
 
     const [isVideoOpen, setIsVideoOpen] = useState(false);
@@ -89,24 +87,24 @@ function BusinessGoalThree() {
                                     </div>
                                     <div className="goal-button-wrapper mt--70">
                                         <Link
-                                            href="contactus.html"
+                                            to={'/contactus'}
                                             className="rts-btn btn-primary color-h-black"
                                         >
                                             Contact Us
                                         </Link>
-
+ 
                                         <div className="vedio-icone">
                                             {/* Video Play Button */}
-                                            <Link id="play-video" className="video-play-button" href="#" onClick={openVideo}>
+                                            <Link id="play-video" className="video-play-button" to={'#'} onClick={openVideo}>
                                                 <span />
                                                 <span className="outer-text">Watch Video</span>
                                             </Link>
-
+ 
                                             {/* Video Overlay */}
                                             {isVideoOpen && (
                                                 <div id="video-overlay" className="video-overlay open">
                                                     {/* Close button for the video overlay */}
-                                                    <Link className="video-overlay-close" href="#" onClick={closeVideo}>
+                                                    <Link className="video-overlay-close" to={'#'} onClick={closeVideo}>
                                                         ×
                                                     </Link>
                                                     {/* Video iframe */}

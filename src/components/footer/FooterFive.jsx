@@ -49,7 +49,7 @@ function FooterFive() {
                                     <h5 className="title">Quick Links</h5>
                                     <img
                                         src="assets/images/footer/under-title.png"
-                                        alt="finbiz_footer"
+                                        alt="VRM AI Technology footer logo"
                                     />
                                 </div>
                                 <div className="quick-link-inner">
@@ -114,7 +114,7 @@ function FooterFive() {
                                     <h5 className="title">Opening Hours</h5>
                                     <img
                                         src="assets/images/footer/under-title.png"
-                                        alt="finbiz_footer"
+                                        alt="VRM AI Technology footer logo"
                                     />
                                 </div>
                                 <div className="opening-time-inner">
@@ -144,7 +144,7 @@ function FooterFive() {
                                     <h5 className="title">Popular Updates</h5>
                                     <img
                                         src="assets/images/footer/under-title.png"
-                                        alt="finbiz_footer"
+                                        alt="VRM AI Technology footer logo"
                                     />
                                 </div>
                                 <div className="post-wrapper">
@@ -153,7 +153,7 @@ function FooterFive() {
                                         <div className="left-thumbnail">
                                             <img
                                                 src="assets/images/footer/post/01.png"
-                                                alt="finbiz_business-post"
+                                                alt="Business automation solution illustration"
                                             />
                                         </div>
                                         <div className="post-right">
@@ -161,12 +161,12 @@ function FooterFive() {
                                                 {" "}
                                                 <i className="fal fa-clock" /> 15th April, 2022
                                             </p>
-                                            <Link href="blog-details.html">
+                                            <Link to={'/blog-list'}>
                                                 <h6 className="title">
                                                     Best Business Ideas For Getting Solution
                                                 </h6>
                                             </Link>
-                                            <Link className="red-more" href="blog-details.html">
+                                            <Link className="red-more" to={'/blog-list'}>
                                                 Read More
                                                 <i className="far fa-arrow-right" />
                                             </Link>
@@ -178,7 +178,7 @@ function FooterFive() {
                                         <div className="left-thumbnail">
                                             <img
                                                 src="assets/images/footer/post/02.png"
-                                                alt="finbiz_business-post"
+                                                alt="Business automation solution illustration"
                                             />
                                         </div>
                                         <div className="post-right">
@@ -186,12 +186,12 @@ function FooterFive() {
                                                 {" "}
                                                 <i className="fal fa-clock" /> 15th April, 2024
                                             </p>
-                                            <Link href="blog-details.html">
+                                            <Link to={'/blog-list'}>
                                                 <h6 className="title">
                                                     Best Business Ideas For Getting Solution
                                                 </h6>
                                             </Link>
-                                            <Link className="red-more" href="blog-details.html">
+                                            <Link className="red-more" to={'/blog-list'}>
                                                 Read More
                                                 <i className="far fa-arrow-right" />
                                             </Link>
@@ -211,7 +211,7 @@ function FooterFive() {
                         <div className="row">
                             <div className="col-12">
                                 <div className="text-center">
-                                    <p>VRM AI Technologies - Copyright 2026. All rights reserved.</p>
+                                    <p>VRM AI Technology - Copyright 2026. All rights reserved.</p>
                                 </div>
                             </div>
                         </div>

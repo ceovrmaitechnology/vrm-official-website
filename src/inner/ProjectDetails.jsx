@@ -1,14 +1,11 @@
-import React, { useState } from 'react';
-
+import React from 'react';
 
 import HeaderOne from "../components/header/HeaderOne";
 
-import { Link } from 'react-router-dom';
 import FooterOne from "../components/footer/FooterOne";
 import Breadcrumb from "./Breadcrumb";
 
-
-function ProjectThree() {
+function ProjectDetails() {
     const breadcrumbs = [
         { label: 'Home', link: '/' },
         { label: 'Portfolio Details' }
@@ -20,9 +17,6 @@ function ProjectThree() {
 
             <Breadcrumb title="Portfolio Details" breadcrumbs={breadcrumbs} />
 
-
-
-
             {/* project details image area */}
             <div className="rts-project-details-area rts-section-gap">
                 <div className="container">
@@ -31,7 +25,7 @@ function ProjectThree() {
                             <div className="big-bg-porduct-details">
                                 <img
                                     src="assets/images/product/bg-lg-01.jpg"
-                                    alt="Business_Finbiz"
+                                    alt="VRM AI Solutions Portfolio Details"
                                 />
                                 <div className="project-info">
                                     <div className="info-head">
@@ -198,14 +192,10 @@ function ProjectThree() {
             </div>
             {/* project details image area end */}
 
-
-
-
-
             <FooterOne />
 
         </div>
     )
 }
 
-export default ProjectThree
+export default ProjectDetails

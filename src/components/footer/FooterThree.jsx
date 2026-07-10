@@ -62,7 +62,7 @@ function FooterThree() {
                                                     </ul>
                                                     <div className="info">
                                                         <span>Call Us 24/7</span>
-                                                        <Link to={'#'}>(+256) 2145.2156</Link>
+                                                        <Link to={'#'}>+91 81233 48355</Link>
                                                     </div>
                                                 </div>
                                                 <div className="single">
@@ -73,7 +73,7 @@ function FooterThree() {
                                                     </ul>
                                                     <div className="info">
                                                         <span>Work with us</span>
-                                                        <Link to={'#'}>info@vrmgroups.com</Link>
+                                                        <a href="mailto:contactus@vrmaitechnology.com">contactus@vrmaitechnology.com</a>
                                                     </div>
                                                 </div>
                                                 <div className="single">
@@ -180,7 +180,7 @@ function FooterThree() {
                         <div className="row">
                             <div className="col-12">
                                 <p className="disc text-center">
-                                    VRM AI Technologies - Copyright 2025. All rights reserved.
+                                    VRM AI Technology - Copyright 2025. All rights reserved.
                                 </p>
                             </div>
                         </div>

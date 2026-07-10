@@ -37,11 +37,11 @@ function ContactForm() {
                 e.target.reset();
             } else {
                 const errorBody = await response.text();
-                console.error('Contact form submit failed:', response.status, errorBody);
+
                 setStatus({ type: 'error', message: 'Failed to send message. Please try again later.' });
             }
         } catch (error) {
-            console.error('Contact form error:', error);
+
             setStatus({ type: 'error', message: 'Network error. Please ensure you are connected.' });
         }
         setLoading(false);
@@ -52,32 +52,32 @@ function ContactForm() {
             {/* contact area start */}
             <div className="rts-contact-area contact-one">
                 <div className="container">
-                    {/* Centered Heading Layout */}
-                    <div className="row mb-5">
+                    {/* Centered Heading */}
+                    <div className="row mb-4 mb-md-5">
                         <div className="col-12 text-center">
                             <p className="pre-title" style={{ color: '#3B4ECC', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '2px' }}>Make An Appointment</p>
                             <h2 className="title mb-3">Request for a quote</h2>
-                            <p className="desc mx-auto" style={{ maxWidth: '600px', color: '#64748b' }}>
+                            <p className="desc mx-auto" style={{ maxWidth: '600px', color: '#64748b', fontSize: '16px' }}>
                                 Connect with our enterprise experts to discuss your AI objectives, explore custom solutions, and map out a strategic roadmap for your organization.
                             </p>
                         </div>
                     </div>
 
-                    <div className="row align-items-stretch g-5">
-                        {/* Left Image Column */}
-                        <div className="col-lg-5 col-md-12 d-none d-lg-flex h-100">
-                            <div className="contact-image-one w-100 h-100 position-relative">
+                    <div className="row align-items-center g-4 g-md-5">
+                        {/* Left Image Column — hidden on small mobile, visible from md up */}
+                        <div className="col-md-5 d-none d-md-block">
+                            <div className="contact-image-one">
                                 <img
-                                    src="assets/images/home/home-3.png"
+                                    src="assets/images/home/indian-collab.png"
                                     alt="VRM AI Consultation"
-                                    style={{ objectFit: 'cover', width: '100%', height: '100%', borderRadius: '16px', minHeight: '500px' }}
+                                    style={{ objectFit: 'cover', width: '100%', height: '360px', borderRadius: '16px' }}
                                 />
                             </div>
                         </div>
 
-                        {/* Right Form Column */}
-                        <div className="col-lg-7 col-md-12">
-                            <div className="contact-form-area-one h-100 d-flex flex-column justify-content-center">
+                        {/* Right Form Column — full width on mobile, 7 cols on desktop */}
+                        <div className="col-12 col-md-7">
+                            <div className="contact-form-area-one">
                                 {status.message && (
                                     <div className={`alert ${status.type === 'success' ? 'alert-success' : 'alert-danger'} mb-4`} role="alert">
                                         {status.message}
@@ -104,9 +104,9 @@ function ContactForm() {
                                         placeholder="Type Your Message"
                                         name="message"
                                         required
-                                        style={{ minHeight: '150px' }}
+                                        style={{ minHeight: '140px' }}
                                     />
-                                    <div className="text-end mt-4">
+                                    <div className="text-end mt-3">
                                         <button type="submit" className="rts-btn btn-primary" disabled={loading}>
                                             {loading ? 'Sending...' : 'Submit Message'}
                                         </button>

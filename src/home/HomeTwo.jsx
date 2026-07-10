@@ -12,8 +12,6 @@ import PricingOne from "../components/pricing/PricingOne";
 import BrandTwo from "../components/brand/BrandTwo";
 import BlogTwo from "../components/blog/BlogTwo";
 
-
-
 import FooterTwo from "../components/footer/FooterTwo";
 
 function HomeOne() {
@@ -32,7 +30,6 @@ function HomeOne() {
             <PricingOne />
             <BrandTwo />
             <BlogTwo />
-
 
             <FooterTwo />
 

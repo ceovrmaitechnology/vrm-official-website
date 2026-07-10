@@ -6,7 +6,6 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
 
-import { Link } from 'react-router-dom';
 import post from '../../data/post.json';
 import BlogEightMain from './BlogEightMain';
 

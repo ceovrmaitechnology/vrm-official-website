@@ -24,7 +24,7 @@ function TeamFive() {
                                         alt="pre-title"
                                     />
                                 </div>
-                                <h2 className="title color-white">Finbiz Professionals</h2>
+                                <h2 className="title color-white">VRM AI Professionals</h2>
                             </div>
                         </div>
                     </div>
@@ -38,28 +38,28 @@ function TeamFive() {
                                         <div className="social-team">
                                             <ul>
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="/">
                                                         <i className="fab fa-facebook-f" />
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="/">
                                                         <i className="fab fa-twitter" />
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="/">
                                                         <i className="fab fa-linkedin-in" />
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="/">
                                                         <i className="fab fa-youtube" />
                                                     </a>
                                                 </li>
                                             </ul>
                                         </div>
-                                        <a href="#">
+                                        <a href="/">
                                             <img src="assets/images/team/tm/14.png" alt="team-image" />
                                         </a>
                                         <div className="content-inner">
@@ -83,28 +83,28 @@ function TeamFive() {
                                         <div className="social-team">
                                             <ul>
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="/">
                                                         <i className="fab fa-facebook-f" />
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="/">
                                                         <i className="fab fa-twitter" />
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="/">
                                                         <i className="fab fa-linkedin-in" />
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="/">
                                                         <i className="fab fa-youtube" />
                                                     </a>
                                                 </li>
                                             </ul>
                                         </div>
-                                        <a href="#">
+                                        <a href="/">
                                             <img src="assets/images/team/tm/15.png" alt="team-image" />
                                         </a>
                                         <div className="content-inner">
@@ -128,28 +128,28 @@ function TeamFive() {
                                         <div className="social-team">
                                             <ul>
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="/">
                                                         <i className="fab fa-facebook-f" />
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="/">
                                                         <i className="fab fa-twitter" />
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="/">
                                                         <i className="fab fa-linkedin-in" />
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="/">
                                                         <i className="fab fa-youtube" />
                                                     </a>
                                                 </li>
                                             </ul>
                                         </div>
-                                        <a href="#">
+                                        <a href="/">
                                             <img src="assets/images/team/tm/16.png" alt="team-image" />
                                         </a>
                                         <div className="content-inner">
@@ -173,28 +173,28 @@ function TeamFive() {
                                         <div className="social-team">
                                             <ul>
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="/">
                                                         <i className="fab fa-facebook-f" />
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="/">
                                                         <i className="fab fa-twitter" />
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="/">
                                                         <i className="fab fa-linkedin-in" />
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="/">
                                                         <i className="fab fa-youtube" />
                                                     </a>
                                                 </li>
                                             </ul>
                                         </div>
-                                        <a href="#">
+                                        <a href="/">
                                             <img src="assets/images/team/tm/17.png" alt="team-image" />
                                         </a>
                                         <div className="content-inner">

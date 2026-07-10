@@ -6,8 +6,6 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
 
-
-
 function BannerTwo() {
     return (
         <div>
@@ -45,7 +43,7 @@ function BannerTwo() {
                                                         <span>Solving</span> Your Vision Is <br />
                                                         <span>Our</span> Dedication
                                                     </h1>
-                                                    <a className="rts-btn btn-primary-2" href="#">
+                                                    <a className="rts-btn btn-primary-2" href="/">
                                                         View Solution
                                                     </a>
                                                 </div>
@@ -67,7 +65,7 @@ function BannerTwo() {
                                                         <span>Boosting</span> Your Business <br /> Is
                                                         <span>Our</span> Dedication
                                                     </h1>
-                                                    <a className="rts-btn btn-primary-2" href="#">
+                                                    <a className="rts-btn btn-primary-2" href="/">
                                                         View Solution
                                                     </a>
                                                 </div>
@@ -89,7 +87,7 @@ function BannerTwo() {
                                                         <span>Making</span> Business Growth Is Our{" "}
                                                         <span>Dedication</span>
                                                     </h1>
-                                                    <a className="rts-btn btn-primary-2" href="#">
+                                                    <a className="rts-btn btn-primary-2" href="/">
                                                         View Solution
                                                     </a>
                                                 </div>

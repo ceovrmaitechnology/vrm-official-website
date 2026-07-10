@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import HeaderOne from "../components/header/HeaderOne";
 import Breadcrumb from "./Breadcrumb";
 
 import { Link } from 'react-router-dom';
 import FooterOne from "../components/footer/FooterOne";
-
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
@@ -12,8 +11,6 @@ import { Navigation, Scrollbar, A11y, EffectFade, Autoplay } from 'swiper/module
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
-
-
 
 function OurService() {
     const breadcrumbs = [
@@ -26,7 +23,6 @@ function OurService() {
 
             <HeaderOne />
             <Breadcrumb title="Testimonial Style 1" breadcrumbs={breadcrumbs} />
-
 
             {/* start client review area start */}
             <div className="rts-client-review-two rts-section-gapTop pb--120">
@@ -279,7 +275,6 @@ function OurService() {
                 </div>
             </div>
             {/* start client review area end */}
-
 
             <FooterOne />
 

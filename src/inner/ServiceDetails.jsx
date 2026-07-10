@@ -3,8 +3,6 @@ import HeaderOne from "../components/header/HeaderOne";
 import Breadcrumb from "./Breadcrumb";
 import { Link } from 'react-router-dom';
 
-
-
 import FooterOne from "../components/footer/FooterOne";
 
 function OurService() {
