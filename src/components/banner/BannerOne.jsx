@@ -45,7 +45,7 @@ function BannerOne() {
                     alignItems: "flex-end",
                     justifyContent: "center",
 
-                    paddingBottom: isMobile ? "25px" : "90px",
+                    paddingBottom: isMobile ? "26px" : "90px",
 
                     backgroundColor: "#ffffff",
                     boxSizing: "border-box",
@@ -76,7 +76,7 @@ function BannerOne() {
 
                         border: "none",
                         outline: "none",
-                        clipPath: isMobile ? "none" : "inset(10px 50px 10px 50px)",
+                        clipPath: "inset(10px 50px 10px 50px)",
 
                         zIndex: 1,
                     }}
@@ -117,7 +117,7 @@ function BannerOne() {
                                     display: "inline-flex",
                                     alignItems: "center",
                                     justifyContent: "center",
-                                    gap: "8px",
+                                    gap: "0px",
 
                                     width: "220px",
                                     height: isMobile ? "50px" : "56px",
@@ -130,7 +130,7 @@ function BannerOne() {
                                 }}
                             >
                                 Know More
-                                <i className="fas fa-arrow-right"></i>
+                                <i className="fas fa-arrow-right" style={{ display: "inline-flex", alignItems: "center" }}></i>
                             </Link>
                         </div>
                     </div>
