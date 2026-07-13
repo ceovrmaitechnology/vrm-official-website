@@ -2404,6 +2404,13 @@
         width: 38px !important;
         height: 38px !important;
     }
+    .progress-wrap::after,
+    .progress-wrap::before {
+        width: 38px !important;
+        height: 38px !important;
+        line-height: 34px !important;
+        font-size: 18px !important;
+    }
 }
 
 
@@ -2498,4 +2505,11 @@
     height: 100% !important;
     object-fit: cover !important;
     display: block !important;
+}
+
+/* Fix header margins on tablet/laptop screens to prevent wrapping */
+@media (max-width: 1199px) {
+    .main-header .nav-main ul li {
+        margin-right: 28px !important;
+    }
 }

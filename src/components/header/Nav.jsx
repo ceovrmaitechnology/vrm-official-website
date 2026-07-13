@@ -109,7 +109,7 @@ export default function Nav() {
 
     return (
         <div>
-            <nav className="nav-main mainmenu-nav d-none d-xl-block">
+            <nav className="nav-main mainmenu-nav d-none d-lg-block">
                 <ul className="mainmenu">
                     <li><Link className="nav-link" to={'/'}>Home</Link></li>
 
