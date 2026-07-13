@@ -30,9 +30,7 @@ function AboutUs() {
                     <div className="row align-items-center g-5">
                         <div className="col-lg-6">
                             <div className="about-hero-content text-start">
-                                <div className="about-hero__badge">
-                                    Our Solutions
-                                </div>
+
                                 <h1 className="about-hero__title text-white">About Us</h1>
                                 <p className="about-hero__desc text-white-50">
                                     VRM AI Technology has pioneered AI services and products, consistently delivering measurable business value with the latest generative AI technology and automation.

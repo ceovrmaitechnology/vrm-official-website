@@ -46,6 +46,9 @@ function XpressScreening() {
                     <div className="row align-items-center">
                         <div className="col-lg-7">
                             <div className="banner-content-two">
+                                <span className="vrm-suite-label wow fadeInUp" data-wow-delay=".1s">
+                                    WORKFLOW.AI
+                                </span>
                                 <h1 className="title wow fadeInUp text-white" data-wow-delay=".2s">
                                     Xpress Screening
                                 </h1>

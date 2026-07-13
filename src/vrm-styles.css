@@ -1597,7 +1597,8 @@
 .vrm-equal-height-swiper {
     padding-bottom: 50px !important;
     /* Space for pagination */
-    max-width: 1200px !important; /* Standard site container width for 3 slides */
+    max-width: 1200px !important;
+    /* Standard site container width for 3 slides */
     margin: 0 auto !important;
 }
 
@@ -2369,15 +2370,19 @@
 .side-bar {
     z-index: 999999 !important;
 }
+
 #anywhere-home {
     z-index: 999998 !important;
 }
+
 .progress-wrap {
-    z-index: 99997 !important; /* Float above content, but sit behind sidebar overlay */
+    z-index: 99997 !important;
+    /* Float above content, but sit behind sidebar overlay */
     transition: all 0.3s ease;
 }
 
 @media (max-width: 767px) {
+
     /* 2. Product Card Padding & Auto-height to adjust dynamically on mobile */
     .vrm-product-card {
         padding: 30px 20px !important;
@@ -2386,8 +2391,10 @@
 
     /* 3. Product Card Background Image Readability on Mobile */
     .vrm-product-card-bg {
-        opacity: 0.03 !important; /* Make background mockup images very faint to ensure description text is readable */
-        background-position: right bottom !important; /* Move watermark text away from top-left icon */
+        opacity: 0.03 !important;
+        /* Make background mockup images very faint to ensure description text is readable */
+        background-position: right bottom !important;
+        /* Move watermark text away from top-left icon */
     }
 
     /* 4. Compact Floating Action Button on mobile to prevent blocking text */
@@ -2408,7 +2415,8 @@
 /* Hero banner image (col-lg-5 thumbnail in all product hero sections) */
 .banner-image-two {
     width: 100%;
-    aspect-ratio: 1.5 / 1; /* Force the exact 3:2 landscape aspect ratio of the original git images */
+    aspect-ratio: 1.5 / 1;
+    /* Force the exact 3:2 landscape aspect ratio of the original git images */
     overflow: hidden;
     border-radius: 20px;
 }
@@ -2455,11 +2463,12 @@
 /* Unified Product Mockup Thumbnail Style (Match the exact 3:2 landscape size and full-width of the git commit) */
 .vrm-product-thumbnail {
     width: 100%;
-    aspect-ratio: 1.5 / 1; /* Match the exact 3:2 landscape aspect ratio from git */
+    aspect-ratio: 1.5 / 1;
+    /* Match the exact 3:2 landscape aspect ratio from git */
     margin: 0 auto;
     overflow: hidden;
     border-radius: 20px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
 }
 
 .vrm-product-thumbnail img {
@@ -2472,10 +2481,11 @@
 
 .gallery-item {
     width: 100%;
-    aspect-ratio: 1.5 / 1; /* Match the exact 1536x1024 (3:2) landscape aspect ratio of the git commit images */
+    aspect-ratio: 1.5 / 1;
+    /* Match the exact 1536x1024 (3:2) landscape aspect ratio of the git commit images */
     overflow: hidden;
     border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
     border: 1px solid #eee;
     background-color: #fff;
     display: flex;
