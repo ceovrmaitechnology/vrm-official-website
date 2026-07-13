@@ -45,7 +45,7 @@ function BannerOne() {
                     alignItems: "flex-end",
                     justifyContent: "center",
 
-                    paddingBottom: isMobile ? "25px" : "90px",
+                    paddingBottom: isMobile ? "26px" : "90px",
 
                     backgroundColor: "#ffffff",
                     boxSizing: "border-box",
