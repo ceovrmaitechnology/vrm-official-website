@@ -26,13 +26,8 @@ function CodeSage() {
         <div className="codesage-page basic-font-family">
             <HeaderOne />
 
-            {/* 1. Hero Section - Full Width Enterprise Gradient & Background Image */}
-            <div className="vrm-full-width-section ptb--120 position-relative" style={{
-                backgroundImage: 'linear-gradient(rgba(17, 20, 44, 0.85), rgba(27, 39, 124, 0.9)), url(/assets/images/banner/08.jpg)',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                backgroundRepeat: 'no-repeat'
-            }}>
+            {/* 1. Hero Section - Enterprise Gradient */}
+            <div className="vrm-full-width-section vrm-enterprise-gradient ptb--120 position-relative">
                 <div className="container position-relative z-index-1">
                     <div className="row align-items-center">
                         <div className="col-lg-7">
