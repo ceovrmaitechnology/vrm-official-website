@@ -28,6 +28,24 @@ function SideMenu({ isSidebarOpen, toggleSidebar }) {
 
     return (
         <div>
+            {isSidebarOpen && (
+                <div 
+                    className="sidebar-backdrop" 
+                    onClick={toggleSidebar} 
+                    style={{
+                        position: 'fixed',
+                        top: 0,
+                        left: 0,
+                        width: '100vw',
+                        height: '100vh',
+                        backgroundColor: 'rgba(14, 16, 19, 0.6)',
+                        zIndex: 999998,
+                        backdropFilter: 'blur(3px)',
+                        transition: 'all 0.3s ease',
+                        cursor: 'pointer'
+                    }}
+                />
+            )}
             <div id="side-bar" className={`side-bar ${isSidebarOpen ? 'show' : ''}`}>
                 <button className="close-icon-menu" aria-label="Close Menu" onClick={toggleSidebar}>
                     <i className="far fa-times"></i>

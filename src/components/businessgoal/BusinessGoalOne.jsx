@@ -8,7 +8,7 @@ function BusinessGoalOne() {
                 <div className="container">
                     <div className="row align-items-stretch">
                         {/* business goal left */}
-                        <div className="col-lg-6 mb_md--30 mb_sm--30 d-flex h-100">
+                        <div className="col-lg-5 mb_md--30 mb_sm--30 d-flex h-100">
                             <div className="business-goal-one wow fadeInUp w-100 h-100 d-flex position-relative" data-wow-delay=".2s">
                                 <img
                                     className="w-100 h-100 flex-grow-1"
@@ -19,7 +19,7 @@ function BusinessGoalOne() {
                             </div>
                         </div>
                         {/* business goal right */}
-                        <div className="col-lg-6">
+                        <div className="col-lg-7">
                             <div className="business-goal-right wow fadeInRight" data-wow-delay=".4s">
                                 <div className="rts-title-area business text-start pl--30">
 

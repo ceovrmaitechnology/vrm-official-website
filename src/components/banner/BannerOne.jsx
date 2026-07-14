@@ -19,7 +19,7 @@ function BannerOne() {
     }, []);
 
     // Hero height on desktop adapts to viewport height so the button is always visible
-    const heroHeight = isMobile ? "650px" : "calc(100vh - 50px)";
+    const heroHeight = isMobile ? "85vw" : "calc(100vh - 50px)";
 
     // Video height is sized to fit comfortably on desktop
     const videoHeight = isMobile ? "400px" : "1010px";
@@ -45,7 +45,7 @@ function BannerOne() {
                     alignItems: "flex-end",
                     justifyContent: "center",
 
-                    paddingBottom: isMobile ? "26px" : "90px",
+                    paddingBottom: isMobile ? "10px" : "40px",
 
                     backgroundColor: "#ffffff",
                     boxSizing: "border-box",
@@ -60,24 +60,16 @@ function BannerOne() {
                     preload="auto"
                     style={{
                         position: "absolute",
-                        top: isMobile ? "50%" : "40%",
-                        left: "50%",
-                        transform: "translate(-50%, -50%)",
-
-                        width: isMobile ? "100%" : "auto",
-                        height: videoHeight,
-                        aspectRatio: isMobile ? "auto" : "16 / 9",
-
-                        objectFit: isMobile ? "cover" : "fill",
+                        top: 0,
+                        left: 0,
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
                         objectPosition: "center center",
-
                         backgroundColor: "#ffffff",
                         display: "block",
-
                         border: "none",
                         outline: "none",
-                        clipPath: "inset(10px 50px 10px 50px)",
-
                         zIndex: 1,
                     }}
                     onLoadedData={() => console.log("✅ Video loaded")}

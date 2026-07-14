@@ -27,16 +27,16 @@ function WhatsAppAutomation() {
         <div className="screensage-page basic-font-family">
             <HeaderOne />
             <Helmet>
-                <title>WhatsApp Business Platform | Customer Engagement | VRM AI</title>
-                <meta name="description" content="Scale customer engagement using the Official WhatsApp Business Platform. Automate support, route messages, and sync chats with your CRM platform." />
-                <meta property="og:title" content="WhatsApp Automation — Official Business Platform" />
-                <meta property="og:description" content="Scale customer engagement using the Official WhatsApp Business Platform. Automate support, route messages, and sync chats with your CRM platform." />
+                <title>Lead Connect | AI Customer Engagement | VRM AI</title>
+                <meta name="description" content="Lead Connect empowers businesses with intelligent AI agents that autonomously engage customers, capture opportunities, qualify prospects, and accelerate conversions." />
+                <meta property="og:title" content="Lead Connect — AI Customer Engagement Agent" />
+                <meta property="og:description" content="Lead Connect empowers businesses with intelligent AI agents that autonomously engage customers, capture opportunities, qualify prospects, and accelerate conversions." />
                 <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
                 <link rel="canonical" href="https://www.vrmaitechnology.com/products/whatsapp" />
             
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="WhatsApp Automation — Official Business Platform" />
-                <meta name="twitter:description" content="Scale customer engagement using the Official WhatsApp Business Platform. Automate support, route messages, and sync chats with your CRM platform." />
+                <meta name="twitter:title" content="Lead Connect — AI Customer Engagement Agent" />
+                <meta name="twitter:description" content="Lead Connect empowers businesses with intelligent AI agents that autonomously engage customers, capture opportunities, qualify prospects, and accelerate conversions." />
                 <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
             </Helmet>
 
@@ -47,10 +47,10 @@ function WhatsAppAutomation() {
                         <div className="col-lg-7">
                             <div className="banner-content-two">
                                 <h1 className="title wow fadeInUp text-white" data-wow-delay=".2s">
-                                    WhatsApp Automation
+                                    Lead Connect
                                 </h1>
                                 <p className="disc wow fadeInUp text-white-50" data-wow-delay=".3s">
-                                    Customer support channels are often overwhelmed by manual ticketing and slow response cycles. WhatsApp Automation provides official messaging channels and automated reply triggers, resolving common inquiries instantly.
+                                    Lead Connect empowers businesses with intelligent AI agents that autonomously engage customers, capture opportunities, qualify prospects, schedule appointments, nurture relationships, and accelerate conversions — delivering seamless customer experiences 24×7 with zero manual effort.
                                 </p>
                                 <div className="button-area wow fadeInUp" data-wow-delay=".4s">
                                     <Link to="/contactus#send-message" className="vrm-btn vrm-btn-ghost">
@@ -75,9 +75,9 @@ function WhatsAppAutomation() {
                         <div className="col-12 text-center">
                             <div className="rts-title-area" data-text="">
                                 <span className="pre-title" style={{ color: '#3B4ECC' }}>Key Benefits</span>
-                                <h2 className="title">Why Choose WhatsApp Automation?</h2>
+                                <h2 className="title">Why Choose Lead Connect?</h2>
                                 <p className="disc mt-3">
-                                    Siloed communication tools lead to lost sales leads and inconsistent support. WhatsApp Automation unifies customer engagement routes and synchronizes with your customer relation databases, ensuring standard messaging standards.
+                                    Siloed customer interaction routes lead to lost sales opportunities and inconsistent support. Lead Connect deploys autonomous AI agents that unify your customer acquisition and engagement funnels, ensuring seamless database synchronization and consistent response standards.
                                 </p>
                             </div>
                         </div>
@@ -108,7 +108,7 @@ function WhatsAppAutomation() {
                     <div className="row">
                         <div className="col-12 text-center">
                             <div className="rts-title-area mb--50" data-text="">
-                                <h2 className="title">See WhatsApp Automation in Action</h2>
+                                <h2 className="title">See Lead Connect in Action</h2>
                                 <p className="disc mt-3">Observe how chat builders compile custom triggers and pass customer conversations to live desks.</p>
                             </div>
                         </div>
@@ -159,7 +159,7 @@ function WhatsAppAutomation() {
                                 {images.map((img, index) => (
                                     <SwiperSlide key={index}>
                                         <div className="gallery-item wow fadeInUp" data-wow-delay={`.${index + 2}s`} style={{ borderRadius: '15px', overflow: 'hidden', boxShadow: '0 10px 30px rgba(0,0,0,0.08)', border: '1px solid #eee' }}>
-                                            <img src={img} alt={`WhatsApp Customer Engagement Interface Dashboard ${index + 1}`} style={{ width: '100%', height: 'auto', display: 'block' }} />
+                                            <img src={img} alt={`Lead Connect Customer Engagement Interface Dashboard ${index + 1}`} style={{ width: '100%', height: 'auto', display: 'block' }} />
                                         </div>
                                     </SwiperSlide>
                                 ))}
@@ -237,9 +237,9 @@ function WhatsAppAutomation() {
                     <div className="row align-items-center">
                         <div className="col-lg-6">
                             <div className="content-left text-start">
-                                <h2 className="title text-white wow fadeInUp">Scale Customer Engagement Workflows</h2>
+                                <h2 className="title text-white wow fadeInUp">Scale Customer Engagement with Lead Connect</h2>
                                 <p className="disc text-white-50 mt-4 wow fadeInUp" data-wow-delay=".2s">
-                                    WhatsApp Automation connects directly to your existing customer relationship databases. Our platform scales to handle heavy daily message volume, ensuring your team has the delivery logs needed to manage support standards.
+                                    Lead Connect connects directly to your existing customer relationship databases. Our platform scales autonomously to handle high engagement volumes, ensuring your sales and support teams have the real-time insights needed to manage conversions.
                                 </p>
                                 <div className="button-area mt-5 wow fadeInUp" data-wow-delay=".4s">
                                     <Link to="/contactus#send-message" className="vrm-btn vrm-btn-ghost text-white">
@@ -249,8 +249,8 @@ function WhatsAppAutomation() {
                             </div>
                         </div>
                         <div className="col-lg-6">
-                            <div className="thumbnail wow fadeInUp mt-5 mt-lg-0" data-wow-delay=".3s" style={{ borderRadius: '20px', overflow: 'hidden', boxShadow: '0 20px 50px rgba(0,0,0,0.3)' }}>
-                                <img src="/assets/images/service/04.jpg" alt="Enterprise Partnership" style={{ width: '100%', display: 'block' }} />
+                            <div className="thumbnail wow fadeInUp mt-5 mt-lg-0" data-wow-delay=".3s" style={{ borderRadius: '20px', overflow: 'hidden', boxShadow: '0 20px 50px rgba(0,0,0,0.3)', maxWidth: '85%', margin: '0 auto' }}>
+                                <img src="/assets/images/service/partnership-indian.png" alt="Enterprise Partnership" style={{ width: '100%', height: '350px', objectFit: 'cover', display: 'block' }} />
                             </div>
                         </div>
                     </div>

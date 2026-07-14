@@ -39,7 +39,7 @@ function CodeSage() {
                                     CodeSage
                                 </h1>
                                 <p className="disc wow fadeInUp text-white-50" data-wow-delay=".3s">
-                                    Assess Engineering Talent Accurately. CodeSage enables scalable, unbiased technical interviews through intelligent code evaluation and real-time feedback—helping teams assess engineering talent accurately and hire with confidence.
+                                    Evaluate Engineers with CodeSage. Empower organizations to test technical talent through automated coding challenges and intelligent evaluation. By delivering deep, objective, and real-time performance assessments at scale, it enables faster hiring decisions and high-quality engineering hires.
                                 </p>
                                 <div className="button-area wow fadeInUp" data-wow-delay=".4s">
                                     <Link to="/contactus#send-message" className="vrm-btn vrm-btn-ghost">
@@ -239,8 +239,8 @@ function CodeSage() {
                             </div>
                         </div>
                         <div className="col-lg-6">
-                            <div className="thumbnail wow fadeInUp mt-5 mt-lg-0" data-wow-delay=".3s" style={{ borderRadius: '20px', overflow: 'hidden', boxShadow: '0 20px 50px rgba(0,0,0,0.3)' }}>
-                                <img src="/assets/images/service/03.jpg" alt="Engineering Leadership" style={{ width: '100%', display: 'block' }} />
+                            <div className="thumbnail wow fadeInUp mt-5 mt-lg-0" data-wow-delay=".3s" style={{ borderRadius: '20px', overflow: 'hidden', boxShadow: '0 20px 50px rgba(0,0,0,0.3)', maxWidth: '85%', margin: '0 auto' }}>
+                                <img src="/assets/images/service/partnership-indian.png" alt="Engineering Leadership" style={{ width: '100%', height: '350px', objectFit: 'cover', display: 'block' }} />
                             </div>
                         </div>
                     </div>

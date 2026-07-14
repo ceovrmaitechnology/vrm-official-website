@@ -162,13 +162,14 @@ function AICallingAgent() {
                         slidesPerView={1}
                         navigation
                         pagination={{ clickable: true }}
-                        autoplay={{ delay: 3000, disableOnInteraction: false }}
+                        autoplay={{ delay: 3000 }}
+                        loop={true}
                         observer={true}
                         observeParents={true}
+                        touchStartPreventDefault={false}
                         breakpoints={{
-                            640: { slidesPerView: 1 },
                             768: { slidesPerView: 2 },
-                            1024: { slidesPerView: 3 },
+                            1024: { slidesPerView: 2 },
                         }}
                         className="pb-5 vrm-equal-height-swiper"
                         style={{ paddingBottom: '50px' }} // Add padding for shadow and hover effects

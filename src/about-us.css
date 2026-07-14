@@ -70,8 +70,36 @@
     font-size: 18px;
     line-height: 1.7;
     color: rgba(255, 255, 255, 0.9);
-    max-width: 600px;
+    max-width: 100% !important;
     margin-bottom: 0;
+}
+
+.vrm-about-hero-img-container {
+    width: 85% !important;
+    max-width: 480px !important;
+    height: 350px !important;
+    margin-left: auto !important;
+    margin-right: 0 !important;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.vrm-about-hero-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center 15% !important;
+    display: block !important;
+}
+
+@media (max-width: 991px) {
+    .vrm-about-hero-img-container {
+        width: 100% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        height: 300px !important;
+    }
 }
 
 
@@ -111,6 +139,23 @@
 .about-innovation img {
     border-radius: 16px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.vrm-about-innovation-img-container {
+    width: 85% !important;
+    max-width: 480px !important;
+    height: 420px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.vrm-about-innovation-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
 }
 
 
@@ -460,6 +505,13 @@
     }
     .about-cta__desc {
         font-size: 16px;
+    }
+    .vrm-about-innovation-img-container {
+        width: 100% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        height: 300px !important;
+        margin-bottom: 20px !important;
     }
 }
 

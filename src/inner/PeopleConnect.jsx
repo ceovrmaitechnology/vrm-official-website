@@ -50,7 +50,7 @@ function PeopleConnect() {
                                     People Connect
                                 </h1>
                                 <p className="disc wow fadeInUp text-white-50" data-wow-delay=".3s">
-                                    Constituency feedback is often bottlenecked by siloed intake channels and manual logging. People Connect streamlines citizen engagement by orchestrating automated voice calling, official WhatsApp Business outreach, and real-time decision panels.
+                                    Connect Communities with People Connect. Empower organizations to engage citizens through automated voice calling, official WhatsApp outreach, and real-time decision panels. By delivering direct, accessible, and structured public feedback at scale, it enables efficient grievance redressal and stronger community relationships.
                                 </p>
                                 <div className="button-area wow fadeInUp" data-wow-delay=".4s">
                                     <Link to="/contactus#send-message" className="vrm-btn vrm-btn-ghost">
@@ -250,8 +250,8 @@ function PeopleConnect() {
                             </div>
                         </div>
                         <div className="col-lg-6">
-                            <div className="thumbnail wow fadeInUp mt-5 mt-lg-0" data-wow-delay=".3s" style={{ borderRadius: '20px', overflow: 'hidden', boxShadow: '0 20px 50px rgba(0,0,0,0.3)' }}>
-                                <img src="/assets/images/service/04.jpg" alt="Enterprise Partnership" style={{ width: '100%', display: 'block' }} />
+                            <div className="thumbnail wow fadeInUp mt-5 mt-lg-0" data-wow-delay=".3s" style={{ borderRadius: '20px', overflow: 'hidden', boxShadow: '0 20px 50px rgba(0,0,0,0.3)', maxWidth: '85%', margin: '0 auto' }}>
+                                <img src="/assets/images/service/partnership-indian.png" alt="Enterprise Partnership" style={{ width: '100%', height: '350px', objectFit: 'cover', display: 'block' }} />
                             </div>
                         </div>
                     </div>

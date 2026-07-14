@@ -47,6 +47,10 @@ function FooterOne() {
                                     <a href="mailto:sales@vrmaitechnology.com" className="vrm-contact-value" style={{ fontSize: '13px' }}>sales@vrmaitechnology.com</a>
                                 </li>
                                 <li className="vrm-contact-link">
+                                    <span className="vrm-contact-label">HR</span>
+                                    <a href="mailto:hr@vrmaitechnology.com" className="vrm-contact-value" style={{ fontSize: '13px' }}>hr@vrmaitechnology.com</a>
+                                </li>
+                                <li className="vrm-contact-link">
                                     <span className="vrm-contact-label">Phone</span>
                                     <a href="tel:+918123348355" className="vrm-contact-value" style={{ fontSize: '13px' }}>+91 81233 48355</a>
                                 </li>
@@ -104,10 +108,10 @@ function FooterOne() {
                                     <Link to="/products/people-connect" style={{ fontWeight: '700', color: '#11142c', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>People Connect</Link>
                                 </li>
                                 <li style={{ marginBottom: '18px' }}>
-                                    <Link to="/products/exitinterview" style={{ fontWeight: '700', color: '#11142c', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Ai Exit Interview</Link>
+                                    <Link to="/products/exitinterview" style={{ fontWeight: '700', color: '#11142c', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Exit Intelligence</Link>
                                 </li>
                                 <li style={{ marginBottom: '0px' }}>
-                                    <Link to="/products/whatsapp" style={{ fontWeight: '700', color: '#11142c', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>WhatsApp Automation</Link>
+                                    <Link to="/products/whatsapp" style={{ fontWeight: '700', color: '#11142c', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Lead Connect</Link>
                                 </li>
                             </ul>
                         </div>

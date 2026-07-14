@@ -175,7 +175,7 @@ function HomeOverview() {
                                 id: 7,
                                 icon: "assets/images/service/icon/01.svg",
                                 category: "HR Offboarding",
-                                title: "Ai Exit Interview",
+                                title: "Exit Intelligence",
                                 desc: "AI-powered employee exit interview automation, retry engine, and HR insights platform.",
                                 link: "/products/exitinterview",
                                 bgImage: "assets/images/exitinterview/exitinterview-image.png"
@@ -183,9 +183,9 @@ function HomeOverview() {
                             {
                                 id: 8,
                                 icon: "assets/images/service/icon/03.svg",
-                                category: "Scalable Messaging",
-                                title: "WhatsApp Automation",
-                                desc: "AI-powered WhatsApp Business automation platform for customer communication, marketing, and scheduling.",
+                                category: "Lead Engagement",
+                                title: "Lead Connect",
+                                desc: "Lead Connect empowers businesses with intelligent AI agents that autonomously engage customers, capture opportunities, and qualify prospects 24x7.",
                                 link: "/products/whatsapp",
                                 bgImage: "assets/images/whatsapp/whatsapp-hero-v2.png"
                             }

@@ -27,16 +27,16 @@ function AiExitInterview() {
         <div className="exitinterview-page basic-font-family">
             <HeaderOne />
             <Helmet>
-                <title>AI Exit Interview | Offboarding Automation | VRM AI</title>
-                <meta name="description" content="Automate employee exit interviews with AI Exit Interview. Gather structured offboarding feedback and track retention insights across your organization." />
-                <meta property="og:title" content="AI Exit Interview — Enterprise Offboarding Automation" />
-                <meta property="og:description" content="Automate employee exit interviews with AI Exit Interview. Gather structured offboarding feedback and track retention insights across your organization." />
+                <title>Exit Intelligence | Offboarding Automation | VRM AI</title>
+                <meta name="description" content="Automate employee exit interviews with Exit Intelligence. Gather structured offboarding feedback and track retention insights across your organization." />
+                <meta property="og:title" content="Exit Intelligence — Enterprise Offboarding Automation" />
+                <meta property="og:description" content="Automate employee exit interviews with Exit Intelligence. Gather structured offboarding feedback and track retention insights across your organization." />
                 <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
                 <link rel="canonical" href="https://www.vrmaitechnology.com/products/exitinterview" />
             
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="AI Exit Interview — Enterprise Offboarding Automation" />
-                <meta name="twitter:description" content="Automate employee exit interviews with AI Exit Interview. Gather structured offboarding feedback and track retention insights across your organization." />
+                <meta name="twitter:title" content="Exit Intelligence — Enterprise Offboarding Automation" />
+                <meta name="twitter:description" content="Automate employee exit interviews with Exit Intelligence. Gather structured offboarding feedback and track retention insights across your organization." />
                 <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
             </Helmet>
 
@@ -47,10 +47,10 @@ function AiExitInterview() {
                         <div className="col-lg-7">
                             <div className="banner-content-two">
                                 <h1 className="title wow fadeInUp text-white" data-wow-delay=".2s">
-                                    Ai Exit Interview
+                                    Exit Intelligence
                                 </h1>
                                 <p className="disc wow fadeInUp text-white-50" data-wow-delay=".3s">
-                                    Employee exit surveys suffer from low participation and superficial feedback. Ai Exit Interview automates the offboarding outreach using voice conversation campaigns, compiling structured sentiment logs to help HR leaders analyze attrition.
+                                    Optimize Offboarding with Exit Intelligence. Empower organizations to capture attrition insights through automated interactive voice surveys. By delivering honest, structured, and sentiment-rich exit logs at scale, it enables better employee retention strategies and actionable HR analytics.
                                 </p>
                                 <div className="button-area wow fadeInUp" data-wow-delay=".4s">
                                     <Link to="/contactus#send-message" className="vrm-btn vrm-btn-ghost">
@@ -61,23 +61,23 @@ function AiExitInterview() {
                         </div>
                         <div className="col-lg-5">
                             <div className="banner-image-two wow fadeInUp" data-wow-delay=".3s">
-                                <img src="/assets/images/exitinterview/exitinterview-image.png" alt="Ai Exit Interview Operations Dashboard" style={{ borderRadius: '20px', boxShadow: '0 20px 50px rgba(0,0,0,0.3)' }} />
+                                <img src="/assets/images/exitinterview/exitinterview-image.png" alt="Exit Intelligence Operations Dashboard" style={{ borderRadius: '20px', boxShadow: '0 20px 50px rgba(0,0,0,0.3)' }} />
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            {/* 2. Why Choose Ai Exit Interview - White BG */}
+            {/* 2. Why Choose Exit Intelligence - White BG */}
             <div className="vrm-full-width-section vrm-white-bg">
                 <div className="container">
                     <div className="row">
                         <div className="col-12 text-center">
                             <div className="rts-title-area" data-text="">
                                 <span className="pre-title" style={{ color: '#3B4ECC' }}>Key Benefits</span>
-                                <h2 className="title">Why Choose Ai Exit Interview?</h2>
+                                <h2 className="title">Why Choose Exit Intelligence?</h2>
                                 <p className="disc mt-3">
-                                    Conducting exit interviews manually requires significant HR coordinator time and often yields guarded responses. Ai Exit Interview delivers standardized, neutral interviews that encourage candid feedback and classify turnover reasons automatically.
+                                    Conducting exit interviews manually requires significant HR coordinator time and often yields guarded responses. Exit Intelligence delivers standardized, neutral interviews that encourage candid feedback and classify turnover reasons automatically.
                                 </p>
                             </div>
                         </div>
@@ -103,13 +103,13 @@ function AiExitInterview() {
                 </div>
             </div>
 
-            {/* 3. See Ai Exit Interview in Action - Light Blue BG */}
+            {/* 3. See Exit Intelligence in Action - Light Blue BG */}
             <div className="vrm-full-width-section vrm-light-blue-bg">
                 <div className="container">
                     <div className="row">
                         <div className="col-12 text-center">
                             <div className="rts-title-area mb--50" data-text="">
-                                <h2 className="title">See Ai Exit Interview in Action</h2>
+                                <h2 className="title">See Exit Intelligence in Action</h2>
                                 <p className="disc mt-3">Observe how exit call recordings are transcribed, categorized, and analyzed on the HR dashboard.</p>
                             </div>
                         </div>
@@ -160,7 +160,7 @@ function AiExitInterview() {
                                 {images.map((img, index) => (
                                     <SwiperSlide key={index}>
                                         <div className="gallery-item wow fadeInUp" data-wow-delay={`.${index + 2}s`} style={{ borderRadius: '15px', overflow: 'hidden', boxShadow: '0 10px 30px rgba(0,0,0,0.08)', border: '1px solid #eee' }}>
-                                            <img src={img} alt={`Ai Exit Interview Interface Dashboard ${index + 1}`} style={{ width: '100%', height: 'auto', display: 'block' }} />
+                                            <img src={img} alt={`Exit Intelligence Interface Dashboard ${index + 1}`} style={{ width: '100%', height: 'auto', display: 'block' }} />
                                         </div>
                                     </SwiperSlide>
                                 ))}
@@ -240,7 +240,7 @@ function AiExitInterview() {
                             <div className="content-left text-start">
                                 <h2 className="title text-white wow fadeInUp">Optimize Employee Offboarding Workflows</h2>
                                 <p className="disc text-white-50 mt-4 wow fadeInUp" data-wow-delay=".2s">
-                                    Ai Exit Interview integrates with your enterprise HRIS platform to automate the offboarding collection process. Our secure deployment model safeguards candidate privacy while delivering the analytical summaries needed to guide retention strategies.
+                                    Exit Intelligence integrates with your enterprise HRIS platform to automate the offboarding collection process. Our secure deployment model safeguards candidate privacy while delivering the analytical summaries needed to guide retention strategies.
                                 </p>
                                 <div className="button-area mt-5 wow fadeInUp" data-wow-delay=".4s">
                                     <Link to="/contactus#send-message" className="vrm-btn vrm-btn-ghost text-white">
@@ -250,8 +250,8 @@ function AiExitInterview() {
                             </div>
                         </div>
                         <div className="col-lg-6">
-                            <div className="thumbnail wow fadeInUp mt-5 mt-lg-0" data-wow-delay=".3s" style={{ borderRadius: '20px', overflow: 'hidden', boxShadow: '0 20px 50px rgba(0,0,0,0.3)' }}>
-                                <img src="/assets/images/service/04.jpg" alt="Enterprise Partnership" style={{ width: '100%', display: 'block' }} />
+                            <div className="thumbnail wow fadeInUp mt-5 mt-lg-0" data-wow-delay=".3s" style={{ borderRadius: '20px', overflow: 'hidden', boxShadow: '0 20px 50px rgba(0,0,0,0.3)', maxWidth: '85%', margin: '0 auto' }}>
+                                <img src="/assets/images/service/partnership-indian.png" alt="Enterprise Partnership" style={{ width: '100%', height: '350px', objectFit: 'cover', display: 'block' }} />
                             </div>
                         </div>
                     </div>

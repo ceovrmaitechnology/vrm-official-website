@@ -67,7 +67,7 @@ export default function Nav() {
             ]
         },
         'exitinterview': { 
-            title: "AI Exit Interview", 
+            title: "Exit Intelligence", 
             description: "Automate exit interviews with conversational AI.", 
             link: "/products/exitinterview", 
             linkText: "View Product", 
@@ -80,16 +80,16 @@ export default function Nav() {
             ]
         },
         'whatsapp': { 
-            title: "WhatsApp Automation", 
-            description: "Manage automated chats, broadcasts, and support.", 
+            title: "Lead Connect", 
+            description: "Autonomous AI agents to engage, qualify, and convert customers.", 
             link: "/products/whatsapp", 
             linkText: "View Product", 
             image: "/assets/images/whatsapp/whatsapp-hero-v2.png",
             features: [
-                "Multi-agent chat support",
-                "Automated broadcast alerts",
-                "Interactive chatbots",
-                "Performance analytics"
+                "Autonomous AI agents",
+                "Instant lead qualification",
+                "24/7 automated scheduling",
+                "Multi-channel CRM sync"
             ]
         },
     };
@@ -219,7 +219,7 @@ export default function Nav() {
                                                 handleLinkHover('exitinterview');
                                             }}
                                         >
-                                            AI Exit Interview
+                                            Exit Intelligence
                                         </Link>
                                     </li>
                                     <li>
@@ -231,7 +231,7 @@ export default function Nav() {
                                                 handleLinkHover('whatsapp');
                                             }}
                                         >
-                                            WhatsApp Automation
+                                            Lead Connect
                                         </Link>
                                     </li>
                                 </ul>

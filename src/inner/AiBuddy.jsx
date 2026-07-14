@@ -50,7 +50,7 @@ function AiBuddy() {
                                     AI Buddy
                                 </h1>
                                 <p className="disc wow fadeInUp text-white-50" data-wow-delay=".3s">
-                                    Customer-facing communication relies on consistent voice delivery and clear articulation. AI Buddy conducts automated interactive speech assessments and scenario training, scoring pronunciation accuracy in real-time to optimize team readiness workflows.
+                                    Train Your Team with AI Buddy. Empower organizations to coach employees through automated interactive speech simulations and pronunciation analytics. By delivering detailed, real-time, and actionable communication insights at scale, it enables better team readiness and superior customer service.
                                 </p>
                                 <div className="button-area wow fadeInUp" data-wow-delay=".4s">
                                     <Link to="/contactus#send-message" className="vrm-btn vrm-btn-ghost">
@@ -250,8 +250,8 @@ function AiBuddy() {
                             </div>
                         </div>
                         <div className="col-lg-6">
-                            <div className="thumbnail wow fadeInUp mt-5 mt-lg-0" data-wow-delay=".3s" style={{ borderRadius: '20px', overflow: 'hidden', boxShadow: '0 20px 50px rgba(0,0,0,0.3)' }}>
-                                <img src="/assets/images/service/04.jpg" alt="Enterprise Partnership" style={{ width: '100%', display: 'block' }} />
+                            <div className="thumbnail wow fadeInUp mt-5 mt-lg-0" data-wow-delay=".3s" style={{ borderRadius: '20px', overflow: 'hidden', boxShadow: '0 20px 50px rgba(0,0,0,0.3)', maxWidth: '85%', margin: '0 auto' }}>
+                                <img src="/assets/images/service/partnership-indian.png" alt="Enterprise Partnership" style={{ width: '100%', height: '350px', objectFit: 'cover', display: 'block' }} />
                             </div>
                         </div>
                     </div>
