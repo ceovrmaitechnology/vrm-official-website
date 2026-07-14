@@ -226,23 +226,23 @@ function ProductsOverview() {
                 </div>
             </div>
 
-            {/* --- Product 7: AI Exit Interview --- */}
+            {/* --- Product 7: Exit Intelligence --- */}
             <div id="exitinterview" className="rts-about-area rts-section-gap" style={{ background: '#f8f9fa' }}>
                 <div className="container">
                     <div className="row g-5 align-items-center">
                         <div className="col-lg-6 wow fadeInLeft" data-wow-delay=".2s">
                             <div className="vrm-product-thumbnail">
-                                <img src="/assets/images/exitinterview/exitinterview-image.png" alt="Ai Exit Interview Operations Dashboard" />
+                                <img src="/assets/images/exitinterview/exitinterview-image.png" alt="Exit Intelligence Operations Dashboard" />
                             </div>
                         </div>
                         <div className="col-lg-6 wow fadeInRight" data-wow-delay=".2s">
                             <div className="about-inner">
-                                <div className="rts-title-area" data-text="Ai Exit Interview">
-                                    <h2 className="title">Ai Exit Interview</h2>
+                                <div className="rts-title-area" data-text="Exit Intelligence">
+                                    <h2 className="title">Exit Intelligence</h2>
                                 </div>
                                 <p className="disc">
                                     Employee exit surveys suffer from low participation and superficial feedback. 
-                                    Ai Exit Interview automates the offboarding outreach using voice conversation campaigns, compiling structured sentiment logs to help HR leaders analyze attrition.
+                                    Exit Intelligence automates the offboarding outreach using voice conversation campaigns, compiling structured sentiment logs to help HR leaders analyze attrition.
                                 </p>
                                 <Link className="rts-btn btn-primary" to="/products/exitinterview">Learn More</Link>
                             </div>
@@ -251,23 +251,22 @@ function ProductsOverview() {
                 </div>
             </div>
 
-            {/* --- Product 8: WhatsApp Automation --- */}
+            {/* --- Product 8: Lead Connect --- */}
             <div id="whatsapp" className="rts-about-area rts-section-gap" style={{ background: '#ffffff' }}>
                 <div className="container">
                     <div className="row g-5 align-items-center">
                         <div className="col-lg-6 order-lg-2 wow fadeInRight" data-wow-delay=".2s">
                             <div className="vrm-product-thumbnail">
-                                <img src="/assets/images/whatsapp/whatsapp-hero-v2.png" alt="WhatsApp Business Automation System" />
+                                <img src="/assets/images/whatsapp/whatsapp-hero-v2.png" alt="Lead Connect Business Automation System" />
                             </div>
                         </div>
                         <div className="col-lg-6 order-lg-1 wow fadeInLeft" data-wow-delay=".2s">
                             <div className="about-inner">
-                                <div className="rts-title-area" data-text="WhatsApp Automation">
-                                    <h2 className="title">WhatsApp Automation</h2>
+                                <div className="rts-title-area" data-text="Lead Connect">
+                                    <h2 className="title">Lead Connect</h2>
                                 </div>
                                 <p className="disc">
-                                    Enable scalable customer engagement and support using WhatsApp Business automation. 
-                                    Streamline communications, broadcast service alerts, and deploy smart conversational routing flows to reduce response delays.
+                                    Lead Connect empowers businesses with intelligent AI agents that autonomously engage customers, capture opportunities, qualify prospects, schedule appointments, nurture relationships, and accelerate conversions — delivering seamless customer experiences 24×7 with zero manual effort.
                                 </p>
                                 <Link className="rts-btn btn-primary" to="/products/whatsapp">Learn More</Link>
                             </div>

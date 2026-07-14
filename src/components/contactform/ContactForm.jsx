@@ -68,7 +68,7 @@ function ContactForm() {
                         <div className="col-md-5 d-none d-md-block">
                             <div className="contact-image-one">
                                 <img
-                                    src="assets/images/home/indian-collab.png"
+                                    src="/assets/images/home/indian-collab.png"
                                     alt="VRM AI Consultation"
                                     style={{ objectFit: 'cover', width: '100%', height: '360px', borderRadius: '16px' }}
                                 />

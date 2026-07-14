@@ -140,18 +140,18 @@
 }
 
 /* Global Transparent Header Overrides */
-@media (min-width: 992px) {
-    .header-one.header-transparent:not(.sticky) {
-        position: absolute !important;
-        top: 0;
-        left: 0;
-        width: 100%;
-        z-index: 99999 !important;
-        background: transparent !important;
-        box-shadow: none !important;
-        border-bottom: none !important;
-    }
+.header-one.header-transparent:not(.sticky) {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99999 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border-bottom: none !important;
+}
 
+@media (min-width: 992px) {
     .header-one.header-transparent.header-white-text:not(.sticky) .mainmenu li a {
         color: #000000 !important;
     }
@@ -1568,14 +1568,14 @@
 .vrm-white-bg {
     background-color: #ffffff;
     position: relative;
-    padding: 100px 0;
+    padding: 60px 0 30px 0;
 }
 
 .vrm-light-blue-bg {
     background-color: #F8FAFC;
     /* Very light blue/gray */
     position: relative;
-    padding: 100px 0;
+    padding: 40px 0 60px 0;
 }
 
 .vrm-deep-blue-bg {
@@ -1583,7 +1583,7 @@
     /* Deep slate */
     color: #ffffff;
     position: relative;
-    padding: 100px 0;
+    padding: 60px 0;
 }
 
 /* Offer Card */
@@ -1597,7 +1597,7 @@
 .vrm-equal-height-swiper {
     padding-bottom: 50px !important;
     /* Space for pagination */
-    max-width: 1200px !important;
+    max-width: 1000px !important;
     /* Standard site container width for 3 slides */
     margin: 0 auto !important;
 }
@@ -1632,6 +1632,8 @@
 .vrm-enterprise-services {
     background: linear-gradient(135deg, #1b277c, #11142c) !important;
     position: relative;
+    padding-top: 60px !important;
+    padding-bottom: 40px !important;
 }
 
 .vrm-enterprise-services::after {
@@ -1639,10 +1641,12 @@
     /* Remove watermark */
 }
 
-/* Remove the conflicting static light background image from the inner wrapper */
+/* Remove the conflicting static light background image from the inner wrapper and reduce padding */
 .vrm-enterprise-services .background-service {
     background-image: none !important;
     background: transparent !important;
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
 }
 
 .vrm-enterprise-services .rts-title-area .title,
@@ -2404,6 +2408,7 @@
         width: 38px !important;
         height: 38px !important;
     }
+
     .progress-wrap::after,
     .progress-wrap::before {
         width: 38px !important;
@@ -2436,9 +2441,11 @@
     border-radius: 20px;
 }
 
-/* "In Action" video wrapper — enforce 16:9 */
+/* "In Action" video wrapper — enforce 16:9 and restrict size */
 .video-wrapper {
     width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
     aspect-ratio: 16 / 9;
     overflow: hidden;
     background: #000;
@@ -2511,5 +2518,104 @@
 @media (max-width: 1199px) {
     .main-header .nav-main ul li {
         margin-right: 28px !important;
+    }
+}
+
+/* Reduce size of partnership images on product pages */
+.vrm-enterprise-gradient .thumbnail {
+    max-width: 480px !important;
+    margin-left: auto !important;
+}
+
+@media (max-width: 991px) {
+    .vrm-enterprise-gradient .thumbnail {
+        margin: 30px auto 0 !important;
+    }
+}
+
+/* Homepage & Section Spacing Optimization overrides to remove large gaps */
+.vrm-cta-banner {
+    padding: 80px 0 40px !important;
+}
+
+.vrm-products-highlight {
+    padding: 40px 0 40px !important;
+}
+
+.rts-about-area.rts-section-gap {
+    padding-top: 50px !important;
+    padding-bottom: 50px !important;
+}
+
+.rts-business-goal.rts-section-gap {
+    padding-top: 50px !important;
+    padding-bottom: 50px !important;
+}
+
+.vrm-testimonials-section.rts-section-gap {
+    padding-top: 50px !important;
+    padding-bottom: 50px !important;
+}
+
+/* Responsive spacing adjustments for smaller devices */
+@media (max-width: 991px) {
+    .vrm-cta-banner {
+        padding: 60px 0 30px !important;
+    }
+    .vrm-products-highlight {
+        padding: 30px 0 30px !important;
+    }
+    .rts-about-area.rts-section-gap {
+        padding-top: 40px !important;
+        padding-bottom: 40px !important;
+    }
+    .rts-business-goal.rts-section-gap {
+        padding-top: 40px !important;
+        padding-bottom: 40px !important;
+    }
+    .vrm-testimonials-section.rts-section-gap {
+        padding-top: 40px !important;
+        padding-bottom: 40px !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .vrm-cta-banner {
+        padding: 50px 0 20px !important;
+    }
+    .vrm-products-highlight {
+        padding: 25px 0 25px !important;
+    }
+    .rts-about-area.rts-section-gap {
+        padding-top: 30px !important;
+        padding-bottom: 30px !important;
+    }
+    .rts-business-goal.rts-section-gap {
+        padding-top: 30px !important;
+        padding-bottom: 30px !important;
+    }
+    .vrm-testimonials-section.rts-section-gap {
+        padding-top: 30px !important;
+        padding-bottom: 30px !important;
+    }
+}
+
+/* Responsive Image Styling for Homepage About Section */
+.vrm-about-img {
+    width: 76% !important;
+    max-width: 440px !important;
+    height: auto !important;
+    border-radius: 16px !important;
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: 0 !important;
+}
+
+@media (max-width: 991px) {
+    .vrm-about-img {
+        width: 100% !important;
+        max-width: 500px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
     }
 }

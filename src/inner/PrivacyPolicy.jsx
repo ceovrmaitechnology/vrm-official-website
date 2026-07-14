@@ -3,11 +3,9 @@ import { Helmet } from 'react-helmet-async';
 import HeaderOne from "../components/header/HeaderOne";
 import FooterOne from "../components/footer/FooterOne";
 import Breadcrumb from "./Breadcrumb";
-import WOW from 'wow.js';
 
 function PrivacyPolicy() {
     useEffect(() => {
-        new WOW().init();
         window.scrollTo(0, 0);
     }, []);
 

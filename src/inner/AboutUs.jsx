@@ -28,18 +28,20 @@ function AboutUs() {
             <div className="about-hero">
                 <div className="container">
                     <div className="row align-items-center g-5">
-                        <div className="col-lg-6">
+                        <div className="col-lg-7">
                             <div className="about-hero-content text-start">
-
+                                <div className="about-hero__badge">
+                                    Who We Are
+                                </div>
                                 <h1 className="about-hero__title text-white">About Us</h1>
                                 <p className="about-hero__desc text-white-50">
-                                    VRM AI Technology has pioneered AI services and products, consistently delivering measurable business value with the latest generative AI technology and automation.
+                                    VRM AI Technology is a pioneer in enterprise AI solutions and product development. We design, deploy, and scale high-performance generative AI platforms and custom machine learning systems that streamline operations, elevate customer engagement, and drive sustained business growth. By combining deep technical expertise with strategic execution, we empower organizations worldwide to transform workflows and innovate confidently in an AI-first era.
                                 </p>
                             </div>
                         </div>
-                        <div className="col-lg-6">
-                            <div className="about-hero-image wow fadeInUp" data-wow-delay=".3s" style={{ borderRadius: '20px', overflow: 'hidden', boxShadow: '0 20px 50px rgba(0,0,0,0.3)' }}>
-                                <img src="/assets/images/about/about-1-v2.png" alt="VRM AI Team" style={{ width: '100%', height: '400px', objectFit: 'cover', display: 'block', objectPosition: 'center 15%' }} />
+                        <div className="col-lg-5 d-flex align-self-center justify-content-lg-end justify-content-center">
+                            <div className="vrm-about-hero-img-container wow fadeInUp" data-wow-delay=".3s">
+                                <img src="/assets/images/about/about-1-v2.png" alt="VRM AI Team" className="vrm-about-hero-img" />
                             </div>
                         </div>
                     </div>
@@ -50,13 +52,12 @@ function AboutUs() {
             <div className="about-innovation">
                 <div className="container">
                     <div className="row g-5 align-items-stretch">
-                        <div className="col-lg-6 d-none d-lg-flex h-100">
-                            <div className="image-area w-100 h-100 position-relative">
+                        <div className="col-lg-6 d-flex align-self-center justify-content-center mb-4 mb-lg-0">
+                            <div className="vrm-about-innovation-img-container">
                                 <img
-                                    className="img-fluid w-100 h-100"
+                                    className="vrm-about-innovation-img"
                                     src="/assets/images/about/about-2.png"
                                     alt="Innovation"
-                                    style={{ objectFit: 'cover', borderRadius: '16px' }}
                                     onError={(e) => { e.target.onerror = null; e.target.src = "/assets/images/about/about-1.png" }} // Fallback
                                 />
                             </div>
@@ -219,8 +220,8 @@ function AboutUs() {
                                 </Accordion>
                             </div>
                         </div>
-                        <div className="col-lg-6 d-none d-lg-flex align-items-center justify-content-center">
-                            <div className="thumbnail position-relative" style={{ maxWidth: '480px', width: '100%', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 20px 40px rgba(0,0,0,0.15)' }}>
+                        <div className="col-lg-6 d-flex align-items-center justify-content-center mt-4 mt-lg-0">
+                            <div className="thumbnail position-relative" style={{ maxWidth: '400px', width: '100%', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 20px 40px rgba(0,0,0,0.15)' }}>
                                 <img src="/assets/images/faq/02.png" alt="Why Choose Us" style={{ width: '100%', height: 'auto', objectFit: 'cover', display: 'block' }} />
                             </div>
                         </div>

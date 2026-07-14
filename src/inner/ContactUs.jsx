@@ -368,7 +368,7 @@ const ContactUs = () => {
                                 </div>
                                 <h4 className="title mb-3">Working Hours</h4>
                                 <p className="disc text-muted">
-                                    Monday - Friday: 9:00 AM - 6:00 PM<br />
+                                    Monday - Friday: 9:30 AM - 7:00 PM<br />
                                     Saturday - Sunday: Closed<br />
                                     <span className="fw-bold text-primary mt-2 d-block">Support: 24/7 (Email)</span>
                                 </p>

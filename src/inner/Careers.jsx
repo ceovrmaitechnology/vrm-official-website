@@ -71,32 +71,7 @@ function Careers() {
         }
     ];
 
-    const openings = [
-        {
-            title: 'Senior AI Engineer',
-            experience: '5+ Years',
-            location: 'Bangalore, India',
-            type: 'Full Time'
-        },
-        {
-            title: 'Product Designer (UI/UX)',
-            experience: '3-5 Years',
-            location: 'Bangalore, India',
-            type: 'Full Time'
-        },
-        {
-            title: 'AI Product Manager',
-            experience: '4+ Years',
-            location: 'Bangalore, India',
-            type: 'Full Time'
-        },
-        {
-            title: 'Frontend Developer (React)',
-            experience: '2-4 Years',
-            location: 'Remote / Hybrid',
-            type: 'Full Time'
-        }
-    ];
+    const openings = [];
 
     return (
         <div className='careers-page'>
@@ -119,7 +94,7 @@ function Careers() {
             <div className="careers-hero">
                 <div className="container">
                     <div className="row align-items-center g-5">
-                        <div className="col-lg-6">
+                        <div className="col-lg-7">
                             <div className="careers-hero-content text-start">
                                 <div className="about-hero__badge">
                                     Work With Us
@@ -134,9 +109,9 @@ function Careers() {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-lg-6">
-                            <div className="careers-hero-image wow fadeInUp" data-wow-delay=".3s" style={{ borderRadius: '20px', overflow: 'hidden', boxShadow: '0 20px 50px rgba(0,0,0,0.3)' }}>
-                                <img src="/assets/images/career/careers-hero-v2.png" alt="Working at VRM" style={{ width: '100%', height: '400px', objectFit: 'cover', display: 'block', objectPosition: 'center 20%' }} />
+                        <div className="col-lg-5 d-flex align-self-center justify-content-lg-end justify-content-center">
+                            <div className="vrm-career-hero-img-container wow fadeInUp" data-wow-delay=".3s">
+                                <img src="/assets/images/career/careers-hero-v2.png" alt="Working at VRM" className="vrm-career-hero-img" />
                             </div>
                         </div>
                     </div>
@@ -159,9 +134,9 @@ function Careers() {
                                 <Link to="/contactus#send-message" className="rts-btn btn-primary">Contact Us</Link>
                             </div>
                         </div>
-                        <div className="col-lg-6 d-none d-lg-flex h-100">
-                            <div className="w-100 h-100 position-relative">
-                                <img src="/assets/images/career/career-1-v2.png" alt="Working at VRM" className="w-100 h-100" style={{ objectFit: 'cover', borderRadius: '16px', boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }} />
+                        <div className="col-lg-6 d-flex align-self-center justify-content-center justify-content-lg-end mt-4 mt-lg-0">
+                            <div className="vrm-career-img-container">
+                                <img src="/assets/images/career/career-1-v2.png" alt="Working at VRM" className="vrm-career-img" />
                             </div>
                         </div>
                     </div>
@@ -200,21 +175,33 @@ function Careers() {
                     </div>
                     <div className="row justify-content-center">
                         <div className="col-lg-10">
-                            {openings.map((job, index) => (
-                                <div className="job-card" key={index}>
-                                    <div className="job-info">
-                                        <h4>{job.title}</h4>
-                                        <div className="job-meta">
-                                            <span className="job-badge"><i className="far fa-briefcase"></i> {job.experience}</span>
-                                            <span className="job-badge"><i className="far fa-map-marker-alt"></i> {job.location}</span>
-                                            <span className="job-badge"><i className="far fa-clock"></i> {job.type}</span>
+                            {openings.length > 0 ? (
+                                openings.map((job, index) => (
+                                    <div className="job-card" key={index}>
+                                        <div className="job-info">
+                                            <h4>{job.title}</h4>
+                                            <div className="job-meta">
+                                                <span className="job-badge"><i className="far fa-briefcase"></i> {job.experience}</span>
+                                                <span className="job-badge"><i className="far fa-map-marker-alt"></i> {job.location}</span>
+                                                <span className="job-badge"><i className="far fa-clock"></i> {job.type}</span>
+                                            </div>
+                                        </div>
+                                        <div className="job-action text-end mt-3 mt-lg-0">
+                                            <button className="rts-btn btn-primary" onClick={() => handleShow(job.title)}>Apply Now</button>
                                         </div>
                                     </div>
-                                    <div className="job-action text-end mt-3 mt-lg-0">
-                                        <button className="rts-btn btn-primary" onClick={() => handleShow(job.title)}>Apply Now</button>
+                                ))
+                            ) : (
+                                <div className="no-openings-card text-center p-5" style={{ background: '#fff', borderRadius: '16px', boxShadow: '0 10px 30px rgba(0,0,0,0.05)', border: '1px solid #f0f0f0' }}>
+                                    <div className="no-openings-icon mb-4" style={{ fontSize: '48px', color: 'var(--color-primary)' }}>
+                                        <i className="far fa-briefcase"></i>
                                     </div>
+                                    <h4 className="mb-2" style={{ fontWeight: '700', color: '#1c2539' }}>No Positions Available Right Now</h4>
+                                    <p className="text-muted mx-auto" style={{ maxWidth: '500px', fontSize: '15px', lineHeight: '1.6', marginBottom: 0 }}>
+                                        We don't have any active job openings at the moment. However, we are always looking for talented minds. Feel free to submit a general application below!
+                                    </p>
                                 </div>
-                            ))}
+                            )}
                         </div>
                     </div>
                 </div>
