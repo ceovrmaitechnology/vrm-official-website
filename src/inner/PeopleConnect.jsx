@@ -27,16 +27,16 @@ function PeopleConnect() {
         <div className="people-connect-page basic-font-family">
             <HeaderOne />
             <Helmet>
-                <title>People Connect | Citizen Engagement Platform | VRM AI</title>
-                <meta name="description" content="Transform public feedback into regional insights with People Connect. Orchestrate voice, WhatsApp, and GPS-verified resolution workflows at scale." />
-                <meta property="og:title" content="People Connect — Enterprise Citizen Engagement Platform" />
-                <meta property="og:description" content="Transform public feedback into regional insights with People Connect. Orchestrate voice, WhatsApp, and GPS-verified resolution workflows at scale." />
+                <title>People Connect (Global) | Citizen Engagement Platform | VRM AI</title>
+                <meta name="description" content="Transform public feedback into regional insights with People Connect (Global). Orchestrate voice, WhatsApp, and GPS-verified resolution workflows at scale." />
+                <meta property="og:title" content="People Connect (Global) — Enterprise Citizen Engagement Platform" />
+                <meta property="og:description" content="Transform public feedback into regional insights with People Connect (Global). Orchestrate voice, WhatsApp, and GPS-verified resolution workflows at scale." />
                 <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
                 <link rel="canonical" href="https://www.vrmaitechnology.com/products/people-connect" />
             
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="People Connect — Enterprise Citizen Engagement Platform" />
-                <meta name="twitter:description" content="Transform public feedback into regional insights with People Connect. Orchestrate voice, WhatsApp, and GPS-verified resolution workflows at scale." />
+                <meta name="twitter:title" content="People Connect (Global) — Enterprise Citizen Engagement Platform" />
+                <meta name="twitter:description" content="Transform public feedback into regional insights with People Connect (Global). Orchestrate voice, WhatsApp, and GPS-verified resolution workflows at scale." />
                 <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
             </Helmet>
 
@@ -47,14 +47,14 @@ function PeopleConnect() {
                         <div className="col-lg-7">
                             <div className="banner-content-two">
                                 <h1 className="title wow fadeInUp text-white" data-wow-delay=".2s">
-                                    People Connect
+                                    People Connect (Global)
                                 </h1>
                                 <p className="disc wow fadeInUp text-white-50" data-wow-delay=".3s">
-                                    Connect Communities with People Connect. Empower organizations to engage citizens through automated voice calling, official WhatsApp outreach, and real-time decision panels. By delivering direct, accessible, and structured public feedback at scale, it enables efficient grievance redressal and stronger community relationships.
+                                    Connect Communities with People Connect (Global). Empower organizations to engage citizens through automated voice calling, official WhatsApp outreach, and real-time decision panels. By delivering direct, accessible, and structured public feedback at scale, it enables efficient grievance redressal and stronger community relationships.
                                 </p>
                                 <div className="button-area wow fadeInUp" data-wow-delay=".4s">
                                     <Link to="/contactus#send-message" className="vrm-btn vrm-btn-ghost">
-                                        Schedule Consultation <i className="far fa-arrow-right"></i>
+                                        Schedule a Demo <i className="far fa-arrow-right"></i>
                                     </Link>
                                 </div>
                             </div>
@@ -74,20 +74,20 @@ function PeopleConnect() {
                     <div className="row">
                         <div className="col-12 text-center">
                             <div className="rts-title-area" data-text="">
-                                <span className="pre-title" style={{ color: '#3B4ECC' }}>Key Benefits</span>
+                                <span className="pre-title" style={{ color: '#3B4ECC' }}>KEY BENEFITS</span>
                                 <h2 className="title">Why Choose People Connect?</h2>
                                 <p className="disc mt-3">
-                                    Validating and routing regional issues manually stalls public response times. People Connect standardizes public administration workflows by automatically categorizing citizen logs, flagging duplicates, and reporting resolution status.
+                                    Deliver faster citizen services with AI-powered engagement, intelligent case management, and real-time governance insights.
                                 </p>
                             </div>
                         </div>
                     </div>
                     <div className="row mt--50 g-4">
                         {[
-                            { icon: "fal fa-comments", title: "Multi-Channel Intake", desc: "Gather public feedback natively using voice calling, SMS campaigns, and the official WhatsApp Business platform." },
-                            { icon: "fas fa-shield-alt", title: "Automated Issue Routing", desc: "Filter, deduplicate, and assign citizen requests to field officers automatically based on regional mapping rules." },
-                            { icon: "fal fa-map", title: "Regional Dashboard Panels", desc: "Track resolution completion rates, regional issue concentrations, and response speed trends across departments." },
-                            { icon: "fal fa-chart-line", title: "Decision Intelligence", desc: "Analyze public concerns systematically to assist department leaders in prioritizing infrastructure and service budgets." }
+                            { icon: "fal fa-comments", title: "Unified Citizen Communication", desc: "Engage citizens across WhatsApp, AI voice, mobile apps, and digital channels from one intelligent platform." },
+                            { icon: "fal fa-tasks", title: "Intelligent Case Management", desc: "Automate complaint handling, service requests, and resolution workflows with AI-powered automation." },
+                            { icon: "fal fa-users-cog", title: "Connected Field Workforce", desc: "Coordinate field operations with real-time task tracking and workforce visibility." },
+                            { icon: "fal fa-chart-line", title: "Decision Intelligence", desc: "Monitor public service performance through live dashboards and actionable governance analytics." }
                         ].map((item, index) => (
                             <div key={index} className="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay={`.${(index + 1) * 2}s`}>
                                 <div className="vrm-feature-card text-center">
@@ -109,7 +109,7 @@ function PeopleConnect() {
                     <div className="row">
                         <div className="col-12 text-center">
                             <div className="rts-title-area mb--50" data-text="">
-                                <h2 className="title">See People Connect in Action</h2>
+                                <h2 className="title">See People Connect (Global) in Action</h2>
                                 <p className="disc mt-3">Observe how administrative dashboards map regional tickets and display response metrics in real-time.</p>
                             </div>
                         </div>
@@ -177,16 +177,16 @@ function PeopleConnect() {
                         <div className="col-12 text-center">
                             <div className="rts-title-area" data-text="">
                                 <h2 className="title">What We’ve Built for You</h2>
-                                <p className="disc mt-3">An administrative dashboard system configured to manage and verify regional civic inquiries.</p>
+                                <p className="disc mt-3">A unified AI-powered platform that enables governments and public organizations to streamline citizen engagement, automate service delivery, and improve governance through intelligent digital workflows.</p>
                             </div>
                         </div>
                     </div>
                     <div className="row mt--50 g-4">
                         {[
-                            { icon: "fal fa-comment-alt", title: "Citizen Interaction Logging", desc: "Log citizen inputs automatically via voice calls, WhatsApp, and SMS for administrative review." },
-                            { icon: "fas fa-shield-alt", title: "Validation & Deduplication", desc: "Screen incoming reports using location analytics to prevent duplicate task assignments." },
-                            { icon: "fal fa-tasks", title: "GPS-Verified Resolutions", desc: "Track field officer updates with geo-stamped records to confirm work completion status." },
-                            { icon: "fal fa-chart-bar", title: "Department Activity Feeds", desc: "Monitor ongoing resolution pipelines and response metrics through central admin panels." }
+                            { icon: "fal fa-comment-alt", title: "Omnichannel Citizen Communication", desc: "Connect with citizens through WhatsApp, AI voice calls, web portals, mobile apps, and digital channels from one unified platform." },
+                            { icon: "fal fa-folder-open", title: "AI Case & Complaint Management", desc: "Automate complaint registration, service requests, intelligent routing, escalations, and resolution tracking." },
+                            { icon: "fal fa-map-marked-alt", title: "Smart Field Operations", desc: "Assign tasks, coordinate field teams, monitor progress, and improve response times with real-time operational visibility." },
+                            { icon: "fal fa-chart-bar", title: "Governance Analytics", desc: "Access executive dashboards, service performance metrics, citizen insights, and operational analytics for informed decision-making." }
                         ].map((feature, idx) => (
                             <div key={idx} className="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay={`.${(idx + 1) * 2}s`}>
                                 <div className="vrm-feature-card text-center">
@@ -238,13 +238,16 @@ function PeopleConnect() {
                     <div className="row align-items-center">
                         <div className="col-lg-6">
                             <div className="content-left text-start">
-                                <h2 className="title text-white wow fadeInUp">Accelerate Public Service Response</h2>
+                                <h2 className="title text-white wow fadeInUp" style={{ fontSize: '36px', lineHeight: '1.25' }}>Transform Citizen Engagement with AI</h2>
                                 <p className="disc text-white-50 mt-4 wow fadeInUp" data-wow-delay=".2s">
-                                    People Connect integrates into existing public service databases and field workflows. Our architecture scales to support high-volume regional outreach campaigns, providing administrators with the verification tools needed to track task completion.
+                                    Empower your organization with an AI-powered citizen engagement platform that streamlines communication, automates public service delivery, and enables smarter governance through intelligent insights.
                                 </p>
-                                <div className="button-area mt-5 wow fadeInUp" data-wow-delay=".4s">
+                                <div className="button-area mt-5 wow fadeInUp" data-wow-delay=".4s" style={{ display: 'flex', gap: '15px', flexWrap: 'wrap' }}>
                                     <Link to="/contactus#send-message" className="vrm-btn vrm-btn-ghost text-white">
-                                        Schedule Consultation <i className="far fa-arrow-right"></i>
+                                        Schedule a Demo <i className="far fa-arrow-right"></i>
+                                    </Link>
+                                    <Link to="/contactus" className="vrm-btn vrm-btn-ghost text-white-50" style={{ border: '1px solid rgba(255,255,255,0.2)' }}>
+                                        Contact Sales
                                     </Link>
                                 </div>
                             </div>

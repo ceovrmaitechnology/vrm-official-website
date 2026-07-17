@@ -20,7 +20,7 @@ function ServiceOne() {
                         </div>
                     </div>
                     <div className="container-fluid service-main plr--120-service mt--50 plr_md--0 pl_sm--0 pr_sm--0">
-                        <div className="background-service row">
+                        <div className="background-service row g-4">
                             {/* start single Service */}
 
                             {/* start single Service */}

@@ -53,7 +53,7 @@ function XpressScreening() {
                                     Xpress Screening
                                 </h1>
                                 <p className="disc wow fadeInUp text-white-50" data-wow-delay=".3s">
-                                    Accelerate Recruiting with Xpress Screening. Empower organizations to filter resumes through automated parsing and intelligent keyword matching. By delivering fast, structured, and relevant applicant rankings at scale, it enables rapid shortlisting and reduces manual screening workloads.
+                                    Transform resume screening with AI-powered candidate intelligence. Automatically analyze resumes, match applicants to job requirements, rank top talent, and accelerate hiring with faster, smarter, and more consistent recruitment decisions.
                                 </p>
                                 <div className="button-area wow fadeInUp" data-wow-delay=".4s">
                                     <Link to="/contactus#send-message" className="vrm-btn vrm-btn-ghost">
@@ -78,18 +78,18 @@ function XpressScreening() {
                         <div className="col-12 text-center">
                             <div className="rts-title-area" data-text="">
                                 <span className="pre-title" style={{ color: '#3B4ECC' }}>Key Benefits</span>
-                                <h2 className="title">Why Choose Xpress Screening?</h2>
+                                <h2 className="title">Why Leading Teams Choose Xpress Screening</h2>
                                 <p className="disc mt-3">
-                                    Manual profile evaluation consumes significant recruitment hours. Xpress Screening processes bulk applications, standardizes profile formats, and generates candidate match scores to help teams identify qualified talent with objective consistency.
+                                    Transform manual resume reviews into an intelligent, AI-driven hiring process that saves time, improves candidate quality, and scales recruitment efficiently.
                                 </p>
                             </div>
                         </div>
                     </div>
                     <div className="row mt--50 g-4">
                         {[
-                            { icon: "fal fa-file-search", title: "Automated Resume Parsing", desc: "Extract candidate contact details, academic qualifications, and work history from resumes in multiple formats into structured data tables." },
-                            { icon: "fal fa-sliders-h", title: "Job Description Alignment", desc: "Compare candidate skills against job description requirements to highlight strengths and identify missing competencies automatically." },
-                            { icon: "fal fa-sort-amount-down", title: "Candidate Match Scoring", desc: "Assign match scores based on role specifications, grouping applicants in a ranked shortlist queue to speed up hiring review." }
+                            { icon: "fal fa-file-search", title: "AI Resume Parsing", desc: "Automatically convert resumes into structured candidate profiles with AI-powered data extraction." },
+                            { icon: "fal fa-sliders-h", title: "Intelligent Candidate Matching", desc: "Compare resumes against job requirements to identify the most qualified candidates instantly." },
+                            { icon: "fal fa-sort-amount-down", title: "Automated Candidate Ranking", desc: "Prioritize top talent using AI-generated match scores for faster and more objective hiring decisions." }
                         ].map((item, index) => (
                             <div key={index} className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay={`.${(index + 1) * 2}s`}>
                                 <div className="vrm-feature-card text-center">
@@ -178,17 +178,17 @@ function XpressScreening() {
                     <div className="row">
                         <div className="col-12 text-center">
                             <div className="rts-title-area" data-text="">
-                                <h2 className="title">What We’ve Built for You</h2>
-                                <p className="disc mt-3">A structured dashboard built to help recruitment teams process applications with clear data visibility.</p>
+                                <h2 className="title">AI Capabilities That Power Smarter Hiring</h2>
+                                <p className="disc mt-3">From resume intelligence to AI-powered candidate ranking, Xpress Screening gives recruiters everything they need to hire faster and smarter.</p>
                             </div>
                         </div>
                     </div>
                     <div className="row mt--50 g-4">
                         {[
-                            { icon: "fal fa-id-card", title: "Uniform Profile Formatting", desc: "Converts differently styled resumes into standardized digital profiles for easier verification." },
-                            { icon: "fal fa-chart-bar", title: "Visual Skill Outlines", desc: "Displays qualification alignment alongside job requirements, highlighting matching strengths." },
-                            { icon: "fal fa-user-check", title: "Shortlisting Actions", desc: "Enables recruiters to flag matched profiles and route them to secondary review stages." },
-                            { icon: "fal fa-analytics", title: "Hiring Pipeline Metrics", desc: "Provides real-time dashboards to track processing volumes and shortlist queue rates." }
+                            { icon: "fal fa-id-card", title: "AI Resume Intelligence", desc: "Automatically extracts, structures, and analyzes resume data to create standardized candidate profiles." },
+                            { icon: "fal fa-chart-bar", title: "Intelligent Candidate Matching", desc: "Matches candidates to job requirements using AI-driven skills and experience analysis." },
+                            { icon: "fal fa-user-check", title: "AI-Powered Shortlisting", desc: "Prioritizes the best candidates with intelligent match scores and automated ranking." },
+                            { icon: "fal fa-analytics", title: "Recruitment Analytics", desc: "Track hiring pipelines, candidate progress, and recruitment performance through real-time dashboards." }
                         ].map((feature, idx) => (
                             <div key={idx} className="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay={`.${(idx + 1) * 2}s`}>
                                 <div className="vrm-feature-card text-center">
@@ -240,13 +240,13 @@ function XpressScreening() {
                     <div className="row align-items-center">
                         <div className="col-lg-6">
                             <div className="content-left text-start">
-                                <h2 className="title text-white wow fadeInUp">Scale Your Hiring Operations Efficiently</h2>
+                                <h2 className="title text-white wow fadeInUp">Hire Smarter. Scale Faster.</h2>
                                 <p className="disc text-white-50 mt-4 wow fadeInUp" data-wow-delay=".2s">
-                                    Xpress Screening integrates into your existing hiring architecture to streamline candidate matching. Our secure solution scales to process large application volumes while maintaining data integrity, helping your recruitment team optimize cost-per-hire.
+                                    Transform manual recruitment into an AI-driven hiring process. From resume analysis to candidate ranking, Xpress Screening enables faster decisions, better hiring outcomes, and enterprise-scale recruitment automation.
                                 </p>
                                 <div className="button-area mt-5 wow fadeInUp" data-wow-delay=".4s">
                                     <Link to="/contactus#send-message" className="vrm-btn vrm-btn-ghost text-white">
-                                        Request Demo <i className="far fa-arrow-right"></i>
+                                        Schedule a Demo <i className="far fa-arrow-right"></i>
                                     </Link>
                                 </div>
                             </div>

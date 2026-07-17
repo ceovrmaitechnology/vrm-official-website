@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Nav from './Nav';
 import SideMenu from './SideMenu';
 
 
 function HeaderOne({ className }) {
+    const location = useLocation();
+    const isHomePage = location.pathname === '/';
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
     const toggleSidebar = () => {
@@ -65,7 +67,10 @@ function HeaderOne({ className }) {
                                         onClick={toggleSidebar}
                                         aria-label="Toggle Menu"
                                     >
-                                        <i className="fas fa-bars fs-1" style={{ color: '#1b277c' }}></i>
+                                        <i 
+                                            className="fas fa-bars fs-1" 
+                                            style={{ color: (className && className.includes('header-white-text') && !isSticky && !isHomePage) ? '#ffffff' : '#1b277c' }}
+                                        ></i>
                                     </button>
                                 </div>
                             </div>

@@ -27,16 +27,16 @@ function AiBuddy() {
         <div className="aibuddy-page basic-font-family">
             <HeaderOne />
             <Helmet>
-                <title>AI Buddy | Voice Coaching & Training | VRM AI</title>
-                <meta name="description" content="Build customer-ready teams with AI Buddy. Train employees using automated speech simulations, pronunciation analytics, and custom coaching profiles." />
-                <meta property="og:title" content="AI Buddy — Voice Coaching & Training Platform" />
-                <meta property="og:description" content="Build customer-ready teams with AI Buddy. Train employees using automated speech simulations, pronunciation analytics, and custom coaching profiles." />
+                <title>AI Buddy | Personalized AI Language Coach & Learning Platform</title>
+                <meta name="description" content="Learn, practice, and communicate confidently in multiple languages with AI Buddy. Build speaking fluency, improve pronunciation, and master real-world conversations." />
+                <meta property="og:title" content="AI Buddy — Personalized AI Language Learning Coach" />
+                <meta property="og:description" content="Learn, practice, and communicate confidently in multiple languages with AI Buddy. Build speaking fluency, improve pronunciation, and master real-world conversations." />
                 <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
                 <link rel="canonical" href="https://www.vrmaitechnology.com/products/aibuddy" />
             
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="AI Buddy — Voice Coaching & Training Platform" />
-                <meta name="twitter:description" content="Build customer-ready teams with AI Buddy. Train employees using automated speech simulations, pronunciation analytics, and custom coaching profiles." />
+                <meta name="twitter:title" content="AI Buddy — Personalized AI Language Learning Coach" />
+                <meta name="twitter:description" content="Learn, practice, and communicate confidently in multiple languages with AI Buddy. Build speaking fluency, improve pronunciation, and master real-world conversations." />
                 <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
             </Helmet>
 
@@ -50,11 +50,11 @@ function AiBuddy() {
                                     AI Buddy
                                 </h1>
                                 <p className="disc wow fadeInUp text-white-50" data-wow-delay=".3s">
-                                    Train Your Team with AI Buddy. Empower organizations to coach employees through automated interactive speech simulations and pronunciation analytics. By delivering detailed, real-time, and actionable communication insights at scale, it enables better team readiness and superior customer service.
+                                    Learn, practice, and communicate confidently in multiple languages with your personal AI language coach. Build speaking fluency, improve pronunciation, and master real-world conversations through intelligent, interactive learning.
                                 </p>
                                 <div className="button-area wow fadeInUp" data-wow-delay=".4s">
                                     <Link to="/contactus#send-message" className="vrm-btn vrm-btn-ghost">
-                                        Schedule Consultation <i className="far fa-arrow-right"></i>
+                                        Start Learning <i className="far fa-arrow-right"></i>
                                     </Link>
                                 </div>
                             </div>
@@ -74,22 +74,21 @@ function AiBuddy() {
                     <div className="row">
                         <div className="col-12 text-center">
                             <div className="rts-title-area" data-text="">
-                                <span className="pre-title" style={{ color: '#3B4ECC' }}>Key Benefits</span>
+                                <span className="pre-title" style={{ color: '#3B4ECC' }}>KEY BENEFITS</span>
                                 <h2 className="title">Why Choose AI Buddy?</h2>
                                 <p className="disc mt-3">
-                                    Individual call center coaching consumes hours of management overhead and delivers subjective feedback. AI Buddy automates conversational skill mapping, helping L&D leaders verify speaking confidence using structured pronunciation grading panels.
+                                    Transform language learning with AI-powered conversations, personalized coaching, instant pronunciation feedback, and immersive real-world communication practice.
                                 </p>
                             </div>
                         </div>
                     </div>
                     <div className="row mt--50 g-4">
                         {[
-                            { icon: "fal fa-microphone", title: "Automated Conversation Practice", desc: "Simulate real-world client calls and support scenarios, allowing team members to practice speaking flow and receive immediate evaluation." },
-                            { icon: "fal fa-language", title: "Pronunciation Analytics", desc: "Grade voice responses on syllable stress, articulation clarity, and overall comprehension to track team communication metrics." },
-                            { icon: "fal fa-comments", title: "Custom Training Scenarios", desc: "Configure custom support scripts, onboarding dialogues, and technical product definitions for targeted coaching campaigns." },
-                            { icon: "fal fa-chart-line", title: "L&D Tracking Dashboards", desc: "Monitor team-wide progress, average speech accuracy scores, and program completion rates using a unified analytics dashboard." }
+                            { icon: "fal fa-comments", title: "AI Language Coach", desc: "Practice natural conversations with an intelligent AI tutor available anytime." },
+                            { icon: "fal fa-language", title: "Multi-Language Learning", desc: "Learn and communicate confidently across multiple global languages." },
+                            { icon: "fal fa-route", title: "Personalized Learning Paths", desc: "Receive adaptive lessons tailored to your fluency level, learning goals, and progress." }
                         ].map((item, index) => (
-                            <div key={index} className="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay={`.${(index + 1) * 2}s`}>
+                            <div key={index} className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay={`.${(index + 1) * 2}s`}>
                                 <div className="vrm-feature-card text-center">
                                     <div className="icon-wrapper">
                                         <i className={item.icon}></i>
@@ -177,16 +176,16 @@ function AiBuddy() {
                         <div className="col-12 text-center">
                             <div className="rts-title-area" data-text="">
                                 <h2 className="title">What We’ve Built for You</h2>
-                                <p className="disc mt-3">An intelligent voice assessment sandbox designed to scale support training programs.</p>
+                                <p className="disc mt-3">A complete AI-powered language learning platform designed to help users speak naturally, improve fluency, and communicate confidently in real-world situations.</p>
                             </div>
                         </div>
                     </div>
                     <div className="row mt--50 g-4">
                         {[
-                            { icon: "fal fa-microphone", title: "Interactive Audio Logging", desc: "Record and evaluate candidate speech segments automatically for structured training review." },
-                            { icon: "fal fa-language", title: "Intelligent Accent Grading", desc: "Analyze phonetic delivery compared to target locales, providing clear accent optimization metrics." },
-                            { icon: "fal fa-comments", title: "Scenario-Based Simulation", desc: "Practice handling complex customer escalations, sales presentations, or daily operations dialogues." },
-                            { icon: "fal fa-chart-line", title: "Progress Analytics Boards", desc: "Evaluate long-term pronunciation improvement and track competency growth over training phases." }
+                            { icon: "fal fa-comments", title: "AI Conversations", desc: "Practice realistic conversations with an AI language coach." },
+                            { icon: "fal fa-microphone-alt", title: "Pronunciation & Fluency Analysis", desc: "Receive instant feedback on pronunciation, clarity, and speaking confidence." },
+                            { icon: "fal fa-user-cog", title: "Personalized Learning", desc: "Adaptive lessons based on your goals, proficiency level, and learning pace." },
+                            { icon: "fal fa-chart-line", title: "Progress Tracking", desc: "Monitor vocabulary growth, speaking performance, lesson completion, and fluency improvement." }
                         ].map((feature, idx) => (
                             <div key={idx} className="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay={`.${(idx + 1) * 2}s`}>
                                 <div className="vrm-feature-card text-center">
@@ -238,13 +237,13 @@ function AiBuddy() {
                     <div className="row align-items-center">
                         <div className="col-lg-6">
                             <div className="content-left text-start">
-                                <h2 className="title text-white wow fadeInUp">Standardize Customer Engagement Voices</h2>
+                                <h2 className="title text-white wow fadeInUp" style={{ fontSize: '36px', lineHeight: '1.25' }}>Start Your Language Learning Journey with AI Buddy</h2>
                                 <p className="disc text-white-50 mt-4 wow fadeInUp" data-wow-delay=".2s">
-                                    AI Buddy integrates into your corporate training workflow to automate conversational coaching. Our platform scales across regional branches, delivering the structured pronunciation metrics needed to maintain consistent client communication standards.
+                                    Experience personalized AI-powered language learning that helps you speak naturally, build confidence, and communicate fluently in multiple languages.
                                 </p>
                                 <div className="button-area mt-5 wow fadeInUp" data-wow-delay=".4s">
                                     <Link to="/contactus#send-message" className="vrm-btn vrm-btn-ghost text-white">
-                                        Schedule Consultation <i className="far fa-arrow-right"></i>
+                                        Start Learning <i className="far fa-arrow-right"></i>
                                     </Link>
                                 </div>
                             </div>

@@ -33,29 +33,29 @@ export default function Nav() {
         'ml-services': { title: "Machine Learning", description: "Advanced ML models to drive data-backed decisions.", link: "/solutions/machine-learning-services", linkText: "Learn More", image: "/assets/images/service/07.jpg" },
 
         // Products - Workflow.AI Modules
-        'xpress-screening': { title: "Xpress Screening", description: "AI-powered resume parsing and candidate matching.", link: "/products/workflow/xpress-screening", linkText: "View Product", image: "/assets/images/workflow/xpress-screening/xpress-screening-image.png" },
-        'screensage': { title: "ScreenSage", description: "Automated candidate screening and monitoring.", link: "/products/workflow/screensage", linkText: "View Product", image: "/assets/images/workflow/screensage/screensage-image.png" },
-        'videosage': { title: "VideoSage", description: "AI video interviews for deeper candidate insights.", link: "/products/workflow/videosage", linkText: "Book Demo", image: "/assets/images/workflow/videosage/videosage-image-3.png" },
-        'codesage': { title: "CodeSage", description: "Intelligent coding assessment platform.", link: "/products/workflow/codesage", linkText: "View Product", image: "/assets/images/workflow/codesage/codesage-image.png" },
+        'xpress-screening': { title: "Xpress Screening", description: "AI-powered resume screening that analyzes, matches, and ranks candidates to accelerate hiring and improve recruitment accuracy.", link: "/products/workflow/xpress-screening", linkText: "View Product", image: "/assets/images/workflow/xpress-screening/xpress-screening-image.png" },
+        'screensage': { title: "ScreenSage", description: "AI-powered voice interviews that automate candidate screening and deliver structured hiring insights through intelligent conversations.", link: "/products/workflow/screensage", linkText: "View Product", image: "/assets/images/workflow/screensage/screensage-image.png" },
+        'videosage': { title: "VideoSage", description: "AI-powered video interviews that evaluate communication, technical expertise, and behavioral skills for smarter hiring decisions.", link: "/products/workflow/videosage", linkText: "Book Demo", image: "/assets/images/workflow/videosage/videosage-image-3.png" },
+        'codesage': { title: "CodeSage", description: "AI-powered coding assessments and technical interviews with intelligent proctoring and comprehensive candidate evaluation.", link: "/products/workflow/codesage", linkText: "View Product", image: "/assets/images/workflow/codesage/codesage-image.png" },
 
         // Products - AI Products
-        'workflow': { title: "Workflow.AI", description: "Streamline your recruitment process with our advanced AI-driven screening and interviewing tools.", link: "/products/workflow", linkText: "View Product", image: "/assets/images/service/desk.jpg" },
+        'workflow': { title: "Workflow.AI", description: "An enterprise AI platform that automates business workflows, streamlines operations, and orchestrates intelligent processes across the organization.", link: "/products/workflow", linkText: "View Product", image: "/assets/images/service/desk.jpg" },
         'aibuddy': { 
             title: "AI Buddy", 
-            description: "Interactive speech simulation and voice coaching.", 
+            description: "AI-powered language learning platform with personalized coaching, interactive voice practice, and multilingual communication training.", 
             link: "/products/aibuddy", 
             linkText: "View Product", 
             image: "/assets/images/aibuddy/aibuddy-image.png",
             features: [
-                "Real-time speech simulation",
-                "Voice analytics & coaching",
-                "Interactive roleplay scenarios",
-                "Pronunciation feedback"
+                "AI-Powered Language Coaching",
+                "Multi-Language Conversation Practice",
+                "Real-Time Pronunciation Feedback",
+                "Personalized Learning Journeys"
             ]
         },
         'people-connect': { 
-            title: "People Connect", 
-            description: "AI-powered citizen engagement platform.", 
+            title: "People Connect (Global)", 
+            description: "AI-powered citizen engagement platform that modernizes public services through intelligent communication and digital governance.", 
             link: "/products/people-connect", 
             linkText: "View Product", 
             image: "/assets/images/people-connect/people-connect-image.png",
@@ -68,28 +68,41 @@ export default function Nav() {
         },
         'exitinterview': { 
             title: "Exit Intelligence", 
-            description: "Automate exit interviews with conversational AI.", 
+            description: "AI-powered workforce intelligence that transforms employee feedback into actionable retention and organizational insights.", 
             link: "/products/exitinterview", 
             linkText: "View Product", 
             image: "/assets/images/exitinterview/exitinterview-image.png",
             features: [
-                "Conversational exit interviews",
-                "Sentiment & feedback analysis",
-                "Attrition insights & reports",
-                "Automated scheduling"
+                "AI-Powered Exit Interviews",
+                "Employee Sentiment Analysis",
+                "Attrition & Workforce Insights",
+                "Executive HR Dashboards"
             ]
         },
         'whatsapp': { 
             title: "Lead Connect", 
-            description: "Autonomous AI agents to engage, qualify, and convert customers.", 
+            description: "AI-powered customer engagement platform that automates conversations, lead nurturing, campaigns, and sales workflows 24/7.", 
             link: "/products/whatsapp", 
             linkText: "View Product", 
             image: "/assets/images/whatsapp/whatsapp-hero-v2.png",
             features: [
-                "Autonomous AI agents",
-                "Instant lead qualification",
-                "24/7 automated scheduling",
-                "Multi-channel CRM sync"
+                "AI Customer Conversations",
+                "Smart Lead Qualification",
+                "Campaign Automation",
+                "CRM & Workflow Integration"
+            ]
+        },
+        'visionix': { 
+            title: "Visionix AI", 
+            description: "Automate biometric security, liveness verification, and employee check-ins.", 
+            link: "/products/visionix", 
+            linkText: "View Product", 
+            image: "/assets/images/visionix/visionix-image.png",
+            features: [
+                "Real-time face recognition",
+                "Biometric gate integration",
+                "Liveness detection bot",
+                "Secure visual logging panels"
             ]
         },
     };
@@ -207,7 +220,7 @@ export default function Nav() {
                                                 handleLinkHover('people-connect');
                                             }}
                                         >
-                                            People Connect
+                                            People Connect (Global)
                                         </Link>
                                     </li>
                                     <li>
@@ -232,6 +245,18 @@ export default function Nav() {
                                             }}
                                         >
                                             Lead Connect
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link
+                                            to="/products/visionix"
+                                            className={`platform-btn ${activeSubMenu === 'visionix' ? 'active' : ''}`}
+                                            onMouseEnter={() => {
+                                                setActiveSubMenu('visionix');
+                                                handleLinkHover('visionix');
+                                            }}
+                                        >
+                                            Visionix AI
                                         </Link>
                                     </li>
                                 </ul>

@@ -28,15 +28,15 @@ function HomeOne() {
     <div>
       <Helmet>
         <title>VRM AI Technology | AI Software & Product Development</title>
-        <meta name="description" content="VRM AI Technology delivers GenAI platforms, ML systems, and automation products for enterprises. Explore Workflow.AI, People Connect, AI Buddy, and more." />
+        <meta name="description" content="VRM AI Technology delivers GenAI platforms, ML systems, and automation products for enterprises. Explore Workflow.AI, People Connect (Global), AI Buddy, and more." />
         <meta property="og:title" content="VRM AI Technology | AI Software & Product Development" />
-        <meta property="og:description" content="VRM AI Technology delivers GenAI platforms, ML systems, and automation products for enterprises. Explore Workflow.AI, People Connect, AI Buddy, and more." />
+        <meta property="og:description" content="VRM AI Technology delivers GenAI platforms, ML systems, and automation products for enterprises. Explore Workflow.AI, People Connect (Global), AI Buddy, and more." />
                 <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
         <link rel="canonical" href="https://www.vrmaitechnology.com/" />
       
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content="VRM AI Technology | AI Software & Product Development" />
-                <meta name="twitter:description" content="VRM AI Technology delivers GenAI platforms, ML systems, and automation products for enterprises. Explore Workflow.AI, People Connect, AI Buddy, and more." />
+                <meta name="twitter:description" content="VRM AI Technology delivers GenAI platforms, ML systems, and automation products for enterprises. Explore Workflow.AI, People Connect (Global), AI Buddy, and more." />
                 <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
             </Helmet>
       <HeaderOne className="header-transparent header-white-text" />

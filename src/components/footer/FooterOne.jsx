@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../../footer.css';
 
 function FooterOne() {
+    const [isWorkflowOpen, setIsWorkflowOpen] = useState(false);
     return (
         <div className="vrm-footer">
             <div className="container">
@@ -91,10 +92,31 @@ function FooterOne() {
                             <h5 className="vrm-footer-title">Products</h5>
                              <ul className="vrm-footer-links">
                                 <li className="vrm-footer-dropdown" style={{ marginBottom: '18px' }}>
-                                    <Link to="/products/workflow" style={{ fontWeight: '700', color: '#11142c', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.5px', display: 'inline-flex', alignItems: 'center' }}>
-                                        Workflow.AI <i className="far fa-chevron-down ms-2 vrm-footer-chevron" style={{ fontSize: '9px', transition: 'transform 0.3s' }}></i>
-                                    </Link>
-                                    <ul className="vrm-footer-dropdown-menu" style={{ listStyle: 'none', paddingLeft: '15px' }}>
+                                    <div style={{ display: 'inline-flex', alignItems: 'center' }}>
+                                        <Link to="/products/workflow" style={{ fontWeight: '700', color: '#11142c', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                                            Workflow.AI
+                                        </Link>
+                                        <span 
+                                            onClick={(e) => {
+                                                e.preventDefault();
+                                                e.stopPropagation();
+                                                setIsWorkflowOpen(!isWorkflowOpen);
+                                            }}
+                                            style={{ 
+                                                cursor: 'pointer', 
+                                                padding: '5px 10px', 
+                                                display: 'inline-flex', 
+                                                alignItems: 'center' 
+                                            }}
+                                        >
+                                            <i className="far fa-chevron-down vrm-footer-chevron" style={{ 
+                                                fontSize: '9px', 
+                                                transition: 'transform 0.3s',
+                                                transform: isWorkflowOpen ? 'rotate(180deg)' : 'rotate(0deg)'
+                                            }}></i>
+                                        </span>
+                                    </div>
+                                    <ul className={`vrm-footer-dropdown-menu ${isWorkflowOpen ? 'is-open' : ''}`} style={{ listStyle: 'none', paddingLeft: '15px' }}>
                                         <li style={{ marginBottom: '8px' }}><Link to="/products/workflow/xpress-screening" style={{ fontSize: '13px' }}>Xpress Screening</Link></li>
                                         <li style={{ marginBottom: '8px' }}><Link to="/products/workflow/screensage" style={{ fontSize: '13px' }}>ScreenSage</Link></li>
                                         <li style={{ marginBottom: '8px' }}><Link to="/products/workflow/videosage" style={{ fontSize: '13px' }}>VideoSage</Link></li>
@@ -105,13 +127,16 @@ function FooterOne() {
                                     <Link to="/products/aibuddy" style={{ fontWeight: '700', color: '#11142c', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>AI Buddy</Link>
                                 </li>
                                 <li style={{ marginBottom: '18px' }}>
-                                    <Link to="/products/people-connect" style={{ fontWeight: '700', color: '#11142c', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>People Connect</Link>
+                                    <Link to="/products/people-connect" style={{ fontWeight: '700', color: '#11142c', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>People Connect (Global)</Link>
                                 </li>
                                 <li style={{ marginBottom: '18px' }}>
                                     <Link to="/products/exitinterview" style={{ fontWeight: '700', color: '#11142c', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Exit Intelligence</Link>
                                 </li>
-                                <li style={{ marginBottom: '0px' }}>
+                                <li style={{ marginBottom: '18px' }}>
                                     <Link to="/products/whatsapp" style={{ fontWeight: '700', color: '#11142c', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Lead Connect</Link>
+                                </li>
+                                <li style={{ marginBottom: '0px' }}>
+                                    <Link to="/products/visionix" style={{ fontWeight: '700', color: '#11142c', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Visionix AI</Link>
                                 </li>
                             </ul>
                         </div>
