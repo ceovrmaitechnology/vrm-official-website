@@ -48,7 +48,7 @@ function SideMenu({ isSidebarOpen, toggleSidebar }) {
             )}
             <div id="side-bar" className={`side-bar ${isSidebarOpen ? 'show' : ''}`}>
                 <button className="close-icon-menu" aria-label="Close Menu" onClick={toggleSidebar}>
-                    <i className="far fa-times"></i>
+                    <i className="fas fa-bars"></i>
                 </button>
                 {/* inner menu area desktop start */}
                 <div className="rts-sidebar-menu-desktop">
@@ -62,7 +62,7 @@ function SideMenu({ isSidebarOpen, toggleSidebar }) {
                                 </li>
 
                                 <li className="has-droupdown menu-item">
-                                    <Link className="menu-link" to={'#'} onClick={(e) => { e.preventDefault(); toggleMenu(1); }}>
+                                    <Link className={`menu-link ${openMenu === 1 ? 'open' : ''}`} to={'#'} onClick={(e) => { e.preventDefault(); e.stopPropagation(); toggleMenu(1); }}>
                                         Solutions
                                     </Link>
                                     <ul className={`submenu ${openMenu === 1 ? 'active' : ''}`}>
@@ -80,10 +80,26 @@ function SideMenu({ isSidebarOpen, toggleSidebar }) {
                                     </ul>
                                 </li>
 
-                                <li className="menu-item">
-                                    <Link className="menu-link" to={'/products'} onClick={toggleSidebar}>
+                                <li className="has-droupdown menu-item">
+                                    <Link className={`menu-link ${openMenu === 2 ? 'open' : ''}`} to={'#'} onClick={(e) => { e.preventDefault(); e.stopPropagation(); toggleMenu(2); }}>
                                         Products
                                     </Link>
+                                    <ul className={`submenu ${openMenu === 2 ? 'active' : ''}`}>
+                                        <li className="mobile-menu-link"><Link to={'/products'} onClick={toggleSidebar} style={{ fontWeight: 'bold', color: '#1b277c' }}>All Products</Link></li>
+
+                                        <li className="mobile-menu-link tag mt-2">Workflow.AI Modules</li>
+                                        <li className="mobile-menu-link"><Link to={'/products/workflow/xpress-screening'} onClick={toggleSidebar}>Xpress Screening</Link></li>
+                                        <li className="mobile-menu-link"><Link to={'/products/workflow/screensage'} onClick={toggleSidebar}>ScreenSage</Link></li>
+                                        <li className="mobile-menu-link"><Link to={'/products/workflow/videosage'} onClick={toggleSidebar}>VideoSage</Link></li>
+                                        <li className="mobile-menu-link"><Link to={'/products/workflow/codesage'} onClick={toggleSidebar}>CodeSage</Link></li>
+
+                                        <li className="mobile-menu-link tag mt-2">Other AI Products</li>
+                                        <li className="mobile-menu-link"><Link to={'/products/aibuddy'} onClick={toggleSidebar}>AI Buddy</Link></li>
+                                        <li className="mobile-menu-link"><Link to={'/products/people-connect'} onClick={toggleSidebar}>People Connect (Global)</Link></li>
+                                        <li className="mobile-menu-link"><Link to={'/products/exitinterview'} onClick={toggleSidebar}>Exit Intelligence</Link></li>
+                                        <li className="mobile-menu-link"><Link to={'/products/whatsapp'} onClick={toggleSidebar}>Lead Connect</Link></li>
+                                        <li className="mobile-menu-link"><Link to={'/products/visionix'} onClick={toggleSidebar}>Visionix AI</Link></li>
+                                    </ul>
                                 </li>
 
                                 <li className="menu-item">

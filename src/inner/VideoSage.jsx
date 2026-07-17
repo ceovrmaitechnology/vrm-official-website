@@ -39,11 +39,11 @@ function VideoSage() {
                                     VideoSage
                                 </h1>
                                 <p className="disc wow fadeInUp text-white-50" data-wow-delay=".3s">
-                                    Assess Candidates with VideoSage. Empower organizations to evaluate talent through AI-powered video interviews and facial/sentiment analysis. By delivering consistent, unbiased, and structured assessments at scale, it enables faster hiring decisions and a seamless candidate experience.
+                                    Transform hiring with AI-powered video interviews that evaluate communication, technical knowledge, confidence, and behavioral skills to help recruiters make faster and smarter hiring decisions.
                                 </p>
                                 <div className="button-area wow fadeInUp" data-wow-delay=".4s">
                                     <Link to="/contactus#send-message" className="vrm-btn vrm-btn-ghost">
-                                        Get Started <i className="far fa-arrow-right"></i>
+                                        Schedule a Demo <i className="far fa-arrow-right"></i>
                                     </Link>
                                 </div>
                             </div>
@@ -63,19 +63,19 @@ function VideoSage() {
                     <div className="row">
                         <div className="col-12 text-center">
                             <div className="rts-title-area" data-text="">
-                                <span className="pre-title" style={{ color: '#3B4ECC' }}>Key Capabilities</span>
+                                <span className="pre-title" style={{ color: '#3B4ECC' }}>KEY BENEFITS</span>
                                 <h2 className="title">Why Choose VideoSage?</h2>
                                 <p className="disc mt-3">
-                                    VideoSage combines the convenience of video interviewing with the power of artificial intelligence to surface the best talent efficiently.
+                                    Automate candidate interviews with AI-powered video assessments that deliver objective evaluations, actionable insights, and consistent hiring decisions.
                                 </p>
                             </div>
                         </div>
                     </div>
                     <div className="row mt--50 g-4">
                         {[
-                            { icon: "fal fa-video", title: "Video Intelligence", desc: "Advanced analysis of video interviews to extract meaningful signals, non-verbal cues, and candidate traits that traditional methods might miss." },
-                            { icon: "fal fa-search", title: "Rapid Content Search", desc: "Quickly find relevant parts of interviews with AI-powered content search and summarization, allowing you to review key moments without watching hours of footage." },
-                            { icon: "fal fa-analytics", title: "Real-Time Insights", desc: "Get immediate feedback and scoring to compare candidates objectively and efficiently, reducing bias and standardizing the evaluation process." }
+                            { icon: "fal fa-video", title: "AI Video Interviews", desc: "Conduct structured AI-powered interviews with role-specific questions and natural conversations." },
+                            { icon: "fal fa-search", title: "Intelligent Candidate Evaluation", desc: "Analyze communication, technical knowledge, confidence, and behavioral responses using AI." },
+                            { icon: "fal fa-analytics", title: "AI Hiring Insights", desc: "Generate interview summaries, AI recommendations, and candidate scorecards for faster hiring." }
                         ].map((item, index) => (
                             <div key={index} className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay={`.${(index + 1) * 2}s`}>
                                 <div className="vrm-feature-card text-center">
@@ -164,16 +164,16 @@ function VideoSage() {
                         <div className="col-12 text-center">
                             <div className="rts-title-area" data-text="">
                                 <h2 className="title">What We’ve Built for You</h2>
-                                <p className="disc mt-3">Advanced features tailored for modern recruitment teams.</p>
+                                <p className="disc mt-3">A complete AI interview platform that streamlines candidate assessments from interview invitations to hiring recommendations.</p>
                             </div>
                         </div>
                     </div>
                     <div className="row mt--50 g-4">
                         {[
-                            { icon: "fal fa-smile-beam", title: "Sentiment Analysis", desc: "Gauge candidate confidence and emotional state from video data." },
-                            { icon: "fal fa-calendar-check", title: "Automated Scheduling", desc: "Seamlessly coordinate interviews without the back-and-forth emails." },
-                            { icon: "fal fa-users-cog", title: "Collaborative Scoring", desc: "Enable team members to review and score interviews asynchronously." },
-                            { icon: "fal fa-chart-pie", title: "Diversity Analytics", desc: "Monitor your pipeline to ensure diverse representation at every stage." }
+                            { icon: "fal fa-microphone", title: "AI Interview Creation", desc: "Create structured interviews with customized or AI-generated questions." },
+                            { icon: "fal fa-user-friends", title: "Candidate Management", desc: "Invite candidates individually or in bulk with secure interview links." },
+                            { icon: "fal fa-brain", title: "AI Interview Analysis", desc: "Automatically evaluate communication, technical responses, behavioral competencies, and overall performance." },
+                            { icon: "fal fa-file-alt", title: "Reports & Insights", desc: "Access interview recordings, transcripts, AI summaries, scorecards, and downloadable reports." }
                         ].map((feature, idx) => (
                             <div key={idx} className="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay={`.${(idx + 1) * 2}s`}>
                                 <div className="vrm-feature-card text-center">
@@ -225,15 +225,13 @@ function VideoSage() {
                     <div className="row align-items-center">
                         <div className="col-lg-6">
                             <div className="content-left text-start">
-                                <h2 className="title text-white wow fadeInUp">Partnering for Long-Term Success</h2>
+                                <h2 className="title text-white wow fadeInUp" style={{ fontSize: '36px', lineHeight: '1.25' }}>Hire Smarter with AI Video Interviews</h2>
                                 <p className="disc text-white-50 mt-4 wow fadeInUp" data-wow-delay=".2s">
-                                    VideoSage is built to grow with your organization. From compliance to scalability,
-                                    we ensure our platform meets the rigorous demands of enterprise recruitment while delivering
-                                    a superior candidate experience.
+                                    Empower your recruitment team with AI-powered video interviews that deliver intelligent candidate evaluations, actionable insights, and faster hiring decisions.
                                 </p>
                                 <div className="button-area mt-5 wow fadeInUp" data-wow-delay=".4s">
                                     <Link to="/contactus#send-message" className="vrm-btn vrm-btn-ghost text-white">
-                                        Partner With Us <i className="far fa-arrow-right"></i>
+                                        Schedule a Demo <i className="far fa-arrow-right"></i>
                                     </Link>
                                 </div>
                             </div>

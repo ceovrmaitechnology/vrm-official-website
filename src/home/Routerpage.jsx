@@ -50,6 +50,7 @@ import CodeSage from '../inner/CodeSage';
 import AiBuddy from '../inner/AiBuddy';
 import PeopleConnect from '../inner/PeopleConnect';
 import AiExitInterview from '../inner/AiExitInterview';
+import Visionix from '../inner/Visionix';
 import AICallingAgent from '../inner/AICallingAgent';
 import AIConsultingServices from '../inner/AIConsultingServices';
 import AIChatbotDevelopment from '../inner/AIChatbotDevelopment';
@@ -125,6 +126,7 @@ function RouterPage() {
                     <Route path="/products/people-connect" element={<PeopleConnect />}></Route>
                     <Route path="/products/exitinterview" element={<AiExitInterview />}></Route>
                     <Route path="/products/whatsapp" element={<WhatsAppAutomation />}></Route>
+                    <Route path="/products/visionix" element={<Visionix />}></Route>
                     <Route path="/solutions/ai-calling-agent" element={<AICallingAgent />}></Route>
                     <Route path="/solutions/ai-consulting-services" element={<AIConsultingServices />}></Route>
                     <Route path="/solutions/ai-chatbot-development" element={<AIChatbotDevelopment />}></Route>

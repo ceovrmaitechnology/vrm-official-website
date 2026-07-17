@@ -75,7 +75,7 @@ function HomeOverview() {
                     {/* Workflow Section */}
                     <div className="vrm-overview__section-header wow fadeInUp" data-wow-delay=".2s" style={{ textAlign: 'center', marginBottom: '50px' }}>
                         <p className="vrm-overview__eyebrow" style={{ color: '#3B4ECC', fontWeight: '700', textAlign: 'center', margin: '0 auto', display: 'block' }}>Products Highlight</p>
-                        <h2 className="title" style={{ textAlign: 'center', margin: '0 auto' }}>Intelligent Products Powered by WorkflowAI.in</h2>
+                        <h2 className="title" style={{ textAlign: 'center', margin: '0 auto' }}>Enterprise AI Solutions Built on the WorkflowAI Platform</h2>
                     </div>
                     <div className="vrm-hero__cards--two-columns" style={{ marginBottom: '80px' }}>
                         {[
@@ -84,7 +84,7 @@ function HomeOverview() {
                                 icon: "assets/images/service/icon/04.svg",
                                 category: "Resume Intelligence",
                                 title: "Xpress Screening",
-                                desc: "AI-powered resume parsing and candidate matching that evaluates, structures, and ranks talent at scale.",
+                                desc: "AI-powered resume screening that identifies, ranks, and matches the best candidates with speed and precision.",
                                 link: "/products/workflow/xpress-screening",
                                 bgImage: "assets/images/workflow/xpress-screening/xpress-screening-image.png"
                             },
@@ -93,7 +93,7 @@ function HomeOverview() {
                                 icon: "assets/images/service/icon/01.svg",
                                 category: "Smart Assessment",
                                 title: "ScreenSage",
-                                desc: "Smart screen monitoring & insights to keep distributed teams aligned, secure, and compliant.",
+                                desc: "Automated AI voice interviews that evaluate candidates and deliver structured hiring insights in real time.",
                                 link: "/products/workflow/screensage",
                                 bgImage: "assets/images/workflow/screensage/screensage-image.png"
                             },
@@ -102,7 +102,7 @@ function HomeOverview() {
                                 icon: "assets/images/service/icon/02.svg",
                                 category: "Video Intelligence",
                                 title: "VideoSage",
-                                desc: "AI-powered video intelligence for analysis, summarization, and rapid content search.",
+                                desc: "AI-driven video interviews that assess communication, confidence, and role readiness through intelligent analysis.",
                                 link: "/products/workflow/videosage",
                                 bgImage: "assets/images/workflow/videosage/videosage-image-3.png"
                             },
@@ -111,7 +111,7 @@ function HomeOverview() {
                                 icon: "assets/images/service/icon/03.svg",
                                 category: "Technical Evaluation",
                                 title: "CodeSage",
-                                desc: "Intelligent code analysis & automation to accelerate delivery and improve software quality.",
+                                desc: "AI-powered coding assessments with automated technical interviews, proctoring, and intelligent candidate evaluation in one unified platform.",
                                 link: "/products/workflow/codesage",
                                 bgImage: "assets/images/workflow/codesage/codesage-image.png"
                             }
@@ -149,7 +149,7 @@ function HomeOverview() {
                     {/* Standalone Products Section */}
                     <div className="vrm-overview__section-header wow fadeInUp" data-wow-delay=".2s" style={{ textAlign: 'center', marginBottom: '50px' }}>
                         <p className="vrm-overview__eyebrow" style={{ color: '#3B4ECC', fontWeight: '700', textAlign: 'center', margin: '0 auto', display: 'block' }}>Dedicated Engines</p>
-                        <h2 className="title" style={{ textAlign: 'center', margin: '0 auto' }}>Specialized AI Solutions for Enterprise Outreach & Training</h2>
+                        <h2 className="title" style={{ textAlign: 'center', margin: '0 auto' }}>Specialized AI Solutions for Workforce, Learning & Customer Engagement</h2>
                     </div>
                     <div className="vrm-hero__cards--two-columns">
                         {[
@@ -158,7 +158,7 @@ function HomeOverview() {
                                 icon: "assets/images/service/icon/04.svg",
                                 category: "Interactive Voice Training",
                                 title: "AI Buddy",
-                                desc: "AI-powered voice coaching, pronunciation analysis, and multilingual conversation practice.",
+                                desc: "An intelligent AI language coach that helps users learn, practice, and communicate naturally in multiple languages with personalized AI coaching.",
                                 link: "/products/aibuddy",
                                 bgImage: "assets/images/aibuddy/aibuddy-image.png"
                             },
@@ -166,8 +166,8 @@ function HomeOverview() {
                                 id: 6,
                                 icon: "assets/images/service/icon/02.svg",
                                 category: "Citizen Engagement",
-                                title: "People Connect",
-                                desc: "AI-powered citizen engagement, issue verification, and decision intelligence platform.",
+                                title: "People Connect (Global)",
+                                desc: "AI-powered citizen engagement platform connecting governments and communities through intelligent digital services.",
                                 link: "/products/people-connect",
                                 bgImage: "assets/images/people-connect/people-connect-image.png"
                             },
@@ -176,7 +176,7 @@ function HomeOverview() {
                                 icon: "assets/images/service/icon/01.svg",
                                 category: "HR Offboarding",
                                 title: "Exit Intelligence",
-                                desc: "AI-powered employee exit interview automation, retry engine, and HR insights platform.",
+                                desc: "Transform employee exits into actionable workforce insights with AI-powered interviews and sentiment analysis.",
                                 link: "/products/exitinterview",
                                 bgImage: "assets/images/exitinterview/exitinterview-image.png"
                             },
@@ -185,9 +185,18 @@ function HomeOverview() {
                                 icon: "assets/images/service/icon/03.svg",
                                 category: "Lead Engagement",
                                 title: "Lead Connect",
-                                desc: "Lead Connect empowers businesses with intelligent AI agents that autonomously engage customers, capture opportunities, and qualify prospects 24x7.",
+                                desc: "Autonomous AI agents that manage WhatsApp campaigns, qualify leads, engage customers, and drive conversions 24/7.",
                                 link: "/products/whatsapp",
                                 bgImage: "assets/images/whatsapp/whatsapp-hero-v2.png"
+                            },
+                            {
+                                id: 9,
+                                icon: "assets/images/service/icon/02.svg",
+                                category: "Visual Intelligence",
+                                title: "Visionix AI",
+                                desc: "Automate visual authentication, security tracking, and attendance management with Visionix AI face recognition engine.",
+                                link: "/products/visionix",
+                                bgImage: "assets/images/visionix/visionix-image.png"
                             }
                         ].map((product) => (
                             <div key={product.id} className="vrm-product-card wow fadeInUp" data-wow-delay=".3s">

@@ -29,7 +29,7 @@ function Workflow() {
                 <meta name="twitter:description" content="A unified enterprise recruitment intelligence suite by VRM AI Technology. Optimize talent acquisition with ScreenSage, VideoSage, and CodeSage." />
                 <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
             </Helmet>
-            <HeaderOne className="header-white-text header-transparent" />
+            <HeaderOne />
 
             {/* --- Hero Section --- */}
             <section id="workflow-hero" className="vrm-hero rts-banner-area" style={{ position: 'relative', minHeight: '90vh', display: 'flex', alignItems: 'center', overflow: 'hidden' }}>
@@ -68,7 +68,7 @@ function Workflow() {
                                     WorkflowAI
                                 </h1>
                                 <p className="disc wow fadeInUp text-white-50 mt-4 mb-5 vrm-workflow-hero-disc" data-wow-delay=".3s">
-                                    Designed for Talent Acquisition Leaders and HR Operations, WorkflowAI provides a structured suite of assessment tools to optimize candidate evaluation pipelines, reduce screening times, and improve selection outcomes.
+                                    An enterprise AI platform that automates business workflows, streamlines operations, and orchestrates intelligent processes across the organization.
                                 </p>
                                 <div className="banner-btn wow fadeInUp" data-wow-delay=".4s">
                                     <Link to="/contactus#send-message" className="vrm-btn vrm-btn-primary">
@@ -93,12 +93,11 @@ function Workflow() {
                         <div className="col-lg-6 wow fadeInRight" data-wow-delay=".2s">
                             <div className="about-inner">
                                 <div className="rts-title-area" data-text="Xpress Screening">
-                                    <p className="pre-title">Module 01</p>
+                                    <span className="pre-title" style={{ color: '#3B4ECC', display: 'block', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '13px', fontWeight: '700', marginBottom: '5px' }}>Workflow.AI</span>
                                     <h2 className="title">Xpress Screening</h2>
                                 </div>
                                 <p className="disc">
-                                    Automate early-stage resume processing and candidate profiling. 
-                                    Our matching intelligence extracts skills from candidate profiles, aligns qualifications with role requirements, and scores matches to help recruiting teams identify qualified candidates efficiently.
+                                    AI-powered resume screening that analyzes, matches, and ranks candidates to accelerate hiring and improve recruitment accuracy.
                                 </p>
                                 <Link className="rts-btn btn-primary" to="/products/workflow/xpress-screening">Learn More</Link>
                             </div>
@@ -119,12 +118,11 @@ function Workflow() {
                         <div className="col-lg-6 order-lg-1 wow fadeInLeft" data-wow-delay=".2s">
                             <div className="about-inner">
                                 <div className="rts-title-area" data-text="ScreenSage">
-                                    <p className="pre-title">Module 02</p>
+                                    <span className="pre-title" style={{ color: '#3B4ECC', display: 'block', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '13px', fontWeight: '700', marginBottom: '5px' }}>Workflow.AI</span>
                                     <h2 className="title">ScreenSage</h2>
                                 </div>
                                 <p className="disc">
-                                    Conduct structured, consistent preliminary assessments at scale. 
-                                    Through automated interactive interviews, ScreenSage evaluates candidate skills based on defined role rubrics, providing teams with objective data to improve hiring pipeline flow.
+                                    AI-powered voice interviews that automate candidate screening and deliver structured hiring insights through intelligent conversations.
                                 </p>
                                 <Link className="rts-btn btn-primary" to="/products/workflow/screensage">Learn More</Link>
                             </div>
@@ -145,12 +143,11 @@ function Workflow() {
                         <div className="col-lg-6 wow fadeInRight" data-wow-delay=".2s">
                             <div className="about-inner">
                                 <div className="rts-title-area" data-text="VideoSage">
-                                    <p className="pre-title">Module 03</p>
+                                    <span className="pre-title" style={{ color: '#3B4ECC', display: 'block', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '13px', fontWeight: '700', marginBottom: '5px' }}>Workflow.AI</span>
                                     <h2 className="title">VideoSage</h2>
                                 </div>
                                 <p className="disc">
-                                    Coordinate and review asynchronous candidate interviews without scheduling friction. 
-                                    VideoSage records candidate responses and generates summaries alongside grading profiles, enabling recruitment teams to collaborate on candidate reviews asynchronously.
+                                    AI-powered video interviews that evaluate communication, technical expertise, and behavioral skills for smarter hiring decisions.
                                 </p>
                                 <Link className="rts-btn btn-primary" to="/products/workflow/videosage">Learn More</Link>
                             </div>
@@ -163,20 +160,19 @@ function Workflow() {
             <div id="codesage" className="rts-about-area rts-section-gap" style={{ background: '#ffffff' }}>
                 <div className="container">
                     <div className="row g-5 align-items-center">
-                        <div className="col-lg-6 wow fadeInLeft" data-wow-delay=".2s">
+                        <div className="col-lg-6 order-lg-2 wow fadeInRight" data-wow-delay=".2s">
                             <div className="vrm-product-thumbnail">
                                 <img src="/assets/images/workflow/codesage/codesage-image.png" alt="CodeSage Code Execution Interface" />
                             </div>
                         </div>
-                        <div className="col-lg-6 wow fadeInRight" data-wow-delay=".2s">
+                        <div className="col-lg-6 order-lg-1 wow fadeInLeft" data-wow-delay=".2s">
                             <div className="about-inner">
                                 <div className="rts-title-area" data-text="">
-                                    <p className="pre-title">Module 04</p>
+                                    <span className="pre-title" style={{ color: '#3B4ECC', display: 'block', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '13px', fontWeight: '700', marginBottom: '5px' }}>Workflow.AI</span>
                                     <h2 className="title">CodeSage</h2>
                                 </div>
                                 <p className="disc">
-                                    Assess candidate programming capabilities through a secure browser compiler. 
-                                    CodeSage automates technical challenge grading and provides plagiarism alerts, allowing engineering managers to run secure, structured technical assessments.
+                                    AI-powered coding assessments and technical interviews with intelligent proctoring and comprehensive candidate evaluation.
                                 </p>
                                 <Link className="rts-btn btn-primary" to="/products/workflow/codesage">Learn More</Link>
                             </div>

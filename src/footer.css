@@ -454,15 +454,14 @@ a.vrm-footer-sub-title:hover {
     padding-left: 15px !important;
 }
 
-.vrm-footer-dropdown:hover .vrm-footer-dropdown-menu {
-    max-height: 150px;
-    opacity: 1;
-    visibility: visible;
-    margin-top: 8px;
-    margin-bottom: 8px;
+.vrm-footer-dropdown-menu.is-open {
+    max-height: 150px !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    margin-top: 8px !important;
+    margin-bottom: 8px !important;
 }
 
-.vrm-footer-dropdown:hover .vrm-footer-chevron {
-    transform: rotate(180deg);
+.vrm-footer-dropdown span:hover .vrm-footer-chevron {
     color: #3B4ECC !important;
 }

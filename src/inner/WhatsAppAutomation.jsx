@@ -27,16 +27,16 @@ function WhatsAppAutomation() {
         <div className="screensage-page basic-font-family">
             <HeaderOne />
             <Helmet>
-                <title>Lead Connect | AI Customer Engagement | VRM AI</title>
-                <meta name="description" content="Lead Connect empowers businesses with intelligent AI agents that autonomously engage customers, capture opportunities, qualify prospects, and accelerate conversions." />
-                <meta property="og:title" content="Lead Connect — AI Customer Engagement Agent" />
-                <meta property="og:description" content="Lead Connect empowers businesses with intelligent AI agents that autonomously engage customers, capture opportunities, qualify prospects, and accelerate conversions." />
+                <title>Lead Connect | AI Lead Generation & Conversational Sales Agent</title>
+                <meta name="description" content="Capture, qualify, and convert prospects 24/7 with Lead Connect. Automate WhatsApp campaigns, bookings, and CRM updates with autonomous AI sales agents." />
+                <meta property="og:title" content="Lead Connect — Autonomous AI Sales & Support Platform" />
+                <meta property="og:description" content="Capture, qualify, and convert prospects 24/7 with Lead Connect. Automate WhatsApp campaigns, bookings, and CRM updates with autonomous AI sales agents." />
                 <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
                 <link rel="canonical" href="https://www.vrmaitechnology.com/products/whatsapp" />
             
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="Lead Connect — AI Customer Engagement Agent" />
-                <meta name="twitter:description" content="Lead Connect empowers businesses with intelligent AI agents that autonomously engage customers, capture opportunities, qualify prospects, and accelerate conversions." />
+                <meta name="twitter:title" content="Lead Connect — Autonomous AI Sales & Support Platform" />
+                <meta name="twitter:description" content="Capture, qualify, and convert prospects 24/7 with Lead Connect. Automate WhatsApp campaigns, bookings, and CRM updates with autonomous AI sales agents." />
                 <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
             </Helmet>
 
@@ -50,11 +50,11 @@ function WhatsAppAutomation() {
                                     Lead Connect
                                 </h1>
                                 <p className="disc wow fadeInUp text-white-50" data-wow-delay=".3s">
-                                    Lead Connect empowers businesses with intelligent AI agents that autonomously engage customers, capture opportunities, qualify prospects, schedule appointments, nurture relationships, and accelerate conversions — delivering seamless customer experiences 24×7 with zero manual effort.
+                                    Capture, engage, qualify, and convert customers with autonomous AI agents that automate conversations, WhatsApp campaigns, appointment scheduling, follow-ups, and sales workflows 24/7.
                                 </p>
                                 <div className="button-area wow fadeInUp" data-wow-delay=".4s">
                                     <Link to="/contactus#send-message" className="vrm-btn vrm-btn-ghost">
-                                        Schedule Consultation <i className="far fa-arrow-right"></i>
+                                        Schedule a Demo <i className="far fa-arrow-right"></i>
                                     </Link>
                                 </div>
                             </div>
@@ -74,19 +74,19 @@ function WhatsAppAutomation() {
                     <div className="row">
                         <div className="col-12 text-center">
                             <div className="rts-title-area" data-text="">
-                                <span className="pre-title" style={{ color: '#3B4ECC' }}>Key Benefits</span>
+                                <span className="pre-title" style={{ color: '#3B4ECC' }}>KEY BENEFITS</span>
                                 <h2 className="title">Why Choose Lead Connect?</h2>
                                 <p className="disc mt-3">
-                                    Siloed customer interaction routes lead to lost sales opportunities and inconsistent support. Lead Connect deploys autonomous AI agents that unify your customer acquisition and engagement funnels, ensuring seamless database synchronization and consistent response standards.
+                                    Automate every stage of the customer journey with AI-powered conversations, intelligent lead management, and omnichannel engagement.
                                 </p>
                             </div>
                         </div>
                     </div>
                     <div className="row mt--50 g-4">
                         {[
-                            { icon: "fal fa-comments-alt", title: "Automated Support Flows", desc: "Orchestrate automated chat scripts to resolve client inquiries, handle bookings, and route tickets without team overhead." },
-                            { icon: "fal fa-chart-network", title: "Official WhatsApp Business API", desc: "Deploy official messaging profiles using approved templates, securing high deliverability and customer trust indicators." },
-                            { icon: "fal fa-bullhorn", title: "Broadcast Campaign Tools", desc: "Distribute service alerts, delivery statuses, and personalized announcements directly to customer chat panels." }
+                            { icon: "fal fa-comments-alt", title: "AI Lead Qualification", desc: "Automatically identify, qualify, and prioritize high-value prospects through intelligent AI conversations." },
+                            { icon: "fal fa-share-alt", title: "Omnichannel Customer Engagement", desc: "Engage customers across WhatsApp, email, web chat, and other digital channels from one unified platform." },
+                            { icon: "fal fa-cogs", title: "Automated Sales Workflows", desc: "Automate follow-ups, appointment scheduling, reminders, and customer nurturing without manual intervention." }
                         ].map((item, index) => (
                             <div key={index} className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay={`.${(index + 1) * 2}s`}>
                                 <div className="vrm-feature-card text-center">
@@ -176,16 +176,16 @@ function WhatsAppAutomation() {
                         <div className="col-12 text-center">
                             <div className="rts-title-area" data-text="">
                                 <h2 className="title">What We’ve Built for You</h2>
-                                <p className="disc mt-3">A secure messaging system designed to manage and verify client messaging campaigns.</p>
+                                <p className="disc mt-3">A unified AI-powered platform for customer communication, lead management, marketing automation, and sales acceleration.</p>
                             </div>
                         </div>
                     </div>
                     <div className="row mt--50 g-4">
                         {[
-                            { icon: "fal fa-robot", title: "Interactive Chat Routing", desc: "Direct customer conversations to specific support teams or AI agents based on keywords and user choices." },
-                            { icon: "fal fa-sitemap", title: "Official Business Verification", desc: "Utilize green tick profiles and template message approvals through the official WhatsApp Business Platform." },
-                            { icon: "fal fa-comments", title: "Live Multi-Agent Inbox", desc: "Manage high-volume client channels using a shared support dashboard with smooth manual handoffs." },
-                            { icon: "fal fa-sync", title: "CRM Integration Connectors", desc: "Log and update user interaction data automatically within your central CRM and ERP systems." }
+                            { icon: "fal fa-comment-alt", title: "AI Customer Conversations", desc: "Deliver instant, human-like conversations that engage customers and answer inquiries 24/7." },
+                            { icon: "fal fa-bullhorn", title: "Campaign Automation", desc: "Create, schedule, and manage personalized WhatsApp campaigns and customer outreach at scale." },
+                            { icon: "fal fa-sync", title: "Lead & CRM Management", desc: "Capture leads, automate follow-ups, synchronize CRM data, and manage customer journeys from one platform." },
+                            { icon: "fal fa-chart-line", title: "Analytics & Performance Insights", desc: "Track campaign performance, lead conversion, customer engagement, and sales metrics with real-time dashboards." }
                         ].map((feature, idx) => (
                             <div key={idx} className="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay={`.${(idx + 1) * 2}s`}>
                                 <div className="vrm-feature-card text-center">
@@ -237,13 +237,13 @@ function WhatsAppAutomation() {
                     <div className="row align-items-center">
                         <div className="col-lg-6">
                             <div className="content-left text-start">
-                                <h2 className="title text-white wow fadeInUp">Scale Customer Engagement with Lead Connect</h2>
+                                <h2 className="title text-white wow fadeInUp" style={{ fontSize: '36px', lineHeight: '1.25' }}>Transform Customer Engagement with Lead Connect</h2>
                                 <p className="disc text-white-50 mt-4 wow fadeInUp" data-wow-delay=".2s">
-                                    Lead Connect connects directly to your existing customer relationship databases. Our platform scales autonomously to handle high engagement volumes, ensuring your sales and support teams have the real-time insights needed to manage conversions.
+                                    Empower your business with autonomous AI agents that automate customer conversations, lead qualification, campaign management, and sales engagement—all from one intelligent platform.
                                 </p>
                                 <div className="button-area mt-5 wow fadeInUp" data-wow-delay=".4s">
                                     <Link to="/contactus#send-message" className="vrm-btn vrm-btn-ghost text-white">
-                                        Schedule Consultation <i className="far fa-arrow-right"></i>
+                                        Schedule a Demo <i className="far fa-arrow-right"></i>
                                     </Link>
                                 </div>
                             </div>

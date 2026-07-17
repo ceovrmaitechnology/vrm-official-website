@@ -27,16 +27,16 @@ function AiExitInterview() {
         <div className="exitinterview-page basic-font-family">
             <HeaderOne />
             <Helmet>
-                <title>Exit Intelligence | Offboarding Automation | VRM AI</title>
-                <meta name="description" content="Automate employee exit interviews with Exit Intelligence. Gather structured offboarding feedback and track retention insights across your organization." />
-                <meta property="og:title" content="Exit Intelligence — Enterprise Offboarding Automation" />
-                <meta property="og:description" content="Automate employee exit interviews with Exit Intelligence. Gather structured offboarding feedback and track retention insights across your organization." />
+                <title>Exit Intelligence | AI-Powered Exit Interviews & Attrition Insights</title>
+                <meta name="description" content="Transform employee departures into actionable workforce intelligence with Exit Intelligence. Uncover turnover trends and improve retention." />
+                <meta property="og:title" content="Exit Intelligence — AI Exit Interviews & Attrition Analytics" />
+                <meta property="og:description" content="Transform employee departures into actionable workforce intelligence with Exit Intelligence. Uncover turnover trends and improve retention." />
                 <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
                 <link rel="canonical" href="https://www.vrmaitechnology.com/products/exitinterview" />
             
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="Exit Intelligence — Enterprise Offboarding Automation" />
-                <meta name="twitter:description" content="Automate employee exit interviews with Exit Intelligence. Gather structured offboarding feedback and track retention insights across your organization." />
+                <meta name="twitter:title" content="Exit Intelligence — AI Exit Interviews & Attrition Analytics" />
+                <meta name="twitter:description" content="Transform employee departures into actionable workforce intelligence with Exit Intelligence. Uncover turnover trends and improve retention." />
                 <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
             </Helmet>
 
@@ -50,11 +50,11 @@ function AiExitInterview() {
                                     Exit Intelligence
                                 </h1>
                                 <p className="disc wow fadeInUp text-white-50" data-wow-delay=".3s">
-                                    Optimize Offboarding with Exit Intelligence. Empower organizations to capture attrition insights through automated interactive voice surveys. By delivering honest, structured, and sentiment-rich exit logs at scale, it enables better employee retention strategies and actionable HR analytics.
+                                    Transform employee departures into actionable workforce intelligence with AI-powered exit interviews, sentiment analysis, and organizational insights that improve retention and strengthen workplace culture.
                                 </p>
                                 <div className="button-area wow fadeInUp" data-wow-delay=".4s">
                                     <Link to="/contactus#send-message" className="vrm-btn vrm-btn-ghost">
-                                        Request Demo <i className="far fa-arrow-right"></i>
+                                        Schedule a Demo <i className="far fa-arrow-right"></i>
                                     </Link>
                                 </div>
                             </div>
@@ -74,22 +74,21 @@ function AiExitInterview() {
                     <div className="row">
                         <div className="col-12 text-center">
                             <div className="rts-title-area" data-text="">
-                                <span className="pre-title" style={{ color: '#3B4ECC' }}>Key Benefits</span>
+                                <span className="pre-title" style={{ color: '#3B4ECC' }}>KEY BENEFITS</span>
                                 <h2 className="title">Why Choose Exit Intelligence?</h2>
                                 <p className="disc mt-3">
-                                    Conducting exit interviews manually requires significant HR coordinator time and often yields guarded responses. Exit Intelligence delivers standardized, neutral interviews that encourage candid feedback and classify turnover reasons automatically.
+                                    Go beyond traditional exit interviews with AI-driven conversations that uncover employee sentiment, identify attrition patterns, and deliver strategic workforce insights.
                                 </p>
                             </div>
                         </div>
                     </div>
                     <div className="row mt--50 g-4">
                         {[
-                            { icon: "fas fa-phone-alt", title: "Automated Voice Outreach", desc: "Initiate automated outbound calls to departing team members, conducting interactive exit interviews naturally." },
-                            { icon: "fal fa-sync-alt", title: "Smart Retry Campaigns", desc: "Re-engage candidates who missed initial calls at optimal hours, maximizing final feedback collection rates." },
-                            { icon: "fal fa-file-alt", title: "Turnover Classification", desc: "Extract core departure factors such as compensation, management style, or career growth systematically." },
-                            { icon: "fal fa-chart-line", title: "Attrition Trend Analytics", desc: "Track attrition concentrations across departments, tenures, and roles using real-time HR dashboards." }
+                            { icon: "fal fa-phone", title: "AI Exit Interviews", desc: "Conduct consistent AI-powered exit interviews through natural, conversational interactions." },
+                            { icon: "fal fa-smile", title: "Employee Sentiment Analysis", desc: "Understand employee experiences, workplace satisfaction, and reasons for leaving through intelligent sentiment analysis." },
+                            { icon: "fal fa-chart-line", title: "Workforce Intelligence", desc: "Identify organizational trends, retention risks, and workforce patterns with AI-powered analytics." }
                         ].map((item, index) => (
-                            <div key={index} className="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay={`.${(index + 1) * 2}s`}>
+                            <div key={index} className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay={`.${(index + 1) * 2}s`}>
                                 <div className="vrm-feature-card text-center">
                                     <div className="icon-wrapper">
                                         <i className={item.icon}></i>
@@ -177,16 +176,16 @@ function AiExitInterview() {
                         <div className="col-12 text-center">
                             <div className="rts-title-area" data-text="">
                                 <h2 className="title">What We’ve Built for You</h2>
-                                <p className="disc mt-3">An offboarding analytics suite configured to process and analyze organizational turnover factors.</p>
+                                <p className="disc mt-3">A unified AI platform that automates exit interviews, analyzes employee feedback, and delivers actionable insights to improve retention and organizational performance.</p>
                             </div>
                         </div>
                     </div>
                     <div className="row mt--50 g-4">
                         {[
-                            { icon: "fas fa-phone-alt", title: "Interactive Dialogue Logging", desc: "Log and compile candidate verbal responses into text transcription records for HR review." },
-                            { icon: "fal fa-users-cog", title: "Dynamic Roster Syncing", desc: "Import department exit rosters via file uploads or API connections to schedule interview queues." },
-                            { icon: "fal fa-brain", title: "Sentiment Analysis Engine", desc: "Evaluate tone and highlight critical concerns automatically to identify internal team friction." },
-                            { icon: "fal fa-analytics", title: "Organizational Health Panels", desc: "Map attrition metrics against tenure data to pinpoint departmental retention risks." }
+                            { icon: "fal fa-phone", title: "AI Exit Conversations", desc: "Conduct natural AI-driven interviews that encourage honest employee feedback." },
+                            { icon: "fal fa-smile", title: "Intelligent Sentiment Analysis", desc: "Analyze emotions, engagement, and workplace satisfaction across every exit interview." },
+                            { icon: "fal fa-chart-line", title: "Attrition & Trend Analytics", desc: "Track resignation trends, department insights, and key reasons behind employee turnover." },
+                            { icon: "fal fa-desktop", title: "Executive Workforce Dashboards", desc: "Access real-time HR analytics, retention insights, and strategic workforce reports." }
                         ].map((feature, idx) => (
                             <div key={idx} className="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay={`.${(idx + 1) * 2}s`}>
                                 <div className="vrm-feature-card text-center">
@@ -238,13 +237,13 @@ function AiExitInterview() {
                     <div className="row align-items-center">
                         <div className="col-lg-6">
                             <div className="content-left text-start">
-                                <h2 className="title text-white wow fadeInUp">Optimize Employee Offboarding Workflows</h2>
+                                <h2 className="title text-white wow fadeInUp" style={{ fontSize: '36px', lineHeight: '1.25' }}>Build a Stronger Workforce with Exit Intelligence</h2>
                                 <p className="disc text-white-50 mt-4 wow fadeInUp" data-wow-delay=".2s">
-                                    Exit Intelligence integrates with your enterprise HRIS platform to automate the offboarding collection process. Our secure deployment model safeguards candidate privacy while delivering the analytical summaries needed to guide retention strategies.
+                                    Transform employee feedback into actionable insights with AI-powered exit interviews, workforce analytics, and sentiment intelligence that help your organization improve retention and make smarter HR decisions.
                                 </p>
                                 <div className="button-area mt-5 wow fadeInUp" data-wow-delay=".4s">
                                     <Link to="/contactus#send-message" className="vrm-btn vrm-btn-ghost text-white">
-                                        Request Demo <i className="far fa-arrow-right"></i>
+                                        Schedule a Demo <i className="far fa-arrow-right"></i>
                                     </Link>
                                 </div>
                             </div>

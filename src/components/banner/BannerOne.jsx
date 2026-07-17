@@ -19,7 +19,7 @@ function BannerOne() {
     }, []);
 
     // Hero height on desktop adapts to viewport height so the button is always visible
-    const heroHeight = isMobile ? "85vw" : "calc(100vh - 50px)";
+    const heroHeight = isMobile ? "72vh" : "calc(100vh - 50px)";
 
     // Video height is sized to fit comfortably on desktop
     const videoHeight = isMobile ? "400px" : "1010px";
@@ -45,7 +45,7 @@ function BannerOne() {
                     alignItems: "flex-end",
                     justifyContent: "center",
 
-                    paddingBottom: isMobile ? "10px" : "40px",
+                    paddingBottom: isMobile ? "30px" : "40px",
 
                     backgroundColor: "#ffffff",
                     boxSizing: "border-box",
@@ -60,10 +60,11 @@ function BannerOne() {
                     preload="auto"
                     style={{
                         position: "absolute",
-                        top: 0,
-                        left: 0,
-                        width: "100%",
-                        height: "100%",
+                        top: isMobile ? "47%" : "50%",
+                        left: "50%",
+                        width: isMobile ? "auto" : "100%",
+                        height: isMobile ? "42vh" : "100%",
+                        transform: "translate(-50%, -50%)",
                         objectFit: "cover",
                         objectPosition: "center center",
                         backgroundColor: "#ffffff",

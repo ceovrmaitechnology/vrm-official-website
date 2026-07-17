@@ -39,8 +39,7 @@ function CodeSage() {
                                     CodeSage
                                 </h1>
                                 <p className="disc wow fadeInUp text-white-50" data-wow-delay=".3s">
-                                    Evaluate Engineers with CodeSage. Empower organizations to test technical talent through automated coding challenges and intelligent evaluation. By delivering deep, objective, and real-time performance assessments at scale, it enables faster hiring decisions and high-quality engineering hires.
-                                </p>
+                                  Evaluate technical talent with AI-powered coding assessments, intelligent technical interviews, automated proctoring, and comprehensive candidate insights—all in one enterprise platform.                                </p>
                                 <div className="button-area wow fadeInUp" data-wow-delay=".4s">
                                     <Link to="/contactus#send-message" className="vrm-btn vrm-btn-ghost">
                                         Get Started <i className="far fa-arrow-right"></i>
@@ -63,19 +62,19 @@ function CodeSage() {
                     <div className="row">
                         <div className="col-12 text-center">
                             <div className="rts-title-area" data-text="">
-                                <span className="pre-title" style={{ color: '#3B4ECC' }}>Core Features</span>
+                                <span className="pre-title" style={{ color: '#3B4ECC' }}>KEY BENEFITS</span>
                                 <h2 className="title">Why Choose CodeSage?</h2>
                                 <p className="disc mt-3">
-                                    CodeSage provides a robust environment for evaluating technical skills, from algorithmic thinking to real-world system design.
+                                    Streamline technical hiring with AI-powered coding assessments, automated interviews, intelligent evaluation, and secure proctoring that help engineering teams identify top talent faster.
                                 </p>
                             </div>
                         </div>
                     </div>
                     <div className="row mt--50 g-4">
                         {[
-                            { icon: "fal fa-code", title: "Code Evaluation", desc: "Intelligent analysis of code quality, efficiency, and correctness in real-time, supporting multiple languages and frameworks." },
-                            { icon: "fal fa-code-branch", title: "Algorithmic Challenges", desc: "Access a vast library of challenges designed to test problem-solving skills, data structure knowledge, and algorithmic thinking." },
-                            { icon: "fal fa-tasks", title: "Role-Specific Tasks", desc: "Tailored assessments for different engineering roles (Frontend, Backend, DevOps, Data Science) to ensure relevant skills testing." }
+                            { icon: "fal fa-code", title: "AI Coding Assessments", desc: "Create and evaluate coding challenges with automated execution and real-time scoring." },
+                            { icon: "fal fa-video", title: "AI Technical Interviews", desc: "Conduct structured AI-powered technical interviews with consistent candidate evaluation." },
+                            { icon: "fal fa-chart-line", title: "Intelligent Candidate Scoring", desc: "Combine coding performance and interview insights into a unified evaluation score." }
                         ].map((item, index) => (
                             <div key={index} className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay={`.${(index + 1) * 2}s`}>
                                 <div className="vrm-feature-card text-center">
@@ -164,16 +163,16 @@ function CodeSage() {
                         <div className="col-12 text-center">
                             <div className="rts-title-area" data-text="">
                                 <h2 className="title">What We’ve Built for You</h2>
-                                <p className="disc mt-3">Tools designed by engineers, for engineers.</p>
+                                <p className="disc mt-3">A complete AI-powered platform for coding assessments, technical interviews, proctoring, and candidate evaluation.</p>
                             </div>
                         </div>
                     </div>
                     <div className="row mt--50 g-4">
                         {[
-                            { icon: "fal fa-fingerprint", title: "Plagiarism Detection", desc: "Ensure code originality with advanced similarity checking." },
-                            { icon: "fal fa-check-double", title: "Auto-Grading", desc: "Instant scoring for standard algorithms and coding tasks." },
-                            { icon: "fal fa-user-friends", title: "Pair Programming", desc: "Real-time collaborative editing for live technical interviews." },
-                            { icon: "fal fa-terminal", title: "Execution Sandbox", desc: "Secure environment to run and test code in 30+ languages." }
+                            { icon: "fal fa-tasks", title: "AI Problem Sets", desc: "Generate coding challenges manually or with AI based on job descriptions." },
+                            { icon: "fal fa-user-friends", title: "Candidate Management", desc: "Invite candidates individually or in bulk and manage interviews from one dashboard." },
+                            { icon: "fal fa-shield-alt", title: "Intelligent Proctoring", desc: "Monitor coding sessions with screen recording, face recording, and violation detection." },
+                            { icon: "fal fa-file-alt", title: "Interview Reports", desc: "Access detailed coding reports, AI interview analysis, transcripts, and downloadable PDFs." }
                         ].map((feature, idx) => (
                             <div key={idx} className="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay={`.${(idx + 1) * 2}s`}>
                                 <div className="vrm-feature-card text-center">
@@ -225,15 +224,13 @@ function CodeSage() {
                     <div className="row align-items-center">
                         <div className="col-lg-6">
                             <div className="content-left text-start">
-                                <h2 className="title text-white wow fadeInUp">Partnering for Long-Term Success</h2>
+                                <h2 className="title text-white wow fadeInUp" style={{ fontSize: '36px', lineHeight: '1.25' }}>Build High-Performing Engineering Teams with CodeSage</h2>
                                 <p className="disc text-white-50 mt-4 wow fadeInUp" data-wow-delay=".2s">
-                                    CodeSage helps you build world-class engineering teams.
-                                    By standardizing technical assessments, we reduce hiring time
-                                    and improve the quality of every hire, ensuring your tech team is ready for any challenge.
+                                    Transform technical hiring with AI-powered coding assessments, intelligent interviews, automated proctoring, and comprehensive candidate insights—all from a single enterprise platform.
                                 </p>
                                 <div className="button-area mt-5 wow fadeInUp" data-wow-delay=".4s">
                                     <Link to="/contactus#send-message" className="vrm-btn vrm-btn-ghost text-white">
-                                        Partner With Us <i className="far fa-arrow-right"></i>
+                                        Schedule a Demo <i className="far fa-arrow-right"></i>
                                     </Link>
                                 </div>
                             </div>

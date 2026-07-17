@@ -523,22 +523,40 @@
     /* Move to right corner */
     transform: none !important;
 
-    width: 44px !important;
-    /* Larger touch target */
-    height: 44px !important;
+    width: auto !important;
+    height: auto !important;
+    padding: 0 !important;
+    border: none !important;
+    outline: none !important;
+    background: transparent !important;
+    color: #1b277c !important;
+    font-size: 20px !important;
+    z-index: 10;
+    cursor: pointer;
+    box-shadow: none !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    border-radius: 50% !important;
-    background: #3B4ECC;
-    color: #ffffff;
-    z-index: 10;
-    cursor: pointer;
+}
+
+.side-bar .close-icon-menu i {
+    background: transparent !important;
+    color: #1b277c !important;
+    width: auto !important;
+    height: auto !important;
+    margin: 0 !important;
+    display: inline-block !important;
 }
 
 .close-icon-menu:hover {
-    background: #111D5E;
-    transform: translateX(-50%) rotate(90deg) !important;
+    background: transparent !important;
+    color: #3B4ECC !important;
+    transform: none !important;
+}
+
+.side-bar .close-icon-menu:hover i {
+    background: transparent !important;
+    color: #3B4ECC !important;
 }
 
 /* =======================================
@@ -1153,7 +1171,7 @@
 
 /* Mobile Header - Solid Background */
 @media (max-width: 991px) {
-    .header-one {
+    .header-one:not(.header-transparent) {
         position: relative;
         /* Or sticky if desired, but relative ensures 'normal' flow */
         background: #ffffff !important;
@@ -1161,8 +1179,21 @@
         z-index: 999;
     }
 
-    .header-one .header-main-one {
+    .header-one:not(.header-transparent) .header-main-one {
         background: #ffffff !important;
+        padding: 0 0;
+    }
+
+    /* Transparent Header overrides on Mobile */
+    .header-one.header-transparent:not(.sticky) {
+        position: absolute !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        z-index: 99999 !important;
+    }
+
+    .header-one.header-transparent:not(.sticky) .header-main-one {
+        background: transparent !important;
         padding: 0 0;
     }
 
@@ -2389,16 +2420,17 @@
 
     /* 2. Product Card Padding & Auto-height to adjust dynamically on mobile */
     .vrm-product-card {
-        padding: 30px 20px !important;
+        padding: 20px 16px !important;
         min-height: auto !important;
+        max-width: 340px !important;
+        margin: 0 auto !important;
     }
 
     /* 3. Product Card Background Image Readability on Mobile */
     .vrm-product-card-bg {
-        opacity: 0.03 !important;
-        /* Make background mockup images very faint to ensure description text is readable */
-        background-position: right bottom !important;
-        /* Move watermark text away from top-left icon */
+        opacity: 0.22 !important;
+        /* Keep background mockup images visible and clear on mobile */
+        background-position: center !important;
     }
 
     /* 4. Compact Floating Action Button on mobile to prevent blocking text */
@@ -2415,6 +2447,30 @@
         height: 38px !important;
         line-height: 34px !important;
         font-size: 18px !important;
+    }
+
+    /* 5. Enterprise Gradient CTA padding & spacing compression for mobile */
+    .vrm-enterprise-gradient.ptb--80 {
+        padding-top: 40px !important;
+        padding-bottom: 40px !important;
+    }
+
+    .vrm-enterprise-gradient .content-left .title {
+        font-size: 26px !important;
+        line-height: 1.3 !important;
+    }
+
+    .vrm-enterprise-gradient .content-left .disc {
+        margin-top: 15px !important;
+        font-size: 14px !important;
+    }
+
+    .vrm-enterprise-gradient .content-left .button-area {
+        margin-top: 24px !important;
+    }
+
+    .vrm-enterprise-gradient .thumbnail {
+        margin-top: 30px !important;
     }
 }
 
@@ -2476,7 +2532,7 @@
 
 /* Unified Product Mockup Thumbnail Style (Match the exact 3:2 landscape size and full-width of the git commit) */
 .vrm-product-thumbnail {
-    width: 100%;
+    width: 85%;
     aspect-ratio: 1.5 / 1;
     /* Match the exact 3:2 landscape aspect ratio from git */
     margin: 0 auto;
