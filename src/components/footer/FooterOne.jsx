@@ -1,9 +1,29 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import IsoSealBadge from '../iso/IsoSealBadge';
+import IsoCertificateModal from '../iso/IsoCertificateModal';
 import '../../footer.css';
+import '../iso/iso-certificate.css';
 
 function FooterOne() {
     const [isWorkflowOpen, setIsWorkflowOpen] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const navigate = useNavigate();
+
+    const handleCertificationsClick = (e) => {
+        e.preventDefault();
+        if (window.location.pathname === '/' || window.location.pathname === '') {
+            const element = document.getElementById('iso-certifications');
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                window.history.pushState(null, '', '/#iso-certifications');
+            }
+        } else {
+            // Navigate to home and trigger smooth scroll to ISO section
+            navigate('/', { state: { scrollToIso: true } });
+        }
+    };
+
     return (
         <div className="vrm-footer">
             <div className="container">
@@ -35,6 +55,7 @@ function FooterOne() {
                         </div>
                     </div>
 
+                    {/* Column 2: Contact */}
                     <div className="col-lg-2 col-md-6 col-sm-12">
                         <div className="vrm-footer-widget">
                             <h5 className="vrm-footer-title">Contact</h5>
@@ -63,7 +84,8 @@ function FooterOne() {
                         </div>
                     </div>
 
-                    <div className="col-lg-3 col-md-6 col-sm-12">
+                    {/* Column 3: Solutions */}
+                    <div className="col-lg-2 col-md-6 col-sm-12">
                         <div className="vrm-footer-widget vrm-footer-widget-solutions">
                             <h5 className="vrm-footer-title">Solutions</h5>
 
@@ -87,6 +109,7 @@ function FooterOne() {
                         </div>
                     </div>
 
+                    {/* Column 4: Products */}
                     <div className="col-lg-2 col-md-6 col-sm-12">
                         <div className="vrm-footer-widget vrm-footer-widget-products">
                             <h5 className="vrm-footer-title">Products</h5>
@@ -135,24 +158,51 @@ function FooterOne() {
                                 <li style={{ marginBottom: '18px' }}>
                                     <Link to="/products/whatsapp" style={{ fontWeight: '700', color: '#11142c', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Lead Connect</Link>
                                 </li>
-                                <li style={{ marginBottom: '0px' }}>
+                                <li style={{ marginBottom: '18px' }}>
                                     <Link to="/products/visionix" style={{ fontWeight: '700', color: '#11142c', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Visionix AI</Link>
+                                </li>
+                                <li style={{ marginBottom: '0px' }}>
+                                    <Link to="/products/vevora" style={{ fontWeight: '700', color: '#11142c', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Vevora Real Estate</Link>
                                 </li>
                             </ul>
                         </div>
                     </div>
 
-                    {/* Column 5: Organization */}
-                    <div className="col-lg-2 col-md-6 col-sm-12">
+                    {/* Column 5: Organization & Quality & Compliance */}
+                    <div className="col-lg-3 col-md-6 col-sm-12">
                         <div className="vrm-footer-widget vrm-footer-widget-organization">
                             <h5 className="vrm-footer-title">Organization</h5>
                             <ul className="vrm-footer-links">
                                 <li><Link to="/about-us">About Us</Link></li>
                                 <li><Link to="/careers">Careers</Link></li>
+                                <li><a href="/#iso-certifications" onClick={handleCertificationsClick}>Certifications</a></li>
                                 <li><Link to="/contactus#send-message">Support</Link></li>
                                 <li><Link to="/contactus#send-message">Contact Us</Link></li>
                                 <li><Link to="/contactus#locations">Locations</Link></li>
                             </ul>
+
+                            {/* CHANGE 1 — CREATE A "QUALITY & COMPLIANCE" AREA */}
+                            <h5 className="vrm-footer-title" style={{ marginTop: '24px', marginBottom: '12px' }}>Quality & Compliance</h5>
+
+                            {/* CHANGE 2 & 3 — ISO CERTIFICATION CARD */}
+                            <div className="vrm-footer-iso-box">
+                                <div style={{ flexShrink: 0 }}>
+                                    <IsoSealBadge size={52} dark={true} />
+                                </div>
+                                <div className="vrm-footer-iso-text">
+                                    <h6 className="vrm-footer-iso-title">ISO 9001:2015 Certified</h6>
+                                    <div className="vrm-footer-iso-subtitle">Quality Management System</div>
+                                    <div className="vrm-footer-iso-num">Certificate No. E20260749630</div>
+                                    <div className="vrm-footer-iso-num">Valid through 20 July 2029</div>
+                                    {/* CHANGE 4 — VIEW CERTIFICATE */}
+                                    <button 
+                                        onClick={() => setIsModalOpen(true)} 
+                                        className="vrm-footer-iso-link"
+                                    >
+                                        View Certificate <i className="fas fa-arrow-right" style={{ fontSize: '10px' }}></i>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -173,6 +223,12 @@ function FooterOne() {
                     </div>
                 </div>
             </div>
+
+            {/* Certificate Document Modal */}
+            <IsoCertificateModal 
+                isOpen={isModalOpen} 
+                onClose={() => setIsModalOpen(false)} 
+            />
         </div>
     );
 }

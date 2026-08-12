@@ -59,6 +59,7 @@ import AIIntegrationServices from '../inner/AIIntegrationServices';
 import MachineLearningServices from '../inner/MachineLearningServices';
 import WhatsAppAutomation from '../inner/WhatsAppAutomation';
 import ProductsOverview from '../inner/ProductsOverview';
+import Vevora from '../inner/Vevora';
 
 // onepage
 import OnepageOne from '../onepage/OnepageOne';
@@ -122,6 +123,7 @@ function RouterPage() {
                     <Route path="/products/workflow/screensage" element={<ScreenSage />}></Route>
                     <Route path="/products/workflow/videosage" element={<VideoSage />}></Route>
                     <Route path="/products/workflow/codesage" element={<CodeSage />}></Route>
+                    <Route path="/products/vevora" element={<Vevora />}></Route>
                     <Route path="/products/aibuddy" element={<AiBuddy />}></Route>
                     <Route path="/products/people-connect" element={<PeopleConnect />}></Route>
                     <Route path="/products/exitinterview" element={<AiExitInterview />}></Route>

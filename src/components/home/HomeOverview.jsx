@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import IsoCertificateSection from '../iso/IsoCertificateSection';
 import './home-overview.css';
 
 function HomeOverview() {
@@ -68,6 +69,9 @@ function HomeOverview() {
                     ))}
                 </div>
             </section>
+
+            {/* Certified for Excellence Section — Placed directly below Product & Support / Know More, and ABOVE Products Highlight */}
+            <IsoCertificateSection />
 
             {/* Products Highlight Section */}
             <section className="vrm-products-highlight">
@@ -149,7 +153,7 @@ function HomeOverview() {
                     {/* Standalone Products Section */}
                     <div className="vrm-overview__section-header wow fadeInUp" data-wow-delay=".2s" style={{ textAlign: 'center', marginBottom: '50px' }}>
                         <p className="vrm-overview__eyebrow" style={{ color: '#3B4ECC', fontWeight: '700', textAlign: 'center', margin: '0 auto', display: 'block' }}>Dedicated Engines</p>
-                        <h2 className="title" style={{ textAlign: 'center', margin: '0 auto' }}>Specialized AI Solutions for Workforce, Learning & Customer Engagement</h2>
+                        <h2 className="title" style={{ textAlign: 'center', margin: '0 auto' }}>Specialized AI Solutions for Real Estate, Workforce & Customer Engagement</h2>
                     </div>
                     <div className="vrm-hero__cards--two-columns">
                         {[
@@ -197,6 +201,15 @@ function HomeOverview() {
                                 desc: "Automate visual authentication, security tracking, and attendance management with Visionix AI face recognition engine.",
                                 link: "/products/visionix",
                                 bgImage: "assets/images/visionix/visionix-image.png"
+                            },
+                            {
+                                id: 10,
+                                icon: "assets/images/service/icon/01.svg",
+                                category: "Real Estate Automation",
+                                title: "Vevora",
+                                desc: "AI-powered real estate platform connecting buyer conversations, lead qualification, site visits, and agent operations.",
+                                link: "/products/vevora",
+                                bgImage: "assets/images/vevora/vevora-hero.png"
                             }
                         ].map((product) => (
                             <div key={product.id} className="vrm-product-card wow fadeInUp" data-wow-delay=".3s">

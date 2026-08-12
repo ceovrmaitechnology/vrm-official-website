@@ -20,7 +20,7 @@ export default function Nav() {
         image: "/assets/images/service/desk.jpg"
     };
 
-    const [featuredContent, setFeaturedContent] = useState(defaultSolutionsContent);
+    const [featuredContent, setFeaturedContent] = useState(defaultWorkflowContent);
 
     // Data for dynamic hover content
     const featuredData = {
@@ -38,7 +38,7 @@ export default function Nav() {
         'videosage': { title: "VideoSage", description: "AI-powered video interviews that evaluate communication, technical expertise, and behavioral skills for smarter hiring decisions.", link: "/products/workflow/videosage", linkText: "Book Demo", image: "/assets/images/workflow/videosage/videosage-image-3.png" },
         'codesage': { title: "CodeSage", description: "AI-powered coding assessments and technical interviews with intelligent proctoring and comprehensive candidate evaluation.", link: "/products/workflow/codesage", linkText: "View Product", image: "/assets/images/workflow/codesage/codesage-image.png" },
 
-        // Products - AI Products
+        // Products - Standalone Engines
         'workflow': { title: "Workflow.AI", description: "An enterprise AI platform that automates business workflows, streamlines operations, and orchestrates intelligent processes across the organization.", link: "/products/workflow", linkText: "View Product", image: "/assets/images/service/desk.jpg" },
         'aibuddy': { 
             title: "AI Buddy", 
@@ -103,6 +103,19 @@ export default function Nav() {
                 "Biometric gate integration",
                 "Liveness detection bot",
                 "Secure visual logging panels"
+            ]
+        },
+        'vevora': { 
+            title: "Vevora Real Estate", 
+            description: "AI-powered real estate automation platform that connects buyer conversations, lead qualification, site visits, and agent operations.", 
+            link: "/products/vevora", 
+            linkText: "View Product", 
+            image: "/assets/images/vevora/vevora-hero.png",
+            features: [
+                "AI-Powered WhatsApp Bot",
+                "Smart Lead Scoring (HOT/WARM/COLD)",
+                "Automated Site Visit Scheduling",
+                "Free Cab Transportation Workflow"
             ]
         },
     };
@@ -257,6 +270,18 @@ export default function Nav() {
                                             }}
                                         >
                                             Visionix AI
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link
+                                            to="/products/vevora"
+                                            className={`platform-btn ${activeSubMenu === 'vevora' ? 'active' : ''}`}
+                                            onMouseEnter={() => {
+                                                setActiveSubMenu('vevora');
+                                                handleLinkHover('vevora');
+                                            }}
+                                        >
+                                            Vevora Real Estate
                                         </Link>
                                     </li>
                                 </ul>

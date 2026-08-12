@@ -4,6 +4,7 @@ import HeaderOne from "../components/header/HeaderOne";
 import { Link } from 'react-router-dom';
 import FooterOne from "../components/footer/FooterOne";
 import Accordion from 'react-bootstrap/Accordion';
+import AboutQualityCompliance from '../components/iso/AboutQualityCompliance';
 import '../about-us.css'; // Import custom styles
 
 function AboutUs() {
@@ -229,7 +230,10 @@ function AboutUs() {
                 </div>
             </div>
 
-            {/* Let's Discuss / CTA Section (Moved Below Why Choose Us) */}
+            {/* PART 2 — ABOUT US PAGE: Quality & Compliance Section */}
+            <AboutQualityCompliance />
+
+            {/* Let's Discuss / CTA Section */}
             <div className="about-cta">
                 <div className="container">
                     <div className="row justify-content-center">
