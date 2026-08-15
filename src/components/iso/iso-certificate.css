@@ -1,0 +1,376 @@
+/* ISO Certificate Section - VRM Dark Blue Gradient Theme */
+
+.vrm-iso-section {
+    padding: 60px 0;
+    background-color: #ffffff;
+    position: relative;
+}
+
+.vrm-iso-card {
+    background: linear-gradient(135deg, #1b277c 0%, #11142c 100%);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    padding: 42px 48px;
+    box-shadow: 0 20px 50px rgba(17, 20, 44, 0.35);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.vrm-iso-card::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(96, 165, 250, 0.25) 0%, transparent 70%);
+    filter: blur(40px);
+    pointer-events: none;
+}
+
+.vrm-iso-card:hover {
+    border-color: rgba(96, 165, 250, 0.35);
+    box-shadow: 0 24px 60px rgba(17, 20, 44, 0.45);
+    transform: translateY(-2px);
+}
+
+.vrm-iso-badge-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #93c5fd;
+    font-size: 11.5px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+}
+
+.vrm-iso-title {
+    font-size: 32px;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.2;
+    margin-bottom: 14px;
+}
+
+.vrm-iso-desc {
+    font-size: 15px;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 0;
+}
+
+.vrm-iso-seal-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.vrm-iso-details-container {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
+    border-radius: 14px;
+    padding: 20px 24px;
+    margin-bottom: 20px;
+}
+
+.vrm-iso-details-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.vrm-iso-detail-item {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.vrm-iso-detail-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.12);
+    color: #60a5fa;
+    font-size: 13px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+    flex-shrink: 0;
+}
+
+.vrm-iso-detail-label {
+    width: 145px;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 500;
+    flex-shrink: 0;
+}
+
+.vrm-iso-detail-value {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.vrm-iso-cert-no {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 13.5px;
+    font-weight: 500;
+    padding: 7px 16px;
+    border-radius: 8px;
+    margin-top: 6px;
+}
+
+.vrm-iso-cert-no strong {
+    color: #ffffff;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.vrm-iso-btn-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.vrm-iso-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: #ffffff;
+    color: #1b277c;
+    font-size: 15px;
+    font-weight: 800;
+    padding: 14px 30px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+    white-space: nowrap;
+}
+
+.vrm-iso-btn:hover {
+    background-color: #f1f5f9;
+    color: #11142c;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.25);
+}
+
+/* Footer ISO Widget Styling - Enterprise Dark Navy Theme */
+.vrm-footer-iso-box {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: linear-gradient(135deg, #1b277c 0%, #11142c 100%);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 14px;
+    padding: 16px 18px;
+    margin-top: 10px;
+    box-shadow: 0 10px 25px rgba(27, 39, 124, 0.2);
+    transition: all 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.vrm-footer-iso-box:hover {
+    border-color: rgba(96, 165, 250, 0.5);
+    box-shadow: 0 14px 32px rgba(27, 39, 124, 0.35);
+    transform: translateY(-2px);
+}
+
+.vrm-footer-iso-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.vrm-footer-iso-title {
+    color: #ffffff !important;
+    font-size: 13.5px;
+    font-weight: 800;
+    margin: 0 0 2px 0;
+    line-height: 1.3;
+}
+
+.vrm-footer-iso-subtitle {
+    color: #93c5fd !important;
+    font-size: 11.5px;
+    font-weight: 700;
+    margin: 0 0 4px 0;
+    line-height: 1.3;
+}
+
+.vrm-footer-iso-num {
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-size: 11.5px;
+    margin: 0 0 2px 0;
+    line-height: 1.3;
+}
+
+.vrm-footer-iso-link {
+    color: #60a5fa !important;
+    font-size: 12.5px;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    margin-top: 4px;
+    transition: color 0.2s ease;
+}
+
+.vrm-footer-iso-link:hover {
+    color: #93c5fd !important;
+    text-decoration: underline;
+}
+
+/* About Us Page Quality & Compliance Styling */
+.vrm-about-iso-section {
+    padding: 65px 0;
+    background-color: #f8fafc;
+    border-top: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.vrm-about-iso-card {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 16px;
+    padding: 36px 42px;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+}
+
+.vrm-about-iso-eyebrow {
+    color: #2563eb;
+    font-size: 11.5px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 8px;
+}
+
+.vrm-about-iso-title {
+    font-size: 26px;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 12px;
+    line-height: 1.3;
+}
+
+.vrm-about-iso-desc {
+    font-size: 14.5px;
+    color: #475569;
+    line-height: 1.65;
+    margin-bottom: 0;
+}
+
+.vrm-about-iso-badge-card {
+    background: linear-gradient(135deg, #1b277c 0%, #11142c 100%);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+    padding: 24px 28px;
+    color: #ffffff;
+    box-shadow: 0 12px 30px rgba(17, 20, 44, 0.18);
+}
+
+.vrm-about-iso-card-title {
+    font-size: 16px;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0 0 2px 0;
+}
+
+.vrm-about-iso-card-sub {
+    font-size: 12px;
+    color: #93c5fd;
+    font-weight: 700;
+}
+
+.vrm-about-iso-meta-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.vrm-about-iso-meta-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+}
+
+.vrm-about-iso-meta-item .label {
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 500;
+}
+
+.vrm-about-iso-meta-item .val {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.vrm-about-iso-cta {
+    color: #60a5fa;
+    font-size: 13.5px;
+    font-weight: 700;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s ease;
+}
+
+.vrm-about-iso-cta:hover {
+    color: #93c5fd;
+    text-decoration: underline;
+}
+
+@media (max-width: 991px) {
+    .vrm-iso-card {
+        padding: 30px 24px;
+    }
+    .vrm-iso-seal-wrapper {
+        margin: 24px 0;
+    }
+    .vrm-iso-title {
+        font-size: 26px;
+    }
+    .vrm-iso-btn-wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    .vrm-footer-iso-box {
+        margin-top: 12px;
+        padding: 14px 16px;
+    }
+    .vrm-about-iso-card {
+        padding: 26px 20px;
+    }
+    .vrm-about-iso-title {
+        font-size: 22px;
+    }
+}
