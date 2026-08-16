@@ -18,7 +18,8 @@ function TestimonialCard({ item }) {
     return (
         <article className="vrm-testimonial-card">
             <div className="vrm-testimonial-card__meta">
-                <span className="vrm-testimonial-card__stars" aria-label="5 out of 5 stars">
+                <span className="vrm-testimonial-card__stars">
+                    <span className="sr-only">5 out of 5 stars</span>
                     <i className="fas fa-star" />
                     <i className="fas fa-star" />
                     <i className="fas fa-star" />

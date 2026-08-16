@@ -51,10 +51,14 @@ function HomeOverview() {
                         }
                     ].map((product) => (
                         <div key={product.id} className="vrm-product-card wow fadeInUp" data-wow-delay=".3s">
-                            <div
-                                className="vrm-product-card-bg"
-                                style={{ backgroundImage: `url(${product.bgImage})` }}
-                            ></div>
+                            <div className="vrm-product-card-bg">
+                                <img 
+                                    src={product.bgImage} 
+                                    alt="" 
+                                    fetchpriority={product.id === 1 ? "high" : "auto"}
+                                    style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", objectFit: "cover" }} 
+                                />
+                            </div>
                             <div className="vrm-product-card__content">
                                 <div className="vrm-hero__icon">
                                     <img src={product.icon} alt={product.title} />
@@ -213,10 +217,13 @@ function HomeOverview() {
                             }
                         ].map((product) => (
                             <div key={product.id} className="vrm-product-card wow fadeInUp" data-wow-delay=".3s">
-                                <div
-                                    className="vrm-product-card-bg"
-                                    style={{ backgroundImage: `url(${product.bgImage})` }}
-                                ></div>
+                                <div className="vrm-product-card-bg">
+                                    <img 
+                                        src={product.bgImage} 
+                                        alt="" 
+                                        style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", objectFit: "cover" }} 
+                                    />
+                                </div>
                                 <div className="vrm-product-card__content">
                                     <div className="vrm-hero__icon">
                                         <img src={product.icon} alt={product.title} />

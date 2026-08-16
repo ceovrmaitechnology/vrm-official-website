@@ -12,8 +12,17 @@ const PORT = Number(process.env.SERVER_PORT || process.env.PORT || 5000);
 app.use(cors());
 app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, "../public")));
+// Security headers (HSTS, CSP)
+app.use((req, res, next) => {
+  res.setHeader("Strict-Transport-Security", "max-age=31536000; includeSubDomains");
+  res.setHeader("Content-Security-Policy", "default-src 'self' https: data: 'unsafe-inline' 'unsafe-eval';");
+  next();
+});
 
+// Cache headers for static files (1 year)
+app.use(express.static(path.join(__dirname, "../public"), {
+  maxAge: "1y"
+}));
 const upload = multer({
   storage: multer.memoryStorage(),
   limits: { fileSize: 15 * 1024 * 1024 },
