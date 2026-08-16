@@ -19,7 +19,7 @@ function BannerOne() {
     }, []);
 
     // Hero height on desktop adapts to viewport height so the button is always visible
-    const heroHeight = isMobile ? "70vh" : "85vh";
+    const heroHeight = isMobile ? "50vh" : "85vh";
 
     // Video height is sized to fit comfortably on desktop
     const videoHeight = isMobile ? "400px" : "1010px";
@@ -39,7 +39,7 @@ function BannerOne() {
                     position: "relative",
                     width: "100%",
                     height: heroHeight,
-                    minHeight: isMobile ? "500px" : "600px",
+                    minHeight: isMobile ? "350px" : "600px",
                     overflow: "hidden",
 
                     display: "flex",
