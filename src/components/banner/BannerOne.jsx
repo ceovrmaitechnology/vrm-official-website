@@ -21,8 +21,7 @@ function BannerOne() {
     // Hero height on desktop adapts to viewport height so the button is always visible
     const heroHeight = isMobile ? "50vh" : "85vh";
 
-    // Video height is sized to fit comfortably on desktop
-    const videoHeight = isMobile ? "400px" : "1010px";
+
 
     return (
         <div

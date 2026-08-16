@@ -52,7 +52,7 @@ function TestimonialSeven() {
                                         <SwiperSlide>
                                             <div className="testimonials-7-style">
                                                 <a className="thumb" href="/">
-                                                    <img src="assets/images/testimonials/08.png" alt="image" />
+                                                    <img src="assets/images/testimonials/08.png" alt="testimonial avatar" />
                                                 </a>
                                                 <div className="body">
                                                     <h5 className="title">The quick settle tips</h5>
@@ -82,7 +82,7 @@ function TestimonialSeven() {
                                         <SwiperSlide>
                                             <div className="testimonials-7-style">
                                                 <a className="thumb" href="/">
-                                                    <img src="assets/images/testimonials/08.png" alt="image" />
+                                                    <img src="assets/images/testimonials/08.png" alt="testimonial avatar" />
                                                 </a>
                                                 <div className="body">
                                                     <h5 className="title">The quick settle tips</h5>
@@ -112,7 +112,7 @@ function TestimonialSeven() {
                                         <SwiperSlide>
                                             <div className="testimonials-7-style">
                                                 <a className="thumb" href="/">
-                                                    <img src="assets/images/testimonials/08.png" alt="image" />
+                                                    <img src="assets/images/testimonials/08.png" alt="testimonial avatar" />
                                                 </a>
                                                 <div className="body">
                                                     <h5 className="title">The quick settle tips</h5>
@@ -142,7 +142,7 @@ function TestimonialSeven() {
                                         <SwiperSlide>
                                             <div className="testimonials-7-style">
                                                 <a className="thumb" href="/">
-                                                    <img src="assets/images/testimonials/08.png" alt="image" />
+                                                    <img src="assets/images/testimonials/08.png" alt="testimonial avatar" />
                                                 </a>
                                                 <div className="body">
                                                     <h5 className="title">The quick settle tips</h5>

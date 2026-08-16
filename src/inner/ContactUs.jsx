@@ -221,10 +221,10 @@ const ContactUs = () => {
                                         <div className="contact-info-content">
                                             <h5>Follow Us</h5>
                                             <div className="social-links-premium">
-                                                <a href="https://www.linkedin.com/company/vrm-ai-technology-pvt-ltd/" target="_blank" rel="noreferrer" className="social-btn-premium"><i className="fab fa-linkedin-in"></i></a>
-                                                <a href="https://www.facebook.com/share/1Ck9vJyvW4/" target="_blank" rel="noreferrer" className="social-btn-premium"><i className="fab fa-facebook-f"></i></a>
-                                                <a href="https://x.com/vrmaitechnology" target="_blank" rel="noreferrer" className="social-btn-premium"><i className="fab fa-twitter"></i></a>
-                                                <a href="https://www.instagram.com/vrmaitechnology/" target="_blank" rel="noreferrer" className="social-btn-premium"><i className="fab fa-instagram"></i></a>
+                                                <a href="https://www.linkedin.com/company/vrm-ai-technology-pvt-ltd/" target="_blank" rel="noreferrer" className="social-btn-premium" aria-label="LinkedIn"><i className="fab fa-linkedin-in"></i></a>
+                                                <a href="https://www.facebook.com/share/1Ck9vJyvW4/" target="_blank" rel="noreferrer" className="social-btn-premium" aria-label="Facebook"><i className="fab fa-facebook-f"></i></a>
+                                                <a href="https://x.com/vrmaitechnology" target="_blank" rel="noreferrer" className="social-btn-premium" aria-label="Twitter"><i className="fab fa-twitter"></i></a>
+                                                <a href="https://www.instagram.com/vrmaitechnology/" target="_blank" rel="noreferrer" className="social-btn-premium" aria-label="Instagram"><i className="fab fa-instagram"></i></a>
                                             </div>
                                         </div>
                                     </div>

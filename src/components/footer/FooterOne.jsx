@@ -47,10 +47,10 @@ function FooterOne() {
                                 </p>
                             </div>
                             <div className="vrm-social-icons">
-                                <a href="https://www.linkedin.com/company/vrm-ai-technology-pvt-ltd/" target="_blank" rel="noreferrer" className="vrm-social-link"><i className="fab fa-linkedin-in"></i></a>
-                                <a href="https://x.com/vrmaitechnology" target="_blank" rel="noreferrer" className="vrm-social-link"><i className="fab fa-twitter"></i></a>
-                                <a href="https://www.instagram.com/vrmaitechnology/" target="_blank" rel="noreferrer" className="vrm-social-link"><i className="fab fa-instagram"></i></a>
-                                <a href="https://www.facebook.com/share/1Ck9vJyvW4/" target="_blank" rel="noreferrer" className="vrm-social-link"><i className="fab fa-facebook-f"></i></a>
+                                <a href="https://www.linkedin.com/company/vrm-ai-technology-pvt-ltd/" target="_blank" rel="noreferrer" className="vrm-social-link" aria-label="LinkedIn"><i className="fab fa-linkedin-in"></i></a>
+                                <a href="https://x.com/vrmaitechnology" target="_blank" rel="noreferrer" className="vrm-social-link" aria-label="Twitter"><i className="fab fa-twitter"></i></a>
+                                <a href="https://www.instagram.com/vrmaitechnology/" target="_blank" rel="noreferrer" className="vrm-social-link" aria-label="Instagram"><i className="fab fa-instagram"></i></a>
+                                <a href="https://www.facebook.com/share/1Ck9vJyvW4/" target="_blank" rel="noreferrer" className="vrm-social-link" aria-label="Facebook"><i className="fab fa-facebook-f"></i></a>
                             </div>
                         </div>
                     </div>
