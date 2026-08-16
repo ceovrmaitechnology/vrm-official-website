@@ -5,6 +5,7 @@
   "private": true,
   "proxy": "http://localhost:3000",
   "dependencies": {
+    "@iconscout/unicons": "^4.2.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",

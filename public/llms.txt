@@ -1,3 +1,3 @@
 # VRM AI Technology
 
-VRM AI Technology provides AI, machine learning, and automation platform solutions including AI Consulting, AI Development, AI Chatbots, and specialized products like Workflow.AI, AI Buddy, People Connect, Exit Intelligence, Lead Connect, and Visionix AI.
+VRM AI Technology provides AI, machine learning, and automation platform solutions including [AI Consulting](/solutions/ai-consulting-services), [AI Development](/solutions/ai-development-services), [AI Chatbots](/solutions/ai-chatbot-development), and specialized products like [Workflow.AI](/products/workflow/xpress-screening), [AI Buddy](/products/aibuddy), [People Connect](/products/people-connect), [Exit Intelligence](/products/exitinterview), [Lead Connect](/products/whatsapp), and [Visionix AI](/products/visionix).

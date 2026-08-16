@@ -1,11 +1,11 @@
 @font-face {
     font-family: 'unicons';
-    src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/unicons.eot');
-    src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/unicons.eot') format('embedded-opentype'),
-         url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/unicons.woff2') format('woff2'),
-         url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/unicons.woff') format('woff'),
-         url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/unicons.ttf') format('truetype'),
-         url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/unicons.svg') format('svg');
+    src: url('../../fonts/unicons/unicons.eot');
+    src: url('../../fonts/unicons/unicons.eot') format('embedded-opentype'),
+         url('../../fonts/unicons/unicons.woff2') format('woff2'),
+         url('../../fonts/unicons/unicons.woff') format('woff'),
+         url('../../fonts/unicons/unicons.ttf') format('truetype'),
+         url('../../fonts/unicons/unicons.svg') format('svg');
     font-weight: normal;
     font-style: normal;
   }

@@ -83,6 +83,7 @@ function BannerOne() {
                         src="/assets/images/home/vrm-hero-video.mp4"
                         type="video/mp4"
                     />
+                    <track kind="captions" src="/assets/captions.vtt" srcLang="en" label="English" default />
 
                     Your browser does not support the video tag.
                 </video>

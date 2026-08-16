@@ -31,7 +31,7 @@ function TestimonialCard({ item }) {
             <div className="vrm-testimonial-card__footer">
                 <div className="vrm-testimonial-card__avatar">{initialsFor(item.name)}</div>
                 <div>
-                    <h5 className="vrm-testimonial-card__name">{item.name}</h5>
+                    <h3 className="vrm-testimonial-card__name">{item.name}</h3>
                     <p className="vrm-testimonial-card__detail">{item.company || item.role}</p>
                 </div>
             </div>
