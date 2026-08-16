@@ -44,16 +44,5 @@ const glob = require('glob');
     console.log(`${path.basename(cssPath)} minified.`);
   });
 
-  // 3. Ensure defer on main.js in index.html (M3)
-  const indexHtmlPath = path.join(buildDir, 'index.html');
-  if (fs.existsSync(indexHtmlPath)) {
-    let htmlContent = fs.readFileSync(indexHtmlPath, 'utf8');
-    htmlContent = htmlContent.replace(/<script(?![^>]*defer)[^>]*src="[^"]*\/static\/js\/main\.\w+\.js"[^>]*><\/script>/gi, (match) => {
-      return match.replace('<script ', '<script defer="defer" ');
-    });
-    fs.writeFileSync(indexHtmlPath, htmlContent);
-    console.log('Added defer attribute to scripts in index.html.');
-  }
-
   console.log('Postbuild optimizations completed successfully!');
 })();
