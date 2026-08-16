@@ -57,6 +57,8 @@ function HomeOverview() {
                                     alt="" 
                                     fetchpriority={product.id === 1 ? "high" : "auto"}
                                     style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", objectFit: "cover" }} 
+                                    width="346" 
+                                    height="346" 
                                 />
                             </div>
                             <div className="vrm-product-card__content">
