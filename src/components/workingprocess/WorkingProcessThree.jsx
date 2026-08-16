@@ -21,7 +21,7 @@ function WorkingProcessThree() {
                                         <img
                                             src="assets/images/working-step/icon/09.svg"
                                             alt="Working_process"
-                                         loading="lazy" / loading="lazy">
+                                         loading="lazy" />
                                     </div>
                                 </div>
                                 <div className="content">
@@ -41,7 +41,7 @@ function WorkingProcessThree() {
                                         <img
                                             src="assets/images/working-step/icon/10.svg"
                                             alt="Working_process"
-                                         loading="lazy" / loading="lazy">
+                                         loading="lazy" />
                                     </div>
                                 </div>
                                 <div className="content">
@@ -61,7 +61,7 @@ function WorkingProcessThree() {
                                         <img
                                             src="assets/images/working-step/icon/11.svg"
                                             alt="Working_process"
-                                         loading="lazy" / loading="lazy">
+                                         loading="lazy" />
                                     </div>
                                 </div>
                                 <div className="content">
@@ -81,7 +81,7 @@ function WorkingProcessThree() {
                                         <img
                                             src="assets/images/working-step/icon/12.svg"
                                             alt="Working_process"
-                                         loading="lazy" / loading="lazy">
+                                         loading="lazy" />
                                     </div>
                                 </div>
                                 <div className="content">

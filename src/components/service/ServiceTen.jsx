@@ -11,7 +11,7 @@ function ServiceTen() {
                         <div className="col-xl-4 col-md-6 col-sm-12 col-12 pb--140 pb_md--100">
                             <div className="service-two-inner">
                                 <Link to={'/service-details'} className="thumbnail">
-                                    <img src="assets/images/service/02.jpg" alt="Business_image"  loading="lazy" / loading="lazy">
+                                    <img src="assets/images/service/02.jpg" alt="Business_image"  loading="lazy" />
                                 </Link>
                                 <div className="body-content">
                                     <div className="hidden-area">
@@ -36,7 +36,7 @@ function ServiceTen() {
                         <div className="col-xl-4 col-md-6 col-sm-12 col-12 pb--140 pb_md--100">
                             <div className="service-two-inner">
                                 <Link to={'/service-details'} className="thumbnail two">
-                                    <img src="assets/images/service/03.jpg" alt="Business_image"  loading="lazy" / loading="lazy">
+                                    <img src="assets/images/service/03.jpg" alt="Business_image"  loading="lazy" />
                                 </Link>
                                 <div className="body-content">
                                     <div className="hidden-area">
@@ -61,7 +61,7 @@ function ServiceTen() {
                         <div className="col-xl-4 col-md-6 col-sm-12 col-12 pb--140 pb_md--100">
                             <div className="service-two-inner">
                                 <Link to={'/service-details'} className="thumbnail three">
-                                    <img src="assets/images/service/04.jpg" alt="Business_image"  loading="lazy" / loading="lazy">
+                                    <img src="assets/images/service/04.jpg" alt="Business_image"  loading="lazy" />
                                 </Link>
                                 <div className="body-content">
                                     <div className="hidden-area">
@@ -86,7 +86,7 @@ function ServiceTen() {
                         <div className="col-xl-4 col-md-6 col-sm-12 col-12 pb--140 pb_md--100">
                             <div className="service-two-inner">
                                 <Link to={'/service-details'} className="thumbnail">
-                                    <img src="assets/images/service/02.jpg" alt="Business_image"  loading="lazy" / loading="lazy">
+                                    <img src="assets/images/service/02.jpg" alt="Business_image"  loading="lazy" />
                                 </Link>
                                 <div className="body-content">
                                     <div className="hidden-area">
@@ -111,7 +111,7 @@ function ServiceTen() {
                         <div className="col-xl-4 col-md-6 col-sm-12 col-12 pb--140 pb_md--60">
                             <div className="service-two-inner">
                                 <Link to={'/service-details'} className="thumbnail two">
-                                    <img src="assets/images/service/03.jpg" alt="Business_image"  loading="lazy" / loading="lazy">
+                                    <img src="assets/images/service/03.jpg" alt="Business_image"  loading="lazy" />
                                 </Link>
                                 <div className="body-content">
                                     <div className="hidden-area">
@@ -136,7 +136,7 @@ function ServiceTen() {
                         <div className="col-xl-4 col-md-6 col-sm-12 col-12 pb--140 pb_md--60 pb_sm--60">
                             <div className="service-two-inner">
                                 <Link to={'/service-details'} className="thumbnail three">
-                                    <img src="assets/images/service/04.jpg" alt="Business_image"  loading="lazy" / loading="lazy">
+                                    <img src="assets/images/service/04.jpg" alt="Business_image"  loading="lazy" />
                                 </Link>
                                 <div className="body-content">
                                     <div className="hidden-area">

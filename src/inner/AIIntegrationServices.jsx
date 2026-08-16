@@ -56,7 +56,7 @@ function AIIntegrationServices() {
                         </div>
                         <div className="col-lg-5">
                             <div className="banner-image-two wow fadeInUp" data-wow-delay=".3s">
-                                <img src="/assets/images/Solutions/AIIntegration.png" alt="AI Integration Services" style={{ borderRadius: '20px', boxShadow: '0 20px 50px rgba(0,0,0,0.2)' }}  loading="lazy" / loading="lazy">
+                                <img src="/assets/images/Solutions/AIIntegration.png" alt="AI Integration Services" style={{ borderRadius: '20px', boxShadow: '0 20px 50px rgba(0,0,0,0.2)' }}  loading="lazy" />
                             </div>
                         </div>
                     </div>

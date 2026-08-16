@@ -51,7 +51,7 @@ function CaseSix() {
                                                 <img
                                                     src="assets/images/business-goal/icon/05.svg"
                                                     alt="logo"
-                                                 width="48" height="48" / width="48" height="48">
+                                                 width="48" height="48" />
                                             </div>
                                         </div>
                                     </div>
@@ -65,7 +65,7 @@ function CaseSix() {
                                                 <img
                                                     src="assets/images/business-goal/icon/05.svg"
                                                     alt="logo"
-                                                 width="48" height="48" / width="48" height="48">
+                                                 width="48" height="48" />
                                             </div>
                                         </div>
                                     </div>

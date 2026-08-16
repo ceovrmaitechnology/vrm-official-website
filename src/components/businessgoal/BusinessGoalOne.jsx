@@ -15,7 +15,7 @@ function BusinessGoalOne() {
                                     src="/assets/images/home/home-2.png"
                                     alt="Business_Goal"
                                     style={{ objectFit: 'cover', borderRadius: '16px' }}
-                                 loading="lazy" / loading="lazy"></picture>
+                                 loading="lazy" /></picture>
                             </div>
                         </div>
                         {/* business goal right */}
@@ -31,7 +31,7 @@ function BusinessGoalOne() {
                                             src="/assets/images/business-goal/icon/01.svg"
                                             alt="Custom AI Solutions Icon"
                                             className="thumb"
-                                         width="48" height="48" / width="48" height="48" loading="lazy">
+                                         width="48" height="48" width="48" height="48" loading="lazy" />
                                         <div className="goal-wrapper">
                                             <h6 className="title">Custom AI Solutions</h6>
                                             <p className="disc">
@@ -44,7 +44,7 @@ function BusinessGoalOne() {
                                             src="/assets/images/business-goal/icon/02.svg"
                                             alt="Enterprise Scale Security Icon"
                                             className="thumb"
-                                         width="48" height="48" / width="48" height="48" loading="lazy">
+                                         width="48" height="48" width="48" height="48" loading="lazy" />
                                         <div className="goal-wrapper">
                                             <h6 className="title">Enterprise Scale & Security</h6>
                                             <p className="disc">

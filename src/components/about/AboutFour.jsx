@@ -8,12 +8,12 @@ function AboutFour() {
                     <div className="row">
                         <div className="col-lg-6">
                             <div className="thumbnail">
-                                <img src="assets/images/about/main/06.jpg" alt="about_image"  loading="lazy" / loading="lazy">
+                                <img src="assets/images/about/main/06.jpg" alt="about_image"  loading="lazy" />
                                 <img
                                     src="assets/images/about/main/about-02-sm.jpg"
                                     alt="small"
                                     className="small"
-                                 loading="lazy" / loading="lazy">
+                                 loading="lazy" />
                                 <div className="experience-area six">
                                     <h2 className="title">25</h2>
                                     <span>Years Of Experience</span>
@@ -37,7 +37,7 @@ function AboutFour() {
                                 {/* ingle about start */}
                                 <div className="about-single-home-7">
                                     <div className="icon">
-                                        <img src="assets/images/about/main/icon/01.svg" alt=""  width="48" height="48" / width="48" height="48" loading="lazy">
+                                        <img src="assets/images/about/main/icon/01.svg" alt=""  width="48" height="48" width="48" height="48" loading="lazy" />
                                     </div>
                                     <div className="discription">
                                         <h6 className="title">Global Insights</h6>
@@ -51,7 +51,7 @@ function AboutFour() {
                                 {/* ingle about start */}
                                 <div className="about-single-home-7">
                                     <div className="icon">
-                                        <img src="assets/images/about/main/icon/02.svg" alt=""  width="48" height="48" / width="48" height="48" loading="lazy">
+                                        <img src="assets/images/about/main/icon/02.svg" alt=""  width="48" height="48" width="48" height="48" loading="lazy" />
                                     </div>
                                     <div className="discription">
                                         <h6 className="title">Business Investment</h6>
@@ -65,7 +65,7 @@ function AboutFour() {
                                 {/* ingle about start */}
                                 <div className="about-single-home-7">
                                     <div className="icon">
-                                        <img src="assets/images/about/main/icon/03.svg" alt=""  loading="lazy" / loading="lazy">
+                                        <img src="assets/images/about/main/icon/03.svg" alt=""  loading="lazy" />
                                     </div>
                                     <div className="discription">
                                         <h6 className="title">Yearly Calculation</h6>

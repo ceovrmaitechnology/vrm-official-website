@@ -51,7 +51,7 @@ function TestimonialOne() {
                                                         <img
                                                             src="assets/images/testimonials/02.png"
                                                             alt="business-testimonials"
-                                                         loading="lazy" / loading="lazy">
+                                                         loading="lazy" />
                                                     </div>
                                                     <div className="details">
                                                         <a href="/">
@@ -77,7 +77,7 @@ function TestimonialOne() {
                                                         <img
                                                             src="assets/images/testimonials/02.png"
                                                             alt="business-testimonials"
-                                                         loading="lazy" / loading="lazy">
+                                                         loading="lazy" />
                                                     </div>
                                                     <div className="details">
                                                         <a href="/">
@@ -103,7 +103,7 @@ function TestimonialOne() {
                                                         <img
                                                             src="assets/images/testimonials/02.png"
                                                             alt="business-testimonials"
-                                                         loading="lazy" / loading="lazy">
+                                                         loading="lazy" />
                                                     </div>
                                                     <div className="details">
                                                         <a href="/">
@@ -128,7 +128,7 @@ function TestimonialOne() {
                                 <img
                                     src="assets/images/testimonials/01.png"
                                     alt="business_testimobials"
-                                 loading="lazy" / loading="lazy">
+                                 loading="lazy" />
                             </div>
                         </div>
                         {/* image area end */}

@@ -53,13 +53,13 @@ function ServiceThree() {
                                                     <img
                                                         src="assets/images/service/07.jpg"
                                                         alt="Business-service"
-                                                     loading="lazy" / loading="lazy">
+                                                     loading="lazy" />
                                                 </Link>
                                                 <div className="content">
                                                     <img
                                                         src="assets/images/service/icon/16.svg"
                                                         alt="Business-icon"
-                                                     loading="lazy" / loading="lazy">
+                                                     loading="lazy" />
                                                     <h5 className="title">Business Consultancy</h5>
                                                     <p className="disc">
                                                         Aenean augue venenatis est porttitor fames aptent
@@ -85,13 +85,13 @@ function ServiceThree() {
                                                     <img
                                                         src="assets/images/service/08.jpg"
                                                         alt="Business-service"
-                                                     loading="lazy" / loading="lazy">
+                                                     loading="lazy" />
                                                 </Link>
                                                 <div className="content">
                                                     <img
                                                         src="assets/images/service/icon/17.svg"
                                                         alt="Business-icon"
-                                                     loading="lazy" / loading="lazy">
+                                                     loading="lazy" />
                                                     <h5 className="title">Target Marketing</h5>
                                                     <p className="disc">
                                                         Aenean augue venenatis est porttitor fames aptent
@@ -117,13 +117,13 @@ function ServiceThree() {
                                                     <img
                                                         src="assets/images/service/09.jpg"
                                                         alt="Business-service"
-                                                     loading="lazy" / loading="lazy">
+                                                     loading="lazy" />
                                                 </Link>
                                                 <div className="content">
                                                     <img
                                                         src="assets/images/service/icon/18.svg"
                                                         alt="Business-icon"
-                                                     loading="lazy" / loading="lazy">
+                                                     loading="lazy" />
                                                     <h5 className="title">Investment Analysis</h5>
                                                     <p className="disc">
                                                         Aenean augue venenatis est porttitor fames aptent
@@ -149,13 +149,13 @@ function ServiceThree() {
                                                     <img
                                                         src="assets/images/service/07.jpg"
                                                         alt="Business-service"
-                                                     loading="lazy" / loading="lazy">
+                                                     loading="lazy" />
                                                 </Link>
                                                 <div className="content">
                                                     <img
                                                         src="assets/images/service/icon/16.svg"
                                                         alt="Business-icon"
-                                                     loading="lazy" / loading="lazy">
+                                                     loading="lazy" />
                                                     <h5 className="title">Business Consultancy</h5>
                                                     <p className="disc">
                                                         Aenean augue venenatis est porttitor fames aptent
@@ -181,13 +181,13 @@ function ServiceThree() {
                                                     <img
                                                         src="assets/images/service/08.jpg"
                                                         alt="Business-service"
-                                                     loading="lazy" / loading="lazy">
+                                                     loading="lazy" />
                                                 </Link>
                                                 <div className="content">
                                                     <img
                                                         src="assets/images/service/icon/17.svg"
                                                         alt="Business-icon"
-                                                     loading="lazy" / loading="lazy">
+                                                     loading="lazy" />
                                                     <h5 className="title">Target Marketing</h5>
                                                     <p className="disc">
                                                         Aenean augue venenatis est porttitor fames aptent
@@ -213,13 +213,13 @@ function ServiceThree() {
                                                     <img
                                                         src="assets/images/service/09.jpg"
                                                         alt="Business-service"
-                                                     loading="lazy" / loading="lazy">
+                                                     loading="lazy" />
                                                 </Link>
                                                 <div className="content">
                                                     <img
                                                         src="assets/images/service/icon/18.svg"
                                                         alt="Business-icon"
-                                                     loading="lazy" / loading="lazy">
+                                                     loading="lazy" />
                                                     <h5 className="title">Investment Analysis</h5>
                                                     <p className="disc">
                                                         Aenean augue venenatis est porttitor fames aptent

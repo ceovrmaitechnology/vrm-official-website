@@ -10,7 +10,7 @@ function FooterFour() {
                         <div className="col-xl-3 col-lg-6">
                             <div className="footer-three-single-wized left">
                                 <a href="index" className="logo_footer">
-                                    <img src="assets/images/logo/logo.jpeg" alt="Logo-image"  loading="lazy" / loading="lazy">
+                                    <img src="assets/images/logo/logo.jpeg" alt="Logo-image"  loading="lazy" />
                                 </a>
                                 <p className="disc">
                                     Felis consquat magnis fames sagittis ultrices plasodales porttitor
@@ -137,37 +137,37 @@ function FooterFour() {
                                             <img
                                                 src="assets/images/footer/three-gallery/01.png"
                                                 alt="Footer-gallery"
-                                             loading="lazy" / loading="lazy">
+                                             loading="lazy" />
                                         </a>
                                         <a href="https://www.instagram.com/vrmaitechnology/" target="_blank" rel="noreferrer">
                                             <img
                                                 src="assets/images/footer/three-gallery/02.png"
                                                 alt="Footer-gallery"
-                                             loading="lazy" / loading="lazy">
+                                             loading="lazy" />
                                         </a>
                                         <a href="https://www.instagram.com/vrmaitechnology/" target="_blank" rel="noreferrer">
                                             <img
                                                 src="assets/images/footer/three-gallery/03.png"
                                                 alt="Footer-gallery"
-                                             loading="lazy" / loading="lazy">
+                                             loading="lazy" />
                                         </a>
                                         <a href="https://www.instagram.com/vrmaitechnology/" target="_blank" rel="noreferrer">
                                             <img
                                                 src="assets/images/footer/three-gallery/04.png"
                                                 alt="Footer-gallery"
-                                             loading="lazy" / loading="lazy">
+                                             loading="lazy" />
                                         </a>
                                         <a href="https://www.instagram.com/vrmaitechnology/" target="_blank" rel="noreferrer">
                                             <img
                                                 src="assets/images/footer/three-gallery/05.png"
                                                 alt="Footer-gallery"
-                                             loading="lazy" / loading="lazy">
+                                             loading="lazy" />
                                         </a>
                                         <a href="https://www.instagram.com/vrmaitechnology/" target="_blank" rel="noreferrer">
                                             <img
                                                 src="assets/images/footer/three-gallery/06.png"
                                                 alt="Footer-gallery"
-                                             loading="lazy" / loading="lazy">
+                                             loading="lazy" />
                                         </a>
                                     </div>
                                 </div>

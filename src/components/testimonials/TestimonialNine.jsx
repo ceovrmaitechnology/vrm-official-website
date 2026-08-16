@@ -21,11 +21,11 @@ function TestimonialNine() {
                         <div className="col-lg-12">
                             <div className="testimonials-main-wrapper-nine">
                                 <div className="left-image">
-                                    <img src="assets/images/testimonials/09.jpg" alt="testimonials"  loading="lazy" / loading="lazy">
+                                    <img src="assets/images/testimonials/09.jpg" alt="testimonials"  loading="lazy" />
                                 </div>
                                 <div className="right-content">
                                     <div className="brand-name">
-                                        <img src="assets/images/testimonials/10.png" alt="alter"  loading="lazy" / loading="lazy">
+                                        <img src="assets/images/testimonials/10.png" alt="alter"  loading="lazy" />
                                     </div>
                                     <h5 className="title">Building Amazing Modern Business</h5>
                                     <p className="dsic">
@@ -38,7 +38,7 @@ function TestimonialNine() {
                                         <img
                                             src="assets/images/testimonials/11.png"
                                             alt="testimonaisl"
-                                         loading="lazy" / loading="lazy">
+                                         loading="lazy" />
                                         <div className="infor-mation">
                                             <h6 className="title">Archer Graham</h6>
                                             <span>Finance Manager</span>
@@ -61,22 +61,22 @@ function TestimonialNine() {
                         <div className="row">
                             <div className="client-wrapper-one">
                                 <Link to={'#'}>
-                                    <img src="assets/images/client/01.png" alt="VRM AI partner logo"  loading="lazy" / loading="lazy">
+                                    <img src="assets/images/client/01.png" alt="VRM AI partner logo"  loading="lazy" />
                                 </Link>
                                 <Link to={'#'}>
-                                    <img src="assets/images/client/02.png" alt="VRM AI partner logo"  loading="lazy" / loading="lazy">
+                                    <img src="assets/images/client/02.png" alt="VRM AI partner logo"  loading="lazy" />
                                 </Link>
                                 <Link to={'#'}>
-                                    <img src="assets/images/client/03.png" alt="VRM AI partner logo"  loading="lazy" / loading="lazy">
+                                    <img src="assets/images/client/03.png" alt="VRM AI partner logo"  loading="lazy" />
                                 </Link>
                                 <Link to={'#'}>
-                                    <img src="assets/images/client/04.png" alt="VRM AI partner logo"  loading="lazy" / loading="lazy">
+                                    <img src="assets/images/client/04.png" alt="VRM AI partner logo"  loading="lazy" />
                                 </Link>
                                 <Link to={'#'}>
-                                    <img src="assets/images/client/05.png" alt="VRM AI partner logo"  loading="lazy" / loading="lazy">
+                                    <img src="assets/images/client/05.png" alt="VRM AI partner logo"  loading="lazy" />
                                 </Link>
                                 <Link to={'#'}>
-                                    <img src="assets/images/client/06.png" alt="VRM AI partner logo"  loading="lazy" / loading="lazy">
+                                    <img src="assets/images/client/06.png" alt="VRM AI partner logo"  loading="lazy" />
                                 </Link>
                             </div>
                         </div>

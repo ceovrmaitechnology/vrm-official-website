@@ -50,7 +50,7 @@ function FooterFive() {
                                     <img
                                         src="assets/images/footer/under-title.png"
                                         alt="VRM AI Technology footer logo"
-                                     loading="lazy" / loading="lazy">
+                                     loading="lazy" />
                                 </div>
                                 <div className="quick-link-inner">
                                     <ul className="links">
@@ -115,7 +115,7 @@ function FooterFive() {
                                     <img
                                         src="assets/images/footer/under-title.png"
                                         alt="VRM AI Technology footer logo"
-                                     loading="lazy" / loading="lazy">
+                                     loading="lazy" />
                                 </div>
                                 <div className="opening-time-inner">
                                     <div className="single-opening">
@@ -145,7 +145,7 @@ function FooterFive() {
                                     <img
                                         src="assets/images/footer/under-title.png"
                                         alt="VRM AI Technology footer logo"
-                                     loading="lazy" / loading="lazy">
+                                     loading="lazy" />
                                 </div>
                                 <div className="post-wrapper">
                                     {/* single post */}
@@ -154,7 +154,7 @@ function FooterFive() {
                                             <img
                                                 src="assets/images/footer/post/01.png"
                                                 alt="Business automation solution illustration"
-                                             loading="lazy" / loading="lazy">
+                                             loading="lazy" />
                                         </div>
                                         <div className="post-right">
                                             <p>
@@ -179,7 +179,7 @@ function FooterFive() {
                                             <img
                                                 src="assets/images/footer/post/02.png"
                                                 alt="Business automation solution illustration"
-                                             loading="lazy" / loading="lazy">
+                                             loading="lazy" />
                                         </div>
                                         <div className="post-right">
                                             <p>

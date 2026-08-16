@@ -17,7 +17,7 @@ function ServiceTwo() {
                             {/* single service start */}
                             <div className="rts-single-service-h2">
                                 <Link to={'/service-details'} className="thumbnail">
-                                    <img src="assets/images/service/10.jpg" alt="Service_image"  loading="lazy" / loading="lazy">
+                                    <img src="assets/images/service/10.jpg" alt="Service_image"  loading="lazy" />
                                 </Link>
                                 <div className="body">
                                     <Link to={'/service-details'}>
@@ -38,7 +38,7 @@ function ServiceTwo() {
                             {/* single service start */}
                             <div className="rts-single-service-h2">
                                 <Link to={'/service-details'} className="thumbnail">
-                                    <img src="assets/images/service/11.jpg" alt="Service_image"  loading="lazy" / loading="lazy">
+                                    <img src="assets/images/service/11.jpg" alt="Service_image"  loading="lazy" />
                                 </Link>
                                 <div className="body">
                                     <Link to={'/service-details'}>
@@ -59,7 +59,7 @@ function ServiceTwo() {
                             {/* single service start */}
                             <div className="rts-single-service-h2">
                                 <Link to={'/service-details'} className="thumbnail">
-                                    <img src="assets/images/service/12.jpg" alt="Service_image"  loading="lazy" / loading="lazy">
+                                    <img src="assets/images/service/12.jpg" alt="Service_image"  loading="lazy" />
                                 </Link>
                                 <div className="body">
                                     <Link to={'/service-details'}>
@@ -80,7 +80,7 @@ function ServiceTwo() {
                             {/* single service start */}
                             <div className="rts-single-service-h2">
                                 <Link to={'/service-details'} className="thumbnail">
-                                    <img src="assets/images/service/13.jpg" alt="Service_image"  loading="lazy" / loading="lazy">
+                                    <img src="assets/images/service/13.jpg" alt="Service_image"  loading="lazy" />
                                 </Link>
                                 <div className="body">
                                     <Link to={'/service-details'}>

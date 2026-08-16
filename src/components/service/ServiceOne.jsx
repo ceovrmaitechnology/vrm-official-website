@@ -30,7 +30,7 @@ function ServiceOne() {
                                         <img
                                             src="assets/images/service/icon/04.svg"
                                             alt="AI automation service dashboard"
-                                         width="48" height="48" / width="48" height="48" loading="lazy">
+                                         width="48" height="48" width="48" height="48" loading="lazy" />
                                     </div>
                                     <div className="service-details">
                                         <Link to={'/solutions/ai-calling-agent'}>
@@ -57,7 +57,7 @@ function ServiceOne() {
                                         <img
                                             src="assets/images/service/icon/05.svg"
                                             alt="AI automation service dashboard"
-                                         width="48" height="48" / width="48" height="48" loading="lazy">
+                                         width="48" height="48" width="48" height="48" loading="lazy" />
                                     </div>
                                     <div className="service-details">
                                         <Link to={'/solutions/ai-integration-services'}>
@@ -84,7 +84,7 @@ function ServiceOne() {
                                         <img
                                             src="assets/images/service/icon/06.svg"
                                             alt="AI automation service dashboard"
-                                         width="48" height="48" / width="48" height="48" loading="lazy">
+                                         width="48" height="48" width="48" height="48" loading="lazy" />
                                     </div>
                                     <div className="service-details">
                                         <Link to={'/solutions/machine-learning-services'}>

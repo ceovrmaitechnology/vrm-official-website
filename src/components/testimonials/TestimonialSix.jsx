@@ -35,7 +35,7 @@ function TestimonialSix() {
                                                 <img
                                                     src="assets/images/testimonials/icon/logo-04.png"
                                                     alt=""
-                                                 loading="lazy" / loading="lazy">
+                                                 loading="lazy" />
                                             </div>
                                             <div className="inner">
                                                 <p className="disc">
@@ -57,7 +57,7 @@ function TestimonialSix() {
                                                 <img
                                                     src="assets/images/testimonials/icon/logo-04.png"
                                                     alt=""
-                                                 loading="lazy" / loading="lazy">
+                                                 loading="lazy" />
                                             </div>
                                             <div className="inner">
                                                 <p className="disc">
@@ -79,7 +79,7 @@ function TestimonialSix() {
                                                 <img
                                                     src="assets/images/testimonials/icon/logo-04.png"
                                                     alt=""
-                                                 loading="lazy" / loading="lazy">
+                                                 loading="lazy" />
                                             </div>
                                             <div className="inner">
                                                 <p className="disc">
@@ -101,7 +101,7 @@ function TestimonialSix() {
                                                 <img
                                                     src="assets/images/testimonials/icon/logo-04.png"
                                                     alt=""
-                                                 loading="lazy" / loading="lazy">
+                                                 loading="lazy" />
                                             </div>
                                             <div className="inner">
                                                 <p className="disc">
@@ -123,7 +123,7 @@ function TestimonialSix() {
                                                 <img
                                                     src="assets/images/testimonials/icon/logo-04.png"
                                                     alt=""
-                                                 loading="lazy" / loading="lazy">
+                                                 loading="lazy" />
                                             </div>
                                             <div className="inner">
                                                 <p className="disc">

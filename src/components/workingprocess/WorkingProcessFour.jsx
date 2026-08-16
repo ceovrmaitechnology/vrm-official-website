@@ -13,13 +13,13 @@ function WorkingProcessFour() {
                                     <img
                                         src="assets/images/banner/shape/pre-title.png"
                                         alt="pre-title"
-                                     loading="lazy" / loading="lazy">
+                                     loading="lazy" />
                                     <span className="pre">Work Process</span>
                                     <img
                                         className="two"
                                         src="assets/images/banner/shape/pre-title.png"
                                         alt="pre-title"
-                                     loading="lazy" / loading="lazy">
+                                     loading="lazy" />
                                 </div>
                                 <h2 className="title">Why Choose us?</h2>
                             </div>
@@ -30,7 +30,7 @@ function WorkingProcessFour() {
                             {/* single-service area start */}
                             <div className="rts-single-service-style-process text-center">
                                 <div className="icon">
-                                    <img src="assets/images/service/icon/22.svg" alt=""  loading="lazy" / loading="lazy">
+                                    <img src="assets/images/service/icon/22.svg" alt=""  loading="lazy" />
                                 </div>
                                 <h5 className="title">Create an account</h5>
                                 <p className="disc">
@@ -46,7 +46,7 @@ function WorkingProcessFour() {
                             {/* single-service area start */}
                             <div className="rts-single-service-style-process text-center">
                                 <div className="icon">
-                                    <img src="assets/images/service/icon/23.svg" alt=""  loading="lazy" / loading="lazy">
+                                    <img src="assets/images/service/icon/23.svg" alt=""  loading="lazy" />
                                 </div>
                                 <h5 className="title">Consult with us</h5>
                                 <p className="disc">
@@ -62,7 +62,7 @@ function WorkingProcessFour() {
                             {/* single-service area start */}
                             <div className="rts-single-service-style-process text-center">
                                 <div className="icon">
-                                    <img src="assets/images/service/icon/24.svg" alt=""  loading="lazy" / loading="lazy">
+                                    <img src="assets/images/service/icon/24.svg" alt=""  loading="lazy" />
                                 </div>
                                 <h5 className="title">Fill up the form</h5>
                                 <p className="disc">
@@ -78,7 +78,7 @@ function WorkingProcessFour() {
                             {/* single-service area start */}
                             <div className="rts-single-service-style-process text-center">
                                 <div className="icon">
-                                    <img src="assets/images/service/icon/22.svg" alt=""  loading="lazy" / loading="lazy">
+                                    <img src="assets/images/service/icon/22.svg" alt=""  loading="lazy" />
                                 </div>
                                 <h5 className="title">Get Started!</h5>
                                 <p className="disc">

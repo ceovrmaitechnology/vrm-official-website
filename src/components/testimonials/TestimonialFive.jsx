@@ -49,7 +49,7 @@ function TestimonialFive() {
                                                 <img
                                                     src="assets/images/testimonials/02.png"
                                                     alt="testimonials_area"
-                                                 loading="lazy" / loading="lazy">
+                                                 loading="lazy" />
                                             </a>
                                             <div className="discription">
                                                 <a href="/">
@@ -69,7 +69,7 @@ function TestimonialFive() {
                                                     <img
                                                         src="assets/images/testimonials/icon/logo-01.png"
                                                         alt="Client_logo"
-                                                     loading="lazy" / loading="lazy">
+                                                     loading="lazy" />
                                                 </a>
                                                 <div className="star-icon">
                                                     <i className="fas fa-star" />
@@ -91,7 +91,7 @@ function TestimonialFive() {
                                                 <img
                                                     src="assets/images/testimonials/03.png"
                                                     alt="testimonials_area"
-                                                 loading="lazy" / loading="lazy">
+                                                 loading="lazy" />
                                             </a>
                                             <div className="discription">
                                                 <a href="/">
@@ -111,7 +111,7 @@ function TestimonialFive() {
                                                     <img
                                                         src="assets/images/testimonials/icon/logo-02.png"
                                                         alt="Client_logo"
-                                                     loading="lazy" / loading="lazy">
+                                                     loading="lazy" />
                                                 </a>
                                                 <div className="star-icon">
                                                     <i className="fas fa-star" />
@@ -133,7 +133,7 @@ function TestimonialFive() {
                                                 <img
                                                     src="assets/images/testimonials/04.png"
                                                     alt="testimonials_area"
-                                                 loading="lazy" / loading="lazy">
+                                                 loading="lazy" />
                                             </a>
                                             <div className="discription">
                                                 <a href="/">
@@ -153,7 +153,7 @@ function TestimonialFive() {
                                                     <img
                                                         src="assets/images/testimonials/icon/logo-03.png"
                                                         alt="Client_logo"
-                                                     loading="lazy" / loading="lazy">
+                                                     loading="lazy" />
                                                 </a>
                                                 <div className="star-icon">
                                                     <i className="fas fa-star" />
@@ -175,7 +175,7 @@ function TestimonialFive() {
                                                 <img
                                                     src="assets/images/testimonials/02.png"
                                                     alt="testimonials_area"
-                                                 loading="lazy" / loading="lazy">
+                                                 loading="lazy" />
                                             </a>
                                             <div className="discription">
                                                 <a href="/">
@@ -195,7 +195,7 @@ function TestimonialFive() {
                                                     <img
                                                         src="assets/images/testimonials/icon/logo-01.png"
                                                         alt="Client_logo"
-                                                     loading="lazy" / loading="lazy">
+                                                     loading="lazy" />
                                                 </a>
                                                 <div className="star-icon">
                                                     <i className="fas fa-star" />
@@ -217,7 +217,7 @@ function TestimonialFive() {
                                                 <img
                                                     src="assets/images/testimonials/03.png"
                                                     alt="testimonials_area"
-                                                 loading="lazy" / loading="lazy">
+                                                 loading="lazy" />
                                             </a>
                                             <div className="discription">
                                                 <a href="/">
@@ -237,7 +237,7 @@ function TestimonialFive() {
                                                     <img
                                                         src="assets/images/testimonials/icon/logo-02.png"
                                                         alt="Client_logo"
-                                                     loading="lazy" / loading="lazy">
+                                                     loading="lazy" />
                                                 </a>
                                                 <div className="star-icon">
                                                     <i className="fas fa-star" />
@@ -259,7 +259,7 @@ function TestimonialFive() {
                                                 <img
                                                     src="assets/images/testimonials/04.png"
                                                     alt="testimonials_area"
-                                                 loading="lazy" / loading="lazy">
+                                                 loading="lazy" />
                                             </a>
                                             <div className="discription">
                                                 <a href="/">
@@ -279,7 +279,7 @@ function TestimonialFive() {
                                                     <img
                                                         src="assets/images/testimonials/icon/logo-03.png"
                                                         alt="Client_logo"
-                                                     loading="lazy" / loading="lazy">
+                                                     loading="lazy" />
                                                 </a>
                                                 <div className="star-icon">
                                                     <i className="fas fa-star" />

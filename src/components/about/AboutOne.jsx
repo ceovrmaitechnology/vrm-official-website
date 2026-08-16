@@ -62,7 +62,7 @@ function AboutOne() {
                                     src="assets/images/home/woman-phone-thumbsup.png"
                                     alt="about-vrm"
                                     className="vrm-about-img"
-                                 width="625" height="625" / width="625" height="625"></picture>
+                                 width="625" height="625" /></picture>
                             </div>
                         </div>
                         {/* about-right end */}

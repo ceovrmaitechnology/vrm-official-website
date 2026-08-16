@@ -6,7 +6,7 @@ function BusinessGoalFour() {
             {/* rts service area start */}
             <div className="rts-service-area home-seven rts-section-gap" id='service'>
                 <div className="shape-business-service">
-                    <img src="assets/images/service/icon/shape-1.png" alt="shape"  loading="lazy" / loading="lazy">
+                    <img src="assets/images/service/icon/shape-1.png" alt="shape"  loading="lazy" />
                 </div>
                 <div className="container">
                     <div className="row">
@@ -17,13 +17,13 @@ function BusinessGoalFour() {
                                         <img
                                             src="assets/images/banner/shape/pre-title.png"
                                             alt="pre-title"
-                                         loading="lazy" / loading="lazy">
+                                         loading="lazy" />
                                         <span className="pre">Business Progress</span>
                                         <img
                                             className="two"
                                             src="assets/images/banner/shape/pre-title.png"
                                             alt="pre-title"
-                                         loading="lazy" / loading="lazy">
+                                         loading="lazy" />
                                     </div>
                                     <h2 className="title">
                                         Together we can envision <br />
@@ -40,7 +40,7 @@ function BusinessGoalFour() {
                         <div className="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
                             <div className="service-single-style-six">
                                 <div className="icon">
-                                    <img src="assets/images/service/icon/22.svg" alt="service_icon"  loading="lazy" / loading="lazy">
+                                    <img src="assets/images/service/icon/22.svg" alt="service_icon"  loading="lazy" />
                                 </div>
                                 <h5 className="title">Team Leadership</h5>
                                 <p className="disc">
@@ -52,7 +52,7 @@ function BusinessGoalFour() {
                         <div className="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
                             <div className="service-single-style-six">
                                 <div className="icon">
-                                    <img src="assets/images/service/icon/23.svg" alt="service_icon"  loading="lazy" / loading="lazy">
+                                    <img src="assets/images/service/icon/23.svg" alt="service_icon"  loading="lazy" />
                                 </div>
                                 <h5 className="title">People Cohesion</h5>
                                 <p className="disc">
@@ -64,7 +64,7 @@ function BusinessGoalFour() {
                         <div className="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
                             <div className="service-single-style-six">
                                 <div className="icon">
-                                    <img src="assets/images/service/icon/24.svg" alt="service_icon"  loading="lazy" / loading="lazy">
+                                    <img src="assets/images/service/icon/24.svg" alt="service_icon"  loading="lazy" />
                                 </div>
                                 <h5 className="title">Team Build Up</h5>
                                 <p className="disc">

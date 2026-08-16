@@ -18,7 +18,7 @@ function Counterup() {
                                 <img
                                     src="assets/images/counterup/icon/01.svg"
                                     alt="Business_counter"
-                                 width="48" height="48" / width="48" height="48">
+                                 width="48" height="48" />
                                 <div ref={ref} className="counter-details">
                                     {inView && ( // Only render CountUp when the element is in view
                                         <h2 className="title counter animated fadeInDownBig">
@@ -38,7 +38,7 @@ function Counterup() {
                                 <img
                                     src="assets/images/counterup/icon/02.svg"
                                     alt="Business_counter"
-                                 width="48" height="48" / width="48" height="48">
+                                 width="48" height="48" />
                                 <div ref={ref} className="counter-details">
                                     {inView && ( // Only render CountUp when the element is in view
                                         <h2 className="title counter animated fadeInDownBig">
@@ -78,7 +78,7 @@ function Counterup() {
                                 <img
                                     src="assets/images/counterup/icon/04.svg"
                                     alt="Business_counter"
-                                 width="48" height="48" / width="48" height="48">
+                                 width="48" height="48" />
                                 <div ref={ref} className="counter-details">
                                     {inView && ( // Only render CountUp when the element is in view
                                         <h2 className="title counter animated fadeInDownBig">

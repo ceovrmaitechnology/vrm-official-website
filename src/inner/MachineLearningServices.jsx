@@ -57,7 +57,7 @@ function MachineLearningServices() {
                         </div>
                         <div className="col-lg-5">
                             <div className="ai-agent-hero-img-container wow fadeInUp" data-wow-delay=".3s">
-                                <img src="/assets/images/service/07.jpg" alt="Machine Learning Services" className="img-fluid"  loading="lazy" / loading="lazy">
+                                <img src="/assets/images/service/07.jpg" alt="Machine Learning Services" className="img-fluid"  loading="lazy" />
                             </div>
                         </div>
                     </div>

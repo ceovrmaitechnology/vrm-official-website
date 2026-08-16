@@ -11,7 +11,7 @@ function BusinessGoalTwo() {
                             {/* business solution left */}
                             <div className="rts-business-solution-left">
                                 <div className="thumbnail">
-                                    <img src="assets/images/business-goal/01.png" alt=""  loading="lazy" / loading="lazy">
+                                    <img src="assets/images/business-goal/01.png" alt=""  loading="lazy" />
                                 </div>
                                 <div className="success-rate">
                                     <h2 className="title">85%</h2>
@@ -41,7 +41,7 @@ function BusinessGoalTwo() {
                                     {/* single business solution */}
                                     <div className="single-business-solution-2">
                                         <div className="icon">
-                                            <img src="assets/images/business-goal/icon/01.png" alt=""  loading="lazy" / loading="lazy">
+                                            <img src="assets/images/business-goal/icon/01.png" alt=""  loading="lazy" />
                                         </div>
                                         <div className="content">
                                             <h6 className="title">Strategic Vision Work</h6>
@@ -55,7 +55,7 @@ function BusinessGoalTwo() {
                                     {/* single business solution */}
                                     <div className="single-business-solution-2">
                                         <div className="icon">
-                                            <img src="assets/images/business-goal/icon/02.png" alt=""  loading="lazy" / loading="lazy">
+                                            <img src="assets/images/business-goal/icon/02.png" alt=""  loading="lazy" />
                                         </div>
                                         <div className="content">
                                             <h6 className="title">Tactical Vision Work</h6>

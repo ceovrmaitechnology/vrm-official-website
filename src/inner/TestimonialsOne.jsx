@@ -65,7 +65,7 @@ function OurService() {
                                                     <img
                                                         src="assets/images/testimonials/02.png"
                                                         alt="testimonials_area"
-                                                     loading="lazy" / loading="lazy">
+                                                     loading="lazy" />
                                                 </Link>
                                                 <div className="discription">
                                                     <Link to={'#'}>
@@ -85,7 +85,7 @@ function OurService() {
                                                         <img
                                                             src="assets/images/testimonials/icon/logo-01.png"
                                                             alt="Client_logo"
-                                                         loading="lazy" / loading="lazy">
+                                                         loading="lazy" />
                                                     </Link>
                                                     <div className="star-icon icon-2">
                                                         <i className="fas fa-star" />
@@ -107,7 +107,7 @@ function OurService() {
                                                     <img
                                                         src="assets/images/testimonials/02.png"
                                                         alt="testimonials_area"
-                                                     loading="lazy" / loading="lazy">
+                                                     loading="lazy" />
                                                 </Link>
                                                 <div className="discription">
                                                     <Link to={'#'}>
@@ -127,7 +127,7 @@ function OurService() {
                                                         <img
                                                             src="assets/images/testimonials/icon/logo-01.png"
                                                             alt="Client_logo"
-                                                         loading="lazy" / loading="lazy">
+                                                         loading="lazy" />
                                                     </Link>
                                                     <div className="star-icon icon-2">
                                                         <i className="fas fa-star" />
@@ -149,7 +149,7 @@ function OurService() {
                                                     <img
                                                         src="assets/images/testimonials/02.png"
                                                         alt="testimonials_area"
-                                                     loading="lazy" / loading="lazy">
+                                                     loading="lazy" />
                                                 </Link>
                                                 <div className="discription">
                                                     <Link to={'#'}>
@@ -169,7 +169,7 @@ function OurService() {
                                                         <img
                                                             src="assets/images/testimonials/icon/logo-01.png"
                                                             alt="Client_logo"
-                                                         loading="lazy" / loading="lazy">
+                                                         loading="lazy" />
                                                     </Link>
                                                     <div className="star-icon icon-2">
                                                         <i className="fas fa-star" />
@@ -191,7 +191,7 @@ function OurService() {
                                                     <img
                                                         src="assets/images/testimonials/02.png"
                                                         alt="testimonials_area"
-                                                     loading="lazy" / loading="lazy">
+                                                     loading="lazy" />
                                                 </Link>
                                                 <div className="discription">
                                                     <Link to={'#'}>
@@ -211,7 +211,7 @@ function OurService() {
                                                         <img
                                                             src="assets/images/testimonials/icon/logo-01.png"
                                                             alt="Client_logo"
-                                                         loading="lazy" / loading="lazy">
+                                                         loading="lazy" />
                                                     </Link>
                                                     <div className="star-icon icon-2">
                                                         <i className="fas fa-star" />
@@ -233,7 +233,7 @@ function OurService() {
                                                     <img
                                                         src="assets/images/testimonials/02.png"
                                                         alt="testimonials_area"
-                                                     loading="lazy" / loading="lazy">
+                                                     loading="lazy" />
                                                 </Link>
                                                 <div className="discription">
                                                     <Link to={'#'}>
@@ -253,7 +253,7 @@ function OurService() {
                                                         <img
                                                             src="assets/images/testimonials/icon/logo-01.png"
                                                             alt="Client_logo"
-                                                         loading="lazy" / loading="lazy">
+                                                         loading="lazy" />
                                                     </Link>
                                                     <div className="star-icon icon-2">
                                                         <i className="fas fa-star" />
