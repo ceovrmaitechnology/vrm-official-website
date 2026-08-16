@@ -12,8 +12,7 @@ const glob = require('glob');
     return;
   }
 
-  // 1. PurgeCSS for style.css
-  const styleCssPath = glob.sync(path.join(buildDir, 'assets/css/style.css'))[0];
+  const styleCssPath = glob.sync(path.join(buildDir, 'assets/css/style.css').replace(/\\/g, '/'))[0];
   if (styleCssPath) {
     const purgeCSSResults = await new PurgeCSS().purge({
       content: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
@@ -21,10 +20,14 @@ const glob = require('glob');
       safelist: [/^swiper-/, /^wow/, /^animate/, /^animate__/, /^fa-/, /^vrm-/, 'show', 'collapse', 'collapsing', 'active', 'fade', 'in', 'modal-open', 'dropdown-open', 'animated']
     });
 
-    const purgedCss = purgeCSSResults[0].css;
-    const minifiedCss = new CleanCSS({}).minify(purgedCss).styles;
-    fs.writeFileSync(styleCssPath, minifiedCss);
-    console.log('style.css purged and minified.');
+    if (purgeCSSResults && purgeCSSResults.length > 0) {
+      const purgedCss = purgeCSSResults[0].css;
+      const minifiedCss = new CleanCSS({}).minify(purgedCss).styles;
+      fs.writeFileSync(styleCssPath, minifiedCss);
+      console.log('style.css purged and minified.');
+    } else {
+      console.log('PurgeCSS returned no results. Check paths.');
+    }
   }
 
   // 2. Minify other CSS files
