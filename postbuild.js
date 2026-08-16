@@ -18,10 +18,7 @@ const glob = require('glob');
     const purgeCSSResults = await new PurgeCSS().purge({
       content: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
       css: [styleCssPath],
-      safelist: {
-        standard: ['active', 'show', 'collapsing', 'collapse', 'fade', 'modal-backdrop', 'modal-open', 'modal'],
-        greedy: [/^swiper-/, /^wow/, /^animate__/, /^modal-/, /^uil-/, /^fa-/]
-      }
+      safelist: [/^swiper-/, /^wow/, /^animate/, /^animate__/, /^fa-/, /^vrm-/, 'show', 'collapse', 'collapsing', 'active', 'fade', 'in', 'modal-open', 'dropdown-open', 'animated']
     });
 
     const purgedCss = purgeCSSResults[0].css;
@@ -48,7 +45,7 @@ const glob = require('glob');
   const indexHtmlPath = path.join(buildDir, 'index.html');
   if (fs.existsSync(indexHtmlPath)) {
     let htmlContent = fs.readFileSync(indexHtmlPath, 'utf8');
-    htmlContent = htmlContent.replace(/<script(?![^>]*defer)[^>]*src="[^"]*\/static\/js\/[^"]*"[^>]*><\/script>/gi, (match) => {
+    htmlContent = htmlContent.replace(/<script(?![^>]*defer)[^>]*src="[^"]*\/static\/js\/main\.\w+\.js"[^>]*><\/script>/gi, (match) => {
       return match.replace('<script ', '<script defer="defer" ');
     });
     fs.writeFileSync(indexHtmlPath, htmlContent);
