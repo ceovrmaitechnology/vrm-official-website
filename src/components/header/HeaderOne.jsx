@@ -50,7 +50,7 @@ function HeaderOne({ className }) {
                             <div className="col-xl-2 col-lg-2 col-md-4 col-sm-4 col-4">
                                 <div className="thumbnail">
                                     <Link to={'/'} >
-                                        <img src="/assets/images/logo/logo.png" alt="VRM AI Technology Logo" fetchpriority="high" />
+                                        <picture><source srcSet="/assets/images/logo/logo.webp" type="image/webp" /><img src="/assets/images/logo/logo.png" alt="VRM AI Technology Logo" fetchpriority="high" width="154" height="42" /></picture>
                                     </Link>
                                 </div>
                             </div>

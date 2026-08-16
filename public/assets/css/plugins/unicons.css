@@ -1,4 +1,5 @@
 @font-face {
+  font-display: swap;
     font-family: 'unicons';
     src: url('../../fonts/unicons/unicons.eot');
     src: url('../../fonts/unicons/unicons.eot') format('embedded-opentype'),
@@ -14,6 +15,7 @@
   /*
   @media screen and (-webkit-min-device-pixel-ratio:0) {
     @font-face {
+  font-display: swap;
       font-family: 'unicons';
       src: url('../font/unicons.svg?50911815#unicons') format('svg');
     }
@@ -24,8 +26,6 @@
     font-family: "unicons";
     font-style: normal;
     font-weight: normal;
-    speak: none;
-   
     display: inline-block;
     text-decoration: inherit;
     text-align: center;

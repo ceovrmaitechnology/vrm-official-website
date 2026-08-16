@@ -13,7 +13,7 @@ function ServiceFive() {
                                     <img
                                         src="assets/images/service/icon/service-logo1.svg"
                                         alt="Business-service"
-                                    />
+                                     loading="lazy" / loading="lazy">
                                 </Link>
                                 <div className="content">
                                     <h5 className="title">Financial Planning</h5>
@@ -34,7 +34,7 @@ function ServiceFive() {
                                     <img
                                         src="assets/images/service/icon/service-logo2.svg"
                                         alt="Business-service"
-                                    />
+                                     loading="lazy" / loading="lazy">
                                 </Link>
                                 <div className="content">
                                     <h5 className="title">Business Planning</h5>
@@ -55,7 +55,7 @@ function ServiceFive() {
                                     <img
                                         src="assets/images/service/icon/service-logo3.svg"
                                         alt="Business-service"
-                                    />
+                                     loading="lazy" / loading="lazy">
                                 </Link>
                                 <div className="content">
                                     <h5 className="title">Marketing Planning</h5>

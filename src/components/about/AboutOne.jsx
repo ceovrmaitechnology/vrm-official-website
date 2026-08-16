@@ -58,11 +58,11 @@ function AboutOne() {
                         {/* about-right Start*/}
                         <div className="col-lg-6 col-md-12 col-sm-12 col-12 order-lg-2 order-md-1 order-sm-1 order-1 mb_md--30 mb_sm--30 d-flex justify-content-center justify-content-lg-end">
                             <div className="about-one-thumbnail position-relative w-100">
-                                <img
+                                <picture><source srcSet="assets/images/home/woman-phone-thumbsup.webp" type="image/webp" /><img
                                     src="assets/images/home/woman-phone-thumbsup.png"
                                     alt="about-vrm"
                                     className="vrm-about-img"
-                                />
+                                 width="625" height="625" / width="625" height="625"></picture>
                             </div>
                         </div>
                         {/* about-right end */}

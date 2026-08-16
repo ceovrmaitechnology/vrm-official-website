@@ -45,7 +45,7 @@ function GalleryOne() {
                                                     <img
                                                         src="assets/images/gallery/gallery-01.jpg"
                                                         alt="business-images"
-                                                    />
+                                                     loading="lazy" / loading="lazy">
                                                 </div>
                                             </div>
                                             <div className="col-lg-5 col-md-12 col-sm-12 col-12">
@@ -54,7 +54,7 @@ function GalleryOne() {
                                                         <img
                                                             src="assets/images/gallery/icon/01.svg"
                                                             alt="Business-gallery"
-                                                        />
+                                                         width="48" height="48" / width="48" height="48" loading="lazy">
                                                     </div>
                                                     <Link to={'/project-details'}>
                                                         <h4 className="title">Pro Business Solution</h4>
@@ -82,7 +82,7 @@ function GalleryOne() {
                                                     <img
                                                         src="assets/images/gallery/gallery-02.jpg"
                                                         alt="business-images"
-                                                    />
+                                                     loading="lazy" / loading="lazy">
                                                 </div>
                                             </div>
                                             <div className="col-lg-5">
@@ -91,7 +91,7 @@ function GalleryOne() {
                                                         <img
                                                             src="assets/images/gallery/icon/01.svg"
                                                             alt="Business-gallery"
-                                                        />
+                                                         width="48" height="48" / width="48" height="48" loading="lazy">
                                                     </div>
                                                     <Link to={'/project-details'}>
                                                         <h4 className="title">VRM AI Pro Business</h4>
@@ -119,7 +119,7 @@ function GalleryOne() {
                                                     <img
                                                         src="assets/images/gallery/gallery-03.jpg"
                                                         alt="business-images"
-                                                    />
+                                                     loading="lazy" / loading="lazy">
                                                 </div>
                                             </div>
                                             <div className="col-lg-5">
@@ -128,7 +128,7 @@ function GalleryOne() {
                                                         <img
                                                             src="assets/images/gallery/icon/01.svg"
                                                             alt="Business-gallery"
-                                                        />
+                                                         width="48" height="48" / width="48" height="48" loading="lazy">
                                                     </div>
                                                     <Link to={'/project-details'}>
                                                         <h4 className="title">Pro Solution Business</h4>

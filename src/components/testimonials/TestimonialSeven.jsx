@@ -19,13 +19,13 @@ function TestimonialSeven() {
                                         <img
                                             src="assets/images/banner/shape/pre-title.png"
                                             alt="pre-title"
-                                        />
+                                         loading="lazy" / loading="lazy">
                                         <span className="pre">Business Progress</span>
                                         <img
                                             className="two"
                                             src="assets/images/banner/shape/pre-title.png"
                                             alt="pre-title"
-                                        />
+                                         loading="lazy" / loading="lazy">
                                     </div>
                                     <h2 className="title">Customer Testimonials</h2>
                                 </div>
@@ -52,7 +52,7 @@ function TestimonialSeven() {
                                         <SwiperSlide>
                                             <div className="testimonials-7-style">
                                                 <a className="thumb" href="/">
-                                                    <img src="assets/images/testimonials/08.png" alt="testimonial avatar" />
+                                                    <img src="assets/images/testimonials/08.png" alt="testimonial avatar"  loading="lazy" / loading="lazy">
                                                 </a>
                                                 <div className="body">
                                                     <h5 className="title">The quick settle tips</h5>
@@ -82,7 +82,7 @@ function TestimonialSeven() {
                                         <SwiperSlide>
                                             <div className="testimonials-7-style">
                                                 <a className="thumb" href="/">
-                                                    <img src="assets/images/testimonials/08.png" alt="testimonial avatar" />
+                                                    <img src="assets/images/testimonials/08.png" alt="testimonial avatar"  loading="lazy" / loading="lazy">
                                                 </a>
                                                 <div className="body">
                                                     <h5 className="title">The quick settle tips</h5>
@@ -112,7 +112,7 @@ function TestimonialSeven() {
                                         <SwiperSlide>
                                             <div className="testimonials-7-style">
                                                 <a className="thumb" href="/">
-                                                    <img src="assets/images/testimonials/08.png" alt="testimonial avatar" />
+                                                    <img src="assets/images/testimonials/08.png" alt="testimonial avatar"  loading="lazy" / loading="lazy">
                                                 </a>
                                                 <div className="body">
                                                     <h5 className="title">The quick settle tips</h5>
@@ -142,7 +142,7 @@ function TestimonialSeven() {
                                         <SwiperSlide>
                                             <div className="testimonials-7-style">
                                                 <a className="thumb" href="/">
-                                                    <img src="assets/images/testimonials/08.png" alt="testimonial avatar" />
+                                                    <img src="assets/images/testimonials/08.png" alt="testimonial avatar"  loading="lazy" / loading="lazy">
                                                 </a>
                                                 <div className="body">
                                                     <h5 className="title">The quick settle tips</h5>

@@ -30,7 +30,7 @@ function ServiceSeven() {
                                         <img
                                             src="assets/images/working-step/icon/target.svg"
                                             alt="Icon"
-                                        />
+                                         loading="lazy" / loading="lazy">
                                     </Link>
                                     <div className="content">
                                         <h5 className="title">Customer Centric</h5>
@@ -47,7 +47,7 @@ function ServiceSeven() {
                                         <img
                                             src="assets/images/working-step/icon/user.svg"
                                             alt="Icon"
-                                        />
+                                         loading="lazy" / loading="lazy">
                                     </Link>
                                     <div className="content">
                                         <h5 className="title">Human Centric</h5>
@@ -64,7 +64,7 @@ function ServiceSeven() {
                                         <img
                                             src="assets/images/working-step/icon/save.svg"
                                             alt="Icon"
-                                        />
+                                         loading="lazy" / loading="lazy">
                                     </Link>
                                     <div className="content">
                                         <h5 className="title">Sustainable</h5>
@@ -81,7 +81,7 @@ function ServiceSeven() {
                                         <img
                                             src="assets/images/working-step/icon/goal.svg"
                                             alt="Icon"
-                                        />
+                                         loading="lazy" / loading="lazy">
                                     </Link>
                                     <div className="content">
                                         <h5 className="title">Goal-Driven</h5>

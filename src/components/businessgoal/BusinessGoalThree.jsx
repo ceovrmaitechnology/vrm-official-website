@@ -43,7 +43,7 @@ function BusinessGoalThree() {
                         {/* business goal left */}
                         <div className="col-lg-6">
                             <div className="business-goal-one">
-                                <img src="assets/images/business-goal/02.jpg" alt="Business_Goal" />
+                                <img src="assets/images/business-goal/02.jpg" alt="Business_Goal"  loading="lazy" / loading="lazy">
                             </div>
                         </div>
                         {/* business goal right */}
@@ -62,7 +62,7 @@ function BusinessGoalThree() {
                                             src="assets/images/business-goal/icon/03.svg"
                                             alt="business_Icone"
                                             className="thumb"
-                                        />
+                                         loading="lazy" / loading="lazy">
                                         <div className="goal-wrapper">
                                             <h6 className="title">Financing Insurance</h6>
                                             <p className="disc">
@@ -76,7 +76,7 @@ function BusinessGoalThree() {
                                             src="assets/images/business-goal/icon/04.svg"
                                             alt="business_Icone"
                                             className="thumb"
-                                        />
+                                         width="48" height="48" / width="48" height="48" loading="lazy">
                                         <div className="goal-wrapper">
                                             <h6 className="title">Yearly Calculation</h6>
                                             <p className="disc">

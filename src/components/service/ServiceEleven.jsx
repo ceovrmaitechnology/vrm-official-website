@@ -25,7 +25,7 @@ function ServiceEleven() {
                                     <img
                                         src="assets/images/service/icon/01.svg"
                                         alt="AI automation service dashboard"
-                                    />
+                                     width="48" height="48" / width="48" height="48" loading="lazy">
                                 </div>
                                 <div className="service-details">
                                     <Link to={'/service-details'}>
@@ -53,7 +53,7 @@ function ServiceEleven() {
                                     <img
                                         src="assets/images/service/icon/02.svg"
                                         alt="AI automation service dashboard"
-                                    />
+                                     width="48" height="48" / width="48" height="48" loading="lazy">
                                 </div>
                                 <div className="service-details">
                                     <Link to={'/service-details'}>
@@ -81,7 +81,7 @@ function ServiceEleven() {
                                     <img
                                         src="assets/images/service/icon/03.svg"
                                         alt="AI automation service dashboard"
-                                    />
+                                     loading="lazy" / loading="lazy">
                                 </div>
                                 <div className="service-details">
                                     <Link to={'/service-details'}>
@@ -109,7 +109,7 @@ function ServiceEleven() {
                                     <img
                                         src="assets/images/service/icon/04.svg"
                                         alt="AI automation service dashboard"
-                                    />
+                                     width="48" height="48" / width="48" height="48" loading="lazy">
                                 </div>
                                 <div className="service-details">
                                     <Link to={'/service-details'}>
@@ -137,7 +137,7 @@ function ServiceEleven() {
                                     <img
                                         src="assets/images/service/icon/05.svg"
                                         alt="AI automation service dashboard"
-                                    />
+                                     width="48" height="48" / width="48" height="48" loading="lazy">
                                 </div>
                                 <div className="service-details">
                                     <Link to={'/service-details'}>
@@ -165,7 +165,7 @@ function ServiceEleven() {
                                     <img
                                         src="assets/images/service/icon/06.svg"
                                         alt="AI automation service dashboard"
-                                    />
+                                     width="48" height="48" / width="48" height="48" loading="lazy">
                                 </div>
                                 <div className="service-details">
                                     <Link to={'/service-details'}>

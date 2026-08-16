@@ -27,6 +27,7 @@
     "react-router-dom": "^6.26.1",
     "react-scripts": "5.0.1",
     "react-scroll": "^1.9.0",
+    "sharp": "^0.35.3",
     "swiper": "^11.1.10",
     "web-vitals": "^2.1.4",
     "wow.js": "^1.2.2"
@@ -37,6 +38,7 @@
     "start:server": "node server/index.js",
     "dev": "npx concurrently \"npm run start:server\" \"npm run start:client\"",
     "build": "react-scripts build",
+    "postbuild": "node postbuild.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -57,5 +59,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "clean-css": "^5.3.3",
+    "purgecss": "^8.0.0"
   }
 }

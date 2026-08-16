@@ -10,12 +10,12 @@ function BusinessGoalOne() {
                         {/* business goal left */}
                         <div className="col-lg-5 mb_md--30 mb_sm--30 d-flex h-100">
                             <div className="business-goal-one wow fadeInUp w-100 h-100 d-flex position-relative" data-wow-delay=".2s">
-                                <img
+                                <picture><source srcSet="/assets/images/home/home-2.webp" type="image/webp" /><img
                                     className="w-100 h-100 flex-grow-1"
                                     src="/assets/images/home/home-2.png"
                                     alt="Business_Goal"
                                     style={{ objectFit: 'cover', borderRadius: '16px' }}
-                                />
+                                 loading="lazy" / loading="lazy"></picture>
                             </div>
                         </div>
                         {/* business goal right */}
@@ -31,7 +31,7 @@ function BusinessGoalOne() {
                                             src="/assets/images/business-goal/icon/01.svg"
                                             alt="Custom AI Solutions Icon"
                                             className="thumb"
-                                        />
+                                         width="48" height="48" / width="48" height="48" loading="lazy">
                                         <div className="goal-wrapper">
                                             <h6 className="title">Custom AI Solutions</h6>
                                             <p className="disc">
@@ -44,7 +44,7 @@ function BusinessGoalOne() {
                                             src="/assets/images/business-goal/icon/02.svg"
                                             alt="Enterprise Scale Security Icon"
                                             className="thumb"
-                                        />
+                                         width="48" height="48" / width="48" height="48" loading="lazy">
                                         <div className="goal-wrapper">
                                             <h6 className="title">Enterprise Scale & Security</h6>
                                             <p className="disc">

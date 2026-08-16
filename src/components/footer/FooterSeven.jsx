@@ -31,7 +31,7 @@ function FooterSeven() {
                                     <img
                                         src="assets/images/footer/under-title-2.png"
                                         alt="VRM AI Technology footer logo"
-                                    />
+                                     loading="lazy" / loading="lazy">
                                 </div>
                                 <div className="wized-2-body">
                                     <ul>
@@ -77,7 +77,7 @@ function FooterSeven() {
                                     <img
                                         src="assets/images/footer/under-title-2.png"
                                         alt="VRM AI Technology footer logo"
-                                    />
+                                     loading="lazy" / loading="lazy">
                                 </div>
                                 <div className="wized-2-body">
                                     <div className="contact-info-1">

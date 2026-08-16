@@ -22,7 +22,7 @@ function ServiceFour() {
                                         <img
                                             src="assets/images/service/14.jpg"
                                             alt="Business-service"
-                                        />
+                                         loading="lazy" / loading="lazy">
                                     </Link>
                                     <div className="content">
                                         <h5 className="title">Personal Insurance</h5>
@@ -47,7 +47,7 @@ function ServiceFour() {
                                         <img
                                             src="assets/images/service/15.jpg"
                                             alt="Business-service"
-                                        />
+                                         loading="lazy" / loading="lazy">
                                     </Link>
                                     <div className="content">
                                         <h5 className="title">Home Insurance</h5>
@@ -72,7 +72,7 @@ function ServiceFour() {
                                         <img
                                             src="assets/images/service/16.jpg"
                                             alt="Business-service"
-                                        />
+                                         loading="lazy" / loading="lazy">
                                     </Link>
                                     <div className="content">
                                         <h5 className="title">Financial Insurance</h5>

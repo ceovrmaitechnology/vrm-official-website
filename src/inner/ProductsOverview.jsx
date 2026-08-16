@@ -244,7 +244,7 @@ function ProductsOverview() {
                     <div className="row g-5 align-items-center">
                         <div className="col-lg-6 order-lg-2 wow fadeInRight" data-wow-delay=".2s">
                             <div className="vrm-product-thumbnail">
-                                <img src="/assets/images/whatsapp/whatsapp-hero-v2.png" alt="Lead Connect Business Automation System" />
+                                <picture><source srcSet="/assets/images/whatsapp/whatsapp-hero-v2.webp" type="image/webp" /><img src="/assets/images/whatsapp/whatsapp-hero-v2.png" alt="Lead Connect Business Automation System" /></picture>
                             </div>
                         </div>
                         <div className="col-lg-6 order-lg-1 wow fadeInLeft" data-wow-delay=".2s">

@@ -68,7 +68,7 @@ function TestimonialThree() {
                                                         <img
                                                             src="assets/images/testimonials/07.png"
                                                             alt="testimonials_image"
-                                                        />
+                                                         loading="lazy" / loading="lazy">
                                                     </a>
                                                     <div className="desig">
                                                         <a href="/">
@@ -131,7 +131,7 @@ function TestimonialThree() {
                                                         <img
                                                             src="assets/images/testimonials/07.png"
                                                             alt="testimonials_image"
-                                                        />
+                                                         loading="lazy" / loading="lazy">
                                                     </a>
                                                     <div className="desig">
                                                         <a href="/">
@@ -194,7 +194,7 @@ function TestimonialThree() {
                                                         <img
                                                             src="assets/images/testimonials/07.png"
                                                             alt="testimonials_image"
-                                                        />
+                                                         loading="lazy" / loading="lazy">
                                                     </a>
                                                     <div className="desig">
                                                         <a href="/">
@@ -257,7 +257,7 @@ function TestimonialThree() {
                                                         <img
                                                             src="assets/images/testimonials/07.png"
                                                             alt="testimonials_image"
-                                                        />
+                                                         loading="lazy" / loading="lazy">
                                                     </a>
                                                     <div className="desig">
                                                         <a href="/">

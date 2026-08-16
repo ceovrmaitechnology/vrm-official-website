@@ -32,7 +32,7 @@ function FooterOne() {
                     <div className="col-lg-3 col-md-6 col-sm-12">
                         <div className="vrm-footer-widget">
                             <Link to="/" className="vrm-footer-logo">
-                                <img src="/assets/images/logo/logo.png" alt="VRM AI Technology" className="img-fluid" />
+                                <picture><source srcSet="/assets/images/logo/logo.webp" type="image/webp" /><img src="/assets/images/logo/logo.png" alt="VRM AI Technology" className="img-fluid" width="154" height="42" /></picture>
                             </Link>
                             <p className="vrm-footer-desc">
                                 We delivered intelligent GenAI, automation platforms, and machine learning systems for modern businesses to drive measurable impact.

@@ -21,7 +21,7 @@ function CounterUpTwo() {
                                     <img
                                         src="assets/images/counterup/icon/05.svg"
                                         alt="Business_counter"
-                                    />
+                                     width="48" height="48" / width="48" height="48">
                                     <div className="counter-details" ref={ref}>
                                         {inView && ( // Only render CountUp when the element is in view
                                             <h2 className="title counter animated fadeInDownBig">

@@ -3,6 +3,7 @@
 
 <head>
   <meta charset="utf-8" />
+  <link rel="preload" as="image" href="/assets/images/logo/logo.png" fetchpriority="high">
   <link rel="icon" type="image/svg+xml" href="%PUBLIC_URL%/favicon.svg?v=4" />
   <link rel="icon" type="image/png" sizes="32x32" href="%PUBLIC_URL%/favicon-32x32.png?v=4" />
   <link rel="icon" type="image/png" sizes="16x16" href="%PUBLIC_URL%/favicon-16x16.png?v=4" />
@@ -20,21 +21,20 @@
     -->
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
-  <link rel="preload" as="image" href="/assets/images/logo/logo.png" fetchpriority="high">
   <link rel="preconnect" href="https://s3-us-west-2.amazonaws.com" crossorigin>
   <link rel="preload" as="image" href="/assets/images/about/1.jpeg" fetchpriority="high">
 
   <!-- Deferred CSS -->
-  <link rel="preload" href="/assets/css/plugins/swiper.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="stylesheet" href="/assets/css/plugins/swiper.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="/assets/css/plugins/swiper.min.css"></noscript>
 
-  <link rel="preload" href="/assets/css/plugins/fontawesome-5.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="stylesheet" href="/assets/css/plugins/fontawesome-5.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="/assets/css/plugins/fontawesome-5.css"></noscript>
 
-  <link rel="preload" href="/assets/css/plugins/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="stylesheet" href="/assets/css/plugins/animate.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="/assets/css/plugins/animate.min.css"></noscript>
 
-  <link rel="preload" href="/assets/css/plugins/unicons.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="stylesheet" href="/assets/css/plugins/unicons.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="/assets/css/plugins/unicons.css"></noscript>
 
   <link rel="stylesheet" href="/assets/css/vendor/bootstrap.min.css">

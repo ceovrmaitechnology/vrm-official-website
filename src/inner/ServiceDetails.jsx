@@ -24,7 +24,7 @@ function OurService() {
                             {/* service details left area start */}
                             <div className="service-detials-step-1">
                                 <div className="thumbnail">
-                                    <img src="assets/images/service/01.jpg" alt="business-area" />
+                                    <img src="assets/images/service/01.jpg" alt="business-area"  loading="lazy" / loading="lazy">
                                 </div>
                                 <h4 className="title">Business Growth Mangment</h4>
                                 <p className="disc">
@@ -51,7 +51,7 @@ function OurService() {
                                                     src="assets/images/service/icon/09.svg"
                                                     alt=""
                                                     className="icon"
-                                                />
+                                                 loading="lazy" / loading="lazy">
                                             </div>
                                             <div className="details">
                                                 <h6 className="title">Instant Business Growth</h6>
@@ -71,7 +71,7 @@ function OurService() {
                                                     src="assets/images/service/icon/10.svg"
                                                     alt=""
                                                     className="icon"
-                                                />
+                                                 loading="lazy" / loading="lazy">
                                             </div>
                                             <div className="details">
                                                 <h6 className="title">24/7 Quality Service</h6>
@@ -91,7 +91,7 @@ function OurService() {
                                                     src="assets/images/service/icon/11.svg"
                                                     alt=""
                                                     className="icon"
-                                                />
+                                                 loading="lazy" / loading="lazy">
                                             </div>
                                             <div className="details">
                                                 <h6 className="title">Easy Customer Service</h6>
@@ -111,7 +111,7 @@ function OurService() {
                                                     src="assets/images/service/icon/12.svg"
                                                     alt=""
                                                     className="icon"
-                                                />
+                                                 loading="lazy" / loading="lazy">
                                             </div>
                                             <div className="details">
                                                 <h6 className="title">Quality Cost Service</h6>
@@ -192,7 +192,7 @@ function OurService() {
                                 <div className="row g-5 align-items-center">
                                     <div className="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12">
                                         <div className="thumbnail sm-thumb-service">
-                                            <img src="assets/images/service/sm-01.jpg" alt="Service" />
+                                            <img src="assets/images/service/sm-01.jpg" alt="Service"  loading="lazy" / loading="lazy">
                                         </div>
                                     </div>
                                     <div className="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12 mb_md--20 mb_sm--20">
@@ -285,7 +285,7 @@ function OurService() {
                                         <img
                                             src="assets/images/service/icon/07.svg"
                                             alt="Business_downlaod"
-                                        />
+                                         loading="lazy" / loading="lazy">
                                         <div className="mid">
                                             <h6 className="title">Our Brochures</h6>
                                             <span>Downlaod</span>
@@ -300,7 +300,7 @@ function OurService() {
                                         <img
                                             src="assets/images/service/icon/08.svg"
                                             alt="Business_downlaod"
-                                        />
+                                         loading="lazy" / loading="lazy">
                                         <div className="mid">
                                             <h6 className="title">Company Details</h6>
                                             <span>Downlaod</span>
@@ -317,7 +317,7 @@ function OurService() {
                             <div className="rts-single-wized contact service">
                                 <div className="wized-header">
                                     <Link to={'#'}>
-                                        <img src="assets/images/logo/logo.jpeg" alt="Business_logo" />
+                                        <img src="assets/images/logo/logo.jpeg" alt="Business_logo"  loading="lazy" / loading="lazy">
                                     </Link>
                                 </div>
                                 <div className="wized-body">

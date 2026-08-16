@@ -19,7 +19,7 @@ function ServiceSix() {
                             {/* single service for home six */}
                             <div className="single-service-home-six">
                                 <div className="icon">
-                                    <img src="assets/images/service/icon/19.svg" alt="" />
+                                    <img src="assets/images/service/icon/19.svg" alt=""  loading="lazy" / loading="lazy">
                                 </div>
                                 <div className="inner">
                                     <h5 className="title">Financial planing</h5>
@@ -38,7 +38,7 @@ function ServiceSix() {
                             {/* single service for home six */}
                             <div className="single-service-home-six">
                                 <div className="icon">
-                                    <img src="assets/images/service/icon/20.svg" alt="" />
+                                    <img src="assets/images/service/icon/20.svg" alt=""  loading="lazy" / loading="lazy">
                                 </div>
                                 <div className="inner">
                                     <h5 className="title">Managment planing</h5>
@@ -57,7 +57,7 @@ function ServiceSix() {
                             {/* single service for home six */}
                             <div className="single-service-home-six">
                                 <div className="icon">
-                                    <img src="assets/images/service/icon/21.svg" alt="" />
+                                    <img src="assets/images/service/icon/21.svg" alt=""  loading="lazy" / loading="lazy">
                                 </div>
                                 <div className="inner">
                                     <h5 className="title">Social planing</h5>
