@@ -26,13 +26,21 @@
     gap: 16px !important;
 }
 
-.menu-btn {
-    margin: 0 !important;
-    padding: 0 !important;
-    line-height: 1 !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
+@media (max-width: 991px) {
+    .menu-btn {
+        margin: 0 !important;
+        padding: 0 !important;
+        line-height: 1 !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+}
+
+@media (min-width: 992px) {
+    .menu-btn {
+        display: none !important;
+    }
 }
 
 @media (max-width: 575px) {

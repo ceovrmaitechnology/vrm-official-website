@@ -56,7 +56,7 @@ function FooterOne() {
                     </div>
 
                     {/* Column 2: Contact */}
-                    <div className="col-lg-2 col-md-6 col-sm-12">
+                    <div className="col-xl-2 col-lg-2 col-md-6 col-sm-12">
                         <div className="vrm-footer-widget">
                             <h5 className="vrm-footer-title">Contact</h5>
                             <ul className="vrm-footer-links">
@@ -169,7 +169,7 @@ function FooterOne() {
                     </div>
 
                     {/* Column 5: Organization & Quality & Compliance */}
-                    <div className="col-lg-3 col-md-6 col-sm-12">
+                    <div className="col-xl-3 col-lg-3 col-md-6 col-sm-12">
                         <div className="vrm-footer-widget vrm-footer-widget-organization">
                             <h5 className="vrm-footer-title">Organization</h5>
                             <ul className="vrm-footer-links">

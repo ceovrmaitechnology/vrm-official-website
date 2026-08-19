@@ -186,6 +186,7 @@
     box-shadow: 0 10px 25px rgba(27, 39, 124, 0.2);
     transition: all 0.3s ease;
     width: 100%;
+    max-width: 320px;
     box-sizing: border-box;
 }
 

@@ -61,7 +61,7 @@ function WhatsAppAutomation() {
                         </div>
                         <div className="col-lg-5">
                             <div className="banner-image-two wow fadeInUp" data-wow-delay=".3s">
-                                <picture><source srcSet="/assets/images/whatsapp/whatsapp-hero-v2.webp" type="image/webp" /><img src="/assets/images/whatsapp/whatsapp-hero-v2.png" alt="WhatsApp Customer Engagement Team" style={{ borderRadius: '20px', boxShadow: '0 20px 50px rgba(0,0,0,0.3)', objectPosition: 'center 20%' }} /></picture>
+                                <img src="/assets/images/whatsapp/whatsapp-hero-v2.png" alt="WhatsApp Customer Engagement Team" style={{ width: '100%', borderRadius: '20px', boxShadow: '0 20px 50px rgba(0,0,0,0.3)', objectPosition: 'center 20%', display: 'block' }} />
                             </div>
                         </div>
                     </div>

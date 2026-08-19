@@ -2,56 +2,53 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 function BannerOne() {
-    const [isMobile, setIsMobile] = useState(
-        typeof window !== "undefined" ? window.innerWidth <= 768 : false
-    );
+    const [dims, setDims] = useState({
+        w: typeof window !== "undefined" ? window.innerWidth : 1440,
+        h: typeof window !== "undefined" ? window.innerHeight : 900,
+    });
 
     useEffect(() => {
-        const handleResize = () => {
-            setIsMobile(window.innerWidth <= 768);
-        };
-
-        window.addEventListener("resize", handleResize);
-
-        return () => {
-            window.removeEventListener("resize", handleResize);
-        };
+        const onResize = () =>
+            setDims({ w: window.innerWidth, h: window.innerHeight });
+        window.addEventListener("resize", onResize);
+        return () => window.removeEventListener("resize", onResize);
     }, []);
 
-    // Hero height on desktop adapts to viewport height so the button is always visible
-    const heroHeight = isMobile ? "50vh" : "85vh";
+    const { w, h } = dims;
+    const isDesktop = w > 1024;
 
+    /*
+     * HEIGHT LOGIC
+     * Desktop  (>1024px) : classic full-viewport hero
+     * Tablet/Mobile      : taller of —
+     *   • 16:9 native video ratio  (w × 9/16)
+     *   • 50% of viewport height   (h × 0.50)
+     */
+    const sectionHeight = isDesktop
+        ? "calc(100vh - 50px)"
+        : `${Math.round(Math.max(w * (9 / 16), h * 0.50))}px`;
 
+    const paddingBottom = w >= 768 ? "48px" : "24px";
 
     return (
-        <div
-            style={{
-                width: "100%",
-                overflow: "hidden",
-                backgroundColor: "#ffffff",
-            }}
-        >
+        <div style={{ width: "100%", overflow: "hidden" }}>
             <section
                 className="vrm-hero rts-banner-area"
                 id="banner"
                 style={{
                     position: "relative",
                     width: "100%",
-                    height: heroHeight,
-                    minHeight: isMobile ? "350px" : "600px",
+                    height: sectionHeight,
                     overflow: "hidden",
-
                     display: "flex",
                     alignItems: "flex-end",
                     justifyContent: "center",
-
-                    paddingBottom: isMobile ? "40px" : "60px",
-
-                    backgroundColor: "#ffffff",
+                    paddingBottom: paddingBottom,
+                    backgroundColor: "#0e1022", /* dark fallback while video loads */
                     boxSizing: "border-box",
                 }}
             >
-                {/* Video */}
+                {/* Background Video — 100% fill, no white gaps */}
                 <video
                     autoPlay
                     loop
@@ -64,41 +61,31 @@ function BannerOne() {
                         left: "50%",
                         width: "100%",
                         height: "100%",
-                        transform: isMobile ? "translate(-50%, -50%)" : "translate(-50%, -50%) scale(1.3)",
-                        objectFit: isMobile ? "contain" : "cover",
+                        transform: "translate(-50%, -50%)",
+                        objectFit: w >= 768 ? "cover" : "contain",
                         objectPosition: "center center",
-                        backgroundColor: "#ffffff",
                         display: "block",
-                        border: "none",
-                        outline: "none",
                         zIndex: 1,
                     }}
                     onLoadedData={() => console.log("✅ Video loaded")}
                     onPlay={() => console.log("▶️ Video playing")}
-                    onError={(error) =>
-                        console.log("❌ Video error", error)
-                    }
+                    onError={(e) => console.log("❌ Video error", e)}
                 >
                     <source
                         src="/assets/images/home/vrm-hero-video.mp4"
                         type="video/mp4"
                     />
-                    <track kind="captions" src="/assets/captions/hero.vtt" srcLang="en" label="English" default />
-
-                    Your browser does not support the video tag.
                 </video>
 
-                {/* Button */}
+                {/* Know More Button — anchored to bottom */}
                 <div
                     className="container"
                     style={{
                         position: "relative",
                         zIndex: 2,
-
                         width: "100%",
                         padding: "0 15px",
                         textAlign: "center",
-
                         boxSizing: "border-box",
                     }}
                 >
@@ -111,20 +98,20 @@ function BannerOne() {
                                     display: "inline-flex",
                                     alignItems: "center",
                                     justifyContent: "center",
-                                    gap: "0px",
-
-                                    width: "220px",
-                                    height: isMobile ? "50px" : "56px",
-
+                                    gap: "8px",
+                                    width: w < 400 ? "180px" : "220px",
+                                    height: isDesktop ? "56px" : "48px",
                                     fontSize: "16px",
                                     fontWeight: "600",
-
                                     borderRadius: "10px",
                                     textDecoration: "none",
                                 }}
                             >
                                 Know More
-                                <i className="fas fa-arrow-right" style={{ display: "inline-flex", alignItems: "center" }}></i>
+                                <i
+                                    className="fas fa-arrow-right"
+                                    style={{ display: "inline-flex", alignItems: "center" }}
+                                ></i>
                             </Link>
                         </div>
                     </div>

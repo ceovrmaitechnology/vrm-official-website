@@ -63,10 +63,10 @@ function HeaderOne({ className }) {
                                         Let's Connect
                                     </Link>
                                     <button
-                                        className="menu-btn d-block d-lg-none bg-transparent border-0 p-0"
+                                        className="menu-btn d-block d-lg-none bg-transparent border-0 p-0 ms-3"
                                         onClick={toggleSidebar}
                                         aria-label="Toggle Menu"
-                                        style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', margin: 0 }}
+                                        style={{ cursor: 'pointer' }}
                                     >
                                         <i 
                                             className="fas fa-bars" 

@@ -54,6 +54,19 @@ function BackToTop() {
         <>
             {/* BACK TO TOP AREA START */}
             <div className="progress-wrap">
+                <i
+                    className="fas fa-arrow-up"
+                    style={{
+                        position: "absolute",
+                        top: "50%",
+                        left: "50%",
+                        transform: "translate(-50%, -50%)",
+                        fontSize: "18px",
+                        color: "#3B4ECC",
+                        zIndex: 10,
+                        pointerEvents: "none",
+                    }}
+                ></i>
                 <svg
                     className="progress-circle svg-content"
                     width="100%"

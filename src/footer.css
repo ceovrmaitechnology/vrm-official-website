@@ -151,8 +151,10 @@
     letter-spacing: 0.5px;
     opacity: 0.9;
     padding-bottom: 5px;
-    display: inline-block;
-    width: max-content;
+    display: block;
+    max-width: 100%;
+    white-space: normal;
+    word-wrap: break-word;
 }
 
 a.vrm-footer-sub-title {

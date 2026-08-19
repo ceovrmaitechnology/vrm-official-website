@@ -2441,14 +2441,25 @@
         height: 38px !important;
     }
 
-    .progress-wrap::after,
-    .progress-wrap::before {
+    .progress-wrap::after {
         width: 38px !important;
         height: 38px !important;
         line-height: 34px !important;
-        font-size: 18px !important;
+        font-size: 16px !important;
     }
+}
 
+/* ─── Back To Top Button Arrow Icon ────────────────────────────────────────── */
+.progress-wrap::after,
+.progress-wrap::before {
+    display: none !important;
+}
+
+.progress-wrap:hover i {
+    color: #315ACA !important;
+}
+
+@media (max-width: 767px) {
     /* 5. Enterprise Gradient CTA padding & spacing compression for mobile */
     .vrm-enterprise-gradient.ptb--80 {
         padding-top: 40px !important;
@@ -2673,5 +2684,46 @@
         max-width: 500px !important;
         margin-left: auto !important;
         margin-right: auto !important;
+    }
+}
+
+/* ─── Homepage Hero Banner (BannerOne) ─────────────────────────────────────── */
+.vrm-hero#banner {
+    padding-top: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    background: transparent !important;
+}
+
+.vrm-hero#banner video {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    width: 100% !important;
+    height: 100% !important;
+    transform: translate(-50%, -50%) !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+}
+
+@media (max-width: 767px) {
+    .vrm-hero#banner video {
+        object-fit: contain !important;
+    }
+}
+
+@media (max-width: 1024px) {
+    .vrm-hero#banner .vrm-btn {
+        width: 190px !important;
+        height: 48px !important;
+        font-size: 15px !important;
+    }
+}
+
+@media (max-width: 400px) {
+    .vrm-hero#banner .vrm-btn {
+        width: 170px !important;
+        height: 44px !important;
+        font-size: 14px !important;
     }
 }
