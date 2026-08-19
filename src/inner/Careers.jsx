@@ -28,9 +28,13 @@ function Careers() {
         setSubmitStatus({ type: '', message: '' });
 
         const formData = new FormData(e.target);
+        if (selectedJob) {
+            formData.append('_subject', `New Application: ${selectedJob}`);
+        }
 
         try {
-            const response = await fetch('/api/apply', {
+            const applyEndpoint = process.env.REACT_APP_APPLY_ENDPOINT || 'https://formsubmit.co/ajax/hr@vrmaitechnology.com';
+            const response = await fetch(applyEndpoint, {
                 method: 'POST',
                 body: formData
             });
