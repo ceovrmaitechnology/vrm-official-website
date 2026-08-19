@@ -28,15 +28,31 @@ function Careers() {
         setSubmitStatus({ type: '', message: '' });
 
         const formData = new FormData(e.target);
-        if (selectedJob) {
-            formData.append('_subject', `New Application: ${selectedJob}`);
-        }
+        const data = Object.fromEntries(formData.entries());
+
+        const payload = {
+            _subject: 'Website Contact Form | careers',
+            _captcha: 'false',
+            _template: 'table',
+            'Name': data.fullName || '',
+            'Email': data.email || '',
+            'Phone': data.phone || '',
+            'Inquiry Type': 'careers',
+            'Position': data.position || selectedJob || 'General Application',
+            'Experience': data.experience || 'Not specified',
+            'Message': data.coverLetter || 'General Application',
+            'Sent from VRM AI website form on': new Date().toISOString()
+        };
 
         try {
             const applyEndpoint = process.env.REACT_APP_APPLY_ENDPOINT || 'https://formsubmit.co/ajax/hr@vrmaitechnology.com';
             const response = await fetch(applyEndpoint, {
                 method: 'POST',
-                body: formData
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(payload)
             });
 
             if (response.ok) {
