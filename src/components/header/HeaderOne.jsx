@@ -58,18 +58,22 @@ function HeaderOne({ className }) {
                                 <div className="main-header d-none d-lg-flex me-4">
                                     <Nav />
                                 </div>
-                                <div className="button-area d-flex align-items-center">
+                                <div className="button-area d-flex align-items-center" style={{ gap: '16px' }}>
                                     <Link to="/contactus" state={{ scrollToContact: true }} className="rts-btn btn-primary vrm-btn-compact">
                                         Let's Connect
                                     </Link>
                                     <button
-                                        className="menu-btn d-block d-lg-none ms-3 bg-transparent border-0 p-0"
+                                        className="menu-btn d-block d-lg-none bg-transparent border-0 p-0"
                                         onClick={toggleSidebar}
                                         aria-label="Toggle Menu"
+                                        style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', margin: 0 }}
                                     >
                                         <i 
-                                            className="fas fa-bars fs-1" 
-                                            style={{ color: (className && className.includes('header-white-text') && !isSticky && !isHomePage) ? '#ffffff' : '#1b277c' }}
+                                            className="fas fa-bars" 
+                                            style={{ 
+                                                fontSize: '22px',
+                                                color: (className && className.includes('header-white-text') && !isSticky && !isHomePage) ? '#ffffff' : '#1b277c' 
+                                            }}
                                         ></i>
                                     </button>
                                 </div>
