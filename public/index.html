@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#1b277c" />
+  <meta name="description" content="VRM AI TECHNOLOGY - SOFTWARE AND PRODUCT DEVELOPMENT COMPANY" />
+  <meta property="og:title" content="VRM AI TECHNOLOGY - SOFTWARE AND PRODUCT DEVELOPMENT COMPANY" />
+  <meta property="og:description" content="VRM AI TECHNOLOGY - SOFTWARE AND PRODUCT DEVELOPMENT COMPANY" />
+  <meta name="twitter:title" content="VRM AI TECHNOLOGY - SOFTWARE AND PRODUCT DEVELOPMENT COMPANY" />
+  <meta name="twitter:description" content="VRM AI TECHNOLOGY - SOFTWARE AND PRODUCT DEVELOPMENT COMPANY" />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="%PUBLIC_URL%/favicon.svg?v=4" />
+  <link rel="icon" type="image/png" sizes="32x32" href="%PUBLIC_URL%/favicon-32x32.png?v=4" />
+  <link rel="icon" type="image/png" sizes="16x16" href="%PUBLIC_URL%/favicon-16x16.png?v=4" />
+  <link rel="apple-touch-icon" sizes="180x180" href="%PUBLIC_URL%/apple-touch-icon.png" />
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+  <!-- ✅ FIX 1: Logo preload (LCP boost) -->
+  <link rel="preload" as="image" href="/assets/images/logo/logo.png" fetchpriority="high" />
+
+  <!-- ✅ FIX 2: S3 preconnect -->
+  <link rel="preconnect" href="https://s3-us-west-2.amazonaws.com" crossorigin />
+
+  <!-- ✅ FIX 3: Google Fonts — preconnect FIRST, then font with display=swap -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- font-display:swap தானாகவே Google Fonts URL-ல் &display=swap மூலம் வருகிறது -->
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700;900&display=swap"
+    onload="this.rel='stylesheet'" />
+  <noscript>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700;900&display=swap" />
+  </noscript>
+
+  <!-- ✅ FIX 4: Critical CSS — inline ஆக load (Bootstrap + style.css render-blocking தடுக்க) -->
+  <link rel="stylesheet" href="/assets/css/vendor/bootstrap.min.css" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+
+  <!-- ✅ FIX 5: Non-critical CSS — defer (print trick) -->
+  <link rel="stylesheet" href="/assets/css/plugins/swiper.min.css"
+    media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="/assets/css/plugins/swiper.min.css" /></noscript>
+
+  <link rel="stylesheet" href="/assets/css/plugins/fontawesome-5.css"
+    media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="/assets/css/plugins/fontawesome-5.css" /></noscript>
+
+  <link rel="stylesheet" href="/assets/css/plugins/animate.min.css"
+    media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="/assets/css/plugins/animate.min.css" /></noscript>
+
+  <link rel="stylesheet" href="/assets/css/plugins/unicons.css"
+    media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="/assets/css/plugins/unicons.css" /></noscript>
+
+  <title>VRM AI TECHNOLOGY - SOFTWARE AND PRODUCT DEVELOPMENT COMPANY</title>
+</head>
+
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+  <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+</body>
+
+</html>
