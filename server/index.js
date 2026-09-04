@@ -3,6 +3,7 @@ const cors = require("cors");
 const multer = require("multer");
 const nodemailer = require("nodemailer");
 const http = require("http");
+const fs = require("fs");
 const path = require("path");
 require("dotenv").config(); // loads .env from project root (works on Windows & Linux)
 
@@ -19,10 +20,26 @@ app.use((req, res, next) => {
   next();
 });
 
-// Cache headers for static files (1 year)
-app.use(express.static(path.join(__dirname, "../public"), {
-  maxAge: "1y"
-}));
+// Explicit XML/text content-type handlers for sitemap and robots.txt
+app.get("/sitemap.xml", (req, res) => {
+  const sitemapBuild = path.resolve(__dirname, "../build/sitemap.xml");
+  const sitemapPublic = path.resolve(__dirname, "../public/sitemap.xml");
+  const filePath = fs.existsSync(sitemapBuild) ? sitemapBuild : sitemapPublic;
+  res.header("Content-Type", "application/xml");
+  res.sendFile(filePath);
+});
+
+app.get("/robots.txt", (req, res) => {
+  const robotsBuild = path.resolve(__dirname, "../build/robots.txt");
+  const robotsPublic = path.resolve(__dirname, "../public/robots.txt");
+  const filePath = fs.existsSync(robotsBuild) ? robotsBuild : robotsPublic;
+  res.header("Content-Type", "text/plain");
+  res.sendFile(filePath);
+});
+
+// Serve build & public static files
+app.use(express.static(path.resolve(__dirname, "../build"), { maxAge: "1d" }));
+app.use(express.static(path.resolve(__dirname, "../public"), { maxAge: "1d" }));
 const upload = multer({
   storage: multer.memoryStorage(),
   limits: { fileSize: 15 * 1024 * 1024 },
@@ -323,6 +340,16 @@ app.post(
     res.json({ success: true });
   })
 );
+
+// SPA Fallback for client-side routing (non-API GET requests)
+app.use((req, res, next) => {
+  if (req.method !== "GET" || req.path.startsWith("/api")) return next();
+  const buildIndex = path.resolve(__dirname, "../build/index.html");
+  if (fs.existsSync(buildIndex)) {
+    return res.sendFile(buildIndex);
+  }
+  next();
+});
 
 const server = http.createServer({ maxHeaderSize: 64 * 1024 }, app);
 

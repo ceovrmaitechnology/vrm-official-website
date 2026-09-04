@@ -1,2 +1,6 @@
-# Redirect all requests to index.html (useful for React SPA)
- /*    /index.html   200
+# Explicit static file pass-through rules for SEO crawlers
+/sitemap.xml    /sitemap.xml    200
+/robots.txt     /robots.txt     200
+
+# Redirect all client-side routes to index.html for React SPA
+/*              /index.html     200
