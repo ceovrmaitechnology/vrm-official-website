@@ -10,7 +10,7 @@ function FooterEight() {
                         <div className="col-xl-3 col-lg-6">
                             <div className="footer-three-single-wized left">
                                 <Link to={'/'} className="logo_footer">
-                                    <img src="assets/images/logo/logo.jpeg" alt="Logo-image"  loading="lazy" />
+                                    <img src="assets/images/logo/logo.jpeg" alt="VRM AI Logo"  loading="lazy" />
                                 </Link>
                                 <p className="disc">
                                     Felis consquat magnis fames sagittis ultrices plasodales porttitor

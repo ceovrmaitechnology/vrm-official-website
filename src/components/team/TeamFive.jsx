@@ -60,7 +60,7 @@ function TeamFive() {
                                             </ul>
                                         </div>
                                         <a href="/">
-                                            <img src="assets/images/team/tm/14.png" alt="team-image" />
+                                            <img src="assets/images/team/tm/14.png" alt="Team Member" />
                                         </a>
                                         <div className="content-inner">
                                             <div className="text">
@@ -105,7 +105,7 @@ function TeamFive() {
                                             </ul>
                                         </div>
                                         <a href="/">
-                                            <img src="assets/images/team/tm/15.png" alt="team-image" />
+                                            <img src="assets/images/team/tm/15.png" alt="Team Member" />
                                         </a>
                                         <div className="content-inner">
                                             <div className="text">
@@ -150,7 +150,7 @@ function TeamFive() {
                                             </ul>
                                         </div>
                                         <a href="/">
-                                            <img src="assets/images/team/tm/16.png" alt="team-image" />
+                                            <img src="assets/images/team/tm/16.png" alt="Team Member" />
                                         </a>
                                         <div className="content-inner">
                                             <div className="text">
@@ -195,7 +195,7 @@ function TeamFive() {
                                             </ul>
                                         </div>
                                         <a href="/">
-                                            <img src="assets/images/team/tm/17.png" alt="team-image" />
+                                            <img src="assets/images/team/tm/17.png" alt="Team Member" />
                                         </a>
                                         <div className="content-inner">
                                             <div className="text">

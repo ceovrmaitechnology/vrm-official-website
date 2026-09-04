@@ -24,7 +24,7 @@ function TeamDetails() {
                     <div className="row g-5">
                         <div className="col-xl-6 col-lg-12 col-md-12">
                             <div className="details-thumb">
-                                <img src="assets/images/team/tm/team-lg.jpg" alt="" />
+                                <img src="assets/images/team/tm/team-lg.jpg" alt="VRM AI Business Expert Team Member" loading="lazy" />
                             </div>
                         </div>
                         <div className="col-xl-6 col-lg-12 col-md-12 pl--35 pl_sm--15">

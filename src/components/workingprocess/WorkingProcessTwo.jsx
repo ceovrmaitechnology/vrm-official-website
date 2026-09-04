@@ -18,10 +18,10 @@ function WorkingProcessTwo() {
                             <div className="rts-working-process-1 text-center">
                                 <div className="inner">
                                     <div className="icon">
-                                        <img
+                                         <img
                                             src="assets/images/working-step/icon/05.svg"
                                             alt="Working_process"
-                                         width="48" height="48" width="48" height="48" loading="lazy" />
+                                         width="48" height="48" loading="lazy" />
                                     </div>
                                 </div>
                                 <div className="content">
@@ -41,7 +41,7 @@ function WorkingProcessTwo() {
                                         <img
                                             src="assets/images/working-step/icon/06.svg"
                                             alt="Working_process"
-                                         width="48" height="48" width="48" height="48" loading="lazy" />
+                                         width="48" height="48" loading="lazy" />
                                     </div>
                                 </div>
                                 <div className="content">

@@ -212,10 +212,10 @@ function HomeOverview() {
                                 id: 10,
                                 icon: "assets/images/service/icon/01.svg",
                                 category: "Real Estate Automation",
-                                title: "Vevora",
+                                title: "VRM Real Estate",
                                 desc: "AI-powered real estate platform connecting buyer conversations, lead qualification, site visits, and agent operations.",
-                                link: "/products/vevora",
-                                bgImage: "assets/images/vevora/vevora-hero.png"
+                                link: "/products/vrm-real-estate",
+                                bgImage: "assets/images/vrm-real-estate/vrm-real-estate-hero.png"
                             }
                         ].map((product) => (
                             <div key={product.id} className="vrm-product-card wow fadeInUp" data-wow-delay=".3s">

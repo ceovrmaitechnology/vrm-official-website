@@ -145,10 +145,10 @@ function Careers() {
                         <div className="col-lg-6 d-flex flex-column justify-content-center">
                             <h2 className="careers-section-title">Where Innovation Meets Purpose</h2>
                             <p className="careers-section-desc">
-                                There are many tech firms today, but none quite like VRM. We are a BORN GEN AI COMPANY dedicated to leading the revolution in Agentic AI. While others are just beginning to adapt to the new era of technology, we were built from the ground up to transform complex challenges into intelligent, seamless experiences.
+                                There are many tech firms today, but none quite like VRM. We are a BORN-GEN AI COMPANY dedicated to leading the revolution in Agentic AI. While others are just beginning to adapt to the new era of technology, we were built from the ground up to transform complex challenges into intelligent, seamless experiences.
                             </p>
                             <p className="careers-section-desc mt-3">
-                                We are a team of certified experts with deep experience in AI development, Machine Learning, and strategic consulting who will walk with you through every step of your professional journey.
+                                Join a team of certified experts with deep experience in AI development, Machine Learning, and strategic consulting, and grow with us through every step of your professional journey.
                             </p>
                             <div className="mt-4">
                                 <Link to="/contactus#send-message" className="rts-btn btn-primary">Contact Us</Link>
@@ -191,7 +191,7 @@ function Careers() {
                 <div className="container">
                     <div className="text-center mb-5">
                         <h2 className="careers-section-title">Current Openings</h2>
-                        <p className="careers-section-desc mx-auto">Ready to launch your next chapter? Check out our open positions below.</p>
+                        <p className="careers-section-desc mx-auto">Ready to launch your next chapter? Explore opportunities to join our team below.</p>
                     </div>
                     <div className="row justify-content-center">
                         <div className="col-lg-10">

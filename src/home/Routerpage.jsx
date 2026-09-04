@@ -16,7 +16,6 @@ import HomeTen from "./HomeTen";
 import OurService from "../inner/OurService";
 import ServiceTwo from "../inner/ServiceTwo";
 import ServiceThree from "../inner/ServiceThree";
-import ServiceDetails from "../inner/ServiceDetails";
 import Appoinment from "../inner/Appoinment";
 import AboutUs from "../inner/AboutUs";
 import PricingPlane from "../inner/PricingPlane";
@@ -59,7 +58,7 @@ import AIIntegrationServices from '../inner/AIIntegrationServices';
 import MachineLearningServices from '../inner/MachineLearningServices';
 import WhatsAppAutomation from '../inner/WhatsAppAutomation';
 import ProductsOverview from '../inner/ProductsOverview';
-import Vevora from '../inner/Vevora';
+import VrmRealEstate from '../inner/VrmRealEstate';
 
 // onepage
 import OnepageOne from '../onepage/OnepageOne';
@@ -92,7 +91,6 @@ function RouterPage() {
                     <Route path="/our-service" element={<OurService />}></Route>
                     <Route path="/service-2" element={<ServiceTwo />}></Route>
                     <Route path="/service-3" element={<ServiceThree />}></Route>
-                    <Route path="/service-details" element={<ServiceDetails />}></Route>
                     <Route path="/appoinment" element={<Appoinment />}></Route>
                     <Route path="/about-us" element={<AboutUs />}></Route>
                     <Route path="/pricing-plane" element={<PricingPlane />}></Route>
@@ -123,7 +121,8 @@ function RouterPage() {
                     <Route path="/products/workflow/screensage" element={<ScreenSage />}></Route>
                     <Route path="/products/workflow/videosage" element={<VideoSage />}></Route>
                     <Route path="/products/workflow/codesage" element={<CodeSage />}></Route>
-                    <Route path="/products/vevora" element={<Vevora />}></Route>
+                    <Route path="/products/vevora" element={<VrmRealEstate />}></Route>
+                    <Route path="/products/vrm-real-estate" element={<VrmRealEstate />}></Route>
                     <Route path="/products/aibuddy" element={<AiBuddy />}></Route>
                     <Route path="/products/people-connect" element={<PeopleConnect />}></Route>
                     <Route path="/products/exitinterview" element={<AiExitInterview />}></Route>

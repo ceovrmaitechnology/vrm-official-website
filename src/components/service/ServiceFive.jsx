@@ -9,7 +9,7 @@ function ServiceFive() {
                     <div className="row g-5 mt--20">
                         <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12">
                             <div className="service-one-inner-four">
-                                <Link to={'/service-details'} className="icon">
+                                <Link to={'/our-service'} className="icon">
                                     <img
                                         src="assets/images/service/icon/service-logo1.svg"
                                         alt="Business-service"
@@ -22,7 +22,7 @@ function ServiceFive() {
                                         torquent massa
                                     </p>
                                 </div>
-                                <Link to={'/service-details'} className="rts-btn btn-primary-3">
+                                <Link to={'/our-service'} className="rts-btn btn-primary-3">
 
                                     Read More
                                 </Link>
@@ -30,7 +30,7 @@ function ServiceFive() {
                         </div>
                         <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12">
                             <div className="service-one-inner-four">
-                                <Link to={'/service-details'} className="icon">
+                                <Link to={'/our-service'} className="icon">
                                     <img
                                         src="assets/images/service/icon/service-logo2.svg"
                                         alt="Business-service"
@@ -43,7 +43,7 @@ function ServiceFive() {
                                         auctore sapien
                                     </p>
                                 </div>
-                                <Link to={'/service-details'} className="rts-btn btn-primary-3">
+                                <Link to={'/our-service'} className="rts-btn btn-primary-3">
                                     {" "}
                                     Read More
                                 </Link>
@@ -51,7 +51,7 @@ function ServiceFive() {
                         </div>
                         <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12">
                             <div className="service-one-inner-four">
-                                <Link to={'/service-details'} className="icon">
+                                <Link to={'/our-service'} className="icon">
                                     <img
                                         src="assets/images/service/icon/service-logo3.svg"
                                         alt="Business-service"
@@ -64,7 +64,7 @@ function ServiceFive() {
                                         dignissim mus
                                     </p>
                                 </div>
-                                <Link to={'/service-details'} className="rts-btn btn-primary-3">
+                                <Link to={'/our-service'} className="rts-btn btn-primary-3">
                                     {" "}
                                     Read More
                                 </Link>

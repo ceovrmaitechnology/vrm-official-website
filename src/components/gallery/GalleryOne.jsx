@@ -54,7 +54,7 @@ function GalleryOne() {
                                                         <img
                                                             src="assets/images/gallery/icon/01.svg"
                                                             alt="Business-gallery"
-                                                         width="48" height="48" width="48" height="48" loading="lazy" />
+                                                         width="48" height="48" loading="lazy" />
                                                     </div>
                                                     <Link to={'/project-details'}>
                                                         <h4 className="title">Pro Business Solution</h4>
@@ -91,7 +91,7 @@ function GalleryOne() {
                                                         <img
                                                             src="assets/images/gallery/icon/01.svg"
                                                             alt="Business-gallery"
-                                                         width="48" height="48" width="48" height="48" loading="lazy" />
+                                                         width="48" height="48" loading="lazy" />
                                                     </div>
                                                     <Link to={'/project-details'}>
                                                         <h4 className="title">VRM AI Pro Business</h4>
@@ -128,7 +128,7 @@ function GalleryOne() {
                                                         <img
                                                             src="assets/images/gallery/icon/01.svg"
                                                             alt="Business-gallery"
-                                                         width="48" height="48" width="48" height="48" loading="lazy" />
+                                                         width="48" height="48" loading="lazy" />
                                                     </div>
                                                     <Link to={'/project-details'}>
                                                         <h4 className="title">Pro Solution Business</h4>

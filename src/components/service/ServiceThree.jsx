@@ -49,7 +49,7 @@ function ServiceThree() {
                                     <SwiperSlide>
                                         <div className="service-one-inner-four">
                                             <div className="big-thumbnail-area">
-                                                <Link to={'/service-details'} className="thumbnail">
+                                                <Link to={'/our-service'} className="thumbnail">
                                                     <img
                                                         src="assets/images/service/07.jpg"
                                                         alt="Business-service"
@@ -66,10 +66,10 @@ function ServiceThree() {
                                                         lobortis nam potenti
                                                     </p>
                                                 </div>
-                                                <Link to={'/service-details'} className="over_link" />
+                                                <Link to={'/our-service'} className="over_link" />
                                             </div>
                                             <Link
-                                                to={'/service-details'}
+                                                to={'/our-service'}
                                                 className="rts-btn btn-primary-3"
                                             >
                                                 {" "}
@@ -81,7 +81,7 @@ function ServiceThree() {
                                     <SwiperSlide>
                                         <div className="service-one-inner-four">
                                             <div className="big-thumbnail-area">
-                                                <Link to={'/service-details'} className="thumbnail">
+                                                <Link to={'/our-service'} className="thumbnail">
                                                     <img
                                                         src="assets/images/service/08.jpg"
                                                         alt="Business-service"
@@ -98,10 +98,10 @@ function ServiceThree() {
                                                         lobortis nam potenti
                                                     </p>
                                                 </div>
-                                                <Link to={'/service-details'} className="over_link" />
+                                                <Link to={'/our-service'} className="over_link" />
                                             </div>
                                             <Link
-                                                to={'/service-details'}
+                                                to={'/our-service'}
                                                 className="rts-btn btn-primary-3"
                                             >
                                                 {" "}
@@ -113,7 +113,7 @@ function ServiceThree() {
                                     <SwiperSlide>
                                         <div className="service-one-inner-four">
                                             <div className="big-thumbnail-area">
-                                                <Link to={'/service-details'} className="thumbnail">
+                                                <Link to={'/our-service'} className="thumbnail">
                                                     <img
                                                         src="assets/images/service/09.jpg"
                                                         alt="Business-service"
@@ -130,10 +130,10 @@ function ServiceThree() {
                                                         lobortis nam potenti
                                                     </p>
                                                 </div>
-                                                <Link to={'/service-details'} className="over_link" />
+                                                <Link to={'/our-service'} className="over_link" />
                                             </div>
                                             <Link
-                                                to={'/service-details'}
+                                                to={'/our-service'}
                                                 className="rts-btn btn-primary-3"
                                             >
                                                 {" "}
@@ -145,7 +145,7 @@ function ServiceThree() {
                                     <SwiperSlide>
                                         <div className="service-one-inner-four">
                                             <div className="big-thumbnail-area">
-                                                <Link to={'/service-details'} className="thumbnail">
+                                                <Link to={'/our-service'} className="thumbnail">
                                                     <img
                                                         src="assets/images/service/07.jpg"
                                                         alt="Business-service"
@@ -162,10 +162,10 @@ function ServiceThree() {
                                                         lobortis nam potenti
                                                     </p>
                                                 </div>
-                                                <Link to={'/service-details'} className="over_link" />
+                                                <Link to={'/our-service'} className="over_link" />
                                             </div>
                                             <Link
-                                                to={'/service-details'}
+                                                to={'/our-service'}
                                                 className="rts-btn btn-primary-3"
                                             >
                                                 {" "}
@@ -177,7 +177,7 @@ function ServiceThree() {
                                     <SwiperSlide>
                                         <div className="service-one-inner-four">
                                             <div className="big-thumbnail-area">
-                                                <Link to={'/service-details'} className="thumbnail">
+                                                <Link to={'/our-service'} className="thumbnail">
                                                     <img
                                                         src="assets/images/service/08.jpg"
                                                         alt="Business-service"
@@ -194,10 +194,10 @@ function ServiceThree() {
                                                         lobortis nam potenti
                                                     </p>
                                                 </div>
-                                                <Link to={'/service-details'} className="over_link" />
+                                                <Link to={'/our-service'} className="over_link" />
                                             </div>
                                             <Link
-                                                to={'/service-details'}
+                                                to={'/our-service'}
                                                 className="rts-btn btn-primary-3"
                                             >
                                                 {" "}
@@ -209,7 +209,7 @@ function ServiceThree() {
                                     <SwiperSlide>
                                         <div className="service-one-inner-four">
                                             <div className="big-thumbnail-area">
-                                                <Link to={'/service-details'} className="thumbnail">
+                                                <Link to={'/our-service'} className="thumbnail">
                                                     <img
                                                         src="assets/images/service/09.jpg"
                                                         alt="Business-service"
@@ -226,10 +226,10 @@ function ServiceThree() {
                                                         lobortis nam potenti
                                                     </p>
                                                 </div>
-                                                <Link to={'/service-details'} className="over_link" />
+                                                <Link to={'/our-service'} className="over_link" />
                                             </div>
                                             <Link
-                                                to={'/service-details'}
+                                                to={'/our-service'}
                                                 className="rts-btn btn-primary-3"
                                             >
                                                 {" "}

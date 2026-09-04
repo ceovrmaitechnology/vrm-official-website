@@ -76,7 +76,7 @@ function BusinessGoalThree() {
                                             src="assets/images/business-goal/icon/04.svg"
                                             alt="business_Icone"
                                             className="thumb"
-                                         width="48" height="48" width="48" height="48" loading="lazy" />
+                                         width="48" height="48" loading="lazy" />
                                         <div className="goal-wrapper">
                                             <h6 className="title">Yearly Calculation</h6>
                                             <p className="disc">

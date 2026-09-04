@@ -31,9 +31,9 @@ function ServiceFour() {
                                             auctore sapien pretiumto turpis dignissim mus feugiat
                                         </p>
                                     </div>
-                                    <Link to={'/service-details'} className="over_link" />
+                                    <Link to={'/our-service'} className="over_link" />
                                 </div>
-                                <Link to={'/service-details'} className="rts-btn btn-primary-3">
+                                <Link to={'/our-service'} className="rts-btn btn-primary-3">
                                     {" "}
                                     Read More
                                     <i className="fal fa-arrow-right" />
@@ -56,9 +56,9 @@ function ServiceFour() {
                                             auctore sapien pretiumto turpis dignissim mus feugiat
                                         </p>
                                     </div>
-                                    <Link to={'/service-details'} className="over_link" />
+                                    <Link to={'/our-service'} className="over_link" />
                                 </div>
-                                <Link to={'/service-details'} className="rts-btn btn-primary-3">
+                                <Link to={'/our-service'} className="rts-btn btn-primary-3">
                                     {" "}
                                     Read More
                                     <i className="fal fa-arrow-right" />
@@ -81,9 +81,9 @@ function ServiceFour() {
                                             auctore sapien pretiumto turpis dignissim mus feugiat
                                         </p>
                                     </div>
-                                    <Link to={'/service-details'} className="over_link" />
+                                    <Link to={'/our-service'} className="over_link" />
                                 </div>
-                                <Link to={'/service-details'} className="rts-btn btn-primary-3">
+                                <Link to={'/our-service'} className="rts-btn btn-primary-3">
                                     {" "}
                                     Read More
                                     <i className="fal fa-arrow-right" />

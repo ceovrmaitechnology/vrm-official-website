@@ -19,9 +19,7 @@ function AboutCompany() {
                             </div>
                             <div className="about-company-wrapper">
                                 <p className="disc">
-                                    We are licensed and insured with over 14 years of experience in
-                                    providing <br /> United States with top-rated USA business
-                                    services
+                                    We are dedicated experts providing enterprise clients with top-rated AI business solutions
                                 </p>
                                 <div className="rts-tab-style-one">
                                     <div className="d-flex align-items-start contoler-company">
@@ -45,7 +43,7 @@ function AboutCompany() {
                                                     {/* start tab content */}
                                                     <div className="rts-tab-content-one">
                                                         <p>
-                                                            <img src="assets/images/faq/info.webp" alt="image" />
+                                                            <img src="assets/images/faq/info.webp" alt="VRM AI Information" />
                                                         </p>
                                                         <p className="disc">
                                                             Massa laoreet lacinia placerat eleifend cs curae
@@ -82,7 +80,7 @@ function AboutCompany() {
                                                         <p>
                                                             <img
                                                                 src="assets/images/faq/hospitality-1.webp"
-                                                                alt="image"
+                                                                alt="VRM AI Information"
                                                             />
                                                         </p>
                                                         <p className="disc">
@@ -120,7 +118,7 @@ function AboutCompany() {
                                                         <p>
                                                             <img
                                                                 src="assets/images/faq/logistics.webp"
-                                                                alt="image"
+                                                                alt="VRM AI Information"
                                                             />
                                                         </p>
                                                         <p className="disc">
@@ -158,7 +156,7 @@ function AboutCompany() {
                                                         <p>
                                                             <img
                                                                 src="assets/images/faq/steel-factory.webp"
-                                                                alt="image"
+                                                                alt="VRM AI Information"
                                                             />
                                                         </p>
                                                         <p className="disc">
@@ -196,7 +194,7 @@ function AboutCompany() {
                                                         <p>
                                                             <img
                                                                 src="assets/images/faq/education.webp"
-                                                                alt="image"
+                                                                alt="VRM AI Information"
                                                             />
                                                         </p>
                                                         <p className="disc">
@@ -234,7 +232,7 @@ function AboutCompany() {
                                                         <p>
                                                             <img
                                                                 src="assets/images/faq/customer.webp"
-                                                                alt="image"
+                                                                alt="VRM AI Information"
                                                             />
                                                         </p>
                                                         <p className="disc">

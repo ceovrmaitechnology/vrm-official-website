@@ -133,15 +133,15 @@ const ContactUs = () => {
         <div className="contact-us-page basic-font-family">
             <Helmet>
         <title>Contact Us | VRM AI Technology</title>
-        <meta name="description" content="Get in touch with VRM AI Technology. Contact our team for AI solutions, product demos, partnerships, or support. Offices in Bengaluru and San Francisco." />
+        <meta name="description" content="Get in touch with VRM AI Technology. Contact our team for AI solutions, product demos, partnerships, or support. Offices in Bengaluru and Madurai, India." />
         <meta property="og:title" content="Contact VRM AI Technology" />
-        <meta property="og:description" content="Get in touch with VRM AI Technology. Contact our team for AI solutions, product demos, partnerships, or support. Offices in Bengaluru and San Francisco." />
+        <meta property="og:description" content="Get in touch with VRM AI Technology. Contact our team for AI solutions, product demos, partnerships, or support. Offices in Bengaluru and Madurai, India." />
                 <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
         <link rel="canonical" href="https://www.vrmaitechnology.com/contactus" />
       
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content="Contact VRM AI Technology" />
-                <meta name="twitter:description" content="Get in touch with VRM AI Technology. Contact our team for AI solutions, product demos, partnerships, or support. Offices in Bengaluru and San Francisco." />
+                <meta name="twitter:description" content="Get in touch with VRM AI Technology. Contact our team for AI solutions, product demos, partnerships, or support. Offices in Bengaluru and Madurai, India." />
                 <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
             </Helmet>
             <HeaderOne className="header-white-text" />
@@ -396,7 +396,7 @@ const ContactUs = () => {
                 </div>
             </div>
 
-            {/* 6. Our Offices - Dark Cards Section (New Request) */}
+            {/* 6. Our Offices - Dark Cards Section */}
             <div className="vrm-full-width-section bg-light ptb--100">
                 <div className="container">
                     <div className="row text-center mb-5">
@@ -407,66 +407,9 @@ const ContactUs = () => {
                     </div>
 
                     <div className="row g-4 justify-content-center">
-                        {/* USA Card */}
-                        <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".2s">
-                            <div className="vrm-office-card">
-                                <div className="office-card-header">
-                                    <div className="d-flex align-items-center gap-3">
-                                        <div className="office-flag-wrapper">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" width="48" height="36" className="vrm-flag-icon">
-                                                <g fillRule="evenodd">
-                                                    <path fill="#bd3d44" d="M0 0h640v480H0" />
-                                                    <path stroke="#fff" strokeWidth="37" d="M0 55.3h640M0 129h640M0 203h640M0 277h640M0 351h640M0 425h640" />
-                                                    <path fill="#192f5d" d="M0 0h296v258H0" />
-                                                    <g fill="#fff">
-                                                        <g id="us-star">
-                                                            <path id="s" d="M247 11c0 1.6-1.3 3-2.9 3L243 17l2.1-5-4.4 3 5.4-.1-4.4-3 5.4-.1L247 17l-1-6 1-3z" />
-                                                            <use xlinkHref="#s" y="42" />
-                                                            <use xlinkHref="#s" y="84" />
-                                                            <use xlinkHref="#s" y="126" />
-                                                            <use xlinkHref="#s" y="168" />
-                                                        </g>
-                                                        <use xlinkHref="#us-star" x="25" />
-                                                        <use xlinkHref="#us-star" x="50" />
-                                                        <use xlinkHref="#us-star" x="75" />
-                                                        <use xlinkHref="#us-star" x="100" />
-                                                        <use xlinkHref="#us-star" x="125" />
-                                                        <g id="us-star-row-2">
-                                                            <use xlinkHref="#s" x="12.5" y="21" />
-                                                            <use xlinkHref="#s" x="37.5" y="21" />
-                                                            <use xlinkHref="#s" x="62.5" y="21" />
-                                                            <use xlinkHref="#s" x="87.5" y="21" />
-                                                            <use xlinkHref="#s" x="112.5" y="21" />
-                                                        </g>
-                                                        <use xlinkHref="#us-star-row-2" y="42" />
-                                                        <use xlinkHref="#us-star-row-2" y="84" />
-                                                        <use xlinkHref="#us-star-row-2" y="126" />
-                                                    </g>
-                                                </g>
-                                            </svg>
-                                        </div>
-                                        <h4 className="office-card-title">United States</h4>
-                                    </div>
-                                    <div className="office-location-icon">
-                                        <i className="fas fa-map-marker-alt"></i>
-                                    </div>
-                                </div>
-                                <ul className="office-details-list">
-                                    <li>
-                                        <i className="fas fa-location-arrow"></i>
-                                        <span>San Francisco, CA 94107, United States</span>
-                                    </li>
-                                    <li>
-                                        <i className="fas fa-envelope"></i>
-                                        <span>contactus@vrmaitechnology.com</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        {/* India Card */}
-                        <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".6s">
-                            <div className="vrm-office-card">
+                        {/* Corporate Office - Bengaluru */}
+                        <div className="col-lg-5 col-md-6 wow fadeInUp" data-wow-delay=".2s">
+                            <div className="vrm-office-card h-100">
                                 <div className="office-card-header">
                                     <div className="d-flex align-items-center gap-3">
                                         <div className="office-flag-wrapper">
@@ -477,10 +420,10 @@ const ContactUs = () => {
                                                 style={{ width: '48px', height: 'auto', borderRadius: '4px', objectFit: 'cover' }}
                                             />
                                         </div>
-                                        <h4 className="office-card-title">India</h4>
+                                        <h4 className="office-card-title">Corporate Office</h4>
                                     </div>
                                     <div className="office-location-icon">
-                                        <i className="fas fa-map-marker-alt"></i>
+                                        <i className="fas fa-building"></i>
                                     </div>
                                 </div>
                                 <ul className="office-details-list">
@@ -493,7 +436,52 @@ const ContactUs = () => {
                                                 rel="noopener noreferrer"
                                                 className="text-white text-decoration-none hover-primary"
                                             >
-                                                GoodWorks Infinity Park,<br />21, 2nd main Rd, near 21, Electronic City Phase I, Electronic City,<br />Bengaluru, Karnataka 560100.
+                                                GoodWorks Infinity Park,<br />21, 2nd main Rd, Electronic City Phase I,<br />Bengaluru, Karnataka 560100.
+                                            </a>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <i className="fas fa-phone-alt"></i>
+                                        <span>+91 81233 48355</span>
+                                    </li>
+                                    <li>
+                                        <i className="fas fa-envelope"></i>
+                                        <span>contactus@vrmaitechnology.com</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        {/* Development Center - Madurai */}
+                        <div className="col-lg-5 col-md-6 wow fadeInUp" data-wow-delay=".4s">
+                            <div className="vrm-office-card h-100">
+                                <div className="office-card-header">
+                                    <div className="d-flex align-items-center gap-3">
+                                        <div className="office-flag-wrapper">
+                                            <img
+                                                src="/assets/images/india.png"
+                                                alt="Flag of India"
+                                                className="vrm-flag-icon"
+                                                style={{ width: '48px', height: 'auto', borderRadius: '4px', objectFit: 'cover' }}
+                                            />
+                                        </div>
+                                        <h4 className="office-card-title">Development Center</h4>
+                                    </div>
+                                    <div className="office-location-icon">
+                                        <i className="fas fa-map-marked-alt"></i>
+                                    </div>
+                                </div>
+                                <ul className="office-details-list">
+                                    <li>
+                                        <i className="fas fa-location-arrow"></i>
+                                        <span>
+                                            <a
+                                                href="https://www.google.com/maps/search/?api=1&query=VRM+AI+Technology+(OPC)+Pvt.Ltd,+Door+No,209,+1ST+Floor,+No.147,+5th+St,+Poriyalar+Nagar,+Tiruppalai,+Madurai,+Tamil+Nadu+625014"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="text-white text-decoration-none hover-primary"
+                                            >
+                                                Door No,209, 1ST Floor, No.147, 5th St,<br />Poriyalar Nagar, Tiruppalai,<br />Madurai, Tamil Nadu 625014
                                             </a>
                                         </span>
                                     </li>

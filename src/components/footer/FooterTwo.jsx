@@ -36,31 +36,31 @@ function FooterTwo() {
                                     <div className="wized-2-body">
                                         <ul>
                                             <li>
-                                                <Link to={'/service-details'}>
+                                                <Link to={'/our-service'}>
                                                     <i className="fal fa-chevron-double-right" />
                                                     Business planning
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link to={'/service-details'}>
+                                                <Link to={'/our-service'}>
                                                     <i className="fal fa-chevron-double-right" />
                                                     Tax strategy
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link to={'/service-details'}>
+                                                <Link to={'/our-service'}>
                                                     <i className="fal fa-chevron-double-right" />
                                                     Financial advices
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link to={'/service-details'}>
+                                                <Link to={'/our-service'}>
                                                     <i className="fal fa-chevron-double-right" />
                                                     Insurance strategy
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link to={'/service-details'}>
+                                                <Link to={'/our-service'}>
                                                     <i className="fal fa-chevron-double-right" />
                                                     Manage investment
                                                 </Link>

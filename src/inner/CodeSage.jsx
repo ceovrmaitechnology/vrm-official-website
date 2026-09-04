@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import HeaderOne from "../components/header/HeaderOne";
 import FooterOne from "../components/footer/FooterOne";
@@ -24,6 +25,20 @@ function CodeSage() {
 
     return (
         <div className="codesage-page basic-font-family">
+            <Helmet>
+                <title>CodeSage | AI Coding Assessments &amp; Technical Screening | Workflow.AI</title>
+                <meta name="description" content="Assess engineering candidates with CodeSage. AI-powered coding challenges, automated code execution, intelligent proctoring, and technical interview scoring." />
+                <meta property="og:title" content="CodeSage | AI Coding Assessments &amp; Technical Screening | Workflow.AI" />
+                <meta property="og:description" content="Assess engineering candidates with CodeSage. AI-powered coding challenges, automated code execution, intelligent proctoring, and technical interview scoring." />
+                <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
+                <meta property="og:url" content="https://www.vrmaitechnology.com/products/workflow/codesage" />
+                <link rel="canonical" href="https://www.vrmaitechnology.com/products/workflow/codesage" />
+
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="CodeSage | AI Coding Assessments &amp; Technical Screening | Workflow.AI" />
+                <meta name="twitter:description" content="Assess engineering candidates with CodeSage. AI-powered coding challenges, automated code execution, intelligent proctoring, and technical interview scoring." />
+                <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
+            </Helmet>
             <HeaderOne />
 
             {/* 1. Hero Section - Enterprise Gradient */}

@@ -10,7 +10,7 @@ function ServiceTen() {
                         {/* single service area */}
                         <div className="col-xl-4 col-md-6 col-sm-12 col-12 pb--140 pb_md--100">
                             <div className="service-two-inner">
-                                <Link to={'/service-details'} className="thumbnail">
+                                <Link to={'/our-service'} className="thumbnail">
                                     <img src="assets/images/service/02.jpg" alt="Business_image"  loading="lazy" />
                                 </Link>
                                 <div className="body-content">
@@ -22,7 +22,7 @@ function ServiceTen() {
                                         </p>
                                         <Link
                                             className="rts-read-more-two color-primary"
-                                            to={'/service-details'}
+                                            to={'/our-service'}
                                         >
                                             Read More
                                             <i className="far fa-arrow-right" />
@@ -35,7 +35,7 @@ function ServiceTen() {
                         {/* single service area */}
                         <div className="col-xl-4 col-md-6 col-sm-12 col-12 pb--140 pb_md--100">
                             <div className="service-two-inner">
-                                <Link to={'/service-details'} className="thumbnail two">
+                                <Link to={'/our-service'} className="thumbnail two">
                                     <img src="assets/images/service/03.jpg" alt="Business_image"  loading="lazy" />
                                 </Link>
                                 <div className="body-content">
@@ -47,7 +47,7 @@ function ServiceTen() {
                                         </p>
                                         <Link
                                             className="rts-read-more-two color-primary"
-                                            to={'/service-details'}
+                                            to={'/our-service'}
                                         >
                                             Read More
                                             <i className="far fa-arrow-right" />
@@ -60,7 +60,7 @@ function ServiceTen() {
                         {/* single service area */}
                         <div className="col-xl-4 col-md-6 col-sm-12 col-12 pb--140 pb_md--100">
                             <div className="service-two-inner">
-                                <Link to={'/service-details'} className="thumbnail three">
+                                <Link to={'/our-service'} className="thumbnail three">
                                     <img src="assets/images/service/04.jpg" alt="Business_image"  loading="lazy" />
                                 </Link>
                                 <div className="body-content">
@@ -72,7 +72,7 @@ function ServiceTen() {
                                         </p>
                                         <Link
                                             className="rts-read-more-two color-primary"
-                                            to={'/service-details'}
+                                            to={'/our-service'}
                                         >
                                             Read More
                                             <i className="far fa-arrow-right" />
@@ -85,7 +85,7 @@ function ServiceTen() {
                         {/* single service area */}
                         <div className="col-xl-4 col-md-6 col-sm-12 col-12 pb--140 pb_md--100">
                             <div className="service-two-inner">
-                                <Link to={'/service-details'} className="thumbnail">
+                                <Link to={'/our-service'} className="thumbnail">
                                     <img src="assets/images/service/02.jpg" alt="Business_image"  loading="lazy" />
                                 </Link>
                                 <div className="body-content">
@@ -97,7 +97,7 @@ function ServiceTen() {
                                         </p>
                                         <Link
                                             className="rts-read-more-two color-primary"
-                                            to={'/service-details'}
+                                            to={'/our-service'}
                                         >
                                             Read More
                                             <i className="far fa-arrow-right" />
@@ -110,7 +110,7 @@ function ServiceTen() {
                         {/* single service area */}
                         <div className="col-xl-4 col-md-6 col-sm-12 col-12 pb--140 pb_md--60">
                             <div className="service-two-inner">
-                                <Link to={'/service-details'} className="thumbnail two">
+                                <Link to={'/our-service'} className="thumbnail two">
                                     <img src="assets/images/service/03.jpg" alt="Business_image"  loading="lazy" />
                                 </Link>
                                 <div className="body-content">
@@ -122,7 +122,7 @@ function ServiceTen() {
                                         </p>
                                         <Link
                                             className="rts-read-more-two color-primary"
-                                            to={'/service-details'}
+                                            to={'/our-service'}
                                         >
                                             Read More
                                             <i className="far fa-arrow-right" />
@@ -135,7 +135,7 @@ function ServiceTen() {
                         {/* single service area */}
                         <div className="col-xl-4 col-md-6 col-sm-12 col-12 pb--140 pb_md--60 pb_sm--60">
                             <div className="service-two-inner">
-                                <Link to={'/service-details'} className="thumbnail three">
+                                <Link to={'/our-service'} className="thumbnail three">
                                     <img src="assets/images/service/04.jpg" alt="Business_image"  loading="lazy" />
                                 </Link>
                                 <div className="body-content">
@@ -147,7 +147,7 @@ function ServiceTen() {
                                         </p>
                                         <Link
                                             className="rts-read-more-two color-primary"
-                                            to={'/service-details'}
+                                            to={'/our-service'}
                                         >
                                             Read More
                                             <i className="far fa-arrow-right" />

@@ -27,7 +27,7 @@ function ServiceSix() {
                                         Purus dui eget sollicitudin curae leo proin platea cras, morbi
                                         torquent massa
                                     </p>
-                                    <Link to={'/service-details'} className="rts-btn btn-primary">
+                                    <Link to={'/our-service'} className="rts-btn btn-primary">
                                         Read More
                                     </Link>
                                 </div>
@@ -46,7 +46,7 @@ function ServiceSix() {
                                         Purus dui eget sollicitudin curae leo proin platea cras, morbi
                                         torquent massa
                                     </p>
-                                    <Link to={'/service-details'} className="rts-btn btn-primary">
+                                    <Link to={'/our-service'} className="rts-btn btn-primary">
                                         Read More
                                     </Link>
                                 </div>
@@ -65,7 +65,7 @@ function ServiceSix() {
                                         Purus dui eget sollicitudin curae leo proin platea cras, morbi
                                         torquent massa
                                     </p>
-                                    <Link to={'/service-details'} className="rts-btn btn-primary">
+                                    <Link to={'/our-service'} className="rts-btn btn-primary">
                                         Read More
                                     </Link>
                                 </div>

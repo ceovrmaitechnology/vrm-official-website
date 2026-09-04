@@ -1,7 +1,8 @@
-import { Link, useParams, } from 'react-router-dom';
+import React from 'react';
+import { Link, useParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 import HeaderOne from "../components/header/HeaderOne";
-
 import FooterOne from "../components/footer/FooterOne";
 import Breadcrumb from "./Breadcrumb";
 import post from '../data/post.json';
@@ -15,10 +16,39 @@ function BlogDetails() {
     const blogPost = post.find(post => post.id === parseInt(id));
 
     if (!blogPost) {
-        return <div>Post not found!</div>
+        return (
+            <div>
+                <Helmet>
+                    <title>Blog Post | VRM AI Technology</title>
+                    <meta name="robots" content="noindex, follow" />
+                </Helmet>
+                <div>Post not found!</div>
+            </div>
+        );
     }
+
+    const pageTitle = `${blogPost.title} | VRM AI Technology`;
+    const metaDescription = blogPost.descripTion || 'Read the full blog post on VRM AI Technology.';
+    const canonicalUrl = `https://www.vrmaitechnology.com/blog/${blogPost.id}`;
+    const ogImageUrl = blogPost.bannerImg
+        ? `https://www.vrmaitechnology.com/assets/images/blog/${blogPost.bannerImg}`
+        : 'https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png';
+
     return (
         <div className=''>
+            <Helmet>
+                <title>{pageTitle}</title>
+                <meta name="description" content={metaDescription} />
+                <link rel="canonical" href={canonicalUrl} />
+                <meta property="og:title" content={pageTitle} />
+                <meta property="og:description" content={metaDescription} />
+                <meta property="og:image" content={ogImageUrl} />
+                <meta property="og:url" content={canonicalUrl} />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content={pageTitle} />
+                <meta name="twitter:description" content={metaDescription} />
+                <meta name="twitter:image" content={ogImageUrl} />
+            </Helmet>
 
             <HeaderOne />
 

@@ -78,8 +78,8 @@ function FooterOne() {
                                 </li>
                             </ul>
                             <div className="vrm-footer-global mt-4">
-                                <h6>Global Presence</h6>
-                                <p>India | United States</p>
+                                <h6>Our Locations</h6>
+                                <p>India (Bengaluru & Madurai)</p>
                             </div>
                         </div>
                     </div>
@@ -162,7 +162,7 @@ function FooterOne() {
                                     <Link to="/products/visionix" style={{ fontWeight: '700', color: '#11142c', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Visionix AI</Link>
                                 </li>
                                 <li style={{ marginBottom: '0px' }}>
-                                    <Link to="/products/vevora" style={{ fontWeight: '700', color: '#11142c', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Vevora Real Estate</Link>
+                                    <Link to="/products/vrm-real-estate" style={{ fontWeight: '700', color: '#11142c', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>VRM Real Estate</Link>
                                 </li>
                             </ul>
                         </div>

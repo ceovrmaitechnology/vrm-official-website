@@ -106,11 +106,11 @@ export default function Nav() {
             ]
         },
         'vevora': { 
-            title: "Vevora Real Estate", 
+            title: "VRM Real Estate", 
             description: "AI-powered real estate automation platform that connects buyer conversations, lead qualification, site visits, and agent operations.", 
-            link: "/products/vevora", 
+            link: "/products/vrm-real-estate", 
             linkText: "View Product", 
-            image: "/assets/images/vevora/vevora-hero.png",
+            image: "/assets/images/vrm-real-estate/vrm-real-estate-hero.png",
             features: [
                 "AI-Powered WhatsApp Bot",
                 "Smart Lead Scoring (HOT/WARM/COLD)",
@@ -274,14 +274,14 @@ export default function Nav() {
                                     </li>
                                     <li>
                                         <Link
-                                            to="/products/vevora"
+                                            to="/products/vrm-real-estate"
                                             className={`platform-btn ${activeSubMenu === 'vevora' ? 'active' : ''}`}
                                             onMouseEnter={() => {
                                                 setActiveSubMenu('vevora');
                                                 handleLinkHover('vevora');
                                             }}
                                         >
-                                            Vevora Real Estate
+                                            VRM Real Estate
                                         </Link>
                                     </li>
                                 </ul>

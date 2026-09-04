@@ -84,7 +84,7 @@ function AboutFive() {
                         </div>
                         <div className="col-lg-6">
                             <div className="thumbnail-about-six">
-                                <img src="assets/images/about/02.png" alt="about-image" />
+                                <img src="assets/images/about/02.png" alt="About VRM AI" />
                             </div>
                         </div>
                     </div>

@@ -36,8 +36,6 @@ function ContactForm() {
                 setStatus({ type: 'success', message: 'Message sent successfully! We will contact you shortly.' });
                 e.target.reset();
             } else {
-                const errorBody = await response.text();
-
                 setStatus({ type: 'error', message: 'Failed to send message. Please try again later.' });
             }
         } catch (error) {

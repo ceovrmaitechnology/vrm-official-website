@@ -40,7 +40,7 @@ function Video() {
                     <div className="row">
                         <div className="col-lg-12">
                             <div className="thumbnail-image-gallery">
-                                <img src="assets/images/gallery/01.jpg" alt="thumbnail-image" />
+                                <img src="assets/images/gallery/01.jpg" alt="Video Thumbnail" />
                                 <Link className="vedio-icone">
                                     {/* Video Play Button */}
                                     <span id="play-video" className="video-play-button" to={'#'} onClick={openVideo}>

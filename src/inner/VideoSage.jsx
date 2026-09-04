@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import HeaderOne from "../components/header/HeaderOne";
 import FooterOne from "../components/footer/FooterOne";
@@ -24,6 +25,20 @@ function VideoSage() {
 
     return (
         <div className="videosage-page basic-font-family">
+            <Helmet>
+                <title>VideoSage | AI Video Interviews &amp; Behavioral Assessment | Workflow.AI</title>
+                <meta name="description" content="Streamline recruitment with VideoSage AI video interviews. Automatically evaluate communication, technical responses, confidence, and candidate performance." />
+                <meta property="og:title" content="VideoSage | AI Video Interviews &amp; Behavioral Assessment | Workflow.AI" />
+                <meta property="og:description" content="Streamline recruitment with VideoSage AI video interviews. Automatically evaluate communication, technical responses, confidence, and candidate performance." />
+                <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
+                <meta property="og:url" content="https://www.vrmaitechnology.com/products/workflow/videosage" />
+                <link rel="canonical" href="https://www.vrmaitechnology.com/products/workflow/videosage" />
+
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="VideoSage | AI Video Interviews &amp; Behavioral Assessment | Workflow.AI" />
+                <meta name="twitter:description" content="Streamline recruitment with VideoSage AI video interviews. Automatically evaluate communication, technical responses, confidence, and candidate performance." />
+                <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
+            </Helmet>
             <HeaderOne />
 
             {/* 1. Hero Section - Enterprise Gradient */}

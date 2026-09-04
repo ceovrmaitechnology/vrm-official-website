@@ -63,7 +63,7 @@ function WhyChooseThree() {
                                         A competent SEO consultant begins by <br /> conducting a
                                         thorough audi...
                                     </p>
-                                    <Link to={'/service-details'} className="read-more-btn">
+                                    <Link to={'/our-service'} className="read-more-btn">
                                         View More <i className="far fa-arrow-right" />
                                     </Link>
                                 </div>
@@ -119,7 +119,7 @@ function WhyChooseThree() {
                                         A competent SEO consultant begins by <br /> conducting a
                                         thorough audi...
                                     </p>
-                                    <Link to={'/service-details'} className="read-more-btn">
+                                    <Link to={'/our-service'} className="read-more-btn">
                                         View More <i className="far fa-arrow-right" />
                                     </Link>
                                 </div>
@@ -155,7 +155,7 @@ function WhyChooseThree() {
                                         A competent SEO consultant begins by <br /> conducting a
                                         thorough audi...
                                     </p>
-                                    <Link to={'/service-details'} className="read-more-btn">
+                                    <Link to={'/our-service'} className="read-more-btn">
                                         View More <i className="far fa-arrow-right" />
                                     </Link>
                                 </div>

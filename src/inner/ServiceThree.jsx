@@ -29,17 +29,17 @@ function OurService() {
                         <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
                             {/* single service start */}
                             <div className="rts-single-service-h2 inner">
-                                <Link to={'/service-details'} className="thumbnail">
+                                <Link to={'/our-service'} className="thumbnail">
                                     <img src="assets/images/service/10.jpg" alt="Service_image"  loading="lazy" />
                                 </Link>
                                 <div className="body">
-                                    <Link to={'/service-details'}>
+                                    <Link to={'/our-service'}>
                                         <h5 className="title">Business Solution</h5>
                                     </Link>
                                     <p className="disc">
                                         Fusce dignissim erat dis proin ornare class sem nibh
                                     </p>
-                                    <Link to={'/service-details'} className="btn-red-more">
+                                    <Link to={'/our-service'} className="btn-red-more">
                                         Learn More
                                         <i className="fas fa-arrow-right" />
                                     </Link>
@@ -50,17 +50,17 @@ function OurService() {
                         <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
                             {/* single service start */}
                             <div className="rts-single-service-h2 inner">
-                                <Link to={'/service-details'} className="thumbnail">
+                                <Link to={'/our-service'} className="thumbnail">
                                     <img src="assets/images/service/11.jpg" alt="Service_image"  loading="lazy" />
                                 </Link>
                                 <div className="body">
-                                    <Link to={'/service-details'}>
+                                    <Link to={'/our-service'}>
                                         <h5 className="title">Creative Ideas</h5>
                                     </Link>
                                     <p className="disc">
                                         Fusce dignissim erat dis proin ornare class sem nibh
                                     </p>
-                                    <Link to={'/service-details'} className="btn-red-more">
+                                    <Link to={'/our-service'} className="btn-red-more">
                                         Learn More
                                         <i className="fas fa-arrow-right" />
                                     </Link>
@@ -71,17 +71,17 @@ function OurService() {
                         <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
                             {/* single service start */}
                             <div className="rts-single-service-h2 inner">
-                                <Link to={'/service-details'} className="thumbnail">
+                                <Link to={'/our-service'} className="thumbnail">
                                     <img src="assets/images/service/12.jpg" alt="Service_image"  loading="lazy" />
                                 </Link>
                                 <div className="body">
-                                    <Link to={'/service-details'}>
+                                    <Link to={'/our-service'}>
                                         <h5 className="title">Market Research</h5>
                                     </Link>
                                     <p className="disc">
                                         Fusce dignissim erat dis proin ornare class sem nibh
                                     </p>
-                                    <Link to={'/service-details'} className="btn-red-more">
+                                    <Link to={'/our-service'} className="btn-red-more">
                                         Learn More
                                         <i className="fas fa-arrow-right" />
                                     </Link>
@@ -92,17 +92,17 @@ function OurService() {
                         <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
                             {/* single service start */}
                             <div className="rts-single-service-h2 inner">
-                                <Link to={'/service-details'} className="thumbnail">
+                                <Link to={'/our-service'} className="thumbnail">
                                     <img src="assets/images/service/13.jpg" alt="Service_image"  loading="lazy" />
                                 </Link>
                                 <div className="body">
-                                    <Link to={'/service-details'}>
+                                    <Link to={'/our-service'}>
                                         <h5 className="title">Best Solution</h5>
                                     </Link>
                                     <p className="disc">
                                         Fusce dignissim erat dis proin ornare class sem nibh
                                     </p>
-                                    <Link to={'/service-details'} className="btn-red-more">
+                                    <Link to={'/our-service'} className="btn-red-more">
                                         Learn More
                                         <i className="fas fa-arrow-right" />
                                     </Link>

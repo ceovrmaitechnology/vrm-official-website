@@ -286,25 +286,25 @@ function ProductsOverview() {
                 </div>
             </div>
 
-            {/* --- Product 10: Vevora AI Real Estate --- */}
-            <div id="vevora" className="rts-about-area rts-section-gap" style={{ background: '#ffffff' }}>
+            {/* --- Product 10: VRM Real Estate --- */}
+            <div id="vrm-real-estate" className="rts-about-area rts-section-gap" style={{ background: '#ffffff' }}>
                 <div className="container">
                     <div className="row g-5 align-items-center">
                         <div className="col-lg-6 order-lg-2 wow fadeInRight" data-wow-delay=".2s">
                             <div className="vrm-product-thumbnail">
-                                <img src="/assets/images/vevora/vevora-hero.png" alt="Vevora AI Real Estate Automation Dashboard" />
+                                <img src="/assets/images/vrm-real-estate/vrm-real-estate-hero.png" alt="VRM Real Estate Automation Dashboard" />
                             </div>
                         </div>
                         <div className="col-lg-6 order-lg-1 wow fadeInLeft" data-wow-delay=".2s">
                             <div className="about-inner">
-                                <div className="rts-title-area" data-text="Vevora">
+                                <div className="rts-title-area" data-text="VRM Real Estate">
                                     <span className="pre-title" style={{ color: '#3B4ECC', display: 'block', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '13px', fontWeight: '700', marginBottom: '5px' }}>Real Estate Automation</span>
-                                    <h2 className="title">Vevora</h2>
+                                    <h2 className="title">VRM Real Estate</h2>
                                 </div>
                                 <p className="disc">
-                                    Vevora is an AI-powered real estate automation platform that connects buyer conversations, lead qualification, site visits, transportation, and agent operations into one intelligent workflow.
+                                    VRM Real Estate is an AI-powered real estate automation platform that connects buyer conversations, lead qualification, site visits, transportation, and agent operations into one intelligent workflow.
                                 </p>
-                                <Link className="rts-btn btn-primary" to="/products/vevora">Learn More</Link>
+                                <Link className="rts-btn btn-primary" to="/products/vrm-real-estate">Learn More</Link>
                             </div>
                         </div>
                     </div>

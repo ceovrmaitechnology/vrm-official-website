@@ -27,7 +27,7 @@ function ServiceEight() {
                                      loading="lazy" />
                                 </div>
                                 <div className="service-details">
-                                    <Link to={'/service-details'}>
+                                    <Link to={'/our-service'}>
                                         <h5 className="title">Business Planning</h5>
                                     </Link>
                                     <p className="disc">
@@ -36,7 +36,7 @@ function ServiceEight() {
                                     </p>
                                     <Link
                                         className="rts-read-more btn-primary"
-                                        to={'/service-details'}
+                                        to={'/our-service'}
                                     >
                                         <i className="far fa-arrow-right" />
                                         Read More
@@ -55,7 +55,7 @@ function ServiceEight() {
                                      loading="lazy" />
                                 </div>
                                 <div className="service-details">
-                                    <Link to={'/service-details'}>
+                                    <Link to={'/our-service'}>
                                         <h5 className="title">Develop Process</h5>
                                     </Link>
                                     <p className="disc">
@@ -64,7 +64,7 @@ function ServiceEight() {
                                     </p>
                                     <Link
                                         className="rts-read-more btn-primary"
-                                        to={'/service-details'}
+                                        to={'/our-service'}
                                     >
                                         <i className="far fa-arrow-right" />
                                         Read More
@@ -83,7 +83,7 @@ function ServiceEight() {
                                      loading="lazy" />
                                 </div>
                                 <div className="service-details">
-                                    <Link to={'/service-details'}>
+                                    <Link to={'/our-service'}>
                                         <h5 className="title">Strategy &amp; Planning</h5>
                                     </Link>
                                     <p className="disc">
@@ -92,7 +92,7 @@ function ServiceEight() {
                                     </p>
                                     <Link
                                         className="rts-read-more btn-primary"
-                                        to={'/service-details'}
+                                        to={'/our-service'}
                                     >
                                         <i className="far fa-arrow-right" />
                                         Read More
@@ -111,7 +111,7 @@ function ServiceEight() {
                                      loading="lazy" />
                                 </div>
                                 <div className="service-details">
-                                    <Link to={'/service-details'}>
+                                    <Link to={'/our-service'}>
                                         <h5 className="title">Business Support</h5>
                                     </Link>
                                     <p className="disc">
@@ -120,7 +120,7 @@ function ServiceEight() {
                                     </p>
                                     <Link
                                         className="rts-read-more btn-primary"
-                                        to={'/service-details'}
+                                        to={'/our-service'}
                                     >
                                         <i className="far fa-arrow-right" />
                                         Read More
@@ -139,7 +139,7 @@ function ServiceEight() {
                                      loading="lazy" />
                                 </div>
                                 <div className="service-details">
-                                    <Link to={'/service-details'}>
+                                    <Link to={'/our-service'}>
                                         <h5 className="title">Audit &amp; Evaluation</h5>
                                     </Link>
                                     <p className="disc">
@@ -148,7 +148,7 @@ function ServiceEight() {
                                     </p>
                                     <Link
                                         className="rts-read-more btn-primary"
-                                        to={'/service-details'}
+                                        to={'/our-service'}
                                     >
                                         <i className="far fa-arrow-right" />
                                         Read More
@@ -167,7 +167,7 @@ function ServiceEight() {
                                      loading="lazy" />
                                 </div>
                                 <div className="service-details">
-                                    <Link to={'/service-details'}>
+                                    <Link to={'/our-service'}>
                                         <h5 className="title">Consultancy &amp; Advice</h5>
                                     </Link>
                                     <p className="disc">
@@ -176,7 +176,7 @@ function ServiceEight() {
                                     </p>
                                     <Link
                                         className="rts-read-more btn-primary"
-                                        to={'/service-details'}
+                                        to={'/our-service'}
                                     >
                                         <i className="far fa-arrow-right" />
                                         Read More

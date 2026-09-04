@@ -73,9 +73,9 @@ function BannerSix() {
                                                         />
                                                         <select name="country" id="country">
                                                             <option value="country">Country</option>
-                                                            <option value="">USA</option>
+                                                            <option value="">INDIA</option>
                                                             <option value="">UK</option>
-                                                            <option value="">BRAZIL</option>
+                                                            <option value="">UAE</option>
                                                         </select>
                                                         <textarea
                                                             placeholder="Type Your Message"

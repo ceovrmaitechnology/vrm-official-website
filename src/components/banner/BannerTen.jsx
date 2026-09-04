@@ -31,12 +31,12 @@ function BannerTen() {
                                 <img
                                     className="small-img"
                                     src="assets/images/banner/sm-1.png"
-                                    alt="small-image"
+                                    alt="Banner Thumbnail"
                                 />
                                 <img
                                     className="small-img-2"
                                     src="assets/images/banner/sm-2.png"
-                                    alt="small-image"
+                                    alt="Banner Thumbnail"
                                 />
                             </div>
                         </div>

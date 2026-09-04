@@ -26,7 +26,7 @@ function ServiceSeven() {
                         <div className="row">
                             <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12">
                                 <div className="wrapper">
-                                    <Link to={'/service-details'} className="icon">
+                                    <Link to={'/our-service'} className="icon">
                                         <img
                                             src="assets/images/working-step/icon/target.svg"
                                             alt="Icon"
@@ -43,7 +43,7 @@ function ServiceSeven() {
                             </div>
                             <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12">
                                 <div className="wrapper">
-                                    <Link to={'/service-details'} className="icon">
+                                    <Link to={'/our-service'} className="icon">
                                         <img
                                             src="assets/images/working-step/icon/user.svg"
                                             alt="Icon"
@@ -60,7 +60,7 @@ function ServiceSeven() {
                             </div>
                             <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12">
                                 <div className="wrapper">
-                                    <Link to={'/service-details'} className="icon">
+                                    <Link to={'/our-service'} className="icon">
                                         <img
                                             src="assets/images/working-step/icon/save.svg"
                                             alt="Icon"
@@ -77,7 +77,7 @@ function ServiceSeven() {
                             </div>
                             <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12">
                                 <div className="wrapper">
-                                    <Link to={'/service-details'} className="icon">
+                                    <Link to={'/our-service'} className="icon">
                                         <img
                                             src="assets/images/working-step/icon/goal.svg"
                                             alt="Icon"

@@ -18,9 +18,7 @@ function AboutTwo() {
                             </div>
                             <div className="about-company-wrapper">
                                 <p className="disc">
-                                    We are licensed and insured with over 14 years of experience in
-                                    providing <br /> United States with top-rated USA business
-                                    services
+                                    We are dedicated experts providing enterprise clients with top-rated AI business solutions
                                 </p>
                                 <div className="rts-tab-style-one">
                                     <div className=" align-items-start contoler-company">

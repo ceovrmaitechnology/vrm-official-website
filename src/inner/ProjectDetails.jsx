@@ -72,7 +72,7 @@ function ProjectDetails() {
                                             </div>
                                             <div className="info-details">
                                                 <span>Address:</span>
-                                                <h6 className="name">258 Dancing Street, USA</h6>
+                                                <h6 className="name">Bengaluru & Madurai, India</h6>
                                             </div>
                                         </div>
                                         {/* end single info */}
@@ -111,17 +111,17 @@ function ProjectDetails() {
                     <div className="row g-5 mb--60">
                         <div className="col-lg-4">
                             <div className="thumbnail">
-                                <img src="assets/images/product/d-01.jpg" alt="" />
+                                <img src="assets/images/product/d-01.jpg" alt="VRM AI Project Details Screenshot 1" loading="lazy" />
                             </div>
                         </div>
                         <div className="col-lg-4">
                             <div className="thumbnail">
-                                <img src="assets/images/product/d-02.jpg" alt="" />
+                                <img src="assets/images/product/d-02.jpg" alt="VRM AI Project Details Screenshot 2" loading="lazy" />
                             </div>
                         </div>
                         <div className="col-lg-4">
                             <div className="thumbnail">
-                                <img src="assets/images/product/d-03.jpg" alt="" />
+                                <img src="assets/images/product/d-03.jpg" alt="VRM AI Project Details Screenshot 3" loading="lazy" />
                             </div>
                         </div>
                     </div>

@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import HeaderOne from "../components/header/HeaderOne";
 import FooterOne from "../components/footer/FooterOne";
@@ -24,6 +25,20 @@ function ScreenSage() {
 
     return (
         <div className="screensage-page basic-font-family">
+            <Helmet>
+                <title>ScreenSage | AI Voice Screening &amp; Candidate Assessment | Workflow.AI</title>
+                <meta name="description" content="Automate first-round screening with ScreenSage. Conduct AI-powered voice interviews, evaluate candidate communication and skills, and receive structured scorecards." />
+                <meta property="og:title" content="ScreenSage | AI Voice Screening &amp; Candidate Assessment | Workflow.AI" />
+                <meta property="og:description" content="Automate first-round screening with ScreenSage. Conduct AI-powered voice interviews, evaluate candidate communication and skills, and receive structured scorecards." />
+                <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
+                <meta property="og:url" content="https://www.vrmaitechnology.com/products/workflow/screensage" />
+                <link rel="canonical" href="https://www.vrmaitechnology.com/products/workflow/screensage" />
+
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="ScreenSage | AI Voice Screening &amp; Candidate Assessment | Workflow.AI" />
+                <meta name="twitter:description" content="Automate first-round screening with ScreenSage. Conduct AI-powered voice interviews, evaluate candidate communication and skills, and receive structured scorecards." />
+                <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
+            </Helmet>
             <HeaderOne />
 
             {/* 1. Hero Section - Enterprise Gradient */}

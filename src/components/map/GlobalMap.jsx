@@ -7,29 +7,10 @@ const GlobalMap = () => {
   // Locations with percentage-based coordinates for responsiveness
   const locations = [
     {
-      id: 'usa',
-      name: 'United States',
-      title: 'USA Office',
-      info: '123 Tech Blvd, San Francisco, CA',
-      top: '38%',
-      left: '18%',
-      pulseColor: 'rgba(235, 68, 90, 0.7)', // Red-ish
-      flag: (
-        <svg width="100%" height="100%" viewBox="0 0 640 480" xmlns="http://www.w3.org/2000/svg">
-          <g fillRule="evenodd">
-            <path fill="#bd3d44" d="M0 0h640v480H0" />
-            <path stroke="#fff" strokeWidth="37" d="M0 55.3h640M0 129h640M0 202.8h640M0 276.5h640M0 350.2h640m0 73.7h640" />
-            <path fill="#192f5d" d="M0 0h264.8v221.2H0z" />
-            <path fill="#fff" d="M27.5 16.3h9.5v9.5h-9.5zm35.2 0h9.5v9.5h-9.5zm35.3 0h9.5v9.5H98zm35.2 0h9.5v9.5h-9.5zm35.3 0h9.5v9.5h-9.5zm35.2 0h9.5v9.5h-9.5zm-158.5 25h9.5v9.5h-9.5zm35.2 0h9.5v9.5h-9.5zm35.3 0h9.5v9.5H98zm35.2 0h9.5v9.5h-9.5zm35.3 0h9.5v9.5h-9.5zm35.2 0h9.5v9.5h-9.5zm-158.5 25h9.5v9.5h-9.5zm35.2 0h9.5v9.5h-9.5zm35.3 0h9.5v9.5H98zm35.2 0h9.5v9.5h-9.5zm35.3 0h9.5v9.5h-9.5zm35.2 0h9.5v9.5h-9.5zm-158.5 25h9.5v9.5h-9.5zm35.2 0h9.5v9.5h-9.5zm35.3 0h9.5v9.5H98zm35.2 0h9.5v9.5h-9.5zm35.3 0h9.5v9.5h-9.5zm35.2 0h9.5v9.5h-9.5zm-158.5 25.1h9.5v9.5h-9.5zm35.2 0h9.5v9.5h-9.5zm35.3 0h9.5v9.5H98zm35.2 0h9.5v9.5h-9.5zm35.3 0h9.5v9.5h-9.5zm35.2 0h9.5v9.5h-9.5zm-158.5 25h9.5v9.5h-9.5zm35.2 0h9.5v9.5h-9.5zm35.3 0h9.5v9.5H98zm35.2 0h9.5v9.5h-9.5zm35.3 0h9.5v9.5h-9.5zm35.2 0h9.5v9.5h-9.5z" />
-          </g>
-        </svg>
-      )
-    },
-    {
       id: 'india',
       name: 'India',
       title: 'India Office',
-      info: 'Bengaluru, Karnataka, India',
+      info: 'Bengaluru & Madurai, India',
       top: '50%',
       left: '69%',
       pulseColor: 'rgba(255, 153, 51, 0.7)', // Saffron
@@ -68,10 +49,10 @@ const GlobalMap = () => {
         <div className="row">
           <div className="col-12">
             <div className="title-area-center text-center mb--50">
-              <span className="pre-title fw-bold text-primary">Global Reach</span>
-              <h2 className="title text-white">Located Around the World</h2>
+              <span className="pre-title fw-bold text-primary">Our Presence</span>
+              <h2 className="title text-white">Headquartered in India</h2>
               <p className="disc text-gray-light">
-                We have a global presence to serve you better, with key offices strategically located across major continents.
+                We serve global clients from our state-of-the-art innovation hubs and headquarters in India.
               </p>
             </div>
           </div>

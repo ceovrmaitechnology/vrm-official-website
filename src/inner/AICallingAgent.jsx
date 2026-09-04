@@ -1,5 +1,6 @@
 
 import React, { useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import HeaderOne from '../components/header/HeaderOne';
 import FooterOne from '../components/footer/FooterOne';
@@ -25,6 +26,20 @@ function AICallingAgent() {
 
     return (
         <div className="rts-ai-calling-agent">
+            <Helmet>
+                <title>AI Calling Agent &amp; Conversational Voice Solutions | VRM AI Technology</title>
+                <meta name="description" content="Deploy enterprise AI calling agents for 24/7 inbound customer support and outbound campaigns. Native CRM integration, 95+ languages, and smart human handoff." />
+                <meta property="og:title" content="AI Calling Agent &amp; Conversational Voice Solutions | VRM AI Technology" />
+                <meta property="og:description" content="Deploy enterprise AI calling agents for 24/7 inbound customer support and outbound campaigns. Native CRM integration, 95+ languages, and smart human handoff." />
+                <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
+                <meta property="og:url" content="https://www.vrmaitechnology.com/solutions/ai-calling-agent" />
+                <link rel="canonical" href="https://www.vrmaitechnology.com/solutions/ai-calling-agent" />
+
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="AI Calling Agent &amp; Conversational Voice Solutions | VRM AI Technology" />
+                <meta name="twitter:description" content="Deploy enterprise AI calling agents for 24/7 inbound customer support and outbound campaigns. Native CRM integration, 95+ languages, and smart human handoff." />
+                <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
+            </Helmet>
             <HeaderOne className="header-white-text" />
 
             {/* 1. Hero Section - Enterprise Gradient */}

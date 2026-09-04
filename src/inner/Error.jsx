@@ -24,7 +24,7 @@ function Error() {
                         <div className="col-12">
                             <div className="404wrapper text-center">
                                 <div className="thumbnail">
-                                    <img src="assets/images/contact/shape/404.png" alt="" />
+                                    <img src="assets/images/contact/shape/404.png" alt="404 Page Not Found Illustration" loading="lazy" />
                                 </div>
                                 <h2 className="title mt--40">Oops! Nothing Was Found</h2>
                                 <p className="disc">

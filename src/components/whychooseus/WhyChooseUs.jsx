@@ -61,7 +61,7 @@ function WhyChooseUs() {
                                         <Link to={'/team-details'} className="thumbnail">
                                             <img
                                                 src="assets/images/business-goal/team.png"
-                                                alt="Image-team"
+                                                alt="Team Support"
                                             />
                                         </Link>
                                         <div className="details">
