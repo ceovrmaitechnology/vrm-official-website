@@ -1,0 +1,17 @@
+[
+  {
+    "id": "deploy-vrm",
+    "execute-command": "/var/www/vrm-official-website/deploy.sh",
+    "command-working-directory": "/var/www/vrm-official-website",
+    "trigger-rule": {
+      "match": {
+        "type": "value",
+        "value": "refs/heads/main",
+        "parameter": {
+          "source": "payload",
+          "name": "ref"
+        }
+      }
+    }
+  }
+]

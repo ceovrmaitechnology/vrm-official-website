@@ -1,0 +1,82 @@
+import React, { useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
+import WOW from 'wow.js';
+import HeaderOne from "../components/header/HeaderOne";
+import BannerOne from "../components/banner/BannerOne";
+import HomeOverview from "../components/home/HomeOverview";
+import AboutOne from "../components/about/AboutOne";
+import ServiceOne from "../components/service/ServiceOne";
+import BusinessGoalOne from "../components/businessgoal/BusinessGoalOne";
+import WorkflowTestimonials from "../components/testimonials/WorkflowTestimonials";
+import ContactForm from "../components/contactform/ContactForm";
+import FooterOne from "../components/footer/FooterOne";
+import WhyChooseUsFooter from "../components/whychooseus/WhyChooseUsFooter";
+
+function HomeOne() {
+  useEffect(() => {
+    const wow = new WOW({
+      boxClass: 'wow',
+      animateClass: 'animated',
+      offset: 0,
+      mobile: true,
+      live: true
+    });
+    wow.init();
+  }, []);
+
+  return (
+    <div>
+      <Helmet>
+        <title>VRM AI Technology | AI Software &amp; Product Development Company in Bangalore, Madurai &amp; India</title>
+        <meta name="description" content="VRM AI Technology builds GenAI platforms, AI chatbots, voice AI and automation for enterprises. Serving Bangalore, Madurai, Tamil Nadu and India." />
+        <meta property="og:title" content="VRM AI Technology | AI Software &amp; Product Development Company in Bangalore, Madurai &amp; India" />
+        <meta property="og:description" content="VRM AI Technology builds GenAI platforms, AI chatbots, voice AI and automation for enterprises. Serving Bangalore, Madurai, Tamil Nadu and India." />
+        <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
+        <link rel="canonical" href="https://www.vrmaitechnology.com/" />
+      
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="VRM AI Technology | AI Software &amp; Product Development Company in Bangalore, Madurai &amp; India" />
+        <meta name="twitter:description" content="VRM AI Technology builds GenAI platforms, AI chatbots, voice AI and automation for enterprises. Serving Bangalore, Madurai, Tamil Nadu and India." />
+        <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
+
+        {/* Organization JSON-LD Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "VRM AI Technology Private Limited",
+            "url": "https://www.vrmaitechnology.com/",
+            "logo": "https://www.vrmaitechnology.com/logo.png",
+            "email": "contactus@vrmaitechnology.com",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "GoodWorks Infinity Park, 21, 2nd Main Rd, Electronic City Phase I",
+              "addressLocality": "Bengaluru",
+              "addressRegion": "Karnataka",
+              "postalCode": "560100",
+              "addressCountry": "IN"
+            },
+            /* TODO: Add real social profile URLs here (e.g. LinkedIn, Twitter/X, Instagram, Facebook) */
+            "sameAs": []
+          })}
+        </script>
+      </Helmet>
+      <HeaderOne className="header-transparent header-white-text" />
+      <BannerOne />
+      <HomeOverview />
+      <AboutOne />
+      <ServiceOne />
+      <BusinessGoalOne />
+      <WorkflowTestimonials
+        title="Why teams keep choosing Workflow.AI by VRM AI Technology"
+        description="Hiring teams use Workflow.AI by VRM AI Technology to move faster with better screening quality, while candidates get a cleaner and more consistent interview experience."
+      />
+      <ContactForm />
+      <WhyChooseUsFooter />
+      <FooterOne />
+
+    </div>
+  )
+}
+
+export default HomeOne;

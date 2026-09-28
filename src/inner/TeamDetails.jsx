@@ -1,0 +1,208 @@
+import React from 'react';
+import { Helmet } from 'react-helmet-async';
+
+import HeaderOne from "../components/header/HeaderOne";
+
+import { Link } from 'react-router-dom';
+import FooterOne from "../components/footer/FooterOne";
+import Breadcrumb from "./Breadcrumb";
+
+function TeamDetails() {
+    const breadcrumbs = [
+        { label: 'Home', link: '/' },
+        { label: 'Team Style 1' }
+    ];
+    return (
+        <div className=''>
+            <Helmet>
+                <title>Team Member Profile | VRM AI Technology</title>
+                <meta name="description" content="Professional profile and skills breakdown of VRM AI Technology leadership and engineering experts." />
+                <link rel="canonical" href="https://www.vrmaitechnology.com/team-details" />
+                <meta property="og:title" content="Team Member Profile | VRM AI Technology" />
+                <meta property="og:description" content="Professional profile and skills breakdown of VRM AI Technology leadership and engineering experts." />
+                <meta property="og:url" content="https://www.vrmaitechnology.com/team-details" />
+                <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="Team Member Profile | VRM AI Technology" />
+                <meta name="twitter:description" content="Professional profile and skills breakdown of VRM AI Technology leadership and engineering experts." />
+            </Helmet>
+
+            <HeaderOne />
+
+            <Breadcrumb title="Team Style 1" breadcrumbs={breadcrumbs} />
+
+            {/* rts-team details area Start*/}
+            <div className="rts-team-details rts-section-gap">
+                <div className="container">
+                    <div className="row g-5">
+                        <div className="col-xl-6 col-lg-12 col-md-12">
+                            <div className="details-thumb">
+                                <img src="assets/images/team/tm/team-lg.jpg" alt="VRM AI Business Expert Team Member" loading="lazy" />
+                            </div>
+                        </div>
+                        <div className="col-xl-6 col-lg-12 col-md-12 pl--35 pl_sm--15">
+                            <div className="details-right-inner">
+                                <div className="title-area">
+                                    <span className="pre-title">Business Expert</span>
+                                    <h3 className="title">David X. Smith</h3>
+                                </div>
+                                <p className="disc">
+                                    Vehicula duis tempus vel porttitor lacus morbi pharetra neque,
+                                    pretium ad enim urna ridiculus nibh, mus class arcu magna ornare
+                                    orci mollis. Posuere quam eget non mollis platea habitasse cras
+                                    feugiat.
+                                </p>
+                                <div className="team-details-support-wrapper">
+                                    <i className="far fa-envelope" />
+                                    <div className="support-innner">
+                                        <span>Email Address</span>
+                                        <Link to={'#'}>
+                                            <h5 className="title">support@david.com</h5>
+                                        </Link>
+                                    </div>
+                                </div>
+                                <div className="team-details-support-wrapper">
+                                    <i className="fal fa-phone-volume" />
+                                    <div className="support-innner">
+                                        <span>Phone Number</span>
+                                        <Link to={'#'}>
+                                            <h5 className="title">+259 2154.21568</h5>
+                                        </Link>
+                                    </div>
+                                </div>
+                                <div className="team-details-support-wrapper">
+                                    <i className="far fa-map-marker-alt" />
+                                    <div className="support-innner">
+                                        <span>Office Location</span>
+                                        <Link to={'#'}>
+                                            <h5 className="title">24/DA, Hilton Street, United State</h5>
+                                        </Link>
+                                    </div>
+                                </div>
+                                <Link to={'#'} className="rts-btn btn-primary">
+                                    {" "}
+                                    Get in Touch
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {/* rts-team details area ENd */}
+
+            {/* rts skills area start */}
+            <div className="rts-team-skill-area rts-section-gapBottom">
+                <div className="container">
+                    <div className="row g-5">
+                        <div className="col-lg-6">
+                            {/* single skill area */}
+                            <div className="single-about-skill-inner">
+                                <h5 className="title">Professional Skills</h5>
+                                <p className="disc">
+                                    Completely evisculate stand alone expertise through revolutionary
+                                    strategic are theme areas fashion impactful paradigms for process
+                                    centric relationships with whiteboard seamless intellectual
+                                    capital with methods.
+                                </p>
+                                <div className="rts-progress-one-wrapper">
+                                    <div className="single-progress">
+                                        <div className="progress-top">
+                                            <p className="progress-title">Product Design</p>
+                                            <span className="persectage">70%</span>
+                                        </div>
+                                        <div className="meter cadetblue">
+                                            <span data-progress={70} style={{ width: '90%' }} />
+                                        </div>
+                                    </div>
+                                    <div className="single-progress">
+                                        <div className="progress-top">
+                                            <p className="progress-title">Growth Analysis</p>
+                                            <span className="persectage">93%</span>
+                                        </div>
+                                        <div className="meter">
+                                            <span data-progress={93} style={{ width: '80%' }} />
+                                        </div>
+                                    </div>
+                                    <div className="single-progress">
+                                        <div className="progress-top">
+                                            <p className="progress-title">Brand Managment</p>
+                                            <span className="persectage">85%</span>
+                                        </div>
+                                        <div className="meter orange">
+                                            <span data-progress={85} style={{ width: '65%' }} />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {/* single skill area end*/}
+                        </div>
+                        <div className="col-lg-6">
+                            {/* single skill area */}
+                            <div className="single-about-skill-inner pl--30 pl_md--0 pl_sm--0">
+                                <h5 className="title">Educational Experience</h5>
+                                <p className="disc">
+                                    Completely evisculate stand alone expertise through revolutionary
+                                    strategic are theme areas fashion impactful paradigms for process
+                                    centric relationships with whiteboard seamless intellectual
+                                    capital with methods.
+                                </p>
+                                <div className="education-skill-wrapper">
+                                    <div className="single-skill">
+                                        <div className="number-area">
+                                            <p>
+                                                1 <span>st</span>
+                                            </p>
+                                        </div>
+                                        <h6 className="experience">Business Expert</h6>
+                                        <div className="date">
+                                            2016 - Present <span>(VRM AI)</span>
+                                        </div>
+                                    </div>
+                                    <div className="single-skill">
+                                        <div className="number-area">
+                                            <p>
+                                                2 <span>nd</span>
+                                            </p>
+                                        </div>
+                                        <h6 className="experience">Finance Manager</h6>
+                                        <div className="date">
+                                            2016 - Present <span>(VRM AI)</span>
+                                        </div>
+                                    </div>
+                                    <div className="single-skill">
+                                        <div className="number-area">
+                                            <p>
+                                                3 <span>rd</span>
+                                            </p>
+                                        </div>
+                                        <h6 className="experience">Junior Technician</h6>
+                                        <div className="date">
+                                            2016 - Present <span>(VRM AI)</span>
+                                        </div>
+                                    </div>
+                                    <div className="single-skill">
+                                        <div className="number-area">
+                                            <p>
+                                                4 <span>th</span>
+                                            </p>
+                                        </div>
+                                        <h6 className="experience">Junior Architect</h6>
+                                        <div className="date">
+                                            2016 - Present <span>(VRM AI)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {/* single skill area end*/}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <FooterOne />
+
+        </div>
+    )
+}
+
+export default TeamDetails
