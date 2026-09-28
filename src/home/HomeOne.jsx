@@ -29,6 +29,7 @@ function HomeOne() {
       <Helmet>
         <title>VRM AI Technology | AI Software &amp; Product Development Company in Bangalore, Madurai &amp; India</title>
         <meta name="description" content="VRM AI Technology builds GenAI platforms, AI chatbots, voice AI and automation for enterprises. Serving Bangalore, Madurai, Tamil Nadu and India." />
+        <meta name="google-site-verification" content="BHWFsJk7QwxFmeawRX7466PLLSeyzrU_TGjP5ujGAW8" />
         <meta property="og:title" content="VRM AI Technology | AI Software &amp; Product Development Company in Bangalore, Madurai &amp; India" />
         <meta property="og:description" content="VRM AI Technology builds GenAI platforms, AI chatbots, voice AI and automation for enterprises. Serving Bangalore, Madurai, Tamil Nadu and India." />
         <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
