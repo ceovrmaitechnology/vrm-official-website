@@ -366,56 +366,34 @@ const REDIRECT_MAP = {
   "/solutions/generative-ai-development": "/generative-ai-development",
   "/our-service": "/solutions",
   // Template demo routes redirected to home
-  "/home-two": "/",
-  "/home-three": "/",
-  "/home-four": "/",
-  "/home-five": "/",
-  "/home-six": "/",
-  "/home-seven": "/",
-  "/home-eight": "/",
-  "/home-nine": "/",
-  "/home-ten": "/",
-  "/service-2": "/",
-  "/service-3": "/",
-  "/service-two": "/",
-  "/service-three": "/",
-  "/appoinment": "/",
-  "/pricing-plane": "/",
-  "/testimonial-style-1": "/",
-  "/testimonials-one": "/",
-  "/project": "/",
-  "/project-details": "/",
-  "/portfolio-style-2": "/",
-  "/portfolio-style-3": "/",
-  "/portfolio-style-4": "/",
-  "/portfolio-style-5": "/",
-  "/team": "/",
-  "/team-style-2": "/",
-  "/team-style-3": "/",
-  "/team-style-4": "/",
-  "/team-style-5": "/",
-  "/team-details": "/",
-  "/blog-list": "/",
-  "/blog-grid": "/",
-  "/blog-details": "/",
-  "/blog-details-default": "/",
-  "/onepage-one": "/",
-  "/onepage-two": "/",
-  "/onepage-three": "/",
-  "/onepage-four": "/",
-  "/onepage-five": "/",
-  "/onepage-six": "/",
-  "/onepage-seven": "/",
-  "/onepage-eight": "/",
-  "/onepage-nine": "/",
-  "/onepage-ten": "/"
+  "/home-two": "/", "/home-three": "/", "/home-four": "/", "/home-five": "/",
+  "/home-six": "/", "/home-seven": "/", "/home-eight": "/", "/home-nine": "/", "/home-ten": "/"
 };
 
-// 301 Redirect Middleware
+// Routes that are truly gone (no replacement) — serve 410 Gone
+const GONE_ROUTES = new Set([
+  "/service-2", "/service-3", "/service-two", "/service-three",
+  "/appoinment", "/pricing-plane", "/testimonial-style-1", "/testimonials-one",
+  "/project", "/project-details",
+  "/portfolio-style-2", "/portfolio-style-3", "/portfolio-style-4", "/portfolio-style-5",
+  "/team", "/team-style-2", "/team-style-3", "/team-style-4", "/team-style-5", "/team-details",
+  "/blog-list", "/blog-grid", "/blog-details", "/blog-details-default",
+  "/onepage-one", "/onepage-two", "/onepage-three", "/onepage-four", "/onepage-five",
+  "/onepage-six", "/onepage-seven", "/onepage-eight", "/onepage-nine", "/onepage-ten"
+]);
+
+// 301 Redirect Middleware (real replacements only)
 app.use((req, res, next) => {
   const reqPath = req.path.replace(/\/+$/, "") || "/";
   if (REDIRECT_MAP[reqPath]) {
     return res.redirect(301, REDIRECT_MAP[reqPath]);
+  }
+  // Dead template routes: 410 Gone (no replacement exists)
+  if (GONE_ROUTES.has(reqPath)) {
+    res.status(410);
+    const error404File = path.resolve(__dirname, "../build/404/index.html");
+    if (fs.existsSync(error404File)) return res.sendFile(error404File);
+    return res.send("410 Gone");
   }
   next();
 });

@@ -24,7 +24,7 @@ function AICompanyBangalore() {
         },
         {
             q: "Where is VRM AI Technology located in Bengaluru?",
-            a: "Our registered office is at No. 22, 1st Cross, Sampige Layout, Electronic City Phase 2, Bengaluru, Karnataka 560100, India. Our staffed development center is located in Madurai, Tamil Nadu."
+            a: "Our registered office is at GoodWorks Infinity Park, 21, 2nd Main Rd, Electronic City Phase I, Bengaluru, Karnataka 560100, India. Our staffed development center is located in Madurai, Tamil Nadu."
         },
         {
             q: "How does VRM AI Technology work with Bengaluru organizations?",
@@ -151,7 +151,7 @@ function AICompanyBangalore() {
                                 <div className="col-sm-6">
                                     <div className="p-3 rounded" style={{ background: '#f8fafc', borderLeft: '4px solid #3B4ECC' }}>
                                         <h6 style={{ fontWeight: '700', marginBottom: '4px' }}>Registered Office</h6>
-                                        <p style={{ fontSize: '13px', margin: 0, color: '#666' }}>Sampige Layout, Electronic City Phase 2, Bengaluru.</p>
+                                        <p style={{ fontSize: '13px', margin: 0, color: '#666' }}>GoodWorks Infinity Park, 21, 2nd Main Rd, Electronic City Phase I, Bengaluru.</p>
                                     </div>
                                 </div>
                                 <div className="col-sm-6">
@@ -173,7 +173,7 @@ function AICompanyBangalore() {
                                 <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 24px 0', fontSize: '14px', color: '#334155' }}>
                                     <li style={{ marginBottom: '12px', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
                                         <i className="fas fa-building text-primary mt-1"></i>
-                                        <span><strong>Registered Office:</strong> VRM AI Technology Private Limited<br />No. 22, 1st Cross, Sampige Layout, Electronic City Phase 2, Bengaluru, Karnataka 560100, India<br /><em style={{ fontSize: '12px', color: '#64748b' }}>(Registered office - no staffed operations)</em></span>
+                                        <span><strong>Registered Office:</strong> VRM AI Technology Private Limited<br />GoodWorks Infinity Park, 21, 2nd Main Rd, Electronic City Phase I, Bengaluru, Karnataka 560100, India<br /><em style={{ fontSize: '12px', color: '#64748b' }}>(Registered office - no staffed operations)</em></span>
                                     </li>
                                     <li style={{ marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '10px' }}>
                                         <i className="fas fa-id-card text-primary"></i>

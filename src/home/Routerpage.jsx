@@ -96,20 +96,26 @@ function RouterPage() {
                         <Route path="/articles" element={<Articles />}></Route>
                         <Route path="/404" element={<Error />}></Route>
 
-                        {/* Retired Template Demo Routes -> Redirect to Home */}
+                        {/* Home variant aliases -> / */}
                         {[
                             "/home-two", "/home-three", "/home-four", "/home-five", "/home-six",
-                            "/home-seven", "/home-eight", "/home-nine", "/home-ten",
+                            "/home-seven", "/home-eight", "/home-nine", "/home-ten"
+                        ].map((tPath) => (
+                            <Route key={tPath} path={tPath} element={<Navigate to="/" replace />} />
+                        ))}
+
+                        {/* Dead template demo routes — no replacement, render Error page */}
+                        {[
                             "/service-2", "/service-3", "/service-two", "/service-three",
                             "/appoinment", "/pricing-plane", "/testimonial-style-1", "/testimonials-one",
-                            "/project", "/project-details", "/portfolio-style-2", "/portfolio-style-3",
-                            "/portfolio-style-4", "/portfolio-style-5",
+                            "/project", "/project-details",
+                            "/portfolio-style-2", "/portfolio-style-3", "/portfolio-style-4", "/portfolio-style-5",
                             "/team", "/team-style-2", "/team-style-3", "/team-style-4", "/team-style-5", "/team-details",
                             "/blog-list", "/blog-grid", "/blog-details", "/blog/:id", "/blog-details-default",
                             "/onepage-one", "/onepage-two", "/onepage-three", "/onepage-four", "/onepage-five",
                             "/onepage-six", "/onepage-seven", "/onepage-eight", "/onepage-nine", "/onepage-ten"
                         ].map((tPath) => (
-                            <Route key={tPath} path={tPath} element={<Navigate to="/" replace />} />
+                            <Route key={tPath} path={tPath} element={<Error />} />
                         ))}
 
                         {/* Catch-all 404 */}

@@ -76,9 +76,9 @@ const path = require('path');
 
   const chromePath = getChromePath();
   if (!chromePath) {
-    console.warn('[PRERENDER WARNING] No Chrome/Chromium executable found on this system. Skipping Puppeteer prerendering.');
+    console.error('[PRERENDER ERROR] No Chrome/Chromium executable found on this system. Production build requires Chrome for SEO prerendering.');
     server.close();
-    return;
+    process.exit(1);
   }
 
   console.log(`Starting pre-render for ${routes.length} routes using browser at: ${chromePath}`);
@@ -88,27 +88,48 @@ const path = require('path');
     browser = await puppeteer.launch({
       executablePath: chromePath,
       headless: true,
-      args: ['--no-sandbox', '--disable-gpu', '--disable-dev-shm-usage']
+      args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-gpu', '--disable-dev-shm-usage']
     });
   } catch (err) {
-    console.warn(`[PRERENDER WARNING] Could not launch browser: ${err.message}. Skipping Puppeteer prerendering.`);
+    console.error(`[PRERENDER ERROR] Could not launch browser: ${err.message}. Production build requires successful prerendering.`);
     server.close();
-    return;
+    process.exit(1);
   }
 
   const page = await browser.newPage();
   await page.setViewport({ width: 1280, height: 800 });
 
+  page.on('console', msg => console.log('[PAGE LOG]', msg.text()));
+  page.on('pageerror', err => console.error('[PAGE ERROR]', err));
+
   let successCount = 0;
   for (const route of routes) {
     const url = `http://localhost:${PORT}${route}`;
     try {
-      await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 15000 });
-      await page.waitForSelector('#root > *', { timeout: 8000 }).catch(() => {});
-      await new Promise(r => setTimeout(r, 200));
+      await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 20000 });
+
+      // Wait for React root to mount children
+      await page.waitForSelector('#root > *', { timeout: 12000 }).catch(() => {});
+
+      // Poll until react-helmet-async injects <title> and <link rel="canonical">
+      const canonicalTarget = route === '/' || route === '' ? 'https://www.vrmaitechnology.com' : `https://www.vrmaitechnology.com${route.startsWith('/') ? route : '/' + route}`;
+      
+      try {
+        await page.waitForFunction((targetUrl) => {
+          const t = document.querySelector('title');
+          const c = document.querySelector('link[rel="canonical"]');
+          return t && t.textContent && t.textContent.trim().length > 0 &&
+                 c && c.href && (c.href === targetUrl || c.href === targetUrl + '/');
+        }, { timeout: 15000 }, canonicalTarget);
+      } catch (e) {
+        console.error(`[PRERENDER ERROR] ${route}: Timeout waiting for title and canonical (${canonicalTarget}).`);
+        process.exit(1);
+      }
+
+      // Extra settle for any remaining async renders
+      await new Promise(r => setTimeout(r, 400));
 
       const html = await page.content();
-      
       let outPath;
       if (route === '/' || route === '') {
         outPath = path.join(buildDir, 'index.html');

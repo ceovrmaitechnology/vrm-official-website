@@ -52,7 +52,7 @@ function HomeOne() {
             "email": "contactus@vrmaitechnology.com",
             "address": {
               "@type": "PostalAddress",
-              "streetAddress": "No. 22, 1st Cross, Sampige Layout, Electronic City Phase 2",
+              "streetAddress": "GoodWorks Infinity Park, 21, 2nd Main Rd, Electronic City Phase I",
               "addressLocality": "Bengaluru",
               "addressRegion": "Karnataka",
               "postalCode": "560100",
@@ -64,7 +64,7 @@ function HomeOne() {
                 "name": "Headquarters / Registered Office",
                 "address": {
                   "@type": "PostalAddress",
-                  "streetAddress": "No. 22, 1st Cross, Sampige Layout, Electronic City Phase 2",
+                  "streetAddress": "GoodWorks Infinity Park, 21, 2nd Main Rd, Electronic City Phase I",
                   "addressLocality": "Bengaluru",
                   "addressRegion": "Karnataka",
                   "postalCode": "560100",

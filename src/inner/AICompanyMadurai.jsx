@@ -45,6 +45,10 @@ function AICompanyMadurai() {
         {
             q: "Is VRM AI Technology ISO certified?",
             a: "Yes. VRM AI Technology is ISO 9001:2015 certified."
+        },
+        {
+            q: "How can I contact the Madurai development center?",
+            a: "You can reach our Madurai engineering team through our Contact Us page, by emailing contactus@vrmaitechnology.com, or by calling +91 81233 48355."
         }
     ];
 
