@@ -48,34 +48,51 @@ function BannerOne() {
                     boxSizing: "border-box",
                 }}
             >
-                {/* Background Video — 100% fill, no white gaps */}
-                <video
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    preload="auto"
-                    style={{
-                        position: "absolute",
-                        top: "50%",
-                        left: "50%",
-                        width: "100%",
-                        height: "100%",
-                        transform: "translate(-50%, -50%)",
-                        objectFit: w >= 768 ? "cover" : "contain",
-                        objectPosition: "center center",
-                        display: "block",
-                        zIndex: 1,
-                    }}
-                    onLoadedData={() => console.log("✅ Video loaded")}
-                    onPlay={() => console.log("▶️ Video playing")}
-                    onError={(e) => console.log("❌ Video error", e)}
-                >
-                    <source
-                        src="/assets/images/home/vrm-hero-video.mp4"
-                        type="video/mp4"
+                {isDesktop ? (
+                    <video
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        preload="metadata"
+                        poster="/assets/images/home/home-2.webp"
+                        style={{
+                            position: "absolute",
+                            top: "50%",
+                            left: "50%",
+                            width: "100%",
+                            height: "100%",
+                            transform: "translate(-50%, -50%)",
+                            objectFit: "cover",
+                            objectPosition: "center center",
+                            display: "block",
+                            zIndex: 1,
+                        }}
+                    >
+                        <source
+                            src="/assets/images/home/vrm-hero-video.mp4"
+                            type="video/mp4"
+                        />
+                    </video>
+                ) : (
+                    <img
+                        src="/assets/images/home/home-2.webp"
+                        alt="VRM AI Technology Software Solutions"
+                        fetchpriority="high"
+                        style={{
+                            position: "absolute",
+                            top: "50%",
+                            left: "50%",
+                            width: "100%",
+                            height: "100%",
+                            transform: "translate(-50%, -50%)",
+                            objectFit: w >= 768 ? "cover" : "contain",
+                            objectPosition: "center center",
+                            display: "block",
+                            zIndex: 1,
+                        }}
                     />
-                </video>
+                )}
 
                 {/* Know More Button — anchored to bottom */}
                 <div

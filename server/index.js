@@ -356,14 +356,108 @@ app.post(
   })
 );
 
-// SPA Fallback for client-side routing (non-API GET requests)
+const REDIRECT_MAP = {
+  "/ai-chatbot-development": "/solutions/ai-chatbot-development",
+  "/ai-consulting": "/solutions/ai-consulting-services",
+  "/voice-ai-solutions": "/solutions/ai-calling-agent",
+  "/ai-company-chennai": "/ai-software-services-chennai",
+  "/products/b2d": "/products/bench-to-deploy",
+  "/products/vevora": "/products/vrm-real-estate",
+  "/solutions/generative-ai-development": "/generative-ai-development",
+  "/our-service": "/solutions",
+  // Template demo routes redirected to home
+  "/home-two": "/",
+  "/home-three": "/",
+  "/home-four": "/",
+  "/home-five": "/",
+  "/home-six": "/",
+  "/home-seven": "/",
+  "/home-eight": "/",
+  "/home-nine": "/",
+  "/home-ten": "/",
+  "/service-2": "/",
+  "/service-3": "/",
+  "/service-two": "/",
+  "/service-three": "/",
+  "/appoinment": "/",
+  "/pricing-plane": "/",
+  "/testimonial-style-1": "/",
+  "/testimonials-one": "/",
+  "/project": "/",
+  "/project-details": "/",
+  "/portfolio-style-2": "/",
+  "/portfolio-style-3": "/",
+  "/portfolio-style-4": "/",
+  "/portfolio-style-5": "/",
+  "/team": "/",
+  "/team-style-2": "/",
+  "/team-style-3": "/",
+  "/team-style-4": "/",
+  "/team-style-5": "/",
+  "/team-details": "/",
+  "/blog-list": "/",
+  "/blog-grid": "/",
+  "/blog-details": "/",
+  "/blog-details-default": "/",
+  "/onepage-one": "/",
+  "/onepage-two": "/",
+  "/onepage-three": "/",
+  "/onepage-four": "/",
+  "/onepage-five": "/",
+  "/onepage-six": "/",
+  "/onepage-seven": "/",
+  "/onepage-eight": "/",
+  "/onepage-nine": "/",
+  "/onepage-ten": "/"
+};
+
+// 301 Redirect Middleware
 app.use((req, res, next) => {
-  if (req.method !== "GET" || req.path.startsWith("/api")) return next();
-  const buildIndex = path.resolve(__dirname, "../build/index.html");
-  if (fs.existsSync(buildIndex)) {
-    return res.sendFile(buildIndex);
+  const reqPath = req.path.replace(/\/+$/, "") || "/";
+  if (REDIRECT_MAP[reqPath]) {
+    return res.redirect(301, REDIRECT_MAP[reqPath]);
   }
   next();
+});
+
+// SPA & Prerendered File Serving with 404 Status for Unknown URLs
+app.use((req, res, next) => {
+  if (req.method !== "GET" || req.path.startsWith("/api")) return next();
+
+  const reqPath = req.path.replace(/\/+$/, "") || "/";
+  const buildDir = path.resolve(__dirname, "../build");
+  if (!fs.existsSync(buildDir)) return next();
+
+  // 1. Root route
+  if (reqPath === "/") {
+    const rootIndex = path.join(buildDir, "index.html");
+    if (fs.existsSync(rootIndex)) return res.sendFile(rootIndex);
+  }
+
+  // 2. Check for prerendered subroute HTML, e.g. build/ai-company-madurai/index.html
+  const cleanRoute = reqPath.startsWith("/") ? reqPath.slice(1) : reqPath;
+  const subRouteFile = path.join(buildDir, cleanRoute, "index.html");
+  if (fs.existsSync(subRouteFile)) {
+    return res.sendFile(subRouteFile);
+  }
+
+  // 3. Check if static asset exists directly
+  const directFile = path.join(buildDir, cleanRoute);
+  if (fs.existsSync(directFile) && fs.statSync(directFile).isFile()) {
+    return res.sendFile(directFile);
+  }
+
+  // 4. Unknown route -> return real 404 status
+  res.status(404);
+  const error404File = path.join(buildDir, "404", "index.html");
+  if (fs.existsSync(error404File)) {
+    return res.sendFile(error404File);
+  }
+  const rootIndex = path.join(buildDir, "index.html");
+  if (fs.existsSync(rootIndex)) {
+    return res.sendFile(rootIndex);
+  }
+  res.send("404 Not Found");
 });
 
 const server = http.createServer({ maxHeaderSize: 64 * 1024 }, app);

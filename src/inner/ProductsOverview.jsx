@@ -17,12 +17,26 @@ function ProductsOverview() {
     return (
         <div className="products-overview-page workflow-page basic-font-family">
             <Helmet>
-                <title>Our AI Products | Suite Overview | VRM AI</title>
-                <meta name="description" content="Explore VRM AI Technology's intelligent products: Workflow.AI recruitment suite, AI Buddy, People Connect, Visionix AI, and VRM Real Estate automation." />
-                <meta property="og:title" content="Our AI Products Suite Overview | VRM AI" />
-                <meta property="og:description" content="Explore VRM AI Technology's intelligent products: Workflow.AI recruitment suite, AI Buddy, People Connect, Visionix AI, and VRM Real Estate automation." />
+                <title>AI Products Suite | VRM AI Technology</title>
+                <meta name="description" content="Explore VRM AI Technology's intelligent products: Workflow AI recruitment suite, AI Buddy, People Connect, Visionix AI, and VRM Reality." />
+                <meta property="og:title" content="AI Products Suite | VRM AI Technology" />
+                <meta property="og:description" content="Explore VRM AI Technology's intelligent products: Workflow AI recruitment suite, AI Buddy, People Connect, Visionix AI, and VRM Reality." />
                 <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
                 <link rel="canonical" href="https://www.vrmaitechnology.com/products" />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="AI Products Suite | VRM AI Technology" />
+                <meta name="twitter:description" content="Explore VRM AI Technology's intelligent products: Workflow AI recruitment suite, AI Buddy, People Connect, Visionix AI, and VRM Reality." />
+                <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.vrmaitechnology.com/" },
+                            { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://www.vrmaitechnology.com/products" }
+                        ]
+                    })}
+                </script>
             </Helmet>
             <HeaderOne />
 
@@ -42,7 +56,7 @@ function ProductsOverview() {
                             <div className="vrm-hero__content">
                                 <span className="pre-title wow fadeInUp text-white-50" data-wow-delay=".1s">Enterprise AI Suite</span>
                                 <h1 className="title wow fadeInUp text-white vrm-workflow-hero-title" data-wow-delay=".2s">
-                                    Our Products
+                                    AI Software Products &amp; Platforms
                                 </h1>
                                 <p className="disc wow fadeInUp mt-4 mb-5 vrm-workflow-hero-disc" data-wow-delay=".3s" style={{ color: 'rgba(255, 255, 255, 0.8)' }}>
                                     Discover our suite of next-generation intelligent platforms, automation systems, and speech training modules built on VRM's state-of-the-art AI technology.
@@ -77,7 +91,7 @@ function ProductsOverview() {
                         <div className="col-lg-6 wow fadeInRight" data-wow-delay=".2s">
                             <div className="about-inner">
                                 <div className="rts-title-area" data-text="Xpress Screening">
-                                    <span className="pre-title" style={{ color: '#3B4ECC', display: 'block', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '13px', fontWeight: '700', marginBottom: '5px' }}>Workflow.AI</span>
+                                    <span className="pre-title" style={{ color: '#3B4ECC', display: 'block', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '13px', fontWeight: '700', marginBottom: '5px' }}>Workflow AI</span>
                                     <h2 className="title">Xpress Screening</h2>
                                 </div>
                                 <p className="disc">
@@ -104,7 +118,7 @@ function ProductsOverview() {
                         <div className="col-lg-6 order-lg-1 wow fadeInLeft" data-wow-delay=".2s">
                             <div className="about-inner">
                                 <div className="rts-title-area" data-text="ScreenSage">
-                                    <span className="pre-title" style={{ color: '#3B4ECC', display: 'block', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '13px', fontWeight: '700', marginBottom: '5px' }}>Workflow.AI</span>
+                                    <span className="pre-title" style={{ color: '#3B4ECC', display: 'block', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '13px', fontWeight: '700', marginBottom: '5px' }}>Workflow AI</span>
                                     <h2 className="title">ScreenSage</h2>
                                 </div>
                                 <p className="disc">
@@ -131,7 +145,7 @@ function ProductsOverview() {
                         <div className="col-lg-6 wow fadeInRight" data-wow-delay=".2s">
                             <div className="about-inner">
                                 <div className="rts-title-area" data-text="VideoSage">
-                                    <span className="pre-title" style={{ color: '#3B4ECC', display: 'block', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '13px', fontWeight: '700', marginBottom: '5px' }}>Workflow.AI</span>
+                                    <span className="pre-title" style={{ color: '#3B4ECC', display: 'block', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '13px', fontWeight: '700', marginBottom: '5px' }}>Workflow AI</span>
                                     <h2 className="title">VideoSage</h2>
                                 </div>
                                 <p className="disc">
@@ -158,7 +172,7 @@ function ProductsOverview() {
                         <div className="col-lg-6 order-lg-1 wow fadeInLeft" data-wow-delay=".2s">
                             <div className="about-inner">
                                 <div className="rts-title-area" data-text="CodeSage">
-                                    <span className="pre-title" style={{ color: '#3B4ECC', display: 'block', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '13px', fontWeight: '700', marginBottom: '5px' }}>Workflow.AI</span>
+                                    <span className="pre-title" style={{ color: '#3B4ECC', display: 'block', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '13px', fontWeight: '700', marginBottom: '5px' }}>Workflow AI</span>
                                     <h2 className="title">CodeSage</h2>
                                 </div>
                                 <p className="disc">
@@ -184,8 +198,8 @@ function ProductsOverview() {
                         </div>
                         <div className="col-lg-6 wow fadeInRight" data-wow-delay=".2s">
                             <div className="about-inner">
-                                <div className="rts-title-area" data-text="People Connect (Global)">
-                                    <h2 className="title">People Connect (Global)</h2>
+                                <div className="rts-title-area" data-text="People Connect">
+                                    <h2 className="title">People Connect</h2>
                                 </div>
                                 <p className="disc">
                                     AI-powered citizen engagement platform that modernizes public services through intelligent communication and digital governance.
@@ -277,25 +291,52 @@ function ProductsOverview() {
                 </div>
             </div>
 
-            {/* --- Product 9: VRM Real Estate --- */}
+            {/* --- Product 9: VRM Reality --- */}
             <div id="vrm-real-estate" className="rts-about-area rts-section-gap" style={{ background: '#f8f9fa' }}>
                 <div className="container">
                     <div className="row g-5 align-items-center">
                         <div className="col-lg-6 wow fadeInLeft" data-wow-delay=".2s">
                             <div className="vrm-product-thumbnail">
-                                <img src="/assets/images/vrm-real-estate/vrm-real-estate-hero.png" alt="VRM Real Estate Automation Dashboard" loading="lazy" />
+                                <img src="/assets/images/vrm-real-estate/vrm-real-estate-hero.png" alt="VRM Reality Automation Dashboard" loading="lazy" />
                             </div>
                         </div>
                         <div className="col-lg-6 wow fadeInRight" data-wow-delay=".2s">
                             <div className="about-inner">
-                                <div className="rts-title-area" data-text="VRM Real Estate">
-                                    <span className="pre-title" style={{ color: '#3B4ECC', display: 'block', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '13px', fontWeight: '700', marginBottom: '5px' }}>Real Estate Automation</span>
-                                    <h2 className="title">VRM Real Estate</h2>
+                                <div className="rts-title-area" data-text="VRM Reality">
+                                    <span className="pre-title" style={{ color: '#3B4ECC', display: 'block', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '13px', fontWeight: '700', marginBottom: '5px' }}>Real Estate Offering</span>
+                                    <h2 className="title">VRM Reality</h2>
                                 </div>
                                 <p className="disc">
-                                    VRM Real Estate is an AI-powered real estate automation platform that connects buyer conversations, lead qualification, site visits, transportation, and agent operations into one intelligent workflow.
+                                    VRM Reality is a premium real estate offering from VRM AI Technology, supported by AI-powered automation.
                                 </p>
                                 <Link className="vrm-btn-product-blue" to="/products/vrm-real-estate">
+                                    Learn More <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* --- Product 10: Bench to Deploy (B2D) --- */}
+            <div id="bench-to-deploy" className="rts-about-area rts-section-gap" style={{ background: '#ffffff' }}>
+                <div className="container">
+                    <div className="row g-5 align-items-center">
+                        <div className="col-lg-6 order-lg-2 wow fadeInRight" data-wow-delay=".2s">
+                            <div className="vrm-product-thumbnail">
+                                <img src="/assets/images/workflow/codesage/codesage-image.png" alt="Bench to Deploy Dashboard" loading="lazy" />
+                            </div>
+                        </div>
+                        <div className="col-lg-6 order-lg-1 wow fadeInLeft" data-wow-delay=".2s">
+                            <div className="about-inner">
+                                <div className="rts-title-area" data-text="Bench to Deploy">
+                                    <span className="pre-title" style={{ color: '#3B4ECC', display: 'block', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '13px', fontWeight: '700', marginBottom: '5px' }}>Product</span>
+                                    <h2 className="title">Bench to Deploy (B2D)</h2>
+                                </div>
+                                <p className="disc">
+                                    Bench to Deploy (B2D), a product by VRM AI Technology.
+                                </p>
+                                <Link className="vrm-btn-product-blue" to="/products/bench-to-deploy">
                                     Learn More <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>
                                 </Link>
                             </div>

@@ -26,20 +26,35 @@ function VrmRealEstate() {
     return (
         <div className="vrm-real-estate-page basic-font-family">
             <Helmet>
-                <title>VRM Real Estate | AI-Powered Real Estate Automation Platform — VRM AI Technology</title>
-                <meta name="description" content="VRM Real Estate is an AI-powered real estate automation platform that connects buyer conversations, lead qualification, voice calling, site visits, cab coordination, and agent operations into one intelligent workflow." />
-                <meta property="og:title" content="VRM Real Estate | AI-Powered Real Estate Automation Platform — VRM AI Technology" />
-                <meta property="og:description" content="Turn property enquiries into qualified leads, scheduled site visits, and connected buyer experiences — automatically with VRM Real Estate." />
+                <title>VRM Reality | VRM AI Technology</title>
+                <meta name="description" content="VRM Reality is a premium real estate offering from VRM AI Technology, supported by AI-powered automation for buyer inquiries and workflows." />
+                <meta property="og:title" content="VRM Reality | VRM AI Technology" />
+                <meta property="og:description" content="VRM Reality is a premium real estate offering from VRM AI Technology, supported by AI-powered automation for buyer inquiries and workflows." />
                 <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/vrm-real-estate/vrm-real-estate-hero.png" />
                 <link rel="canonical" href="https://www.vrmaitechnology.com/products/vrm-real-estate" />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="VRM Reality | VRM AI Technology" />
+                <meta name="twitter:description" content="VRM Reality is a premium real estate offering from VRM AI Technology, supported by AI-powered automation for buyer inquiries and workflows." />
+                <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/vrm-real-estate/vrm-real-estate-hero.png" />
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.vrmaitechnology.com/" },
+                            { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://www.vrmaitechnology.com/products" },
+                            { "@type": "ListItem", "position": 3, "name": "VRM Reality", "item": "https://www.vrmaitechnology.com/products/vrm-real-estate" }
+                        ]
+                    })}
+                </script>
                 <script type="application/ld+json">
                     {JSON.stringify({
                         "@context": "https://schema.org",
                         "@type": "SoftwareApplication",
-                        "name": "VRM Real Estate",
+                        "name": "VRM Reality",
                         "operatingSystem": "Web",
                         "applicationCategory": "BusinessApplication",
-                        "description": "VRM Real Estate is an AI-powered real estate automation platform that connects buyer conversations, lead qualification, voice calling, site visits, cab coordination, and agent operations into one intelligent workflow.",
+                        "description": "VRM Reality is a premium real estate offering from VRM AI Technology, supported by AI-powered automation for property inquiries and agent workflows.",
                         "publisher": {
                             "@type": "Organization",
                             "name": "VRM AI Technology",
@@ -51,20 +66,20 @@ function VrmRealEstate() {
 
             <HeaderOne />
 
-            {/* 1. Hero Section - Enterprise Gradient */}
+            {/* 1. Hero Section */}
             <div className="vrm-full-width-section vrm-enterprise-gradient ptb--120 position-relative">
                 <div className="container position-relative z-index-1">
                     <div className="row align-items-center">
                         <div className="col-lg-7">
                             <div className="banner-content-two">
                                 <h1 className="title wow fadeInUp text-white" data-wow-delay=".2s">
-                                    VRM Real Estate
+                                    VRM Reality
                                 </h1>
                                 <h2 className="sub-title wow fadeInUp text-white-50" data-wow-delay=".25s" style={{ fontSize: '24px', fontWeight: '600', color: 'rgba(255, 255, 255, 0.85)', marginTop: '8px', marginBottom: '20px' }}>
-                                    AI-Powered Real Estate Automation
+                                    Premium Real Estate Offering Supported by AI Automation
                                 </h2>
                                 <p className="disc wow fadeInUp text-white-50" data-wow-delay=".3s">
-                                    Turn property enquiries into qualified leads, scheduled site visits, and connected buyer experiences — automatically. VRM Real Estate brings AI conversations, lead qualification, voice calling, site-visit scheduling, cab coordination, and agent operations together in one intelligent real estate platform.
+                                    VRM Reality is a premium real estate offering from VRM AI Technology, supported by AI-powered automation. Connect buyer conversations, lead qualification, and agent coordination in one platform.
                                 </p>
                                 <div className="button-area wow fadeInUp mt-4" data-wow-delay=".4s" style={{ display: 'flex', gap: '15px', flexWrap: 'wrap' }}>
                                     <Link to="/contactus#send-message" className="vrm-blue-to-white-btn">
@@ -75,7 +90,7 @@ function VrmRealEstate() {
                         </div>
                         <div className="col-lg-5">
                             <div className="banner-image-two wow fadeInUp" data-wow-delay=".3s">
-                                <img src="/assets/images/vrm-real-estate/vrm-real-estate-hero.png" alt="VRM Real Estate Automation Dashboard" style={{ borderRadius: '20px', boxShadow: '0 25px 60px rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.1)' }} loading="lazy" />
+                                <img src="/assets/images/vrm-real-estate/vrm-real-estate-hero.png" alt="VRM Reality Automation Dashboard" style={{ borderRadius: '20px', boxShadow: '0 25px 60px rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.1)' }} loading="lazy" />
                             </div>
                         </div>
                     </div>
@@ -89,16 +104,16 @@ function VrmRealEstate() {
                         <div className="col-12 text-center">
                             <div className="rts-title-area" data-text="">
                                 <span className="pre-title" style={{ color: '#3B4ECC' }}>KEY BENEFITS</span>
-                                <h2 className="title">Why Choose VRM Real Estate?</h2>
+                                <h2 className="title">Why Choose VRM Reality?</h2>
                                 <p className="disc mt-3">
-                                    VRM Real Estate is an AI-powered real estate automation platform that connects buyer conversations, lead qualification, site visits, transportation, and agent operations into one intelligent workflow.
+                                    VRM Reality is a premium real estate offering from VRM AI Technology, supported by AI-powered automation that connects buyer conversations, lead qualification, and agent operations into one workflow.
                                 </p>
                             </div>
                         </div>
                     </div>
                     <div className="row mt--50 g-4">
                         {[
-                            { icon: "fal fa-comments", title: "AI-Powered WhatsApp", desc: "Automate buyer conversations and site-visit requests 24/7." },
+                            { icon: "fal fa-comments", title: "AI-Powered WhatsApp", desc: "Automate buyer conversations and site-visit requests." },
                             { icon: "fal fa-fire", title: "Smart Lead Scoring", desc: "Automatically identify HOT, WARM, and COLD leads based on buyer intent." },
                             { icon: "fal fa-car", title: "Automated Site Visits", desc: "Coordinate scheduling, confirmations, reminders, and cab transportation." }
                         ].map((item, index) => (
@@ -116,14 +131,14 @@ function VrmRealEstate() {
                 </div>
             </div>
 
-            {/* 3. See VRM Real Estate in Action - Light Blue BG */}
+            {/* 3. See VRM Reality in Action - Light Blue BG */}
             <div className="vrm-full-width-section vrm-light-blue-bg">
                 <div className="container">
                     <div className="row">
                         <div className="col-12 text-center">
                             <div className="rts-title-area mb--50" data-text="">
-                                <h2 className="title">See VRM Real Estate in Action</h2>
-                                <p className="disc mt-3">Experience the power of automated real estate lead qualification and site-visit coordination.</p>
+                                <h2 className="title">See VRM Reality in Action</h2>
+                                <p className="disc mt-3">Experience automated real estate lead qualification and site-visit coordination.</p>
                             </div>
                         </div>
                     </div>
@@ -181,7 +196,7 @@ function VrmRealEstate() {
                                 {images.map((img, index) => (
                                     <SwiperSlide key={index}>
                                         <div className="gallery-item wow fadeInUp" data-wow-delay={`.${index + 2}s`} style={{ borderRadius: '15px', overflow: 'hidden', boxShadow: '0 10px 30px rgba(0,0,0,0.08)', border: '1px solid #eee' }}>
-                                            <img src={img} alt={`VRM Real Estate Interface ${index + 1}`} style={{ width: '100%', height: 'auto', display: 'block' }} loading="lazy" />
+                                            <img src={img} alt={`VRM Reality Interface ${index + 1}`} style={{ width: '100%', height: 'auto', display: 'block' }} loading="lazy" />
                                         </div>
                                     </SwiperSlide>
                                 ))}
@@ -191,20 +206,20 @@ function VrmRealEstate() {
                 </div>
             </div>
 
-            {/* 5. What We’ve Built for You - Light Blue BG */}
+            {/* 5. What We’ve Built - Light Blue BG */}
             <div className="vrm-full-width-section vrm-light-blue-bg">
                 <div className="container">
                     <div className="row">
                         <div className="col-12 text-center">
                             <div className="rts-title-area" data-text="">
-                                <h2 className="title">What We’ve Built for You</h2>
-                                <p className="disc mt-3">A complete AI-powered real estate automation platform designed to streamline buyer enquiries from initial message to property site visit.</p>
+                                <h2 className="title">What We’ve Built</h2>
+                                <p className="disc mt-3">A real estate automation platform designed to streamline buyer enquiries from initial message to property site visit.</p>
                             </div>
                         </div>
                     </div>
                     <div className="row mt--50 g-4">
                         {[
-                            { icon: "fal fa-comments", title: "AI WhatsApp Bot", desc: "Automate 24/7 buyer enquiry handling and site-visit booking over WhatsApp." },
+                            { icon: "fal fa-comments", title: "AI WhatsApp Bot", desc: "Automate buyer enquiry handling and site-visit booking over WhatsApp." },
                             { icon: "fal fa-phone-alt", title: "AI Voice Calling", desc: "Automated voice assistance in Tamil & English to verify intent and coordinate appointments." },
                             { icon: "fal fa-car", title: "Cab & Visit Automation", desc: "Automatically assign driver, generate OTP, and coordinate buyer transportation." },
                             { icon: "fal fa-table", title: "Agent Portal & Live Sync", desc: "Unified agent dashboard synchronized with live Google Sheets in real time." }
@@ -237,8 +252,8 @@ function VrmRealEstate() {
                         {[
                             { title: "Custom Real Estate Workflows", icon: "fal fa-cogs" },
                             { title: "Real-Time Lead Analytics", icon: "fal fa-chart-pie" },
-                            { title: "Enterprise Security & OTP", icon: "fal fa-shield-check" },
-                            { title: "Dedicated Support", icon: "fal fa-headset" }
+                            { title: "Security & OTP Verification", icon: "fal fa-shield-check" },
+                            { title: "Support", icon: "fal fa-headset" }
                         ].map((offer, idx) => (
                             <div key={idx} className="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay={`.${(idx + 1) * 2}s`}>
                                 <div className="offer-card text-center p-4" style={{ border: '1px solid #eaeaea', borderRadius: '15px', height: '100%', transition: 'all 0.3s' }}>
@@ -253,7 +268,7 @@ function VrmRealEstate() {
                 </div>
             </div>
 
-            {/* 7. Partnering for Long-Term Success - Enterprise Gradient BG */}
+            {/* 7. Partnering for Long-Term Success */}
             <div className="vrm-full-width-section vrm-enterprise-gradient ptb--80">
                 <div className="container">
                     <div className="row align-items-center">
@@ -261,7 +276,7 @@ function VrmRealEstate() {
                             <div className="content-left text-start">
                                 <h2 className="title text-white wow fadeInUp" style={{ fontSize: '36px', lineHeight: '1.25' }}>Transform Real Estate Operations with AI Automation</h2>
                                 <p className="disc text-white-50 mt-4 wow fadeInUp" data-wow-delay=".2s">
-                                    Empower your real estate sales team with VRM Real Estate AI that automates enquiries, scores leads, schedules site visits, and connects agents at enterprise scale.
+                                    Empower your real estate sales team with VRM Reality supported by AI automation that manages enquiries, lead qualification, and agent coordination.
                                 </p>
                                 <div className="button-area mt-5 wow fadeInUp" data-wow-delay=".4s">
                                     <Link to="/contactus#send-message" className="vrm-blue-to-white-btn">
@@ -272,7 +287,7 @@ function VrmRealEstate() {
                         </div>
                         <div className="col-lg-6">
                             <div className="thumbnail wow fadeInUp mt-5 mt-lg-0" data-wow-delay=".3s" style={{ borderRadius: '20px', overflow: 'hidden', boxShadow: '0 20px 50px rgba(0,0,0,0.3)', maxWidth: '85%', margin: '0 auto' }}>
-                                <img src="/assets/images/vrm-real-estate/vrm-real-estate-hero.png" alt="Enterprise Real Estate Automation" style={{ width: '100%', height: '350px', objectFit: 'cover', display: 'block' }} loading="lazy" />
+                                <img src="/assets/images/vrm-real-estate/vrm-real-estate-hero.png" alt="VRM Reality Automation" style={{ width: '100%', height: '350px', objectFit: 'cover', display: 'block' }} loading="lazy" />
                             </div>
                         </div>
                     </div>

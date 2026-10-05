@@ -19,17 +19,28 @@ function AIIntegrationServices() {
         <div className="rts-ai-integration-services">
             <HeaderOne />
             <Helmet>
-                <title>AI Integration Services | API & Data Pipelines | VRM AI</title>
+                <title>AI Integration Services | VRM AI Technology</title>
                 <meta name="description" content="Embed AI workflows into your existing enterprise IT systems with expert integration services. REST APIs, Kafka pipelines, and containerized deployments." />
-                <meta property="og:title" content="AI Integration Services — Secure API & Data Pipeline Engineering" />
+                <meta property="og:title" content="AI Integration Services | VRM AI Technology" />
                 <meta property="og:description" content="Embed AI workflows into your existing enterprise IT systems with expert integration services. REST APIs, Kafka pipelines, and containerized deployments." />
                 <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
                 <link rel="canonical" href="https://www.vrmaitechnology.com/solutions/ai-integration-services" />
             
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="AI Integration Services — Secure API & Data Pipeline Engineering" />
+                <meta name="twitter:title" content="AI Integration Services | VRM AI Technology" />
                 <meta name="twitter:description" content="Embed AI workflows into your existing enterprise IT systems with expert integration services. REST APIs, Kafka pipelines, and containerized deployments." />
                 <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.vrmaitechnology.com/" },
+                            { "@type": "ListItem", "position": 2, "name": "Solutions", "item": "https://www.vrmaitechnology.com/solutions" },
+                            { "@type": "ListItem", "position": 3, "name": "AI Integration Services", "item": "https://www.vrmaitechnology.com/solutions/ai-integration-services" }
+                        ]
+                    })}
+                </script>
                 <script type="application/ld+json">
                     {JSON.stringify({
                         "@context": "https://schema.org",

@@ -29,12 +29,22 @@ function Error() {
                                 </div>
                                 <h1 className="title mt--40">Oops! Nothing Was Found</h1>
                                 <p className="disc">
-                                    Sorry, we couldn’t find the page you where looking for. We suggest{" "}
-                                    <br /> that you return to homepage.
+                                    Sorry, we couldn’t find the page you were looking for. You can return to our homepage or explore our core offerings below.
                                 </p>
-                                <Link className="rts-btn btn-primary" to={'/'}>
-                                    Back To Homepage
-                                </Link>
+                                <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap', marginTop: '24px' }}>
+                                    <Link className="rts-btn btn-primary" to={'/'}>
+                                        Back To Homepage
+                                    </Link>
+                                    <Link className="rts-btn btn-secondary" to={'/products'} style={{ padding: '12px 24px', borderRadius: '6px', border: '1px solid #3B4ECC', color: '#3B4ECC', textDecoration: 'none', fontWeight: '600' }}>
+                                        Explore Products
+                                    </Link>
+                                    <Link className="rts-btn btn-secondary" to={'/solutions'} style={{ padding: '12px 24px', borderRadius: '6px', border: '1px solid #3B4ECC', color: '#3B4ECC', textDecoration: 'none', fontWeight: '600' }}>
+                                        View Solutions
+                                    </Link>
+                                    <Link className="rts-btn btn-secondary" to={'/contactus'} style={{ padding: '12px 24px', borderRadius: '6px', border: '1px solid #3B4ECC', color: '#3B4ECC', textDecoration: 'none', fontWeight: '600' }}>
+                                        Contact Us
+                                    </Link>
+                                </div>
                             </div>
                         </div>
                     </div>

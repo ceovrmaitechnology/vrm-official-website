@@ -79,7 +79,7 @@ function TestimonialCarousel({ items, paginationClass }) {
 
 function WorkflowTestimonials({
     title = "Trusted by hiring teams and candidates",
-    description = "Real feedback from companies using Workflow.AI by VRM AI Technology and candidates moving through modern, AI-guided hiring journeys."
+    description = "Real feedback from companies using Workflow AI by VRM AI Technology and candidates moving through modern, AI-guided hiring journeys."
 }) {
     const sectionId = useId().replace(/:/g, '');
     const employerPaginationClass = `vrm-testimonial-pagination--employers-${sectionId}`;

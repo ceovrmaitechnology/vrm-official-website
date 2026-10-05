@@ -19,6 +19,7 @@ function BlogGrid() {
                 <title>Latest Articles & Posts | VRM AI Technology</title>
                 <meta name="description" content="Browse our latest blog posts and expert articles covering AI automation, Agentic AI solutions, Machine Learning, and software engineering." />
                 <link rel="canonical" href="https://www.vrmaitechnology.com/blog-grid" />
+                <meta name="robots" content="noindex, follow" />
                 <meta property="og:title" content="Latest Articles & Posts — VRM AI Technology" />
                 <meta property="og:description" content="Browse our latest blog posts and expert articles covering AI automation, Agentic AI solutions, Machine Learning, and software engineering." />
                 <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />

@@ -65,10 +65,15 @@ function ContactForm() {
                         {/* Left Image Column — hidden on small mobile, visible from md up */}
                         <div className="col-md-5 d-none d-md-block">
                             <div className="contact-image-one">
-                                <img src="/assets/images/home/indian-collab.png"
-                                    alt="VRM AI Consultation"
-                                    style={{ objectFit: 'cover', width: '100%', height: '360px', borderRadius: '16px' }}
-                                loading="lazy" />
+                                <picture>
+                                    <source srcSet="/assets/images/home/indian-collab.webp" type="image/webp" />
+                                    <img src="/assets/images/home/indian-collab.png"
+                                        alt="VRM AI Consultation"
+                                        style={{ objectFit: 'cover', width: '100%', height: '360px', borderRadius: '16px' }}
+                                        width="450"
+                                        height="360"
+                                        loading="lazy" />
+                                </picture>
                             </div>
                         </div>
 

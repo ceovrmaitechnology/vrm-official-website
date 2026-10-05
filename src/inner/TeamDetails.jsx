@@ -18,6 +18,7 @@ function TeamDetails() {
                 <title>Team Member Profile | VRM AI Technology</title>
                 <meta name="description" content="Professional profile and skills breakdown of VRM AI Technology leadership and engineering experts." />
                 <link rel="canonical" href="https://www.vrmaitechnology.com/team-details" />
+                <meta name="robots" content="noindex, follow" />
                 <meta property="og:title" content="Team Member Profile | VRM AI Technology" />
                 <meta property="og:description" content="Professional profile and skills breakdown of VRM AI Technology leadership and engineering experts." />
                 <meta property="og:url" content="https://www.vrmaitechnology.com/team-details" />

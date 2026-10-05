@@ -18,6 +18,7 @@ function Team() {
                 <title>Our Leadership & AI Experts Team | VRM AI Technology</title>
                 <meta name="description" content="Meet the expert team of AI engineers, software architects, and business strategists powering VRM AI Technology." />
                 <link rel="canonical" href="https://www.vrmaitechnology.com/team" />
+                <meta name="robots" content="noindex, follow" />
                 <meta property="og:title" content="Our Leadership & AI Experts Team | VRM AI Technology" />
                 <meta property="og:description" content="Meet the expert team of AI engineers, software architects, and business strategists powering VRM AI Technology." />
                 <meta property="og:url" content="https://www.vrmaitechnology.com/team" />

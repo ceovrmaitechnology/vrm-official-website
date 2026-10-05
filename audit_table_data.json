@@ -1,0 +1,466 @@
+[
+  {
+    "url": "https://www.vrmaitechnology.com",
+    "title": "VRM AI Technology | AI Software &amp; Product Development Company in Bangalore, Madurai &amp; India",
+    "desc": "VRM AI Technology builds GenAI platforms, AI chatbots, voice AI and automation for enterprises. Serving Bangalore, Madurai, Tamil Nadu and India.",
+    "h1": "",
+    "canonical": "https://www.vrmaitechnology.com/",
+    "schemas": "Organization, PostalAddress",
+    "words": 24,
+    "status": "needs fix",
+    "issues": [
+      "Title > 60 chars (99)",
+      "Missing H1"
+    ]
+  },
+  {
+    "url": "https://www.vrmaitechnology.com/about-us",
+    "title": "About Us | VRM AI Technology",
+    "desc": "Learn about VRM AI Technology — a born Gen AI company delivering intelligent platforms, ML systems, and AI consulting for enterprises worldwide.",
+    "h1": "About Us",
+    "canonical": "https://www.vrmaitechnology.com/about-us",
+    "schemas": "None",
+    "words": 359,
+    "status": "OK",
+    "issues": []
+  },
+  {
+    "url": "https://www.vrmaitechnology.com/contactus",
+    "title": "Contact Us | VRM AI Technology",
+    "desc": "Get in touch with VRM AI Technology. Contact our team for AI solutions, product demos, partnerships, or support. Offices in Bengaluru and Madurai, India.",
+    "h1": "Let's Build Something Extraordinary",
+    "canonical": "https://www.vrmaitechnology.com/contactus",
+    "schemas": "None",
+    "words": 346,
+    "status": "OK",
+    "issues": []
+  },
+  {
+    "url": "https://www.vrmaitechnology.com/careers",
+    "title": "Careers | VRM AI Technology",
+    "desc": "Join VRM AI Technology — a born Gen AI company. Explore open roles in AI engineering, product design, and more. Build the future of intelligent automation.",
+    "h1": "Careers",
+    "canonical": "https://www.vrmaitechnology.com/careers",
+    "schemas": "None",
+    "words": 318,
+    "status": "OK",
+    "issues": []
+  },
+  {
+    "url": "https://www.vrmaitechnology.com/ai-company-madurai",
+    "title": "AI Software &amp; Product Development Company in Madurai | VRM AI Technology",
+    "desc": "VRM AI Technology is a premier AI software and product development company in Madurai, delivering GenAI platforms, ML systems, and enterprise automation.",
+    "h1": "AI Software &amp; Product Development Company in Madurai",
+    "canonical": "https://www.vrmaitechnology.com/ai-company-madurai",
+    "schemas": "FAQPage, Question, Answer",
+    "words": 484,
+    "status": "needs fix",
+    "issues": [
+      "Title > 60 chars (76)"
+    ]
+  },
+  {
+    "url": "https://www.vrmaitechnology.com/ai-company-bangalore",
+    "title": "AI Innovation Company in Bangalore | VRM AI Technology",
+    "desc": "VRM AI Technology is an AI innovation company in Bangalore, engineering GenAI platforms, chatbots, and enterprise automation from Electronic City.",
+    "h1": "AI Innovation Company in Bangalore",
+    "canonical": "https://www.vrmaitechnology.com/ai-company-bangalore",
+    "schemas": "FAQPage, Question, Answer",
+    "words": 430,
+    "status": "OK",
+    "issues": []
+  },
+  {
+    "url": "https://www.vrmaitechnology.com/ai-company-tamil-nadu",
+    "title": "Growing AI Company in Tamil Nadu | VRM AI Technology",
+    "desc": "VRM AI Technology is a growing AI company in Tamil Nadu, delivering bilingual GenAI, conversational voice agents, and industrial automation across the state.",
+    "h1": "Growing AI Company in Tamil Nadu",
+    "canonical": "https://www.vrmaitechnology.com/ai-company-tamil-nadu",
+    "schemas": "FAQPage, Question, Answer",
+    "words": 334,
+    "status": "needs fix",
+    "issues": [
+      "Desc > 155 chars (157)"
+    ]
+  },
+  {
+    "url": "https://www.vrmaitechnology.com/ai-innovation-india",
+    "title": "AI Innovation Company in India | VRM AI Technology",
+    "desc": "VRM AI Technology is an AI innovation company in India, building enterprise GenAI platforms, multilingual conversational AI, and scalable automation systems.",
+    "h1": "AI Innovation Company in India",
+    "canonical": "https://www.vrmaitechnology.com/ai-innovation-india",
+    "schemas": "FAQPage, Question, Answer",
+    "words": 335,
+    "status": "needs fix",
+    "issues": [
+      "Desc > 155 chars (157)"
+    ]
+  },
+  {
+    "url": "https://www.vrmaitechnology.com/solutions",
+    "title": "Our AI Solutions | Enterprise Services Overview | VRM AI",
+    "desc": "Discover enterprise AI solutions by VRM AI Technology: AI consulting, custom development, conversational chatbots, voice agents, and machine learning.",
+    "h1": "Our Solutions",
+    "canonical": "https://www.vrmaitechnology.com/solutions",
+    "schemas": "None",
+    "words": 136,
+    "status": "OK",
+    "issues": []
+  },
+  {
+    "url": "https://www.vrmaitechnology.com/generative-ai-development",
+    "title": "Generative AI Development Services | GenAI Platforms | VRM AI Technology",
+    "desc": "VRM AI Technology provides generative AI development services, custom LLM fine-tuning, RAG platform architectures, and enterprise AI automation.",
+    "h1": "Generative AI Development Services",
+    "canonical": "https://www.vrmaitechnology.com/generative-ai-development",
+    "schemas": "FAQPage, Question, Answer",
+    "words": 408,
+    "status": "needs fix",
+    "issues": [
+      "Title > 60 chars (72)"
+    ]
+  },
+  {
+    "url": "https://www.vrmaitechnology.com/ai-chatbot-development",
+    "title": "AI Chatbot &amp; Conversational AI Services | VRM AI Technology",
+    "desc": "VRM AI Technology builds conversational AI chatbots, multilingual virtual assistants, and automated customer support platforms for enterprise workflows.",
+    "h1": "AI Chatbot &amp; Conversational AI Services",
+    "canonical": "https://www.vrmaitechnology.com/ai-chatbot-development",
+    "schemas": "FAQPage, Question, Answer",
+    "words": 311,
+    "status": "needs fix",
+    "issues": [
+      "Title > 60 chars (63)"
+    ]
+  },
+  {
+    "url": "https://www.vrmaitechnology.com/voice-ai-solutions",
+    "title": "Voice AI Solutions &amp; Conversational Voice Agents | VRM AI Technology",
+    "desc": "VRM AI Technology delivers voice AI solutions, real-time calling agents, speech synthesis, and conversational telephony automation for modern enterprises.",
+    "h1": "Voice AI Solutions &amp; Conversational Voice Agents",
+    "canonical": "https://www.vrmaitechnology.com/voice-ai-solutions",
+    "schemas": "FAQPage, Question, Answer",
+    "words": 398,
+    "status": "needs fix",
+    "issues": [
+      "Title > 60 chars (72)"
+    ]
+  },
+  {
+    "url": "https://www.vrmaitechnology.com/ai-consulting",
+    "title": "AI Consulting Services &amp; Strategy | VRM AI Technology",
+    "desc": "VRM AI Technology offers strategic AI consulting services, data architecture audits, ROI modeling, and enterprise machine learning implementation roadmaps.",
+    "h1": "AI Consulting Services &amp; Strategic Implementation",
+    "canonical": "https://www.vrmaitechnology.com/ai-consulting",
+    "schemas": "FAQPage, Question, Answer",
+    "words": 300,
+    "status": "OK",
+    "issues": []
+  },
+  {
+    "url": "https://www.vrmaitechnology.com/solutions/ai-calling-agent",
+    "title": "AI Calling Agent &amp; Conversational Voice Solutions | VRM AI Technology",
+    "desc": "Deploy enterprise AI calling agents for 24/7 inbound customer support and outbound campaigns. Native CRM integration, 95+ languages, and smart human handoff.",
+    "h1": "Imagine a Team Member Who is Always On.",
+    "canonical": "https://www.vrmaitechnology.com/solutions/ai-calling-agent",
+    "schemas": "FAQPage, Question, Answer",
+    "words": 157,
+    "status": "needs fix",
+    "issues": [
+      "Title > 60 chars (73)",
+      "Desc > 155 chars (157)"
+    ]
+  },
+  {
+    "url": "https://www.vrmaitechnology.com/solutions/ai-consulting-services",
+    "title": "AI Consulting Services | Strategy & Execution | VRM AI",
+    "desc": "AI consulting by VRM AI Technology. We design data-driven AI strategies, ML model architectures, and enterprise solutions for global business scale.",
+    "h1": "Transform Raw Data Into Actionable Intelligence",
+    "canonical": "https://www.vrmaitechnology.com/solutions/ai-consulting-services",
+    "schemas": "FAQPage, Question, Answer",
+    "words": 261,
+    "status": "OK",
+    "issues": []
+  },
+  {
+    "url": "https://www.vrmaitechnology.com/solutions/ai-chatbot-development",
+    "title": "AI Chatbot Development | Conversational AI | VRM AI",
+    "desc": "Build intelligent, scalable AI-powered chatbot solutions. Enhance customer support, e-commerce flow, and HR workflow with advanced NLP and machine learning.",
+    "h1": "AI Chatbot Development",
+    "canonical": "https://www.vrmaitechnology.com/solutions/ai-chatbot-development",
+    "schemas": "FAQPage, Question, Answer",
+    "words": 151,
+    "status": "needs fix",
+    "issues": [
+      "Desc > 155 chars (156)"
+    ]
+  },
+  {
+    "url": "https://www.vrmaitechnology.com/solutions/ai-development-services",
+    "title": "AI Development Services | Custom AI Engineering | VRM AI",
+    "desc": "End-to-end custom AI development services including Machine Learning, Computer Vision, and Natural Language Processing for enterprise pipelines.",
+    "h1": "AI Development Services",
+    "canonical": "https://www.vrmaitechnology.com/solutions/ai-development-services",
+    "schemas": "FAQPage, Question, Answer",
+    "words": 152,
+    "status": "OK",
+    "issues": []
+  },
+  {
+    "url": "https://www.vrmaitechnology.com/solutions/ai-integration-services",
+    "title": "AI Integration Services | API & Data Pipelines | VRM AI",
+    "desc": "Embed AI workflows into your existing enterprise IT systems with expert integration services. REST APIs, Kafka pipelines, and containerized deployments.",
+    "h1": "AI Integration Service",
+    "canonical": "https://www.vrmaitechnology.com/solutions/ai-integration-services",
+    "schemas": "FAQPage, Question, Answer",
+    "words": 162,
+    "status": "OK",
+    "issues": []
+  },
+  {
+    "url": "https://www.vrmaitechnology.com/solutions/machine-learning-services",
+    "title": "Machine Learning Services | Deep Learning | VRM AI",
+    "desc": "Deploy custom machine learning models and deep neural networks with VRM AI Technology. Integrate ML systems into enterprise pipelines for real-time inference.",
+    "h1": "Transform Data into Operational Intelligence",
+    "canonical": "https://www.vrmaitechnology.com/solutions/machine-learning-services",
+    "schemas": "FAQPage, Question, Answer",
+    "words": 203,
+    "status": "needs fix",
+    "issues": [
+      "Desc > 155 chars (158)"
+    ]
+  },
+  {
+    "url": "https://www.vrmaitechnology.com/products",
+    "title": "Our AI Products | Suite Overview | VRM AI",
+    "desc": "Explore VRM AI Technology",
+    "h1": "Our Products",
+    "canonical": "https://www.vrmaitechnology.com/products",
+    "schemas": "None",
+    "words": 243,
+    "status": "OK",
+    "issues": []
+  },
+  {
+    "url": "https://www.vrmaitechnology.com/products/workflow",
+    "title": "WorkflowAI | Recruitment Intelligence Suite | VRM AI",
+    "desc": "A unified enterprise recruitment intelligence suite by VRM AI Technology. Optimize talent acquisition with ScreenSage, VideoSage, and CodeSage.",
+    "h1": "WorkflowAI",
+    "canonical": "https://www.vrmaitechnology.com/products/workflow",
+    "schemas": "SoftwareApplication, Organization",
+    "words": 115,
+    "status": "OK",
+    "issues": []
+  },
+  {
+    "url": "https://www.vrmaitechnology.com/products/workflow/xpress-screening",
+    "title": "Xpress Screening | Resume Parsing & Matching | Workflow.AI",
+    "desc": "Optimize early-stage recruitment with Xpress Screening. Automatically parse resumes, align qualifications with role requirements, and rank candidate profiles.",
+    "h1": "Xpress Screening",
+    "canonical": "https://www.vrmaitechnology.com/products/workflow/xpress-screening",
+    "schemas": "SoftwareApplication, Organization",
+    "words": 184,
+    "status": "needs fix",
+    "issues": [
+      "Desc > 155 chars (158)"
+    ]
+  },
+  {
+    "url": "https://www.vrmaitechnology.com/products/workflow/screensage",
+    "title": "ScreenSage | AI Voice Screening &amp; Candidate Assessment | Workflow.AI",
+    "desc": "Automate first-round screening with ScreenSage. Conduct AI-powered voice interviews, evaluate candidate communication and skills, and receive structured scorecards.",
+    "h1": "ScreenSage",
+    "canonical": "https://www.vrmaitechnology.com/products/workflow/screensage",
+    "schemas": "SoftwareApplication, Organization",
+    "words": 167,
+    "status": "needs fix",
+    "issues": [
+      "Title > 60 chars (72)",
+      "Desc > 155 chars (164)"
+    ]
+  },
+  {
+    "url": "https://www.vrmaitechnology.com/products/workflow/videosage",
+    "title": "VideoSage | AI Video Interviews &amp; Behavioral Assessment | Workflow.AI",
+    "desc": "Streamline recruitment with VideoSage AI video interviews. Automatically evaluate communication, technical responses, confidence, and candidate performance.",
+    "h1": "VideoSage",
+    "canonical": "https://www.vrmaitechnology.com/products/workflow/videosage",
+    "schemas": "SoftwareApplication, Organization",
+    "words": 157,
+    "status": "needs fix",
+    "issues": [
+      "Title > 60 chars (73)",
+      "Desc > 155 chars (156)"
+    ]
+  },
+  {
+    "url": "https://www.vrmaitechnology.com/products/workflow/codesage",
+    "title": "CodeSage | AI Coding Assessments &amp; Technical Screening | Workflow.AI",
+    "desc": "Assess engineering candidates with CodeSage. AI-powered coding challenges, automated code execution, intelligent proctoring, and technical interview scoring.",
+    "h1": "CodeSage",
+    "canonical": "https://www.vrmaitechnology.com/products/workflow/codesage",
+    "schemas": "SoftwareApplication, Organization",
+    "words": 159,
+    "status": "needs fix",
+    "issues": [
+      "Title > 60 chars (72)",
+      "Desc > 155 chars (157)"
+    ]
+  },
+  {
+    "url": "https://www.vrmaitechnology.com/products/vrm-real-estate",
+    "title": "VRM Real Estate | AI-Powered Real Estate Automation Platform — VRM AI Technology",
+    "desc": "VRM Real Estate is an AI-powered real estate automation platform that connects buyer conversations, lead qualification, voice calling, site visits, cab coordination, and agent operations into one intelligent workflow.",
+    "h1": "VRM Real Estate",
+    "canonical": "https://www.vrmaitechnology.com/products/vrm-real-estate",
+    "schemas": "SoftwareApplication, Organization",
+    "words": 209,
+    "status": "needs fix",
+    "issues": [
+      "Title > 60 chars (80)",
+      "Desc > 155 chars (217)"
+    ]
+  },
+  {
+    "url": "https://www.vrmaitechnology.com/products/aibuddy",
+    "title": "AI Buddy | Personalized AI Language Coach & Learning Platform",
+    "desc": "Learn, practice, and communicate confidently in multiple languages with AI Buddy. Build speaking fluency, improve pronunciation, and master real-world conversations.",
+    "h1": "AI Buddy",
+    "canonical": "https://www.vrmaitechnology.com/products/aibuddy",
+    "schemas": "SoftwareApplication, Organization",
+    "words": 174,
+    "status": "needs fix",
+    "issues": [
+      "Title > 60 chars (61)",
+      "Desc > 155 chars (165)"
+    ]
+  },
+  {
+    "url": "https://www.vrmaitechnology.com/products/people-connect",
+    "title": "People Connect (Global) | Citizen Engagement Platform | VRM AI",
+    "desc": "Transform public feedback into regional insights with People Connect (Global). Orchestrate voice, WhatsApp, and GPS-verified resolution workflows at scale.",
+    "h1": "People Connect (Global)",
+    "canonical": "https://www.vrmaitechnology.com/products/people-connect",
+    "schemas": "SoftwareApplication, Organization",
+    "words": 194,
+    "status": "needs fix",
+    "issues": [
+      "Title > 60 chars (62)"
+    ]
+  },
+  {
+    "url": "https://www.vrmaitechnology.com/products/exitinterview",
+    "title": "Exit Intelligence | AI-Powered Exit Interviews & Attrition Insights",
+    "desc": "Transform employee departures into actionable workforce intelligence with Exit Intelligence. Uncover turnover trends and improve retention.",
+    "h1": "Exit Intelligence",
+    "canonical": "https://www.vrmaitechnology.com/products/exitinterview",
+    "schemas": "SoftwareApplication, Organization",
+    "words": 181,
+    "status": "needs fix",
+    "issues": [
+      "Title > 60 chars (67)"
+    ]
+  },
+  {
+    "url": "https://www.vrmaitechnology.com/products/visionix",
+    "title": "Visionix AI | Facial Recognition & Verification | VRM AI",
+    "desc": "Automate security, attendance, and biometric verification with Visionix AI face recognition engine.",
+    "h1": "Visionix AI",
+    "canonical": "https://www.vrmaitechnology.com/products/visionix",
+    "schemas": "SoftwareApplication, Organization",
+    "words": 190,
+    "status": "OK",
+    "issues": []
+  },
+  {
+    "url": "https://www.vrmaitechnology.com/project",
+    "title": "Our Portfolio & Case Studies | VRM AI Technology",
+    "desc": "Explore VRM AI Technology",
+    "h1": "",
+    "canonical": "https://www.vrmaitechnology.com/project",
+    "schemas": "None",
+    "words": 385,
+    "status": "needs fix",
+    "issues": [
+      "Missing H1"
+    ]
+  },
+  {
+    "url": "https://www.vrmaitechnology.com/team",
+    "title": "Our Leadership & AI Experts Team | VRM AI Technology",
+    "desc": "Meet the expert team of AI engineers, software architects, and business strategists powering VRM AI Technology.",
+    "h1": "",
+    "canonical": "https://www.vrmaitechnology.com/team",
+    "schemas": "None",
+    "words": 47,
+    "status": "needs fix",
+    "issues": [
+      "Missing H1"
+    ]
+  },
+  {
+    "url": "https://www.vrmaitechnology.com/team-details",
+    "title": "Team Member Profile | VRM AI Technology",
+    "desc": "Professional profile and skills breakdown of VRM AI Technology leadership and engineering experts.",
+    "h1": "",
+    "canonical": "https://www.vrmaitechnology.com/team-details",
+    "schemas": "None",
+    "words": 157,
+    "status": "needs fix",
+    "issues": [
+      "Missing H1"
+    ]
+  },
+  {
+    "url": "https://www.vrmaitechnology.com/blog-list",
+    "title": "Blog & AI Insights | VRM AI Technology",
+    "desc": "Explore the latest articles, industry insights, and technology trends in Artificial Intelligence, Machine Learning, and Agentic AI from VRM AI Technology.",
+    "h1": "",
+    "canonical": "https://www.vrmaitechnology.com/blog-list",
+    "schemas": "None",
+    "words": 99,
+    "status": "needs fix",
+    "issues": [
+      "Missing H1"
+    ]
+  },
+  {
+    "url": "https://www.vrmaitechnology.com/blog-grid",
+    "title": "Latest Articles & Posts | VRM AI Technology",
+    "desc": "Browse our latest blog posts and expert articles covering AI automation, Agentic AI solutions, Machine Learning, and software engineering.",
+    "h1": "",
+    "canonical": "https://www.vrmaitechnology.com/blog-grid",
+    "schemas": "None",
+    "words": 98,
+    "status": "needs fix",
+    "issues": [
+      "Missing H1"
+    ]
+  },
+  {
+    "url": "https://www.vrmaitechnology.com/privacy-policy",
+    "title": "Privacy Policy | VRM AI Technology",
+    "desc": "Read the Privacy Policy of VRM AI Technology to understand how we collect, protect, and use your personal information across our platform and services.",
+    "h1": "",
+    "canonical": "https://www.vrmaitechnology.com/privacy-policy",
+    "schemas": "None",
+    "words": 253,
+    "status": "needs fix",
+    "issues": [
+      "Missing H1"
+    ]
+  },
+  {
+    "url": "https://www.vrmaitechnology.com/terms-conditions",
+    "title": "Terms of Service | VRM AI Technology",
+    "desc": "Review the Terms of Service for using VRM AI Technology platforms and services. Understand your rights and responsibilities as a user of our products.",
+    "h1": "",
+    "canonical": "https://www.vrmaitechnology.com/terms-conditions",
+    "schemas": "None",
+    "words": 299,
+    "status": "needs fix",
+    "issues": [
+      "Missing H1"
+    ]
+  }
+]

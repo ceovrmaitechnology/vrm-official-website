@@ -19,17 +19,28 @@ function MachineLearningServices() {
         <div className="rts-machine-learning-services">
             <HeaderOne className="header-white-text" />
             <Helmet>
-                <title>Machine Learning Services | Deep Learning | VRM AI</title>
-                <meta name="description" content="Deploy custom machine learning models and deep neural networks with VRM AI Technology. Integrate ML systems into enterprise pipelines for real-time inference." />
-                <meta property="og:title" content="Machine Learning Services — Custom Neural Networks & Deep Learning" />
-                <meta property="og:description" content="Deploy custom machine learning models and deep neural networks with VRM AI Technology. Integrate ML systems into enterprise pipelines for real-time inference." />
+                <title>Machine Learning Services | VRM AI Technology</title>
+                <meta name="description" content="Deploy custom machine learning models and neural networks with VRM AI Technology. Integrate scalable ML pipelines for real-time inference and analytics." />
+                <meta property="og:title" content="Machine Learning Services | VRM AI Technology" />
+                <meta property="og:description" content="Deploy custom machine learning models and neural networks with VRM AI Technology. Integrate scalable ML pipelines for real-time inference and analytics." />
                 <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
                 <link rel="canonical" href="https://www.vrmaitechnology.com/solutions/machine-learning-services" />
             
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="Machine Learning Services — Custom Neural Networks & Deep Learning" />
-                <meta name="twitter:description" content="Deploy custom machine learning models and deep neural networks with VRM AI Technology. Integrate ML systems into enterprise pipelines for real-time inference." />
+                <meta name="twitter:title" content="Machine Learning Services | VRM AI Technology" />
+                <meta name="twitter:description" content="Deploy custom machine learning models and neural networks with VRM AI Technology. Integrate scalable ML pipelines for real-time inference and analytics." />
                 <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.vrmaitechnology.com/" },
+                            { "@type": "ListItem", "position": 2, "name": "Solutions", "item": "https://www.vrmaitechnology.com/solutions" },
+                            { "@type": "ListItem", "position": 3, "name": "Machine Learning Services", "item": "https://www.vrmaitechnology.com/solutions/machine-learning-services" }
+                        ]
+                    })}
+                </script>
                 <script type="application/ld+json">
                     {JSON.stringify({
                         "@context": "https://schema.org",
@@ -89,7 +100,7 @@ function MachineLearningServices() {
                                     Machine Learning
                                 </span>
                                 <h1 className="ai-agent-hero-title wow fadeInUp text-white ms-0" data-wow-delay=".3s" style={{ fontSize: '54px', lineHeight: '1.1' }}>
-                                    Transform Data into Operational Intelligence
+                                    Custom Machine Learning Services
                                 </h1>
                                 <p className="ai-agent-hero-desc wow fadeInUp text-white-50 ms-0" data-wow-delay=".4s" style={{ fontSize: '18px', maxWidth: '600px' }}>
                                     VRM AI Technology’s machine learning services empower organizations through predictive models, automation, and real-time decision support.
@@ -121,7 +132,7 @@ function MachineLearningServices() {
                                 <span className="pre-title" style={{ color: '#3B4ECC' }}>Our Expertise</span>
                                 <h2 className="title">Core Machine Learning Services</h2>
                                 <p className="disc mt-3">
-                                    Our machine learning offerings are engineered for enterprise-grade performance, accuracy, and scalability. We develop tailored ML solutions that solve complex business challenges and deliver measurable value.
+                                    Our machine learning offerings are engineered for reliable performance, accuracy, and scalability. We develop tailored ML solutions that solve complex business challenges and deliver measurable value.
                                 </p>
                             </div>
                         </div>

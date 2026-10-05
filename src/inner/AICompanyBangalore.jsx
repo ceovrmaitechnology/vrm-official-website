@@ -19,57 +19,77 @@ function AICompanyBangalore() {
 
     const faqs = [
         {
-            q: "What makes VRM AI Technology a leading AI innovation company in Bangalore?",
-            a: "Headquartered at GoodWorks Infinity Park in Electronic City Phase I, Bengaluru, VRM AI Technology operates at the epicenter of India’s Silicon Valley. We engineer production-grade Generative AI architectures, multi-agent autonomous workflows, low-latency conversational calling agents, and deep learning algorithms designed for enterprise scale."
+            q: "What does VRM AI Technology do in Bengaluru?",
+            a: "Bengaluru is the registered office and corporate headquarters of VRM AI Technology Private Limited. We provide custom Generative AI solutions, AI chatbot development, AI calling agents, machine learning services and enterprise software development."
         },
         {
-            q: "Where is VRM AI Technology located in Bangalore?",
-            a: "Our registered office and innovation center is located at GoodWorks Infinity Park, 21, 2nd Main Rd, Electronic City Phase I, Bengaluru, Karnataka 560100. We host enterprise architecture reviews and AI discovery sessions for clients across Bangalore."
+            q: "Where is VRM AI Technology located in Bengaluru?",
+            a: "Our registered office is at No. 22, 1st Cross, Sampige Layout, Electronic City Phase 2, Bengaluru, Karnataka 560100, India. Our staffed development center is located in Madurai, Tamil Nadu."
         },
         {
-            q: "How does VRM AI Technology support Bangalore's tech ecosystem?",
-            a: "We collaborate with global enterprise engineering teams, SaaS unicorns, and digital enterprises across Bangalore to integrate advanced AI into existing tech stacks, automate high-volume hiring through Workflow.AI, and streamline multi-channel customer communications."
+            q: "How does VRM AI Technology work with Bengaluru organizations?",
+            a: "We collaborate with businesses across Bengaluru through our registered office and remote delivery from our Madurai development center. Contact us via our website or call +91 81233 48355 to discuss requirements."
         },
         {
-            q: "What specialized AI solutions does VRM AI provide in Bangalore?",
-            a: "Our core solutions include custom Generative AI platform engineering, AI chatbot development with 95+ language support, autonomous voice calling agents, computer vision with Visionix AI, and strategic enterprise AI consulting."
+            q: "What products are offered by VRM AI Technology?",
+            a: "Workflow AI, People Connect, AI Buddy, Exit Intelligence, Visionix AI, VRM Reality and Bench to Deploy (B2D)."
         },
         {
-            q: "How does VRM AI handle data security and enterprise compliance?",
-            a: "As an ISO 9001:2015 certified organization, we deploy enterprise AI within dedicated virtual private clouds (VPC), implementing end-to-end data encryption, role-based access control (RBAC), and strict zero-data-retention compliance policies for proprietary corporate information."
+            q: "Is VRM AI Technology ISO certified?",
+            a: "Yes. VRM AI Technology is ISO 9001:2015 certified for quality management."
         }
     ];
+
+    const breadcrumbSchema = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.vrmaitechnology.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Bengaluru Registered Office",
+                "item": "https://www.vrmaitechnology.com/ai-company-bangalore"
+            }
+        ]
+    };
+
+    const faqSchema = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": faqs.map(item => ({
+            "@type": "Question",
+            "name": item.q,
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": item.a
+            }
+        }))
+    };
 
     return (
         <div className="rts-ai-consulting-services basic-font-family">
             <HeaderOne className="header-white-text" />
             <Helmet>
-                <title>AI Innovation Company in Bangalore | VRM AI Technology</title>
-                <meta name="description" content="VRM AI Technology is an AI innovation company in Bangalore, engineering GenAI platforms, chatbots, and enterprise automation from Electronic City." />
-                <meta property="og:title" content="AI Innovation Company in Bangalore | VRM AI Technology" />
-                <meta property="og:description" content="VRM AI Technology is an AI innovation company in Bangalore, engineering GenAI platforms, chatbots, and enterprise automation from Electronic City." />
+                <title>AI Software Solutions &amp; Registered Office Bengaluru | VRM AI Technology</title>
+                <meta name="description" content="VRM AI Technology Private Limited is registered in Bengaluru with staffed engineering in Madurai, delivering GenAI, calling agents, and ML systems." />
+                <meta property="og:title" content="AI Software Solutions &amp; Registered Office Bengaluru | VRM AI Technology" />
+                <meta property="og:description" content="VRM AI Technology Private Limited is registered in Bengaluru with staffed engineering in Madurai, delivering GenAI, calling agents, and ML systems." />
                 <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
                 <link rel="canonical" href="https://www.vrmaitechnology.com/ai-company-bangalore" />
 
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="AI Innovation Company in Bangalore | VRM AI Technology" />
-                <meta name="twitter:description" content="VRM AI Technology is an AI innovation company in Bangalore, engineering GenAI platforms, chatbots, and enterprise automation from Electronic City." />
+                <meta name="twitter:title" content="AI Software Solutions &amp; Registered Office Bengaluru | VRM AI Technology" />
+                <meta name="twitter:description" content="VRM AI Technology Private Limited is registered in Bengaluru with staffed engineering in Madurai, delivering GenAI, calling agents, and ML systems." />
                 <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
 
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "FAQPage",
-                        "mainEntity": faqs.map(item => ({
-                            "@type": "Question",
-                            "name": item.q,
-                            "acceptedAnswer": {
-                                "@type": "Answer",
-                                "text": item.a
-                            }
-                        }))
-                    })}
-                </script>
+                <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
+                <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
             </Helmet>
 
             {/* 1. Hero Section - Enterprise Gradient */}
@@ -79,17 +99,17 @@ function AICompanyBangalore() {
                         <div className="col-lg-7">
                             <div className="banner-content-two">
                                 <span className="pre-title wow fadeInUp" data-wow-delay=".2s" style={{ color: '#00C6FF' }}>
-                                    Electronic City Phase I &bull; Silicon Valley of India
+                                    Corporate Registered Office &bull; Bengaluru, Karnataka
                                 </span>
                                 <h1 className="title wow fadeInUp text-white" data-wow-delay=".3s">
-                                    AI Innovation Company in Bangalore
+                                    AI Software Solutions for Bengaluru Enterprises
                                 </h1>
                                 <p className="disc wow fadeInUp text-white-50" data-wow-delay=".4s">
-                                    Operating from Bangalore’s premier technology hub at Electronic City, VRM AI Technology designs and scales foundational AI systems. We empower global enterprises, high-growth startups, and visionary leaders with production-ready Generative AI platforms, intelligent automation, and conversational speech infrastructure.
+                                    VRM AI Technology Private Limited maintains its corporate registered office in Bengaluru, with engineering development centered at our staffed development center in Madurai. We deliver production-ready Generative AI platforms, conversational calling agents, and custom machine learning software for organizations across India.
                                 </p>
                                 <div className="banner-btn wow fadeInUp d-flex flex-wrap gap-3" data-wow-delay=".5s">
                                     <Link to="/contactus#send-message" className="vrm-blue-to-white-btn">
-                                        Connect with Bangalore Team <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>
+                                        Contact Us <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>
                                     </Link>
                                     <Link to="/solutions" className="vrm-blue-to-white-btn" style={{ background: 'rgba(255,255,255,0.1)', color: '#fff' }}>
                                         Explore AI Solutions
@@ -100,7 +120,7 @@ function AICompanyBangalore() {
                         <div className="col-lg-5">
                             <div className="banner-image-two wow fadeInUp" data-wow-delay=".3s">
                                 <img src="/assets/images/Solutions/AIConsultingService.png"
-                                    alt="VRM AI Technology Bangalore Innovation Hub"
+                                    alt="VRM AI Technology Bengaluru Registered Office"
                                     style={{ borderRadius: '20px', boxShadow: '0 20px 50px rgba(0,0,0,0.3)', width: '100%', height: 'auto' }}
                                     loading="lazy"
                                 />
@@ -116,28 +136,28 @@ function AICompanyBangalore() {
                     <div className="row align-items-center g-5">
                         <div className="col-lg-6 wow fadeInUp" data-wow-delay=".2s">
                             <span className="pre-title" style={{ color: '#3B4ECC', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px' }}>
-                                Fueling Enterprise Scale
+                                Enterprise AI Solutions
                             </span>
                             <h2 className="title mt-2 mb-4" style={{ fontSize: '36px', fontWeight: '800', color: '#0e1022', lineHeight: '1.2' }}>
-                                Pioneering Enterprise AI Architectures from Electronic City
+                                Engineering AI Solutions for Enterprise Needs
                             </h2>
                             <p style={{ color: '#555', lineHeight: '1.8', fontSize: '16px', marginBottom: '16px' }}>
-                                Bangalore is the undisputed technological capital of India, housing the world’s most demanding engineering leaders and fastest-scaling digital products. In an era where generic AI wrappers fall short of enterprise expectations, VRM AI Technology focuses on deep architectural innovation: robust Retrieval-Augmented Generation (RAG), fine-tuned domain-specific LLMs, and resilient microservices.
+                                Bengaluru is a major technology center in India. Organizations require reliable AI development partners who combine technical depth with dependable engineering execution.
                             </p>
                             <p style={{ color: '#555', lineHeight: '1.8', fontSize: '16px', marginBottom: '24px' }}>
-                                From our Bangalore center, we help Fortune 500 enterprises, tech conglomerates, and growth-stage companies replace fragmented legacy workflows with automated, self-improving AI engines. Our engineers build systems that scale gracefully across millions of interactions without compromising latency, accuracy, or security.
+                                VRM AI Technology delivers custom Generative AI solutions, conversational voice agents, and enterprise software designed to automate complex operations and improve business efficiency. Our engineering team in Madurai works with organizations to build software adhering to ISO 9001:2015 quality management standards.
                             </p>
                             <div className="row g-3">
                                 <div className="col-sm-6">
                                     <div className="p-3 rounded" style={{ background: '#f8fafc', borderLeft: '4px solid #3B4ECC' }}>
-                                        <h6 style={{ fontWeight: '700', marginBottom: '4px' }}>Electronic City Hub</h6>
-                                        <p style={{ fontSize: '13px', margin: 0, color: '#666' }}>Centrally located within GoodWorks Infinity Park, Electronic City Phase I.</p>
+                                        <h6 style={{ fontWeight: '700', marginBottom: '4px' }}>Registered Office</h6>
+                                        <p style={{ fontSize: '13px', margin: 0, color: '#666' }}>Sampige Layout, Electronic City Phase 2, Bengaluru.</p>
                                     </div>
                                 </div>
                                 <div className="col-sm-6">
                                     <div className="p-3 rounded" style={{ background: '#f8fafc', borderLeft: '4px solid #00C6FF' }}>
-                                        <h6 style={{ fontWeight: '700', marginBottom: '4px' }}>ISO 9001:2015 Quality</h6>
-                                        <p style={{ fontSize: '13px', margin: 0, color: '#666' }}>Certified development lifecycle with automated testing, CI/CD, and model monitoring.</p>
+                                        <h6 style={{ fontWeight: '700', marginBottom: '4px' }}>ISO 9001:2015 Certified</h6>
+                                        <p style={{ fontSize: '13px', margin: 0, color: '#666' }}>Quality management certified processes for software engineering.</p>
                                     </div>
                                 </div>
                             </div>
@@ -145,15 +165,15 @@ function AICompanyBangalore() {
                         <div className="col-lg-6 wow fadeInUp" data-wow-delay=".4s">
                             <div className="p-4 p-md-5 rounded-4" style={{ background: 'linear-gradient(135deg, #f0f4ff 0%, #e2e8f8 100%)', border: '1px solid #cbd5e1' }}>
                                 <h4 style={{ fontWeight: '800', color: '#1b277c', marginBottom: '16px' }}>
-                                    Bangalore Registered Office
+                                    Bengaluru Registered Office
                                 </h4>
                                 <p style={{ color: '#475569', fontSize: '15px', lineHeight: '1.7', marginBottom: '20px' }}>
-                                    Connect directly with our senior software architects, AI consultants, and product leaders in Bangalore.
+                                    Connect with VRM AI Technology Private Limited through our registered office or contact channels.
                                 </p>
                                 <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 24px 0', fontSize: '14px', color: '#334155' }}>
                                     <li style={{ marginBottom: '12px', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
                                         <i className="fas fa-building text-primary mt-1"></i>
-                                        <span><strong>Office:</strong> VRM AI Technology Private Limited<br />GoodWorks Infinity Park, 21, 2nd Main Rd, Electronic City Phase I, Bengaluru, Karnataka 560100</span>
+                                        <span><strong>Registered Office:</strong> VRM AI Technology Private Limited<br />No. 22, 1st Cross, Sampige Layout, Electronic City Phase 2, Bengaluru, Karnataka 560100, India<br /><em style={{ fontSize: '12px', color: '#64748b' }}>(Registered office - no staffed operations)</em></span>
                                     </li>
                                     <li style={{ marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '10px' }}>
                                         <i className="fas fa-id-card text-primary"></i>
@@ -173,7 +193,7 @@ function AICompanyBangalore() {
                                     className="vrm-btn-detail"
                                     style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '10px 20px', borderRadius: '8px', background: '#1b277c', color: '#fff', textDecoration: 'none' }}
                                 >
-                                    <i className="fas fa-calendar-check"></i> Book Bangalore Discovery Call
+                                    <i className="fas fa-calendar-check"></i> Book Bengaluru Discovery Call
                                 </Link>
                             </div>
                         </div>
@@ -187,10 +207,10 @@ function AICompanyBangalore() {
                     <div className="row">
                         <div className="col-12 text-center">
                             <div className="rts-title-area">
-                                <span className="pre-title" style={{ color: '#00C6FF' }}>Enterprise Capabilities</span>
-                                <h2 className="title text-white">Full-Stack AI Engineering Built for Bangalore Tech Giants</h2>
+                                <span className="pre-title" style={{ color: '#00C6FF' }}>Technical Capabilities</span>
+                                <h2 className="title text-white">Full-Stack AI Engineering Built for Bengaluru Innovators</h2>
                                 <p className="disc mt-3 text-white-50">
-                                    From algorithmic design to production deployments, we deliver enterprise-grade performance.
+                                    From algorithmic design to production deployments, we deliver robust performance and reliable software engineering.
                                 </p>
                             </div>
                         </div>
@@ -206,7 +226,7 @@ function AICompanyBangalore() {
                             {
                                 icon: "fa-headset",
                                 title: "Enterprise AI Calling Agents",
-                                desc: "High-concurrency conversational voice agents handling 24/7 customer support, qualification, and automated outbound appointment confirmations.",
+                                desc: "High-concurrency conversational voice agents handling automated customer support, qualification, and automated outbound appointment confirmations.",
                                 link: "/solutions/ai-calling-agent"
                             },
                             {
@@ -270,13 +290,13 @@ function AICompanyBangalore() {
                             <div className="bg-white p-4 rounded-4 shadow-sm h-100 d-flex flex-column justify-content-between">
                                 <div>
                                     <span className="badge bg-primary mb-3">Hiring Intelligence</span>
-                                    <h4 style={{ fontWeight: '700', color: '#0e1022' }}>Workflow.AI</h4>
+                                    <h4 style={{ fontWeight: '700', color: '#0e1022' }}>Workflow AI</h4>
                                     <p style={{ color: '#666', fontSize: '14px', lineHeight: '1.7' }}>
-                                        Cut technical hiring cycles by 70%. Combine automated resume parsing in <Link to="/products/workflow/xpress-screening">Xpress Screening</Link>, AI video assessments in <Link to="/products/workflow/videosage">VideoSage</Link>, and proctored coding assessments in <Link to="/products/workflow/codesage">CodeSage</Link>.
+                                        Accelerate technical hiring. Combine automated resume parsing in <Link to="/products/workflow/xpress-screening">Xpress Screening</Link>, AI video assessments in <Link to="/products/workflow/videosage">VideoSage</Link>, and proctored coding assessments in <Link to="/products/workflow/codesage">CodeSage</Link>.
                                     </p>
                                 </div>
                                 <Link to="/products/workflow" className="vrm-btn-detail mt-3">
-                                    Discover Workflow.AI <i className="fas fa-arrow-right"></i>
+                                    Discover Workflow AI <i className="fas fa-arrow-right"></i>
                                 </Link>
                             </div>
                         </div>
@@ -298,13 +318,13 @@ function AICompanyBangalore() {
                             <div className="bg-white p-4 rounded-4 shadow-sm h-100 d-flex flex-column justify-content-between">
                                 <div>
                                     <span className="badge bg-warning text-dark mb-3">PropTech AI</span>
-                                    <h4 style={{ fontWeight: '700', color: '#0e1022' }}>VRM Real Estate</h4>
+                                    <h4 style={{ fontWeight: '700', color: '#0e1022' }}>VRM Reality</h4>
                                     <p style={{ color: '#666', fontSize: '14px', lineHeight: '1.7' }}>
                                         End-to-end intelligent platform connecting property buyer inquiries, conversational lead qualification, automated voice callbacks, and on-site scheduling in one unified pipeline.
                                     </p>
                                 </div>
                                 <Link to="/products/vrm-real-estate" className="vrm-btn-detail mt-3">
-                                    Discover VRM Real Estate <i className="fas fa-arrow-right"></i>
+                                    Discover VRM Reality <i className="fas fa-arrow-right"></i>
                                 </Link>
                             </div>
                         </div>

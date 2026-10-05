@@ -19,24 +19,24 @@ function AICompanyTamilNadu() {
 
     const faqs = [
         {
-            q: "What establishes VRM AI Technology as a growing AI company in Tamil Nadu?",
-            a: "With an active development center in Madurai and deep operational roots across the state, VRM AI Technology is driving regional technological advancement. We engineer enterprise-ready artificial intelligence products that serve Tamil Nadu’s manufacturing, retail, real estate, and municipal sectors."
+            q: "What presence does VRM AI Technology have in Tamil Nadu?",
+            a: "VRM AI Technology operates an engineering development center in Madurai, Tamil Nadu, located at Door No.209, 1st Floor, No.147, 5th St, Periyalar Nagar, Tiruppalai, Madurai."
         },
         {
-            q: "Does VRM AI support Tamil language AI models and chatbots?",
-            a: "Yes. We specialize in localized and bilingual conversational models supporting Tamil and English (Tanglish and pure Tamil scripts). Our conversational agents enable regional enterprises and public institutions to communicate effortlessly with citizens and customers."
+            q: "What AI products does VRM AI Technology offer?",
+            a: "Workflow AI, People Connect, AI Buddy, Exit Intelligence, Visionix AI, VRM Reality and Bench to Deploy (B2D)."
         },
         {
-            q: "How does VRM AI empower Tamil Nadu’s manufacturing and industrial sectors?",
-            a: "Tamil Nadu is one of India’s foremost industrial powerhouses. We deploy predictive maintenance models, computer vision for automated quality inspection through Visionix AI, and supply chain intelligence systems tailored for manufacturing facilities in Chennai, Coimbatore, and Southern Tamil Nadu."
+            q: "What AI services are available across Tamil Nadu?",
+            a: "Custom Generative AI solutions, AI chatbot development, AI calling agents, machine learning services and enterprise software development."
         },
         {
-            q: "What public sector and governance solutions does VRM AI offer in Tamil Nadu?",
-            a: "Our People Connect (Global) platform is engineered specifically for civic engagement and municipal grievance management, enabling local bodies to capture citizen feedback via WhatsApp and automated voice channels with GPS-verified dispatch."
+            q: "Does VRM AI Technology build custom AI solutions?",
+            a: "Yes. We build custom AI chatbots, AI calling agents, machine learning systems and Generative AI solutions, along with enterprise software development."
         },
         {
-            q: "How can businesses across Tamil Nadu engage VRM AI Technology?",
-            a: "Organizations can schedule an architectural discovery session either at our Madurai development center or remotely with our solutions architects to assess AI readiness, workflow integration points, and expected ROI."
+            q: "Is VRM AI Technology ISO certified?",
+            a: "Yes. VRM AI Technology is ISO 9001:2015 certified for quality management."
         }
     ];
 
@@ -44,17 +44,28 @@ function AICompanyTamilNadu() {
         <div className="rts-ai-consulting-services basic-font-family">
             <HeaderOne className="header-white-text" />
             <Helmet>
-                <title>Growing AI Company in Tamil Nadu | VRM AI Technology</title>
-                <meta name="description" content="VRM AI Technology is a growing AI company in Tamil Nadu, delivering bilingual GenAI, conversational voice agents, and industrial automation across the state." />
-                <meta property="og:title" content="Growing AI Company in Tamil Nadu | VRM AI Technology" />
-                <meta property="og:description" content="VRM AI Technology is a growing AI company in Tamil Nadu, delivering bilingual GenAI, conversational voice agents, and industrial automation across the state." />
+                <title>AI Company in Tamil Nadu | VRM AI Technology</title>
+                <meta name="description" content="VRM AI Technology operates a staffed development center in Madurai, Tamil Nadu, developing GenAI platforms, calling agents, and custom AI software." />
+                <meta property="og:title" content="AI Company in Tamil Nadu | VRM AI Technology" />
+                <meta property="og:description" content="VRM AI Technology operates a staffed development center in Madurai, Tamil Nadu, developing GenAI platforms, calling agents, and custom AI software." />
                 <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
                 <link rel="canonical" href="https://www.vrmaitechnology.com/ai-company-tamil-nadu" />
 
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="Growing AI Company in Tamil Nadu | VRM AI Technology" />
-                <meta name="twitter:description" content="VRM AI Technology is a growing AI company in Tamil Nadu, delivering bilingual GenAI, conversational voice agents, and industrial automation across the state." />
+                <meta name="twitter:title" content="AI Company in Tamil Nadu | VRM AI Technology" />
+                <meta name="twitter:description" content="VRM AI Technology operates a staffed development center in Madurai, Tamil Nadu, developing GenAI platforms, calling agents, and custom AI software." />
                 <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
+
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.vrmaitechnology.com/" },
+                            { "@type": "ListItem", "position": 2, "name": "AI Company in Tamil Nadu", "item": "https://www.vrmaitechnology.com/ai-company-tamil-nadu" }
+                        ]
+                    })}
+                </script>
 
                 <script type="application/ld+json">
                     {JSON.stringify({
@@ -79,17 +90,17 @@ function AICompanyTamilNadu() {
                         <div className="col-lg-7">
                             <div className="banner-content-two">
                                 <span className="pre-title wow fadeInUp" data-wow-delay=".2s" style={{ color: '#00C6FF' }}>
-                                    Regional Innovation &bull; State-Wide Enterprise AI
+                                    Staffed Development Center &bull; Madurai, Tamil Nadu
                                 </span>
                                 <h1 className="title wow fadeInUp text-white" data-wow-delay=".3s">
-                                    Growing AI Company in Tamil Nadu
+                                    AI Software Company in Tamil Nadu
                                 </h1>
                                 <p className="disc wow fadeInUp text-white-50" data-wow-delay=".4s">
-                                    VRM AI Technology is accelerating enterprise intelligence across Tamil Nadu. From Madurai and Chennai to Coimbatore and Tiruchirappalli, we deliver proprietary Generative AI software, multilingual voice bots, automated recruitment intelligence, and industrial computer vision built for sustainable economic growth.
+                                    VRM AI Technology develops artificial intelligence solutions from our staffed development center in Madurai, Tamil Nadu. We engineer proprietary Generative AI software, conversational voice agents, recruitment intelligence systems, and custom machine learning pipelines.
                                 </p>
                                 <div className="banner-btn wow fadeInUp d-flex flex-wrap gap-3" data-wow-delay=".5s">
                                     <Link to="/contactus#send-message" className="vrm-blue-to-white-btn">
-                                        Partner in Tamil Nadu <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>
+                                        Contact Our Team <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>
                                     </Link>
                                     <Link to="/ai-company-madurai" className="vrm-blue-to-white-btn" style={{ background: 'rgba(255,255,255,0.1)', color: '#fff' }}>
                                         View Madurai Center
@@ -100,7 +111,7 @@ function AICompanyTamilNadu() {
                         <div className="col-lg-5">
                             <div className="banner-image-two wow fadeInUp" data-wow-delay=".3s">
                                 <img src="/assets/images/Solutions/AIIntegration.png"
-                                    alt="Growing AI Company in Tamil Nadu - VRM AI Technology"
+                                    alt="AI Software Company in Tamil Nadu - VRM AI Technology"
                                     style={{ borderRadius: '20px', boxShadow: '0 20px 50px rgba(0,0,0,0.3)', width: '100%', height: 'auto' }}
                                     loading="lazy"
                                 />
@@ -110,34 +121,34 @@ function AICompanyTamilNadu() {
                 </div>
             </div>
 
-            {/* 2. Tamil Nadu Industrial & Digital Context */}
+            {/* 2. Tamil Nadu Digital Context */}
             <div className="vrm-full-width-section vrm-white-bg">
                 <div className="container">
                     <div className="row align-items-center g-5">
                         <div className="col-lg-6 wow fadeInUp" data-wow-delay=".2s">
                             <span className="pre-title" style={{ color: '#3B4ECC', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px' }}>
-                                State-Wide Digital Transformation
+                                Regional AI Development
                             </span>
                             <h2 className="title mt-2 mb-4" style={{ fontSize: '36px', fontWeight: '800', color: '#0e1022', lineHeight: '1.2' }}>
-                                Empowering Tamil Nadu’s Manufacturing, Civic &amp; Commercial Corridors
+                                Developing Intelligent Software from Madurai
                             </h2>
                             <p style={{ color: '#555', lineHeight: '1.8', fontSize: '16px', marginBottom: '16px' }}>
-                                Tamil Nadu is globally recognized for its industrial vigor, advanced manufacturing clusters, and massive educational infrastructure. As businesses across the state modernize, the demand for localized, compliant, and cost-effective artificial intelligence has reached an inflection point.
+                                VRM AI Technology is an AI development company headquartered with corporate governance in Bengaluru and our staffed engineering center located in Madurai, Tamil Nadu.
                             </p>
                             <p style={{ color: '#555', lineHeight: '1.8', fontSize: '16px', marginBottom: '24px' }}>
-                                As a growing AI company founded with deep Tamil roots, VRM AI Technology provides the bridge between advanced algorithmic science and real-world commercial execution. Whether it is bilingual Tamil-English conversational commerce, factory automation via computer vision, or municipal feedback orchestration, our solutions deliver tangible, measurable operational gains.
+                                Our engineers build practical AI systems that help organizations automate manual processes, structure data, and deploy conversational channels in Tamil and English.
                             </p>
                             <div className="row g-3">
                                 <div className="col-sm-6">
                                     <div className="p-3 rounded" style={{ background: '#f8fafc', borderLeft: '4px solid #3B4ECC' }}>
-                                        <h6 style={{ fontWeight: '700', marginBottom: '4px' }}>Bilingual AI Mastery</h6>
-                                        <p style={{ fontSize: '13px', margin: 0, color: '#666' }}>Native support for Tamil speech, script, and mixed-mode regional vernaculars.</p>
+                                        <h6 style={{ fontWeight: '700', marginBottom: '4px' }}>Madurai Development Center</h6>
+                                        <p style={{ fontSize: '13px', margin: 0, color: '#666' }}>Staffed center at Periyalar Nagar, Tiruppalai, Madurai.</p>
                                     </div>
                                 </div>
                                 <div className="col-sm-6">
                                     <div className="p-3 rounded" style={{ background: '#f8fafc', borderLeft: '4px solid #00C6FF' }}>
-                                        <h6 style={{ fontWeight: '700', marginBottom: '4px' }}>Regional Focus</h6>
-                                        <p style={{ fontSize: '13px', margin: 0, color: '#666' }}>Dedicated R&amp;D center in Madurai with client delivery networks across all districts.</p>
+                                        <h6 style={{ fontWeight: '700', marginBottom: '4px' }}>ISO 9001:2015 Certified</h6>
+                                        <p style={{ fontSize: '13px', margin: 0, color: '#666' }}>Certified quality management procedures for software delivery.</p>
                                     </div>
                                 </div>
                             </div>
@@ -145,24 +156,24 @@ function AICompanyTamilNadu() {
                         <div className="col-lg-6 wow fadeInUp" data-wow-delay=".4s">
                             <div className="p-4 p-md-5 rounded-4" style={{ background: 'linear-gradient(135deg, #f0f4ff 0%, #e2e8f8 100%)', border: '1px solid #cbd5e1' }}>
                                 <h4 style={{ fontWeight: '800', color: '#1b277c', marginBottom: '16px' }}>
-                                    Regional Impact Across Sectors
+                                    AI Software Products
                                 </h4>
                                 <ul style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: '15px', color: '#334155' }}>
                                     <li style={{ marginBottom: '14px', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
-                                        <i className="fas fa-industry text-primary mt-1"></i>
-                                        <span><strong>Industrial &amp; Automotive:</strong> Automated quality control inspection and predictive equipment diagnostics in Chennai &amp; Coimbatore manufacturing belts.</span>
-                                    </li>
-                                    <li style={{ marginBottom: '14px', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
                                         <i className="fas fa-users-cog text-primary mt-1"></i>
-                                        <span><strong>Enterprise Hiring:</strong> Rapid campus and technical talent screening across Tamil Nadu universities using our <Link to="/products/workflow">Workflow.AI</Link> platform.</span>
+                                        <span><strong>Workflow AI:</strong> Recruitment intelligence platform including <Link to="/products/workflow">Workflow AI</Link>.</span>
                                     </li>
                                     <li style={{ marginBottom: '14px', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
                                         <i className="fas fa-landmark text-primary mt-1"></i>
-                                        <span><strong>Smart Governance:</strong> Grievance resolution and public outreach automation with <Link to="/products/people-connect">People Connect (Global)</Link>.</span>
+                                        <span><strong>People Connect:</strong> Citizen engagement and feedback management with <Link to="/products/people-connect">People Connect</Link>.</span>
+                                    </li>
+                                    <li style={{ marginBottom: '14px', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                                        <i className="fas fa-comments text-primary mt-1"></i>
+                                        <span><strong>AI Buddy:</strong> Interactive speaking practice and language tutoring with <Link to="/products/aibuddy">AI Buddy</Link>.</span>
                                     </li>
                                     <li style={{ marginBottom: '0px', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
-                                        <i className="fas fa-home text-primary mt-1"></i>
-                                        <span><strong>Real Estate &amp; Retail:</strong> Lead qualification and conversational booking workflows via <Link to="/products/vrm-real-estate">VRM Real Estate</Link>.</span>
+                                        <i className="fas fa-check-circle text-primary mt-1"></i>
+                                        <span><strong>Additional Products:</strong> Exit Intelligence, Visionix AI, VRM Reality, and Bench to Deploy (B2D).</span>
                                     </li>
                                 </ul>
                             </div>

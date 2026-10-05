@@ -30,6 +30,17 @@
   RewriteCond %{HTTP_HOST} ^(?:www\.)?(.+)$ [NC]
   RewriteRule ^ https://www.%1%{REQUEST_URI} [L,NE,R=301]
 
+  # 301 Redirects for alias / duplicate URLs
+  RewriteRule ^ai-chatbot-development/?$ /solutions/ai-chatbot-development [R=301,L]
+  RewriteRule ^ai-consulting/?$ /solutions/ai-consulting-services [R=301,L]
+  RewriteRule ^voice-ai-solutions/?$ /solutions/ai-calling-agent [R=301,L]
+  RewriteRule ^ai-company-chennai/?$ /ai-software-services-chennai [R=301,L]
+  RewriteRule ^products/b2d/?$ /products/bench-to-deploy [R=301,L]
+  RewriteRule ^products/vevora/?$ /products/vrm-real-estate [R=301,L]
+  RewriteRule ^solutions/generative-ai-development/?$ /generative-ai-development [R=301,L]
+  # 301 Redirects for template demo routes
+  RewriteRule ^(home-(two|three|four|five|six|seven|eight|nine|ten)|service-(2|3|two|three)|appoinment|pricing-plane|testimonial.*|portfolio.*|project.*|team.*|blog.*|onepage.*)/?$ / [R=301,L]
+
   RewriteRule ^index\.html$ - [L]
   # Serve actual existing files (e.g. sitemap.xml, robots.txt) directly
   RewriteCond %{REQUEST_FILENAME} !-f

@@ -46,7 +46,7 @@ function SolutionsOverview() {
             id: "ai-chatbot-development",
             category: "AI Development",
             title: "AI Chatbot Development",
-            disc: "Build multi-channel conversational AI chatbots with natural language understanding (NLU), automated lead qualification, and 24/7 customer support.",
+            disc: "Build multi-channel conversational AI chatbots with natural language understanding (NLU), automated lead qualification, and continuous customer support.",
             link: "/solutions/ai-chatbot-development",
             img: "/assets/images/service/solution-ai-chatbot.png",
             alt: "AI Chatbot Development Interface with Indian Specialists"
@@ -74,12 +74,26 @@ function SolutionsOverview() {
     return (
         <div className="solutions-overview-page workflow-page basic-font-family">
             <Helmet>
-                <title>Our AI Solutions | Enterprise Services Overview | VRM AI</title>
-                <meta name="description" content="Discover enterprise AI solutions by VRM AI Technology: AI consulting, custom development, conversational chatbots, voice agents, and machine learning." />
-                <meta property="og:title" content="Our AI Solutions Overview | VRM AI Technology" />
-                <meta property="og:description" content="Discover enterprise AI solutions by VRM AI Technology: AI consulting, custom development, conversational chatbots, voice agents, and machine learning." />
+                <title>AI Solutions &amp; Services | VRM AI Technology</title>
+                <meta name="description" content="Explore AI solutions by VRM AI Technology: AI chatbot development, AI calling agents, machine learning services, and enterprise software development." />
+                <meta property="og:title" content="AI Solutions &amp; Services | VRM AI Technology" />
+                <meta property="og:description" content="Explore AI solutions by VRM AI Technology: AI chatbot development, AI calling agents, machine learning services, and enterprise software development." />
                 <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
                 <link rel="canonical" href="https://www.vrmaitechnology.com/solutions" />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="AI Solutions &amp; Services | VRM AI Technology" />
+                <meta name="twitter:description" content="Explore AI solutions by VRM AI Technology: AI chatbot development, AI calling agents, machine learning services, and enterprise software development." />
+                <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.vrmaitechnology.com/" },
+                            { "@type": "ListItem", "position": 2, "name": "Solutions", "item": "https://www.vrmaitechnology.com/solutions" }
+                        ]
+                    })}
+                </script>
             </Helmet>
             
             <HeaderOne />
@@ -99,7 +113,7 @@ function SolutionsOverview() {
                         <div className="col-lg-7 text-start">
                             <div className="vrm-hero__content text-start">
                                 <h1 className="title wow fadeInUp text-white vrm-workflow-hero-title mt-2" data-wow-delay=".2s">
-                                    Our Solutions
+                                    AI Software Services &amp; Solutions
                                 </h1>
                                 <p className="disc wow fadeInUp mt-3 mb-4 vrm-workflow-hero-disc" data-wow-delay=".3s" style={{ color: 'rgba(255, 255, 255, 0.85)', fontSize: '17px', maxWidth: '650px', lineHeight: '1.7' }}>
                                     Transforming businesses through strategic AI consulting, enterprise system integration, custom LLM software engineering, conversational voice agents, and predictive machine learning models.

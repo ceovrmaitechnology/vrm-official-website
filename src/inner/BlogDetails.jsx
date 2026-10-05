@@ -40,6 +40,7 @@ function BlogDetails() {
                 <title>{pageTitle}</title>
                 <meta name="description" content={metaDescription} />
                 <link rel="canonical" href={canonicalUrl} />
+                <meta name="robots" content="noindex, follow" />
                 <meta property="og:title" content={pageTitle} />
                 <meta property="og:description" content={metaDescription} />
                 <meta property="og:image" content={ogImageUrl} />

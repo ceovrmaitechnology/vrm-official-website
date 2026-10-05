@@ -26,18 +26,30 @@ function VideoSage() {
     return (
         <div className="videosage-page basic-font-family">
             <Helmet>
-                <title>VideoSage | AI Video Interviews &amp; Behavioral Assessment | Workflow.AI</title>
-                <meta name="description" content="Streamline recruitment with VideoSage AI video interviews. Automatically evaluate communication, technical responses, confidence, and candidate performance." />
-                <meta property="og:title" content="VideoSage | AI Video Interviews &amp; Behavioral Assessment | Workflow.AI" />
-                <meta property="og:description" content="Streamline recruitment with VideoSage AI video interviews. Automatically evaluate communication, technical responses, confidence, and candidate performance." />
+                <title>VideoSage AI Video Interview | VRM AI Technology</title>
+                <meta name="description" content="VideoSage by VRM AI Technology delivers AI video interviews, evaluating candidate responses, communication skills, and role readiness with clear scoring." />
+                <meta property="og:title" content="VideoSage AI Video Interview | VRM AI Technology" />
+                <meta property="og:description" content="VideoSage by VRM AI Technology delivers AI video interviews, evaluating candidate responses, communication skills, and role readiness with clear scoring." />
                 <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
                 <meta property="og:url" content="https://www.vrmaitechnology.com/products/workflow/videosage" />
                 <link rel="canonical" href="https://www.vrmaitechnology.com/products/workflow/videosage" />
 
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="VideoSage | AI Video Interviews &amp; Behavioral Assessment | Workflow.AI" />
-                <meta name="twitter:description" content="Streamline recruitment with VideoSage AI video interviews. Automatically evaluate communication, technical responses, confidence, and candidate performance." />
+                <meta name="twitter:title" content="VideoSage AI Video Interview | VRM AI Technology" />
+                <meta name="twitter:description" content="VideoSage by VRM AI Technology delivers AI video interviews, evaluating candidate responses, communication skills, and role readiness with clear scoring." />
                 <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.vrmaitechnology.com/" },
+                            { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://www.vrmaitechnology.com/products" },
+                            { "@type": "ListItem", "position": 3, "name": "Workflow AI", "item": "https://www.vrmaitechnology.com/products/workflow" },
+                            { "@type": "ListItem", "position": 4, "name": "VideoSage", "item": "https://www.vrmaitechnology.com/products/workflow/videosage" }
+                        ]
+                    })}
+                </script>
                 <script type="application/ld+json">
                     {JSON.stringify({
                         "@context": "https://schema.org",
@@ -63,7 +75,7 @@ function VideoSage() {
                         <div className="col-lg-7">
                             <div className="banner-content-two">
                                 <span className="vrm-suite-label wow fadeInUp" data-wow-delay=".1s">
-                                    WORKFLOW.AI
+                                    WORKFLOW AI
                                 </span>
                                 <h1 className="title wow fadeInUp text-white" data-wow-delay=".2s">
                                     VideoSage

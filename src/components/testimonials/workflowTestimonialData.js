@@ -3,19 +3,19 @@ export const employerTestimonials = [
         name: "Jennifer",
         company: "Visionize",
         quote:
-            "Workflow.AI by VRM AI Technology completely transformed how we screen candidates for technical roles. The AI-powered phone screening saved us over 60% of our initial interview time. We now focus only on the top candidates who truly matter."
+            "Workflow AI by VRM AI Technology completely transformed how we screen candidates for technical roles. The AI-powered phone screening saved us over 60% of our initial interview time. We now focus only on the top candidates who truly matter."
     },
     {
         name: "Venkatesh",
         company: "Galaxy",
         quote:
-            "As an offshore company, hiring the right people quickly is critical. Workflow.AI ScreenSage automated our first-round calls flawlessly. The transcripts and AI scores helped us shortlist candidates 3x faster than before."
+            "As an offshore company, hiring the right people quickly is critical. Workflow AI ScreenSage automated our first-round calls flawlessly. The transcripts and AI scores helped us shortlist candidates 3x faster than before."
     },
     {
         name: "Varun",
         company: "Tech Ninja",
         quote:
-            "As a co-founder, I need tools that scale fast. Workflow.AI VideoSage gave us enterprise-grade video interviews without the enterprise price tag. The proctoring and AI evaluation are spot on. Highly recommend it."
+            "As a co-founder, I need tools that scale fast. Workflow AI VideoSage gave us high-quality video interviews. The proctoring and AI evaluation are spot on. Highly recommend it."
     },
     {
         name: "Satish",
@@ -27,37 +27,37 @@ export const employerTestimonials = [
         name: "Shanmugam",
         company: "Healthproof",
         quote:
-            "In healthcare, every hire matters. Workflow.AI by VRM AI Technology helped us screen candidates with precision and speed. The skill-based evaluation and AI scoring gave us clarity on candidates we would have otherwise missed."
+            "In healthcare, every hire matters. Workflow AI by VRM AI Technology helped us screen candidates with precision and speed. The skill-based evaluation and AI scoring gave us clarity on candidates we would have otherwise missed."
     },
     {
         name: "Laxman",
         company: "Healthedge",
         quote:
-            "Workflow.AI by VRM AI Technology integrated seamlessly into our hiring process. The automated call scheduling and real-time transcripts gave our team full visibility. It is the most intuitive recruitment tool we have used."
+            "Workflow AI by VRM AI Technology integrated seamlessly into our hiring process. The automated call scheduling and real-time transcripts gave our team full visibility. It is the most intuitive recruitment tool we have used."
     },
     {
         name: "Deepak Kumar",
         company: "V-Connect Systems",
         quote:
-            "Workflow.AI by VRM AI Technology streamlined our high-volume candidate outreach. Automated interview scheduling and instant status updates kept candidates engaged and reduced our drop-off rate by half."
+            "Workflow AI by VRM AI Technology streamlined our high-volume candidate outreach. Automated interview scheduling and instant status updates kept candidates engaged and reduced our drop-off rate by half."
     },
     {
         name: "Sandhya",
         company: "Nexus HR Solutions",
         quote:
-            "Workflow.AI by VRM AI Technology has revolutionized our screening process. The automated evaluation dashboard and real-time candidate ranking have given our recruitment team invaluable quality-of-hire insights we missed before."
+            "Workflow AI by VRM AI Technology has revolutionized our screening process. The automated evaluation dashboard and real-time candidate ranking have given our recruitment team invaluable quality-of-hire insights we missed before."
     },
     {
         name: "Amir",
         company: "EduTech Global",
         quote:
-            "Workflow.AI by VRM AI Technology has been a game-changer for our high-volume hiring. The communication assessments and structured scoring are highly accurate and have greatly improved our quality of candidate selection."
+            "Workflow AI by VRM AI Technology has been a game-changer for our high-volume hiring. The communication assessments and structured scoring are highly accurate and have greatly improved our quality of candidate selection."
     },
     {
         name: "Rajesh",
         company: "Aegis Solutions",
         quote:
-            "With Workflow.AI by VRM AI Technology, managing bulk candidate pipelines became incredibly seamless. The platform's automated skill matching and resume insights helped us fill critical engineering positions in record time."
+            "With Workflow AI by VRM AI Technology, managing bulk candidate pipelines became incredibly seamless. The platform's automated skill matching and resume insights helped us fill critical engineering positions in record time."
     },
     {
         name: "Manish Gupta",
@@ -102,7 +102,7 @@ export const candidateTestimonials = [
         name: "Meera",
         role: "Data Analyst Candidate",
         quote:
-            "I appreciated the skill-based evaluation and clear scoring. Workflow.AI by VRM AI Technology made the process feel merit-driven instead of random, which gave me more confidence as a candidate."
+            "I appreciated the skill-based evaluation and clear scoring. Workflow AI by VRM AI Technology made the process feel merit-driven instead of random, which gave me more confidence as a candidate."
     },
     {
         name: "Rohit",
@@ -132,7 +132,7 @@ export const candidateTestimonials = [
         name: "Karthik Subramanian",
         role: "Product Management Candidate",
         quote:
-            "Applying through the Workflow.AI portal by VRM AI Technology was direct and transparent. I received immediate status updates on my application status, and the entire screening process felt organized and highly efficient."
+            "Applying through the Workflow AI portal by VRM AI Technology was direct and transparent. I received immediate status updates on my application status, and the entire screening process felt organized and highly efficient."
     },
     {
         name: "Harish Pillai",

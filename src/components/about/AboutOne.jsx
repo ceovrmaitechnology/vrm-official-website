@@ -53,12 +53,17 @@ function AboutOne() {
                         {/* about right */}
                         <div className="col-lg-5 col-md-12 col-sm-12 col-12 order-lg-2 order-md-1 order-sm-1 order-1 mb_md--30 mb_sm--30 d-flex align-items-center justify-content-center">
                             <div className="business-goal-one wow fadeInUp w-100 d-flex position-relative" data-wow-delay=".2s">
-                                <img className="w-100"
-                                    src="/assets/images/home/driving-innovation-ai-landscape.png"
-                                    alt="Driving Innovation Through Artificial Intelligence"
-                                    style={{ objectFit: 'cover', height: '320px', borderRadius: '16px' }}
-                                    loading="lazy"
-                                />
+                                <picture className="w-100">
+                                    <source srcSet="/assets/images/home/driving-innovation-ai-landscape.webp" type="image/webp" />
+                                    <img className="w-100"
+                                        src="/assets/images/home/driving-innovation-ai-landscape.png"
+                                        alt="Driving Innovation Through Artificial Intelligence"
+                                        style={{ objectFit: 'cover', height: '320px', borderRadius: '16px' }}
+                                        loading="lazy"
+                                        width="500"
+                                        height="320"
+                                    />
+                                </picture>
                             </div>
                         </div>
                         {/* about-right end */}

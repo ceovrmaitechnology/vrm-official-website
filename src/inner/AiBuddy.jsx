@@ -27,17 +27,28 @@ function AiBuddy() {
         <div className="aibuddy-page basic-font-family">
             <HeaderOne />
             <Helmet>
-                <title>AI Buddy | Personalized AI Language Coach & Learning Platform</title>
-                <meta name="description" content="Learn, practice, and communicate confidently in multiple languages with AI Buddy. Build speaking fluency, improve pronunciation, and master real-world conversations." />
-                <meta property="og:title" content="AI Buddy — Personalized AI Language Learning Coach" />
-                <meta property="og:description" content="Learn, practice, and communicate confidently in multiple languages with AI Buddy. Build speaking fluency, improve pronunciation, and master real-world conversations." />
+                <title>AI Buddy Language Coach | VRM AI Technology</title>
+                <meta name="description" content="AI Buddy by VRM AI Technology helps learners practice English and multiple languages through real-time AI voice conversations and pronunciation coaching." />
+                <meta property="og:title" content="AI Buddy Language Coach | VRM AI Technology" />
+                <meta property="og:description" content="AI Buddy by VRM AI Technology helps learners practice English and multiple languages through real-time AI voice conversations and pronunciation coaching." />
                 <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
                 <link rel="canonical" href="https://www.vrmaitechnology.com/products/aibuddy" />
             
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="AI Buddy — Personalized AI Language Learning Coach" />
-                <meta name="twitter:description" content="Learn, practice, and communicate confidently in multiple languages with AI Buddy. Build speaking fluency, improve pronunciation, and master real-world conversations." />
+                <meta name="twitter:title" content="AI Buddy Language Coach | VRM AI Technology" />
+                <meta name="twitter:description" content="AI Buddy by VRM AI Technology helps learners practice English and multiple languages through real-time AI voice conversations and pronunciation coaching." />
                 <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.vrmaitechnology.com/" },
+                            { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://www.vrmaitechnology.com/products" },
+                            { "@type": "ListItem", "position": 3, "name": "AI Buddy", "item": "https://www.vrmaitechnology.com/products/aibuddy" }
+                        ]
+                    })}
+                </script>
                 <script type="application/ld+json">
                     {JSON.stringify({
                         "@context": "https://schema.org",
@@ -228,7 +239,7 @@ function AiBuddy() {
                     </div>
                     <div className="row mt--50 g-4">
                         {[
-                            { title: "24/7 AI Voice Practice", icon: "fal fa-clock" },
+                            { title: "AI Voice Practice", icon: "fal fa-clock" },
                             { title: "Targeted Training Paths", icon: "fal fa-road" },
                             { title: "Enterprise Score Tracking", icon: "fal fa-chart-pie" },
                             { title: "API Support Integrations", icon: "fal fa-network-wired" }

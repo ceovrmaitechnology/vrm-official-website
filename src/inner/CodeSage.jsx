@@ -26,18 +26,30 @@ function CodeSage() {
     return (
         <div className="codesage-page basic-font-family">
             <Helmet>
-                <title>CodeSage | AI Coding Assessments &amp; Technical Screening | Workflow.AI</title>
-                <meta name="description" content="Assess engineering candidates with CodeSage. AI-powered coding challenges, automated code execution, intelligent proctoring, and technical interview scoring." />
-                <meta property="og:title" content="CodeSage | AI Coding Assessments &amp; Technical Screening | Workflow.AI" />
-                <meta property="og:description" content="Assess engineering candidates with CodeSage. AI-powered coding challenges, automated code execution, intelligent proctoring, and technical interview scoring." />
+                <title>CodeSage AI Code Assessment | VRM AI Technology</title>
+                <meta name="description" content="CodeSage by VRM AI Technology assesses software developers with AI coding tests, automated execution, smart proctoring, and technical interview scoring." />
+                <meta property="og:title" content="CodeSage AI Code Assessment | VRM AI Technology" />
+                <meta property="og:description" content="CodeSage by VRM AI Technology assesses software developers with AI coding tests, automated execution, smart proctoring, and technical interview scoring." />
                 <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
                 <meta property="og:url" content="https://www.vrmaitechnology.com/products/workflow/codesage" />
                 <link rel="canonical" href="https://www.vrmaitechnology.com/products/workflow/codesage" />
 
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="CodeSage | AI Coding Assessments &amp; Technical Screening | Workflow.AI" />
-                <meta name="twitter:description" content="Assess engineering candidates with CodeSage. AI-powered coding challenges, automated code execution, intelligent proctoring, and technical interview scoring." />
+                <meta name="twitter:title" content="CodeSage AI Code Assessment | VRM AI Technology" />
+                <meta name="twitter:description" content="CodeSage by VRM AI Technology assesses software developers with AI coding tests, automated execution, smart proctoring, and technical interview scoring." />
                 <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.vrmaitechnology.com/" },
+                            { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://www.vrmaitechnology.com/products" },
+                            { "@type": "ListItem", "position": 3, "name": "Workflow AI", "item": "https://www.vrmaitechnology.com/products/workflow" },
+                            { "@type": "ListItem", "position": 4, "name": "CodeSage", "item": "https://www.vrmaitechnology.com/products/workflow/codesage" }
+                        ]
+                    })}
+                </script>
                 <script type="application/ld+json">
                     {JSON.stringify({
                         "@context": "https://schema.org",
@@ -63,13 +75,13 @@ function CodeSage() {
                         <div className="col-lg-7">
                             <div className="banner-content-two">
                                 <span className="vrm-suite-label wow fadeInUp" data-wow-delay=".1s">
-                                    WORKFLOW.AI
+                                    WORKFLOW AI
                                 </span>
                                 <h1 className="title wow fadeInUp text-white" data-wow-delay=".2s">
                                     CodeSage
                                 </h1>
                                 <p className="disc wow fadeInUp text-white-50" data-wow-delay=".3s">
-                                  Evaluate technical talent with AI-powered coding assessments, intelligent technical interviews, automated proctoring, and comprehensive candidate insights—all in one enterprise platform.                                </p>
+                                  Evaluate technical talent with AI-powered coding assessments, intelligent technical interviews, automated proctoring, and comprehensive candidate insights.                                </p>
                                 <div className="button-area wow fadeInUp" data-wow-delay=".4s">
                                     <Link to="/contactus#send-message" className="vrm-blue-to-white-btn">
                                         Get Started <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>

@@ -19,24 +19,24 @@ function AIInnovationIndia() {
 
     const faqs = [
         {
-            q: "What defines VRM AI Technology as a leading AI innovation company in India?",
-            a: "VRM AI Technology is a born GenAI and machine learning company with major engineering centers in Bengaluru and Madurai. We deliver indigenous, enterprise-grade AI software products and platforms designed for the immense scale, linguistic diversity, and data complexity of India and global markets."
+            q: "What does VRM AI Technology do as an AI company in India?",
+            a: "VRM AI Technology develops AI software solutions, including custom Generative AI platforms, conversational chatbots, voice calling agents and machine learning systems."
         },
         {
-            q: "How does VRM AI support multilingual India?",
-            a: "India is home to hundreds of languages and dialects. Our conversational AI engines and calling agents are engineered to understand multilingual interactions, including English, Hindi, Tamil, Telugu, Kannada, and regional mixed-language vernaculars, ensuring seamless consumer engagement across Tier-1, Tier-2, and rural demographics."
+            q: "Where are VRM AI Technology's offices located in India?",
+            a: "Our registered corporate office is in Bengaluru, Karnataka, and our staffed development center is in Madurai, Tamil Nadu."
         },
         {
-            q: "Does VRM AI adhere to Indian data privacy and security regulations?",
-            a: "Yes. VRM AI Technology is an ISO 9001:2015 certified company compliant with India's Digital Personal Data Protection Act (DPDP Act) and international data privacy frameworks. We offer on-premise, sovereign cloud, and private VPC deployment models to guarantee zero unauthorized data leakage."
+            q: "Is VRM AI Technology ISO certified?",
+            a: "Yes. VRM AI Technology is ISO 9001:2015 certified for quality management."
         },
         {
-            q: "What enterprise products does VRM AI offer across India?",
-            a: "We offer turnkey enterprise platforms including Workflow.AI (recruitment intelligence with ScreenSage, VideoSage, and CodeSage), People Connect (Global) for citizen grievance resolution, AI Buddy for language training, Visionix AI for facial biometric intelligence, and VRM Real Estate automation."
+            q: "What products does VRM AI Technology offer across India?",
+            a: "Workflow AI, People Connect, AI Buddy, Exit Intelligence, Visionix AI, VRM Reality and Bench to Deploy (B2D)."
         },
         {
-            q: "How can Indian enterprises begin an AI transformation with VRM AI?",
-            a: "Organizations can initiate an engagement with our AI strategy and consulting team. We conduct rapid data maturity audits, identify high-impact automation use cases, and deliver proof-of-concept deployments that validate ROI prior to full enterprise rollout."
+            q: "How can organizations work with VRM AI Technology?",
+            a: "Organizations can reach out through our Contact Us page or call +91 81233 48355 to discuss their project requirements."
         }
     ];
 
@@ -44,17 +44,28 @@ function AIInnovationIndia() {
         <div className="rts-ai-consulting-services basic-font-family">
             <HeaderOne className="header-white-text" />
             <Helmet>
-                <title>AI Innovation Company in India | VRM AI Technology</title>
-                <meta name="description" content="VRM AI Technology is an AI innovation company in India, building enterprise GenAI platforms, multilingual conversational AI, and scalable automation systems." />
-                <meta property="og:title" content="AI Innovation Company in India | VRM AI Technology" />
-                <meta property="og:description" content="VRM AI Technology is an AI innovation company in India, building enterprise GenAI platforms, multilingual conversational AI, and scalable automation systems." />
+                <title>AI Software &amp; Solutions in India | VRM AI Technology</title>
+                <meta name="description" content="VRM AI Technology develops AI software from our Madurai engineering center and Bengaluru registered office, delivering GenAI, chatbots, and ML systems." />
+                <meta property="og:title" content="AI Software &amp; Solutions in India | VRM AI Technology" />
+                <meta property="og:description" content="VRM AI Technology develops AI software from our Madurai engineering center and Bengaluru registered office, delivering GenAI, chatbots, and ML systems." />
                 <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
                 <link rel="canonical" href="https://www.vrmaitechnology.com/ai-innovation-india" />
 
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="AI Innovation Company in India | VRM AI Technology" />
-                <meta name="twitter:description" content="VRM AI Technology is an AI innovation company in India, building enterprise GenAI platforms, multilingual conversational AI, and scalable automation systems." />
+                <meta name="twitter:title" content="AI Software &amp; Solutions in India | VRM AI Technology" />
+                <meta name="twitter:description" content="VRM AI Technology develops AI software from our Madurai engineering center and Bengaluru registered office, delivering GenAI, chatbots, and ML systems." />
                 <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
+
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.vrmaitechnology.com/" },
+                            { "@type": "ListItem", "position": 2, "name": "AI Innovation in India", "item": "https://www.vrmaitechnology.com/ai-innovation-india" }
+                        ]
+                    })}
+                </script>
 
                 <script type="application/ld+json">
                     {JSON.stringify({
@@ -79,17 +90,17 @@ function AIInnovationIndia() {
                         <div className="col-lg-7">
                             <div className="banner-content-two">
                                 <span className="pre-title wow fadeInUp" data-wow-delay=".2s" style={{ color: '#00C6FF' }}>
-                                    Pan-India Intelligence &bull; Global Enterprise Standard
+                                    Enterprise AI Engineering &bull; India
                                 </span>
                                 <h1 className="title wow fadeInUp text-white" data-wow-delay=".3s">
-                                    AI Innovation Company in India
+                                    AI Software Solutions in India
                                 </h1>
                                 <p className="disc wow fadeInUp text-white-50" data-wow-delay=".4s">
-                                    VRM AI Technology builds world-class artificial intelligence software and autonomous enterprise products from India for the world. Operating across Bengaluru and Madurai, we deliver custom GenAI platforms, conversational voice agents, and computer vision architectures that drive measurable business outcomes.
+                                    VRM AI Technology builds artificial intelligence software and enterprise products from India. With our registered office in Bengaluru and staffed development center in Madurai, we deliver custom GenAI platforms, conversational voice agents, and machine learning systems.
                                 </p>
                                 <div className="banner-btn wow fadeInUp d-flex flex-wrap gap-3" data-wow-delay=".5s">
                                     <Link to="/contactus#send-message" className="vrm-blue-to-white-btn">
-                                        Explore Enterprise AI <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>
+                                        Contact Us <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>
                                     </Link>
                                     <Link to="/products" className="vrm-blue-to-white-btn" style={{ background: 'rgba(255,255,255,0.1)', color: '#fff' }}>
                                         View Product Suite
@@ -100,7 +111,7 @@ function AIInnovationIndia() {
                         <div className="col-lg-5">
                             <div className="banner-image-two wow fadeInUp" data-wow-delay=".3s">
                                 <img src="/assets/images/Solutions/AICallingAgent.png"
-                                    alt="AI Innovation Company in India - VRM AI Technology"
+                                    alt="AI Software Solutions in India - VRM AI Technology"
                                     style={{ borderRadius: '20px', boxShadow: '0 20px 50px rgba(0,0,0,0.3)', width: '100%', height: 'auto' }}
                                     loading="lazy"
                                 />
@@ -110,34 +121,34 @@ function AIInnovationIndia() {
                 </div>
             </div>
 
-            {/* 2. India AI Revolution Context */}
+            {/* 2. India AI Context */}
             <div className="vrm-full-width-section vrm-white-bg">
                 <div className="container">
                     <div className="row align-items-center g-5">
                         <div className="col-lg-6 wow fadeInUp" data-wow-delay=".2s">
                             <span className="pre-title" style={{ color: '#3B4ECC', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px' }}>
-                                Powering Digital India
+                                AI Software Development
                             </span>
                             <h2 className="title mt-2 mb-4" style={{ fontSize: '36px', fontWeight: '800', color: '#0e1022', lineHeight: '1.2' }}>
-                                Sovereign, Scalable &amp; Multilingual AI Built for India’s Future
+                                Engineering Scalable AI Software Across India
                             </h2>
                             <p style={{ color: '#555', lineHeight: '1.8', fontSize: '16px', marginBottom: '16px' }}>
-                                India’s digital economy is witnessing unprecedented growth, driven by world-leading public digital rails and a thriving enterprise technology ecosystem. As Indian conglomerates and global multinationals seek to capture this momentum, the need for robust, cost-effective, and secure artificial intelligence has never been more critical.
+                                India’s digital economy is expanding rapidly, driving strong demand for reliable, well-architected artificial intelligence systems.
                             </p>
                             <p style={{ color: '#555', lineHeight: '1.8', fontSize: '16px', marginBottom: '24px' }}>
-                                VRM AI Technology delivers end-to-end engineering excellence from our dual presence in Bengaluru (Electronic City) and Madurai (Tiruppalai). We specialize in developing production-grade AI platforms that tackle hyper-scale challenges: processing millions of unstructured documents, analyzing complex video interviews, and conducting real-time voice conversations across diverse Indian languages.
+                                VRM AI Technology provides AI software development with our corporate registered office in Bengaluru and our staffed engineering center in Madurai. We specialize in developing production-grade AI platforms, conversational calling systems, and custom machine learning pipelines.
                             </p>
                             <div className="row g-3">
                                 <div className="col-sm-6">
                                     <div className="p-3 rounded" style={{ background: '#f8fafc', borderLeft: '4px solid #3B4ECC' }}>
-                                        <h6 style={{ fontWeight: '700', marginBottom: '4px' }}>Dual-Hub Synergy</h6>
-                                        <p style={{ fontSize: '13px', margin: 0, color: '#666' }}>Bengaluru headquarters coupled with a dedicated Madurai engineering development center.</p>
+                                        <h6 style={{ fontWeight: '700', marginBottom: '4px' }}>Offices</h6>
+                                        <p style={{ fontSize: '13px', margin: 0, color: '#666' }}>Bengaluru registered office and Madurai staffed development center.</p>
                                     </div>
                                 </div>
                                 <div className="col-sm-6">
                                     <div className="p-3 rounded" style={{ background: '#f8fafc', borderLeft: '4px solid #00C6FF' }}>
                                         <h6 style={{ fontWeight: '700', marginBottom: '4px' }}>ISO 9001:2015 Certified</h6>
-                                        <p style={{ fontSize: '13px', margin: 0, color: '#666' }}>Rigorous software development lifecycle and continuous model evaluation protocols.</p>
+                                        <p style={{ fontSize: '13px', margin: 0, color: '#666' }}>Certified quality management procedures for software delivery.</p>
                                     </div>
                                 </div>
                             </div>
@@ -145,24 +156,24 @@ function AIInnovationIndia() {
                         <div className="col-lg-6 wow fadeInUp" data-wow-delay=".4s">
                             <div className="p-4 p-md-5 rounded-4" style={{ background: 'linear-gradient(135deg, #f0f4ff 0%, #e2e8f8 100%)', border: '1px solid #cbd5e1' }}>
                                 <h4 style={{ fontWeight: '800', color: '#1b277c', marginBottom: '16px' }}>
-                                    Key Pillars of Our Pan-India Innovation
+                                    Enterprise AI Products
                                 </h4>
                                 <ul style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: '15px', color: '#334155' }}>
                                     <li style={{ marginBottom: '14px', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
                                         <i className="fas fa-check-circle text-primary mt-1"></i>
-                                        <span><strong>Enterprise Hiring Tech:</strong> Automating high-volume recruitment screening across Indian universities and corporations via <Link to="/products/workflow">Workflow.AI</Link>.</span>
+                                        <span><strong>Workflow AI:</strong> Recruitment intelligence platform including <Link to="/products/workflow">Workflow AI</Link>.</span>
                                     </li>
                                     <li style={{ marginBottom: '14px', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
                                         <i className="fas fa-check-circle text-primary mt-1"></i>
-                                        <span><strong>Citizen Engagement:</strong> Orchestrating civic resolutions across municipalities through <Link to="/products/people-connect">People Connect (Global)</Link>.</span>
+                                        <span><strong>People Connect:</strong> Citizen engagement and feedback management with <Link to="/products/people-connect">People Connect</Link>.</span>
                                     </li>
                                     <li style={{ marginBottom: '14px', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
                                         <i className="fas fa-check-circle text-primary mt-1"></i>
-                                        <span><strong>Voice AI Infrastructure:</strong> Autonomous 24/7 inbound and outbound calling agents with human-like latency and accent familiarity.</span>
+                                        <span><strong>AI Buddy:</strong> Speaking practice and interactive language tutoring via <Link to="/products/aibuddy">AI Buddy</Link>.</span>
                                     </li>
                                     <li style={{ marginBottom: '0px', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
                                         <i className="fas fa-check-circle text-primary mt-1"></i>
-                                        <span><strong>Data Sovereignty:</strong> Localized data residency ensuring compliance with India's DPDP Act and enterprise privacy policies.</span>
+                                        <span><strong>Enterprise Software:</strong> Custom Generative AI platforms, AI calling agents, and machine learning software.</span>
                                     </li>
                                 </ul>
                             </div>

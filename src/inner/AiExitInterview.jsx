@@ -27,17 +27,28 @@ function AiExitInterview() {
         <div className="exitinterview-page basic-font-family">
             <HeaderOne />
             <Helmet>
-                <title>Exit Intelligence | AI-Powered Exit Interviews & Attrition Insights</title>
+                <title>Exit Intelligence AI | VRM AI Technology</title>
                 <meta name="description" content="Transform employee departures into actionable workforce intelligence with Exit Intelligence. Uncover turnover trends and improve retention." />
-                <meta property="og:title" content="Exit Intelligence — AI Exit Interviews & Attrition Analytics" />
+                <meta property="og:title" content="Exit Intelligence AI | VRM AI Technology" />
                 <meta property="og:description" content="Transform employee departures into actionable workforce intelligence with Exit Intelligence. Uncover turnover trends and improve retention." />
                 <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
                 <link rel="canonical" href="https://www.vrmaitechnology.com/products/exitinterview" />
             
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="Exit Intelligence — AI Exit Interviews & Attrition Analytics" />
+                <meta name="twitter:title" content="Exit Intelligence AI | VRM AI Technology" />
                 <meta name="twitter:description" content="Transform employee departures into actionable workforce intelligence with Exit Intelligence. Uncover turnover trends and improve retention." />
                 <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.vrmaitechnology.com/" },
+                            { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://www.vrmaitechnology.com/products" },
+                            { "@type": "ListItem", "position": 3, "name": "Exit Intelligence", "item": "https://www.vrmaitechnology.com/products/exitinterview" }
+                        ]
+                    })}
+                </script>
                 <script type="application/ld+json">
                     {JSON.stringify({
                         "@context": "https://schema.org",

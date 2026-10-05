@@ -27,17 +27,29 @@ function XpressScreening() {
         <div className="xpress-screening-page basic-font-family">
             <HeaderOne />
             <Helmet>
-                <title>Xpress Screening | Resume Parsing & Matching | Workflow.AI</title>
-                <meta name="description" content="Optimize early-stage recruitment with Xpress Screening. Automatically parse resumes, align qualifications with role requirements, and rank candidate profiles." />
-                <meta property="og:title" content="Xpress Screening — Enterprise Resume Parsing & Matching" />
-                <meta property="og:description" content="Optimize early-stage recruitment with Xpress Screening. Automatically parse resumes, align qualifications with role requirements, and rank candidate profiles." />
+                <title>Xpress Screening AI | VRM AI Technology</title>
+                <meta name="description" content="AI resume screening by VRM AI Technology. Automatically parse resumes, match candidate skills to role requirements, and rank applicants with precision." />
+                <meta property="og:title" content="Xpress Screening AI | VRM AI Technology" />
+                <meta property="og:description" content="AI resume screening by VRM AI Technology. Automatically parse resumes, match candidate skills to role requirements, and rank applicants with precision." />
                 <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
                 <link rel="canonical" href="https://www.vrmaitechnology.com/products/workflow/xpress-screening" />
             
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="Xpress Screening — Enterprise Resume Parsing & Matching" />
-                <meta name="twitter:description" content="Optimize early-stage recruitment with Xpress Screening. Automatically parse resumes, align qualifications with role requirements, and rank candidate profiles." />
+                <meta name="twitter:title" content="Xpress Screening AI | VRM AI Technology" />
+                <meta name="twitter:description" content="AI resume screening by VRM AI Technology. Automatically parse resumes, match candidate skills to role requirements, and rank applicants with precision." />
                 <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.vrmaitechnology.com/" },
+                            { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://www.vrmaitechnology.com/products" },
+                            { "@type": "ListItem", "position": 3, "name": "Workflow AI", "item": "https://www.vrmaitechnology.com/products/workflow" },
+                            { "@type": "ListItem", "position": 4, "name": "Xpress Screening", "item": "https://www.vrmaitechnology.com/products/workflow/xpress-screening" }
+                        ]
+                    })}
+                </script>
                 <script type="application/ld+json">
                     {JSON.stringify({
                         "@context": "https://schema.org",
@@ -62,7 +74,7 @@ function XpressScreening() {
                         <div className="col-lg-7">
                             <div className="banner-content-two">
                                 <span className="vrm-suite-label wow fadeInUp" data-wow-delay=".1s">
-                                    WORKFLOW.AI
+                                    WORKFLOW AI
                                 </span>
                                 <h1 className="title wow fadeInUp text-white" data-wow-delay=".2s">
                                     Xpress Screening

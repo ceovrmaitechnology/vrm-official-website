@@ -132,17 +132,38 @@ const ContactUs = () => {
     return (
         <div className="contact-us-page basic-font-family">
             <Helmet>
-        <title>Contact Us | VRM AI Technology</title>
-        <meta name="description" content="Get in touch with VRM AI Technology. Contact our team for AI solutions, product demos, partnerships, or support. Offices in Bengaluru and Madurai, India." />
-        <meta property="og:title" content="Contact VRM AI Technology" />
-        <meta property="og:description" content="Get in touch with VRM AI Technology. Contact our team for AI solutions, product demos, partnerships, or support. Offices in Bengaluru and Madurai, India." />
+                <title>Contact Us | VRM AI Technology</title>
+                <meta name="description" content="Contact VRM AI Technology: Madurai development center and Bengaluru headquarters. Call or write to discuss your AI project." />
+                <meta property="og:title" content="Contact VRM AI Technology" />
+                <meta property="og:description" content="Contact VRM AI Technology: Madurai development center and Bengaluru headquarters. Call or write to discuss your AI project." />
                 <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
-        <link rel="canonical" href="https://www.vrmaitechnology.com/contactus" />
-      
+                <link rel="canonical" href="https://www.vrmaitechnology.com/contactus" />
+              
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content="Contact VRM AI Technology" />
-                <meta name="twitter:description" content="Get in touch with VRM AI Technology. Contact our team for AI solutions, product demos, partnerships, or support. Offices in Bengaluru and Madurai, India." />
+                <meta name="twitter:description" content="Contact VRM AI Technology: Madurai development center and Bengaluru headquarters. Call or write to discuss your AI project." />
                 <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
+
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                            {
+                                "@type": "ListItem",
+                                "position": 1,
+                                "name": "Home",
+                                "item": "https://www.vrmaitechnology.com/"
+                            },
+                            {
+                                "@type": "ListItem",
+                                "position": 2,
+                                "name": "Contact Us",
+                                "item": "https://www.vrmaitechnology.com/contactus"
+                            }
+                        ]
+                    })}
+                </script>
             </Helmet>
             <HeaderOne className="header-white-text" />
 
@@ -157,7 +178,7 @@ const ContactUs = () => {
                         <div className="col-lg-10 text-center">
                             <span className="vrm-suite-label text-white-50 wow fadeInUp" data-wow-delay=".1s">GET IN TOUCH</span>
                             <h1 className="title wow fadeInUp text-white display-3 fw-bold mt-3" data-wow-delay=".2s">
-                                Let's Build Something <span className="text-gradient-gold">Extraordinary</span>
+                                Contact <span className="text-gradient-gold">VRM AI Technology</span>
                             </h1>
                             <p className="disc wow fadeInUp text-white-50 mt-4 fs-5 mx-auto" data-wow-delay=".3s" style={{ maxWidth: '750px', lineHeight: '1.8' }}>
                                 From AI strategy to full-scale implementation, we are your partners in innovation. Connect with us to explore how VRM AI can transform your business.
@@ -176,7 +197,7 @@ const ContactUs = () => {
                             <div className="contact-left-area pe-lg-5 pt-lg-5">
                                 <h2 className="title fw-bold mb-4 text-dark display-6">Contact Information</h2>
                                 <p className="disc mb-5 text-muted">
-                                    Our team is available 24/7 to answer your queries. Reach out through any of our official channels
+                                    Our team is available to assist you with inquiries, partnerships, and technical discovery sessions. Reach out through any of our official channels.
                                 </p>
 
                                 <div className="contact-details mt-5">
@@ -370,7 +391,7 @@ const ContactUs = () => {
                                 <p className="disc text-muted">
                                     Monday - Friday: 9:30 AM - 7:00 PM<br />
                                     Saturday - Sunday: Closed<br />
-                                    <span className="fw-bold text-primary mt-2 d-block">Support: 24/7 (Email)</span>
+                                    <span className="fw-bold text-primary mt-2 d-block">Support: Dedicated Client Support</span>
                                 </p>
                             </div>
                         </div>
@@ -407,7 +428,7 @@ const ContactUs = () => {
                     </div>
 
                     <div className="row g-4 justify-content-center">
-                        {/* Corporate Office - Bengaluru */}
+                        {/* Development Center - Madurai */}
                         <div className="col-lg-5 col-md-6 wow fadeInUp" data-wow-delay=".2s">
                             <div className="vrm-office-card h-100">
                                 <div className="office-card-header">
@@ -417,53 +438,12 @@ const ContactUs = () => {
                                                 alt="Flag of India"
                                                 className="vrm-flag-icon"
                                                 style={{ width: '48px', height: 'auto', borderRadius: '4px', objectFit: 'cover' }}
-                                            loading="lazy" />
+                                                loading="lazy" />
                                         </div>
-                                        <h4 className="office-card-title">Corporate Office</h4>
-                                    </div>
-                                    <div className="office-location-icon">
-                                        <i className="fas fa-building"></i>
-                                    </div>
-                                </div>
-                                <ul className="office-details-list">
-                                    <li>
-                                        <i className="fas fa-location-arrow"></i>
-                                        <span>
-                                            <a
-                                                href="https://maps.app.goo.gl/5pnUj58biWePbEuUA"
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="text-white text-decoration-none hover-primary"
-                                            >
-                                                GoodWorks Infinity Park,<br />21, 2nd main Rd, Electronic City Phase I,<br />Bengaluru, Karnataka 560100.
-                                            </a>
-                                        </span>
-                                    </li>
-                                    <li>
-                                        <i className="fas fa-phone-alt"></i>
-                                        <span>+91 81233 48355</span>
-                                    </li>
-                                    <li>
-                                        <i className="fas fa-envelope"></i>
-                                        <span>contactus@vrmaitechnology.com</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        {/* Development Center - Madurai */}
-                        <div className="col-lg-5 col-md-6 wow fadeInUp" data-wow-delay=".4s">
-                            <div className="vrm-office-card h-100">
-                                <div className="office-card-header">
-                                    <div className="d-flex align-items-center gap-3">
-                                        <div className="office-flag-wrapper">
-                                            <img src="/assets/images/india.png"
-                                                alt="Flag of India"
-                                                className="vrm-flag-icon"
-                                                style={{ width: '48px', height: 'auto', borderRadius: '4px', objectFit: 'cover' }}
-                                            loading="lazy" />
+                                        <div>
+                                            <h4 className="office-card-title mb-0">Development Center</h4>
+                                            <span style={{ fontSize: '12px', color: '#93c5fd' }}>Staffed Office &amp; Engineering Center</span>
                                         </div>
-                                        <h4 className="office-card-title">Development Center</h4>
                                     </div>
                                     <div className="office-location-icon">
                                         <i className="fas fa-map-marked-alt"></i>
@@ -479,7 +459,7 @@ const ContactUs = () => {
                                                 rel="noopener noreferrer"
                                                 className="text-white text-decoration-none hover-primary"
                                             >
-                                                Door No,209, 1ST Floor, No.147, 5th St,<br />Poriyalar Nagar, Tiruppalai,<br />Madurai, Tamil Nadu 625014
+                                                Door No.209, 1st Floor, No.147, 5th St,<br />Periyalar Nagar, Tiruppalai,<br />Madurai, Tamil Nadu 625014, India
                                             </a>
                                         </span>
                                     </li>
@@ -492,6 +472,92 @@ const ContactUs = () => {
                                         <span>contactus@vrmaitechnology.com</span>
                                     </li>
                                 </ul>
+                            </div>
+                        </div>
+
+                        {/* Headquarters / Registered Office - Bengaluru */}
+                        <div className="col-lg-5 col-md-6 wow fadeInUp" data-wow-delay=".4s">
+                            <div className="vrm-office-card h-100">
+                                <div className="office-card-header">
+                                    <div className="d-flex align-items-center gap-3">
+                                        <div className="office-flag-wrapper">
+                                            <img src="/assets/images/india.png"
+                                                alt="Flag of India"
+                                                className="vrm-flag-icon"
+                                                style={{ width: '48px', height: 'auto', borderRadius: '4px', objectFit: 'cover' }}
+                                                loading="lazy" />
+                                        </div>
+                                        <div>
+                                            <h4 className="office-card-title mb-0">Headquarters / Registered Office</h4>
+                                            <span style={{ fontSize: '12px', color: '#93c5fd' }}>Registered Office (No Staffed Operations)</span>
+                                        </div>
+                                    </div>
+                                    <div className="office-location-icon">
+                                        <i className="fas fa-building"></i>
+                                    </div>
+                                </div>
+                                <ul className="office-details-list">
+                                    <li>
+                                        <i className="fas fa-location-arrow"></i>
+                                        <span>
+                                            <a
+                                                href="https://maps.app.goo.gl/5pnUj58biWePbEuUA"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="text-white text-decoration-none hover-primary"
+                                            >
+                                                GoodWorks Infinity Park,<br />21, 2nd Main Rd, Electronic City Phase I,<br />Bengaluru, Karnataka 560100, India
+                                            </a>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <i className="fas fa-phone-alt"></i>
+                                        <span>+91 81233 48355</span>
+                                    </li>
+                                    <li>
+                                        <i className="fas fa-envelope"></i>
+                                        <span>contactus@vrmaitechnology.com</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Embedded Google Map for Madurai Development Center */}
+                    <div className="row mt-5 justify-content-center">
+                        <div className="col-lg-10">
+                            <div className="bg-white p-4 rounded-4 shadow-sm border">
+                                <div className="d-flex flex-wrap justify-content-between align-items-center mb-3 gap-2">
+                                    <div>
+                                        <h4 className="fw-bold text-dark mb-1">Madurai Development Center Map</h4>
+                                        <p className="text-muted mb-0" style={{ fontSize: '14px' }}>
+                                            Door No.209, 1st Floor, No.147, 5th St, Periyalar Nagar, Tiruppalai, Madurai, Tamil Nadu 625014, India
+                                        </p>
+                                    </div>
+                                    {/* TODO: Add Google Review link when GOOGLE_REVIEW_LINK is provided
+                                    <a
+                                        href=""
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="rts-btn btn-primary"
+                                        style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '10px 18px', fontSize: '13px' }}
+                                    >
+                                        <i className="fas fa-star"></i> Review Us on Google
+                                    </a>
+                                    */}
+                                </div>
+                                <div style={{ borderRadius: '12px', overflow: 'hidden', height: '360px', border: '1px solid #e2e8f0' }}>
+                                    <iframe
+                                        title="VRM AI Technology Madurai Development Center Map"
+                                        src="https://maps.google.com/maps?q=Door+No.209,+1st+Floor,+No.147,+5th+St,+Periyalar+Nagar,+Tiruppalai,+Madurai,+Tamil+Nadu+625014&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                                        width="100%"
+                                        height="100%"
+                                        style={{ border: 0 }}
+                                        allowFullScreen=""
+                                        loading="lazy"
+                                        referrerPolicy="no-referrer-when-downgrade"
+                                    ></iframe>
+                                </div>
                             </div>
                         </div>
                     </div>

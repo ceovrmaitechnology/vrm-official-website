@@ -20,6 +20,7 @@ function Project() {
                 <title>Our Portfolio & Case Studies | VRM AI Technology</title>
                 <meta name="description" content="Explore VRM AI Technology's enterprise portfolio of AI solutions, business growth transformations, and technology implementations." />
                 <link rel="canonical" href="https://www.vrmaitechnology.com/project" />
+                <meta name="robots" content="noindex, follow" />
                 <meta property="og:title" content="Our Portfolio & Case Studies | VRM AI Technology" />
                 <meta property="og:description" content="Explore VRM AI Technology's enterprise portfolio of AI solutions, business growth transformations, and technology implementations." />
                 <meta property="og:url" content="https://www.vrmaitechnology.com/project" />

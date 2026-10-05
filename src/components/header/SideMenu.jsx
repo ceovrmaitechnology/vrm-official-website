@@ -85,17 +85,30 @@ function SideMenu({ isSidebarOpen, toggleSidebar }) {
                                     <ul className={`submenu ${openMenu === 2 ? 'active' : ''}`}>
                                         <li className="mobile-menu-link"><Link to={'/products'} onClick={toggleSidebar} style={{ fontWeight: 'bold', color: '#1b277c' }}>All Products</Link></li>
 
-                                        <li className="mobile-menu-link tag mt-2">Workflow.AI Modules</li>
+                                        <li className="mobile-menu-link tag mt-2">Workflow AI Modules</li>
                                         <li className="mobile-menu-link"><Link to={'/products/workflow/xpress-screening'} onClick={toggleSidebar}>Xpress Screening</Link></li>
                                         <li className="mobile-menu-link"><Link to={'/products/workflow/screensage'} onClick={toggleSidebar}>ScreenSage</Link></li>
                                         <li className="mobile-menu-link"><Link to={'/products/workflow/videosage'} onClick={toggleSidebar}>VideoSage</Link></li>
                                         <li className="mobile-menu-link"><Link to={'/products/workflow/codesage'} onClick={toggleSidebar}>CodeSage</Link></li>
 
                                         <li className="mobile-menu-link tag mt-2">Other AI Products</li>
-                                        <li className="mobile-menu-link"><Link to={'/products/people-connect'} onClick={toggleSidebar}>People Connect (Global)</Link></li>
+                                        <li className="mobile-menu-link"><Link to={'/products/people-connect'} onClick={toggleSidebar}>People Connect</Link></li>
                                         <li className="mobile-menu-link"><Link to={'/products/aibuddy'} onClick={toggleSidebar}>AI Buddy</Link></li>
                                         <li className="mobile-menu-link"><Link to={'/products/exitinterview'} onClick={toggleSidebar}>Exit Intelligence</Link></li>
                                         <li className="mobile-menu-link"><Link to={'/products/visionix'} onClick={toggleSidebar}>Visionix AI</Link></li>
+                                        <li className="mobile-menu-link"><Link to={'/products/vrm-real-estate'} onClick={toggleSidebar}>VRM Reality</Link></li>
+                                        <li className="mobile-menu-link"><Link to={'/products/bench-to-deploy'} onClick={toggleSidebar}>Bench to Deploy (B2D)</Link></li>
+                                    </ul>
+                                </li>
+
+                                <li className="has-droupdown menu-item">
+                                    <Link className={`menu-link ${openMenu === 3 ? 'open' : ''}`} to={'#'} onClick={(e) => { e.preventDefault(); e.stopPropagation(); toggleMenu(3); }}>
+                                        Locations
+                                    </Link>
+                                    <ul className={`submenu ${openMenu === 3 ? 'active' : ''}`}>
+                                        <li className="mobile-menu-link"><Link to={'/ai-company-madurai'} onClick={toggleSidebar}>AI Company in Madurai</Link></li>
+                                        <li className="mobile-menu-link"><Link to={'/ai-company-bangalore'} onClick={toggleSidebar}>AI Company in Bengaluru</Link></li>
+                                        <li className="mobile-menu-link"><Link to={'/ai-software-services-chennai'} onClick={toggleSidebar}>AI Services in Chennai (Remote)</Link></li>
                                     </ul>
                                 </li>
 

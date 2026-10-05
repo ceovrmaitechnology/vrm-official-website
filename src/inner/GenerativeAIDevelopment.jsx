@@ -36,7 +36,7 @@ function GenerativeAIDevelopment() {
         },
         {
             q: "What business functions benefit most from GenAI platforms?",
-            a: "High-value use cases include automated talent acquisition and screening (via Workflow.AI), intelligent customer service orchestration, contract and RFP analysis, real estate lead routing (via VRM Real Estate), and automated code generation."
+            a: "High-value use cases include automated talent acquisition and screening (via Workflow AI), intelligent customer service orchestration, contract and RFP analysis, real estate lead routing (via VRM Reality), and automated code generation."
         }
     ];
 
@@ -44,17 +44,29 @@ function GenerativeAIDevelopment() {
         <div className="rts-ai-consulting-services basic-font-family">
             <HeaderOne className="header-white-text" />
             <Helmet>
-                <title>Generative AI Development Services | GenAI Platforms | VRM AI Technology</title>
-                <meta name="description" content="VRM AI Technology provides generative AI development services, custom LLM fine-tuning, RAG platform architectures, and enterprise AI automation." />
-                <meta property="og:title" content="Generative AI Development Services | GenAI Platforms | VRM AI Technology" />
-                <meta property="og:description" content="VRM AI Technology provides generative AI development services, custom LLM fine-tuning, RAG platform architectures, and enterprise AI automation." />
+                <title>Generative AI Solutions Company India | VRM AI</title>
+                <meta name="description" content="VRM AI Technology provides generative AI development services, platform architectures, and enterprise AI automation solutions." />
+                <meta property="og:title" content="Generative AI Solutions Company India | VRM AI" />
+                <meta property="og:description" content="VRM AI Technology provides generative AI development services, platform architectures, and enterprise AI automation solutions." />
                 <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
                 <link rel="canonical" href="https://www.vrmaitechnology.com/generative-ai-development" />
 
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="Generative AI Development Services | GenAI Platforms | VRM AI Technology" />
-                <meta name="twitter:description" content="VRM AI Technology provides generative AI development services, custom LLM fine-tuning, RAG platform architectures, and enterprise AI automation." />
+                <meta name="twitter:title" content="Generative AI Solutions Company India | VRM AI" />
+                <meta name="twitter:description" content="VRM AI Technology provides generative AI development services, platform architectures, and enterprise AI automation solutions." />
                 <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
+
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.vrmaitechnology.com/" },
+                            { "@type": "ListItem", "position": 2, "name": "Solutions", "item": "https://www.vrmaitechnology.com/solutions" },
+                            { "@type": "ListItem", "position": 3, "name": "Generative AI Development", "item": "https://www.vrmaitechnology.com/generative-ai-development" }
+                        ]
+                    })}
+                </script>
 
                 <script type="application/ld+json">
                     {JSON.stringify({
@@ -260,7 +272,7 @@ function GenerativeAIDevelopment() {
                             <div className="bg-white p-4 rounded-4 shadow-sm h-100 d-flex flex-column justify-content-between">
                                 <div>
                                     <span className="badge bg-primary mb-3">Recruitment Automation</span>
-                                    <h4 style={{ fontWeight: '700', color: '#0e1022' }}>Workflow.AI</h4>
+                                    <h4 style={{ fontWeight: '700', color: '#0e1022' }}>Workflow AI</h4>
                                     <p style={{ color: '#666', fontSize: '14px', lineHeight: '1.7' }}>
                                         End-to-end recruitment intelligence leveraging generative AI to conduct voice interviews in <Link to="/products/workflow/screensage">ScreenSage</Link>, parse high-volume resumes in <Link to="/products/workflow/xpress-screening">Xpress Screening</Link>, and evaluate real-world code in <Link to="/products/workflow/codesage">CodeSage</Link>.
                                     </p>
@@ -288,7 +300,7 @@ function GenerativeAIDevelopment() {
                             <div className="bg-white p-4 rounded-4 shadow-sm h-100 d-flex flex-column justify-content-between">
                                 <div>
                                     <span className="badge bg-success mb-3">Public Governance</span>
-                                    <h4 style={{ fontWeight: '700', color: '#0e1022' }}>People Connect (Global)</h4>
+                                    <h4 style={{ fontWeight: '700', color: '#0e1022' }}>People Connect</h4>
                                     <p style={{ color: '#666', fontSize: '14px', lineHeight: '1.7' }}>
                                         Civic sentiment analysis and complaint resolution engine utilizing generative AI to categorize citizen messages across WhatsApp, email, and voice channels into automated action items.
                                     </p>

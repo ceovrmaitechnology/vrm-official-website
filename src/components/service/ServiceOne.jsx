@@ -36,7 +36,7 @@ function ServiceOne() {
                                             <h5 className="title">AI Calling Agent</h5>
                                         </Link>
                                         <p className="disc">
-                                            Natural, voice-driven outreach and support that scales customer and sales conversations 24/7.
+                                            Natural, voice-driven outreach and support that automates customer and sales conversations.
                                         </p>
                                         <Link
                                             className="rts-read-more btn-primary mt-auto"

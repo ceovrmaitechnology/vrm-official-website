@@ -1,0 +1,30 @@
+[
+  {
+    "url": "http://localhost:8089/",
+    "performance": 36,
+    "accessibility": 98,
+    "bestPractices": 100,
+    "seo": 100
+  },
+  {
+    "url": "http://localhost:8089/ai-company-madurai",
+    "performance": 31,
+    "accessibility": 98,
+    "bestPractices": 100,
+    "seo": 92
+  },
+  {
+    "url": "http://localhost:8089/ai-company-bangalore",
+    "performance": 36,
+    "accessibility": 98,
+    "bestPractices": 100,
+    "seo": 92
+  },
+  {
+    "url": "http://localhost:8089/contactus",
+    "performance": 36,
+    "accessibility": 90,
+    "bestPractices": 100,
+    "seo": 92
+  }
+]

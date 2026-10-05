@@ -19,6 +19,7 @@ function BlogList() {
                 <title>Blog & AI Insights | VRM AI Technology</title>
                 <meta name="description" content="Explore the latest articles, industry insights, and technology trends in Artificial Intelligence, Machine Learning, and Agentic AI from VRM AI Technology." />
                 <link rel="canonical" href="https://www.vrmaitechnology.com/blog-list" />
+                <meta name="robots" content="noindex, follow" />
                 <meta property="og:title" content="Blog & AI Insights — VRM AI Technology" />
                 <meta property="og:description" content="Explore the latest articles, industry insights, and technology trends in Artificial Intelligence, Machine Learning, and Agentic AI from VRM AI Technology." />
                 <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />

@@ -32,7 +32,7 @@ function VoiceAISolutions() {
         },
         {
             q: "What use cases do Voice AI solutions excel at?",
-            a: "Primary use cases include 24/7 inbound customer support, outbound payment reminders, appointment scheduling, technical candidate screening (via ScreenSage), language speaking coaching (via AI Buddy), and real estate lead qualification (via VRM Real Estate)."
+            a: "Primary use cases include inbound customer support, outbound payment reminders, appointment scheduling, technical candidate screening (via ScreenSage), language speaking coaching (via AI Buddy), and real estate lead qualification (via VRM Reality)."
         },
         {
             q: "What happens when a caller asks a question outside the agent's scope?",
@@ -44,9 +44,9 @@ function VoiceAISolutions() {
         <div className="rts-ai-consulting-services basic-font-family">
             <HeaderOne className="header-white-text" />
             <Helmet>
-                <title>Voice AI Solutions &amp; Conversational Voice Agents | VRM AI Technology</title>
+                <title>Voice AI Solutions | VRM AI Technology</title>
                 <meta name="description" content="VRM AI Technology delivers voice AI solutions, real-time calling agents, speech synthesis, and conversational telephony automation for modern enterprises." />
-                <meta property="og:title" content="Voice AI Solutions &amp; Conversational Voice Agents | VRM AI Technology" />
+                <meta property="og:title" content="Voice AI Solutions | VRM AI Technology" />
                 <meta property="og:description" content="VRM AI Technology delivers voice AI solutions, real-time calling agents, speech synthesis, and conversational telephony automation for modern enterprises." />
                 <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
                 <link rel="canonical" href="https://www.vrmaitechnology.com/voice-ai-solutions" />
@@ -85,7 +85,7 @@ function VoiceAISolutions() {
                                     Voice AI Solutions &amp; Conversational Voice Agents
                                 </h1>
                                 <p className="disc wow fadeInUp text-white-50" data-wow-delay=".4s">
-                                    Revolutionize enterprise telephony with autonomous voice AI. VRM AI Technology engineers sub-500ms conversational voice agents capable of conducting natural, human-grade telephone calls for 24/7 inbound support, automated outbound campaigns, and live candidate screening.
+                                    Autonomous voice AI from VRM AI Technology enables conversational voice agents to conduct natural telephone calls for inbound support, automated outbound campaigns, and live candidate screening.
                                 </p>
                                 <div className="banner-btn wow fadeInUp d-flex flex-wrap gap-3" data-wow-delay=".5s">
                                     <Link to="/contactus#send-message" className="vrm-blue-to-white-btn">
@@ -193,7 +193,7 @@ function VoiceAISolutions() {
                                 </div>
                                 <h5 className="title text-white mb-2">ScreenSage Voice Screening</h5>
                                 <p className="disc text-white-50 mb-4">
-                                    Automated first-round candidate voice interviews powered by <Link to="/products/workflow" style={{ color: '#00C6FF' }}>Workflow.AI</Link>. Evaluates verbal communication, role competency, and candidate fluency with structured scoring.
+                                    Automated first-round candidate voice interviews powered by <Link to="/products/workflow" style={{ color: '#00C6FF' }}>Workflow AI</Link>. Evaluates verbal communication, role competency, and candidate fluency with structured scoring.
                                 </p>
                                 <Link to="/products/workflow/screensage" className="vrm-btn-detail" style={{ color: '#00C6FF' }}>
                                     Explore ScreenSage <i className="fas fa-arrow-right ms-1"></i>

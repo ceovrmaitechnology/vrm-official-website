@@ -27,18 +27,29 @@ function AICallingAgent() {
     return (
         <div className="rts-ai-calling-agent">
             <Helmet>
-                <title>AI Calling Agent &amp; Conversational Voice Solutions | VRM AI Technology</title>
-                <meta name="description" content="Deploy enterprise AI calling agents for 24/7 inbound customer support and outbound campaigns. Native CRM integration, 95+ languages, and smart human handoff." />
-                <meta property="og:title" content="AI Calling Agent &amp; Conversational Voice Solutions | VRM AI Technology" />
-                <meta property="og:description" content="Deploy enterprise AI calling agents for 24/7 inbound customer support and outbound campaigns. Native CRM integration, 95+ languages, and smart human handoff." />
+                <title>AI Calling Agent Solutions | VRM AI Technology</title>
+                <meta name="description" content="Deploy conversational AI calling agents for automated inbound customer support and outbound campaigns by VRM AI Technology." />
+                <meta property="og:title" content="AI Calling Agent Solutions | VRM AI Technology" />
+                <meta property="og:description" content="Deploy conversational AI calling agents for automated inbound customer support and outbound campaigns by VRM AI Technology." />
                 <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
                 <meta property="og:url" content="https://www.vrmaitechnology.com/solutions/ai-calling-agent" />
                 <link rel="canonical" href="https://www.vrmaitechnology.com/solutions/ai-calling-agent" />
 
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="AI Calling Agent &amp; Conversational Voice Solutions | VRM AI Technology" />
-                <meta name="twitter:description" content="Deploy enterprise AI calling agents for 24/7 inbound customer support and outbound campaigns. Native CRM integration, 95+ languages, and smart human handoff." />
+                <meta name="twitter:title" content="AI Calling Agent Solutions | VRM AI Technology" />
+                <meta name="twitter:description" content="Deploy conversational AI calling agents for automated inbound customer support and outbound campaigns by VRM AI Technology." />
                 <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.vrmaitechnology.com/" },
+                            { "@type": "ListItem", "position": 2, "name": "Solutions", "item": "https://www.vrmaitechnology.com/solutions" },
+                            { "@type": "ListItem", "position": 3, "name": "AI Calling Agent", "item": "https://www.vrmaitechnology.com/solutions/ai-calling-agent" }
+                        ]
+                    })}
+                </script>
                 <script type="application/ld+json">
                     {JSON.stringify({
                         "@context": "https://schema.org",
@@ -100,12 +111,12 @@ function AICallingAgent() {
                                     Seamless Communication with AI
                                 </span>
                                 <h1 className="ai-agent-hero-title wow fadeInUp text-white ms-0" data-wow-delay=".3s" style={{ fontSize: '54px', lineHeight: '1.1' }}>
-                                    Imagine a Team Member Who is Always On.
+                                    AI Calling Agent Company in India
                                 </h1>
                                 <p className="ai-agent-hero-desc wow fadeInUp text-white-50 ms-0" data-wow-delay=".4s" style={{ fontSize: '18px', maxWidth: '600px' }}>
-                                    That’s what our AI calling agent does: it feels natural, works 24/7, and handles over 1000 calls simultaneously to keep your business connected.
+                                    That’s what our AI calling agent does: it feels natural, operates continuously, and handles high call volumes simultaneously to keep your business connected.
                                     <br /><br />
-                                    At VRM AI, we create enterprise-grade voice agents that automate complex workflows while delivering a human-centric experience.
+                                    At VRM AI, we create conversational voice agents that automate complex workflows while delivering a human-centric experience.
                                 </p>
                                 <div className="banner-btn wow fadeInUp mt-5" data-wow-delay=".5s">
                                     <Link to="/contactus#send-message" className="vrm-blue-to-white-btn">
@@ -141,8 +152,8 @@ function AICallingAgent() {
                         {[
                             {
                                 title: "Inbound Calls",
-                                desc: "Handle unlimited concurrent customer queries with zero wait time.",
-                                tags: ["Support", "Zero Wait", "24/7"],
+                                desc: "Handle inbound customer queries through automated conversational AI.",
+                                tags: ["Support", "Automated", "Inbound"],
                                 bgClass: "bg-blue-light",
                                 delay: ".2s"
                             },
@@ -155,8 +166,8 @@ function AICallingAgent() {
                             },
                             {
                                 title: "Multilingual",
-                                desc: "Fluent in 95+ languages and dialects for global reach.",
-                                tags: ["Global", "95+ Langs", "Native"],
+                                desc: "Supports multiple languages for regional and international deployments.",
+                                tags: ["Global", "Multilingual", "Regional"],
                                 bgClass: "bg-green-light",
                                 delay: ".6s"
                             },
@@ -240,7 +251,7 @@ function AICallingAgent() {
                         {[
                             { title: "Financial Services", desc: "Secure banking support, fraud alerts, and EMI reminders.", img: "/assets/images/service/03.jpg" },
                             { title: "Healthcare", desc: "Patient scheduling, post-care follow-ups, and triage.", img: "/assets/images/service/02.jpg" },
-                            { title: "Retail & E-Commerce", desc: "Order tracking, 24/7 support, and personalized offers.", img: "/assets/images/service/04.jpg" },
+                            { title: "Retail & E-Commerce", desc: "Order tracking, instant support, and personalized offers.", img: "/assets/images/service/04.jpg" },
                             { title: "Real Estate", desc: "Lead qualification, property viewing, and tenant support.", img: "/assets/images/service/08.jpg" },
                             { title: "Logistics", desc: "Delivery coordination, driver support, and tracking updates.", img: "/assets/images/service/05.jpg" },
                             { title: "Hospitality", desc: "Booking management, concierge services, and guest feedback.", img: "/assets/images/service/06.jpg" }

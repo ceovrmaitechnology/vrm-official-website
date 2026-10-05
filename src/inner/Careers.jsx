@@ -105,8 +105,17 @@ function Careers() {
       
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content="Careers at VRM AI Technology" />
-                <meta name="twitter:description" content="Join VRM AI Technology — a born Gen AI company. Explore open roles in AI engineering, product design, and more. Build the future of intelligent automation." />
                 <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.vrmaitechnology.com/" },
+                            { "@type": "ListItem", "position": 2, "name": "Careers", "item": "https://www.vrmaitechnology.com/careers" }
+                        ]
+                    })}
+                </script>
             </Helmet>
             <HeaderOne className="careers-header-panel" />
 

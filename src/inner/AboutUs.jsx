@@ -20,8 +20,17 @@ function AboutUs() {
             
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content="About VRM AI Technology" />
-                <meta name="twitter:description" content="Learn about VRM AI Technology — a born Gen AI company delivering intelligent platforms, ML systems, and AI consulting for enterprises worldwide." />
                 <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.vrmaitechnology.com/" },
+                            { "@type": "ListItem", "position": 2, "name": "About Us", "item": "https://www.vrmaitechnology.com/about-us" }
+                        ]
+                    })}
+                </script>
             </Helmet>
             <HeaderOne className="about-header-panel" />
 
@@ -152,7 +161,7 @@ function AboutUs() {
                                 </div>
                                 <div className="service-content">
                                     <h4 className="service-title-about">AI Calling Agent</h4>
-                                    <p className="service-desc-about">24/7 intelligent voice assistants that handle complex customer interactions naturally.</p>
+                                    <p className="service-desc-about">Autonomous intelligent voice assistants that handle complex customer interactions naturally.</p>
                                     <Link to="/solutions/ai-calling-agent" className="read-more-btn">Read More <i className="fas fa-arrow-right"></i></Link>
                                 </div>
                             </div>

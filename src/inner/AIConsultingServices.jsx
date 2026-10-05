@@ -21,17 +21,28 @@ function AIConsultingServices() {
             {/* Header: White text mode for dark gradient hero */}
             <HeaderOne className="header-white-text" />
             <Helmet>
-                <title>AI Consulting Services | Strategy & Execution | VRM AI</title>
+                <title>AI Consulting Services | VRM AI Technology</title>
                 <meta name="description" content="AI consulting by VRM AI Technology. We design data-driven AI strategies, ML model architectures, and enterprise solutions for global business scale." />
-                <meta property="og:title" content="AI Consulting Services — Strategy, Architecture & Execution" />
+                <meta property="og:title" content="AI Consulting Services | VRM AI Technology" />
                 <meta property="og:description" content="AI consulting by VRM AI Technology. We design data-driven AI strategies, ML model architectures, and enterprise solutions for global business scale." />
                 <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
                 <link rel="canonical" href="https://www.vrmaitechnology.com/solutions/ai-consulting-services" />
             
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="AI Consulting Services — Strategy, Architecture & Execution" />
+                <meta name="twitter:title" content="AI Consulting Services | VRM AI Technology" />
                 <meta name="twitter:description" content="AI consulting by VRM AI Technology. We design data-driven AI strategies, ML model architectures, and enterprise solutions for global business scale." />
                 <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.vrmaitechnology.com/" },
+                            { "@type": "ListItem", "position": 2, "name": "Solutions", "item": "https://www.vrmaitechnology.com/solutions" },
+                            { "@type": "ListItem", "position": 3, "name": "AI Consulting Services", "item": "https://www.vrmaitechnology.com/solutions/ai-consulting-services" }
+                        ]
+                    })}
+                </script>
                 <script type="application/ld+json">
                     {JSON.stringify({
                         "@context": "https://schema.org",
@@ -90,10 +101,10 @@ function AIConsultingServices() {
                             <div className="banner-content-two">
                                 <span className="pre-title wow fadeInUp" data-wow-delay=".2s" style={{ color: '#00C6FF' }}>AI Consulting Services</span>
                                 <h1 className="title wow fadeInUp text-white" data-wow-delay=".3s">
-                                    Transform Raw Data Into Actionable Intelligence
+                                    AI Consulting Services &amp; Strategy
                                 </h1>
                                 <p className="disc wow fadeInUp text-white-50" data-wow-delay=".4s">
-                                    Our AI consulting services support organizations in designing and implementing data-driven AI solutions. We specialize in AI strategy development, machine learning model design, and enterprise-grade deployment to improve efficiency and enable scalable innovation.
+                                    Our AI consulting services support organizations in designing and implementing data-driven AI solutions. We specialize in AI strategy development, machine learning model design, and enterprise deployment to improve efficiency and enable scalable innovation.
                                 </p>
                                 <div className="banner-btn wow fadeInUp" data-wow-delay=".5s">
                                     <Link to="/contactus#send-message" className="vrm-blue-to-white-btn">

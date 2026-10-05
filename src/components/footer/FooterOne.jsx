@@ -38,14 +38,25 @@ function FooterOne() {
                                 We delivered intelligent GenAI, automation platforms, and machine learning systems for modern businesses to drive measurable impact.
                             </p>
                             <div className="vrm-footer-address">
-                                <h6>Registered Office</h6>
-                                <p>
-                                    VRM AI Technology Private Limited<br />
-                                    GoodWorks Infinity Park, 21, 2nd main Rd,<br />
-                                    Electronic City Phase I,<br />
-                                    Bengaluru, Karnataka 560100
-                                </p>
-                                <div style={{ marginTop: '10px', fontSize: '13px', color: '#555', fontWeight: '500' }}>
+                                <div style={{ marginBottom: '12px' }}>
+                                    <h6 style={{ fontSize: '14px', marginBottom: '4px', color: '#11142c', fontWeight: '700' }}>Development Center (Staffed Office)</h6>
+                                    <p style={{ fontSize: '13px', lineHeight: '1.6', margin: 0, color: '#555' }}>
+                                        VRM AI Technology Private Limited<br />
+                                        Door No.209, 1st Floor, No.147, 5th St,<br />
+                                        Periyalar Nagar, Tiruppalai,<br />
+                                        Madurai, Tamil Nadu 625014, India
+                                    </p>
+                                </div>
+                                <div>
+                                    <h6 style={{ fontSize: '14px', marginBottom: '4px', color: '#11142c', fontWeight: '700' }}>Headquarters / Registered Office</h6>
+                                    <p style={{ fontSize: '13px', lineHeight: '1.6', margin: 0, color: '#555' }}>
+                                        VRM AI Technology Private Limited<br />
+                                        GoodWorks Infinity Park, 21, 2nd Main Rd,<br />
+                                        Electronic City Phase I,<br />
+                                        Bengaluru, Karnataka 560100, India
+                                    </p>
+                                </div>
+                                <div style={{ marginTop: '10px', fontSize: '12px', color: '#666', fontWeight: '500' }}>
                                     Corporate Identity Number (CIN): <span style={{ color: '#1b277c', fontWeight: '700' }}>U63999KA2026OPC215399</span>
                                 </div>
                             </div>
@@ -83,8 +94,9 @@ function FooterOne() {
                             <div className="vrm-footer-global mt-4">
                                 <h6>Locations</h6>
                                 <ul className="vrm-footer-links" style={{ listStyle: 'none', paddingLeft: 0, marginTop: '8px' }}>
-                                    <li style={{ marginBottom: '6px' }}><Link to="/ai-company-bangalore" style={{ fontSize: '13px' }}>Bangalore, India</Link></li>
+                                    <li style={{ marginBottom: '6px' }}><Link to="/ai-company-bangalore" style={{ fontSize: '13px' }}>Bengaluru, India</Link></li>
                                     <li style={{ marginBottom: '6px' }}><Link to="/ai-company-madurai" style={{ fontSize: '13px' }}>Madurai, India</Link></li>
+                                    <li style={{ marginBottom: '6px' }}><Link to="/ai-software-services-chennai" style={{ fontSize: '13px' }}>Chennai Services</Link></li>
                                     <li style={{ marginBottom: '6px' }}><Link to="/ai-company-tamil-nadu" style={{ fontSize: '13px' }}>Tamil Nadu</Link></li>
                                     <li style={{ marginBottom: '0px' }}><Link to="/ai-innovation-india" style={{ fontSize: '13px' }}>Pan-India Services</Link></li>
                                 </ul>
@@ -128,7 +140,7 @@ function FooterOne() {
                                 <li className="vrm-footer-dropdown" style={{ marginBottom: '18px' }}>
                                     <div style={{ display: 'inline-flex', alignItems: 'center' }}>
                                         <Link to="/products/workflow" style={{ fontWeight: '700', color: '#11142c', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-                                            Workflow.AI
+                                            Workflow AI
                                         </Link>
                                         <span 
                                             onClick={(e) => {
@@ -158,7 +170,7 @@ function FooterOne() {
                                     </ul>
                                 </li>
                                 <li style={{ marginBottom: '18px' }}>
-                                    <Link to="/products/people-connect" style={{ fontWeight: '700', color: '#11142c', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>People Connect (Global)</Link>
+                                    <Link to="/products/people-connect" style={{ fontWeight: '700', color: '#11142c', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>People Connect</Link>
                                 </li>
                                 <li style={{ marginBottom: '18px' }}>
                                     <Link to="/products/aibuddy" style={{ fontWeight: '700', color: '#11142c', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>AI Buddy</Link>
@@ -169,8 +181,11 @@ function FooterOne() {
                                 <li style={{ marginBottom: '18px' }}>
                                     <Link to="/products/visionix" style={{ fontWeight: '700', color: '#11142c', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Visionix AI</Link>
                                 </li>
+                                <li style={{ marginBottom: '18px' }}>
+                                    <Link to="/products/vrm-real-estate" style={{ fontWeight: '700', color: '#11142c', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>VRM Reality</Link>
+                                </li>
                                 <li style={{ marginBottom: '0px' }}>
-                                    <Link to="/products/vrm-real-estate" style={{ fontWeight: '700', color: '#11142c', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>VRM Real Estate</Link>
+                                    <Link to="/products/bench-to-deploy" style={{ fontWeight: '700', color: '#11142c', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Bench to Deploy (B2D)</Link>
                                 </li>
                             </ul>
                         </div>

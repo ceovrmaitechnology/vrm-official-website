@@ -44,9 +44,9 @@ function AIChatbotServices() {
         <div className="rts-ai-consulting-services basic-font-family">
             <HeaderOne className="header-white-text" />
             <Helmet>
-                <title>AI Chatbot &amp; Conversational AI Services | VRM AI Technology</title>
+                <title>AI Chatbot Development | VRM AI Technology</title>
                 <meta name="description" content="VRM AI Technology builds conversational AI chatbots, multilingual virtual assistants, and automated customer support platforms for enterprise workflows." />
-                <meta property="og:title" content="AI Chatbot &amp; Conversational AI Services | VRM AI Technology" />
+                <meta property="og:title" content="AI Chatbot Development | VRM AI Technology" />
                 <meta property="og:description" content="VRM AI Technology builds conversational AI chatbots, multilingual virtual assistants, and automated customer support platforms for enterprise workflows." />
                 <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
                 <link rel="canonical" href="https://www.vrmaitechnology.com/ai-chatbot-development" />
@@ -130,7 +130,7 @@ function AIChatbotServices() {
                             <div className="row g-3">
                                 <div className="col-sm-6">
                                     <div className="p-3 rounded" style={{ background: '#f8fafc', borderLeft: '4px solid #3B4ECC' }}>
-                                        <h6 style={{ fontWeight: '700', marginBottom: '4px' }}>24/7 Omnichannel</h6>
+                                        <h6 style={{ fontWeight: '700', marginBottom: '4px' }}>Omnichannel Support</h6>
                                         <p style={{ fontSize: '13px', margin: 0, color: '#666' }}>Simultaneous execution across WhatsApp, web, mobile apps, and Slack.</p>
                                     </div>
                                 </div>
@@ -196,13 +196,13 @@ function AIChatbotServices() {
                             {
                                 icon: "fa-home",
                                 title: "Real Estate & Housing",
-                                desc: "Qualify buyer inquiries 24/7, schedule site visits, and coordinate field agents using our integrated VRM Real Estate engine.",
+                                desc: "Qualify buyer inquiries, schedule site visits, and coordinate field agents using our integrated VRM Reality platform.",
                                 link: "/products/vrm-real-estate"
                             },
                             {
                                 icon: "fa-user-tie",
                                 title: "HR & Recruitment",
-                                desc: "Automate candidate screening, interview scheduling, and employee policy queries using our Workflow.AI intelligence platform.",
+                                desc: "Automate candidate screening, interview scheduling, and employee queries using our Workflow AI intelligence platform.",
                                 link: "/products/workflow"
                             },
                             {
@@ -220,7 +220,7 @@ function AIChatbotServices() {
                             {
                                 icon: "fa-city",
                                 title: "Public Sector & Governance",
-                                desc: "Orchestrate citizen grievance collection and civic outreach via WhatsApp with our People Connect (Global) platform.",
+                                desc: "Orchestrate citizen grievance collection and civic outreach via WhatsApp with our People Connect platform.",
                                 link: "/products/people-connect"
                             }
                         ].map((card, i) => (

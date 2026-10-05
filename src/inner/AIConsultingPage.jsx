@@ -219,8 +219,8 @@ function AIConsultingPage() {
                             },
                             {
                                 icon: "fa-shield-check",
-                                title: "AI Governance, Ethics & DPDP Compliance",
-                                desc: "Establish bias mitigation, output auditing, and enterprise compliance adhering to India's DPDP Act and international security standards.",
+                                title: "AI Governance & Architecture",
+                                desc: "Establish bias mitigation, output auditing, and enterprise architecture standards.",
                                 link: "/solutions/machine-learning-services"
                             }
                         ].map((item, idx) => (

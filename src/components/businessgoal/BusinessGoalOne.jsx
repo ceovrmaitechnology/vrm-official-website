@@ -12,7 +12,9 @@ function BusinessGoalOne() {
                             <div className="business-goal-one wow fadeInUp w-100 h-100 d-flex position-relative" data-wow-delay=".2s">
                                 <picture><source srcSet="/assets/images/home/home-2.webp" type="image/webp" /><img className="w-100 h-100 flex-grow-1"
                                     src="/assets/images/home/home-2.png"
-                                    alt="Business_Goal"
+                                    alt="Business Goal"
+                                    width="500"
+                                    height="400"
                                     style={{ objectFit: 'cover', borderRadius: '16px' }}
                                     loading="lazy" /></picture>
                             </div>

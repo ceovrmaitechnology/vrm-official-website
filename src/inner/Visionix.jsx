@@ -27,17 +27,28 @@ function Visionix() {
         <div className="visionix-page basic-font-family">
             <HeaderOne />
             <Helmet>
-                <title>Visionix AI | Facial Recognition & Verification | VRM AI</title>
-                <meta name="description" content="Automate security, attendance, and biometric verification with Visionix AI face recognition engine." />
-                <meta property="og:title" content="Visionix AI — Face Recognition & Biometric Verification" />
-                <meta property="og:description" content="Automate security, attendance, and biometric verification with Visionix AI face recognition engine." />
+                <title>Visionix Face Recognition AI | VRM AI Technology</title>
+                <meta name="description" content="Visionix AI by VRM AI Technology provides facial recognition, identity verification, and attendance tracking with high biometric accuracy." />
+                <meta property="og:title" content="Visionix Face Recognition AI | VRM AI Technology" />
+                <meta property="og:description" content="Visionix AI by VRM AI Technology provides facial recognition, identity verification, and attendance tracking with high biometric accuracy." />
                 <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
                 <link rel="canonical" href="https://www.vrmaitechnology.com/products/visionix" />
             
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="Visionix AI — Face Recognition & Biometric Verification" />
-                <meta name="twitter:description" content="Automate security, attendance, and biometric verification with Visionix AI face recognition engine." />
+                <meta name="twitter:title" content="Visionix Face Recognition AI | VRM AI Technology" />
+                <meta name="twitter:description" content="Visionix AI by VRM AI Technology provides facial recognition, identity verification, and attendance tracking with high biometric accuracy." />
                 <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.vrmaitechnology.com/" },
+                            { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://www.vrmaitechnology.com/products" },
+                            { "@type": "ListItem", "position": 3, "name": "Visionix AI", "item": "https://www.vrmaitechnology.com/products/visionix" }
+                        ]
+                    })}
+                </script>
                 <script type="application/ld+json">
                     {JSON.stringify({
                         "@context": "https://schema.org",
@@ -45,7 +56,7 @@ function Visionix() {
                         "name": "Visionix AI",
                         "operatingSystem": "Web",
                         "applicationCategory": "BusinessApplication",
-                        "description": "Automate security, attendance, and biometric verification with Visionix AI face recognition engine.",
+                        "description": "Visionix AI by VRM AI Technology provides facial recognition, identity verification, and attendance tracking with high biometric accuracy.",
                         "publisher": {
                             "@type": "Organization",
                             "name": "VRM AI Technology",
@@ -229,7 +240,7 @@ function Visionix() {
                     </div>
                     <div className="row mt--50 g-4">
                         {[
-                            { title: "24/7 Biometric Security", icon: "fal fa-clock" },
+                            { title: "Biometric Security", icon: "fal fa-clock" },
                             { title: "Scalable Matching Nodes", icon: "fal fa-road" },
                             { title: "Enterprise Verification Reports", icon: "fal fa-chart-pie" },
                             { title: "Secure API Access Logs", icon: "fal fa-network-wired" }

@@ -13,7 +13,7 @@ export default function Nav() {
     };
 
     const defaultWorkflowContent = {
-        title: "Workflow.AI Modules",
+        title: "Workflow AI Modules",
         description: "Streamline your recruitment process with our advanced AI-driven screening and interviewing tools.",
         link: "/products",
         linkText: "Explore Modules",
@@ -32,14 +32,14 @@ export default function Nav() {
         'calling-agent': { title: "AI Calling Agent", description: "Automated calling systems for efficient communication.", link: "/solutions/ai-calling-agent", linkText: "Learn More", image: "/assets/images/service/06.jpg" },
         'ml-services': { title: "Machine Learning", description: "Advanced ML models to drive data-backed decisions.", link: "/solutions/machine-learning-services", linkText: "Learn More", image: "/assets/images/service/07.jpg" },
 
-        // Products - Workflow.AI Modules
+        // Products - Workflow AI Modules
         'xpress-screening': { title: "Xpress Screening", description: "AI-powered resume screening that analyzes, matches, and ranks candidates to accelerate hiring and improve recruitment accuracy.", link: "/products/workflow/xpress-screening", linkText: "View Product", image: "/assets/images/workflow/xpress-screening/xpress-screening-image.png" },
         'screensage': { title: "ScreenSage", description: "AI-powered voice interviews that automate candidate screening and deliver structured hiring insights through intelligent conversations.", link: "/products/workflow/screensage", linkText: "View Product", image: "/assets/images/workflow/screensage/screensage-image.png" },
         'videosage': { title: "VideoSage", description: "AI-powered video interviews that evaluate communication, technical expertise, and behavioral skills for smarter hiring decisions.", link: "/products/workflow/videosage", linkText: "Book Demo", image: "/assets/images/workflow/videosage/videosage-image-3.png" },
         'codesage': { title: "CodeSage", description: "AI-powered coding assessments and technical interviews with intelligent proctoring and comprehensive candidate evaluation.", link: "/products/workflow/codesage", linkText: "View Product", image: "/assets/images/workflow/codesage/codesage-image.png" },
 
         // Products - Standalone Engines
-        'workflow': { title: "Workflow.AI", description: "An enterprise AI platform that automates business workflows, streamlines operations, and orchestrates intelligent processes across the organization.", link: "/products/workflow", linkText: "View Product", image: "/assets/images/service/desk.jpg" },
+        'workflow': { title: "Workflow AI", description: "An enterprise AI platform that automates business workflows, streamlines operations, and orchestrates intelligent processes across the organization.", link: "/products/workflow", linkText: "View Product", image: "/assets/images/service/desk.jpg" },
         'aibuddy': { 
             title: "AI Buddy", 
             description: "AI-powered language learning platform with personalized coaching, interactive voice practice, and multilingual communication training.", 
@@ -54,7 +54,7 @@ export default function Nav() {
             ]
         },
         'people-connect': { 
-            title: "People Connect (Global)", 
+            title: "People Connect", 
             description: "AI-powered citizen engagement platform that modernizes public services through intelligent communication and digital governance.", 
             link: "/products/people-connect", 
             linkText: "View Product", 
@@ -93,8 +93,8 @@ export default function Nav() {
             ]
         },
         'vevora': { 
-            title: "VRM Real Estate", 
-            description: "AI-powered real estate automation platform that connects buyer conversations, lead qualification, site visits, and agent operations.", 
+            title: "VRM Reality", 
+            description: "Premium real estate offering from VRM AI Technology, supported by AI-powered automation.", 
             link: "/products/vrm-real-estate", 
             linkText: "View Product", 
             image: "/assets/images/vrm-real-estate/vrm-real-estate-hero.png",
@@ -103,6 +103,19 @@ export default function Nav() {
                 "Smart Lead Scoring (HOT/WARM/COLD)",
                 "Automated Site Visit Scheduling",
                 "Free Cab Transportation Workflow"
+            ]
+        },
+        'b2d': {
+            title: "Bench to Deploy (B2D)",
+            description: "Talent readiness and deployment orchestration platform connecting certified engineering talent with project requirements through automated technical benchmarking.",
+            link: "/products/bench-to-deploy",
+            linkText: "View Product",
+            image: "/assets/images/service/04.jpg",
+            features: [
+                "Continuous Skill Auditing",
+                "Automated Code Benchmarking",
+                "Semantic Tech-Stack Matching",
+                "Verified Engineering Deployment"
             ]
         },
     };
@@ -196,7 +209,7 @@ export default function Nav() {
                                             className={`platform-btn ${activeSubMenu === 'workflow' ? 'active' : ''}`}
                                             onMouseEnter={() => handleTabHover('workflow')}
                                         >
-                                            Workflow.AI <i className="far fa-chevron-right"></i>
+                                            Workflow AI <i className="far fa-chevron-right"></i>
                                         </Link>
                                     </li>
                                     <li>
@@ -208,7 +221,7 @@ export default function Nav() {
                                                 handleLinkHover('people-connect');
                                             }}
                                         >
-                                            People Connect (Global)
+                                            People Connect
                                         </Link>
                                     </li>
                                     <li>
@@ -256,7 +269,19 @@ export default function Nav() {
                                                 handleLinkHover('vevora');
                                             }}
                                         >
-                                            VRM Real Estate
+                                            VRM Reality
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link
+                                            to="/products/bench-to-deploy"
+                                            className={`platform-btn ${activeSubMenu === 'b2d' ? 'active' : ''}`}
+                                            onMouseEnter={() => {
+                                                setActiveSubMenu('b2d');
+                                                handleLinkHover('b2d');
+                                            }}
+                                        >
+                                            Bench to Deploy (B2D)
                                         </Link>
                                     </li>
                                 </ul>
@@ -270,7 +295,7 @@ export default function Nav() {
                                             fontSize: '18px',
                                             fontWeight: '800',
                                             paddingLeft: '10px'
-                                        }}>Workflow.AI Modules</h5>
+                                        }}>Workflow AI Modules</h5>
                                         <ul style={{ paddingLeft: '0' }}>
                                             <li style={{ marginBottom: '5px' }}>
                                                 <Link
@@ -380,6 +405,14 @@ export default function Nav() {
                         </div>
                     </li>
 
+                    <li className="has-droupdown">
+                        <Link className="nav-link" to={'/ai-company-madurai'}>Locations</Link>
+                        <ul className="submenu">
+                            <li><Link to={'/ai-company-madurai'}>AI Company in Madurai</Link></li>
+                            <li><Link to={'/ai-company-bangalore'}>AI Company in Bengaluru</Link></li>
+                            <li><Link to={'/ai-software-services-chennai'}>AI Services in Chennai (Remote)</Link></li>
+                        </ul>
+                    </li>
                     <li><Link className="nav-link" to={'/careers'}>Careers</Link></li>
                     <li><Link className="nav-link" to={'/about-us'}>About Us</Link></li>
 

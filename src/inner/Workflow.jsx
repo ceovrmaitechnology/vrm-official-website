@@ -17,25 +17,36 @@ function Workflow() {
     return (
         <div className="workflow-page">
             <Helmet>
-                <title>WorkflowAI | Recruitment Intelligence Suite | VRM AI</title>
-                <meta name="description" content="A unified enterprise recruitment intelligence suite by VRM AI Technology. Optimize talent acquisition with ScreenSage, VideoSage, and CodeSage." />
-                <meta property="og:title" content="WorkflowAI — Enterprise Recruitment Intelligence Suite" />
-                <meta property="og:description" content="A unified enterprise recruitment intelligence suite by VRM AI Technology. Optimize talent acquisition with ScreenSage, VideoSage, and CodeSage." />
+                <title>Workflow AI Recruitment | VRM AI Technology</title>
+                <meta name="description" content="A unified recruitment intelligence suite by VRM AI Technology. Optimize talent acquisition with ScreenSage, VideoSage, CodeSage, and Xpress Screening." />
+                <meta property="og:title" content="Workflow AI Recruitment | VRM AI Technology" />
+                <meta property="og:description" content="A unified recruitment intelligence suite by VRM AI Technology. Optimize talent acquisition with ScreenSage, VideoSage, CodeSage, and Xpress Screening." />
                 <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
                 <link rel="canonical" href="https://www.vrmaitechnology.com/products/workflow" />
             
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="WorkflowAI — Enterprise Recruitment Intelligence Suite" />
-                <meta name="twitter:description" content="A unified enterprise recruitment intelligence suite by VRM AI Technology. Optimize talent acquisition with ScreenSage, VideoSage, and CodeSage." />
+                <meta name="twitter:title" content="Workflow AI Recruitment | VRM AI Technology" />
+                <meta name="twitter:description" content="A unified recruitment intelligence suite by VRM AI Technology. Optimize talent acquisition with ScreenSage, VideoSage, CodeSage, and Xpress Screening." />
                 <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
                 <script type="application/ld+json">
                     {JSON.stringify({
                         "@context": "https://schema.org",
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.vrmaitechnology.com/" },
+                            { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://www.vrmaitechnology.com/products" },
+                            { "@type": "ListItem", "position": 3, "name": "Workflow AI", "item": "https://www.vrmaitechnology.com/products/workflow" }
+                        ]
+                    })}
+                </script>
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
                         "@type": "SoftwareApplication",
-                        "name": "Workflow.AI",
+                        "name": "Workflow AI",
                         "operatingSystem": "Web",
                         "applicationCategory": "BusinessApplication",
-                        "description": "A unified enterprise recruitment intelligence suite by VRM AI Technology. Optimize talent acquisition with ScreenSage, VideoSage, and CodeSage.",
+                        "description": "Workflow AI is an AI recruitment screening platform by VRM AI Technology featuring Xpress Screening, ScreenSage, VideoSage, and CodeSage modules.",
                         "publisher": {
                             "@type": "Organization",
                             "name": "VRM AI Technology",
@@ -107,7 +118,7 @@ function Workflow() {
                         <div className="col-lg-6 wow fadeInRight" data-wow-delay=".2s">
                             <div className="about-inner">
                                 <div className="rts-title-area" data-text="Xpress Screening">
-                                    <span className="pre-title" style={{ color: '#3B4ECC', display: 'block', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '13px', fontWeight: '700', marginBottom: '5px' }}>Workflow.AI</span>
+                                    <span className="pre-title" style={{ color: '#3B4ECC', display: 'block', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '13px', fontWeight: '700', marginBottom: '5px' }}>Workflow AI</span>
                                     <h2 className="title">Xpress Screening</h2>
                                 </div>
                                 <p className="disc">
@@ -134,7 +145,7 @@ function Workflow() {
                         <div className="col-lg-6 order-lg-1 wow fadeInLeft" data-wow-delay=".2s">
                             <div className="about-inner">
                                 <div className="rts-title-area" data-text="ScreenSage">
-                                    <span className="pre-title" style={{ color: '#3B4ECC', display: 'block', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '13px', fontWeight: '700', marginBottom: '5px' }}>Workflow.AI</span>
+                                    <span className="pre-title" style={{ color: '#3B4ECC', display: 'block', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '13px', fontWeight: '700', marginBottom: '5px' }}>Workflow AI</span>
                                     <h2 className="title">ScreenSage</h2>
                                 </div>
                                 <p className="disc">
@@ -161,7 +172,7 @@ function Workflow() {
                         <div className="col-lg-6 wow fadeInRight" data-wow-delay=".2s">
                             <div className="about-inner">
                                 <div className="rts-title-area" data-text="VideoSage">
-                                    <span className="pre-title" style={{ color: '#3B4ECC', display: 'block', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '13px', fontWeight: '700', marginBottom: '5px' }}>Workflow.AI</span>
+                                    <span className="pre-title" style={{ color: '#3B4ECC', display: 'block', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '13px', fontWeight: '700', marginBottom: '5px' }}>Workflow AI</span>
                                     <h2 className="title">VideoSage</h2>
                                 </div>
                                 <p className="disc">
@@ -188,7 +199,7 @@ function Workflow() {
                         <div className="col-lg-6 order-lg-1 wow fadeInLeft" data-wow-delay=".2s">
                             <div className="about-inner">
                                 <div className="rts-title-area" data-text="">
-                                    <span className="pre-title" style={{ color: '#3B4ECC', display: 'block', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '13px', fontWeight: '700', marginBottom: '5px' }}>Workflow.AI</span>
+                                    <span className="pre-title" style={{ color: '#3B4ECC', display: 'block', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '13px', fontWeight: '700', marginBottom: '5px' }}>Workflow AI</span>
                                     <h2 className="title">CodeSage</h2>
                                 </div>
                                 <p className="disc">

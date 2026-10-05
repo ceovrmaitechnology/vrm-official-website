@@ -1,176 +1,125 @@
-import React from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import React, { Suspense, lazy } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import LoadTop from '../components/LoadTop';
 import BackToTop from '../components/BackToTop';
 import HomeOne from "./HomeOne";
-import HomeTwo from "./HomeTwo";
-import HomeThree from "./HomeThree";
-import HomeFour from "./HomeFour";
-import HomeFive from "./HomeFive";
-import HomeSix from "./HomeSix";
-import HomeSeven from "./HomeSeven";
-import HomeEight from "./HomeEight";
-import HomeNine from "./HomeNine";
-import HomeTen from "./HomeTen";
-// inner pages
-import SolutionsOverview from '../inner/SolutionsOverview';
-import ServiceTwo from "../inner/ServiceTwo";
-import ServiceThree from "../inner/ServiceThree";
-import Appoinment from "../inner/Appoinment";
-import AboutUs from "../inner/AboutUs";
-import PricingPlane from "../inner/PricingPlane";
-import TestimonialsOne from "../inner/TestimonialsOne";
-import Error from "../inner/Error";
-import PrivacyPolicy from "../inner/PrivacyPolicy";
-import TermsConditions from "../inner/TermsConditions";
-import Project from "../inner/Project";
-import ProjectTwo from "../inner/ProjectTwo";
-import ProjectThree from "../inner/ProjectThree";
-import ProjectFour from "../inner/ProjectFour";
-import ProjectFive from "../inner/ProjectFive";
-import Team from "../inner/Team";
-import TeamTwo from "../inner/TeamTwo";
-import TeamThree from "../inner/TeamThree";
-import TeamFour from "../inner/TeamFour";
-import TeamFive from "../inner/TeamFive";
-import TeamDetails from "../inner/TeamDetails";
-import BlogList from "../inner/BlogList";
-import BlogGrid from '../inner/BlogGrid';
-import BlogDetails from '../inner/BlogDetails';
-import BlogDetailsDefault from '../inner/BlogDetailsDefault';
-import ContactUs from '../inner/ContactUs';
-import Careers from '../inner/Careers';
-import Workflow from '../inner/Workflow';
-import XpressScreening from '../inner/XpressScreening';
-import ScreenSage from '../inner/ScreenSage';
-import VideoSage from '../inner/VideoSage';
-import CodeSage from '../inner/CodeSage';
-import AiBuddy from '../inner/AiBuddy';
-import PeopleConnect from '../inner/PeopleConnect';
-import AiExitInterview from '../inner/AiExitInterview';
-import Visionix from '../inner/Visionix';
-import AICallingAgent from '../inner/AICallingAgent';
-import AIConsultingServices from '../inner/AIConsultingServices';
-import AIChatbotDevelopment from '../inner/AIChatbotDevelopment';
-import AIDevelopmentServices from '../inner/AIDevelopmentServices';
-import AIIntegrationServices from '../inner/AIIntegrationServices';
-import MachineLearningServices from '../inner/MachineLearningServices';
-import ProductsOverview from '../inner/ProductsOverview';
-import VrmRealEstate from '../inner/VrmRealEstate';
-import AICompanyMadurai from '../inner/AICompanyMadurai';
-import AICompanyBangalore from '../inner/AICompanyBangalore';
-import AICompanyTamilNadu from '../inner/AICompanyTamilNadu';
-import AIInnovationIndia from '../inner/AIInnovationIndia';
-import GenerativeAIDevelopment from '../inner/GenerativeAIDevelopment';
-import AIChatbotServices from '../inner/AIChatbotServices';
-import VoiceAISolutions from '../inner/VoiceAISolutions';
-import AIConsultingPage from '../inner/AIConsultingPage';
 
-// onepage
-import OnepageOne from '../onepage/OnepageOne';
-import OnepageTwo from '../onepage/OnepageTwo';
-import OnepageThree from '../onepage/OnepageThree';
-import OnepageFour from '../onepage/OnepageFour';
-import OnepageFIve from '../onepage/OnepageFIve';
-import OnepageSix from '../onepage/OnepageSix';
-import OnepageSeven from '../onepage/OnepageSeven';
-import OnepageEight from '../onepage/OnepageEight';
-import OnepageNine from '../onepage/OnepageNine';
-import OnepageTen from '../onepage/OnepageTen';
+// Lazy-loaded Inner Pages (Code Splitting for Lighthouse Performance)
+const SolutionsOverview = lazy(() => import('../inner/SolutionsOverview'));
+const AboutUs = lazy(() => import('../inner/AboutUs'));
+const ContactUs = lazy(() => import('../inner/ContactUs'));
+const Careers = lazy(() => import('../inner/Careers'));
+const Workflow = lazy(() => import('../inner/Workflow'));
+const XpressScreening = lazy(() => import('../inner/XpressScreening'));
+const ScreenSage = lazy(() => import('../inner/ScreenSage'));
+const VideoSage = lazy(() => import('../inner/VideoSage'));
+const CodeSage = lazy(() => import('../inner/CodeSage'));
+const VrmRealEstate = lazy(() => import('../inner/VrmRealEstate'));
+const AiBuddy = lazy(() => import('../inner/AiBuddy'));
+const PeopleConnect = lazy(() => import('../inner/PeopleConnect'));
+const AiExitInterview = lazy(() => import('../inner/AiExitInterview'));
+const Visionix = lazy(() => import('../inner/Visionix'));
+const BenchToDeploy = lazy(() => import('../inner/BenchToDeploy'));
+const AICallingAgent = lazy(() => import('../inner/AICallingAgent'));
+const AIConsultingServices = lazy(() => import('../inner/AIConsultingServices'));
+const AIChatbotDevelopment = lazy(() => import('../inner/AIChatbotDevelopment'));
+const AIDevelopmentServices = lazy(() => import('../inner/AIDevelopmentServices'));
+const AIIntegrationServices = lazy(() => import('../inner/AIIntegrationServices'));
+const MachineLearningServices = lazy(() => import('../inner/MachineLearningServices'));
+const ProductsOverview = lazy(() => import('../inner/ProductsOverview'));
+const AICompanyMadurai = lazy(() => import('../inner/AICompanyMadurai'));
+const AICompanyBangalore = lazy(() => import('../inner/AICompanyBangalore'));
+const AICompanyTamilNadu = lazy(() => import('../inner/AICompanyTamilNadu'));
+const AIInnovationIndia = lazy(() => import('../inner/AIInnovationIndia'));
+const AICompanyChennai = lazy(() => import('../inner/AICompanyChennai'));
+const GenerativeAIDevelopment = lazy(() => import('../inner/GenerativeAIDevelopment'));
+const PrivacyPolicy = lazy(() => import('../inner/PrivacyPolicy'));
+const TermsConditions = lazy(() => import('../inner/TermsConditions'));
+const Articles = lazy(() => import('../inner/Articles'));
+const Error = lazy(() => import('../inner/Error'));
 
 function RouterPage() {
     return (
         <div>
             <Router>
                 <LoadTop />
-                <Routes>
-                    <Route path="/" element={<HomeOne />}></Route>
-                    <Route path="/home-two" element={<HomeTwo />}></Route>
-                    <Route path="/home-three" element={<HomeThree />}></Route>
-                    <Route path="/home-four" element={<HomeFour />}></Route>
-                    <Route path="/home-five" element={<HomeFive />}></Route>
-                    <Route path="/home-six" element={<HomeSix />}></Route>
-                    <Route path="/home-seven" element={<HomeSeven />}></Route>
-                    <Route path="/home-eight" element={<HomeEight />}></Route>
-                    <Route path="/home-nine" element={<HomeNine />}></Route>
-                    <Route path="/home-ten" element={<HomeTen />}></Route>
-                    <Route path="/our-service" element={<SolutionsOverview />}></Route>
-                    <Route path="/solutions" element={<SolutionsOverview />}></Route>
-                    <Route path="/service-2" element={<ServiceTwo />}></Route>
-                    <Route path="/service-3" element={<ServiceThree />}></Route>
-                    <Route path="/appoinment" element={<Appoinment />}></Route>
-                    <Route path="/about-us" element={<AboutUs />}></Route>
-                    <Route path="/pricing-plane" element={<PricingPlane />}></Route>
-                    <Route path="/testimonial-style-1" element={<TestimonialsOne />}></Route>
-                    <Route path="/404" element={<Error />}></Route>
-                    <Route path="/project" element={<Project />}></Route>
-                    <Route path="/portfolio-style-2" element={<ProjectTwo />}></Route>
-                    <Route path="/portfolio-style-3" element={<ProjectThree />}></Route>
-                    <Route path="/portfolio-style-4" element={<ProjectFour />}></Route>
-                    <Route path="/portfolio-style-5" element={<ProjectFive />}></Route>
-                    <Route path="/team" element={<Team />}></Route>
-                    <Route path="/team-style-2" element={<TeamTwo />}></Route>
-                    <Route path="/team-style-3" element={<TeamThree />}></Route>
-                    <Route path="/team-style-4" element={<TeamFour />}></Route>
-                    <Route path="/team-style-5" element={<TeamFive />}></Route>
-                    <Route path="/team-details" element={<TeamDetails />}></Route>
-                    <Route path="/blog-list" element={<BlogList />}></Route>
-                    <Route path="/blog-grid" element={<BlogGrid />}></Route>
-                    <Route path="/blog-details" element={<BlogDetails />}></Route>
-                    <Route path="/blog/:id" element={<BlogDetails />}></Route>
-                    <Route path="/blog-details-default" element={<BlogDetailsDefault />}></Route>
-                    <Route path="/contactus" element={<ContactUs />}></Route>
-                    <Route path="/careers" element={<Careers />}></Route>
-                    <Route path="/products" element={<ProductsOverview />}></Route>
-                    <Route path="/products/workflow" element={<Workflow />}></Route>
-                    <Route path="/products/workflow/xpress-screening" element={<XpressScreening />}></Route>
-                    <Route path="/products/workflow/screensage" element={<ScreenSage />}></Route>
-                    <Route path="/products/workflow/videosage" element={<VideoSage />}></Route>
-                    <Route path="/products/workflow/codesage" element={<CodeSage />}></Route>
-                    <Route path="/products/vevora" element={<VrmRealEstate />}></Route>
-                    <Route path="/products/vrm-real-estate" element={<VrmRealEstate />}></Route>
-                    <Route path="/products/aibuddy" element={<AiBuddy />}></Route>
-                    <Route path="/products/people-connect" element={<PeopleConnect />}></Route>
-                    <Route path="/products/exitinterview" element={<AiExitInterview />}></Route>
-                    <Route path="/products/visionix" element={<Visionix />}></Route>
-                    <Route path="/solutions/ai-calling-agent" element={<AICallingAgent />}></Route>
-                    <Route path="/solutions/ai-consulting-services" element={<AIConsultingServices />}></Route>
-                    <Route path="/solutions/ai-chatbot-development" element={<AIChatbotDevelopment />}></Route>
-                    <Route path="/solutions/ai-development-services" element={<AIDevelopmentServices />}></Route>
-                    <Route path="/solutions/ai-integration-services" element={<AIIntegrationServices />}></Route>
-                    <Route path="/solutions/machine-learning-services" element={<MachineLearningServices />}></Route>
+                <Suspense fallback={<div className="vrm-route-loader" style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><div className="spinner-border text-primary" role="status"><span className="visually-hidden">Loading...</span></div></div>}>
+                    <Routes>
+                        {/* Core Pages */}
+                        <Route path="/" element={<HomeOne />}></Route>
+                        <Route path="/about-us" element={<AboutUs />}></Route>
+                        <Route path="/contactus" element={<ContactUs />}></Route>
+                        <Route path="/careers" element={<Careers />}></Route>
+                        <Route path="/solutions" element={<SolutionsOverview />}></Route>
+                        <Route path="/our-service" element={<Navigate to="/solutions" replace />}></Route>
+                        <Route path="/products" element={<ProductsOverview />}></Route>
 
-                    {/* Location Landing Pages */}
-                    <Route path="/ai-company-madurai" element={<AICompanyMadurai />}></Route>
-                    <Route path="/ai-company-bangalore" element={<AICompanyBangalore />}></Route>
-                    <Route path="/ai-company-tamil-nadu" element={<AICompanyTamilNadu />}></Route>
-                    <Route path="/ai-innovation-india" element={<AIInnovationIndia />}></Route>
+                        {/* Location Landing Pages */}
+                        <Route path="/ai-company-madurai" element={<AICompanyMadurai />}></Route>
+                        <Route path="/ai-company-bangalore" element={<AICompanyBangalore />}></Route>
+                        <Route path="/ai-software-services-chennai" element={<AICompanyChennai />}></Route>
+                        <Route path="/ai-company-chennai" element={<Navigate to="/ai-software-services-chennai" replace />}></Route>
+                        <Route path="/ai-company-tamil-nadu" element={<AICompanyTamilNadu />}></Route>
+                        <Route path="/ai-innovation-india" element={<AIInnovationIndia />}></Route>
 
-                    {/* Specialized Solution Landing Pages */}
-                    <Route path="/generative-ai-development" element={<GenerativeAIDevelopment />}></Route>
-                    <Route path="/ai-chatbot-development" element={<AIChatbotServices />}></Route>
-                    <Route path="/voice-ai-solutions" element={<VoiceAISolutions />}></Route>
-                    <Route path="/ai-consulting" element={<AIConsultingPage />}></Route>
+                        {/* Services & Solutions Pages */}
+                        <Route path="/generative-ai-development" element={<GenerativeAIDevelopment />}></Route>
+                        <Route path="/solutions/generative-ai-development" element={<Navigate to="/generative-ai-development" replace />}></Route>
+                        <Route path="/solutions/ai-chatbot-development" element={<AIChatbotDevelopment />}></Route>
+                        <Route path="/ai-chatbot-development" element={<Navigate to="/solutions/ai-chatbot-development" replace />}></Route>
+                        <Route path="/solutions/ai-calling-agent" element={<AICallingAgent />}></Route>
+                        <Route path="/voice-ai-solutions" element={<Navigate to="/solutions/ai-calling-agent" replace />}></Route>
+                        <Route path="/solutions/ai-consulting-services" element={<AIConsultingServices />}></Route>
+                        <Route path="/ai-consulting" element={<Navigate to="/solutions/ai-consulting-services" replace />}></Route>
+                        <Route path="/solutions/ai-development-services" element={<AIDevelopmentServices />}></Route>
+                        <Route path="/solutions/ai-integration-services" element={<AIIntegrationServices />}></Route>
+                        <Route path="/solutions/machine-learning-services" element={<MachineLearningServices />}></Route>
 
-                    {/* onepage */}
-                    <Route path="/onepage-one" element={<OnepageOne />}></Route>
-                    <Route path="/onepage-two" element={<OnepageTwo />}></Route>
-                    <Route path="/onepage-three" element={<OnepageThree />}></Route>
-                    <Route path="/onepage-four" element={<OnepageFour />}></Route>
-                    <Route path="/onepage-five" element={<OnepageFIve />}></Route>
-                    <Route path="/onepage-six" element={<OnepageSix />}></Route>
-                    <Route path="/onepage-seven" element={<OnepageSeven />}></Route>
-                    <Route path="/onepage-eight" element={<OnepageEight />}></Route>
-                    <Route path="/onepage-nine" element={<OnepageNine />}></Route>
-                    <Route path="/onepage-ten" element={<OnepageTen />}></Route>
-                    <Route path="/privacy-policy" element={<PrivacyPolicy />}></Route>
-                    <Route path="/terms-conditions" element={<TermsConditions />}></Route>
-                    <Route path="*" element={<Error />}></Route>
-                </Routes>
+                        {/* Products Pages */}
+                        <Route path="/products/workflow" element={<Workflow />}></Route>
+                        <Route path="/products/workflow/xpress-screening" element={<XpressScreening />}></Route>
+                        <Route path="/products/workflow/screensage" element={<ScreenSage />}></Route>
+                        <Route path="/products/workflow/videosage" element={<VideoSage />}></Route>
+                        <Route path="/products/workflow/codesage" element={<CodeSage />}></Route>
+                        <Route path="/products/people-connect" element={<PeopleConnect />}></Route>
+                        <Route path="/products/aibuddy" element={<AiBuddy />}></Route>
+                        <Route path="/products/exitinterview" element={<AiExitInterview />}></Route>
+                        <Route path="/products/visionix" element={<Visionix />}></Route>
+                        <Route path="/products/vrm-real-estate" element={<VrmRealEstate />}></Route>
+                        <Route path="/products/vevora" element={<Navigate to="/products/vrm-real-estate" replace />}></Route>
+                        <Route path="/products/bench-to-deploy" element={<BenchToDeploy />}></Route>
+                        <Route path="/products/b2d" element={<Navigate to="/products/bench-to-deploy" replace />}></Route>
+
+                        {/* Legal, Articles, 404 */}
+                        <Route path="/privacy-policy" element={<PrivacyPolicy />}></Route>
+                        <Route path="/terms-conditions" element={<TermsConditions />}></Route>
+                        <Route path="/articles" element={<Articles />}></Route>
+                        <Route path="/404" element={<Error />}></Route>
+
+                        {/* Retired Template Demo Routes -> Redirect to Home */}
+                        {[
+                            "/home-two", "/home-three", "/home-four", "/home-five", "/home-six",
+                            "/home-seven", "/home-eight", "/home-nine", "/home-ten",
+                            "/service-2", "/service-3", "/service-two", "/service-three",
+                            "/appoinment", "/pricing-plane", "/testimonial-style-1", "/testimonials-one",
+                            "/project", "/project-details", "/portfolio-style-2", "/portfolio-style-3",
+                            "/portfolio-style-4", "/portfolio-style-5",
+                            "/team", "/team-style-2", "/team-style-3", "/team-style-4", "/team-style-5", "/team-details",
+                            "/blog-list", "/blog-grid", "/blog-details", "/blog/:id", "/blog-details-default",
+                            "/onepage-one", "/onepage-two", "/onepage-three", "/onepage-four", "/onepage-five",
+                            "/onepage-six", "/onepage-seven", "/onepage-eight", "/onepage-nine", "/onepage-ten"
+                        ].map((tPath) => (
+                            <Route key={tPath} path={tPath} element={<Navigate to="/" replace />} />
+                        ))}
+
+                        {/* Catch-all 404 */}
+                        <Route path="*" element={<Error />}></Route>
+                    </Routes>
+                </Suspense>
                 <BackToTop />
             </Router>
         </div>
-    )
+    );
 }
 
-export default RouterPage
+export default RouterPage;
