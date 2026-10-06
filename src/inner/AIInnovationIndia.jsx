@@ -81,6 +81,21 @@ function AIInnovationIndia() {
                         }))
                     })}
                 </script>
+
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "Service",
+                        "name": "AI Software Solutions in India",
+                        "description": "VRM AI Technology delivers custom Generative AI platforms, conversational AI, voice agents, and machine learning systems across India from its Madurai engineering center.",
+                        "provider": {
+                            "@type": "Organization",
+                            "name": "VRM AI Technology"
+                        },
+                        "areaServed": ["Madurai", "Bangalore", "Chennai", "Tamil Nadu", "India"],
+                        "url": "https://www.vrmaitechnology.com/ai-innovation-india"
+                    })}
+                </script>
             </Helmet>
 
             {/* 1. Hero Section - Enterprise Gradient */}
