@@ -193,12 +193,12 @@ function HomeOverview() {
                             },
                             {
                                 id: 10,
-                                icon: "assets/images/service/icon/01.svg",
+                                icon: "/assets/images/service/icon/01.svg",
                                 category: "Real Estate Automation",
                                 title: "VRM Reality",
                                 desc: "AI-powered real estate platform connecting buyer conversations, lead qualification, site visits, and agent operations.",
                                 link: "/products/vrm-reality",
-                                bgImage: "assets/images/vrm-reality/vrm-reality-hero.png"
+                                bgImage: "/assets/images/vrm-reality/vrm-reality-hero.png"
                             }
                         ].map((product) => (
                             <div key={product.id} className="vrm-product-card wow fadeInUp" data-wow-delay=".3s">
