@@ -21,7 +21,7 @@ const AiExitInterview = lazy(() => import('../inner/AiExitInterview'));
 const Visionix = lazy(() => import('../inner/Visionix'));
 const BenchToDeploy = lazy(() => import('../inner/BenchToDeploy'));
 const AICallingAgent = lazy(() => import('../inner/AICallingAgent'));
-// Removed AIConsultingServices
+// Removed AIServices
 const AIChatbotDevelopment = lazy(() => import('../inner/AIChatbotDevelopment'));
 const AIDevelopmentServices = lazy(() => import('../inner/AIDevelopmentServices'));
 const AIIntegrationServices = lazy(() => import('../inner/AIIntegrationServices'));

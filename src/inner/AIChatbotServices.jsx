@@ -41,7 +41,7 @@ function AIChatbotServices() {
     ];
 
     return (
-        <div className="rts-ai-consulting-services basic-font-family">
+        <div className="rts-ai-strategy-services basic-font-family">
             <HeaderOne className="header-white-text" />
             <Helmet>
                 <title>AI Chatbot &amp; Conversational AI Services | VRM AI Technology</title>

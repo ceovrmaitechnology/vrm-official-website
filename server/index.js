@@ -386,6 +386,9 @@ const REDIRECT_MAP = {
   "/voice-ai-solutions": "/solutions/ai-calling-agent",
   "/products/b2d": "/products/bench-to-deploy",
   "/products/vrm-real-estate": "/products/vrm-reality",
+  "/solutions/ai-consulting-services": "/solutions",
+  "/ai-consulting": "/solutions",
+  "/products/vevora": "/products/vrm-reality",
   "/solutions/generative-ai-development": "/generative-ai-development",
   "/our-service": "/solutions",
   // Template demo routes redirected to home

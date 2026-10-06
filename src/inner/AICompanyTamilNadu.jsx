@@ -41,7 +41,7 @@ function AICompanyTamilNadu() {
     ];
 
     return (
-        <div className="rts-ai-consulting-services basic-font-family">
+        <div className="rts-ai-strategy-services basic-font-family">
             <HeaderOne className="header-white-text" />
             <Helmet>
                 <title>Top Growing AI Company in Tamil Nadu | VRM AI Technology</title>
@@ -230,9 +230,9 @@ function AICompanyTamilNadu() {
                             },
                             {
                                 icon: "fa-handshake",
-                                title: "Enterprise AI Consulting",
-                                desc: "End-to-end guidance from legacy data assessment to production architecture, led by experienced AI consultants.",
-                                link: "/solutions/ai-consulting-services"
+                                title: "Enterprise AI Strategy",
+                                desc: "End-to-end guidance from legacy data assessment to production architecture, led by experienced AI strategists.",
+                                link: "/solutions"
                             }
                         ].map((srv, idx) => (
                             <div key={idx} className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay={`.${(idx % 3 + 2) * 2}s`}>

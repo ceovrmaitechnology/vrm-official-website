@@ -73,7 +73,7 @@ export const employerTestimonials = [
     },
     {
         name: "Vikram Malhotra",
-        company: "Apex Consulting",
+        company: "Apex Solutions",
         quote:
             "Asynchronous interviews with VideoSage saved our managers hours of manual scheduling. The AI transcript summaries are incredibly precise and highlight key competencies."
     },

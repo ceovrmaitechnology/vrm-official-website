@@ -26,3 +26,7 @@
 
 # Redirect all client-side routes to index.html for React SPA
 /*              /index.html     200
+
+/solutions/ai-consulting-services /solutions 301
+/ai-consulting /solutions 301
+/products/vevora /products/vrm-reality 301

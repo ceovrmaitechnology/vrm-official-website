@@ -41,7 +41,7 @@ function VoiceAISolutions() {
     ];
 
     return (
-        <div className="rts-ai-consulting-services basic-font-family">
+        <div className="rts-ai-strategy-services basic-font-family">
             <HeaderOne className="header-white-text" />
             <Helmet>
                 <title>Voice AI Solutions | VRM AI Technology</title>

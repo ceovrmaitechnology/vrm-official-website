@@ -35,6 +35,9 @@
   RewriteRule ^voice-ai-solutions/?$ /solutions/ai-calling-agent [R=301,L]
   RewriteRule ^products/b2d/?$ /products/bench-to-deploy [R=301,L]
   RewriteRule ^products/vrm-real-estate/?$ /products/vrm-reality [R=301,L]
+RewriteRule ^solutions/ai-consulting-services/?$ /solutions [R=301,L]
+RewriteRule ^ai-consulting/?$ /solutions [R=301,L]
+RewriteRule ^products/vevora/?$ /products/vrm-reality [R=301,L]
   RewriteRule ^solutions/generative-ai-development/?$ /generative-ai-development [R=301,L]
   # 301 Redirects for template demo routes
   RewriteRule ^(home-(two|three|four|five|six|seven|eight|nine|ten)|service-(2|3|two|three)|appoinment|pricing-plane|testimonial.*|portfolio.*|project.*|team.*|blog.*|onepage.*)/?$ / [R=301,L]
