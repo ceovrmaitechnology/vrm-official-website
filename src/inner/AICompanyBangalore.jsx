@@ -2,8 +2,8 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import HeaderOne from "../components/header/HeaderOne";
 import FooterOne from "../components/footer/FooterOne";
-import { Link } from 'react-router-dom';
 import Accordion from 'react-bootstrap/Accordion';
+
 
 export default function AICompanyBangalore() {
     return (

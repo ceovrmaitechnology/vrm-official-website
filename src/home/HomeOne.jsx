@@ -99,13 +99,7 @@ function HomeOne() {
                 }
               }
             ],
-            "areaServed": ["Madurai", "Bangalore", "Chennai", "Tamil Nadu", "India"],
-            "sameAs": [
-              "https://www.linkedin.com/company/vrm-ai-technology-pvt-ltd/",
-              "https://x.com/vrmaitechnology",
-              "https://www.instagram.com/vrmaitechnology/",
-              "https://www.facebook.com/share/1Ck9vJyvW4/"
-            ]
+            "areaServed": ["Madurai", "Bangalore", "Chennai", "Tamil Nadu", "India"]
           })}
         </script>
       </Helmet>

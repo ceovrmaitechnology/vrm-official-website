@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import HeaderOne from "../components/header/HeaderOne";
 import FooterOne from "../components/footer/FooterOne";
@@ -6,9 +6,7 @@ import { Link } from 'react-router-dom';
 import Accordion from 'react-bootstrap/Accordion';
 
 function VrmReality() {
-    const [isMobile, setIsMobile] = useState(false);
     useEffect(() => {
-        setIsMobile(/iPhone|iPad|iPod|Android/i.test(navigator.userAgent));
         window.scrollTo(0, 0);
     }, []);
 
