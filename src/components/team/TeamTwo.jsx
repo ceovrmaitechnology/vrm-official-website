@@ -56,7 +56,7 @@ function TeamTwo() {
                                         <div className="acquaintance-area">
                                             <div className="header">
                                                 <h5 className="title">Kevin Martin</h5>
-                                                <span>Consultant</span>
+                                                <span>Engineer</span>
                                             </div>
                                             <div className="acquaintance-social">
                                                 <Link to="#">
@@ -84,7 +84,7 @@ function TeamTwo() {
                                         <div className="acquaintance-area">
                                             <div className="header">
                                                 <h5 className="title">Kevin Martin</h5>
-                                                <span>Consultant</span>
+                                                <span>Engineer</span>
                                             </div>
                                             <div className="acquaintance-social">
                                                 <Link to="#">
@@ -112,7 +112,7 @@ function TeamTwo() {
                                         <div className="acquaintance-area">
                                             <div className="header">
                                                 <h5 className="title">Kevin Martin</h5>
-                                                <span>Consultant</span>
+                                                <span>Engineer</span>
                                             </div>
                                             <div className="acquaintance-social">
                                                 <Link to="#">
@@ -140,7 +140,7 @@ function TeamTwo() {
                                         <div className="acquaintance-area">
                                             <div className="header">
                                                 <h5 className="title">Kevin Martin</h5>
-                                                <span>Consultant</span>
+                                                <span>Engineer</span>
                                             </div>
                                             <div className="acquaintance-social">
                                                 <Link to="#">
@@ -168,7 +168,7 @@ function TeamTwo() {
                                         <div className="acquaintance-area">
                                             <div className="header">
                                                 <h5 className="title">Kevin Martin</h5>
-                                                <span>Consultant</span>
+                                                <span>Engineer</span>
                                             </div>
                                             <div className="acquaintance-social">
                                                 <Link to="#">
@@ -196,7 +196,7 @@ function TeamTwo() {
                                         <div className="acquaintance-area">
                                             <div className="header">
                                                 <h5 className="title">Kevin Martin</h5>
-                                                <span>Consultant</span>
+                                                <span>Engineer</span>
                                             </div>
                                             <div className="acquaintance-social">
                                                 <Link to="#">

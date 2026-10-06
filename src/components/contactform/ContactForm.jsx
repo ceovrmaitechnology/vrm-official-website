@@ -68,7 +68,7 @@ function ContactForm() {
                                 <picture>
                                     <source srcSet="/assets/images/home/indian-collab.webp" type="image/webp" />
                                     <img src="/assets/images/home/indian-collab.png"
-                                        alt="VRM AI Consultation"
+                                        alt="VRM AI Assessment"
                                         style={{ objectFit: 'cover', width: '100%', height: '360px', borderRadius: '16px' }}
                                         width="450"
                                         height="360"

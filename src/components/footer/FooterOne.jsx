@@ -48,12 +48,15 @@ function FooterOne() {
                                     </p>
                                 </div>
                                 <div>
-                                    <h6 style={{ fontSize: '14px', marginBottom: '4px', color: '#11142c', fontWeight: '700' }}>Headquarters / Registered Office</h6>
-                                    <p style={{ fontSize: '13px', lineHeight: '1.6', margin: 0, color: '#555' }}>
-                                        VRM AI Technology Private Limited<br />
+                                    <h6 style={{ fontSize: '14px', marginBottom: '4px', color: '#11142c', fontWeight: '700' }}>Headquarters - Bengaluru</h6>
+                                    <p style={{ fontSize: '13px', lineHeight: '1.6', margin: 0, color: '#555', paddingBottom: '10px' }}>
                                         GoodWorks Infinity Park, 21, 2nd Main Rd,<br />
-                                        Electronic City Phase I,<br />
-                                        Bengaluru, Karnataka 560100, India
+                                        Electronic City Phase I, Bengaluru, Karnataka 560100
+                                    </p>
+                                    <h6 style={{ fontSize: '14px', marginBottom: '4px', color: '#11142c', fontWeight: '700' }}>Development Center - Madurai</h6>
+                                    <p style={{ fontSize: '13px', lineHeight: '1.6', margin: 0, color: '#555' }}>
+                                        Door No.209, 1st Floor, No.147, 5th St, Poriyalar Nagar,<br />
+                                        Tiruppalai, Madurai, Tamil Nadu 625014
                                     </p>
                                 </div>
                                 <div style={{ marginTop: '10px', fontSize: '12px', color: '#666', fontWeight: '500' }}>
@@ -94,9 +97,11 @@ function FooterOne() {
                             <div className="vrm-footer-global mt-4">
                                 <h6>Locations</h6>
                                 <ul className="vrm-footer-links" style={{ listStyle: 'none', paddingLeft: 0, marginTop: '8px' }}>
-                                    <li style={{ marginBottom: '6px' }}><Link to="/ai-company-bangalore" style={{ fontSize: '13px' }}>Bengaluru, India</Link></li>
-                                    <li style={{ marginBottom: '6px' }}><Link to="/ai-company-madurai" style={{ fontSize: '13px' }}>Madurai, India</Link></li>
-                                    <li style={{ marginBottom: '6px' }}><Link to="/ai-software-services-chennai" style={{ fontSize: '13px' }}>Chennai Services</Link></li>
+                                    <li style={{ marginBottom: '6px' }}><Link to="/ai-company-bangalore" style={{ fontSize: '13px' }}>Bengaluru, India (Registered Office)</Link></li>
+                                    <li style={{ marginBottom: '6px' }}><Link to="/ai-company-madurai" style={{ fontSize: '13px' }}>Madurai, India (Development Center)</Link></li>
+                                </ul>
+                                <h6 style={{ marginTop: '16px' }}>Service Areas</h6>
+                                <ul className="vrm-footer-links" style={{ listStyle: 'none', paddingLeft: 0, marginTop: '8px' }}>
                                     <li style={{ marginBottom: '6px' }}><Link to="/ai-company-tamil-nadu" style={{ fontSize: '13px' }}>Tamil Nadu</Link></li>
                                     <li style={{ marginBottom: '0px' }}><Link to="/ai-innovation-india" style={{ fontSize: '13px' }}>Pan-India Services</Link></li>
                                 </ul>
@@ -109,12 +114,7 @@ function FooterOne() {
                         <div className="vrm-footer-widget vrm-footer-widget-solutions">
                             <h5 className="vrm-footer-title">Solutions</h5>
 
-                            <h6 className="vrm-footer-sub-title" style={{ marginTop: '0px' }}>AI Consulting &amp; Strategy</h6>
-                            <ul className="vrm-footer-links">
-                                <li><Link to="/ai-consulting">AI Consulting</Link></li>
-                                <li><Link to="/solutions/ai-consulting-services">Strategy &amp; Architecture</Link></li>
-                                <li><Link to="/solutions/ai-integration-services">AI Integration Services</Link></li>
-                            </ul>
+                            
 
                             <h6 className="vrm-footer-sub-title">AI Development</h6>
                             <ul className="vrm-footer-links">
@@ -182,7 +182,7 @@ function FooterOne() {
                                     <Link to="/products/visionix" style={{ fontWeight: '700', color: '#11142c', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Visionix AI</Link>
                                 </li>
                                 <li style={{ marginBottom: '18px' }}>
-                                    <Link to="/products/vrm-real-estate" style={{ fontWeight: '700', color: '#11142c', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>VRM Reality</Link>
+                                    <Link to="/products/vrm-reality" style={{ fontWeight: '700', color: '#11142c', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>VRM Reality</Link>
                                 </li>
                                 <li style={{ marginBottom: '0px' }}>
                                     <Link to="/products/bench-to-deploy" style={{ fontWeight: '700', color: '#11142c', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Bench to Deploy (B2D)</Link>

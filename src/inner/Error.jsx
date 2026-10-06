@@ -14,8 +14,7 @@ function Error() {
             <Helmet>
                 <title>Page Not Found | VRM AI Technology</title>
                 <meta name="description" content="Sorry, the page you are looking for does not exist on VRM AI Technology." />
-                <link rel="canonical" href="https://www.vrmaitechnology.com/404" />
-                <meta name="robots" content="noindex, follow" />
+                <meta name="robots" content="noindex" />
             </Helmet>
 
             {/* rts- 404 area start */}

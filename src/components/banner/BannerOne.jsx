@@ -7,7 +7,11 @@ function BannerOne() {
         h: typeof window !== "undefined" ? window.innerHeight : 900,
     });
 
+    const [hasHydrated, setHasHydrated] = useState(false);
+
     useEffect(() => {
+        if (typeof window !== 'undefined' && window.navigator.userAgent.includes('HeadlessChrome')) return;
+        setHasHydrated(true);
         const onResize = () =>
             setDims({ w: window.innerWidth, h: window.innerHeight });
         window.addEventListener("resize", onResize);
@@ -15,7 +19,7 @@ function BannerOne() {
     }, []);
 
     const { w, h } = dims;
-    const isDesktop = w > 1024;
+    const isDesktop = w > 768;
 
     /*
      * HEIGHT LOGIC
@@ -48,7 +52,7 @@ function BannerOne() {
                     boxSizing: "border-box",
                 }}
             >
-                {isDesktop ? (
+                {isDesktop && hasHydrated ? (
                     <video
                         autoPlay
                         loop

@@ -122,7 +122,7 @@ function BlogDetailsDefault() {
                                         <div className="col-lg-5">
                                             <div className="thumbnail details mb_sm--15">
                                                 <img src="assets/images/blog/details/03.jpg"
-                                                    alt="VRM AI Solutions Consulting session"
+                                                    alt="VRM AI Solutions Strategy session"
                                                 loading="lazy" />
                                             </div>
                                         </div>

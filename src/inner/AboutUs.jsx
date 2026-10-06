@@ -12,9 +12,9 @@ function AboutUs() {
         <div className='about-page'>
             <Helmet>
                 <title>About Us | VRM AI Technology</title>
-                <meta name="description" content="Learn about VRM AI Technology — a born Gen AI company delivering intelligent platforms, ML systems, and AI consulting for enterprises worldwide." />
+                <meta name="description" content="Learn about VRM AI Technology — a born Gen AI company delivering intelligent platforms, ML systems, and AI solutions for enterprises worldwide." />
                 <meta property="og:title" content="About VRM AI Technology" />
-                <meta property="og:description" content="Learn about VRM AI Technology — a born Gen AI company delivering intelligent platforms, ML systems, and AI consulting for enterprises worldwide." />
+                <meta property="og:description" content="Learn about VRM AI Technology — a born Gen AI company delivering intelligent platforms, ML systems, and AI solutions for enterprises worldwide." />
                 <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
                 <link rel="canonical" href="https://www.vrmaitechnology.com/about-us" />
             
@@ -152,7 +152,7 @@ function AboutUs() {
                         <span className="section-label">Our Expertise</span>
                         <h2 className="section-title">What We Provide</h2>
                     </div>
-                    <div className="row g-4">
+                    <div className="row g-4 justify-content-center">
                         {/* Service 1 */}
                         <div className="col-lg-4 col-md-6">
                             <div className="service-card-about">
@@ -166,19 +166,7 @@ function AboutUs() {
                                 </div>
                             </div>
                         </div>
-                        {/* Service 2 */}
-                        <div className="col-lg-4 col-md-6">
-                            <div className="service-card-about">
-                                <div className="service-thumb">
-                                    <img src="/assets/images/Solutions/AIConsultingService.png" alt="AI Consulting" loading="lazy" />
-                                </div>
-                                <div className="service-content">
-                                    <h4 className="service-title-about">AI Consulting</h4>
-                                    <p className="service-desc-about">Strategic guidance to identify high-impact AI opportunities for your business.</p>
-                                    <Link to="/solutions/ai-consulting-services" className="read-more-btn">Read More <i className="fas fa-arrow-right"></i></Link>
-                                </div>
-                            </div>
-                        </div>
+
                         {/* Service 3 */}
                         <div className="col-lg-4 col-md-6">
                             <div className="service-card-about">
@@ -224,7 +212,7 @@ function AboutUs() {
                                     <Accordion.Item eventKey="2" className="accordion-item-about">
                                         <Accordion.Header className="accordion-button-about">03. How do we get started?</Accordion.Header>
                                         <Accordion.Body className="accordion-body-about">
-                                            Contact us to discuss how our AI-driven products and enterprise AI services can create measurable value and innovation for your business. We start with a consultation to understand your needs.
+                                            Contact us to discuss how our AI-driven products and enterprise AI services can create measurable value and innovation for your business.
                                         </Accordion.Body>
                                     </Accordion.Item>
                                 </Accordion>

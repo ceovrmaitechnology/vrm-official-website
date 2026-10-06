@@ -534,17 +534,7 @@ const ContactUs = () => {
                                             Door No.209, 1st Floor, No.147, 5th St, Periyalar Nagar, Tiruppalai, Madurai, Tamil Nadu 625014, India
                                         </p>
                                     </div>
-                                    {/* TODO: Add Google Review link when GOOGLE_REVIEW_LINK is provided
-                                    <a
-                                        href=""
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="rts-btn btn-primary"
-                                        style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '10px 18px', fontSize: '13px' }}
-                                    >
-                                        <i className="fas fa-star"></i> Review Us on Google
-                                    </a>
-                                    */}
+
                                 </div>
                                 <div style={{ borderRadius: '12px', overflow: 'hidden', height: '360px', border: '1px solid #e2e8f0' }}>
                                     <iframe

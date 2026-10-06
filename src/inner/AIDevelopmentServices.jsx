@@ -83,7 +83,7 @@ function AIDevelopmentServices() {
                                 "name": "How do I begin with your AI development services?",
                                 "acceptedAnswer": {
                                     "@type": "Answer",
-                                    "text": "Start with a consultation where we assess your business needs, data readiness, and workflow architecture, then define a tailored AI roadmap for implementation."
+                                    "text": "Start with a assessment where we assess your business needs, data readiness, and workflow architecture, then define a tailored AI roadmap for implementation."
                                 }
                             }
                         ]
@@ -272,7 +272,7 @@ function AIDevelopmentServices() {
                                     { q: "How do AI solutions benefit businesses?", a: "AI delivers operational efficiency, data-driven decision support, automation of manual tasks, enhanced customer interactions, and insights that drive strategic advantage." },
                                     { q: "Can AI handle enterprise-scale operations?", a: "Yes. Modern AI systems are engineered for high concurrency, robust performance, and integration with enterprise infrastructure and workflows." },
                                     { q: "Which industries benefit from AI development?", a: "Industries such as finance, healthcare, retail, manufacturing, real estate, and energy benefit from AI adoption through automation, predictive analytics, and advanced insights." },
-                                    { q: "How do I begin with your AI development services?", a: "Start with a consultation where we assess your business needs, data readiness, and workflow architecture, then define a tailored AI roadmap for implementation." }
+                                    { q: "How do I begin with your AI development services?", a: "Start with a assessment where we assess your business needs, data readiness, and workflow architecture, then define a tailored AI roadmap for implementation." }
                                 ].map((faq, index) => (
                                     <div key={index} className="accordion-item">
                                         <h2 className="accordion-header" id={`heading${index}`}>

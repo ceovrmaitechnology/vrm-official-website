@@ -81,7 +81,7 @@ function OurService() {
                                                             <i className="far fa-check" />
                                                         </div>
                                                         <span className="price-details">
-                                                            24/7 Consultant Service
+                                                            24/7 Support Service
                                                         </span>
                                                     </div>
                                                     {/* single pricing End */}
@@ -111,7 +111,7 @@ function OurService() {
                                                             <i className="far fa-check" />
                                                         </div>
                                                         <span className="price-details">
-                                                            24/7 Consultant Service
+                                                            24/7 Support Service
                                                         </span>
                                                     </div>
                                                     {/* single pricing End */}
@@ -152,7 +152,7 @@ function OurService() {
                                                             <i className="far fa-check" />
                                                         </div>
                                                         <span className="price-details">
-                                                            24/7 Consultant Service
+                                                            24/7 Support Service
                                                         </span>
                                                     </div>
                                                     {/* single pricing End */}
@@ -182,7 +182,7 @@ function OurService() {
                                                             <i className="far fa-check" />
                                                         </div>
                                                         <span className="price-details">
-                                                            24/7 Consultant Service
+                                                            24/7 Support Service
                                                         </span>
                                                     </div>
                                                     {/* single pricing End */}
@@ -223,7 +223,7 @@ function OurService() {
                                                             <i className="far fa-check" />
                                                         </div>
                                                         <span className="price-details">
-                                                            24/7 Consultant Service
+                                                            24/7 Support Service
                                                         </span>
                                                     </div>
                                                     {/* single pricing End */}
@@ -253,7 +253,7 @@ function OurService() {
                                                             <i className="far fa-check" />
                                                         </div>
                                                         <span className="price-details">
-                                                            24/7 Consultant Service
+                                                            24/7 Support Service
                                                         </span>
                                                     </div>
                                                     {/* single pricing End */}
@@ -300,7 +300,7 @@ function OurService() {
                                                             <i className="far fa-check" />
                                                         </div>
                                                         <span className="price-details">
-                                                            24/7 Consultant Service
+                                                            24/7 Support Service
                                                         </span>
                                                     </div>
                                                     {/* single pricing End */}
@@ -330,7 +330,7 @@ function OurService() {
                                                             <i className="far fa-check" />
                                                         </div>
                                                         <span className="price-details">
-                                                            24/7 Consultant Service
+                                                            24/7 Support Service
                                                         </span>
                                                     </div>
                                                     {/* single pricing End */}
@@ -371,7 +371,7 @@ function OurService() {
                                                             <i className="far fa-check" />
                                                         </div>
                                                         <span className="price-details">
-                                                            24/7 Consultant Service
+                                                            24/7 Support Service
                                                         </span>
                                                     </div>
                                                     {/* single pricing End */}
@@ -401,7 +401,7 @@ function OurService() {
                                                             <i className="far fa-check" />
                                                         </div>
                                                         <span className="price-details">
-                                                            24/7 Consultant Service
+                                                            24/7 Support Service
                                                         </span>
                                                     </div>
                                                     {/* single pricing End */}
@@ -442,7 +442,7 @@ function OurService() {
                                                             <i className="far fa-check" />
                                                         </div>
                                                         <span className="price-details">
-                                                            24/7 Consultant Service
+                                                            24/7 Support Service
                                                         </span>
                                                     </div>
                                                     {/* single pricing End */}
@@ -472,7 +472,7 @@ function OurService() {
                                                             <i className="far fa-check" />
                                                         </div>
                                                         <span className="price-details">
-                                                            24/7 Consultant Service
+                                                            24/7 Support Service
                                                         </span>
                                                     </div>
                                                     {/* single pricing End */}

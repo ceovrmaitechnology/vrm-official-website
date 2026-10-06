@@ -12,7 +12,7 @@ function FaqTwo() {
                             <div className="col-xl-6">
                                 <div className="accordion-service-inner">
                                     <div className="title-area-start">
-                                        <span className="sub color-primary">JUST A CONSULTANCY</span>
+                                        <span className="sub color-primary">JUST A STRATEGY</span>
                                         <h2 className="title">
                                             We manage business globally
                                         </h2>

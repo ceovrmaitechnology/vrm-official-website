@@ -274,7 +274,7 @@ function AIChatbotDevelopment() {
                                     { q: "Do AI chatbots support multiple languages?", a: "Yes. AI chatbots can be trained to support multiple languages and regional contexts, enabling organizations to deliver consistent, localized experiences to global audiences." },
                                     { q: "How secure are AI chatbot solutions?", a: "Security is a core design principle. AI chatbot solutions implement secure authentication, role-based access control, encrypted data exchange, and compliance-aligned data handling." },
                                     { q: "Which industries benefit most from AI chatbots?", a: "Industries such as finance, healthcare, retail, e-commerce, manufacturing, real estate, and energy benefit significantly from AI chatbots by automating interactions and enabling data-driven engagement." },
-                                    { q: "How do we get started with AI chatbot development?", a: "Engagement typically begins with a discovery and consultation phase. Based on this analysis, a structured chatbot roadmap is defined, followed by development, deployment, and ongoing optimization." }
+                                    { q: "How do we get started with AI chatbot development?", a: "Engagement typically begins with a discovery and assessment phase. Based on this analysis, a structured chatbot roadmap is defined, followed by development, deployment, and ongoing optimization." }
                                 ].map((faq, index) => (
                                     <div key={index} className="accordion-item">
                                         <h2 className="accordion-header" id={`heading${index}`}>

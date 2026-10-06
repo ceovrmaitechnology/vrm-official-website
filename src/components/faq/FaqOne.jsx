@@ -43,7 +43,7 @@ function FaqOne() {
                                         </Accordion.Item>
                                         <Accordion.Item eventKey="2">
                                             <Accordion.Header>
-                                                <span>03. </span> Did you get any business consultant?
+                                                <span>03. </span> Did you get any business strategy?
                                             </Accordion.Header>
                                             <Accordion.Body>
                                                 Neque partrient nascetur facilisis suscipit ridiculus agna

@@ -144,7 +144,7 @@ function BlogList() {
                                     <ul className="single-categories">
                                         <li>
                                             <Link to={'#'}>
-                                                Consulting Busiuness
+                                                Enterprise Business
                                                 <i className="far fa-long-arrow-right" />
                                             </Link>
                                         </li>

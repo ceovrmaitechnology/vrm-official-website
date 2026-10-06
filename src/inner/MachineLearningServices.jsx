@@ -109,7 +109,7 @@ function MachineLearningServices() {
                                 </p>
                                 <div className="banner-btn wow fadeInUp mt-5" data-wow-delay=".5s">
                                     <Link to="/contactus#send-message" className="vrm-blue-to-white-btn">
-                                        Book a Free Consultation <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>
+                                        Book a Free Assessment <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>
                                     </Link>
                                 </div>
                             </div>
@@ -167,7 +167,7 @@ function MachineLearningServices() {
                                 <span className="pre-title text-white-50" style={{ letterSpacing: '2px', textTransform: 'uppercase', fontWeight: '800' }}>Why VRM AI</span>
                                 <h2 className="title text-white mt-2">Why Businesses Choose VRM AI Technology</h2>
                                 <p className="disc text-white-50 mt-4 mx-auto" style={{ maxWidth: '800px', fontSize: '1.1rem' }}>
-                                    Choosing the right partner for machine learning services is critical to achieving long-term growth, minimizing risk, and enabling scalable innovation. VRM AI Technology combines advanced technical expertise with a consultative delivery methodology to create ML solutions aligned with strategic business goals.
+                                    Choosing the right partner for machine learning services is critical to achieving long-term growth, minimizing risk, and enabling scalable innovation. VRM AI Technology combines advanced technical expertise with a collaborative delivery methodology to create ML solutions aligned with strategic business goals.
                                 </p>
                             </div>
                         </div>

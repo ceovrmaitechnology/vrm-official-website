@@ -11,7 +11,7 @@ function CallToActionSeven() {
                         <div className="col-lg-6 col-md-12 col-sm-12 col-12">
                             <div className="cta-main-wrapper-ten">
                                 <h2 className="title">
-                                    Get a Free Consultancy <br />
+                                    Get a Free Assessment <br />
                                     <span>Right Now Here!</span>
                                 </h2>
                                 <div className="callto-action-contact-area">

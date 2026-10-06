@@ -77,7 +77,7 @@ function BlogFive() {
                                     <div className="content-box">
                                         <div className="author-box">
                                             <p className="author">
-                                                <span>CONSULTING SOLUTION</span> / BY DAVID DOLEAN
+                                                <span>STRATEGY SOLUTION</span> / BY DAVID DOLEAN
                                             </p>
                                         </div>
                                         <div className="content">

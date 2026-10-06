@@ -58,7 +58,7 @@ function ServiceThree() {
                                                     <img src="assets/images/service/icon/16.svg"
                                                         alt="Business-icon"
                                                      loading="lazy" />
-                                                    <h5 className="title">Business Consultancy</h5>
+                                                    <h5 className="title">Business Strategy</h5>
                                                     <p className="disc">
                                                         Aenean augue venenatis est porttitor fames aptent
                                                         lobortis nam potenti
@@ -148,7 +148,7 @@ function ServiceThree() {
                                                     <img src="assets/images/service/icon/16.svg"
                                                         alt="Business-icon"
                                                      loading="lazy" />
-                                                    <h5 className="title">Business Consultancy</h5>
+                                                    <h5 className="title">Business Strategy</h5>
                                                     <p className="disc">
                                                         Aenean augue venenatis est porttitor fames aptent
                                                         lobortis nam potenti

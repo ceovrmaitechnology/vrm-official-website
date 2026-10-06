@@ -32,7 +32,7 @@ function BannerFive() {
                                     </p>
                                     <div className="button-group">
                                         <Link to={'/pricing-plane'} className="rts-btn btn-primary-3 btn-primary-4">
-                                            Free Consultant
+                                            Free Assessment
                                         </Link>
                                     </div>
                                 </div>

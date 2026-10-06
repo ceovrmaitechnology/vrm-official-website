@@ -15,7 +15,7 @@ export const employerTestimonials = [
         name: "Varun",
         company: "Tech Ninja",
         quote:
-            "As a co-founder, I need tools that scale fast. Workflow AI VideoSage gave us high-quality video interviews. The proctoring and AI evaluation are spot on. Highly recommend it."
+            "As a co-founder, I need tools that scale fast. Workflow AI VideoSage gave us enterprise-grade video interviews without the enterprise price tag. The proctoring and AI evaluation are spot on. Highly recommend it."
     },
     {
         name: "Satish",

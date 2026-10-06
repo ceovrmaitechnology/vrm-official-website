@@ -38,7 +38,7 @@ function AboutFive() {
                                         </div>
                                         <div className="single-check">
                                             <i className="fas fa-check-circle" />
-                                            Great Skilled Consultant
+                                            Great Skilled Professional
                                         </div>
                                         <div className="single-check">
                                             <i className="fas fa-check-circle" />

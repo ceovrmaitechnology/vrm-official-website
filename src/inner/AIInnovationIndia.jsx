@@ -227,13 +227,7 @@ function AIInnovationIndia() {
                                 title: "Visionix AI Computer Vision",
                                 desc: "Edge-compatible visual AI for attendance automation, perimeter security, and facial authentication in dense enterprise environments.",
                                 link: "/products/visionix"
-                            },
-                            {
-                                icon: "fa-handshake",
-                                title: "Enterprise AI Consulting",
-                                desc: "Executive advisory, technology selection, and data architecture modernization led by seasoned Indian AI engineers.",
-                                link: "/solutions/ai-consulting-services"
-                            }
+
                         ].map((cap, index) => (
                             <div key={index} className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay={`.${(index % 3 + 2) * 2}s`}>
                                 <div className="vrm-industry-card text-center h-100" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', color: '#fff' }}>

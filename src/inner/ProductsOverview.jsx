@@ -292,12 +292,12 @@ function ProductsOverview() {
             </div>
 
             {/* --- Product 9: VRM Reality --- */}
-            <div id="vrm-real-estate" className="rts-about-area rts-section-gap" style={{ background: '#f8f9fa' }}>
+            <div id="vrm-reality" className="rts-about-area rts-section-gap" style={{ background: '#f8f9fa' }}>
                 <div className="container">
                     <div className="row g-5 align-items-center">
                         <div className="col-lg-6 wow fadeInLeft" data-wow-delay=".2s">
                             <div className="vrm-product-thumbnail">
-                                <img src="/assets/images/vrm-real-estate/vrm-real-estate-hero.png" alt="VRM Reality Automation Dashboard" loading="lazy" />
+                                <img src="/assets/images/vrm-reality/vrm-reality-hero.png" alt="VRM Reality Automation Dashboard" loading="lazy" />
                             </div>
                         </div>
                         <div className="col-lg-6 wow fadeInRight" data-wow-delay=".2s">
@@ -309,7 +309,7 @@ function ProductsOverview() {
                                 <p className="disc">
                                     VRM Reality is a premium real estate offering from VRM AI Technology, supported by AI-powered automation.
                                 </p>
-                                <Link className="vrm-btn-product-blue" to="/products/vrm-real-estate">
+                                <Link className="vrm-btn-product-blue" to="/products/vrm-reality">
                                     Learn More <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>
                                 </Link>
                             </div>

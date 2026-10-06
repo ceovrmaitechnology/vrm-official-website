@@ -13,7 +13,7 @@ function AboutTwo() {
                                 <span>About Our Company</span>
                                 <h2 className="title">
                                     Professional And Dedicated <br />
-                                    Consulting Services
+                                    Strategy Services
                                 </h2>
                             </div>
                             <div className="about-company-wrapper">

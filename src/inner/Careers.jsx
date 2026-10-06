@@ -157,7 +157,7 @@ function Careers() {
                                 There are many tech firms today, but none quite like VRM. We are a BORN-GEN AI COMPANY dedicated to leading the revolution in Agentic AI. While others are just beginning to adapt to the new era of technology, we were built from the ground up to transform complex challenges into intelligent, seamless experiences.
                             </p>
                             <p className="careers-section-desc mt-3">
-                                Join a team of certified experts with deep experience in AI development, Machine Learning, and strategic consulting, and grow with us through every step of your professional journey.
+                                Join a team of certified experts with deep experience in AI development, Machine Learning, and strategic planning, and grow with us through every step of your professional journey.
                             </p>
                             <div className="mt-4">
                                 <Link to="/contactus#send-message" className="rts-btn btn-primary">Contact Us</Link>

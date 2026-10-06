@@ -23,7 +23,7 @@ function AboutFour() {
                             <div className="text-start home-seven-about">
                                 <p className="pre-title">More About VRM AI</p>
                                 <h3 className="title">
-                                    Our Consulting For All Kind Of Finance Services
+                                    Our Strategy For All Kind Of Finance Services
                                 </h3>
                             </div>
                             <div className="inner-about-home-7">

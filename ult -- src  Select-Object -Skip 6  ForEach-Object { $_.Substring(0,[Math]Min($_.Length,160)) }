@@ -1,0 +1,30 @@
+[35mpublic/.htaccess[m[36m:[m[32m41[m[36m:[m[1;31m  RewriteRule ^ai-consulting/?$ /solutions [R=301,L][m
+[35mpublic/.htaccess[m[36m:[m[32m42[m[36m:[m[1;31m  RewriteRule ^solutions/ai-consulting-services/?$ /solutions [R=301,L][m
+[35mpublic/_redirects[m[36m:[m[32m7[m[36m:[m[1;31m/ai-consulting             /solutions              [m
+[35mpublic/_redirects[m[36m:[m[32m8[m[36m:[m[1;31m/solutions/ai-consulting-services /solutions                 [m
+[35mserver/index.js[m[36m:[m[32m371[m[36m:[m[1;31m  "/ai-consulting": "/solutions",[m
+[35mserver/index.js[m[36m:[m[32m372[m[36m:[m[1;31m  "/solutions/ai-consulting-services": "/solutions",[m
+[35msrc/components/home/HomeOverview.jsx[m[36m:[m[32m31[m[36m:[m[1;31m                            title: "AI Consulting Services",[m
+[35msrc/components/home/HomeOverview.jsx[m[36m:[m[32m33[m[36m:[m[1;31m                   link: "/solutions/ai-consulting-services",[m
+[35msrc/components/testimonials/workflowTestimonialData.js[m[36m:[m[32m76[m[36m:[m[1;31m        company: "Apex Consulting",[m
+[35msrc/home/Routerpage.jsx[m[36m:[m[32m24[m[36m:[m[1;31m// Removed AIConsultingServices[m
+[35msrc/home/Routerpage.jsx[m[36m:[m[32m72[m[36m:[m[1;31m             <Route path="/solutions/ai-consulting-services" element={<Navigate to="/so[m
+[35msrc/home/Routerpage.jsx[m[36m:[m[32m73[m[36m:[m[1;31m                       <Route path="/ai-consulting" element={<Navigate to="/solutions" [m
+[35msrc/inner/AIChatbotServices.jsx[m[36m:[m[32m44[m[36m:[m[1;31m        <div className="rts-ai-consulting-services basic-font-family">[m
+[35msrc/inner/AIChatbotServices.jsx[m[36m:[m[32m292[m[36m:[m[1;31m                       Schedule Chatbot Consultation <i className="far fa-arrow-right m[m
+[35msrc/inner/AICompanyBangalore.jsx[m[36m:[m[32m76[m[36m:[m[1;31m        <div className="rts-ai-consulting-services basic-font-family">[m
+[35msrc/inner/AICompanyBangalore.jsx[m[36m:[m[32m122[m[36m:[m[1;31m   <img src="/assets/images/Solutions/AIConsultingService.png"[m
+[35msrc/inner/AICompanyBangalore.jsx[m[36m:[m[32m252[m[36m:[m[1;31m                  title: "AI Strategy & Consulting",[m
+[35msrc/inner/AICompanyBangalore.jsx[m[36m:[m[32m254[m[36m:[m[1;31m                   link: "/solutions/ai-consulting-services"[m
+[35msrc/inner/AICompanyMadurai.jsx[m[36m:[m[32m110[m[36m:[m[1;31m        <div className="rts-ai-consulting-services basic-font-family">[m
+[35msrc/inner/AICompanyMadurai.jsx[m[36m:[m[32m306[m[36m:[m[1;31m                  title: "AI Strategy & Consulting",[m
+[35msrc/inner/AICompanyMadurai.jsx[m[36m:[m[32m308[m[36m:[m[1;31m                   link: "/solutions/ai-consulting-services"[m
+[35msrc/inner/AICompanyTamilNadu.jsx[m[36m:[m[32m44[m[36m:[m[1;31m        <div className="rts-ai-consulting-services basic-font-family">[m
+[35msrc/inner/AICompanyTamilNadu.jsx[m[36m:[m[32m235[m[36m:[m[1;31m                   link: "/solutions/ai-consulting-services"[m
+[35msrc/inner/AIInnovationIndia.jsx[m[36m:[m[32m44[m[36m:[m[1;31m        <div className="rts-ai-consulting-services basic-font-family">[m
+[35msrc/inner/AIInnovationIndia.jsx[m[36m:[m[32m235[m[36m:[m[1;31m                   link: "/solutions/ai-consulting-services"[m
+[35msrc/inner/AboutUs.jsx[m[36m:[m[32m173[m[36m:[m[1;31m   <img src="/assets/images/Solutions/AIConsultingService.png" alt="AI solutions" loadi[m
+[35msrc/inner/AboutUs.jsx[m[36m:[m[32m178[m[36m:[m[1;31m                <Link to="/solutions/ai-consulting-services" className="read-more-btn">[m
+[35msrc/inner/GenerativeAIDevelopment.jsx[m[36m:[m[32m44[m[36m:[m[1;31m        <div className="rts-ai-consulting-services basic-font-family">[m
+[35msrc/inner/GenerativeAIDevelopment.jsx[m[36m:[m[32m236[m[36m:[m[1;31m                   link: "/solutions/ai-consulting-services"[m
+[35msrc/inner/VoiceAISolutions.jsx[m[36m:[m[32m44[m[36m:[m[1;31m        <div className="rts-ai-consulting-services basic-font-family">[m

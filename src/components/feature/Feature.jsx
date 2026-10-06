@@ -17,7 +17,7 @@ function Feature() {
                                 <p className="pre-title">Boost Your Business Today</p>
                                 <h2 className="title feature-title">
                                     Most Reliable Efficient <br />
-                                    Consulting Agency
+                                    Strategy Agency
                                 </h2>
                                 <p>
                                     Porttitor ornare fermentum aliquam pharetra ut facilisis gravida

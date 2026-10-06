@@ -162,7 +162,7 @@ function ServiceEight() {
                                 </div>
                                 <div className="service-details">
                                     <Link to={'/our-service'}>
-                                        <h5 className="title">Consultancy &amp; Advice</h5>
+                                        <h5 className="title">Strategic Advice</h5>
                                     </Link>
                                     <p className="disc">
                                         Sagitis himos pulvinar morb socis laoreet posuere enim non

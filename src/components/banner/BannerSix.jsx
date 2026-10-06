@@ -27,7 +27,7 @@ function BannerSix() {
                                         Our Services
                                     </a>
                                     <a href="/" className="rts-btn btn-primary deactive">
-                                        Free Consultant
+                                        Free Assessment
                                     </a>
                                 </div>
                             </div>

@@ -14,14 +14,14 @@ const XpressScreening = lazy(() => import('../inner/XpressScreening'));
 const ScreenSage = lazy(() => import('../inner/ScreenSage'));
 const VideoSage = lazy(() => import('../inner/VideoSage'));
 const CodeSage = lazy(() => import('../inner/CodeSage'));
-const VrmRealEstate = lazy(() => import('../inner/VrmRealEstate'));
+const VrmReality = lazy(() => import('../inner/VrmReality'));
 const AiBuddy = lazy(() => import('../inner/AiBuddy'));
 const PeopleConnect = lazy(() => import('../inner/PeopleConnect'));
 const AiExitInterview = lazy(() => import('../inner/AiExitInterview'));
 const Visionix = lazy(() => import('../inner/Visionix'));
 const BenchToDeploy = lazy(() => import('../inner/BenchToDeploy'));
 const AICallingAgent = lazy(() => import('../inner/AICallingAgent'));
-const AIConsultingServices = lazy(() => import('../inner/AIConsultingServices'));
+// Removed AIConsultingServices
 const AIChatbotDevelopment = lazy(() => import('../inner/AIChatbotDevelopment'));
 const AIDevelopmentServices = lazy(() => import('../inner/AIDevelopmentServices'));
 const AIIntegrationServices = lazy(() => import('../inner/AIIntegrationServices'));
@@ -29,13 +29,13 @@ const MachineLearningServices = lazy(() => import('../inner/MachineLearningServi
 const ProductsOverview = lazy(() => import('../inner/ProductsOverview'));
 const AICompanyMadurai = lazy(() => import('../inner/AICompanyMadurai'));
 const AICompanyBangalore = lazy(() => import('../inner/AICompanyBangalore'));
-const AICompanyTamilNadu = lazy(() => import('../inner/AICompanyTamilNadu'));
+const AIConsultingChennai = lazy(() => import('../inner/AIConsultingChennai'));
 const AIInnovationIndia = lazy(() => import('../inner/AIInnovationIndia'));
-const AICompanyChennai = lazy(() => import('../inner/AICompanyChennai'));
+
 const GenerativeAIDevelopment = lazy(() => import('../inner/GenerativeAIDevelopment'));
 const PrivacyPolicy = lazy(() => import('../inner/PrivacyPolicy'));
 const TermsConditions = lazy(() => import('../inner/TermsConditions'));
-const Articles = lazy(() => import('../inner/Articles'));
+// Removed Articles import
 const Error = lazy(() => import('../inner/Error'));
 
 function RouterPage() {
@@ -57,9 +57,9 @@ function RouterPage() {
                         {/* Location Landing Pages */}
                         <Route path="/ai-company-madurai" element={<AICompanyMadurai />}></Route>
                         <Route path="/ai-company-bangalore" element={<AICompanyBangalore />}></Route>
-                        <Route path="/ai-software-services-chennai" element={<AICompanyChennai />}></Route>
-                        <Route path="/ai-company-chennai" element={<Navigate to="/ai-software-services-chennai" replace />}></Route>
-                        <Route path="/ai-company-tamil-nadu" element={<AICompanyTamilNadu />}></Route>
+                        
+                        
+                        <Route path="/ai-consulting-chennai" element={<AIConsultingChennai />}></Route>
                         <Route path="/ai-innovation-india" element={<AIInnovationIndia />}></Route>
 
                         {/* Services & Solutions Pages */}
@@ -69,8 +69,8 @@ function RouterPage() {
                         <Route path="/ai-chatbot-development" element={<Navigate to="/solutions/ai-chatbot-development" replace />}></Route>
                         <Route path="/solutions/ai-calling-agent" element={<AICallingAgent />}></Route>
                         <Route path="/voice-ai-solutions" element={<Navigate to="/solutions/ai-calling-agent" replace />}></Route>
-                        <Route path="/solutions/ai-consulting-services" element={<AIConsultingServices />}></Route>
-                        <Route path="/ai-consulting" element={<Navigate to="/solutions/ai-consulting-services" replace />}></Route>
+                        <Route path="/solutions/ai-consulting-services" element={<Navigate to="/solutions" replace />}></Route>
+                        <Route path="/ai-consulting" element={<Navigate to="/solutions" replace />}></Route>
                         <Route path="/solutions/ai-development-services" element={<AIDevelopmentServices />}></Route>
                         <Route path="/solutions/ai-integration-services" element={<AIIntegrationServices />}></Route>
                         <Route path="/solutions/machine-learning-services" element={<MachineLearningServices />}></Route>
@@ -85,15 +85,16 @@ function RouterPage() {
                         <Route path="/products/aibuddy" element={<AiBuddy />}></Route>
                         <Route path="/products/exitinterview" element={<AiExitInterview />}></Route>
                         <Route path="/products/visionix" element={<Visionix />}></Route>
-                        <Route path="/products/vrm-real-estate" element={<VrmRealEstate />}></Route>
-                        <Route path="/products/vevora" element={<Navigate to="/products/vrm-real-estate" replace />}></Route>
+                        <Route path="/products/vrm-reality" element={<VrmReality />}></Route>
+                        <Route path="/products/vevora" element={<Navigate to="/products/vrm-reality" replace />}></Route>
+                        <Route path="/products/vrm-real-estate" element={<Navigate to="/products/vrm-reality" replace />}></Route>
                         <Route path="/products/bench-to-deploy" element={<BenchToDeploy />}></Route>
                         <Route path="/products/b2d" element={<Navigate to="/products/bench-to-deploy" replace />}></Route>
 
                         {/* Legal, Articles, 404 */}
                         <Route path="/privacy-policy" element={<PrivacyPolicy />}></Route>
                         <Route path="/terms-conditions" element={<TermsConditions />}></Route>
-                        <Route path="/articles" element={<Articles />}></Route>
+
                         <Route path="/404" element={<Error />}></Route>
 
                         {/* Home variant aliases -> / */}

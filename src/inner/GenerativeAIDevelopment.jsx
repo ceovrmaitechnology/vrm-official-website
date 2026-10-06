@@ -228,13 +228,7 @@ function GenerativeAIDevelopment() {
                                 title: "Document & Contract Intelligence",
                                 desc: "Extract structured insights, reconcile invoices, and verify legal clauses automatically from complex PDF and scanned documents.",
                                 link: "/products/workflow/xpress-screening"
-                            },
-                            {
-                                icon: "fa-chess",
-                                title: "GenAI Strategy & Evaluation",
-                                desc: "Comprehensive audits evaluating infrastructure readiness, model selection, GPU sizing, and compliance governance roadmaps.",
-                                link: "/solutions/ai-consulting-services"
-                            }
+
                         ].map((srv, idx) => (
                             <div key={idx} className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay={`.${(idx % 3 + 2) * 2}s`}>
                                 <div className="vrm-industry-card text-center h-100" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', color: '#fff' }}>

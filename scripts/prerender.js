@@ -115,12 +115,15 @@ const path = require('path');
       const canonicalTarget = route === '/' || route === '' ? 'https://www.vrmaitechnology.com' : `https://www.vrmaitechnology.com${route.startsWith('/') ? route : '/' + route}`;
       
       try {
-        await page.waitForFunction((targetUrl) => {
+        await page.waitForFunction((targetUrl, isErrorRoute) => {
           const t = document.querySelector('title');
           const c = document.querySelector('link[rel="canonical"]');
+          if (isErrorRoute) {
+             return t && t.textContent && t.textContent.trim().length > 0;
+          }
           return t && t.textContent && t.textContent.trim().length > 0 &&
                  c && c.href && (c.href === targetUrl || c.href === targetUrl + '/');
-        }, { timeout: 15000 }, canonicalTarget);
+        }, { timeout: 15000 }, canonicalTarget, route === '/404');
       } catch (e) {
         console.error(`[PRERENDER ERROR] ${route}: Timeout waiting for title and canonical (${canonicalTarget}).`);
         process.exit(1);

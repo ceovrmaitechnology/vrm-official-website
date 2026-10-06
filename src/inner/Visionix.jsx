@@ -80,7 +80,7 @@ function Visionix() {
                                 </p>
                                 <div className="button-area wow fadeInUp" data-wow-delay=".4s">
                                     <Link to="/contactus#send-message" className="vrm-blue-to-white-btn">
-                                        Schedule Consultation <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>
+                                        Schedule Assessment <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>
                                     </Link>
                                 </div>
                             </div>
@@ -270,7 +270,7 @@ function Visionix() {
                                 </p>
                                 <div className="button-area mt-5 wow fadeInUp" data-wow-delay=".4s">
                                     <Link to="/contactus#send-message" className="vrm-blue-to-white-btn">
-                                        Schedule Consultation <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>
+                                        Schedule Assessment <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>
                                     </Link>
                                 </div>
                             </div>

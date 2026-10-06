@@ -46,7 +46,7 @@ function WorkingProcessFour() {
                                 <div className="icon">
                                     <img src="assets/images/service/icon/23.svg" alt="VRM AI Service Overview 23"  loading="lazy" />
                                 </div>
-                                <h5 className="title">Consult with us</h5>
+                                <h5 className="title">Talk with us</h5>
                                 <p className="disc">
                                     Dictum stem tristique conubia arturie ornare vivamus euismod
                                 </p>

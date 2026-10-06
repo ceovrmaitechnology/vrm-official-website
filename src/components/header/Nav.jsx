@@ -25,7 +25,6 @@ export default function Nav() {
     // Data for dynamic hover content
     const featuredData = {
         // Solutions
-        'ai-consulting': { title: "AI Consulting", description: "Strategic guidance to leverage AI for business growth.", link: "/solutions/ai-consulting-services", linkText: "Learn More", image: "/assets/images/service/02.jpg" },
         'ai-integration': { title: "AI Integration", description: "Seamlessly integrate AI into your existing workflows.", link: "/solutions/ai-integration-services", linkText: "Learn More", image: "/assets/images/service/03.jpg" },
         'ai-development': { title: "AI Development", description: "Custom AI solutions built for your unique challenges.", link: "/solutions/ai-development-services", linkText: "Learn More", image: "/assets/images/service/04.jpg" },
         'chatbot': { title: "AI Chatbots", description: "Intelligent chatbots to enhance customer engagement.", link: "/solutions/ai-chatbot-development", linkText: "Learn More", image: "/assets/images/service/05.jpg" },
@@ -95,9 +94,9 @@ export default function Nav() {
         'vevora': { 
             title: "VRM Reality", 
             description: "Premium real estate offering from VRM AI Technology, supported by AI-powered automation.", 
-            link: "/products/vrm-real-estate", 
+            link: "/products/vrm-reality", 
             linkText: "View Product", 
-            image: "/assets/images/vrm-real-estate/vrm-real-estate-hero.png",
+            image: "/assets/images/vrm-reality/vrm-reality-hero.png",
             features: [
                 "AI-Powered WhatsApp Bot",
                 "Smart Lead Scoring (HOT/WARM/COLD)",
@@ -144,9 +143,8 @@ export default function Nav() {
                         <div className="mega-menu-container solutions-mega-menu">
                             <div className="left-panel">
                                 <div className="service-category">
-                                    <span className="category-title">AI Consulting & Strategy</span>
+                                    <span className="category-title">System Integration</span>
                                     <ul>
-                                        <li><Link to={'/solutions/ai-consulting-services'} onMouseEnter={() => handleLinkHover('ai-consulting')}>AI Consulting Services</Link></li>
                                         <li><Link to={'/solutions/ai-integration-services'} onMouseEnter={() => handleLinkHover('ai-integration')}>AI Integration Services</Link></li>
                                     </ul>
                                 </div>
@@ -262,7 +260,7 @@ export default function Nav() {
                                     </li>
                                     <li>
                                         <Link
-                                            to="/products/vrm-real-estate"
+                                            to="/products/vrm-reality"
                                             className={`platform-btn ${activeSubMenu === 'vevora' ? 'active' : ''}`}
                                             onMouseEnter={() => {
                                                 setActiveSubMenu('vevora');
@@ -410,7 +408,7 @@ export default function Nav() {
                         <ul className="submenu">
                             <li><Link to={'/ai-company-madurai'}>AI Company in Madurai</Link></li>
                             <li><Link to={'/ai-company-bangalore'}>AI Company in Bengaluru</Link></li>
-                            <li><Link to={'/ai-software-services-chennai'}>AI Services in Chennai (Remote)</Link></li>
+                            
                         </ul>
                     </li>
                     <li><Link className="nav-link" to={'/careers'}>Careers</Link></li>

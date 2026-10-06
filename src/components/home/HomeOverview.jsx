@@ -14,25 +14,18 @@ function HomeOverview() {
                         <div className="col-12">
                             <div className="vrm-cta-banner__content wow fadeInUp" data-wow-delay=".2s">
                                 {/* <p className="pre-title">Solutions Overview</p> */}
-                                <h1 className="title">AI Software Company in Madurai &amp; Bengaluru</h1>
+                                <h1 className="title">VRM  AI Technology Is Trusted Source in Product And Support</h1>
                                 <p className="desc">
-                                    At VRM AI Technology, trust is the foundation of everything we build. We deliver innovative, AI-powered products designed to solve real-world business challenges with precision, scalability, and reliability. Our solutions are crafted with modular, scalable architecture, ensuring performance, security, and seamless integration.
+                                    At VRM AI Technology, trust is the foundation of everything we build. We deliver innovative, AI-powered products designed to solve real-world business challenges with precision, scalability, and reliability. Our solutions are crafted with enterprise-grade architecture, ensuring performance, security, and seamless integration.
                                 </p>
 
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className="vrm-hero__cards">
+                <div className="vrm-hero__cards--two-columns" style={{ marginBottom: '80px' }}>
                     {[
-                        {
-                            id: 1,
-                            icon: "assets/images/service/icon/01.svg",
-                            title: "AI Consulting Services",
-                            desc: "Empowering your business with strategic AI guidance. We help you identify opportunities, evaluate feasibility, and build a clear roadmap to integrate artificial intelligence into your business model.",
-                            link: "/solutions/ai-consulting-services",
-                            bgImage: "assets/images/about/1.jpeg"
-                        },
+
                         {
                             id: 2,
                             icon: "assets/images/service/icon/02.svg",
@@ -54,10 +47,11 @@ function HomeOverview() {
                             <div className="vrm-product-card-bg">
                                 <img src={product.bgImage} 
                                     alt={product.title} 
+                                    fetchpriority={product.id === 1 ? "high" : "auto"}
                                     style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", objectFit: "cover" }} 
                                     width="346" 
                                     height="346" 
-                                    loading="lazy" />
+                                loading="lazy" />
                             </div>
                             <div className="vrm-product-card__content">
                                 <div className="vrm-hero__icon">
@@ -83,7 +77,7 @@ function HomeOverview() {
                     {/* Workflow Section */}
                     <div className="vrm-overview__section-header wow fadeInUp" data-wow-delay=".2s" style={{ textAlign: 'center', marginBottom: '50px' }}>
                         <p className="vrm-overview__eyebrow" style={{ color: '#3B4ECC', fontWeight: '700', textAlign: 'center', margin: '0 auto', display: 'block' }}>Products Highlight</p>
-                        <h2 className="title" style={{ textAlign: 'center', margin: '0 auto' }}>AI Solutions Built on the Workflow AI Platform</h2>
+                        <h2 className="title" style={{ textAlign: 'center', margin: '0 auto' }}>Enterprise AI Solutions Built on the WorkflowAI Platform</h2>
                     </div>
                     <div className="vrm-hero__cards--two-columns" style={{ marginBottom: '80px' }}>
                         {[
@@ -92,7 +86,7 @@ function HomeOverview() {
                                 icon: "assets/images/service/icon/04.svg",
                                 category: "Resume Intelligence",
                                 title: "Xpress Screening",
-                                desc: "AI-powered resume screening that identifies, ranks, and matches candidates with speed and precision.",
+                                desc: "AI-powered resume screening that identifies, ranks, and matches the best candidates with speed and precision.",
                                 link: "/products/workflow/xpress-screening",
                                 bgImage: "assets/images/workflow/xpress-screening/xpress-screening-image.png"
                             },
@@ -157,7 +151,7 @@ function HomeOverview() {
                     {/* Standalone Products Section */}
                     <div className="vrm-overview__section-header wow fadeInUp" data-wow-delay=".2s" style={{ textAlign: 'center', marginBottom: '50px' }}>
                         <p className="vrm-overview__eyebrow" style={{ color: '#3B4ECC', fontWeight: '700', textAlign: 'center', margin: '0 auto', display: 'block' }}>Dedicated Engines</p>
-                        <h2 className="title" style={{ textAlign: 'center', margin: '0 auto' }}>Specialized AI Products by VRM AI Technology</h2>
+                        <h2 className="title" style={{ textAlign: 'center', margin: '0 auto' }}>Specialized AI Solutions for Real Estate, Workforce & Customer Engagement</h2>
                     </div>
                     <div className="vrm-hero__cards--two-columns">
                         {[
@@ -165,17 +159,17 @@ function HomeOverview() {
                                 id: 6,
                                 icon: "assets/images/service/icon/02.svg",
                                 category: "Citizen Engagement",
-                                title: "People Connect",
-                                desc: "AI citizen engagement platform connecting communities and organizations through intelligent digital services.",
+                                title: "People Connect (Global)",
+                                desc: "AI-powered citizen engagement platform connecting governments and communities through intelligent digital services.",
                                 link: "/products/people-connect",
                                 bgImage: "assets/images/people-connect/people-connect-image.png"
                             },
                             {
                                 id: 5,
                                 icon: "assets/images/service/icon/04.svg",
-                                category: "Language Practice",
+                                category: "Interactive Voice Training",
                                 title: "AI Buddy",
-                                desc: "AI English speaking practice platform that helps users learn, practice, and communicate naturally.",
+                                desc: "An intelligent AI language coach that helps users learn, practice, and communicate naturally in multiple languages with personalized AI coaching.",
                                 link: "/products/aibuddy",
                                 bgImage: "assets/images/aibuddy/aibuddy-image.png"
                             },
@@ -184,36 +178,27 @@ function HomeOverview() {
                                 icon: "assets/images/service/icon/01.svg",
                                 category: "HR Offboarding",
                                 title: "Exit Intelligence",
-                                desc: "AI HR offboarding insights through AI-led exit interviews and sentiment analysis.",
+                                desc: "Transform employee exits into actionable workforce insights with AI-powered interviews and sentiment analysis.",
                                 link: "/products/exitinterview",
                                 bgImage: "assets/images/exitinterview/exitinterview-image.png"
                             },
                             {
                                 id: 9,
                                 icon: "assets/images/service/icon/02.svg",
-                                category: "Face Recognition",
+                                category: "Visual Intelligence",
                                 title: "Visionix AI",
-                                desc: "AI face recognition engine for authentication, security verification, and attendance management.",
+                                desc: "Automate visual authentication, security tracking, and attendance management with Visionix AI face recognition engine.",
                                 link: "/products/visionix",
                                 bgImage: "assets/images/visionix/visionix-image.png"
                             },
                             {
                                 id: 10,
                                 icon: "assets/images/service/icon/01.svg",
-                                category: "Real Estate Offering",
+                                category: "Real Estate Automation",
                                 title: "VRM Reality",
-                                desc: "Premium real estate offering from VRM AI Technology, supported by AI-powered automation.",
-                                link: "/products/vrm-real-estate",
-                                bgImage: "assets/images/vrm-real-estate/vrm-real-estate-hero.png"
-                            },
-                            {
-                                id: 11,
-                                icon: "assets/images/service/icon/03.svg",
-                                category: "Product",
-                                title: "Bench to Deploy (B2D)",
-                                desc: "Bench to Deploy (B2D), a product by VRM AI Technology.",
-                                link: "/products/bench-to-deploy",
-                                bgImage: "assets/images/workflow/codesage/codesage-image.png"
+                                desc: "AI-powered real estate platform connecting buyer conversations, lead qualification, site visits, and agent operations.",
+                                link: "/products/vrm-reality",
+                                bgImage: "assets/images/vrm-reality/vrm-reality-hero.png"
                             }
                         ].map((product) => (
                             <div key={product.id} className="vrm-product-card wow fadeInUp" data-wow-delay=".3s">

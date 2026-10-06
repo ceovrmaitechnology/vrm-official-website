@@ -17,28 +17,17 @@ function Workflow() {
     return (
         <div className="workflow-page">
             <Helmet>
-                <title>Workflow AI Recruitment | VRM AI Technology</title>
-                <meta name="description" content="A unified recruitment intelligence suite by VRM AI Technology. Optimize talent acquisition with ScreenSage, VideoSage, CodeSage, and Xpress Screening." />
-                <meta property="og:title" content="Workflow AI Recruitment | VRM AI Technology" />
-                <meta property="og:description" content="A unified recruitment intelligence suite by VRM AI Technology. Optimize talent acquisition with ScreenSage, VideoSage, CodeSage, and Xpress Screening." />
+                <title>Workflow AI | Recruitment Intelligence Suite | VRM AI</title>
+                <meta name="description" content="A unified enterprise recruitment intelligence suite by VRM AI Technology. Optimize talent acquisition with ScreenSage, VideoSage, and CodeSage." />
+                <meta property="og:title" content="Workflow AI — Enterprise Recruitment Intelligence Suite" />
+                <meta property="og:description" content="A unified enterprise recruitment intelligence suite by VRM AI Technology. Optimize talent acquisition with ScreenSage, VideoSage, and CodeSage." />
                 <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
                 <link rel="canonical" href="https://www.vrmaitechnology.com/products/workflow" />
             
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="Workflow AI Recruitment | VRM AI Technology" />
-                <meta name="twitter:description" content="A unified recruitment intelligence suite by VRM AI Technology. Optimize talent acquisition with ScreenSage, VideoSage, CodeSage, and Xpress Screening." />
+                <meta name="twitter:title" content="Workflow AI — Enterprise Recruitment Intelligence Suite" />
+                <meta name="twitter:description" content="A unified enterprise recruitment intelligence suite by VRM AI Technology. Optimize talent acquisition with ScreenSage, VideoSage, and CodeSage." />
                 <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "BreadcrumbList",
-                        "itemListElement": [
-                            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.vrmaitechnology.com/" },
-                            { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://www.vrmaitechnology.com/products" },
-                            { "@type": "ListItem", "position": 3, "name": "Workflow AI", "item": "https://www.vrmaitechnology.com/products/workflow" }
-                        ]
-                    })}
-                </script>
                 <script type="application/ld+json">
                     {JSON.stringify({
                         "@context": "https://schema.org",
@@ -46,7 +35,7 @@ function Workflow() {
                         "name": "Workflow AI",
                         "operatingSystem": "Web",
                         "applicationCategory": "BusinessApplication",
-                        "description": "Workflow AI is an AI recruitment screening platform by VRM AI Technology featuring Xpress Screening, ScreenSage, VideoSage, and CodeSage modules.",
+                        "description": "A unified enterprise recruitment intelligence suite by VRM AI Technology. Optimize talent acquisition with ScreenSage, VideoSage, and CodeSage.",
                         "publisher": {
                             "@type": "Organization",
                             "name": "VRM AI Technology",
@@ -90,7 +79,7 @@ function Workflow() {
                             <div className="vrm-hero__content">
                                 <span className="pre-title wow fadeInUp text-white-50" data-wow-delay=".1s">Talent Acquisition Suite</span>
                                 <h1 className="title wow fadeInUp text-white vrm-workflow-hero-title" data-wow-delay=".2s">
-                                    WorkflowAI
+                                    Workflow AI
                                 </h1>
                                 <p className="disc wow fadeInUp text-white-50 mt-4 mb-5 vrm-workflow-hero-disc" data-wow-delay=".3s">
                                     An enterprise AI platform that automates business workflows, streamlines operations, and orchestrates intelligent processes across the organization.
@@ -215,8 +204,8 @@ function Workflow() {
             </div>
 
             <WorkflowTestimonials
-                title="Proof that WorkflowAI improves both sides of hiring"
-                description="From faster shortlisting for recruiters to structured assessments for candidates, these reviews capture how the WorkflowAI suite performs in real hiring environments."
+                title="Proof that Workflow AI improves both sides of hiring"
+                description="From faster shortlisting for recruiters to structured assessments for candidates, these reviews capture how the Workflow AI suite performs in real hiring environments."
             />
 
             <FooterOne />

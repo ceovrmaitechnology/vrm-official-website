@@ -356,13 +356,36 @@ app.post(
   })
 );
 
+// WWW and HTTPS redirect
+app.use((req, res, next) => {
+  const host = req.headers.host || '';
+  const isLocal = host.includes('localhost') || host.includes('127.0.0.1');
+  if (isLocal) return next();
+
+  const isHttp = !req.secure && req.headers['x-forwarded-proto'] !== 'https';
+  const isNonWww = host === 'vrmaitechnology.com';
+
+  if (isHttp || isNonWww) {
+    return res.redirect(301, `https://www.vrmaitechnology.com${req.originalUrl}`);
+  }
+  next();
+});
+
+// Trailing slash redirect: force non-trailing slash for all routes (SEO canonical)
+app.use((req, res, next) => {
+  if (req.path.length > 1 && req.path.endsWith('/')) {
+    const newPath = req.path.replace(/\/+$/, '');
+    const query = req.url.slice(req.path.length);
+    return res.redirect(301, newPath + query);
+  }
+  next();
+});
+
 const REDIRECT_MAP = {
   "/ai-chatbot-development": "/solutions/ai-chatbot-development",
-  "/ai-consulting": "/solutions/ai-consulting-services",
   "/voice-ai-solutions": "/solutions/ai-calling-agent",
-  "/ai-company-chennai": "/ai-software-services-chennai",
   "/products/b2d": "/products/bench-to-deploy",
-  "/products/vevora": "/products/vrm-real-estate",
+  "/products/vrm-real-estate": "/products/vrm-reality",
   "/solutions/generative-ai-development": "/generative-ai-development",
   "/our-service": "/solutions",
   // Template demo routes redirected to home
@@ -370,7 +393,6 @@ const REDIRECT_MAP = {
   "/home-six": "/", "/home-seven": "/", "/home-eight": "/", "/home-nine": "/", "/home-ten": "/"
 };
 
-// Routes that are truly gone (no replacement) — serve 410 Gone
 const GONE_ROUTES = new Set([
   "/service-2", "/service-3", "/service-two", "/service-three",
   "/appoinment", "/pricing-plane", "/testimonial-style-1", "/testimonials-one",
@@ -388,7 +410,7 @@ app.use((req, res, next) => {
   if (REDIRECT_MAP[reqPath]) {
     return res.redirect(301, REDIRECT_MAP[reqPath]);
   }
-  // Dead template routes: 410 Gone (no replacement exists)
+  // Dead template routes: 410 Gone
   if (GONE_ROUTES.has(reqPath)) {
     res.status(410);
     const error404File = path.resolve(__dirname, "../build/404/index.html");
@@ -398,44 +420,19 @@ app.use((req, res, next) => {
   next();
 });
 
-// SPA & Prerendered File Serving with 404 Status for Unknown URLs
+// SPA Fallback for client-side routing (non-API GET requests)
 app.use((req, res, next) => {
   if (req.method !== "GET" || req.path.startsWith("/api")) return next();
-
-  const reqPath = req.path.replace(/\/+$/, "") || "/";
-  const buildDir = path.resolve(__dirname, "../build");
-  if (!fs.existsSync(buildDir)) return next();
-
-  // 1. Root route
-  if (reqPath === "/") {
-    const rootIndex = path.join(buildDir, "index.html");
-    if (fs.existsSync(rootIndex)) return res.sendFile(rootIndex);
+  const buildIndex = path.resolve(__dirname, "../build/index.html");
+  if (fs.existsSync(buildIndex)) {
+    // Return 404 status if it's not a root request and doesn't match an actual file
+    // Prerendered files are handled by express.static before this
+    if (req.path !== "/") {
+       res.status(404);
+    }
+    return res.sendFile(buildIndex);
   }
-
-  // 2. Check for prerendered subroute HTML, e.g. build/ai-company-madurai/index.html
-  const cleanRoute = reqPath.startsWith("/") ? reqPath.slice(1) : reqPath;
-  const subRouteFile = path.join(buildDir, cleanRoute, "index.html");
-  if (fs.existsSync(subRouteFile)) {
-    return res.sendFile(subRouteFile);
-  }
-
-  // 3. Check if static asset exists directly
-  const directFile = path.join(buildDir, cleanRoute);
-  if (fs.existsSync(directFile) && fs.statSync(directFile).isFile()) {
-    return res.sendFile(directFile);
-  }
-
-  // 4. Unknown route -> return real 404 status
-  res.status(404);
-  const error404File = path.join(buildDir, "404", "index.html");
-  if (fs.existsSync(error404File)) {
-    return res.sendFile(error404File);
-  }
-  const rootIndex = path.join(buildDir, "index.html");
-  if (fs.existsSync(rootIndex)) {
-    return res.sendFile(rootIndex);
-  }
-  res.send("404 Not Found");
+  next();
 });
 
 const server = http.createServer({ maxHeaderSize: 64 * 1024 }, app);

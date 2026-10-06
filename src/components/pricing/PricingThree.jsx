@@ -43,7 +43,7 @@ function PricingThree() {
                                         <div className="icon">
                                             <i className="far fa-check" />
                                         </div>
-                                        <span className="price-details">24/7 Consultant Service</span>
+                                        <span className="price-details">24/7 Support Service</span>
                                     </div>
                                     {/* single pricing End */}
                                     {/* single pricing */}
@@ -67,7 +67,7 @@ function PricingThree() {
                                         <div className="icon">
                                             <i className="far fa-check" />
                                         </div>
-                                        <span className="price-details">24/7 Consultant Service</span>
+                                        <span className="price-details">24/7 Support Service</span>
                                     </div>
                                     {/* single pricing End */}
                                     <Link className="rts-btn btn-primary" to={'#'}>
@@ -106,7 +106,7 @@ function PricingThree() {
                                         <div className="icon">
                                             <i className="far fa-check" />
                                         </div>
-                                        <span className="price-details">24/7 Consultant Service</span>
+                                        <span className="price-details">24/7 Support Service</span>
                                     </div>
                                     {/* single pricing End */}
                                     {/* single pricing */}
@@ -130,7 +130,7 @@ function PricingThree() {
                                         <div className="icon">
                                             <i className="far fa-check" />
                                         </div>
-                                        <span className="price-details">24/7 Consultant Service</span>
+                                        <span className="price-details">24/7 Support Service</span>
                                     </div>
                                     {/* single pricing End */}
                                     <Link className="rts-btn btn-primary" to={'#'}>
@@ -169,7 +169,7 @@ function PricingThree() {
                                         <div className="icon">
                                             <i className="far fa-check" />
                                         </div>
-                                        <span className="price-details">24/7 Consultant Service</span>
+                                        <span className="price-details">24/7 Support Service</span>
                                     </div>
                                     {/* single pricing End */}
                                     {/* single pricing */}
@@ -193,7 +193,7 @@ function PricingThree() {
                                         <div className="icon">
                                             <i className="far fa-check" />
                                         </div>
-                                        <span className="price-details">24/7 Consultant Service</span>
+                                        <span className="price-details">24/7 Support Service</span>
                                     </div>
                                     {/* single pricing End */}
                                     <Link className="rts-btn btn-primary" to={'#'}>

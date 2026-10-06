@@ -60,7 +60,7 @@ function WhyChooseThree() {
                                 <div className="inner-content">
                                     <h5 className="title">Team Expertise</h5>
                                     <p className="dsic">
-                                        A competent SEO consultant begins by <br /> conducting a
+                                        A competent SEO specialist begins by <br /> conducting a
                                         thorough audi...
                                     </p>
                                     <Link to={'/our-service'} className="read-more-btn">
@@ -116,7 +116,7 @@ function WhyChooseThree() {
                                 <div className="inner-content">
                                     <h5 className="title">All in One Solution</h5>
                                     <p className="dsic">
-                                        A competent SEO consultant begins by <br /> conducting a
+                                        A competent SEO specialist begins by <br /> conducting a
                                         thorough audi...
                                     </p>
                                     <Link to={'/our-service'} className="read-more-btn">
@@ -152,7 +152,7 @@ function WhyChooseThree() {
                                 <div className="inner-content">
                                     <h5 className="title">Best Client Support</h5>
                                     <p className="dsic">
-                                        A competent SEO consultant begins by <br /> conducting a
+                                        A competent SEO specialist begins by <br /> conducting a
                                         thorough audi...
                                     </p>
                                     <Link to={'/our-service'} className="read-more-btn">

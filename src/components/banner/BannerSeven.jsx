@@ -18,7 +18,7 @@ function BannerSeven() {
                                     your <span className="primary">success.</span>
                                 </h1>
                                 <p className="disc">
-                                    HR consulting expertise that helps your business thrive.
+                                    HR software expertise that helps your business thrive.
                                 </p>
                                 <a
                                     href="/"

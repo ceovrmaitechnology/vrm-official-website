@@ -15,18 +15,10 @@ function SolutionsOverview() {
     }, []);
 
     const solutionsList = [
-        {
-            id: "ai-consulting-services",
-            category: "AI Consulting & Strategy",
-            title: "AI Consulting Services",
-            disc: "Transform your business with strategic AI roadmap planning, technology readiness assessment, high-impact use-case identification, and ROI-driven AI adoption strategies.",
-            link: "/solutions/ai-consulting-services",
-            img: "/assets/images/service/solution-ai-consulting.png",
-            alt: "AI Consulting Services Strategy Session with Indian Executives"
-        },
+        
         {
             id: "ai-integration-services",
-            category: "AI Consulting & Strategy",
+            category: "AI Strategy & Architecture",
             title: "AI Integration Services",
             disc: "Seamlessly embed advanced AI capabilities, generative models, and LLM APIs into your existing enterprise software, CRM, ERP, and cloud infrastructure.",
             link: "/solutions/ai-integration-services",
@@ -116,11 +108,11 @@ function SolutionsOverview() {
                                     AI Software Services &amp; Solutions
                                 </h1>
                                 <p className="disc wow fadeInUp mt-3 mb-4 vrm-workflow-hero-disc" data-wow-delay=".3s" style={{ color: 'rgba(255, 255, 255, 0.85)', fontSize: '17px', maxWidth: '650px', lineHeight: '1.7' }}>
-                                    Transforming businesses through strategic AI consulting, enterprise system integration, custom LLM software engineering, conversational voice agents, and predictive machine learning models.
+                                    Transforming businesses through enterprise system integration, custom LLM software engineering, conversational voice agents, and predictive machine learning models.
                                 </p>
                                 <div className="banner-btn wow fadeInUp" data-wow-delay=".4s">
                                     <Link to="/contactus#send-message" className="vrm-blue-to-white-btn">
-                                        Schedule a Consultation <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>
+                                        Schedule an Assessment <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>
                                     </Link>
                                 </div>
                             </div>
@@ -184,7 +176,7 @@ function SolutionsOverview() {
                                 Enterprise AI Delivery Across India
                             </h3>
                             <p style={{ color: '#666', fontSize: '15px', maxWidth: '650px', margin: '8px auto 0' }}>
-                                Delivering specialized AI engineering, consulting, and product deployment across our primary innovation hubs and nationwide.
+                                Delivering specialized AI engineering and product deployment across our primary innovation hubs and nationwide.
                             </p>
                         </div>
                     </div>

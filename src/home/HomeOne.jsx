@@ -33,6 +33,7 @@ function HomeOne() {
         <meta property="og:description" content="VRM AI Technology is an AI software company in Madurai &amp; Bengaluru building GenAI platforms, conversational chatbots, voice agents, and ML systems." />
         <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
         <link rel="canonical" href="https://www.vrmaitechnology.com/" />
+        <link rel="preload" as="image" href="/assets/images/home/home-2.webp" type="image/webp" fetchpriority="high" />
       
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="AI Software Company in Madurai &amp; Bengaluru | VRM AI" />
@@ -84,7 +85,7 @@ function HomeOne() {
                 }
               }
             ],
-            "areaServed": ["Madurai", "Bengaluru", "Chennai", "India"],
+            "areaServed": ["Madurai", "Bengaluru", "India"],
             "sameAs": [
               "https://www.linkedin.com/company/vrm-ai-technology-pvt-ltd/",
               "https://x.com/vrmaitechnology",

@@ -64,8 +64,7 @@ function SideMenu({ isSidebarOpen, toggleSidebar }) {
                                     <ul className={`submenu ${openMenu === 1 ? 'active' : ''}`}>
                                         <li className="mobile-menu-link"><Link to={'/solutions'} onClick={toggleSidebar} style={{ fontWeight: 'bold', color: '#1b277c' }}>All Solutions</Link></li>
 
-                                        <li className="mobile-menu-link tag mt-2">AI Consulting & Strategy</li>
-                                        <li className="mobile-menu-link"><Link to={'/solutions/ai-consulting-services'} onClick={toggleSidebar}>AI Consulting Services</Link></li>
+                                        
                                         <li className="mobile-menu-link"><Link to={'/solutions/ai-integration-services'} onClick={toggleSidebar}>AI Integration Services</Link></li>
 
                                         <li className="mobile-menu-link tag mt-2">AI Development</li>
@@ -96,7 +95,7 @@ function SideMenu({ isSidebarOpen, toggleSidebar }) {
                                         <li className="mobile-menu-link"><Link to={'/products/aibuddy'} onClick={toggleSidebar}>AI Buddy</Link></li>
                                         <li className="mobile-menu-link"><Link to={'/products/exitinterview'} onClick={toggleSidebar}>Exit Intelligence</Link></li>
                                         <li className="mobile-menu-link"><Link to={'/products/visionix'} onClick={toggleSidebar}>Visionix AI</Link></li>
-                                        <li className="mobile-menu-link"><Link to={'/products/vrm-real-estate'} onClick={toggleSidebar}>VRM Reality</Link></li>
+                                        <li className="mobile-menu-link"><Link to={'/products/vrm-reality'} onClick={toggleSidebar}>VRM Reality</Link></li>
                                         <li className="mobile-menu-link"><Link to={'/products/bench-to-deploy'} onClick={toggleSidebar}>Bench to Deploy (B2D)</Link></li>
                                     </ul>
                                 </li>
@@ -108,7 +107,7 @@ function SideMenu({ isSidebarOpen, toggleSidebar }) {
                                     <ul className={`submenu ${openMenu === 3 ? 'active' : ''}`}>
                                         <li className="mobile-menu-link"><Link to={'/ai-company-madurai'} onClick={toggleSidebar}>AI Company in Madurai</Link></li>
                                         <li className="mobile-menu-link"><Link to={'/ai-company-bangalore'} onClick={toggleSidebar}>AI Company in Bengaluru</Link></li>
-                                        <li className="mobile-menu-link"><Link to={'/ai-software-services-chennai'} onClick={toggleSidebar}>AI Services in Chennai (Remote)</Link></li>
+                                        
                                     </ul>
                                 </li>
 

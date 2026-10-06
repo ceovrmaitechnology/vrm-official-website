@@ -31,7 +31,7 @@ function TeamFour() {
                                 <div className="acquaintance-area">
                                     <div className="header">
                                         <h5 className="title">Kevin Martin</h5>
-                                        <span>Consultant</span>
+                                        <span>Engineer</span>
                                     </div>
                                     <p className="team-desc">
                                         Vehicula duis tempus vel porttitor lacus morbi pharetra neque,
@@ -62,7 +62,7 @@ function TeamFour() {
                                 <div className="acquaintance-area">
                                     <div className="header">
                                         <h5 className="title">Kevin Martin</h5>
-                                        <span>Consultant</span>
+                                        <span>Engineer</span>
                                     </div>
                                     <p className="team-desc">
                                         Vehicula duis tempus vel porttitor lacus morbi pharetra neque,
@@ -93,7 +93,7 @@ function TeamFour() {
                                 <div className="acquaintance-area">
                                     <div className="header">
                                         <h5 className="title">Kevin Martin</h5>
-                                        <span>Consultant</span>
+                                        <span>Engineer</span>
                                     </div>
                                     <p className="team-desc">
                                         Vehicula duis tempus vel porttitor lacus morbi pharetra neque,
@@ -124,7 +124,7 @@ function TeamFour() {
                                 <div className="acquaintance-area">
                                     <div className="header">
                                         <h5 className="title">Kevin Martin</h5>
-                                        <span>Consultant</span>
+                                        <span>Engineer</span>
                                     </div>
                                     <p className="team-desc">
                                         Vehicula duis tempus vel porttitor lacus morbi pharetra neque,
@@ -155,7 +155,7 @@ function TeamFour() {
                                 <div className="acquaintance-area">
                                     <div className="header">
                                         <h5 className="title">Kevin Martin</h5>
-                                        <span>Consultant</span>
+                                        <span>Engineer</span>
                                     </div>
                                     <p className="team-desc">
                                         Vehicula duis tempus vel porttitor lacus morbi pharetra neque,
@@ -186,7 +186,7 @@ function TeamFour() {
                                 <div className="acquaintance-area">
                                     <div className="header">
                                         <h5 className="title">Kevin Martin</h5>
-                                        <span>Consultant</span>
+                                        <span>Engineer</span>
                                     </div>
                                     <p className="team-desc">
                                         Vehicula duis tempus vel porttitor lacus morbi pharetra neque,
