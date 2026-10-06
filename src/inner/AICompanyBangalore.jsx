@@ -29,7 +29,7 @@ export default function AICompanyBangalore() {
                             "postalCode": "560100",
                             "addressCountry": "IN"
                         },
-                        "areaServed": ["Bangalore", "Madurai", "Chennai", "Tamil Nadu", "India"]
+                        "areaServed": ["Madurai", "Bangalore", "Chennai", "Tamil Nadu", "India"]
                     })}
                 </script>
             </Helmet>
@@ -53,7 +53,7 @@ export default function AICompanyBangalore() {
                     </Accordion.Item>
                     <Accordion.Item eventKey="2">
                         <Accordion.Header>What AI platforms do you provide?</Accordion.Header>
-                        <Accordion.Body>We offer a robust suite of products including Workflow.AI, People Connect (Global), AI Buddy, Exit Intelligence, Visionix AI, and VRM Reality.</Accordion.Body>
+                        <Accordion.Body>We offer a robust suite of products including Workflow.AI, People Connect, AI Buddy, Exit Intelligence, Visionix AI, and VRM Reality.</Accordion.Body>
                     </Accordion.Item>
                 </Accordion>
             </div>

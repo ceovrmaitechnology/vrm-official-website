@@ -27,16 +27,16 @@ function PeopleConnect() {
         <div className="people-connect-page basic-font-family">
             <HeaderOne />
             <Helmet>
-                <title>People Connect (Global) AI Platform | VRM AI Technology</title>
-                <meta name="description" content="People Connect (Global) by VRM AI Technology connects communities and institutions using voice, WhatsApp, and automated workflows for citizen engagement." />
-                <meta property="og:title" content="People Connect (Global) AI Platform | VRM AI Technology" />
-                <meta property="og:description" content="People Connect (Global) by VRM AI Technology connects communities and institutions using voice, WhatsApp, and automated workflows for citizen engagement." />
+                <title>People Connect AI Platform | VRM AI Technology</title>
+                <meta name="description" content="People Connect by VRM AI Technology connects communities and institutions using voice, WhatsApp, and automated workflows for citizen engagement." />
+                <meta property="og:title" content="People Connect AI Platform | VRM AI Technology" />
+                <meta property="og:description" content="People Connect by VRM AI Technology connects communities and institutions using voice, WhatsApp, and automated workflows for citizen engagement." />
                 <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
                 <link rel="canonical" href="https://www.vrmaitechnology.com/products/people-connect" />
             
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="People Connect (Global) AI Platform | VRM AI Technology" />
-                <meta name="twitter:description" content="People Connect (Global) by VRM AI Technology connects communities and institutions using voice, WhatsApp, and automated workflows for citizen engagement." />
+                <meta name="twitter:title" content="People Connect AI Platform | VRM AI Technology" />
+                <meta name="twitter:description" content="People Connect by VRM AI Technology connects communities and institutions using voice, WhatsApp, and automated workflows for citizen engagement." />
                 <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
                 <script type="application/ld+json">
                     {JSON.stringify({
@@ -45,7 +45,7 @@ function PeopleConnect() {
                         "itemListElement": [
                             { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.vrmaitechnology.com/" },
                             { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://www.vrmaitechnology.com/products" },
-                            { "@type": "ListItem", "position": 3, "name": "People Connect (Global)", "item": "https://www.vrmaitechnology.com/products/people-connect" }
+                            { "@type": "ListItem", "position": 3, "name": "People Connect", "item": "https://www.vrmaitechnology.com/products/people-connect" }
                         ]
                     })}
                 </script>
@@ -53,10 +53,10 @@ function PeopleConnect() {
                     {JSON.stringify({
                         "@context": "https://schema.org",
                         "@type": "SoftwareApplication",
-                        "name": "People Connect (Global)",
+                        "name": "People Connect",
                         "operatingSystem": "Web",
                         "applicationCategory": "BusinessApplication",
-                        "description": "Transform public feedback into regional insights with People Connect (Global). Orchestrate voice, WhatsApp, and GPS-verified resolution workflows at scale.",
+                        "description": "Transform public feedback into regional insights with People Connect. Orchestrate voice, WhatsApp, and GPS-verified resolution workflows at scale.",
                         "publisher": {
                             "@type": "Organization",
                             "name": "VRM AI Technology",
@@ -73,10 +73,10 @@ function PeopleConnect() {
                         <div className="col-lg-7">
                             <div className="banner-content-two">
                                 <h1 className="title wow fadeInUp text-white" data-wow-delay=".2s">
-                                    People Connect (Global)
+                                    People Connect
                                 </h1>
                                 <p className="disc wow fadeInUp text-white-50" data-wow-delay=".3s">
-                                    Connect Communities with People Connect (Global). Empower organizations to engage citizens through automated voice calling, official WhatsApp outreach, and real-time decision panels. By delivering direct, accessible, and structured public feedback at scale, it enables efficient grievance redressal and stronger community relationships.
+                                    Connect Communities with People Connect. Empower organizations to engage citizens through automated voice calling, official WhatsApp outreach, and real-time decision panels. By delivering direct, accessible, and structured public feedback at scale, it enables efficient grievance redressal and stronger community relationships.
                                 </p>
                                 <div className="button-area wow fadeInUp" data-wow-delay=".4s">
                                     <Link to="/contactus#send-message" className="vrm-blue-to-white-btn">
@@ -87,21 +87,21 @@ function PeopleConnect() {
                         </div>
                         <div className="col-lg-5">
                             <div className="banner-image-two wow fadeInUp" data-wow-delay=".3s">
-                                <img src="/assets/images/people-connect/people-connect-image.png" alt="People Connect (Global) Citizen Engagement Dashboard" style={{ borderRadius: '20px', boxShadow: '0 20px 50px rgba(0,0,0,0.3)' }} loading="lazy" />
+                                <img src="/assets/images/people-connect/people-connect-image.png" alt="People Connect Citizen Engagement Dashboard" style={{ borderRadius: '20px', boxShadow: '0 20px 50px rgba(0,0,0,0.3)' }} loading="lazy" />
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            {/* 2. Why Choose People Connect (Global) - White BG */}
+            {/* 2. Why Choose People Connect - White BG */}
             <div className="vrm-full-width-section vrm-white-bg">
                 <div className="container">
                     <div className="row">
                         <div className="col-12 text-center">
                             <div className="rts-title-area" data-text="">
                                 <span className="pre-title" style={{ color: '#3B4ECC' }}>KEY BENEFITS</span>
-                                <h2 className="title">Why Choose People Connect (Global)?</h2>
+                                <h2 className="title">Why Choose People Connect?</h2>
                                 <p className="disc mt-3">
                                     Deliver faster citizen services with AI-powered engagement, intelligent case management, and real-time governance insights.
                                 </p>
@@ -129,13 +129,13 @@ function PeopleConnect() {
                 </div>
             </div>
 
-            {/* 3. See People Connect (Global) in Action - Light Blue BG */}
+            {/* 3. See People Connect in Action - Light Blue BG */}
             <div className="vrm-full-width-section vrm-light-blue-bg">
                 <div className="container">
                     <div className="row">
                         <div className="col-12 text-center">
                             <div className="rts-title-area mb--50" data-text="">
-                                <h2 className="title">See People Connect (Global) in Action</h2>
+                                <h2 className="title">See People Connect in Action</h2>
                                 <p className="disc mt-3">Observe how administrative dashboards map regional tickets and display response metrics in real-time.</p>
                             </div>
                         </div>
@@ -186,7 +186,7 @@ function PeopleConnect() {
                                 {images.map((img, index) => (
                                     <SwiperSlide key={index}>
                                         <div className="gallery-item wow fadeInUp" data-wow-delay={`.${index + 2}s`} style={{ borderRadius: '15px', overflow: 'hidden', boxShadow: '0 10px 30px rgba(0,0,0,0.08)', border: '1px solid #eee' }}>
-                                            <img src={img} alt={`People Connect (Global) Interface Dashboard ${index + 1}`} style={{ width: '100%', height: 'auto', display: 'block' }} loading="lazy" />
+                                            <img src={img} alt={`People Connect Interface Dashboard ${index + 1}`} style={{ width: '100%', height: 'auto', display: 'block' }} loading="lazy" />
                                         </div>
                                     </SwiperSlide>
                                 ))}

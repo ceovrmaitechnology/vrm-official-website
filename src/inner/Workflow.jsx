@@ -203,10 +203,10 @@ function Workflow() {
                 </div>
             </div>
 
-            {/* <WorkflowTestimonials
+            <WorkflowTestimonials
                 title="Proof that Workflow AI improves both sides of hiring"
                 description="From faster shortlisting for recruiters to structured assessments for candidates, these reviews capture how the Workflow AI suite performs in real hiring environments."
-            /> */}
+            />
 
             <FooterOne />
         </div>

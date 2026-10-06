@@ -66,7 +66,7 @@ function VrmReality() {
                                     {
                                         "@type": "Question",
                                         "name": "Do you serve builders in Chennai?",
-                                        "acceptedAnswer": { "@type": "Answer", "text": "Yes, we proudly serve businesses in Chennai and across India from our Madurai and Bengaluru centers." }
+                                        "acceptedAnswer": { "@type": "Answer", "text": "Yes. VRM AI Technology serves property developers in Chennai and across India. Delivery is remote from our Madurai engineering office, with on-site visits on request." }
                                     }
                                 ]
                             }
@@ -99,7 +99,7 @@ function VrmReality() {
                     <Accordion.Item eventKey="1"><Accordion.Header>Does it need special hardware?</Accordion.Header><Accordion.Body>No, it is accessible directly via modern web browsers and mobile devices.</Accordion.Body></Accordion.Item>
                     <Accordion.Item eventKey="2"><Accordion.Header>Can buyers open tours on mobile?</Accordion.Header><Accordion.Body>Yes, VRM Reality is fully responsive and optimized for mobile access.</Accordion.Body></Accordion.Item>
                     <Accordion.Item eventKey="3"><Accordion.Header>How long does it take to prepare a property tour?</Accordion.Header><Accordion.Body>Turnaround times vary based on the project size. Please <Link to="/contactus">contact us</Link> for a detailed estimate based on your specific requirements.</Accordion.Body></Accordion.Item>
-                    <Accordion.Item eventKey="4"><Accordion.Header>Do you serve builders in Chennai?</Accordion.Header><Accordion.Body>Yes, we proudly serve businesses in Chennai and across India from our Madurai and Bengaluru centers.</Accordion.Body></Accordion.Item>
+                    <Accordion.Item eventKey="4"><Accordion.Header>Do you serve builders in Chennai?</Accordion.Header><Accordion.Body>Yes. VRM AI Technology serves property developers in Chennai and across India. Delivery is remote from our Madurai engineering office, with on-site visits on request.</Accordion.Body></Accordion.Item>
                 </Accordion>
             </div>
             <FooterOne />

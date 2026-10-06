@@ -31,7 +31,8 @@ export default function AICompanyMadurai() {
                             "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
                             "opens": "09:30",
                             "closes": "19:00"
-                        }
+                        },
+                        "areaServed": ["Madurai", "Bangalore", "Chennai", "Tamil Nadu", "India"]
                     })}
                 </script>
             </Helmet>
