@@ -43,20 +43,17 @@ function FooterOne() {
                                     <p style={{ fontSize: '13px', lineHeight: '1.6', margin: 0, color: '#555' }}>
                                         VRM AI Technology Private Limited<br />
                                         Door No.209, 1st Floor, No.147, 5th St,<br />
-                                        Periyalar Nagar, Tiruppalai,<br />
+                                        Poriyalar Nagar, Tiruppalai,<br />
                                         Madurai, Tamil Nadu 625014, India
                                     </p>
                                 </div>
                                 <div>
-                                    <h6 style={{ fontSize: '14px', marginBottom: '4px', color: '#11142c', fontWeight: '700' }}>Headquarters - Bengaluru</h6>
-                                    <p style={{ fontSize: '13px', lineHeight: '1.6', margin: 0, color: '#555', paddingBottom: '10px' }}>
-                                        GoodWorks Infinity Park, 21, 2nd Main Rd,<br />
-                                        Electronic City Phase I, Bengaluru, Karnataka 560100
-                                    </p>
-                                    <h6 style={{ fontSize: '14px', marginBottom: '4px', color: '#11142c', fontWeight: '700' }}>Development Center - Madurai</h6>
+                                    <h6 style={{ fontSize: '14px', marginBottom: '4px', color: '#11142c', fontWeight: '700' }}>Headquarters / Registered Office</h6>
                                     <p style={{ fontSize: '13px', lineHeight: '1.6', margin: 0, color: '#555' }}>
-                                        Door No.209, 1st Floor, No.147, 5th St, Poriyalar Nagar,<br />
-                                        Tiruppalai, Madurai, Tamil Nadu 625014
+                                        VRM AI Technology Private Limited<br />
+                                        GoodWorks Infinity Park, 21, 2nd Main Rd,<br />
+                                        Electronic City Phase I,<br />
+                                        Bengaluru, Karnataka 560100, India
                                     </p>
                                 </div>
                                 <div style={{ marginTop: '10px', fontSize: '12px', color: '#666', fontWeight: '500' }}>

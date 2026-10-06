@@ -29,7 +29,7 @@ const MachineLearningServices = lazy(() => import('../inner/MachineLearningServi
 const ProductsOverview = lazy(() => import('../inner/ProductsOverview'));
 const AICompanyMadurai = lazy(() => import('../inner/AICompanyMadurai'));
 const AICompanyBangalore = lazy(() => import('../inner/AICompanyBangalore'));
-const AIConsultingChennai = lazy(() => import('../inner/AIConsultingChennai'));
+const AICompanyTamilNadu = lazy(() => import('../inner/AICompanyTamilNadu'));
 const AIInnovationIndia = lazy(() => import('../inner/AIInnovationIndia'));
 
 const GenerativeAIDevelopment = lazy(() => import('../inner/GenerativeAIDevelopment'));
@@ -59,7 +59,7 @@ function RouterPage() {
                         <Route path="/ai-company-bangalore" element={<AICompanyBangalore />}></Route>
                         
                         
-                        <Route path="/ai-consulting-chennai" element={<AIConsultingChennai />}></Route>
+                        <Route path="/ai-company-tamil-nadu" element={<AICompanyTamilNadu />}></Route>
                         <Route path="/ai-innovation-india" element={<AIInnovationIndia />}></Route>
 
                         {/* Services & Solutions Pages */}

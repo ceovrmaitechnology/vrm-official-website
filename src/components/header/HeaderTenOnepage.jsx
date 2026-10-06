@@ -47,7 +47,7 @@ function HeaderTen() {
                                 <span>Working: 8.00am - 5.00pm</span>
                             </div>
                             <div className="ht-social">
-                                <span>Visit Us:</span>
+                                <span>Registered Office:</span>
                                 <ul>
                                     <li>
                                         <Link to={'#'}>

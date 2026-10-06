@@ -66,7 +66,7 @@ function VrmReality() {
                                     {
                                         "@type": "Question",
                                         "name": "Do you serve builders in Chennai?",
-                                        "acceptedAnswer": { "@type": "Answer", "text": "Yes, we proudly serve clients in Chennai and across India from our Madurai and Bengaluru centers." }
+                                        "acceptedAnswer": { "@type": "Answer", "text": "Yes, we proudly serve businesses in Chennai and across India from our Madurai and Bengaluru centers." }
                                     }
                                 ]
                             }
@@ -80,10 +80,10 @@ function VrmReality() {
                 <div className="container position-relative z-index-1">
                     <div className="row align-items-center">
                         <div className="col-lg-7">
-                            <h1 className="title text-white">Immersive VR Property Showcase Platform</h1>
+                            <h1 className="title text-white">VRM Reality</h1>
                             <p className="text-white-50 mt-4">Welcome to VRM Reality, the cutting-edge property virtual tour software designed specifically for modern builders and property agents. In today's competitive landscape, static images are no longer enough. VRM Reality provides a fully immersive property showcase platform, enabling potential buyers to explore properties dynamically before they are even built.</p>
                             <p className="text-white-50 mt-3">Our platform integrates seamlessly with your existing websites, delivering high-fidelity 3D tours, accurate floor plan representations, and interactive walk-throughs. Whether you are showcasing a luxury villa or a massive commercial complex, our software ensures every detail is captured with stunning realism.</p>
-                            <p className="text-white-50 mt-3">Built at our <Link to="/ai-company-madurai" className="text-white text-decoration-underline">Madurai development center</Link> and Bengaluru headquarters, we serve property developers across India, including clients in Chennai. We empower your sales teams to close deals faster by providing an unforgettable remote viewing experience.</p>
+                            <p className="text-white-50 mt-3">Built at our <Link to="/ai-company-madurai" className="text-white text-decoration-underline">Madurai development center</Link> and Bengaluru headquarters, we serve property developers across India, . We empower your sales teams to close deals faster by providing an unforgettable remote viewing experience.</p>
                         </div>
                         <div className="col-lg-5">
                             <img src={productImages[0]} alt="VRM Reality Property Virtual Tour Software Dashboard" className="img-fluid rounded shadow" loading="lazy" />
@@ -99,7 +99,7 @@ function VrmReality() {
                     <Accordion.Item eventKey="1"><Accordion.Header>Does it need special hardware?</Accordion.Header><Accordion.Body>No, it is accessible directly via modern web browsers and mobile devices.</Accordion.Body></Accordion.Item>
                     <Accordion.Item eventKey="2"><Accordion.Header>Can buyers open tours on mobile?</Accordion.Header><Accordion.Body>Yes, VRM Reality is fully responsive and optimized for mobile access.</Accordion.Body></Accordion.Item>
                     <Accordion.Item eventKey="3"><Accordion.Header>How long does it take to prepare a property tour?</Accordion.Header><Accordion.Body>Turnaround times vary based on the project size. Please <Link to="/contactus">contact us</Link> for a detailed estimate based on your specific requirements.</Accordion.Body></Accordion.Item>
-                    <Accordion.Item eventKey="4"><Accordion.Header>Do you serve builders in Chennai?</Accordion.Header><Accordion.Body>Yes, we proudly serve clients in Chennai and across India from our Madurai and Bengaluru centers.</Accordion.Body></Accordion.Item>
+                    <Accordion.Item eventKey="4"><Accordion.Header>Do you serve builders in Chennai?</Accordion.Header><Accordion.Body>Yes, we proudly serve businesses in Chennai and across India from our Madurai and Bengaluru centers.</Accordion.Body></Accordion.Item>
                 </Accordion>
             </div>
             <FooterOne />

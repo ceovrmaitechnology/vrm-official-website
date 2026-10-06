@@ -15,7 +15,8 @@ export default function AICompanyMadurai() {
                     {JSON.stringify({
                         "@context": "https://schema.org",
                         "@type": "ProfessionalService",
-                        "name": "VRM AI Technology - Madurai Development Center",
+                        "name": "VRM AI Technology (OPC) Pvt.Ltd",
+                        "alternateName": "Madurai Development Center",
                         "telephone": "+91 81233 48355",
                         "address": {
                             "@type": "PostalAddress",

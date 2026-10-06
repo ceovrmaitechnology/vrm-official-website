@@ -58,7 +58,20 @@ function HomeOne() {
               "addressRegion": "Karnataka",
               "postalCode": "560100",
               "addressCountry": "IN"
-            },
+                        },
+                        "sameAs": [
+                            "https://x.com/vrmaitechnology",
+                            "https://www.youtube.com/@vrmaitech",
+                            "https://www.facebook.com/profile.php?id=61589969476629",
+                            "https://www.linkedin.com/in/subbulakshmi-varatharajan-517757393"
+                        ],
+                        "hasCertification": {
+                            "@type": "Certification",
+                            "name": "ISO 9001:2015",
+                            "certificationIdentification": "E20260749630",
+                            "expires": "2029-07-20"
+                        },
+                        
             "location": [
               {
                 "@type": "Place",
@@ -74,10 +87,11 @@ function HomeOne() {
               },
               {
                 "@type": "Place",
-                "name": "Development Center",
+                "name": "VRM AI Technology (OPC) Pvt.Ltd",
+                "alternateName": "Madurai Development Center",
                 "address": {
                   "@type": "PostalAddress",
-                  "streetAddress": "Door No.209, 1st Floor, No.147, 5th St, Periyalar Nagar, Tiruppalai",
+                  "streetAddress": "Door No.209, 1st Floor, No.147, 5th St, Poriyalar Nagar, Tiruppalai",
                   "addressLocality": "Madurai",
                   "addressRegion": "Tamil Nadu",
                   "postalCode": "625014",

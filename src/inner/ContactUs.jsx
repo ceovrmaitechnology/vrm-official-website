@@ -229,7 +229,7 @@ const ContactUs = () => {
                                                 rel="noopener noreferrer" 
                                                 className="contact-link"
                                             >
-                                                VRM AI Technology, Madurai & Bengaluru, India.
+                                                VRM AI Technology, Madurai, India.
                                             </a>
                                         </div>
                                     </div>
@@ -351,7 +351,7 @@ const ContactUs = () => {
                                         rel="noopener noreferrer"
                                         className="text-muted text-decoration-none hover-primary"
                                     >
-                                        Door No,209, 1ST Floor, No.147, 5th St,<br />
+                                        Door No.209, 1st Floor, No.147, 5th St,<br />
                                         Poriyalar Nagar, Tiruppalai, Madurai,<br />
                                         Tamil Nadu 625014
                                     </a>
@@ -367,16 +367,9 @@ const ContactUs = () => {
                                 </div>
                                 <h4 className="title mb-3">Corporate Office</h4>
                                 <p className="disc text-muted">
-                                    <a
-                                        href="https://maps.app.goo.gl/5pnUj58biWePbEuUA"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="text-muted text-decoration-none hover-primary"
-                                    >
-                                        GoodWorks Infinity Park,<br />
-                                        21, 2nd main Rd, near 21, Electronic City Phase I, Electronic City,<br />
-                                        Bengaluru, Karnataka 560100.
-                                    </a>
+                                    <span className="text-muted">GoodWorks Infinity Park,<br />
+21, 2nd main Rd, near 21, Electronic City Phase I, Electronic City,<br />
+Bengaluru, Karnataka 560100.</span>
                                 </p>
                             </div>
                         </div>
@@ -459,7 +452,7 @@ const ContactUs = () => {
                                                 rel="noopener noreferrer"
                                                 className="text-white text-decoration-none hover-primary"
                                             >
-                                                Door No.209, 1st Floor, No.147, 5th St,<br />Periyalar Nagar, Tiruppalai,<br />Madurai, Tamil Nadu 625014, India
+                                                Door No.209, 1st Floor, No.147, 5th St,<br />Poriyalar Nagar, Tiruppalai,<br />Madurai, Tamil Nadu 625014, India
                                             </a>
                                         </span>
                                     </li>
@@ -489,7 +482,7 @@ const ContactUs = () => {
                                         </div>
                                         <div>
                                             <h4 className="office-card-title mb-0">Headquarters / Registered Office</h4>
-                                            <span style={{ fontSize: '12px', color: '#93c5fd' }}>Registered Office (No Staffed Operations)</span>
+                                            
                                         </div>
                                     </div>
                                     <div className="office-location-icon">
@@ -500,14 +493,7 @@ const ContactUs = () => {
                                     <li>
                                         <i className="fas fa-location-arrow"></i>
                                         <span>
-                                            <a
-                                                href="https://maps.app.goo.gl/5pnUj58biWePbEuUA"
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="text-white text-decoration-none hover-primary"
-                                            >
-                                                GoodWorks Infinity Park,<br />21, 2nd Main Rd, Electronic City Phase I,<br />Bengaluru, Karnataka 560100, India
-                                            </a>
+                                            <span className="text-white">GoodWorks Infinity Park,<br />21, 2nd Main Rd, Electronic City Phase I,<br />Bengaluru, Karnataka 560100, India</span>
                                         </span>
                                     </li>
                                     <li>
@@ -531,7 +517,7 @@ const ContactUs = () => {
                                     <div>
                                         <h4 className="fw-bold text-dark mb-1">Madurai Development Center Map</h4>
                                         <p className="text-muted mb-0" style={{ fontSize: '14px' }}>
-                                            Door No.209, 1st Floor, No.147, 5th St, Periyalar Nagar, Tiruppalai, Madurai, Tamil Nadu 625014, India
+                                            Door No.209, 1st Floor, No.147, 5th St, Poriyalar Nagar, Tiruppalai, Madurai, Tamil Nadu 625014, India
                                         </p>
                                     </div>
 
@@ -539,7 +525,7 @@ const ContactUs = () => {
                                 <div style={{ borderRadius: '12px', overflow: 'hidden', height: '360px', border: '1px solid #e2e8f0' }}>
                                     <iframe
                                         title="VRM AI Technology Madurai Development Center Map"
-                                        src="https://maps.google.com/maps?q=Door+No.209,+1st+Floor,+No.147,+5th+St,+Periyalar+Nagar,+Tiruppalai,+Madurai,+Tamil+Nadu+625014&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                                        src="https://maps.google.com/maps?q=Door+No.209,+1st+Floor,+No.147,+5th+St,+Poriyalar+Nagar,+Tiruppalai,+Madurai,+Tamil+Nadu+625014&t=&z=15&ie=UTF8&iwloc=&output=embed"
                                         width="100%"
                                         height="100%"
                                         style={{ border: 0 }}
