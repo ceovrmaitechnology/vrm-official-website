@@ -63,7 +63,8 @@ function HomeOne() {
                             "https://x.com/vrmaitechnology",
                             "https://www.youtube.com/@vrmaitech",
                             "https://www.facebook.com/profile.php?id=61589969476629",
-                            "https://www.linkedin.com/in/subbulakshmi-varatharajan-517757393"
+                            "https://www.linkedin.com/company/vrm-ai-technology-pvt-ltd/",
+                            "https://www.instagram.com/vrmaitechnology/"
                         ],
                         "hasCertification": {
                             "@type": "Certification",
