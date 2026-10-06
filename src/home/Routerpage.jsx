@@ -19,7 +19,7 @@ const AiBuddy = lazy(() => import('../inner/AiBuddy'));
 const PeopleConnect = lazy(() => import('../inner/PeopleConnect'));
 const AiExitInterview = lazy(() => import('../inner/AiExitInterview'));
 const Visionix = lazy(() => import('../inner/Visionix'));
-const BenchToDeploy = lazy(() => import('../inner/BenchToDeploy'));
+
 const AICallingAgent = lazy(() => import('../inner/AICallingAgent'));
 // Removed AIServices
 const AIChatbotDevelopment = lazy(() => import('../inner/AIChatbotDevelopment'));
@@ -88,8 +88,8 @@ function RouterPage() {
                         <Route path="/products/vrm-reality" element={<VrmReality />}></Route>
                         <Route path="/products/vevora" element={<Navigate to="/products/vrm-reality" replace />}></Route>
                         <Route path="/products/vrm-real-estate" element={<Navigate to="/products/vrm-reality" replace />}></Route>
-                        <Route path="/products/bench-to-deploy" element={<BenchToDeploy />}></Route>
-                        <Route path="/products/b2d" element={<Navigate to="/products/bench-to-deploy" replace />}></Route>
+
+
 
                         {/* Legal, Articles, 404 */}
                         <Route path="/privacy-policy" element={<PrivacyPolicy />}></Route>

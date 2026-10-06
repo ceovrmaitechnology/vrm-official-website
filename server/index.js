@@ -384,7 +384,6 @@ app.use((req, res, next) => {
 const REDIRECT_MAP = {
   "/ai-chatbot-development": "/solutions/ai-chatbot-development",
   "/voice-ai-solutions": "/solutions/ai-calling-agent",
-  "/products/b2d": "/products/bench-to-deploy",
   "/products/vrm-real-estate": "/products/vrm-reality",
   "/solutions/ai-consulting-services": "/solutions",
   "/ai-consulting": "/solutions",

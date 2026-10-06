@@ -24,7 +24,7 @@ function AICompanyTamilNadu() {
         },
         {
             q: "What AI products does VRM AI Technology offer?",
-            a: "Workflow AI, People Connect, AI Buddy, Exit Intelligence, Visionix AI, VRM Reality and Bench to Deploy (B2D)."
+            a: "Workflow AI, People Connect (Global), AI Buddy, Exit Intelligence, Visionix AI, VRM Reality and Bench to Deploy (B2D)."
         },
         {
             q: "What AI services are available across Tamil Nadu?",
@@ -165,7 +165,7 @@ function AICompanyTamilNadu() {
                                     </li>
                                     <li style={{ marginBottom: '14px', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
                                         <i className="fas fa-landmark text-primary mt-1"></i>
-                                        <span><strong>People Connect:</strong> Citizen engagement and feedback management with <Link to="/products/people-connect">People Connect</Link>.</span>
+                                        <span><strong>People Connect (Global):</strong> Citizen engagement and feedback management with <Link to="/products/people-connect">People Connect (Global)</Link>.</span>
                                     </li>
                                     <li style={{ marginBottom: '14px', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
                                         <i className="fas fa-comments text-primary mt-1"></i>

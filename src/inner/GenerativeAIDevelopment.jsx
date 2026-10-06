@@ -294,7 +294,7 @@ function GenerativeAIDevelopment() {
                             <div className="bg-white p-4 rounded-4 shadow-sm h-100 d-flex flex-column justify-content-between">
                                 <div>
                                     <span className="badge bg-success mb-3">Public Governance</span>
-                                    <h4 style={{ fontWeight: '700', color: '#0e1022' }}>People Connect</h4>
+                                    <h4 style={{ fontWeight: '700', color: '#0e1022' }}>People Connect (Global)</h4>
                                     <p style={{ color: '#666', fontSize: '14px', lineHeight: '1.7' }}>
                                         Civic sentiment analysis and complaint resolution engine utilizing generative AI to categorize citizen messages across WhatsApp, email, and voice channels into automated action items.
                                     </p>

@@ -115,10 +115,10 @@ function HomeOne() {
       <AboutOne />
       <ServiceOne />
       <BusinessGoalOne />
-      <WorkflowTestimonials
+      {/* <WorkflowTestimonials
         title="Why teams keep choosing Workflow AI by VRM AI Technology"
         description="Hiring teams use Workflow AI by VRM AI Technology to move faster with better screening quality, while candidates get a cleaner and more consistent interview experience."
-      />
+      /> */}
       <ContactForm />
       <WhyChooseUsFooter />
       <FooterOne />

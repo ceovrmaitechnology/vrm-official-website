@@ -53,7 +53,7 @@ export default function Nav() {
             ]
         },
         'people-connect': { 
-            title: "People Connect", 
+            title: "People Connect (Global)", 
             description: "AI-powered citizen engagement platform that modernizes public services through intelligent communication and digital governance.", 
             link: "/products/people-connect", 
             linkText: "View Product", 
@@ -143,7 +143,7 @@ export default function Nav() {
                         <div className="mega-menu-container solutions-mega-menu">
                             <div className="left-panel">
                                 <div className="service-category">
-                                    <span className="category-title">System Integration</span>
+                                    <span className="category-title">AI Strategy & Architecture</span>
                                     <ul>
                                         <li><Link to={'/solutions/ai-integration-services'} onMouseEnter={() => handleLinkHover('ai-integration')}>AI Integration Services</Link></li>
                                     </ul>
@@ -219,7 +219,7 @@ export default function Nav() {
                                                 handleLinkHover('people-connect');
                                             }}
                                         >
-                                            People Connect
+                                            People Connect (Global)
                                         </Link>
                                     </li>
                                     <li>
@@ -268,18 +268,6 @@ export default function Nav() {
                                             }}
                                         >
                                             VRM Reality
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link
-                                            to="/products/bench-to-deploy"
-                                            className={`platform-btn ${activeSubMenu === 'b2d' ? 'active' : ''}`}
-                                            onMouseEnter={() => {
-                                                setActiveSubMenu('b2d');
-                                                handleLinkHover('b2d');
-                                            }}
-                                        >
-                                            Bench to Deploy (B2D)
                                         </Link>
                                     </li>
                                 </ul>

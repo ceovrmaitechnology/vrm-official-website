@@ -18,14 +18,14 @@ function ProductsOverview() {
         <div className="products-overview-page workflow-page basic-font-family">
             <Helmet>
                 <title>AI Products Suite | VRM AI Technology</title>
-                <meta name="description" content="Explore VRM AI Technology's intelligent products: Workflow AI recruitment suite, AI Buddy, People Connect, Visionix AI, and VRM Reality." />
+                <meta name="description" content="Explore VRM AI Technology's intelligent products: Workflow AI recruitment suite, AI Buddy, People Connect (Global), Visionix AI, and VRM Reality." />
                 <meta property="og:title" content="AI Products Suite | VRM AI Technology" />
-                <meta property="og:description" content="Explore VRM AI Technology's intelligent products: Workflow AI recruitment suite, AI Buddy, People Connect, Visionix AI, and VRM Reality." />
+                <meta property="og:description" content="Explore VRM AI Technology's intelligent products: Workflow AI recruitment suite, AI Buddy, People Connect (Global), Visionix AI, and VRM Reality." />
                 <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
                 <link rel="canonical" href="https://www.vrmaitechnology.com/products" />
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content="AI Products Suite | VRM AI Technology" />
-                <meta name="twitter:description" content="Explore VRM AI Technology's intelligent products: Workflow AI recruitment suite, AI Buddy, People Connect, Visionix AI, and VRM Reality." />
+                <meta name="twitter:description" content="Explore VRM AI Technology's intelligent products: Workflow AI recruitment suite, AI Buddy, People Connect (Global), Visionix AI, and VRM Reality." />
                 <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
                 <script type="application/ld+json">
                     {JSON.stringify({
@@ -187,19 +187,19 @@ function ProductsOverview() {
                 </div>
             </div>
 
-            {/* --- Product 5: People Connect --- */}
+            {/* --- Product 5: People Connect (Global) --- */}
             <div id="people-connect" className="rts-about-area rts-section-gap" style={{ background: '#f8f9fa' }}>
                 <div className="container">
                     <div className="row g-5 align-items-center">
                         <div className="col-lg-6 wow fadeInLeft" data-wow-delay=".2s">
                             <div className="vrm-product-thumbnail">
-                                <img src="/assets/images/people-connect/people-connect-image.png" alt="People Connect Citizen Engagement Dashboard" loading="lazy" />
+                                <img src="/assets/images/people-connect/people-connect-image.png" alt="People Connect (Global) Citizen Engagement Dashboard" loading="lazy" />
                             </div>
                         </div>
                         <div className="col-lg-6 wow fadeInRight" data-wow-delay=".2s">
                             <div className="about-inner">
-                                <div className="rts-title-area" data-text="People Connect">
-                                    <h2 className="title">People Connect</h2>
+                                <div className="rts-title-area" data-text="People Connect (Global)">
+                                    <h2 className="title">People Connect (Global)</h2>
                                 </div>
                                 <p className="disc">
                                     AI-powered citizen engagement platform that modernizes public services through intelligent communication and digital governance.

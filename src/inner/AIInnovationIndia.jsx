@@ -32,7 +32,7 @@ function AIInnovationIndia() {
         },
         {
             q: "What products does VRM AI Technology offer across India?",
-            a: "Workflow AI, People Connect, AI Buddy, Exit Intelligence, Visionix AI, VRM Reality and Bench to Deploy (B2D)."
+            a: "Workflow AI, People Connect (Global), AI Buddy, Exit Intelligence, Visionix AI, VRM Reality and Bench to Deploy (B2D)."
         },
         {
             q: "How can organizations work with VRM AI Technology?",
@@ -165,7 +165,7 @@ function AIInnovationIndia() {
                                     </li>
                                     <li style={{ marginBottom: '14px', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
                                         <i className="fas fa-check-circle text-primary mt-1"></i>
-                                        <span><strong>People Connect:</strong> Citizen engagement and feedback management with <Link to="/products/people-connect">People Connect</Link>.</span>
+                                        <span><strong>People Connect (Global):</strong> Citizen engagement and feedback management with <Link to="/products/people-connect">People Connect (Global)</Link>.</span>
                                     </li>
                                     <li style={{ marginBottom: '14px', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
                                         <i className="fas fa-check-circle text-primary mt-1"></i>
@@ -242,6 +242,29 @@ function AIInnovationIndia() {
                                 </div>
                             </div>
                         ))}
+                    </div>
+                </div>
+            </div>
+
+            
+            {/* Chennai Section */}
+            <div className="vrm-full-width-section vrm-white-bg" style={{ padding: '60px 0' }}>
+                <div className="container">
+                    <div className="row">
+                        <div className="col-12">
+                            <h2 className="title mb-4" style={{ fontSize: '32px', fontWeight: '800', color: '#0e1022' }}>
+                                Serving businesses in Chennai and across India
+                            </h2>
+                            <p style={{ color: '#555', lineHeight: '1.8', fontSize: '16px', marginBottom: '24px' }}>
+                                India's technology ecosystem requires robust, scalable infrastructure and precise engineering. Our teams are dedicated to building systems that support growth and streamline operations for modern enterprises. We understand the local market nuances and the global standards expected by our partners.
+                            </p>
+                            <p style={{ color: '#555', lineHeight: '1.8', fontSize: '16px', marginBottom: '24px' }}>
+                                VRM AI Technology serves businesses in Chennai and across India. Delivery is remote from our Madurai engineering office, with on-site visits on request. Registered office: Bengaluru.
+                            </p>
+                            <p style={{ color: '#555', lineHeight: '1.8', fontSize: '16px', marginBottom: '24px' }}>
+                                Our continuous investment in research and development ensures that our software platforms remain secure, highly available, and aligned with the latest industry regulations and best practices.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
