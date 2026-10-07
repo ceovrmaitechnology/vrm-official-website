@@ -18,14 +18,14 @@ function ProductsOverview() {
         <div className="products-overview-page workflow-page basic-font-family">
             <Helmet>
                 <title>AI Products Suite | VRM AI Technology</title>
-                <meta name="description" content="Explore VRM AI Technology's intelligent products: Workflow AI recruitment suite, AI Buddy, People Connect (Global), Visionix AI, and VRM Reality." />
+                <meta name="description" content="Explore VRM AI Technology enterprise AI products: Workflow AI recruitment suite, People Connect, AI Buddy, Exit Intelligence, Visionix, and VRM Reality." />
                 <meta property="og:title" content="AI Products Suite | VRM AI Technology" />
-                <meta property="og:description" content="Explore VRM AI Technology's intelligent products: Workflow AI recruitment suite, AI Buddy, People Connect (Global), Visionix AI, and VRM Reality." />
+                <meta property="og:description" content="Explore VRM AI Technology enterprise AI products: Workflow AI recruitment suite, People Connect, AI Buddy, Exit Intelligence, Visionix, and VRM Reality." />
                 <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
                 <link rel="canonical" href="https://www.vrmaitechnology.com/products" />
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content="AI Products Suite | VRM AI Technology" />
-                <meta name="twitter:description" content="Explore VRM AI Technology's intelligent products: Workflow AI recruitment suite, AI Buddy, People Connect (Global), Visionix AI, and VRM Reality." />
+                <meta name="twitter:description" content="Explore VRM AI Technology enterprise AI products: Workflow AI recruitment suite, People Connect, AI Buddy, Exit Intelligence, Visionix, and VRM Reality." />
                 <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
                 <script type="application/ld+json">
                     {JSON.stringify({

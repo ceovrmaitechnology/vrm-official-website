@@ -27,17 +27,17 @@ function HomeOne() {
   return (
     <div>
       <Helmet>
-        <title>AI Software Company in Madurai &amp; Bengaluru | VRM AI</title>
-        <meta name="description" content="VRM AI Technology is an AI software company in Madurai &amp; Bengaluru building GenAI platforms, conversational chatbots, voice agents, and ML systems." />
-        <meta property="og:title" content="AI Software Company in Madurai &amp; Bengaluru | VRM AI" />
-        <meta property="og:description" content="VRM AI Technology is an AI software company in Madurai &amp; Bengaluru building GenAI platforms, conversational chatbots, voice agents, and ML systems." />
+        <title>AI Software Company in Bengaluru &amp; Madurai | VRM AI Technology</title>
+        <meta name="description" content="VRM AI Technology is an AI software company in Bengaluru &amp; Madurai building GenAI platforms, conversational chatbots, voice agents, and ML systems." />
+        <meta property="og:title" content="AI Software Company in Bengaluru &amp; Madurai | VRM AI Technology" />
+        <meta property="og:description" content="VRM AI Technology is an AI software company in Bengaluru &amp; Madurai building GenAI platforms, conversational chatbots, voice agents, and ML systems." />
         <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
         <link rel="canonical" href="https://www.vrmaitechnology.com/" />
         <link rel="preload" as="image" href="/assets/images/home/home-2.webp" type="image/webp" fetchpriority="high" />
       
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="AI Software Company in Madurai &amp; Bengaluru | VRM AI" />
-        <meta name="twitter:description" content="VRM AI Technology is an AI software company in Madurai &amp; Bengaluru building GenAI platforms, conversational chatbots, voice agents, and ML systems." />
+        <meta name="twitter:title" content="AI Software Company in Bengaluru &amp; Madurai | VRM AI Technology" />
+        <meta name="twitter:description" content="VRM AI Technology is an AI software company in Bengaluru &amp; Madurai building GenAI platforms, conversational chatbots, voice agents, and ML systems." />
         <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
 
         {/* Organization JSON-LD Schema */}
