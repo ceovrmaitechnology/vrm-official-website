@@ -6,6 +6,7 @@ import FooterOne from "../components/footer/FooterOne";
 import Accordion from 'react-bootstrap/Accordion';
 import WOW from 'wow.js';
 
+
 export default function AICompanyBangalore() {
     useEffect(() => {
         new WOW().init();
