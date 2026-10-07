@@ -2,13 +2,20 @@
 /sitemap.xml    /sitemap.xml    200
 /robots.txt     /robots.txt     200
 
+# 301 Permanent Redirect for permanently removed Chennai page
+/ai-software-services-chennai    /                                   301!
+
 # 301 Redirects for duplicate/alias routes
-/ai-chatbot-development    /solutions/ai-chatbot-development    301!
-/voice-ai-solutions        /solutions/ai-calling-agent          301!
-/products/b2d              /products/bench-to-deploy            301!
-/products/vrm-real-estate  /products/vrm-reality                301!
-/solutions/generative-ai-development /generative-ai-development 301!
-/our-service               /solutions                           301!
+/ai-chatbot-development         /solutions/ai-chatbot-development   301!
+/voice-ai-solutions             /solutions/ai-calling-agent         301!
+/products/b2d                   /products                           301!
+/products/bench-to-deploy       /products                           301!
+/products/vrm-real-estate       /products/vrm-reality               301!
+/products/vevora                /products/vrm-reality               301!
+/solutions/generative-ai-development /generative-ai-development      301!
+/solutions/ai-consulting-services    /solutions                     301!
+/ai-consulting                  /solutions                          301!
+/our-service                    /solutions                          301!
 
 # 301 Redirects for template demo routes
 /home-*             /    301!
@@ -24,11 +31,5 @@
 /blog-*             /    301!
 /onepage-*          /    301!
 
-# Redirect all client-side routes to index.html for React SPA
-/*              /index.html     200
-
-/solutions/ai-consulting-services /solutions 301
-/ai-consulting /solutions 301
-/products/vevora /products/vrm-reality 301
-
-/voice-ai-solutions /solutions/ai-calling-agent 301
+# Fallback for unknown URLs - serve 404
+/*                  /404.html   404

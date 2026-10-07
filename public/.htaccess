@@ -20,6 +20,9 @@
   </FilesMatch>
 </IfModule>
 
+DirectoryIndex index.html
+ErrorDocument 404 /404.html
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
@@ -30,23 +33,43 @@
   RewriteCond %{HTTP_HOST} ^(?:www\.)?(.+)$ [NC]
   RewriteRule ^ https://www.%1%{REQUEST_URI} [L,NE,R=301]
 
+  # 301 Permanent Redirect for permanently removed Chennai page
+  RewriteRule ^ai-software-services-chennai/?$ https://www.vrmaitechnology.com/ [R=301,L]
+
   # 301 Redirects for alias / duplicate URLs
   RewriteRule ^ai-chatbot-development/?$ /solutions/ai-chatbot-development [R=301,L]
   RewriteRule ^voice-ai-solutions/?$ /solutions/ai-calling-agent [R=301,L]
-  RewriteRule ^products/b2d/?$ /products/bench-to-deploy [R=301,L]
+  RewriteRule ^products/b2d/?$ /products [R=301,L]
+  RewriteRule ^products/bench-to-deploy/?$ /products [R=301,L]
   RewriteRule ^products/vrm-real-estate/?$ /products/vrm-reality [R=301,L]
-RewriteRule ^solutions/ai-consulting-services/?$ /solutions [R=301,L]
-RewriteRule ^ai-consulting/?$ /solutions [R=301,L]
-RewriteRule ^products/vevora/?$ /products/vrm-reality [R=301,L]
+  RewriteRule ^products/vevora/?$ /products/vrm-reality [R=301,L]
+  RewriteRule ^solutions/ai-consulting-services/?$ /solutions [R=301,L]
+  RewriteRule ^ai-consulting/?$ /solutions [R=301,L]
+  RewriteRule ^our-service/?$ /solutions [R=301,L]
   RewriteRule ^solutions/generative-ai-development/?$ /generative-ai-development [R=301,L]
+
   # 301 Redirects for template demo routes
   RewriteRule ^(home-(two|three|four|five|six|seven|eight|nine|ten)|service-(2|3|two|three)|appoinment|pricing-plane|testimonial.*|portfolio.*|project.*|team.*|blog.*|onepage.*)/?$ / [R=301,L]
 
-  RewriteRule ^index\.html$ - [L]
-  # Serve actual existing files (e.g. sitemap.xml, robots.txt) directly
+  # Do not rewrite index.html or 404.html
+  RewriteRule ^(index|404)\.html$ - [L]
+
+  # 1. Serve existing file directly
+  RewriteCond %{REQUEST_FILENAME} -f
+  RewriteRule ^ - [L]
+
+  # 2. Serve existing directory prerendered index.html (e.g. /ai-company-madurai or /ai-company-madurai/)
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteCond %{REQUEST_FILENAME}/index.html -f
+  RewriteRule ^(.+?)/?$ $1/index.html [L]
+
+  RewriteCond %{DOCUMENT_ROOT}/$1/index.html -f
+  RewriteRule ^(.+?)/?$ $1/index.html [L]
+
+  # 3. For any other request, check if not file/dir -> serve real 404 page
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule . /index.html [L]
+  RewriteRule ^.*$ /404.html [L]
 </IfModule>
 
 <IfModule mod_deflate.c>

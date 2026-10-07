@@ -88,6 +88,8 @@ function RouterPage() {
                         <Route path="/products/vrm-reality" element={<VrmReality />}></Route>
                         <Route path="/products/vevora" element={<Navigate to="/products/vrm-reality" replace />}></Route>
                         <Route path="/products/vrm-real-estate" element={<Navigate to="/products/vrm-reality" replace />}></Route>
+                        <Route path="/products/bench-to-deploy" element={<Navigate to="/products" replace />}></Route>
+                        <Route path="/products/b2d" element={<Navigate to="/products" replace />}></Route>
 
 
 
