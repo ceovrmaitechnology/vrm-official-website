@@ -336,8 +336,8 @@ function ProductsOverview() {
                                 <p className="disc">
                                     Bench to Deploy (B2D), a product by VRM AI Technology.
                                 </p>
-                                <Link className="vrm-btn-product-blue" to="/products/bench-to-deploy">
-                                    Learn More <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>
+                                <Link className="vrm-btn-product-blue" to="/contactus#send-message">
+                                    Contact Us <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>
                                 </Link>
                             </div>
                         </div>

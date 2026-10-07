@@ -101,13 +101,13 @@ export default function Nav() {
                 "AI-Powered WhatsApp Bot",
                 "Smart Lead Scoring (HOT/WARM/COLD)",
                 "Automated Site Visit Scheduling",
-                "Free Cab Transportation Workflow"
+                "Real-Time CRM & Lead Sync"
             ]
         },
         'b2d': {
             title: "Bench to Deploy (B2D)",
             description: "Talent readiness and deployment orchestration platform connecting certified engineering talent with project requirements through automated technical benchmarking.",
-            link: "/products/bench-to-deploy",
+            link: "/products#bench-to-deploy",
             linkText: "View Product",
             image: "/assets/images/service/04.jpg",
             features: [

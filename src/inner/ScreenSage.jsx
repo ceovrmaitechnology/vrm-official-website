@@ -147,7 +147,7 @@ function ScreenSage() {
                     <div className="row justify-content-center">
                         <div className="col-lg-10">
                             <div className="video-wrapper wow fadeInUp" data-wow-delay=".3s" style={{ borderRadius: '20px', overflow: 'hidden', boxShadow: '0 20px 60px rgba(0,0,0,0.15)' }}>
-                                <video width="100%" controls preload="metadata">
+                                <video width="100%" controls preload="none">
                                     <source src="/assets/images/workflow/screensage/screensage-promo.mp4" type="video/mp4" />
                                     Your browser does not support the video tag.
                                 </video>

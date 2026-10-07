@@ -224,7 +224,7 @@ const ContactUs = () => {
                                             <h5>Visit Us</h5>
                                             <p>Come see our innovation hub</p>
                                             <a 
-                                                href="https://www.google.com/maps/search/?api=1&query=VRM+AI+Technology+(OPC)+Pvt.Ltd,+Door+No,209,+1ST+Floor,+No.147,+5th+St,+Poriyalar+Nagar,+Tiruppalai,+Madurai,+Tamil+Nadu+625014" 
+                                                href="https://share.google/Low7HbzJnoFKyBI1d" 
                                                 target="_blank" 
                                                 rel="noopener noreferrer" 
                                                 className="contact-link"
@@ -243,7 +243,7 @@ const ContactUs = () => {
                                             <h5>Follow Us</h5>
                                             <div className="social-links-premium">
                                                 <a href="https://www.linkedin.com/company/vrm-ai-technology-pvt-ltd/" target="_blank" rel="noreferrer" className="social-btn-premium" aria-label="LinkedIn"><i className="fab fa-linkedin-in"></i></a>
-                                                <a href="https://www.facebook.com/share/1Ck9vJyvW4/" target="_blank" rel="noreferrer" className="social-btn-premium" aria-label="Facebook"><i className="fab fa-facebook-f"></i></a>
+                                                <a href="https://www.facebook.com/profile.php?id=61589969476629" target="_blank" rel="noreferrer" className="social-btn-premium" aria-label="Facebook"><i className="fab fa-facebook-f"></i></a>
                                                 <a href="https://x.com/vrmaitechnology" target="_blank" rel="noreferrer" className="social-btn-premium" aria-label="Twitter"><i className="fab fa-twitter"></i></a>
                                                 <a href="https://www.instagram.com/vrmaitechnology/" target="_blank" rel="noreferrer" className="social-btn-premium" aria-label="Instagram"><i className="fab fa-instagram"></i></a>
                                             </div>
@@ -346,7 +346,7 @@ const ContactUs = () => {
                                 <h4 className="title mb-3">Development Center</h4>
                                 <p className="disc text-muted">
                                     <a
-                                        href="https://www.google.com/maps/search/?api=1&query=VRM+AI+Technology+(OPC)+Pvt.Ltd,+Door+No,209,+1ST+Floor,+No.147,+5th+St,+Poriyalar+Nagar,+Tiruppalai,+Madurai,+Tamil+Nadu+625014"
+                                        href="https://share.google/Low7HbzJnoFKyBI1d"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="text-muted text-decoration-none hover-primary"
@@ -447,7 +447,7 @@ Bengaluru, Karnataka 560100.</span>
                                         <i className="fas fa-location-arrow"></i>
                                         <span>
                                             <a
-                                                href="https://www.google.com/maps/search/?api=1&query=VRM+AI+Technology+(OPC)+Pvt.Ltd,+Door+No,209,+1ST+Floor,+No.147,+5th+St,+Poriyalar+Nagar,+Tiruppalai,+Madurai,+Tamil+Nadu+625014"
+                                                href="https://share.google/Low7HbzJnoFKyBI1d"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 className="text-white text-decoration-none hover-primary"
@@ -517,10 +517,17 @@ Bengaluru, Karnataka 560100.</span>
                                     <div>
                                         <h4 className="fw-bold text-dark mb-1">Madurai Development Center Map</h4>
                                         <p className="text-muted mb-0" style={{ fontSize: '14px' }}>
-                                            Door No.209, 1st Floor, No.147, 5th St, Poriyalar Nagar, Tiruppalai, Madurai, Tamil Nadu 625014, India
+                                            Door No,209, 1ST Floor, No.147, 5th St, Poriyalar Nagar, Tiruppalai, Madurai, Tamil Nadu 625014, India
                                         </p>
                                     </div>
-
+                                    <div className="d-flex gap-2 mt-2 mt-sm-0">
+                                        <a href="https://share.google/Low7HbzJnoFKyBI1d" target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-outline-primary">
+                                            <i className="fas fa-directions me-1"></i> Get Directions
+                                        </a>
+                                        <a href="https://share.google/Low7HbzJnoFKyBI1d" target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-primary">
+                                            <i className="fas fa-star me-1"></i> Review us on Google
+                                        </a>
+                                    </div>
                                 </div>
                                 <div style={{ borderRadius: '12px', overflow: 'hidden', height: '360px', border: '1px solid #e2e8f0' }}>
                                     <iframe

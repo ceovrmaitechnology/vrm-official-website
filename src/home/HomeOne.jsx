@@ -45,8 +45,8 @@ function HomeOne() {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Organization",
-            "name": "VRM AI Technology Private Limited",
-            "alternateName": "VRM AI Technology",
+            "name": "VRM AI Technology",
+            "legalName": "VRM AI Technology (OPC) Pvt.Ltd",
             "url": "https://www.vrmaitechnology.com/",
             "logo": "https://www.vrmaitechnology.com/assets/images/logo/logo.png",
             "telephone": "+91 81233 48355",
@@ -58,25 +58,18 @@ function HomeOne() {
               "addressRegion": "Karnataka",
               "postalCode": "560100",
               "addressCountry": "IN"
-                        },
-                        "sameAs": [
-                            "https://x.com/vrmaitechnology",
-                            "https://www.youtube.com/@vrmaitech",
-                            "https://www.facebook.com/profile.php?id=61589969476629",
-                            "https://www.linkedin.com/company/vrm-ai-technology-pvt-ltd/",
-                            "https://www.instagram.com/vrmaitechnology/"
-                        ],
-                        "hasCertification": {
-                            "@type": "Certification",
-                            "name": "ISO 9001:2015",
-                            "certificationIdentification": "E20260749630",
-                            "expires": "2029-07-20"
-                        },
-                        
+            },
+            "hasCertification": {
+              "@type": "Certification",
+              "name": "ISO 9001:2015",
+              "certificationIdentification": "E20260749630",
+              "expires": "2029-07-20"
+            },
             "location": [
               {
                 "@type": "Place",
-                "name": "Headquarters / Registered Office",
+                "name": "VRM AI Technology - Headquarters",
+                "telephone": "+91 81233 48355",
                 "address": {
                   "@type": "PostalAddress",
                   "streetAddress": "GoodWorks Infinity Park, 21, 2nd Main Rd, Electronic City Phase I",
@@ -88,11 +81,12 @@ function HomeOne() {
               },
               {
                 "@type": "Place",
-                "name": "VRM AI Technology (OPC) Pvt.Ltd",
-                "alternateName": "Madurai Development Center",
+                "name": "VRM AI Technology - Development Center",
+                "telephone": "+91 81233 48355",
+                "hasMap": "https://share.google/Low7HbzJnoFKyBI1d",
                 "address": {
                   "@type": "PostalAddress",
-                  "streetAddress": "Door No.209, 1st Floor, No.147, 5th St, Poriyalar Nagar, Tiruppalai",
+                  "streetAddress": "Door No,209, 1ST Floor, No.147, 5th St, Poriyalar Nagar, Tiruppalai",
                   "addressLocality": "Madurai",
                   "addressRegion": "Tamil Nadu",
                   "postalCode": "625014",
@@ -100,7 +94,15 @@ function HomeOne() {
                 }
               }
             ],
-            "areaServed": ["Madurai", "Bangalore", "Chennai", "Tamil Nadu", "India"]
+            "areaServed": ["Madurai", "Bangalore", "Chennai", "Tamil Nadu", "India"],
+            "sameAs": [
+              "https://www.linkedin.com/company/vrm-ai-technology-pvt-ltd/",
+              "https://x.com/vrmaitechnology",
+              "https://www.instagram.com/vrmaitechnology/",
+              "https://www.facebook.com/profile.php?id=61589969476629",
+              "https://www.youtube.com/@vrmaitech",
+              "https://share.google/Low7HbzJnoFKyBI1d"
+            ]
           })}
         </script>
       </Helmet>
