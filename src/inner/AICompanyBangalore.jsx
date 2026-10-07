@@ -40,19 +40,19 @@ export default function AICompanyBangalore() {
         <div className="rts-ai-strategy-services basic-font-family">
             <Helmet>
                 <html lang="en-IN" />
-                <title>Top AI Innovation Company in Bangalore | VRM AI Technology</title>
-                <meta name="description" content="VRM AI Technology is a leading AI innovation company in Bangalore. Headquartered in Electronic City, we engineer enterprise GenAI and automation software." />
+                <title>AI Company in Bengaluru (Bangalore) | VRM AI Technology</title>
+                <meta name="description" content="VRM AI Technology is an AI company in Bengaluru, headquartered in Electronic City. We build custom GenAI solutions, chatbots, voice agents, and ML systems." />
                 <link rel="canonical" href="https://www.vrmaitechnology.com/ai-company-bangalore" />
 
-                <meta property="og:title" content="Top AI Innovation Company in Bangalore | VRM AI Technology" />
-                <meta property="og:description" content="Headquartered at Electronic City Phase I, Bengaluru, VRM AI Technology delivers enterprise GenAI, AI voice bots, and automated software platforms." />
+                <meta property="og:title" content="AI Company in Bengaluru (Bangalore) | VRM AI Technology" />
+                <meta property="og:description" content="VRM AI Technology is an AI company in Bengaluru, headquartered in Electronic City. We build custom GenAI solutions, chatbots, voice agents, and ML systems." />
                 <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
                 <meta property="og:url" content="https://www.vrmaitechnology.com/ai-company-bangalore" />
                 <meta property="og:type" content="website" />
 
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="Top AI Innovation Company in Bangalore | VRM AI Technology" />
-                <meta name="twitter:description" content="Headquartered at Electronic City Phase I, Bengaluru, VRM AI Technology delivers enterprise GenAI, AI voice bots, and automated software platforms." />
+                <meta name="twitter:title" content="AI Company in Bengaluru (Bangalore) | VRM AI Technology" />
+                <meta name="twitter:description" content="VRM AI Technology is an AI company in Bengaluru, headquartered in Electronic City. We build custom GenAI solutions, chatbots, voice agents, and ML systems." />
                 <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
 
                 {/* Breadcrumbs JSON-LD */}
@@ -67,11 +67,11 @@ export default function AICompanyBangalore() {
                     })}
                 </script>
 
-                {/* Organization & LocalBusiness JSON-LD Schema */}
+                {/* ProfessionalService (LocalBusiness) JSON-LD Schema */}
                 <script type="application/ld+json">
                     {JSON.stringify({
                         "@context": "https://schema.org",
-                        "@type": ["Organization", "LocalBusiness"],
+                        "@type": ["ProfessionalService", "LocalBusiness"],
                         "name": "VRM AI Technology",
                         "legalName": "VRM AI Technology (OPC) Pvt.Ltd",
                         "alternateName": "VRM AI Technology - Bengaluru Headquarters",
@@ -94,7 +94,7 @@ export default function AICompanyBangalore() {
                             "https://www.facebook.com/profile.php?id=61589969476629",
                             "https://www.youtube.com/@vrmaitech"
                         ],
-                        "areaServed": ["Bangalore", "Karnataka", "India"]
+                        "areaServed": ["Bengaluru", "Karnataka", "India"]
                     })}
                 </script>
 
