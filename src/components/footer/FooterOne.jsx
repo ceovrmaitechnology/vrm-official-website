@@ -41,8 +41,8 @@ function FooterOne() {
                                 <div style={{ marginBottom: '12px' }}>
                                     <h6 style={{ fontSize: '14px', marginBottom: '4px', color: '#11142c', fontWeight: '700' }}>Development Center (Staffed Office)</h6>
                                     <p style={{ fontSize: '13px', lineHeight: '1.6', margin: 0, color: '#555' }}>
-                                        VRM AI Technology Private Limited<br />
-                                        Door No.209, 1st Floor, No.147, 5th St,<br />
+                                        VRM AI Technology (OPC) Pvt.Ltd<br />
+                                        Door No,209, 1ST Floor, No.147, 5th St,<br />
                                         Poriyalar Nagar, Tiruppalai,<br />
                                         Madurai, Tamil Nadu 625014, India
                                     </p>
@@ -50,7 +50,7 @@ function FooterOne() {
                                 <div>
                                     <h6 style={{ fontSize: '14px', marginBottom: '4px', color: '#11142c', fontWeight: '700' }}>Headquarters / Registered Office</h6>
                                     <p style={{ fontSize: '13px', lineHeight: '1.6', margin: 0, color: '#555' }}>
-                                        VRM AI Technology Private Limited<br />
+                                        VRM AI Technology (OPC) Pvt.Ltd<br />
                                         GoodWorks Infinity Park, 21, 2nd Main Rd,<br />
                                         Electronic City Phase I,<br />
                                         Bengaluru, Karnataka 560100, India
@@ -64,7 +64,7 @@ function FooterOne() {
                                 <a href="https://www.linkedin.com/company/vrm-ai-technology-pvt-ltd/" target="_blank" rel="noreferrer" className="vrm-social-link" aria-label="LinkedIn"><i className="fab fa-linkedin-in"></i></a>
                                 <a href="https://x.com/vrmaitechnology" target="_blank" rel="noreferrer" className="vrm-social-link" aria-label="Twitter"><i className="fab fa-twitter"></i></a>
                                 <a href="https://www.instagram.com/vrmaitechnology/" target="_blank" rel="noreferrer" className="vrm-social-link" aria-label="Instagram"><i className="fab fa-instagram"></i></a>
-                                <a href="https://www.facebook.com/share/1Ck9vJyvW4/" target="_blank" rel="noreferrer" className="vrm-social-link" aria-label="Facebook"><i className="fab fa-facebook-f"></i></a>
+                                <a href="https://www.facebook.com/profile.php?id=61589969476629" target="_blank" rel="noreferrer" className="vrm-social-link" aria-label="Facebook"><i className="fab fa-facebook-f"></i></a>
                             </div>
                         </div>
                     </div>
@@ -182,7 +182,7 @@ function FooterOne() {
                                     <Link to="/products/vrm-reality" style={{ fontWeight: '700', color: '#11142c', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>VRM Reality</Link>
                                 </li>
                                 <li style={{ marginBottom: '0px' }}>
-                                    <Link to="/products/bench-to-deploy" style={{ fontWeight: '700', color: '#11142c', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Bench to Deploy (B2D)</Link>
+                                    <Link to="/products#bench-to-deploy" style={{ fontWeight: '700', color: '#11142c', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Bench to Deploy (B2D)</Link>
                                 </li>
                             </ul>
                         </div>
