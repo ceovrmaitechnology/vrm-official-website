@@ -96,7 +96,7 @@ function SideMenu({ isSidebarOpen, toggleSidebar }) {
                                         <li className="mobile-menu-link"><Link to={'/products/exitinterview'} onClick={toggleSidebar}>Exit Intelligence</Link></li>
                                         <li className="mobile-menu-link"><Link to={'/products/visionix'} onClick={toggleSidebar}>Visionix AI</Link></li>
                                         <li className="mobile-menu-link"><Link to={'/products/vrm-reality'} onClick={toggleSidebar}>VRM Reality</Link></li>
-                                        <li className="mobile-menu-link"><Link to={'/products/bench-to-deploy'} onClick={toggleSidebar}>Bench to Deploy (B2D)</Link></li>
+                                        <li className="mobile-menu-link"><Link to={'/products#bench-to-deploy'} onClick={toggleSidebar}>Bench to Deploy (B2D)</Link></li>
                                     </ul>
                                 </li>
 
