@@ -194,9 +194,9 @@ function HomeOverview() {
                             {
                                 id: 10,
                                 icon: "assets/images/service/icon/01.svg",
-                                category: "Real Estate Automation",
+                                category: "3D Virtual Tours & VR",
                                 title: "VRM Reality",
-                                desc: "AI-powered real estate platform connecting buyer conversations, lead qualification, site visits, and agent operations.",
+                                desc: "High-fidelity 3D property virtual tour software and immersive VR showcase platform for builders, architects, and developers.",
                                 link: "/products/vrm-reality",
                                 bgImage: "assets/images/vrm-reality/vrm-reality-hero.png"
                             }

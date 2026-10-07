@@ -297,17 +297,17 @@ function ProductsOverview() {
                     <div className="row g-5 align-items-center">
                         <div className="col-lg-6 wow fadeInLeft" data-wow-delay=".2s">
                             <div className="vrm-product-thumbnail">
-                                <img src="/assets/images/vrm-reality/vrm-reality-hero.png" alt="VRM Reality Automation Dashboard" loading="lazy" />
+                                <img src="/assets/images/vrm-reality/vrm-reality-hero.png" alt="VRM Reality Property Virtual Tour Software" loading="lazy" />
                             </div>
                         </div>
                         <div className="col-lg-6 wow fadeInRight" data-wow-delay=".2s">
                             <div className="about-inner">
                                 <div className="rts-title-area" data-text="VRM Reality">
-                                    <span className="pre-title" style={{ color: '#3B4ECC', display: 'block', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '13px', fontWeight: '700', marginBottom: '5px' }}>Real Estate Offering</span>
+                                    <span className="pre-title" style={{ color: '#3B4ECC', display: 'block', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '13px', fontWeight: '700', marginBottom: '5px' }}>Virtual Tour Software</span>
                                     <h2 className="title">VRM Reality</h2>
                                 </div>
                                 <p className="disc">
-                                    VRM Reality is a premium real estate offering from VRM AI Technology, supported by AI-powered automation.
+                                    Immersive 3D virtual tour software and VR property showcase platform enabling builders, developers, and agents to deliver realistic property walkthroughs.
                                 </p>
                                 <Link className="vrm-btn-product-blue" to="/products/vrm-reality">
                                     Learn More <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>

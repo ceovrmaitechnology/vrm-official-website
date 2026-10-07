@@ -196,7 +196,7 @@ function AIChatbotServices() {
                             {
                                 icon: "fa-home",
                                 title: "Real Estate & Housing",
-                                desc: "Qualify buyer inquiries around the clock, schedule site visits, and coordinate field agents using our integrated VRM Reality engine.",
+                                desc: "Qualify buyer inquiries around the clock, showcase interactive 3D virtual tours, and assist property buyers using our integrated VRM Reality platform.",
                                 link: "/products/vrm-reality"
                             },
                             {

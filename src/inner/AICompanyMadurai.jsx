@@ -206,7 +206,7 @@ export default function AICompanyMadurai() {
                                 <div className="mb-3 text-primary" style={{ fontSize: '28px' }}><i className="fas fa-cogs"></i></div>
                                 <h4 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '12px' }}>Workflow Automation &amp; ML</h4>
                                 <p style={{ color: '#64748b', fontSize: '15px', lineHeight: '1.7' }}>
-                                    Automate multi-step operational pipelines with our proprietary platforms, including <Link to="/products/workflow">Workflow AI</Link> for recruitment screening and <Link to="/products/vrm-reality">VRM Reality</Link> for real estate operations.
+                                    Automate multi-step operational pipelines with our proprietary platforms, including <Link to="/products/workflow">Workflow AI</Link> for recruitment screening and <Link to="/products/vrm-reality">VRM Reality</Link> for 3D property virtual tours and showcase.
                                 </p>
                                 <Link to="/solutions/machine-learning-services" className="text-primary fw-bold mt-auto text-decoration-none">Explore ML Services &rarr;</Link>
                             </div>
