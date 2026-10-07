@@ -371,50 +371,77 @@ function VrmReality() {
             </div>
 
             {/* 9. Frequently Asked Questions */}
-            <div className="vrm-full-width-section vrm-light-blue-bg ptb--80">
+            <div className="vrm-full-width-section vrm-light-blue-bg ptb--100">
                 <div className="container">
                     <div className="row">
-                        <div className="col-12 text-center mb--40">
+                        <div className="col-12 text-center mb--50">
                             <div className="rts-title-area" data-text="">
-                                <span className="pre-title" style={{ color: '#3B4ECC' }}>FAQ</span>
-                                <h2 className="title">Frequently Asked Questions</h2>
+                                <span className="pre-title" style={{ color: '#3B4ECC', fontWeight: '700', letterSpacing: '1.5px', textTransform: 'uppercase', fontSize: '13px', background: 'rgba(59, 78, 204, 0.08)', padding: '6px 18px', borderRadius: '30px', display: 'inline-block' }}>GOT QUESTIONS?</span>
+                                <h2 className="title mt-3" style={{ fontSize: '38px', fontWeight: '800', color: '#0F172A' }}>Frequently Asked Questions</h2>
+                                <p className="disc mt-3" style={{ color: '#64748B', fontSize: '17px', maxWidth: '640px', margin: '0 auto' }}>Everything you need to know about VRM Reality, platform workflows, and deployment across India.</p>
                             </div>
                         </div>
                     </div>
                     <div className="row justify-content-center">
                         <div className="col-lg-10">
-                            <Accordion defaultActiveKey="0">
+                            <Accordion defaultActiveKey="0" className="vrm-faq-accordion">
                                 <Accordion.Item eventKey="0">
-                                    <Accordion.Header>What is VRM Reality?</Accordion.Header>
+                                    <Accordion.Header>
+                                        <span style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '32px', height: '32px', borderRadius: '8px', background: 'rgba(59, 78, 204, 0.1)', color: '#3B4ECC', fontSize: '13px', fontWeight: '800', marginRight: '16px', flexShrink: 0 }}>01</span>
+                                        What is VRM Reality?
+                                    </Accordion.Header>
                                     <Accordion.Body>
                                         VRM Reality is an AI-powered real estate platform that connects buyers, sellers and agents through property search, enquiries, site visits and CRM in one workflow.
                                     </Accordion.Body>
                                 </Accordion.Item>
                                 <Accordion.Item eventKey="1">
-                                    <Accordion.Header>Does VRM Reality need special hardware?</Accordion.Header>
+                                    <Accordion.Header>
+                                        <span style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '32px', height: '32px', borderRadius: '8px', background: 'rgba(59, 78, 204, 0.1)', color: '#3B4ECC', fontSize: '13px', fontWeight: '800', marginRight: '16px', flexShrink: 0 }}>02</span>
+                                        Does VRM Reality need special hardware?
+                                    </Accordion.Header>
                                     <Accordion.Body>
                                         No, it is accessible directly via modern web browsers and mobile devices.
                                     </Accordion.Body>
                                 </Accordion.Item>
                                 <Accordion.Item eventKey="2">
-                                    <Accordion.Header>Can buyers open tours and book visits on mobile?</Accordion.Header>
+                                    <Accordion.Header>
+                                        <span style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '32px', height: '32px', borderRadius: '8px', background: 'rgba(59, 78, 204, 0.1)', color: '#3B4ECC', fontSize: '13px', fontWeight: '800', marginRight: '16px', flexShrink: 0 }}>03</span>
+                                        Can buyers open tours and book visits on mobile?
+                                    </Accordion.Header>
                                     <Accordion.Body>
                                         Yes, VRM Reality is fully responsive and automated over mobile and WhatsApp.
                                     </Accordion.Body>
                                 </Accordion.Item>
                                 <Accordion.Item eventKey="3">
-                                    <Accordion.Header>How long does it take to deploy VRM Reality workflows?</Accordion.Header>
+                                    <Accordion.Header>
+                                        <span style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '32px', height: '32px', borderRadius: '8px', background: 'rgba(59, 78, 204, 0.1)', color: '#3B4ECC', fontSize: '13px', fontWeight: '800', marginRight: '16px', flexShrink: 0 }}>04</span>
+                                        How long does it take to deploy VRM Reality workflows?
+                                    </Accordion.Header>
                                     <Accordion.Body>
-                                        Turnaround times vary based on project requirements. Please <Link to="/contactus">contact us</Link> for a tailored implementation plan.
+                                        Turnaround times vary based on project requirements. Please <Link to="/contactus" style={{ color: '#3B4ECC', textDecoration: 'underline', fontWeight: '600' }}>contact us</Link> for a tailored implementation plan.
                                     </Accordion.Body>
                                 </Accordion.Item>
                                 <Accordion.Item eventKey="4">
-                                    <Accordion.Header>Do you serve builders in Chennai?</Accordion.Header>
+                                    <Accordion.Header>
+                                        <span style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '32px', height: '32px', borderRadius: '8px', background: 'rgba(59, 78, 204, 0.1)', color: '#3B4ECC', fontSize: '13px', fontWeight: '800', marginRight: '16px', flexShrink: 0 }}>05</span>
+                                        Do you serve builders in Chennai?
+                                    </Accordion.Header>
                                     <Accordion.Body>
                                         Yes. VRM AI Technology serves property developers in Chennai and across India. Delivery is remote from our Madurai engineering office, with on-site visits on request.
                                     </Accordion.Body>
                                 </Accordion.Item>
                             </Accordion>
+
+                            {/* International standard bottom helper card */}
+                            <div className="text-center mt--40 p-4" style={{ background: '#ffffff', borderRadius: '16px', border: '1px dashed #CBD5E1', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '15px', boxShadow: '0 4px 20px rgba(0, 0, 0, 0.02)' }}>
+                                <div className="text-start">
+                                    <h6 style={{ margin: 0, fontSize: '17px', fontWeight: '700', color: '#0F172A' }}>Have questions about custom workflows or integration?</h6>
+                                    <p style={{ margin: '4px 0 0 0', fontSize: '14px', color: '#64748B' }}>Speak with our real estate technology specialists for a tailored solution.</p>
+                                </div>
+                                <Link to="/contactus#send-message" className="vrm-blue-to-white-btn" style={{ padding: '12px 24px', fontSize: '14px' }}>
+                                    Contact Our Team <i className="far fa-arrow-right ms-2" style={{ fontSize: '12px' }}></i>
+                                </Link>
+                            </div>
                         </div>
                     </div>
                 </div>

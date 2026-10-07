@@ -897,8 +897,9 @@
 }
 
 .vrm-faq-accordion .accordion-button:focus {
-    box-shadow: none;
-    border-color: rgba(0, 0, 0, 0.125);
+    box-shadow: none !important;
+    outline: none !important;
+    border-color: transparent !important;
 }
 
 .vrm-faq-accordion .accordion-body {
