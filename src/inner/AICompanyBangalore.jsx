@@ -183,7 +183,7 @@ export default function AICompanyBangalore() {
                         <div className="col-lg-4 col-md-6 mb-4">
                             <div className="card h-100 p-4 border-0 shadow-sm rounded-4" style={{ background: '#ffffff' }}>
                                 <div className="mb-3 text-primary" style={{ fontSize: '28px' }}><i className="fas fa-microchip"></i></div>
-                                <h4 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '12px' }}>Generative AI &amp; LLM Engineering</h4>
+                                <h3 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '12px' }}>Generative AI &amp; LLM Engineering</h3>
                                 <p style={{ color: '#64748b', fontSize: '15px', lineHeight: '1.7' }}>
                                     Enterprise RAG systems, specialized fine-tuning, and semantic vector retrieval tailored to internal knowledge repositories and business workflows.
                                 </p>
@@ -193,7 +193,7 @@ export default function AICompanyBangalore() {
                         <div className="col-lg-4 col-md-6 mb-4">
                             <div className="card h-100 p-4 border-0 shadow-sm rounded-4" style={{ background: '#ffffff' }}>
                                 <div className="mb-3 text-primary" style={{ fontSize: '28px' }}><i className="fas fa-phone-volume"></i></div>
-                                <h4 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '12px' }}>Autonomous Voice AI Agents</h4>
+                                <h3 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '12px' }}>Autonomous Voice AI Agents</h3>
                                 <p style={{ color: '#64748b', fontSize: '15px', lineHeight: '1.7' }}>
                                     Ultra-low latency conversational voice agents capable of conducting natural outbound follow-ups, inbound service routing, and CRM synchronization.
                                 </p>
@@ -203,7 +203,7 @@ export default function AICompanyBangalore() {
                         <div className="col-lg-4 col-md-6 mb-4">
                             <div className="card h-100 p-4 border-0 shadow-sm rounded-4" style={{ background: '#ffffff' }}>
                                 <div className="mb-3 text-primary" style={{ fontSize: '28px' }}><i className="fas fa-layer-group"></i></div>
-                                <h4 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '12px' }}>Custom ML &amp; Enterprise Platforms</h4>
+                                <h3 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '12px' }}>Custom ML &amp; Enterprise Platforms</h3>
                                 <p style={{ color: '#64748b', fontSize: '15px', lineHeight: '1.7' }}>
                                     End-to-end machine learning infrastructure, predictive analytics, and automated recruitment workflows via our proprietary <Link to="/products/workflow">Workflow AI</Link> suite.
                                 </p>
