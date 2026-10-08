@@ -17718,24 +17718,37 @@ body.home-eleven #menu-btn:hover {
 
 .mainmenu li.has-droupdown>a {
   position: relative;
+  padding-right: 18px !important;
 }
 
 .mainmenu li.has-droupdown>a::before {
   content: "\f078" !important;
   position: absolute !important;
-  top: 51%;
-  font-family: "Font Awesome 5 Pro" !important;
-  right: -18px;
-  transform: translateY(-50%);
-  transition: 0.3s;
+  top: 50% !important;
+  right: 2px !important;
+  font-family: "Font Awesome 5 Pro", "Font Awesome 5 Free" !important;
+  font-weight: 900 !important;
+  transform: translateY(-50%) rotate(0deg) !important;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease !important;
+  pointer-events: none !important;
+  font-size: 11px !important;
+  line-height: 1 !important;
+  display: inline-block !important;
 }
 
+.mainmenu li.has-droupdown:hover>a,
 .mainmenu li.has-droupdown>a:hover {
   color: var(--color-primary);
 }
 
+.mainmenu li.has-droupdown:hover>a::before,
 .mainmenu li.has-droupdown>a:hover::before {
-  content: "\f077" !important;
+  content: "\f078" !important;
+  transform: translateY(-50%) rotate(180deg) !important;
+  color: var(--color-primary) !important;
+  font-family: "Font Awesome 5 Pro", "Font Awesome 5 Free" !important;
+  font-weight: 900 !important;
+  display: inline-block !important;
 }
 
 .mainmenu li.has-droupdown .submenu {
@@ -17984,9 +17997,19 @@ body.home-eleven #menu-btn:hover {
   color: var(--color-primary);
 }
 
-.nav-main ul li:hover a.nav-link::before {
-  color: var(--color-primary);
-  content: "\f077" !important;
+.nav-main ul li.has-droupdown:hover a.nav-link::before {
+  content: "\f078" !important;
+  transform: translateY(-50%) rotate(180deg) !important;
+  color: var(--color-primary) !important;
+  font-family: "Font Awesome 5 Pro", "Font Awesome 5 Free" !important;
+  font-weight: 900 !important;
+  display: inline-block !important;
+}
+
+.nav-main ul li:not(.has-droupdown) a.nav-link::before,
+.nav-main ul li:not(.has-droupdown):hover a.nav-link::before {
+  display: none !important;
+  content: none !important;
 }
 
 .nav-main ul li:hover a.nav-link::after {

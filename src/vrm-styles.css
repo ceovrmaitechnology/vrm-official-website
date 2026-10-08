@@ -152,12 +152,28 @@
 }
 
 @media (min-width: 992px) {
+    .header-one.header-transparent:not(.sticky) .mainmenu li a,
     .header-one.header-transparent.header-white-text:not(.sticky) .mainmenu li a {
         color: #000000 !important;
     }
 
+    .header-one.header-transparent:not(.sticky) .mainmenu li a:hover,
     .header-one.header-transparent.header-white-text:not(.sticky) .mainmenu li a:hover {
+        color: #3B4ECC !important;
+    }
+
+    .header-one.header-transparent:not(.sticky) .mainmenu li.has-droupdown > a::before,
+    .header-one.header-transparent:not(.sticky) .nav-main ul.mainmenu li.has-droupdown > a.nav-link::before,
+    .header-one.header-transparent.header-white-text:not(.sticky) .mainmenu li.has-droupdown > a::before,
+    .header-one.header-transparent.header-white-text:not(.sticky) .nav-main ul.mainmenu li.has-droupdown > a.nav-link::before {
         color: #000000 !important;
+    }
+
+    .header-one.header-transparent:not(.sticky) .mainmenu li.has-droupdown:hover > a::before,
+    .header-one.header-transparent:not(.sticky) .nav-main ul.mainmenu li.has-droupdown:hover > a.nav-link::before,
+    .header-one.header-transparent.header-white-text:not(.sticky) .mainmenu li.has-droupdown:hover > a::before,
+    .header-one.header-transparent.header-white-text:not(.sticky) .nav-main ul.mainmenu li.has-droupdown:hover > a.nav-link::before {
+        color: #3B4ECC !important;
     }
 }
 
@@ -841,9 +857,13 @@
     opacity: 0 !important;
 }
 
-/* Fix for navigation hover box */
-.nav-main ul li:hover a.nav-link::before {
+/* Explicitly suppress dropdown pseudo-elements on non-dropdown links */
+.nav-main ul li:not(.has-droupdown) a.nav-link::before,
+.nav-main ul li:not(.has-droupdown):hover a.nav-link::before,
+.mainmenu li:not(.has-droupdown) a::before,
+.mainmenu li:not(.has-droupdown):hover a::before {
     content: none !important;
+    display: none !important;
 }
 
 /* Button with solid text color on hover */
@@ -1368,6 +1388,7 @@
         position: absolute !important;
         background: transparent !important;
         box-shadow: none !important;
+        border-bottom: none !important;
         z-index: 99999 !important;
     }
 

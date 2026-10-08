@@ -7,7 +7,6 @@
     flex-direction: row !important;
     top: 100% !important;
     left: -100px;
-    /* Adjust based on parent position */
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
     border-radius: 0 0 12px 12px;
     overflow: hidden;
@@ -15,14 +14,94 @@
     visibility: hidden;
     position: absolute;
     z-index: 999;
-    transition: all 0.3s ease;
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease !important;
+    transform: translateY(6px);
+    pointer-events: none;
 }
 
-/* Parent hover effect to show mega menu */
+/* Invisible bridge: moving mouse from nav link down into mega-menu never breaks hover */
+.mega-menu-container::before {
+    content: "";
+    position: absolute;
+    top: -25px;
+    left: 0;
+    right: 0;
+    height: 25px;
+    background: transparent;
+    pointer-events: auto;
+}
+
+/* Parent hover effect to show mega menu smoothly */
 .mainmenu li.has-droupdown:hover .mega-menu-container {
-    opacity: 1;
-    visibility: visible;
-    top: 100%;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
+    pointer-events: auto !important;
+}
+
+/* Stable dropdown chevron: keep glyph rendered with font-weight 900 without tofu */
+.nav-main ul.mainmenu li.has-droupdown > a.nav-link {
+    position: relative !important;
+    padding-right: 18px !important;
+}
+
+.nav-main ul.mainmenu li.has-droupdown > a.nav-link::before {
+    content: "\f078" !important;
+    display: inline-block !important;
+    position: absolute !important;
+    top: 50% !important;
+    right: 2px !important;
+    font-family: "Font Awesome 5 Pro", "Font Awesome 5 Free" !important;
+    font-weight: 900 !important;
+    transform: translateY(-50%) rotate(0deg) !important;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease !important;
+    pointer-events: none !important;
+    font-size: 11px !important;
+    line-height: 1 !important;
+    color: #1c2539;
+}
+
+.nav-main ul.mainmenu li.has-droupdown:hover > a.nav-link::before {
+    transform: translateY(-50%) rotate(180deg) !important;
+    color: var(--color-primary) !important;
+    font-family: "Font Awesome 5 Pro", "Font Awesome 5 Free" !important;
+    font-weight: 900 !important;
+    content: "\f078" !important;
+}
+
+/* Ensure non-dropdown nav items (Home, Careers, About Us) never show dropdown chevrons */
+.nav-main ul.mainmenu li:not(.has-droupdown) > a.nav-link::before,
+.nav-main ul.mainmenu li:not(.has-droupdown):hover > a.nav-link::before,
+.mainmenu li:not(.has-droupdown) > a::before,
+.mainmenu li:not(.has-droupdown):hover > a::before {
+    display: none !important;
+    content: none !important;
+}
+
+/* Mouse focus removes outline, while keyboard navigation gets visible 2px brand outline */
+.nav-main a:focus:not(:focus-visible),
+.mainmenu a:focus:not(:focus-visible) {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.nav-main a:focus-visible,
+.mainmenu a:focus-visible {
+    outline: 2px solid #3B4ECC !important;
+    outline-offset: 2px !important;
+    border-radius: 4px;
+}
+
+/* Standard dropdowns (like Locations) position relative to their parent item */
+.nav-main ul.mainmenu > li:has(.submenu),
+.mainmenu > li:has(.submenu) {
+    position: relative !important;
+}
+
+.nav-main ul.mainmenu > li .submenu,
+.mainmenu > li .submenu {
+    left: 0 !important;
+    right: auto !important;
 }
 
 /* Solutions Mega Menu Specifics */
