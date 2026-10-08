@@ -17,7 +17,7 @@ function CodeSage() {
     }, []);
 
     const images = [
-        "/assets/images/workflow/codesage/codesage-image.png",
+        "/assets/images/workflow/codesage/codesage-image.webp",
         "/assets/images/workflow/codesage/codesage-image-2.png",
         "/assets/images/workflow/codesage/codesage-image-3.png",
         "/assets/images/workflow/codesage/codesage-image-4.png"
@@ -91,7 +91,7 @@ function CodeSage() {
                         </div>
                         <div className="col-lg-5">
                             <div className="banner-image-two wow fadeInUp" data-wow-delay=".3s">
-                                <img src="/assets/images/workflow/codesage/codesage-image.png" alt="CodeSage Interface" style={{ borderRadius: '20px', boxShadow: '0 20px 50px rgba(0,0,0,0.3)' }} loading="lazy" />
+                                <img src="/assets/images/workflow/codesage/codesage-image.webp" alt="CodeSage Interface" style={{ borderRadius: '20px', boxShadow: '0 20px 50px rgba(0,0,0,0.3)' }} width="600" height="600" decoding="async" loading="lazy" />
                             </div>
                         </div>
                     </div>

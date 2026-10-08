@@ -101,7 +101,7 @@ function Workflow() {
                     <div className="row g-5 align-items-center">
                         <div className="col-lg-6 wow fadeInLeft" data-wow-delay=".2s">
                             <div className="vrm-product-thumbnail">
-                                <img src="/assets/images/workflow/xpress-screening/xpress-screening-image.png" alt="Xpress Screening Resume Analysis Dashboard" loading="lazy" />
+                                <img src="/assets/images/workflow/xpress-screening/xpress-screening-image.webp" alt="Xpress Screening Resume Analysis Dashboard" width="600" height="600" decoding="async" loading="lazy" />
                             </div>
                         </div>
                         <div className="col-lg-6 wow fadeInRight" data-wow-delay=".2s">
@@ -128,7 +128,7 @@ function Workflow() {
                     <div className="row g-5 align-items-center">
                         <div className="col-lg-6 order-lg-2 wow fadeInRight" data-wow-delay=".2s">
                             <div className="vrm-product-thumbnail">
-                                <img src="/assets/images/workflow/screensage/screensage-image.png" alt="ScreenSage Interactive Interview Dashboard" loading="lazy" />
+                                <img src="/assets/images/workflow/screensage/screensage-image.webp" alt="ScreenSage Interactive Interview Dashboard" width="600" height="600" decoding="async" loading="lazy" />
                             </div>
                         </div>
                         <div className="col-lg-6 order-lg-1 wow fadeInLeft" data-wow-delay=".2s">
@@ -155,7 +155,7 @@ function Workflow() {
                     <div className="row g-5 align-items-center">
                         <div className="col-lg-6 wow fadeInLeft" data-wow-delay=".2s">
                             <div className="vrm-product-thumbnail">
-                                <img src="/assets/images/workflow/videosage/videosage-image-3.png" alt="VideoSage Asynchronous Interview Dashboard" loading="lazy" />
+                                <img src="/assets/images/workflow/videosage/videosage-image-3.webp" alt="VideoSage Asynchronous Interview Dashboard" width="600" height="600" decoding="async" loading="lazy" />
                             </div>
                         </div>
                         <div className="col-lg-6 wow fadeInRight" data-wow-delay=".2s">
@@ -182,7 +182,7 @@ function Workflow() {
                     <div className="row g-5 align-items-center">
                         <div className="col-lg-6 order-lg-2 wow fadeInRight" data-wow-delay=".2s">
                             <div className="vrm-product-thumbnail">
-                                <img src="/assets/images/workflow/codesage/codesage-image.png" alt="CodeSage Code Execution Interface" loading="lazy" />
+                                <img src="/assets/images/workflow/codesage/codesage-image.webp" alt="CodeSage Code Execution Interface" width="600" height="600" decoding="async" loading="lazy" />
                             </div>
                         </div>
                         <div className="col-lg-6 order-lg-1 wow fadeInLeft" data-wow-delay=".2s">

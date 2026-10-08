@@ -17,7 +17,7 @@ function AiExitInterview() {
     }, []);
 
     const images = [
-        "/assets/images/exitinterview/exitinterview-image.png",
+        "/assets/images/exitinterview/exitinterview-image.webp",
         "/assets/images/exitinterview/exitinterview-image-2.png",
         "/assets/images/exitinterview/exitinterview-image-3.png",
         "/assets/images/exitinterview/exitinterview-image-4.png"
@@ -87,7 +87,7 @@ function AiExitInterview() {
                         </div>
                         <div className="col-lg-5">
                             <div className="banner-image-two wow fadeInUp" data-wow-delay=".3s">
-                                <img src="/assets/images/exitinterview/exitinterview-image.png" alt="Exit Intelligence Operations Dashboard" style={{ borderRadius: '20px', boxShadow: '0 20px 50px rgba(0,0,0,0.3)' }} loading="lazy" />
+                                <img src="/assets/images/exitinterview/exitinterview-image.webp" alt="Exit Intelligence Operations Dashboard" style={{ borderRadius: '20px', boxShadow: '0 20px 50px rgba(0,0,0,0.3)' }} width="600" height="600" decoding="async" loading="lazy" />
                             </div>
                         </div>
                     </div>

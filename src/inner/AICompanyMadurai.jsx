@@ -184,7 +184,7 @@ export default function AICompanyMadurai() {
                         <div className="col-lg-4 col-md-6 mb-4">
                             <div className="card h-100 p-4 border-0 shadow-sm rounded-4" style={{ background: '#ffffff' }}>
                                 <div className="mb-3 text-primary" style={{ fontSize: '28px' }}><i className="fas fa-brain"></i></div>
-                                <h4 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '12px' }}>Custom Generative AI</h4>
+                                <h3 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '12px' }}>Custom Generative AI</h3>
                                 <p style={{ color: '#64748b', fontSize: '15px', lineHeight: '1.7' }}>
                                     We architect domain-adapted LLMs, Retrieval-Augmented Generation (RAG) engines, and custom enterprise knowledge bots tailored to proprietary business data.
                                 </p>
@@ -194,7 +194,7 @@ export default function AICompanyMadurai() {
                         <div className="col-lg-4 col-md-6 mb-4">
                             <div className="card h-100 p-4 border-0 shadow-sm rounded-4" style={{ background: '#ffffff' }}>
                                 <div className="mb-3 text-primary" style={{ fontSize: '28px' }}><i className="fas fa-headset"></i></div>
-                                <h4 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '12px' }}>AI Calling Agents &amp; Chatbots</h4>
+                                <h3 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '12px' }}>AI Calling Agents &amp; Chatbots</h3>
                                 <p style={{ color: '#64748b', fontSize: '15px', lineHeight: '1.7' }}>
                                     Build sub-second latency speech bots in English, Tamil, and Hindi that conduct automated customer qualification, appointment booking, and support resolution.
                                 </p>
@@ -204,7 +204,7 @@ export default function AICompanyMadurai() {
                         <div className="col-lg-4 col-md-6 mb-4">
                             <div className="card h-100 p-4 border-0 shadow-sm rounded-4" style={{ background: '#ffffff' }}>
                                 <div className="mb-3 text-primary" style={{ fontSize: '28px' }}><i className="fas fa-cogs"></i></div>
-                                <h4 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '12px' }}>Workflow Automation &amp; ML</h4>
+                                <h3 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '12px' }}>Workflow Automation &amp; ML</h3>
                                 <p style={{ color: '#64748b', fontSize: '15px', lineHeight: '1.7' }}>
                                     Automate multi-step operational pipelines with our proprietary platforms, including <Link to="/products/workflow">Workflow AI</Link> for recruitment screening and <Link to="/products/vrm-reality">VRM Reality</Link> for smart real estate discovery and agent CRM.
                                 </p>

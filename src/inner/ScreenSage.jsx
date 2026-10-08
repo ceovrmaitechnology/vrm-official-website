@@ -17,7 +17,7 @@ function ScreenSage() {
     }, []);
 
     const images = [
-        "/assets/images/workflow/screensage/screensage-image.png",
+        "/assets/images/workflow/screensage/screensage-image.webp",
         "/assets/images/workflow/screensage/screensage-gallery-1.png",
         "/assets/images/workflow/screensage/screensage-gallery-2.png",
         "/assets/images/workflow/screensage/screensage-gallery-3.png"
@@ -92,7 +92,7 @@ function ScreenSage() {
                         </div>
                         <div className="col-lg-5">
                             <div className="banner-image-two wow fadeInUp" data-wow-delay=".3s">
-                                <img src="/assets/images/workflow/screensage/screensage-image.png" alt="ScreenSage AI Dashboard" style={{ borderRadius: '20px', boxShadow: '0 20px 50px rgba(0,0,0,0.3)' }} loading="lazy" />
+                                <img src="/assets/images/workflow/screensage/screensage-image.webp" alt="ScreenSage AI Dashboard" style={{ borderRadius: '20px', boxShadow: '0 20px 50px rgba(0,0,0,0.3)' }} width="600" height="600" decoding="async" loading="lazy" />
                             </div>
                         </div>
                     </div>

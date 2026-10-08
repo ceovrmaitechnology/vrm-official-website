@@ -17,7 +17,7 @@ function AiBuddy() {
     }, []);
 
     const images = [
-        "/assets/images/aibuddy/aibuddy-image.png",
+        "/assets/images/aibuddy/aibuddy-image.webp",
         "/assets/images/aibuddy/aibuddy-image-2.png",
         "/assets/images/aibuddy/aibuddy-image-3.png",
         "/assets/images/aibuddy/aibuddy-image-4.png"
@@ -87,7 +87,7 @@ function AiBuddy() {
                         </div>
                         <div className="col-lg-5">
                             <div className="banner-image-two wow fadeInUp" data-wow-delay=".3s">
-                                <img src="/assets/images/aibuddy/aibuddy-image.png" alt="AI Buddy Employee Voice Training Dashboard" style={{ borderRadius: '20px', boxShadow: '0 20px 50px rgba(0,0,0,0.3)' }} loading="lazy" />
+                                <img src="/assets/images/aibuddy/aibuddy-image.webp" alt="AI Buddy Employee Voice Training Dashboard" style={{ borderRadius: '20px', boxShadow: '0 20px 50px rgba(0,0,0,0.3)' }} width="600" height="600" decoding="async" loading="lazy" />
                             </div>
                         </div>
                     </div>
