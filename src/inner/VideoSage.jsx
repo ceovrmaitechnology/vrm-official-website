@@ -17,7 +17,7 @@ function VideoSage() {
     }, []);
 
     const images = [
-        "/assets/images/workflow/videosage/videosage-image-3.png",
+        "/assets/images/workflow/videosage/videosage-image-3.webp",
         "/assets/images/workflow/videosage/videosage-image-2.png",
         "/assets/images/workflow/videosage/videosage-image-4.png",
         "/assets/images/workflow/videosage/videosage-image-5.png"
@@ -92,7 +92,7 @@ function VideoSage() {
                         </div>
                         <div className="col-lg-5">
                             <div className="banner-image-two wow fadeInUp" data-wow-delay=".3s">
-                                <img src="/assets/images/workflow/videosage/videosage-image-3.png" alt="VideoSage Interface" style={{ borderRadius: '20px', boxShadow: '0 20px 50px rgba(0,0,0,0.3)' }} loading="lazy" />
+                                <img src="/assets/images/workflow/videosage/videosage-image-3.webp" alt="VideoSage Interface" style={{ borderRadius: '20px', boxShadow: '0 20px 50px rgba(0,0,0,0.3)' }} width="600" height="600" decoding="async" loading="lazy" />
                             </div>
                         </div>
                     </div>

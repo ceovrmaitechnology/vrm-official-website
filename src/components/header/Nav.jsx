@@ -32,10 +32,10 @@ export default function Nav() {
         'ml-services': { title: "Machine Learning", description: "Advanced ML models to drive data-backed decisions.", link: "/solutions/machine-learning-services", linkText: "Learn More", image: "/assets/images/service/07.jpg" },
 
         // Products - Workflow AI Modules
-        'xpress-screening': { title: "Xpress Screening", description: "AI-powered resume screening that analyzes, matches, and ranks candidates to accelerate hiring and improve recruitment accuracy.", link: "/products/workflow/xpress-screening", linkText: "View Product", image: "/assets/images/workflow/xpress-screening/xpress-screening-image.png" },
-        'screensage': { title: "ScreenSage", description: "AI-powered voice interviews that automate candidate screening and deliver structured hiring insights through intelligent conversations.", link: "/products/workflow/screensage", linkText: "View Product", image: "/assets/images/workflow/screensage/screensage-image.png" },
-        'videosage': { title: "VideoSage", description: "AI-powered video interviews that evaluate communication, technical expertise, and behavioral skills for smarter hiring decisions.", link: "/products/workflow/videosage", linkText: "Book Demo", image: "/assets/images/workflow/videosage/videosage-image-3.png" },
-        'codesage': { title: "CodeSage", description: "AI-powered coding assessments and technical interviews with intelligent proctoring and comprehensive candidate evaluation.", link: "/products/workflow/codesage", linkText: "View Product", image: "/assets/images/workflow/codesage/codesage-image.png" },
+        'xpress-screening': { title: "Xpress Screening", description: "AI-powered resume screening that analyzes, matches, and ranks candidates to accelerate hiring and improve recruitment accuracy.", link: "/products/workflow/xpress-screening", linkText: "View Product", image: "/assets/images/workflow/xpress-screening/xpress-screening-image.webp" },
+        'screensage': { title: "ScreenSage", description: "AI-powered voice interviews that automate candidate screening and deliver structured hiring insights through intelligent conversations.", link: "/products/workflow/screensage", linkText: "View Product", image: "/assets/images/workflow/screensage/screensage-image.webp" },
+        'videosage': { title: "VideoSage", description: "AI-powered video interviews that evaluate communication, technical expertise, and behavioral skills for smarter hiring decisions.", link: "/products/workflow/videosage", linkText: "Book Demo", image: "/assets/images/workflow/videosage/videosage-image-3.webp" },
+        'codesage': { title: "CodeSage", description: "AI-powered coding assessments and technical interviews with intelligent proctoring and comprehensive candidate evaluation.", link: "/products/workflow/codesage", linkText: "View Product", image: "/assets/images/workflow/codesage/codesage-image.webp" },
 
         // Products - Standalone Engines
         'workflow': { title: "Workflow AI", description: "An enterprise AI platform that automates business workflows, streamlines operations, and orchestrates intelligent processes across the organization.", link: "/products/workflow", linkText: "View Product", image: "/assets/images/service/desk.jpg" },
@@ -44,7 +44,7 @@ export default function Nav() {
             description: "AI-powered language learning platform with personalized coaching, interactive voice practice, and multilingual communication training.", 
             link: "/products/aibuddy", 
             linkText: "View Product", 
-            image: "/assets/images/aibuddy/aibuddy-image.png",
+            image: "/assets/images/aibuddy/aibuddy-image.webp",
             features: [
                 "AI-Powered Language Coaching",
                 "Multi-Language Conversation Practice",
@@ -57,7 +57,7 @@ export default function Nav() {
             description: "AI-powered citizen engagement platform that modernizes public services through intelligent communication and digital governance.", 
             link: "/products/people-connect", 
             linkText: "View Product", 
-            image: "/assets/images/people-connect/people-connect-image.png",
+            image: "/assets/images/people-connect/people-connect-image.webp",
             features: [
                 "Citizen engagement portal",
                 "Real-time grievance tracking",
@@ -70,7 +70,7 @@ export default function Nav() {
             description: "AI-powered workforce intelligence that transforms employee feedback into actionable retention and organizational insights.", 
             link: "/products/exitinterview", 
             linkText: "View Product", 
-            image: "/assets/images/exitinterview/exitinterview-image.png",
+            image: "/assets/images/exitinterview/exitinterview-image.webp",
             features: [
                 "AI-Powered Exit Interviews",
                 "Employee Sentiment Analysis",
@@ -83,7 +83,7 @@ export default function Nav() {
             description: "Automate biometric security, liveness verification, and employee check-ins.", 
             link: "/products/visionix", 
             linkText: "View Product", 
-            image: "/assets/images/visionix/visionix-image.png",
+            image: "/assets/images/visionix/visionix-image.webp",
             features: [
                 "Real-time face recognition",
                 "Biometric gate integration",
@@ -96,7 +96,7 @@ export default function Nav() {
             description: "Smart real estate platform connecting buyers, sellers, and agents with map search, virtual Zoom visits, and built-in CRM.", 
             link: "/products/vrm-reality", 
             linkText: "View Product", 
-            image: "/assets/images/vrm-reality/vrm-reality-hero.png",
+            image: "/assets/images/vrm-reality/vrm-reality-hero.webp",
             features: [
                 "Map-First Property Search (Buy & Rent)",
                 "Physical & Virtual Zoom Tour Booking",

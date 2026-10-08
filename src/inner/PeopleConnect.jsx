@@ -17,7 +17,7 @@ function PeopleConnect() {
     }, []);
 
     const images = [
-        "/assets/images/people-connect/people-connect-image.png",
+        "/assets/images/people-connect/people-connect-image.webp",
         "/assets/images/people-connect/people-connect-image-2.png",
         "/assets/images/people-connect/people-connect-image-3.png",
         "/assets/images/people-connect/people-connect-image-4.png"
@@ -87,7 +87,7 @@ function PeopleConnect() {
                         </div>
                         <div className="col-lg-5">
                             <div className="banner-image-two wow fadeInUp" data-wow-delay=".3s">
-                                <img src="/assets/images/people-connect/people-connect-image.png" alt="People Connect Citizen Engagement Dashboard" style={{ borderRadius: '20px', boxShadow: '0 20px 50px rgba(0,0,0,0.3)' }} loading="lazy" />
+                                <img src="/assets/images/people-connect/people-connect-image.webp" alt="People Connect Citizen Engagement Dashboard" style={{ borderRadius: '20px', boxShadow: '0 20px 50px rgba(0,0,0,0.3)' }} width="600" height="600" decoding="async" loading="lazy" />
                             </div>
                         </div>
                     </div>

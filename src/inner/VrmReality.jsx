@@ -20,7 +20,7 @@ function VrmReality() {
     }, []);
 
     const productImages = [
-        "/assets/images/vrm-reality/vrm-reality-hero.png",
+        "/assets/images/vrm-reality/vrm-reality-hero.webp",
         "/assets/images/vrm-reality/vrm-reality-gallery-1.png",
         "/assets/images/vrm-reality/vrm-reality-gallery-2.png",
         "/assets/images/vrm-reality/vrm-reality-gallery-3.png"
@@ -227,7 +227,7 @@ function VrmReality() {
                         </div>
                         <div className="col-lg-5 mt-5 mt-lg-0">
                             <div className="banner-image-two wow fadeInUp" data-wow-delay=".3s">
-                                <img src={productImages[0]} alt="VRM Reality Real Estate Platform Dashboard" className="img-fluid rounded shadow" style={{ borderRadius: '20px', boxShadow: '0 20px 50px rgba(0,0,0,0.3)' }} loading="lazy" />
+                                <img src={productImages[0]} alt="VRM Reality Real Estate Platform Dashboard" className="img-fluid rounded shadow" style={{ borderRadius: '20px', boxShadow: '0 20px 50px rgba(0,0,0,0.3)' }} width="600" height="600" decoding="async" loading="lazy" />
                             </div>
                         </div>
                     </div>

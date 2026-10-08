@@ -32,7 +32,7 @@ function HomeOverview() {
                             title: "AI Development Services",
                             desc: "Building custom, high-performance AI solutions. From intelligent chatbots to machine learning models, we transform your complex business requirements into scalable, secure, and production-ready applications.",
                             link: "/solutions/ai-development-services",
-                            bgImage: "assets/images/about/2.jpeg"
+                            bgImage: "assets/images/about/2.webp"
                         },
                         {
                             id: 3,
@@ -40,7 +40,7 @@ function HomeOverview() {
                             title: "AI Chatbot Development",
                             desc: "Developing intelligent, conversational AI chatbots. We design custom NLP solutions, automate customer support, and deploy smart virtual assistants to enhance engagement across all channels.",
                             link: "/solutions/ai-chatbot-development",
-                            bgImage: "assets/images/about/04.jpg"
+                            bgImage: "assets/images/about/04.webp"
                         }
                     ].map((product) => (
                         <div key={product.id} className="vrm-product-card wow fadeInUp" data-wow-delay=".3s">
@@ -88,7 +88,7 @@ function HomeOverview() {
                                 title: "Xpress Screening",
                                 desc: "AI-powered resume screening that identifies, ranks, and matches the best candidates with speed and precision.",
                                 link: "/products/workflow/xpress-screening",
-                                bgImage: "assets/images/workflow/xpress-screening/xpress-screening-image.png"
+                                bgImage: "assets/images/workflow/xpress-screening/xpress-screening-image.webp"
                             },
                             {
                                 id: 2,
@@ -97,7 +97,7 @@ function HomeOverview() {
                                 title: "ScreenSage",
                                 desc: "Automated AI voice interviews that evaluate candidates and deliver structured hiring insights in real time.",
                                 link: "/products/workflow/screensage",
-                                bgImage: "assets/images/workflow/screensage/screensage-image.png"
+                                bgImage: "assets/images/workflow/screensage/screensage-image.webp"
                             },
                             {
                                 id: 3,
@@ -106,7 +106,7 @@ function HomeOverview() {
                                 title: "VideoSage",
                                 desc: "AI-driven video interviews that assess communication, confidence, and role readiness through intelligent analysis.",
                                 link: "/products/workflow/videosage",
-                                bgImage: "assets/images/workflow/videosage/videosage-image-3.png"
+                                bgImage: "assets/images/workflow/videosage/videosage-image-3.webp"
                             },
                             {
                                 id: 4,
@@ -115,7 +115,7 @@ function HomeOverview() {
                                 title: "CodeSage",
                                 desc: "AI-powered coding assessments with automated technical interviews, proctoring, and intelligent candidate evaluation in one unified platform.",
                                 link: "/products/workflow/codesage",
-                                bgImage: "assets/images/workflow/codesage/codesage-image.png"
+                                bgImage: "assets/images/workflow/codesage/codesage-image.webp"
                             }
                         ].map((product) => (
                             <div key={product.id} className="vrm-product-card wow fadeInUp" data-wow-delay=".3s">
@@ -162,7 +162,7 @@ function HomeOverview() {
                                 title: "People Connect (Global)",
                                 desc: "AI-powered citizen engagement platform connecting governments and communities through intelligent digital services.",
                                 link: "/products/people-connect",
-                                bgImage: "assets/images/people-connect/people-connect-image.png"
+                                bgImage: "assets/images/people-connect/people-connect-image.webp"
                             },
                             {
                                 id: 5,
@@ -171,7 +171,7 @@ function HomeOverview() {
                                 title: "AI Buddy",
                                 desc: "An intelligent AI language coach that helps users learn, practice, and communicate naturally in multiple languages with personalized AI coaching.",
                                 link: "/products/aibuddy",
-                                bgImage: "assets/images/aibuddy/aibuddy-image.png"
+                                bgImage: "assets/images/aibuddy/aibuddy-image.webp"
                             },
                             {
                                 id: 7,
@@ -180,7 +180,7 @@ function HomeOverview() {
                                 title: "Exit Intelligence",
                                 desc: "Transform employee exits into actionable workforce insights with AI-powered interviews and sentiment analysis.",
                                 link: "/products/exitinterview",
-                                bgImage: "assets/images/exitinterview/exitinterview-image.png"
+                                bgImage: "assets/images/exitinterview/exitinterview-image.webp"
                             },
                             {
                                 id: 9,
@@ -189,7 +189,7 @@ function HomeOverview() {
                                 title: "Visionix AI",
                                 desc: "Automate visual authentication, security tracking, and attendance management with Visionix AI face recognition engine.",
                                 link: "/products/visionix",
-                                bgImage: "assets/images/visionix/visionix-image.png"
+                                bgImage: "assets/images/visionix/visionix-image.webp"
                             },
                             {
                                 id: 10,
@@ -198,13 +198,16 @@ function HomeOverview() {
                                 title: "VRM Reality",
                                 desc: "Smart real estate platform connecting buyers, sellers, and agents with map search, virtual Zoom visits, and built-in agent CRM.",
                                 link: "/products/vrm-reality",
-                                bgImage: "assets/images/vrm-reality/vrm-reality-hero.png"
+                                bgImage: "assets/images/vrm-reality/vrm-reality-hero.webp"
                             }
                         ].map((product) => (
                             <div key={product.id} className="vrm-product-card wow fadeInUp" data-wow-delay=".3s">
                                 <div className="vrm-product-card-bg">
                                     <img src={product.bgImage} 
                                         alt={product.title} 
+                                        width="600"
+                                        height="600"
+                                        decoding="async"
                                         loading="lazy"
                                         style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", objectFit: "cover" }} 
                                     />
