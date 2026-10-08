@@ -297,18 +297,24 @@ function ProductsOverview() {
                     <div className="row g-5 align-items-center">
                         <div className="col-lg-6 wow fadeInLeft" data-wow-delay=".2s">
                             <div className="vrm-product-thumbnail">
-                                <img src="/assets/images/vrm-reality/vrm-reality-hero.png" alt="VRM Reality Automation Dashboard" loading="lazy" />
+                                <img src="/assets/images/vrm-reality/vrm-reality-hero.png" alt="VRM Reality Smart Real Estate Platform" loading="lazy" />
                             </div>
                         </div>
                         <div className="col-lg-6 wow fadeInRight" data-wow-delay=".2s">
                             <div className="about-inner">
                                 <div className="rts-title-area" data-text="VRM Reality">
-                                    <span className="pre-title" style={{ color: '#3B4ECC', display: 'block', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '13px', fontWeight: '700', marginBottom: '5px' }}>Real Estate Offering</span>
+                                    <span className="pre-title" style={{ color: '#3B4ECC', display: 'block', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '13px', fontWeight: '700', marginBottom: '5px' }}>PropTech & Real Estate CRM</span>
                                     <h2 className="title">VRM Reality</h2>
                                 </div>
                                 <p className="disc">
-                                    VRM Reality is a premium real estate offering from VRM AI Technology, supported by AI-powered automation.
+                                    All-in-one real estate platform connecting buyers, sellers, and agents into a unified workflow. Features map-first search, Rent & Buy filters, physical & virtual Zoom tour scheduling, and a built-in agent CRM.
                                 </p>
+                                <ul style={{ paddingLeft: '20px', marginBottom: '20px', color: '#555', fontSize: '14px', lineHeight: '1.8' }}>
+                                    <li><i className="far fa-check-circle me-2" style={{ color: '#3B4ECC' }}></i>Map-first property search with Rent & Buy filters</li>
+                                    <li><i className="far fa-check-circle me-2" style={{ color: '#3B4ECC' }}></i>Book physical site visits or virtual Zoom tours</li>
+                                    <li><i className="far fa-check-circle me-2" style={{ color: '#3B4ECC' }}></i>AI-assisted instant enquiry response system</li>
+                                    <li><i className="far fa-check-circle me-2" style={{ color: '#3B4ECC' }}></i>Built-in agent CRM with complete pipeline tracking</li>
+                                </ul>
                                 <Link className="vrm-btn-product-blue" to="/products/vrm-reality">
                                     Learn More <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>
                                 </Link>

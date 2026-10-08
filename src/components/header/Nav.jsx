@@ -93,15 +93,15 @@ export default function Nav() {
         },
         'vevora': { 
             title: "VRM Reality", 
-            description: "Premium real estate offering from VRM AI Technology, supported by AI-powered automation.", 
+            description: "Smart real estate platform connecting buyers, sellers, and agents with map search, virtual Zoom visits, and built-in CRM.", 
             link: "/products/vrm-reality", 
             linkText: "View Product", 
             image: "/assets/images/vrm-reality/vrm-reality-hero.png",
             features: [
-                "AI-Powered WhatsApp Bot",
-                "Smart Lead Scoring (HOT/WARM/COLD)",
-                "Automated Site Visit Scheduling",
-                "Real-Time CRM & Lead Sync"
+                "Map-First Property Search (Buy & Rent)",
+                "Physical & Virtual Zoom Tour Booking",
+                "AI-Assisted Fast Enquiry Handling",
+                "Built-in Agent CRM & Lead Status Pipeline"
             ]
         },
         'b2d': {

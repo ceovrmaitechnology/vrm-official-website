@@ -194,9 +194,9 @@ function HomeOverview() {
                             {
                                 id: 10,
                                 icon: "assets/images/service/icon/01.svg",
-                                category: "Real Estate Automation",
+                                category: "PropTech & Real Estate CRM",
                                 title: "VRM Reality",
-                                desc: "AI-powered real estate platform connecting buyer conversations, lead qualification, site visits, and agent operations.",
+                                desc: "Smart real estate platform connecting buyers, sellers, and agents with map search, virtual Zoom visits, and built-in agent CRM.",
                                 link: "/products/vrm-reality",
                                 bgImage: "assets/images/vrm-reality/vrm-reality-hero.png"
                             }
