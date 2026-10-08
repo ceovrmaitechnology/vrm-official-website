@@ -81,7 +81,7 @@ function BannerOne() {
                 ) : (
                     <img
                         src="/assets/images/home/home-2.webp"
-                        srcSet="/assets/images/home/home-2-600.webp 600w, /assets/images/home/home-2.webp 1200w"
+                        srcSet="/assets/images/home/home-2-600.webp 600w, /assets/images/home/home-2-900.webp 900w, /assets/images/home/home-2.webp 1200w"
                         sizes="(max-width: 768px) 100vw, 1200px"
                         alt="VRM AI Technology Software Solutions"
                         fetchpriority="high"
