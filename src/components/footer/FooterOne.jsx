@@ -39,7 +39,7 @@ function FooterOne() {
                             </p>
                             <div className="vrm-footer-address">
                                 <div style={{ marginBottom: '12px' }}>
-                                    <h4 style={{ fontSize: '14px', marginBottom: '4px', color: '#11142c', fontWeight: '700' }}>Development Center (Staffed Office)</h4>
+                                    <div style={{ fontSize: '14px', marginBottom: '4px', color: '#11142c', fontWeight: '700' }}>Development Center (Staffed Office)</div>
                                     <p style={{ fontSize: '13px', lineHeight: '1.6', margin: 0, color: '#555' }}>
                                         VRM AI Technology (OPC) Pvt.Ltd<br />
                                         Door No,209, 1ST Floor, No.147, 5th St,<br />
@@ -48,7 +48,7 @@ function FooterOne() {
                                     </p>
                                 </div>
                                 <div>
-                                    <h4 style={{ fontSize: '14px', marginBottom: '4px', color: '#11142c', fontWeight: '700' }}>Headquarters / Registered Office</h4>
+                                    <div style={{ fontSize: '14px', marginBottom: '4px', color: '#11142c', fontWeight: '700' }}>Headquarters / Registered Office</div>
                                     <p style={{ fontSize: '13px', lineHeight: '1.6', margin: 0, color: '#555' }}>
                                         VRM AI Technology (OPC) Pvt.Ltd<br />
                                         GoodWorks Infinity Park, 21, 2nd Main Rd,<br />
@@ -72,7 +72,7 @@ function FooterOne() {
                     {/* Column 2: Contact */}
                     <div className="col-xl-2 col-lg-2 col-md-6 col-sm-12">
                         <div className="vrm-footer-widget">
-                            <h5 className="vrm-footer-title">Contact</h5>
+                            <h3 className="vrm-footer-title">Contact</h3>
                             <ul className="vrm-footer-links">
                                 <li className="vrm-contact-link">
                                     <span className="vrm-contact-label">Email</span>
@@ -92,12 +92,12 @@ function FooterOne() {
                                 </li>
                             </ul>
                             <div className="vrm-footer-global mt-4">
-                                <h6>Locations</h6>
+                                <h4>Locations</h4>
                                 <ul className="vrm-footer-links" style={{ listStyle: 'none', paddingLeft: 0, marginTop: '8px' }}>
                                     <li style={{ marginBottom: '6px' }}><Link to="/ai-company-bangalore" style={{ fontSize: '13px' }}>Bengaluru, India (Registered Office)</Link></li>
                                     <li style={{ marginBottom: '6px' }}><Link to="/ai-company-madurai" style={{ fontSize: '13px' }}>Madurai, India (Development Center)</Link></li>
                                 </ul>
-                                <h6 style={{ marginTop: '16px' }}>Service Areas</h6>
+                                <h4 style={{ marginTop: '16px' }}>Service Areas</h4>
                                 <ul className="vrm-footer-links" style={{ listStyle: 'none', paddingLeft: 0, marginTop: '8px' }}>
                                     <li style={{ marginBottom: '6px' }}><Link to="/ai-company-tamil-nadu" style={{ fontSize: '13px' }}>Tamil Nadu</Link></li>
                                     <li style={{ marginBottom: '0px' }}><Link to="/ai-innovation-india" style={{ fontSize: '13px' }}>Pan-India Services</Link></li>
@@ -109,22 +109,22 @@ function FooterOne() {
                     {/* Column 3: Solutions */}
                     <div className="col-lg-2 col-md-6 col-sm-12">
                         <div className="vrm-footer-widget vrm-footer-widget-solutions">
-                            <h5 className="vrm-footer-title">Solutions</h5>
+                            <h3 className="vrm-footer-title">Solutions</h3>
 
                             
 
-                            <h6 className="vrm-footer-sub-title">AI Development</h6>
+                            <h4 className="vrm-footer-sub-title">AI Development</h4>
                             <ul className="vrm-footer-links">
-                                <li><Link to="/generative-ai-development">Generative AI</Link></li>
-                                <li><Link to="/ai-chatbot-development">AI Chatbots</Link></li>
-                                <li><Link to="/solutions/ai-development-services">AI Development Services</Link></li>
+                                <li className="vrm-contact-link"><Link to="/generative-ai-development">Generative AI</Link></li>
+                                <li className="vrm-contact-link"><Link to="/ai-chatbot-development">AI Chatbots</Link></li>
+                                <li className="vrm-contact-link"><Link to="/solutions/ai-development-services">AI Development Services</Link></li>
                             </ul>
 
-                            <h6 className="vrm-footer-sub-title">AI &amp; Speech</h6>
+                            <h4 className="vrm-footer-sub-title">AI &amp; Speech</h4>
                             <ul className="vrm-footer-links">
-                                <li><Link to="/voice-ai-solutions">Voice AI Solutions</Link></li>
-                                <li><Link to="/solutions/ai-calling-agent">AI Calling Agent</Link></li>
-                                <li><Link to="/solutions/machine-learning-services">Machine Learning Services</Link></li>
+                                <li className="vrm-contact-link"><Link to="/voice-ai-solutions">Voice AI Solutions</Link></li>
+                                <li className="vrm-contact-link"><Link to="/solutions/ai-calling-agent">AI Calling Agent</Link></li>
+                                <li className="vrm-contact-link"><Link to="/solutions/machine-learning-services">Machine Learning Services</Link></li>
                             </ul>
                         </div>
                     </div>
@@ -132,7 +132,7 @@ function FooterOne() {
                     {/* Column 4: Products */}
                     <div className="col-lg-2 col-md-6 col-sm-12">
                         <div className="vrm-footer-widget vrm-footer-widget-products">
-                            <h5 className="vrm-footer-title">Products</h5>
+                            <h3 className="vrm-footer-title">Products</h3>
                              <ul className="vrm-footer-links">
                                 <li className="vrm-footer-dropdown" style={{ marginBottom: '18px' }}>
                                     <div style={{ display: 'inline-flex', alignItems: 'center' }}>
@@ -191,7 +191,7 @@ function FooterOne() {
                     {/* Column 5: Organization & Quality & Compliance */}
                     <div className="col-xl-3 col-lg-3 col-md-6 col-sm-12">
                         <div className="vrm-footer-widget vrm-footer-widget-organization">
-                            <h5 className="vrm-footer-title">Organization</h5>
+                            <h3 className="vrm-footer-title">Organization</h3>
                             <ul className="vrm-footer-links">
                                 <li><Link to="/about-us">About Us</Link></li>
                                 <li><Link to="/careers">Careers</Link></li>
@@ -202,7 +202,7 @@ function FooterOne() {
                             </ul>
 
                             {/* CHANGE 1 — CREATE A "QUALITY & COMPLIANCE" AREA */}
-                            <h5 className="vrm-footer-title" style={{ marginTop: '24px', marginBottom: '12px' }}>Quality & Compliance</h5>
+                            <h3 className="vrm-footer-title" style={{ marginTop: '24px', marginBottom: '12px' }}>Quality & Compliance</h3>
 
                             {/* CHANGE 2 & 3 — ISO CERTIFICATION CARD */}
                             <div className="vrm-footer-iso-box">
@@ -210,7 +210,7 @@ function FooterOne() {
                                     <IsoSealBadge size={52} dark={true} />
                                 </div>
                                 <div className="vrm-footer-iso-text">
-                                    <h6 className="vrm-footer-iso-title">ISO 9001:2015 Certified</h6>
+                                    <h4 className="vrm-footer-iso-title">ISO 9001:2015 Certified</h4>
                                     <div className="vrm-footer-iso-subtitle">Quality Management System</div>
                                     <div className="vrm-footer-iso-num">Certificate No. E20260749630</div>
                                     <div className="vrm-footer-iso-num">Valid through 20 July 2029</div>
