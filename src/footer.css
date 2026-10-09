@@ -74,6 +74,8 @@
 }
 
 .vrm-footer-address h6,
+.vrm-footer-global h4,
+.vrm-footer-global h5,
 .vrm-footer-global h6 {
     color: #11142c;
     font-size: 15px;
@@ -318,6 +320,8 @@ a.vrm-footer-sub-title:hover {
 }
 
 .vrm-footer-address h6,
+.vrm-footer-global h4,
+.vrm-footer-global h5,
 .vrm-footer-global h6,
 .vrm-footer-global p {
     color: #11142c;

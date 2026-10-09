@@ -57,7 +57,7 @@ function HomeOverview() {
                                 <div className="vrm-hero__icon">
                                     <img src={product.icon} alt={product.title} loading="lazy" />
                                 </div>
-                                <h3>{product.title}</h3>
+                                <h2>{product.title}</h2>
                                 <p>{product.desc}</p>
                                 <Link className="vrm-btn-detail" to={product.link}>
                                     Know More<i className="fas fa-arrow-right"></i>

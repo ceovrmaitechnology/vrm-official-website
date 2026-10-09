@@ -33,7 +33,7 @@ function HomeOne() {
         <meta property="og:description" content="VRM AI Technology is an AI software company in Bengaluru &amp; Madurai building GenAI platforms, conversational chatbots, voice agents, and ML systems." />
         <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
         <link rel="canonical" href="https://www.vrmaitechnology.com/" />
-        <link rel="preload" as="image" href="/assets/images/home/home-2.webp" imagesrcset="/assets/images/home/home-2-600.webp 600w, /assets/images/home/home-2.webp 1200w" imagesizes="(max-width: 768px) 100vw, 1200px" type="image/webp" fetchpriority="high" />
+        <link rel="preload" as="image" href="/assets/images/home/home-2-600.webp" imagesrcset="/assets/images/home/home-2-600.webp 600w, /assets/images/home/home-2-900.webp 900w, /assets/images/home/home-2.webp 1200w" imagesizes="(max-width: 768px) 100vw, 1200px" fetchpriority="high" />
       
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="AI Software Company in Bengaluru &amp; Madurai | VRM AI Technology" />

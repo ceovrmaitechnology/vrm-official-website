@@ -204,6 +204,7 @@
         padding: 24px 20px;
         min-height: auto;
     }
+    .vrm-product-card h2,
     .vrm-product-card h3 {
         font-size: 20px !important;
     }
@@ -222,6 +223,7 @@
         padding: 20px 16px;
         border-radius: 10px;
     }
+    .vrm-product-card h2,
     .vrm-product-card h3 {
         font-size: 18px !important;
     }
@@ -257,6 +259,7 @@
 }
 
 /* Ensure text readability against higher opacity image on hover */
+.vrm-product-card:hover h2,
 .vrm-product-card:hover h3,
 .vrm-product-card:hover p,
 .vrm-product-card:hover .vrm-btn-detail {
@@ -286,6 +289,7 @@
     object-fit: contain;
 }
 
+.vrm-product-card h2,
 .vrm-product-card h3 {
     font-size: 22px;
     font-weight: 700;
