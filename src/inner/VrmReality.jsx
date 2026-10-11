@@ -216,16 +216,10 @@ function VrmReality() {
                                 <p className="disc text-white-50 mt-4 wow fadeInUp" data-wow-delay=".3s" style={{ fontSize: '18px', lineHeight: '1.7' }}>
                                     An end-to-end real estate platform connecting Buyers, Sellers, and Agents into a unified workflow. Explore properties through map-first search, book physical site visits or virtual Zoom tours, and close deals faster with AI-assisted enquiry handling and a built-in agent CRM.
                                 </p>
-                                <p className="text-white-50 mt-3 wow fadeInUp" data-wow-delay=".35s">
-                                    Developed at our <Link to="/ai-company-madurai" className="text-white text-decoration-underline">Madurai development center</Link> and Bengaluru headquarters, empowering real estate developers, agencies, and buyers across India.
-                                </p>
                                 <div className="button-area mt-4 wow fadeInUp d-flex flex-wrap gap-3 align-items-center" data-wow-delay=".4s">
                                     <Link to="/contactus#send-message" className="vrm-blue-to-white-btn">
                                         Schedule a Demo <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>
                                     </Link>
-                                    <a href="#ecosystem" className="btn btn-outline-light" style={{ padding: '14px 28px', borderRadius: '8px', fontWeight: '600' }}>
-                                        Explore Platform
-                                    </a>
                                 </div>
                             </div>
                         </div>

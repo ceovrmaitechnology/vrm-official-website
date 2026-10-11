@@ -39,7 +39,7 @@ function FooterOne() {
                             </p>
                             <div className="vrm-footer-address">
                                 <div style={{ marginBottom: '12px' }}>
-                                    <div style={{ fontSize: '14px', marginBottom: '4px', color: '#11142c', fontWeight: '700' }}>Development Center (Staffed Office)</div>
+                                    <div style={{ fontSize: '14px', marginBottom: '4px', color: '#11142c', fontWeight: '700' }}>Development Center (ODC)</div>
                                     <p style={{ fontSize: '13px', lineHeight: '1.6', margin: 0, color: '#555' }}>
                                         VRM AI Technology (OPC) Pvt.Ltd<br />
                                         Door No,209, 1ST Floor, No.147, 5th St,<br />
@@ -48,7 +48,7 @@ function FooterOne() {
                                     </p>
                                 </div>
                                 <div>
-                                    <div style={{ fontSize: '14px', marginBottom: '4px', color: '#11142c', fontWeight: '700' }}>Headquarters / Registered Office</div>
+                                    <div style={{ fontSize: '14px', marginBottom: '4px', color: '#11142c', fontWeight: '700' }}>Headquarter</div>
                                     <p style={{ fontSize: '13px', lineHeight: '1.6', margin: 0, color: '#555' }}>
                                         VRM AI Technology (OPC) Pvt.Ltd<br />
                                         GoodWorks Infinity Park, 21, 2nd Main Rd,<br />

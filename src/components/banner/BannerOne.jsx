@@ -1,13 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 
 function BannerOne() {
+    const videoRef = useRef(null);
     const [dims, setDims] = useState({
         w: typeof window !== "undefined" ? window.innerWidth : 1440,
         h: typeof window !== "undefined" ? window.innerHeight : 900,
     });
 
     const [hasHydrated, setHasHydrated] = useState(false);
+    const [canLoadVideo, setCanLoadVideo] = useState(false);
+    const [isVideoPlaying, setIsVideoPlaying] = useState(false);
 
     useEffect(() => {
         if (typeof window !== 'undefined' && window.navigator.userAgent.includes('HeadlessChrome')) return;
@@ -17,6 +20,36 @@ function BannerOne() {
         window.addEventListener("resize", onResize);
         return () => window.removeEventListener("resize", onResize);
     }, []);
+
+    useEffect(() => {
+        if (!hasHydrated) return;
+
+        const enableVideo = () => setCanLoadVideo(true);
+
+        if (document.readyState === 'complete') {
+            if ('requestIdleCallback' in window) {
+                window.requestIdleCallback(enableVideo, { timeout: 1500 });
+            } else {
+                setTimeout(enableVideo, 1500);
+            }
+        } else {
+            const onLoad = () => {
+                if ('requestIdleCallback' in window) {
+                    window.requestIdleCallback(enableVideo, { timeout: 1500 });
+                } else {
+                    setTimeout(enableVideo, 1500);
+                }
+            };
+            window.addEventListener('load', onLoad, { once: true });
+            return () => window.removeEventListener('load', onLoad);
+        }
+    }, [hasHydrated]);
+
+    useEffect(() => {
+        if (canLoadVideo && videoRef.current) {
+            videoRef.current.play().catch(() => {});
+        }
+    }, [canLoadVideo]);
 
     const { w, h } = dims;
     const isDesktop = w > 768;
@@ -33,6 +66,10 @@ function BannerOne() {
         : `${Math.round(Math.max(w * (9 / 16), h * 0.50))}px`;
 
     const paddingBottom = w >= 768 ? "48px" : "24px";
+
+    const posterSrc = w <= 768
+        ? "/assets/images/home/home-2-600.webp"
+        : "/assets/images/home/home-2.webp";
 
     return (
         <div style={{ width: "100%", overflow: "hidden" }}>
@@ -52,40 +89,39 @@ function BannerOne() {
                     boxSizing: "border-box",
                 }}
             >
-                {isDesktop && hasHydrated ? (
+                {/* ALWAYS render responsive <img> as LCP element and base poster */}
+                <img
+                    src="/assets/images/home/home-2.webp"
+                    srcSet="/assets/images/home/home-2-600.webp 600w, /assets/images/home/home-2-900.webp 900w, /assets/images/home/home-2.webp 1200w"
+                    sizes="(max-width: 768px) 100vw, 1200px"
+                    alt="VRM AI Technology Software Solutions"
+                    fetchpriority="high"
+                    decoding="async"
+                    style={{
+                        position: "absolute",
+                        top: "50%",
+                        left: "50%",
+                        width: "100%",
+                        height: "100%",
+                        transform: "translate(-50%, -50%)",
+                        objectFit: w >= 768 ? "cover" : "contain",
+                        objectPosition: "center center",
+                        display: "block",
+                        zIndex: 1,
+                    }}
+                />
+
+                {/* Looping hero video on desktop AND mobile after hydration */}
+                {hasHydrated && canLoadVideo && (
                     <video
+                        ref={videoRef}
                         autoPlay
                         loop
                         muted
                         playsInline
                         preload="metadata"
-                        poster="/assets/images/home/home-2.webp"
-                        style={{
-                            position: "absolute",
-                            top: "50%",
-                            left: "50%",
-                            width: "100%",
-                            height: "100%",
-                            transform: "translate(-50%, -50%)",
-                            objectFit: "cover",
-                            objectPosition: "center center",
-                            display: "block",
-                            zIndex: 1,
-                        }}
-                    >
-                        <source
-                            src="/assets/images/home/vrm-hero-video.mp4"
-                            type="video/mp4"
-                        />
-                    </video>
-                ) : (
-                    <img
-                        src="/assets/images/home/home-2.webp"
-                        srcSet="/assets/images/home/home-2-600.webp 600w, /assets/images/home/home-2-900.webp 900w, /assets/images/home/home-2.webp 1200w"
-                        sizes="(max-width: 768px) 100vw, 1200px"
-                        alt="VRM AI Technology Software Solutions"
-                        fetchpriority="high"
-                        decoding="async"
+                        poster={posterSrc}
+                        onPlaying={() => setIsVideoPlaying(true)}
                         style={{
                             position: "absolute",
                             top: "50%",
@@ -96,9 +132,16 @@ function BannerOne() {
                             objectFit: w >= 768 ? "cover" : "contain",
                             objectPosition: "center center",
                             display: "block",
-                            zIndex: 1,
+                            zIndex: 2,
+                            opacity: isVideoPlaying ? 1 : 0,
+                            transition: "opacity 0.6s ease",
                         }}
-                    />
+                    >
+                        <source
+                            src="/assets/images/home/vrm-hero-video.mp4"
+                            type="video/mp4"
+                        />
+                    </video>
                 )}
 
                 {/* Know More Button — anchored to bottom */}
@@ -106,7 +149,7 @@ function BannerOne() {
                     className="container"
                     style={{
                         position: "relative",
-                        zIndex: 2,
+                        zIndex: 3,
                         width: "100%",
                         padding: "0 15px",
                         textAlign: "center",
