@@ -132,7 +132,30 @@ const path = require('path');
       // Extra settle for any remaining async renders
       await new Promise(r => setTimeout(r, 400));
 
+      const deferredTargets = [
+        '/plugins/swiper.min.css',
+        '/plugins/animate.min.css',
+        '/plugins/unicons.css',
+        'fonts.googleapis.com'
+      ];
+
       const html = await page.content();
+      const finalHtml = html.replace(/<link\s+[^>]*rel=["']stylesheet["'][^>]*>/gi, (linkTag) => {
+        const isTarget = deferredTargets.some(target => linkTag.includes(target));
+        if (!isTarget) return linkTag;
+
+        // Keep noscript twins untouched (they have neither onload nor media)
+        if (!/\bonload=/i.test(linkTag) && !/\bmedia=/i.test(linkTag)) {
+          return linkTag;
+        }
+
+        let updated = linkTag;
+        updated = updated.replace(/\bmedia=["']all["']/i, 'media="print"');
+        updated = updated.replace(/\bonload=["']this\.media=(?:&quot;|["'])all(?:&quot;|["'])["']/i, `onload="this.media='all'"`);
+
+        return updated;
+      });
+
       let outPath;
       if (route === '/' || route === '') {
         outPath = path.join(buildDir, 'index.html');
@@ -145,7 +168,7 @@ const path = require('path');
         outPath = path.join(targetDir, 'index.html');
       }
 
-      fs.writeFileSync(outPath, html, 'utf8');
+      fs.writeFileSync(outPath, finalHtml, 'utf8');
       successCount++;
       console.log(`[PRERENDER ${successCount}/${routes.length}] ${route} -> ${path.relative(buildDir, outPath)}`);
     } catch (err) {
