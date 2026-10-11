@@ -403,14 +403,6 @@ export default function Nav() {
                         </div>
                     </li>
 
-                    <li className="has-droupdown">
-                        <Link className="nav-link" to={'/ai-company-madurai'}>Locations</Link>
-                        <ul className="submenu">
-                            <li><Link to={'/ai-company-madurai'}>AI Company in Madurai</Link></li>
-                            <li><Link to={'/ai-company-bangalore'}>AI Company in Bengaluru</Link></li>
-                            
-                        </ul>
-                    </li>
                     <li><Link className="nav-link" to={'/careers'}>Careers</Link></li>
                     <li><Link className="nav-link" to={'/about-us'}>About Us</Link></li>
 

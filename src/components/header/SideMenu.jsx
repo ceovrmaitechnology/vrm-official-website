@@ -100,17 +100,6 @@ function SideMenu({ isSidebarOpen, toggleSidebar }) {
                                     </ul>
                                 </li>
 
-                                <li className="has-droupdown menu-item">
-                                    <Link className={`menu-link ${openMenu === 3 ? 'open' : ''}`} to={'#'} onClick={(e) => { e.preventDefault(); e.stopPropagation(); toggleMenu(3); }}>
-                                        Locations
-                                    </Link>
-                                    <ul className={`submenu ${openMenu === 3 ? 'active' : ''}`}>
-                                        <li className="mobile-menu-link"><Link to={'/ai-company-madurai'} onClick={toggleSidebar}>AI Company in Madurai</Link></li>
-                                        <li className="mobile-menu-link"><Link to={'/ai-company-bangalore'} onClick={toggleSidebar}>AI Company in Bengaluru</Link></li>
-                                        
-                                    </ul>
-                                </li>
-
                                 <li className="menu-item">
                                     <Link className="menu-link" to={'/careers'} onClick={toggleSidebar}>
                                         Careers
