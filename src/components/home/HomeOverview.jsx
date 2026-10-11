@@ -42,16 +42,17 @@ function HomeOverview() {
                             link: "/solutions/ai-chatbot-development",
                             bgImage: "assets/images/about/04.webp"
                         }
-                    ].map((product) => (
+                    ].map((product, index) => (
                         <div key={product.id} className="vrm-product-card wow fadeInUp" data-wow-delay=".3s">
                             <div className="vrm-product-card-bg">
                                 <img src={product.bgImage} 
                                     alt={product.title} 
-                                    fetchpriority={product.id === 1 ? "high" : "auto"}
+                                    fetchpriority={index === 0 ? "high" : "auto"}
+                                    decoding={index === 0 ? "async" : undefined}
                                     style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", objectFit: "cover" }} 
                                     width="346" 
                                     height="346" 
-                                loading="lazy" />
+                                    loading={index === 0 ? undefined : "lazy"} />
                             </div>
                             <div className="vrm-product-card__content">
                                 <div className="vrm-hero__icon">
