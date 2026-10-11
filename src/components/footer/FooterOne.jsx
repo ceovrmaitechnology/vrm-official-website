@@ -182,7 +182,7 @@ function FooterOne() {
                                     <Link to="/products/vrm-reality" style={{ fontWeight: '700', color: '#11142c', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>VRM Reality</Link>
                                 </li>
                                 <li style={{ marginBottom: '0px' }}>
-                                    <Link to="/products#bench-to-deploy" style={{ fontWeight: '700', color: '#11142c', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Bench to Deploy (B2D)</Link>
+                                    <Link to="/products/bench-to-deploy" style={{ fontWeight: '700', color: '#11142c', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Bench to Deploy (B2D)</Link>
                                 </li>
                             </ul>
                         </div>

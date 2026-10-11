@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import ProductVideo from '../components/common/ProductVideo';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import HeaderOne from "../components/header/HeaderOne";
@@ -17,7 +18,7 @@ function XpressScreening() {
     }, []);
 
     const images = [
-        "/assets/images/workflow/xpress-screening/xpress-screening-image.webp",
+        "/assets/images/workflow/xpress-screening/xpress-screening-promo-poster.jpg",
         "/assets/images/workflow/xpress-screening/xpress-screening-image-2.png",
         "/assets/images/workflow/xpress-screening/xpress-screening-image-3.png",
         "/assets/images/workflow/xpress-screening/xpress-screening-image-4.png"
@@ -145,11 +146,12 @@ function XpressScreening() {
                     </div>
                     <div className="row justify-content-center">
                         <div className="col-lg-10">
-                            <div className="video-wrapper wow fadeInUp" data-wow-delay=".3s" style={{ borderRadius: '20px', overflow: 'hidden', boxShadow: '0 20px 60px rgba(0,0,0,0.15)' }}>
-                                <video width="100%" controls preload="none">
-                                    <source src="/assets/images/workflow/xpress-screening/xpress-screening-promo.mp4" type="video/mp4" />
-                                    Your browser does not support the video tag.
-                                </video>
+                            <div className="wow fadeInUp" data-wow-delay=".3s">
+                                <ProductVideo
+                                    src="/assets/images/workflow/xpress-screening/xpress-screening-promo.mp4"
+                                    poster="/assets/images/workflow/xpress-screening/xpress-screening-poster-16-9.webp"
+                                    title="Xpress Screening"
+                                />
                             </div>
                         </div>
                     </div>

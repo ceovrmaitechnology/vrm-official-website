@@ -129,7 +129,7 @@ function Careers() {
                                     Work With Us
                                 </div>
                                 <h1 className="careers-hero__title text-white">Careers</h1>
-                                <p className="careers-hero__desc text-white-50">
+                                <p className="careers-hero__desc text-white">
                                     We're solving humanity's toughest challenges with intelligent automation.
                                     Bring your passion and expertise to a team that's redefining what's possible.
                                 </p>

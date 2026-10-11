@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import ProductVideo from '../components/common/ProductVideo';
 import { Helmet } from 'react-helmet-async';
 import HeaderOne from "../components/header/HeaderOne";
 import FooterOne from "../components/footer/FooterOne";
@@ -20,6 +21,7 @@ function VrmReality() {
     }, []);
 
     const productImages = [
+        "/assets/images/service/desk.jpg",
         "/assets/images/vrm-reality/vrm-reality-hero.webp",
         "/assets/images/vrm-reality/vrm-reality-gallery-1.png",
         "/assets/images/vrm-reality/vrm-reality-gallery-2.png",
@@ -202,32 +204,45 @@ function VrmReality() {
             <HeaderOne />
 
             {/* 1. Hero Section */}
-            <div className="vrm-full-width-section vrm-enterprise-gradient ptb--120 position-relative">
+            <div className="vrm-full-width-section vrm-enterprise-gradient position-relative" style={{ paddingTop: '140px', paddingBottom: '90px' }}>
                 <div className="container position-relative z-index-1">
                     <div className="row align-items-center">
                         <div className="col-lg-7">
-                            <span className="sub-title wow fadeInUp" style={{ color: '#3b82f6', textTransform: 'uppercase', letterSpacing: '2px', fontWeight: '700', fontSize: '14px', display: 'block', marginBottom: '12px' }}>
-                                PropTech & Real Estate CRM Platform
-                            </span>
-                            <h1 className="title text-white wow fadeInUp" data-wow-delay=".2s">VRM Reality</h1>
-                            <p className="text-white-50 mt-4 wow fadeInUp" data-wow-delay=".3s" style={{ fontSize: '18px', lineHeight: '1.7' }}>
-                                An end-to-end real estate platform connecting Buyers, Sellers, and Agents into a unified workflow. Explore properties through map-first search, book physical site visits or virtual Zoom tours, and close deals faster with AI-assisted enquiry handling and a built-in agent CRM.
-                            </p>
-                            <p className="text-white-50 mt-3 wow fadeInUp" data-wow-delay=".35s">
-                                Developed at our <Link to="/ai-company-madurai" className="text-white text-decoration-underline">Madurai development center</Link> and Bengaluru headquarters, empowering real estate developers, agencies, and buyers across India.
-                            </p>
-                            <div className="button-area mt-4 wow fadeInUp d-flex flex-wrap gap-3 align-items-center" data-wow-delay=".4s">
-                                <Link to="/contactus#send-message" className="vrm-blue-to-white-btn">
-                                    Request a Demo <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>
-                                </Link>
-                                <a href="#ecosystem" className="btn btn-outline-light" style={{ padding: '14px 28px', borderRadius: '8px', fontWeight: '600' }}>
-                                    Explore Platform
-                                </a>
+                            <div className="banner-content-two">
+                                <span className="sub-title wow fadeInUp" style={{ color: '#3b82f6', textTransform: 'uppercase', letterSpacing: '2px', fontWeight: '700', fontSize: '14px', display: 'block', marginBottom: '12px' }}>
+                                    PropTech & Real Estate CRM Platform
+                                </span>
+                                <h1 className="title text-white wow fadeInUp" data-wow-delay=".2s">VRM Reality</h1>
+                                <p className="disc text-white-50 mt-4 wow fadeInUp" data-wow-delay=".3s" style={{ fontSize: '18px', lineHeight: '1.7' }}>
+                                    An end-to-end real estate platform connecting Buyers, Sellers, and Agents into a unified workflow. Explore properties through map-first search, book physical site visits or virtual Zoom tours, and close deals faster with AI-assisted enquiry handling and a built-in agent CRM.
+                                </p>
+                                <p className="text-white-50 mt-3 wow fadeInUp" data-wow-delay=".35s">
+                                    Developed at our <Link to="/ai-company-madurai" className="text-white text-decoration-underline">Madurai development center</Link> and Bengaluru headquarters, empowering real estate developers, agencies, and buyers across India.
+                                </p>
+                                <div className="button-area mt-4 wow fadeInUp d-flex flex-wrap gap-3 align-items-center" data-wow-delay=".4s">
+                                    <Link to="/contactus#send-message" className="vrm-blue-to-white-btn">
+                                        Schedule a Demo <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>
+                                    </Link>
+                                    <a href="#ecosystem" className="btn btn-outline-light" style={{ padding: '14px 28px', borderRadius: '8px', fontWeight: '600' }}>
+                                        Explore Platform
+                                    </a>
+                                </div>
                             </div>
                         </div>
                         <div className="col-lg-5 mt-5 mt-lg-0">
                             <div className="banner-image-two wow fadeInUp" data-wow-delay=".3s">
-                                <img src={productImages[0]} alt="VRM Reality Real Estate Platform Dashboard" className="img-fluid rounded shadow" style={{ borderRadius: '20px', boxShadow: '0 20px 50px rgba(0,0,0,0.3)' }} width="600" height="600" decoding="async" loading="lazy" />
+                                <picture>
+                                    <source srcSet="/assets/images/service/desk.webp" type="image/webp" />
+                                    <img 
+                                        src="/assets/images/service/desk.jpg" 
+                                        alt="VRM Reality Real Estate Platform" 
+                                        className="img-fluid rounded shadow" 
+                                        style={{ borderRadius: '20px', boxShadow: '0 20px 50px rgba(0,0,0,0.3)', width: '100%', height: 'auto', objectFit: 'cover' }} 
+                                        width="600" 
+                                        height="400" 
+                                        decoding="async" 
+                                    />
+                                </picture>
                             </div>
                         </div>
                     </div>
@@ -281,21 +296,21 @@ function VrmReality() {
                     <div className="row mt--50 g-4">
                         {stakeholderFeatures.map((stakeholder, idx) => (
                             <div key={idx} className="col-lg-4 col-md-12 wow fadeInUp" data-wow-delay={`.${(idx + 1) * 2}s`}>
-                                <div className="card h-100 p-4" style={{ borderRadius: '20px', border: '1px solid #e2e8f0', background: '#ffffff', boxShadow: '0 12px 35px rgba(0,0,0,0.05)' }}>
+                                <div className="card h-100 p-4 vrm-stakeholder-card">
                                     <div className="d-flex align-items-center mb-3">
-                                        <div style={{ width: '52px', height: '52px', borderRadius: '14px', background: 'rgba(59, 78, 204, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginRight: '14px' }}>
-                                            <i className={stakeholder.icon} style={{ fontSize: '24px', color: '#3B4ECC' }}></i>
+                                        <div className="stakeholder-icon-box">
+                                            <i className={stakeholder.icon}></i>
                                         </div>
                                         <div>
-                                            <span style={{ fontSize: '12px', fontWeight: '700', letterSpacing: '1.5px', color: '#3B4ECC', textTransform: 'uppercase' }}>{stakeholder.badge}</span>
-                                            <h4 style={{ fontSize: '20px', fontWeight: '700', margin: '0', color: '#111827' }}>{stakeholder.title}</h4>
+                                            <span className="stakeholder-badge">{stakeholder.badge}</span>
+                                            <h4 className="stakeholder-title">{stakeholder.title}</h4>
                                         </div>
                                     </div>
-                                    <ul className="list-unstyled mt-3 mb-0" style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+                                    <ul className="list-unstyled mt-3 mb-0 stakeholder-points-list">
                                         {stakeholder.points.map((pt, pIdx) => (
-                                            <li key={pIdx} className="d-flex align-items-start" style={{ fontSize: '14px', lineHeight: '1.6', color: '#4b5563' }}>
-                                                <i className="far fa-check-circle me-2 mt-1" style={{ color: '#10b981', fontSize: '16px', flexShrink: 0 }}></i>
-                                                <span>{pt}</span>
+                                            <li key={pIdx} className="d-flex align-items-start stakeholder-point">
+                                                <i className="far fa-check-circle me-2 mt-1 stakeholder-check"></i>
+                                                <span className="stakeholder-text">{pt}</span>
                                             </li>
                                         ))}
                                     </ul>
@@ -322,11 +337,12 @@ function VrmReality() {
                     </div>
                     <div className="row justify-content-center">
                         <div className="col-lg-10">
-                            <div className="video-wrapper wow fadeInUp" data-wow-delay=".3s" style={{ borderRadius: '20px', overflow: 'hidden', boxShadow: '0 20px 60px rgba(0,0,0,0.15)', background: '#000' }}>
-                                <video width="100%" controls preload="none" poster={productImages[0]} style={{ display: 'block', maxHeight: '560px', objectFit: 'cover' }}>
-                                    <source src="/assets/images/vrm-reality/vrm-reality-promo.mp4" type="video/mp4" />
-                                    Your browser does not support the video tag.
-                                </video>
+                            <div className="wow fadeInUp" data-wow-delay=".3s">
+                                <ProductVideo
+                                    src="/assets/images/vrm-reality/vrm-reality-promo.mp4"
+                                    poster="/assets/images/vrm-reality/vrm-reality-poster-16-9.webp"
+                                    title="VRM Reality"
+                                />
                             </div>
                         </div>
                     </div>

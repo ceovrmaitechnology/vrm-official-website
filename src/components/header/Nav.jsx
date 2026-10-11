@@ -106,15 +106,15 @@ export default function Nav() {
         },
         'b2d': {
             title: "Bench to Deploy (B2D)",
-            description: "Talent readiness and deployment orchestration platform connecting certified engineering talent with project requirements through automated technical benchmarking.",
-            link: "/products#bench-to-deploy",
+            description: "AI-powered platform that evaluates, upskills, and matches unassigned bench talent into active billing.",
+            link: "/products/bench-to-deploy",
             linkText: "View Product",
-            image: "/assets/images/service/04.jpg",
+            image: "/assets/images/bench-to-deploy/b2d-team.webp",
             features: [
-                "Continuous Skill Auditing",
-                "Automated Code Benchmarking",
-                "Semantic Tech-Stack Matching",
-                "Verified Engineering Deployment"
+                "Bulk Ingestion of Bench Profiles & Skills",
+                "AI-Proctored Monaco Coding Sandbox",
+                "Matchboard Matrix Best-Fit Candidate Ranking",
+                "AI Voice Outreach with Automated Roadmaps"
             ]
         },
     };
@@ -268,6 +268,18 @@ export default function Nav() {
                                             }}
                                         >
                                             VRM Reality
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link
+                                            to="/products/bench-to-deploy"
+                                            className={`platform-btn ${activeSubMenu === 'b2d' ? 'active' : ''}`}
+                                            onMouseEnter={() => {
+                                                setActiveSubMenu('b2d');
+                                                handleLinkHover('b2d');
+                                            }}
+                                        >
+                                            Bench to Deploy (B2D)
                                         </Link>
                                     </li>
                                 </ul>

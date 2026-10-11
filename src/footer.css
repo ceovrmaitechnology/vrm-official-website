@@ -74,7 +74,6 @@
 }
 
 .vrm-footer-address h6,
-.vrm-footer-global h4,
 .vrm-footer-global h5,
 .vrm-footer-global h6 {
     color: #11142c;
@@ -82,6 +81,19 @@
     font-weight: 600;
     margin-bottom: 10px;
     margin-top: 20px;
+}
+
+.vrm-footer-global h4,
+.vrm-footer-global .vrm-footer-sub-title {
+    color: #11142c !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    margin-top: 15px !important;
+    margin-bottom: 8px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    display: block !important;
+    line-height: 1.4 !important;
 }
 
 .vrm-footer-global p {
@@ -320,7 +332,6 @@ a.vrm-footer-sub-title:hover {
 }
 
 .vrm-footer-address h6,
-.vrm-footer-global h4,
 .vrm-footer-global h5,
 .vrm-footer-global h6,
 .vrm-footer-global p {

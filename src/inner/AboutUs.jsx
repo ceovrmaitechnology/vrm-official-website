@@ -44,7 +44,7 @@ function AboutUs() {
                                     Who We Are
                                 </div>
                                 <h1 className="about-hero__title text-white">About Us</h1>
-                                <p className="about-hero__desc text-white-50">
+                                <p className="about-hero__desc text-white">
                                     VRM AI Technology is a pioneer in enterprise AI solutions and product development. We design, deploy, and scale high-performance generative AI platforms and custom machine learning systems that streamline operations, elevate customer engagement, and drive sustained business growth. By combining deep technical expertise with strategic execution, we empower organizations worldwide to transform workflows and innovate confidently in an AI-first era.
                                 </p>
                             </div>
@@ -114,7 +114,8 @@ function AboutUs() {
                 <div className="container">
                     <div className="row g-4 align-items-stretch">
                         <div className="col-md-6 d-flex">
-                            <div className="mv-card mv-card-premium w-100" style={{ backgroundImage: 'url(/assets/images/about/05-v2.jpg)' }}>
+                            <div className="mv-card mv-card-premium w-100">
+                                <div className="mv-card-bg" style={{ backgroundImage: 'url(/assets/images/about/05-v2.jpg)' }}></div>
                                 <div className="mv-card-overlay"></div>
                                 <div className="mv-card-content">
                                     <div className="mv-icon">
@@ -128,7 +129,8 @@ function AboutUs() {
                             </div>
                         </div>
                         <div className="col-md-6 d-flex">
-                            <div className="mv-card mv-card-premium w-100" style={{ backgroundImage: 'url(/assets/images/about/04-v2.jpg)' }}>
+                            <div className="mv-card mv-card-premium w-100">
+                                <div className="mv-card-bg" style={{ backgroundImage: 'url(/assets/images/about/04-v2.jpg)' }}></div>
                                 <div className="mv-card-overlay"></div>
                                 <div className="mv-card-content">
                                     <div className="mv-icon">
@@ -153,30 +155,92 @@ function AboutUs() {
                         <h2 className="section-title">What We Provide</h2>
                     </div>
                     <div className="row g-4 justify-content-center">
-                        {/* Service 1 */}
+                        {/* Service 1: AI Integration Services */}
                         <div className="col-lg-4 col-md-6">
                             <div className="service-card-about">
-                                <div className="service-thumb">
-                                    <img src="/assets/images/Solutions/AICallingAgent.png" alt="AI Calling Agent" loading="lazy" />
+                                <div className="service-thumb service-thumb-ai-integration">
+                                    <Link to="/solutions/ai-integration-services">
+                                        <img src="/assets/images/Solutions/AIIntegration.png" alt="AI Integration Services" loading="lazy" />
+                                    </Link>
                                 </div>
                                 <div className="service-content">
-                                    <h4 className="service-title-about">AI Calling Agent</h4>
-                                    <p className="service-desc-about">Autonomous intelligent voice assistants that handle complex customer interactions naturally.</p>
+                                    <h4 className="service-title-about">
+                                        <Link to="/solutions/ai-integration-services">AI Integration Services</Link>
+                                    </h4>
+                                    <p className="service-desc-about">Seamlessly embed enterprise AI capabilities, generative models, and intelligent workflows into your existing business systems.</p>
+                                    <Link to="/solutions/ai-integration-services" className="read-more-btn">Read More <i className="fas fa-arrow-right"></i></Link>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Service 2: AI Development Services */}
+                        <div className="col-lg-4 col-md-6">
+                            <div className="service-card-about">
+                                <div className="service-thumb service-thumb-ai-development">
+                                    <Link to="/solutions/ai-development-services">
+                                        <img src="/assets/images/Solutions/AIDevelopment.png" alt="AI Development Services" loading="lazy" />
+                                    </Link>
+                                </div>
+                                <div className="service-content">
+                                    <h4 className="service-title-about">
+                                        <Link to="/solutions/ai-development-services">AI Development Services</Link>
+                                    </h4>
+                                    <p className="service-desc-about">Custom AI model engineering, bespoke neural networks, autonomous agents, and scalable cloud architectures tailored to your business.</p>
+                                    <Link to="/solutions/ai-development-services" className="read-more-btn">Read More <i className="fas fa-arrow-right"></i></Link>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Service 3: AI Chatbot Development */}
+                        <div className="col-lg-4 col-md-6">
+                            <div className="service-card-about">
+                                <div className="service-thumb service-thumb-ai-chatbot">
+                                    <Link to="/solutions/ai-chatbot-development">
+                                        <img src="/assets/images/Solutions/AIChatbot.png" alt="AI Chatbot Development" loading="lazy" />
+                                    </Link>
+                                </div>
+                                <div className="service-content">
+                                    <h4 className="service-title-about">
+                                        <Link to="/solutions/ai-chatbot-development">AI Chatbot Development</Link>
+                                    </h4>
+                                    <p className="service-desc-about">Intelligent multi-channel conversational chatbots with natural language understanding for automated support and customer engagement.</p>
+                                    <Link to="/solutions/ai-chatbot-development" className="read-more-btn">Read More <i className="fas fa-arrow-right"></i></Link>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Service 4: AI Calling Agent */}
+                        <div className="col-lg-4 col-md-6">
+                            <div className="service-card-about">
+                                <div className="service-thumb service-thumb-ai-calling">
+                                    <Link to="/solutions/ai-calling-agent">
+                                        <img src="/assets/images/Solutions/AICallingAgent.png" alt="AI Calling Agent" loading="lazy" />
+                                    </Link>
+                                </div>
+                                <div className="service-content">
+                                    <h4 className="service-title-about">
+                                        <Link to="/solutions/ai-calling-agent">AI Calling Agent</Link>
+                                    </h4>
+                                    <p className="service-desc-about">Autonomous intelligent voice assistants that handle complex customer interactions, appointment bookings, and inquiries naturally.</p>
                                     <Link to="/solutions/ai-calling-agent" className="read-more-btn">Read More <i className="fas fa-arrow-right"></i></Link>
                                 </div>
                             </div>
                         </div>
 
-                        {/* Service 3 */}
+                        {/* Service 5: Machine Learning Services */}
                         <div className="col-lg-4 col-md-6">
                             <div className="service-card-about">
-                                <div className="service-thumb">
-                                    <img src="/assets/images/Solutions/AIDevelopment.png" alt="AI Development" loading="lazy" />
+                                <div className="service-thumb service-thumb-ml">
+                                    <Link to="/solutions/machine-learning-services">
+                                        <img src="/assets/images/Solutions/MachineLearning.png" alt="Machine Learning Services" loading="lazy" />
+                                    </Link>
                                 </div>
                                 <div className="service-content">
-                                    <h4 className="service-title-about">AI Development</h4>
-                                    <p className="service-desc-about">Custom AI model development tailored to your specific operational needs.</p>
-                                    <Link to="/solutions/ai-development-services" className="read-more-btn">Read More <i className="fas fa-arrow-right"></i></Link>
+                                    <h4 className="service-title-about">
+                                        <Link to="/solutions/machine-learning-services">Machine Learning Services</Link>
+                                    </h4>
+                                    <p className="service-desc-about">Advanced predictive analytics, automated data pipelines, and machine learning models to unlock actionable business intelligence.</p>
+                                    <Link to="/solutions/machine-learning-services" className="read-more-btn">Read More <i className="fas fa-arrow-right"></i></Link>
                                 </div>
                             </div>
                         </div>
@@ -219,8 +283,8 @@ function AboutUs() {
                             </div>
                         </div>
                         <div className="col-lg-6 d-flex align-items-center justify-content-center mt-4 mt-lg-0">
-                            <div className="thumbnail position-relative" style={{ maxWidth: '400px', width: '100%', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 20px 40px rgba(0,0,0,0.15)' }}>
-                                <img src="/assets/images/faq/02.png" alt="Why Choose Us" style={{ width: '100%', height: 'auto', objectFit: 'cover', display: 'block' }} loading="lazy" />
+                            <div className="why-choose-thumbnail position-relative">
+                                <img src="/assets/images/faq/02.png" alt="Collaborative Team Meeting with City Views - Why Choose Us" loading="lazy" />
                             </div>
                         </div>
                     </div>

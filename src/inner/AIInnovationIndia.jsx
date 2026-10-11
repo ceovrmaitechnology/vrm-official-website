@@ -169,26 +169,30 @@ function AIInnovationIndia() {
                             </div>
                         </div>
                         <div className="col-lg-6 wow fadeInUp" data-wow-delay=".4s">
-                            <div className="p-4 p-md-5 rounded-4" style={{ background: 'linear-gradient(135deg, #f0f4ff 0%, #e2e8f8 100%)', border: '1px solid #cbd5e1' }}>
+                            <div className="p-4 p-md-5 rounded-4 vrm-products-summary-card" style={{ background: 'linear-gradient(135deg, #f0f4ff 0%, #e2e8f8 100%)', border: '1px solid #cbd5e1' }}>
                                 <h4 style={{ fontWeight: '800', color: '#1b277c', marginBottom: '16px' }}>
                                     Enterprise AI Products
                                 </h4>
                                 <ul style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: '15px', color: '#334155' }}>
                                     <li style={{ marginBottom: '14px', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
                                         <i className="fas fa-check-circle text-primary mt-1"></i>
-                                        <span><strong>Workflow AI:</strong> Recruitment intelligence platform including <Link to="/products/workflow">Workflow AI</Link>.</span>
+                                        <span><strong style={{ color: '#0e1022' }}>Workflow AI:</strong> Recruitment intelligence platform including <Link to="/products/workflow" style={{ color: '#1b277c', fontWeight: '700', textDecoration: 'underline' }}>Workflow AI</Link>.</span>
                                     </li>
                                     <li style={{ marginBottom: '14px', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
                                         <i className="fas fa-check-circle text-primary mt-1"></i>
-                                        <span><strong>People Connect (Global):</strong> Citizen engagement and feedback management with <Link to="/products/people-connect">People Connect (Global)</Link>.</span>
+                                        <span><strong style={{ color: '#0e1022' }}>People Connect (Global):</strong> Citizen engagement and feedback management with <Link to="/products/people-connect" style={{ color: '#1b277c', fontWeight: '700', textDecoration: 'underline' }}>People Connect (Global)</Link>.</span>
                                     </li>
                                     <li style={{ marginBottom: '14px', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
                                         <i className="fas fa-check-circle text-primary mt-1"></i>
-                                        <span><strong>AI Buddy:</strong> Speaking practice and interactive language tutoring via <Link to="/products/aibuddy">AI Buddy</Link>.</span>
+                                        <span><strong style={{ color: '#0e1022' }}>AI Buddy:</strong> Speaking practice and interactive language tutoring via <Link to="/products/aibuddy" style={{ color: '#1b277c', fontWeight: '700', textDecoration: 'underline' }}>AI Buddy</Link>.</span>
+                                    </li>
+                                    <li style={{ marginBottom: '14px', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                                        <i className="fas fa-check-circle text-primary mt-1"></i>
+                                        <span><strong style={{ color: '#0e1022' }}>Additional Products:</strong> <Link to="/products/exitinterview" style={{ color: '#1b277c', fontWeight: '600', textDecoration: 'underline' }}>Exit Intelligence</Link>, <Link to="/products/visionix" style={{ color: '#1b277c', fontWeight: '600', textDecoration: 'underline' }}>Visionix AI</Link>, <Link to="/products/vrm-reality" style={{ color: '#1b277c', fontWeight: '600', textDecoration: 'underline' }}>VRM Reality</Link>, and <Link to="/products/bench-to-deploy" style={{ color: '#1b277c', fontWeight: '600', textDecoration: 'underline' }}>Bench to Deploy (B2D)</Link>.</span>
                                     </li>
                                     <li style={{ marginBottom: '0px', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
                                         <i className="fas fa-check-circle text-primary mt-1"></i>
-                                        <span><strong>Enterprise Software:</strong> Custom Generative AI platforms, AI calling agents, and machine learning software.</span>
+                                        <span><strong style={{ color: '#0e1022' }}>Enterprise Software:</strong> Custom Generative AI platforms, AI calling agents, and machine learning software.</span>
                                     </li>
                                 </ul>
                             </div>
@@ -211,7 +215,7 @@ function AIInnovationIndia() {
                             </div>
                         </div>
                     </div>
-                    <div className="row mt--50 g-4">
+                    <div className="row mt--50 g-4 justify-content-center">
                         {[
                             {
                                 icon: "fa-brain",

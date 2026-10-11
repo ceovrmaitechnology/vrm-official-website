@@ -330,20 +330,26 @@ function ProductsOverview() {
                     <div className="row g-5 align-items-center">
                         <div className="col-lg-6 order-lg-2 wow fadeInRight" data-wow-delay=".2s">
                             <div className="vrm-product-thumbnail">
-                                <img src="/assets/images/workflow/codesage/codesage-image.webp" alt="Bench to Deploy Dashboard" width="600" height="600" decoding="async" loading="lazy" />
+                                <img src="/assets/images/bench-to-deploy/b2d-image.webp" alt="Bench to Deploy Dashboard" width="600" height="600" decoding="async" loading="lazy" />
                             </div>
                         </div>
                         <div className="col-lg-6 order-lg-1 wow fadeInLeft" data-wow-delay=".2s">
                             <div className="about-inner">
                                 <div className="rts-title-area" data-text="Bench to Deploy">
-                                    <span className="pre-title" style={{ color: '#3B4ECC', display: 'block', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '13px', fontWeight: '700', marginBottom: '5px' }}>Product</span>
+                                    <span className="pre-title" style={{ color: '#3B4ECC', display: 'block', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '13px', fontWeight: '700', marginBottom: '5px' }}>Talent Deployment AI</span>
                                     <h2 className="title">Bench to Deploy (B2D)</h2>
                                 </div>
                                 <p className="disc">
-                                    Bench to Deploy (B2D), a product by VRM AI Technology.
+                                    AI-powered platform that screens, evaluates, and matches unassigned bench talent to open requisitions, turning idle resources into billable project deployments.
                                 </p>
-                                <Link className="vrm-btn-product-blue" to="/contactus#send-message">
-                                    Contact Us <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>
+                                <ul style={{ paddingLeft: '20px', marginBottom: '20px', color: '#555', fontSize: '14px', lineHeight: '1.8' }}>
+                                    <li><i className="far fa-check-circle me-2" style={{ color: '#3B4ECC' }}></i>Bulk AI ingestion of bench profiles and skill portfolios</li>
+                                    <li><i className="far fa-check-circle me-2" style={{ color: '#3B4ECC' }}></i>AI-proctored evaluations with a Monaco coding sandbox</li>
+                                    <li><i className="far fa-check-circle me-2" style={{ color: '#3B4ECC' }}></i>Matchboard matrix to find the best-fit employee per open role</li>
+                                    <li><i className="far fa-check-circle me-2" style={{ color: '#3B4ECC' }}></i>AI voice counseling with automated upskilling roadmaps</li>
+                                </ul>
+                                <Link className="vrm-btn-product-blue" to="/products/bench-to-deploy">
+                                    Learn More <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>
                                 </Link>
                             </div>
                         </div>
