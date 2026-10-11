@@ -9,8 +9,6 @@ function BannerOne() {
     });
 
     const [hasHydrated, setHasHydrated] = useState(false);
-    const [canLoadVideo, setCanLoadVideo] = useState(false);
-    const [isVideoPlaying, setIsVideoPlaying] = useState(false);
 
     useEffect(() => {
         if (typeof window !== 'undefined' && window.navigator.userAgent.includes('HeadlessChrome')) return;
@@ -24,32 +22,43 @@ function BannerOne() {
     useEffect(() => {
         if (!hasHydrated) return;
 
-        const enableVideo = () => setCanLoadVideo(true);
+        const video = videoRef.current;
+        if (!video) return;
 
-        if (document.readyState === 'complete') {
-            if ('requestIdleCallback' in window) {
-                window.requestIdleCallback(enableVideo, { timeout: 1500 });
-            } else {
-                setTimeout(enableVideo, 1500);
+        video.muted = true;
+
+        const tryPlay = () => {
+            if (video && video.paused) {
+                video.play().catch(() => {});
             }
-        } else {
-            const onLoad = () => {
-                if ('requestIdleCallback' in window) {
-                    window.requestIdleCallback(enableVideo, { timeout: 1500 });
-                } else {
-                    setTimeout(enableVideo, 1500);
-                }
-            };
-            window.addEventListener('load', onLoad, { once: true });
-            return () => window.removeEventListener('load', onLoad);
-        }
-    }, [hasHydrated]);
+        };
 
-    useEffect(() => {
-        if (canLoadVideo && videoRef.current) {
-            videoRef.current.play().catch(() => {});
-        }
-    }, [canLoadVideo]);
+        tryPlay();
+
+        video.addEventListener("canplay", tryPlay);
+
+        const handleInteraction = () => {
+            if (video && video.paused) {
+                tryPlay();
+            }
+            removeInteractionListeners();
+        };
+
+        const removeInteractionListeners = () => {
+            window.removeEventListener("touchstart", handleInteraction);
+            window.removeEventListener("click", handleInteraction);
+            window.removeEventListener("scroll", handleInteraction);
+        };
+
+        window.addEventListener("touchstart", handleInteraction, { passive: true });
+        window.addEventListener("click", handleInteraction, { passive: true });
+        window.addEventListener("scroll", handleInteraction, { passive: true });
+
+        return () => {
+            video.removeEventListener("canplay", tryPlay);
+            removeInteractionListeners();
+        };
+    }, [hasHydrated]);
 
     const { w, h } = dims;
     const isDesktop = w > 768;
@@ -67,10 +76,6 @@ function BannerOne() {
 
     const paddingBottom = w >= 768 ? "48px" : "24px";
 
-    const posterSrc = w <= 768
-        ? "/assets/images/home/home-2-600.webp"
-        : "/assets/images/home/home-2.webp";
-
     return (
         <div style={{ width: "100%", overflow: "hidden" }}>
             <section
@@ -85,56 +90,42 @@ function BannerOne() {
                     alignItems: "flex-end",
                     justifyContent: "center",
                     paddingBottom: paddingBottom,
-                    backgroundColor: "#0e1022", /* dark fallback while video loads */
+                    backgroundColor: "#ffffff",
                     boxSizing: "border-box",
                 }}
             >
-                {/* ALWAYS render responsive <img> as LCP element and base poster */}
-                <img
-                    src="/assets/images/home/home-2.webp"
-                    srcSet="/assets/images/home/home-2-600.webp 600w, /assets/images/home/home-2-900.webp 900w, /assets/images/home/home-2.webp 1200w"
-                    sizes="(max-width: 768px) 100vw, 1200px"
-                    alt="VRM AI Technology Software Solutions"
-                    fetchpriority="high"
-                    decoding="async"
-                    style={{
-                        position: "absolute",
-                        top: "50%",
-                        left: "50%",
-                        width: "100%",
-                        height: "100%",
-                        transform: "translate(-50%, -50%)",
-                        objectFit: w >= 768 ? "cover" : "contain",
-                        objectPosition: "center center",
-                        display: "block",
-                        zIndex: 1,
-                    }}
-                />
-
-                {/* Looping hero video on desktop AND mobile after hydration */}
-                {hasHydrated && canLoadVideo && (
+                {/* During prerender / before hydration: plain full-size white div */}
+                {!hasHydrated ? (
+                    <div
+                        style={{
+                            position: "absolute",
+                            top: 0,
+                            left: 0,
+                            width: "100%",
+                            height: "100%",
+                            backgroundColor: "#ffffff",
+                            zIndex: 1,
+                        }}
+                    />
+                ) : (
+                    /* Video only after hydration filling container */
                     <video
                         ref={videoRef}
                         autoPlay
                         loop
                         muted
                         playsInline
-                        preload="metadata"
-                        poster={posterSrc}
-                        onPlaying={() => setIsVideoPlaying(true)}
+                        preload="auto"
                         style={{
                             position: "absolute",
-                            top: "50%",
-                            left: "50%",
+                            top: 0,
+                            left: 0,
                             width: "100%",
                             height: "100%",
-                            transform: "translate(-50%, -50%)",
                             objectFit: w >= 768 ? "cover" : "contain",
                             objectPosition: "center center",
                             display: "block",
-                            zIndex: 2,
-                            opacity: isVideoPlaying ? 1 : 0,
-                            transition: "opacity 0.6s ease",
+                            zIndex: 1,
                         }}
                     >
                         <source

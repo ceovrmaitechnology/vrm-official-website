@@ -39,7 +39,9 @@ function FooterOne() {
                             </p>
                             <div className="vrm-footer-address">
                                 <div style={{ marginBottom: '12px' }}>
-                                    <div style={{ fontSize: '14px', marginBottom: '4px', color: '#11142c', fontWeight: '700' }}>Development Center (ODC)</div>
+                                    <div style={{ fontSize: '14px', marginBottom: '4px', color: '#11142c', fontWeight: '700' }}>
+                                        <Link to="/ai-company-madurai" style={{ color: 'inherit', textDecoration: 'none' }}>Development Center (ODC)</Link>
+                                    </div>
                                     <p style={{ fontSize: '13px', lineHeight: '1.6', margin: 0, color: '#555' }}>
                                         VRM AI Technology (OPC) Pvt.Ltd<br />
                                         Door No,209, 1ST Floor, No.147, 5th St,<br />
@@ -48,7 +50,9 @@ function FooterOne() {
                                     </p>
                                 </div>
                                 <div>
-                                    <div style={{ fontSize: '14px', marginBottom: '4px', color: '#11142c', fontWeight: '700' }}>Headquarter</div>
+                                    <div style={{ fontSize: '14px', marginBottom: '4px', color: '#11142c', fontWeight: '700' }}>
+                                        <Link to="/ai-company-bangalore" style={{ color: 'inherit', textDecoration: 'none' }}>Headquarter</Link>
+                                    </div>
                                     <p style={{ fontSize: '13px', lineHeight: '1.6', margin: 0, color: '#555' }}>
                                         VRM AI Technology (OPC) Pvt.Ltd<br />
                                         GoodWorks Infinity Park, 21, 2nd Main Rd,<br />
@@ -92,12 +96,7 @@ function FooterOne() {
                                 </li>
                             </ul>
                             <div className="vrm-footer-global mt-4">
-                                <h4>Locations</h4>
-                                <ul className="vrm-footer-links" style={{ listStyle: 'none', paddingLeft: 0, marginTop: '8px' }}>
-                                    <li style={{ marginBottom: '6px' }}><Link to="/ai-company-bangalore" style={{ fontSize: '13px' }}>Bengaluru, India (Registered Office)</Link></li>
-                                    <li style={{ marginBottom: '6px' }}><Link to="/ai-company-madurai" style={{ fontSize: '13px' }}>Madurai, India (Development Center)</Link></li>
-                                </ul>
-                                <h4 style={{ marginTop: '16px' }}>Service Areas</h4>
+                                <h4>Service Areas</h4>
                                 <ul className="vrm-footer-links" style={{ listStyle: 'none', paddingLeft: 0, marginTop: '8px' }}>
                                     <li style={{ marginBottom: '6px' }}><Link to="/ai-company-tamil-nadu" style={{ fontSize: '13px' }}>Tamil Nadu</Link></li>
                                     <li style={{ marginBottom: '0px' }}><Link to="/ai-innovation-india" style={{ fontSize: '13px' }}>Pan-India Services</Link></li>
