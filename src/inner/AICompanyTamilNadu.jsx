@@ -136,7 +136,7 @@ function AICompanyTamilNadu() {
                                 VRM AI Technology is an AI development company headquartered with corporate governance in Bengaluru and our staffed engineering center located in Madurai, Tamil Nadu.
                             </p>
                             <p style={{ color: '#555', lineHeight: '1.8', fontSize: '16px', marginBottom: '24px' }}>
-                                Our engineers build practical AI systems that help organizations automate manual processes, structure data, and deploy conversational channels in Tamil and English.
+                                Our engineers build practical AI systems that help organizations automate manual processes, structure data, and deploy conversational channels in Tamil and English. We also work with businesses in <Link to="/chennai">Chennai</Link> remotely from our Bengaluru and Madurai teams.
                             </p>
                             <div className="row g-3">
                                 <div className="col-sm-6">

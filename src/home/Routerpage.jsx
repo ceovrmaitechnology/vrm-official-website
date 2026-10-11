@@ -31,6 +31,7 @@ const AICompanyMadurai = lazy(() => import('../inner/AICompanyMadurai'));
 const AICompanyBangalore = lazy(() => import('../inner/AICompanyBangalore'));
 const AICompanyTamilNadu = lazy(() => import('../inner/AICompanyTamilNadu'));
 const AIInnovationIndia = lazy(() => import('../inner/AIInnovationIndia'));
+const Chennai = lazy(() => import('../inner/Chennai'));
 
 const GenerativeAIDevelopment = lazy(() => import('../inner/GenerativeAIDevelopment'));
 const PrivacyPolicy = lazy(() => import('../inner/PrivacyPolicy'));
@@ -57,8 +58,7 @@ function RouterPage() {
                         {/* Location Landing Pages */}
                         <Route path="/ai-company-madurai" element={<AICompanyMadurai />}></Route>
                         <Route path="/ai-company-bangalore" element={<AICompanyBangalore />}></Route>
-                        
-                        
+                        <Route path="/chennai" element={<Chennai />}></Route>
                         <Route path="/ai-company-tamil-nadu" element={<AICompanyTamilNadu />}></Route>
                         <Route path="/ai-innovation-india" element={<AIInnovationIndia />}></Route>
 
