@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import ProductVideo from '../components/common/ProductVideo';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import HeaderOne from "../components/header/HeaderOne";
@@ -17,7 +18,7 @@ function ScreenSage() {
     }, []);
 
     const images = [
-        "/assets/images/workflow/screensage/screensage-image.webp",
+        "/assets/images/workflow/screensage/screensage-promo-poster.jpg",
         "/assets/images/workflow/screensage/screensage-gallery-1.png",
         "/assets/images/workflow/screensage/screensage-gallery-2.png",
         "/assets/images/workflow/screensage/screensage-gallery-3.png"
@@ -146,11 +147,12 @@ function ScreenSage() {
                     </div>
                     <div className="row justify-content-center">
                         <div className="col-lg-10">
-                            <div className="video-wrapper wow fadeInUp" data-wow-delay=".3s" style={{ borderRadius: '20px', overflow: 'hidden', boxShadow: '0 20px 60px rgba(0,0,0,0.15)' }}>
-                                <video width="100%" controls preload="none">
-                                    <source src="/assets/images/workflow/screensage/screensage-promo.mp4" type="video/mp4" />
-                                    Your browser does not support the video tag.
-                                </video>
+                            <div className="wow fadeInUp" data-wow-delay=".3s">
+                                <ProductVideo
+                                    src="/assets/images/workflow/screensage/screensage-promo.mp4"
+                                    poster="/assets/images/workflow/screensage/screensage-poster-16-9.webp"
+                                    title="ScreenSage"
+                                />
                             </div>
                         </div>
                     </div>

@@ -52,7 +52,7 @@
 .careers-hero__desc {
     font-size: 20px;
     line-height: 1.6;
-    color: rgba(255, 255, 255, 0.9);
+    color: #ffffff !important;
     max-width: 100% !important;
     margin-bottom: 40px;
 }

@@ -109,7 +109,7 @@ function MachineLearningServices() {
                                 </p>
                                 <div className="banner-btn wow fadeInUp mt-5" data-wow-delay=".5s">
                                     <Link to="/contactus#send-message" className="vrm-blue-to-white-btn">
-                                        Book a Free Assessment <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>
+                                        Get Started <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>
                                     </Link>
                                 </div>
                             </div>

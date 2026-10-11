@@ -343,7 +343,7 @@ const ContactUs = () => {
                                 <div className="icon-wrapper mb-4">
                                     <i className="fas fa-map-marked-alt"></i>
                                 </div>
-                                <h4 className="title mb-3">Development Center</h4>
+                                <h4 className="title mb-3">Offshore Development Center (ODC)</h4>
                                 <p className="disc text-muted">
                                     <a
                                         href="https://share.google/Low7HbzJnoFKyBI1d"
@@ -421,7 +421,7 @@ Bengaluru, Karnataka 560100.</span>
                     </div>
 
                     <div className="row g-4 justify-content-center">
-                        {/* Development Center - Madurai */}
+                        {/* Offshore Development Center (ODC) - Madurai */}
                         <div className="col-lg-5 col-md-6 wow fadeInUp" data-wow-delay=".2s">
                             <div className="vrm-office-card h-100">
                                 <div className="office-card-header">
@@ -434,8 +434,7 @@ Bengaluru, Karnataka 560100.</span>
                                                 loading="lazy" />
                                         </div>
                                         <div>
-                                            <h4 className="office-card-title mb-0">Development Center</h4>
-                                            <span style={{ fontSize: '12px', color: '#93c5fd' }}>Staffed Office &amp; Engineering Center</span>
+                                            <h4 className="office-card-title mb-0">Offshore Development Center (ODC)</h4>
                                         </div>
                                     </div>
                                     <div className="office-location-icon">
@@ -468,7 +467,7 @@ Bengaluru, Karnataka 560100.</span>
                             </div>
                         </div>
 
-                        {/* Headquarters / Registered Office - Bengaluru */}
+                        {/* Headquarter - Bengaluru */}
                         <div className="col-lg-5 col-md-6 wow fadeInUp" data-wow-delay=".4s">
                             <div className="vrm-office-card h-100">
                                 <div className="office-card-header">
@@ -481,8 +480,7 @@ Bengaluru, Karnataka 560100.</span>
                                                 loading="lazy" />
                                         </div>
                                         <div>
-                                            <h4 className="office-card-title mb-0">Headquarters / Registered Office</h4>
-                                            
+                                            <h4 className="office-card-title mb-0">Headquarter</h4>
                                         </div>
                                     </div>
                                     <div className="office-location-icon">

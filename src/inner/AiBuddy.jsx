@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import ProductVideo from '../components/common/ProductVideo';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import HeaderOne from "../components/header/HeaderOne";
@@ -17,7 +18,7 @@ function AiBuddy() {
     }, []);
 
     const images = [
-        "/assets/images/aibuddy/aibuddy-image.webp",
+        "/assets/images/aibuddy/aibuddy-promo-poster.jpg",
         "/assets/images/aibuddy/aibuddy-image-2.png",
         "/assets/images/aibuddy/aibuddy-image-3.png",
         "/assets/images/aibuddy/aibuddy-image-4.png"
@@ -80,7 +81,7 @@ function AiBuddy() {
                                 </p>
                                 <div className="button-area wow fadeInUp" data-wow-delay=".4s">
                                     <Link to="/contactus#send-message" className="vrm-blue-to-white-btn">
-                                        Start Learning <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>
+                                        Schedule a Demo <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>
                                     </Link>
                                 </div>
                             </div>
@@ -141,11 +142,12 @@ function AiBuddy() {
                     </div>
                     <div className="row justify-content-center">
                         <div className="col-lg-10">
-                            <div className="video-wrapper wow fadeInUp" data-wow-delay=".3s" style={{ borderRadius: '20px', overflow: 'hidden', boxShadow: '0 20px 60px rgba(0,0,0,0.15)' }}>
-                                <video width="100%" controls preload="none">
-                                    <source src="/assets/images/aibuddy/aibuddy-promo.mp4" type="video/mp4" />
-                                    Your browser does not support the video tag.
-                                </video>
+                            <div className="wow fadeInUp" data-wow-delay=".3s">
+                                <ProductVideo
+                                    src="/assets/images/aibuddy/aibuddy-promo.mp4"
+                                    poster="/assets/images/aibuddy/aibuddy-poster-16-9.webp"
+                                    title="AI Buddy"
+                                />
                             </div>
                         </div>
                     </div>
@@ -269,7 +271,7 @@ function AiBuddy() {
                                 </p>
                                 <div className="button-area mt-5 wow fadeInUp" data-wow-delay=".4s">
                                     <Link to="/contactus#send-message" className="vrm-blue-to-white-btn">
-                                        Start Learning <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>
+                                        Schedule a Demo <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>
                                     </Link>
                                 </div>
                             </div>

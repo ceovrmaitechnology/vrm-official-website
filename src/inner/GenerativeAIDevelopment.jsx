@@ -99,12 +99,9 @@ function GenerativeAIDevelopment() {
                                 <p className="disc wow fadeInUp text-white-50" data-wow-delay=".4s">
                                     Unlock autonomous enterprise intelligence with VRM AI Technology. We architect secure Generative AI platforms, domain-specific foundation model pipelines, hybrid RAG knowledge engines, and agentic workflows that turn unstructured enterprise data into immediate competitive advantage.
                                 </p>
-                                <div className="banner-btn wow fadeInUp d-flex flex-wrap gap-3" data-wow-delay=".5s">
+                                <div className="banner-btn wow fadeInUp mt-5" data-wow-delay=".5s">
                                     <Link to="/contactus#send-message" className="vrm-blue-to-white-btn">
-                                        Architect Your GenAI Platform <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>
-                                    </Link>
-                                    <Link to="/solutions" className="vrm-blue-to-white-btn" style={{ background: 'rgba(255,255,255,0.1)', color: '#fff' }}>
-                                        View Solutions Overview
+                                        Get Started <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>
                                     </Link>
                                 </div>
                             </div>
@@ -197,7 +194,7 @@ function GenerativeAIDevelopment() {
                             </div>
                         </div>
                     </div>
-                    <div className="row mt--50 g-4">
+                    <div className="row mt--50 g-4 justify-content-center">
                         {[
                             {
                                 icon: "fa-search",
@@ -261,49 +258,79 @@ function GenerativeAIDevelopment() {
                             </div>
                         </div>
                     </div>
-                    <div className="row mt--40 g-4">
-                        <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".2s">
-                            <div className="bg-white p-4 rounded-4 shadow-sm h-100 d-flex flex-column justify-content-between">
-                                <div>
-                                    <span className="badge bg-primary mb-3">Recruitment Automation</span>
-                                    <h4 style={{ fontWeight: '700', color: '#0e1022' }}>Workflow AI</h4>
-                                    <p style={{ color: '#666', fontSize: '14px', lineHeight: '1.7' }}>
+                    <div className="row mt--40 g-4 justify-content-center">
+                        {[
+                            {
+                                badge: "Recruitment Automation",
+                                badgeClass: "bg-primary text-white",
+                                title: "Workflow AI",
+                                desc: (
+                                    <>
                                         End-to-end recruitment intelligence leveraging generative AI to conduct voice interviews in <Link to="/products/workflow/screensage">ScreenSage</Link>, parse high-volume resumes in <Link to="/products/workflow/xpress-screening">Xpress Screening</Link>, and evaluate real-world code in <Link to="/products/workflow/codesage">CodeSage</Link>.
-                                    </p>
+                                    </>
+                                ),
+                                link: "/products/workflow"
+                            },
+                            {
+                                badge: "Language Training",
+                                badgeClass: "bg-info text-white",
+                                title: "AI Buddy",
+                                desc: "An interactive generative speech coach providing personalized conversational immersion, dynamic accent feedback, and real-time pronunciation guidance in multiple languages.",
+                                link: "/products/aibuddy"
+                            },
+                            {
+                                badge: "Public Governance",
+                                badgeClass: "bg-success text-white",
+                                title: "People Connect (Global)",
+                                desc: "Civic sentiment analysis and complaint resolution engine utilizing generative AI to categorize citizen messages across WhatsApp, email, and voice channels into automated action items.",
+                                link: "/products/people-connect"
+                            },
+                            {
+                                badge: "Workforce Analytics",
+                                badgeClass: "bg-warning text-dark",
+                                title: "Exit Intelligence",
+                                desc: "AI-powered workforce intelligence that transforms employee exit feedback into actionable retention insights, predicting turnover drivers and organizational sentiment.",
+                                link: "/products/exitinterview"
+                            },
+                            {
+                                badge: "Visual Intelligence",
+                                badgeClass: "bg-dark text-white",
+                                title: "Visionix AI",
+                                desc: "Edge-compatible facial recognition and computer vision suite delivering contactless biometric attendance, liveness verification, and automated enterprise security.",
+                                link: "/products/visionix"
+                            },
+                            {
+                                badge: "PropTech & Real Estate CRM",
+                                badgeClass: "bg-primary text-white",
+                                title: "VRM Reality",
+                                desc: "Smart real estate platform connecting buyers, sellers, and agents with interactive geospatial map search, virtual Zoom tour booking, and a built-in CRM pipeline.",
+                                link: "/products/vrm-reality"
+                            },
+                            {
+                                badge: "Talent Deployment AI",
+                                badgeClass: "bg-danger text-white",
+                                title: "Bench to Deploy (B2D)",
+                                desc: "AI-powered platform that evaluates, upskills, and matches unassigned bench talent into active billing through proctored coding assessments and automated roadmaps.",
+                                link: "/products/bench-to-deploy"
+                            }
+                        ].map((prod, pIdx) => (
+                            <div key={pIdx} className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay={`.${(pIdx % 3 + 2) * 2}s`}>
+                                <div className="bg-white p-4 rounded-4 shadow-sm h-100 d-flex flex-column justify-content-between vrm-live-product-card" style={{ transition: 'all 0.35s ease', border: '1px solid #eef2f6' }}>
+                                    <div>
+                                        <span className={`badge ${prod.badgeClass} mb-3`} style={{ fontSize: '12px', fontWeight: '700', padding: '6px 14px', borderRadius: '20px' }}>
+                                            {prod.badge}
+                                        </span>
+                                        <h4 style={{ fontWeight: '700', color: '#0e1022', fontSize: '20px', marginBottom: '12px' }}>{prod.title}</h4>
+                                        <p style={{ color: '#666', fontSize: '14px', lineHeight: '1.7', margin: 0 }}>
+                                            {prod.desc}
+                                        </p>
+                                    </div>
+                                    <Link to={prod.link} className="vrm-btn-detail mt-3">
+                                        Learn More <i className="fas fa-arrow-right"></i>
+                                    </Link>
                                 </div>
-                                <Link to="/products/workflow" className="vrm-btn-detail mt-3">
-                                    Learn More <i className="fas fa-arrow-right"></i>
-                                </Link>
                             </div>
-                        </div>
-                        <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".3s">
-                            <div className="bg-white p-4 rounded-4 shadow-sm h-100 d-flex flex-column justify-content-between">
-                                <div>
-                                    <span className="badge bg-info text-white mb-3">Language Training</span>
-                                    <h4 style={{ fontWeight: '700', color: '#0e1022' }}>AI Buddy</h4>
-                                    <p style={{ color: '#666', fontSize: '14px', lineHeight: '1.7' }}>
-                                        An interactive generative speech coach providing personalized conversational immersion, dynamic accent feedback, and real-time pronunciation guidance in multiple languages.
-                                    </p>
-                                </div>
-                                <Link to="/products/aibuddy" className="vrm-btn-detail mt-3">
-                                    Learn More <i className="fas fa-arrow-right"></i>
-                                </Link>
-                            </div>
-                        </div>
-                        <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".4s">
-                            <div className="bg-white p-4 rounded-4 shadow-sm h-100 d-flex flex-column justify-content-between">
-                                <div>
-                                    <span className="badge bg-success mb-3">Public Governance</span>
-                                    <h4 style={{ fontWeight: '700', color: '#0e1022' }}>People Connect (Global)</h4>
-                                    <p style={{ color: '#666', fontSize: '14px', lineHeight: '1.7' }}>
-                                        Civic sentiment analysis and complaint resolution engine utilizing generative AI to categorize citizen messages across WhatsApp, email, and voice channels into automated action items.
-                                    </p>
-                                </div>
-                                <Link to="/products/people-connect" className="vrm-btn-detail mt-3">
-                                    Learn More <i className="fas fa-arrow-right"></i>
-                                </Link>
-                            </div>
-                        </div>
+                        ))}
                     </div>
                 </div>
             </div>

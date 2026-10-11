@@ -199,6 +199,15 @@ function HomeOverview() {
                                 desc: "Smart real estate platform connecting buyers, sellers, and agents with map search, virtual Zoom visits, and built-in agent CRM.",
                                 link: "/products/vrm-reality",
                                 bgImage: "assets/images/vrm-reality/vrm-reality-hero.webp"
+                            },
+                            {
+                                id: 11,
+                                icon: "assets/images/service/icon/03.svg",
+                                category: "Talent Deployment AI",
+                                title: "Bench to Deploy (B2D)",
+                                desc: "AI-powered platform that evaluates, upskills, and matches unassigned bench talent into active billing.",
+                                link: "/products/bench-to-deploy",
+                                bgImage: "assets/images/bench-to-deploy/b2d-team.webp"
                             }
                         ].map((product) => (
                             <div key={product.id} className="vrm-product-card wow fadeInUp" data-wow-delay=".3s">

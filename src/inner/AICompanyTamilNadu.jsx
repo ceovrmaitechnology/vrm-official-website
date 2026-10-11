@@ -47,13 +47,13 @@ function AICompanyTamilNadu() {
                 <title>Top Growing AI Company in Tamil Nadu | VRM AI Technology</title>
                 <meta name="description" content="VRM AI Technology is recognized as a top growing AI company in Tamil Nadu. We deliver custom generative AI solutions across the state." />
                 <meta property="og:title" content="AI Company in Tamil Nadu | VRM AI Technology" />
-                <meta property="og:description" content="VRM AI Technology operates a staffed development center in Madurai, Tamil Nadu, developing GenAI platforms, calling agents, and custom AI software." />
+                <meta property="og:description" content="VRM AI Technology operates an Offshore Development Center (ODC) in Madurai, Tamil Nadu, developing GenAI platforms, calling agents, and custom AI software." />
                 <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
                 <link rel="canonical" href="https://www.vrmaitechnology.com/ai-company-tamil-nadu" />
 
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content="AI Company in Tamil Nadu | VRM AI Technology" />
-                <meta name="twitter:description" content="VRM AI Technology operates a staffed development center in Madurai, Tamil Nadu, developing GenAI platforms, calling agents, and custom AI software." />
+                <meta name="twitter:description" content="VRM AI Technology operates an Offshore Development Center (ODC) in Madurai, Tamil Nadu, developing GenAI platforms, calling agents, and custom AI software." />
                 <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
 
                 <script type="application/ld+json">
@@ -90,13 +90,13 @@ function AICompanyTamilNadu() {
                         <div className="col-lg-7">
                             <div className="banner-content-two">
                                 <span className="pre-title wow fadeInUp" data-wow-delay=".2s" style={{ color: '#00C6FF' }}>
-                                    Staffed Development Center &bull; Madurai, Tamil Nadu
+                                    Offshore Development Center (ODC) &bull; Madurai, Tamil Nadu
                                 </span>
                                 <h1 className="title wow fadeInUp text-white" data-wow-delay=".3s">
                                     AI Software Company in Tamil Nadu
                                 </h1>
                                 <p className="disc wow fadeInUp text-white-50" data-wow-delay=".4s">
-                                    VRM AI Technology develops artificial intelligence solutions from our staffed development center in Madurai, Tamil Nadu. We engineer proprietary Generative AI software, conversational voice agents, recruitment intelligence systems, and custom machine learning pipelines.
+                                    VRM AI Technology develops artificial intelligence solutions from our Offshore Development Center (ODC) in Madurai, Tamil Nadu. We engineer proprietary Generative AI software, conversational voice agents, recruitment intelligence systems, and custom machine learning pipelines.
                                 </p>
                                 <div className="banner-btn wow fadeInUp d-flex flex-wrap gap-3" data-wow-delay=".5s">
                                     <Link to="/contactus#send-message" className="vrm-blue-to-white-btn">
@@ -141,8 +141,8 @@ function AICompanyTamilNadu() {
                             <div className="row g-3">
                                 <div className="col-sm-6">
                                     <div className="p-3 rounded" style={{ background: '#f8fafc', borderLeft: '4px solid #3B4ECC' }}>
-                                        <h6 style={{ fontWeight: '700', marginBottom: '4px' }}>Madurai Development Center</h6>
-                                        <p style={{ fontSize: '13px', margin: 0, color: '#666' }}>Staffed center at Poriyalar Nagar, Tiruppalai, Madurai.</p>
+                                        <h6 style={{ fontWeight: '700', marginBottom: '4px' }}>Madurai Development Center (ODC)</h6>
+                                        <p style={{ fontSize: '13px', margin: 0, color: '#666' }}>Offshore development center at Poriyalar Nagar, Tiruppalai, Madurai.</p>
                                     </div>
                                 </div>
                                 <div className="col-sm-6">
@@ -154,26 +154,30 @@ function AICompanyTamilNadu() {
                             </div>
                         </div>
                         <div className="col-lg-6 wow fadeInUp" data-wow-delay=".4s">
-                            <div className="p-4 p-md-5 rounded-4" style={{ background: 'linear-gradient(135deg, #f0f4ff 0%, #e2e8f8 100%)', border: '1px solid #cbd5e1' }}>
+                            <div className="p-4 p-md-5 rounded-4 vrm-products-summary-card" style={{ background: 'linear-gradient(135deg, #f0f4ff 0%, #e2e8f8 100%)', border: '1px solid #cbd5e1' }}>
                                 <h4 style={{ fontWeight: '800', color: '#1b277c', marginBottom: '16px' }}>
-                                    AI Software Products
+                                    Enterprise AI Products
                                 </h4>
                                 <ul style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: '15px', color: '#334155' }}>
                                     <li style={{ marginBottom: '14px', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
                                         <i className="fas fa-users-cog text-primary mt-1"></i>
-                                        <span><strong>Workflow AI:</strong> Recruitment intelligence platform including <Link to="/products/workflow">Workflow AI</Link>.</span>
+                                        <span><strong style={{ color: '#0e1022' }}>Workflow AI:</strong> Recruitment intelligence platform including <Link to="/products/workflow" style={{ color: '#1b277c', fontWeight: '700', textDecoration: 'underline' }}>Workflow AI</Link>.</span>
                                     </li>
                                     <li style={{ marginBottom: '14px', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
                                         <i className="fas fa-landmark text-primary mt-1"></i>
-                                        <span><strong>People Connect (Global):</strong> Citizen engagement and feedback management with <Link to="/products/people-connect">People Connect (Global)</Link>.</span>
+                                        <span><strong style={{ color: '#0e1022' }}>People Connect (Global):</strong> Citizen engagement and feedback management with <Link to="/products/people-connect" style={{ color: '#1b277c', fontWeight: '700', textDecoration: 'underline' }}>People Connect (Global)</Link>.</span>
                                     </li>
                                     <li style={{ marginBottom: '14px', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
                                         <i className="fas fa-comments text-primary mt-1"></i>
-                                        <span><strong>AI Buddy:</strong> Interactive speaking practice and language tutoring with <Link to="/products/aibuddy">AI Buddy</Link>.</span>
+                                        <span><strong style={{ color: '#0e1022' }}>AI Buddy:</strong> Speaking practice and interactive language tutoring via <Link to="/products/aibuddy" style={{ color: '#1b277c', fontWeight: '700', textDecoration: 'underline' }}>AI Buddy</Link>.</span>
+                                    </li>
+                                    <li style={{ marginBottom: '14px', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                                        <i className="fas fa-check-circle text-primary mt-1"></i>
+                                        <span><strong style={{ color: '#0e1022' }}>Additional Products:</strong> <Link to="/products/exitinterview" style={{ color: '#1b277c', fontWeight: '600', textDecoration: 'underline' }}>Exit Intelligence</Link>, <Link to="/products/visionix" style={{ color: '#1b277c', fontWeight: '600', textDecoration: 'underline' }}>Visionix AI</Link>, <Link to="/products/vrm-reality" style={{ color: '#1b277c', fontWeight: '600', textDecoration: 'underline' }}>VRM Reality</Link>, and <Link to="/products/bench-to-deploy" style={{ color: '#1b277c', fontWeight: '600', textDecoration: 'underline' }}>Bench to Deploy (B2D)</Link>.</span>
                                     </li>
                                     <li style={{ marginBottom: '0px', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
-                                        <i className="fas fa-check-circle text-primary mt-1"></i>
-                                        <span><strong>Additional Products:</strong> Exit Intelligence, Visionix AI, VRM Reality, and Bench to Deploy (B2D).</span>
+                                        <i className="fas fa-laptop-code text-primary mt-1"></i>
+                                        <span><strong style={{ color: '#0e1022' }}>Enterprise Software:</strong> Custom Generative AI platforms, AI calling agents, and machine learning software.</span>
                                     </li>
                                 </ul>
                             </div>
