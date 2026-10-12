@@ -268,7 +268,7 @@ export default function AICompanyMadurai() {
                                 <div style={{ borderRadius: '12px', overflow: 'hidden', height: '360px', border: '1px solid #e2e8f0' }}>
                                     <iframe
                                         title="VRM AI Technology Madurai Development Center Map"
-                                        src="https://maps.google.com/maps?q=Door+No.209,+1st+Floor,+No.147,+5th+St,+Poriyalar+Nagar,+Tiruppalai,+Madurai,+Tamil+Nadu+625014&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.4364003716314!2d78.14042937601084!3d9.980763690123679!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b00c70da0a4f121%3A0x57fd243804bf05c4!2sVRM%20AI%20Technology%20(OPC)%20Pvt.Ltd!5e0!3m2!1sen!2sin!4v1791813446235!5m2!1sen!2sin"
                                         width="100%"
                                         height="100%"
                                         style={{ border: 0 }}
