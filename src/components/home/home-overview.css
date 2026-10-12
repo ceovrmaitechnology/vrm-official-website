@@ -412,3 +412,16 @@
         grid-template-columns: 1fr;
     }
 }
+/* Mobile-only LCP fix: reveal above-the-fold hero text immediately without waiting for JS animation */
+@media (max-width: 767.98px) {
+    .vrm-cta-banner .vrm-cta-banner__content.wow,
+    .vrm-cta-banner .vrm-cta-banner__content,
+    .vrm-cta-banner .title,
+    .vrm-cta-banner .desc,
+    .vrm-cta-banner .btn-white {
+        visibility: visible !important;
+        opacity: 1 !important;
+        animation: none !important;
+        transform: none !important;
+    }
+}
