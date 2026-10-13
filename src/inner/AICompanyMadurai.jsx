@@ -171,41 +171,6 @@ export default function AICompanyMadurai() {
                         </div>
                     </div>
 
-                    <div className="row g-4 mb-5">
-                        <div className="col-md-6 col-12">
-                            <img
-                                src="/assets/images/madurai/madurai-engineers-working.webp"
-                                alt="Software engineers collaborating on an AI development project"
-                                width="900"
-                                height="600"
-                                loading="lazy"
-                                decoding="async"
-                                style={{
-                                    borderRadius: '12px',
-                                    objectFit: 'cover',
-                                    width: '100%',
-                                    height: 'clamp(200px, 30vw, 240px)'
-                                }}
-                            />
-                        </div>
-                        <div className="col-md-6 col-12">
-                            <img
-                                src="/assets/images/madurai/madurai-team-collaboration.webp"
-                                alt="Cross-functional team reviewing AI solution requirements"
-                                width="900"
-                                height="900"
-                                loading="lazy"
-                                decoding="async"
-                                style={{
-                                    borderRadius: '12px',
-                                    objectFit: 'cover',
-                                    width: '100%',
-                                    height: 'clamp(200px, 30vw, 240px)'
-                                }}
-                            />
-                        </div>
-                    </div>
-
                     {/* Core Services Section */}
                     <div className="row mt-5 mb-5">
                         <div className="col-12 text-center mb-4">
