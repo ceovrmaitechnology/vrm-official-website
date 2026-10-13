@@ -146,10 +146,13 @@ export default function AICompanyMadurai() {
                         <div className="col-lg-6 wow fadeInLeft" data-wow-delay=".2s">
                             <div className="service-about-image-wrapper">
                                 <img
-                                    src="/assets/images/service/solution-ai-development.png"
-                                    alt="VRM AI Technology Development Center in Madurai"
+                                    src="/assets/images/madurai/madurai-team-about.webp"
+                                    alt="Team of software professionals collaborating around a laptop in a modern office"
                                     className="img-fluid rounded-4 shadow"
+                                    width="1000"
+                                    height="667"
                                     loading="lazy"
+                                    decoding="async"
                                 />
                             </div>
                         </div>
