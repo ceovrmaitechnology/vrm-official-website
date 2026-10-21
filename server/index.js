@@ -60,9 +60,28 @@ app.get("/robots.txt", (req, res) => {
   res.sendFile(filePath);
 });
 
+// Serve pre-rendered HTML for routes cleanly without automatic trailing slash addition
+app.use((req, res, next) => {
+  if (req.method !== "GET" || req.path.startsWith("/api")) return next();
+  
+  if (req.path === "/" || req.path === "") {
+    const indexPath = path.resolve(__dirname, "../build/index.html");
+    if (fs.existsSync(indexPath)) return res.sendFile(indexPath);
+    return next();
+  }
+
+  // Check if build/<cleanPath>/index.html exists for pre-rendered route
+  const cleanPath = req.path.replace(/^\/+|\/+$/g, "");
+  const prerenderedFile = path.resolve(__dirname, "../build", cleanPath, "index.html");
+  if (fs.existsSync(prerenderedFile)) {
+    return res.sendFile(prerenderedFile);
+  }
+  next();
+});
+
 // Serve build & public static files
-app.use(express.static(path.resolve(__dirname, "../build"), { maxAge: "1d" }));
-app.use(express.static(path.resolve(__dirname, "../public"), { maxAge: "1d" }));
+app.use(express.static(path.resolve(__dirname, "../build"), { maxAge: "1d", redirect: false }));
+app.use(express.static(path.resolve(__dirname, "../public"), { maxAge: "1d", redirect: false }));
 const upload = multer({
   storage: multer.memoryStorage(),
   limits: { fileSize: 15 * 1024 * 1024 },
