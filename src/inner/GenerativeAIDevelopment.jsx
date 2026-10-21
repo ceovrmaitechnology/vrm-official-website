@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/common/SEO';
 import { Link } from 'react-router-dom';
 import HeaderOne from '../components/header/HeaderOne';
 import FooterOne from '../components/footer/FooterOne';
@@ -43,46 +43,7 @@ function GenerativeAIDevelopment() {
     return (
         <div className="rts-ai-strategy-services basic-font-family">
             <HeaderOne className="header-white-text" />
-            <Helmet>
-                <title>Generative AI Solutions Company India | VRM AI</title>
-                <meta name="description" content="VRM AI Technology provides generative AI development services, platform architectures, and enterprise AI automation solutions." />
-                <meta property="og:title" content="Generative AI Solutions Company India | VRM AI" />
-                <meta property="og:description" content="VRM AI Technology provides generative AI development services, platform architectures, and enterprise AI automation solutions." />
-                <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
-                <link rel="canonical" href="https://www.vrmaitechnology.com/generative-ai-development" />
-
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="Generative AI Solutions Company India | VRM AI" />
-                <meta name="twitter:description" content="VRM AI Technology provides generative AI development services, platform architectures, and enterprise AI automation solutions." />
-                <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
-
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "BreadcrumbList",
-                        "itemListElement": [
-                            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.vrmaitechnology.com/" },
-                            { "@type": "ListItem", "position": 2, "name": "Solutions", "item": "https://www.vrmaitechnology.com/solutions" },
-                            { "@type": "ListItem", "position": 3, "name": "Generative AI Development", "item": "https://www.vrmaitechnology.com/generative-ai-development" }
-                        ]
-                    })}
-                </script>
-
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "FAQPage",
-                        "mainEntity": faqs.map(item => ({
-                            "@type": "Question",
-                            "name": item.q,
-                            "acceptedAnswer": {
-                                "@type": "Answer",
-                                "text": item.a
-                            }
-                        }))
-                    })}
-                </script>
-            </Helmet>
+            <SEO />
 
             {/* 1. Hero Section - Enterprise Gradient */}
             <div className="vrm-full-width-section vrm-enterprise-gradient">

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/common/SEO';
 import { Link } from 'react-router-dom';
 import HeaderOne from '../components/header/HeaderOne';
 import FooterOne from '../components/footer/FooterOne';
@@ -18,78 +18,7 @@ function AIIntegrationServices() {
     return (
         <div className="rts-ai-integration-services">
             <HeaderOne />
-            <Helmet>
-                <title>AI Integration Services | VRM AI Technology</title>
-                <meta name="description" content="Embed AI workflows into your existing enterprise IT systems with expert integration services. REST APIs, Kafka pipelines, and containerized deployments." />
-                <meta property="og:title" content="AI Integration Services | VRM AI Technology" />
-                <meta property="og:description" content="Embed AI workflows into your existing enterprise IT systems with expert integration services. REST APIs, Kafka pipelines, and containerized deployments." />
-                <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
-                <link rel="canonical" href="https://www.vrmaitechnology.com/solutions/ai-integration-services" />
-            
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="AI Integration Services | VRM AI Technology" />
-                <meta name="twitter:description" content="Embed AI workflows into your existing enterprise IT systems with expert integration services. REST APIs, Kafka pipelines, and containerized deployments." />
-                <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "BreadcrumbList",
-                        "itemListElement": [
-                            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.vrmaitechnology.com/" },
-                            { "@type": "ListItem", "position": 2, "name": "Solutions", "item": "https://www.vrmaitechnology.com/solutions" },
-                            { "@type": "ListItem", "position": 3, "name": "AI Integration Services", "item": "https://www.vrmaitechnology.com/solutions/ai-integration-services" }
-                        ]
-                    })}
-                </script>
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "FAQPage",
-                        "mainEntity": [
-                            {
-                                "@type": "Question",
-                                "name": "What are AI integration services?",
-                                "acceptedAnswer": {
-                                    "@type": "Answer",
-                                    "text": "AI integration services embed artificial intelligence capabilities into existing enterprise systems and workflows, enabling seamless interoperability, efficient adoption, and measurable business impact."
-                                }
-                            },
-                            {
-                                "@type": "Question",
-                                "name": "How does system integration with AI help your business?",
-                                "acceptedAnswer": {
-                                    "@type": "Answer",
-                                    "text": "System integration with AI improves enterprise efficiency by enabling seamless interoperability between core systems and AI-driven services through standardized interfaces and data pipelines."
-                                }
-                            },
-                            {
-                                "@type": "Question",
-                                "name": "What is included in AI implementation services?",
-                                "acceptedAnswer": {
-                                    "@type": "Answer",
-                                    "text": "AI implementation services encompass structured deployment of AI solutions into production environments, integration with enterprise systems, and establishment of monitoring and performance controls."
-                                }
-                            },
-                            {
-                                "@type": "Question",
-                                "name": "Do I need to replace my existing software to use AI?",
-                                "acceptedAnswer": {
-                                    "@type": "Answer",
-                                    "text": "No. AI capabilities can be embedded into existing enterprise systems using integration layers, adapters, and middleware, allowing organizations to extend current platforms without disruptive replacements."
-                                }
-                            },
-                            {
-                                "@type": "Question",
-                                "name": "Which industries benefit the most from AI integration?",
-                                "acceptedAnswer": {
-                                    "@type": "Answer",
-                                    "text": "Industries such as finance, healthcare, retail, manufacturing, real estate, and energy benefit significantly by embedding intelligent automation and predictive analytics into existing workflows."
-                                }
-                            }
-                        ]
-                    })}
-                </script>
-            </Helmet>
+            <SEO />
 
             {/* 1. Hero Section - Enterprise Gradient */}
             <div className="vrm-full-width-section vrm-enterprise-gradient">
@@ -101,7 +30,7 @@ function AIIntegrationServices() {
                                     AI Integration
                                 </span>
                                 <h1 className="title wow fadeInUp text-white" data-wow-delay=".2s">
-                                    AI Integration Service
+                                    AI Integration Services
                                 </h1>
                                 <p className="disc wow fadeInUp text-white-50" data-wow-delay=".3s">
                                     Seamlessly integrate advanced AI capabilities into your existing enterprise systems. Our AI integration services ensure secure, scalable, and high-performance implementation across platforms, enabling automation, intelligence, and operational efficiency.

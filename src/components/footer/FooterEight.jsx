@@ -62,7 +62,7 @@ function FooterEight() {
                                                     </ul>
                                                     <div className="info">
                                                         <span>Call Us 24/7</span>
-                                                        <Link to={'#'}>+91 81233 48355</Link>
+                                                        <a href="tel:+917397751037">+91 73977 51037</a>
                                                     </div>
                                                 </div>
                                                 <div className="single">

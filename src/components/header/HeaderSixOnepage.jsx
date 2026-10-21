@@ -52,7 +52,7 @@ function HeaderSix() {
                                     <div className="single-right call">
                                         <i className="far fa-phone-volume" />
                                         <span>Hotline:</span>
-                                        <a href="tel:+918123348355">+91 81233 48355</a>
+                                        <a href="tel:+917397751037">+91 73977 51037</a>
                                     </div>
                                 </div>
                             </div>

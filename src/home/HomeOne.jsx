@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/common/SEO';
 import WOW from 'wow.js';
 import HeaderOne from "../components/header/HeaderOne";
 import BannerOne from "../components/banner/BannerOne";
@@ -26,85 +26,7 @@ function HomeOne() {
 
   return (
     <div>
-      <Helmet>
-        <title>AI Software Company in Bengaluru &amp; Madurai | VRM AI Technology</title>
-        <meta name="description" content="VRM AI Technology is an AI software company in Bengaluru &amp; Madurai building GenAI platforms, conversational chatbots, voice agents, and ML systems." />
-        <meta property="og:title" content="AI Software Company in Bengaluru &amp; Madurai | VRM AI Technology" />
-        <meta property="og:description" content="VRM AI Technology is an AI software company in Bengaluru &amp; Madurai building GenAI platforms, conversational chatbots, voice agents, and ML systems." />
-        <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
-        <link rel="canonical" href="https://www.vrmaitechnology.com/" />
-      
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="AI Software Company in Bengaluru &amp; Madurai | VRM AI Technology" />
-        <meta name="twitter:description" content="VRM AI Technology is an AI software company in Bengaluru &amp; Madurai building GenAI platforms, conversational chatbots, voice agents, and ML systems." />
-        <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
-
-        {/* Organization JSON-LD Schema */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "VRM AI Technology",
-            "legalName": "VRM AI Technology (OPC) Pvt.Ltd",
-            "url": "https://www.vrmaitechnology.com/",
-            "logo": "https://www.vrmaitechnology.com/assets/images/logo/logo.png",
-            "telephone": "+91 81233 48355",
-            "email": "contactus@vrmaitechnology.com",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "GoodWorks Infinity Park, 21, 2nd Main Rd, Electronic City Phase I",
-              "addressLocality": "Bengaluru",
-              "addressRegion": "Karnataka",
-              "postalCode": "560100",
-              "addressCountry": "IN"
-            },
-            "hasCertification": {
-              "@type": "Certification",
-              "name": "ISO 9001:2015",
-              "certificationIdentification": "E20260749630",
-              "expires": "2029-07-20"
-            },
-            "location": [
-              {
-                "@type": "Place",
-                "name": "VRM AI Technology - Headquarters",
-                "telephone": "+91 81233 48355",
-                "address": {
-                  "@type": "PostalAddress",
-                  "streetAddress": "GoodWorks Infinity Park, 21, 2nd Main Rd, Electronic City Phase I",
-                  "addressLocality": "Bengaluru",
-                  "addressRegion": "Karnataka",
-                  "postalCode": "560100",
-                  "addressCountry": "IN"
-                }
-              },
-              {
-                "@type": "Place",
-                "name": "VRM AI Technology - Development Center",
-                "telephone": "+91 81233 48355",
-                "hasMap": "https://share.google/Low7HbzJnoFKyBI1d",
-                "address": {
-                  "@type": "PostalAddress",
-                  "streetAddress": "Door No,209, 1ST Floor, No.147, 5th St, Poriyalar Nagar, Tiruppalai",
-                  "addressLocality": "Madurai",
-                  "addressRegion": "Tamil Nadu",
-                  "postalCode": "625014",
-                  "addressCountry": "IN"
-                }
-              }
-            ],
-            "areaServed": ["Madurai", "Bangalore", "Chennai", "Tamil Nadu", "India"],
-            "sameAs": [
-              "https://www.linkedin.com/company/vrm-ai-technology-pvt-ltd/",
-              "https://x.com/vrmaitechnology",
-              "https://www.instagram.com/vrmaitechnology/",
-              "https://www.facebook.com/profile.php?id=61589969476629",
-              "https://www.youtube.com/@vrmaitech",
-              "https://share.google/Low7HbzJnoFKyBI1d"
-            ]
-          })}
-        </script>
-      </Helmet>
+      <SEO />
       <HeaderOne className="header-transparent header-white-text" />
       <BannerOne />
       <HomeOverview />

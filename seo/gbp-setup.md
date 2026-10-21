@@ -2,14 +2,14 @@
 
 **Profile Type**: Service Area & Hybrid Business (Staffed office location)
 **Address**: Door No.209, 1st Floor, No.147, 5th St, Poriyalar Nagar, Tiruppalai, Madurai, Tamil Nadu 625014
-**Phone**: +91 81233 48355
+**Phone**: +91 73977 51037
 
 ## 1. Core Profile Optimization
 - [ ] **Business Name**: Verify it strictly matches `VRM AI Technology`. Avoid keyword stuffing here.
 - [ ] **Categories**: Add `Software company` and `Artificial intelligence company` (if available), or `Computer software company`.
 - [ ] **Opening Hours**: Set accurately (e.g. Mon–Sat 09:30–19:00, Sunday closed). Add holiday hours.
 - [ ] **Description (750 chars)**: Draft a compelling description emphasizing you are a GenAI company delivering agentic AI, chatbots, and enterprise automation (including VRM Reality). Example: "VRM AI Technology is a top GenAI innovation company with our core development center in Madurai. We engineer robust, enterprise-grade machine learning models, autonomous AI chatbots, and voice AI solutions..."
-- [ ] **Phone & Website**: Ensure `+91 81233 48355` is the primary phone. Link to `https://www.vrmaitechnology.com/`.
+- [ ] **Phone & Website**: Ensure `+91 73977 51037` is the primary phone. Link to `https://www.vrmaitechnology.com/`.
 
 ## 2. Products & Services Tab
 - [ ] Add **VRM Reality** as a primary product. Ensure no mention of "VRM Real Estate" or "price 0" exists in the product descriptions.

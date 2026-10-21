@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Tabs, Tab, TabContent } from 'react-bootstrap';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/common/SEO';
 
 import HeaderOne from "../components/header/HeaderOne";
 
@@ -16,19 +16,7 @@ function Project() {
     const [activeKey, setActiveKey] = useState('home');
     return (
         <div className=''>
-            <Helmet>
-                <title>Our Portfolio & Case Studies | VRM AI Technology</title>
-                <meta name="description" content="Explore VRM AI Technology's enterprise portfolio of AI solutions, business growth transformations, and technology implementations." />
-                <link rel="canonical" href="https://www.vrmaitechnology.com/project" />
-                <meta name="robots" content="noindex, follow" />
-                <meta property="og:title" content="Our Portfolio & Case Studies | VRM AI Technology" />
-                <meta property="og:description" content="Explore VRM AI Technology's enterprise portfolio of AI solutions, business growth transformations, and technology implementations." />
-                <meta property="og:url" content="https://www.vrmaitechnology.com/project" />
-                <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="Our Portfolio & Case Studies | VRM AI Technology" />
-                <meta name="twitter:description" content="Explore VRM AI Technology's enterprise portfolio of AI solutions, business growth transformations, and technology implementations." />
-            </Helmet>
+            <SEO />
 
             <HeaderOne />
 

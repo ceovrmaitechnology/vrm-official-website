@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/common/SEO';
 import { Link } from 'react-router-dom';
 import HeaderOne from '../components/header/HeaderOne';
 import FooterOne from '../components/footer/FooterOne';
@@ -36,67 +36,14 @@ function AIInnovationIndia() {
         },
         {
             q: "How can organizations work with VRM AI Technology?",
-            a: "Organizations can reach out through our Contact Us page or call +91 81233 48355 to discuss their project requirements."
+            a: "Organizations can reach out through our Contact Us page or call +91 73977 51037 to discuss their project requirements."
         }
     ];
 
     return (
         <div className="rts-ai-strategy-services basic-font-family">
             <HeaderOne className="header-white-text" />
-            <Helmet>
-                <title>AI Software &amp; Solutions in India | VRM AI Technology</title>
-                <meta name="description" content="VRM AI Technology develops AI software from our Madurai engineering center and Bengaluru registered office, delivering GenAI, chatbots, and ML systems." />
-                <meta property="og:title" content="AI Software &amp; Solutions in India | VRM AI Technology" />
-                <meta property="og:description" content="VRM AI Technology develops AI software from our Madurai engineering center and Bengaluru registered office, delivering GenAI, chatbots, and ML systems." />
-                <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
-                <link rel="canonical" href="https://www.vrmaitechnology.com/ai-innovation-india" />
-
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="AI Software &amp; Solutions in India | VRM AI Technology" />
-                <meta name="twitter:description" content="VRM AI Technology develops AI software from our Madurai engineering center and Bengaluru registered office, delivering GenAI, chatbots, and ML systems." />
-                <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
-
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "BreadcrumbList",
-                        "itemListElement": [
-                            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.vrmaitechnology.com/" },
-                            { "@type": "ListItem", "position": 2, "name": "AI Innovation in India", "item": "https://www.vrmaitechnology.com/ai-innovation-india" }
-                        ]
-                    })}
-                </script>
-
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "FAQPage",
-                        "mainEntity": faqs.map(item => ({
-                            "@type": "Question",
-                            "name": item.q,
-                            "acceptedAnswer": {
-                                "@type": "Answer",
-                                "text": item.a
-                            }
-                        }))
-                    })}
-                </script>
-
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "Service",
-                        "name": "AI Software Solutions in India",
-                        "description": "VRM AI Technology delivers custom Generative AI platforms, conversational AI, voice agents, and machine learning systems across India from its Madurai engineering center.",
-                        "provider": {
-                            "@type": "Organization",
-                            "name": "VRM AI Technology"
-                        },
-                        "areaServed": ["Madurai", "Bangalore", "Chennai", "Tamil Nadu", "India"],
-                        "url": "https://www.vrmaitechnology.com/ai-innovation-india"
-                    })}
-                </script>
-            </Helmet>
+            <SEO />
 
             {/* 1. Hero Section - Enterprise Gradient */}
             <div className="vrm-full-width-section vrm-enterprise-gradient">

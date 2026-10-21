@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import ProductVideo from '../components/common/ProductVideo';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/common/SEO';
 import { Link } from 'react-router-dom';
 import HeaderOne from "../components/header/HeaderOne";
 import FooterOne from "../components/footer/FooterOne";
@@ -26,47 +26,7 @@ function ScreenSage() {
 
     return (
         <div className="screensage-page basic-font-family">
-            <Helmet>
-                <title>ScreenSage AI Voice Screening | VRM AI Technology</title>
-                <meta name="description" content="ScreenSage by VRM AI Technology delivers AI voice screening interviews, evaluating candidate responses and communication with automated scorecards." />
-                <meta property="og:title" content="ScreenSage AI Voice Screening | VRM AI Technology" />
-                <meta property="og:description" content="ScreenSage by VRM AI Technology delivers AI voice screening interviews, evaluating candidate responses and communication with automated scorecards." />
-                <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
-                <meta property="og:url" content="https://www.vrmaitechnology.com/products/workflow/screensage" />
-                <link rel="canonical" href="https://www.vrmaitechnology.com/products/workflow/screensage" />
-
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="ScreenSage AI Voice Screening | VRM AI Technology" />
-                <meta name="twitter:description" content="ScreenSage by VRM AI Technology delivers AI voice screening interviews, evaluating candidate responses and communication with automated scorecards." />
-                <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "BreadcrumbList",
-                        "itemListElement": [
-                            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.vrmaitechnology.com/" },
-                            { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://www.vrmaitechnology.com/products" },
-                            { "@type": "ListItem", "position": 3, "name": "Workflow AI", "item": "https://www.vrmaitechnology.com/products/workflow" },
-                            { "@type": "ListItem", "position": 4, "name": "ScreenSage", "item": "https://www.vrmaitechnology.com/products/workflow/screensage" }
-                        ]
-                    })}
-                </script>
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "SoftwareApplication",
-                        "name": "ScreenSage",
-                        "operatingSystem": "Web",
-                        "applicationCategory": "BusinessApplication",
-                        "description": "Automate first-round candidate screening with ScreenSage. Conduct AI-powered voice interviews, evaluate candidate communication and skills, and receive structured scorecards.",
-                        "publisher": {
-                            "@type": "Organization",
-                            "name": "VRM AI Technology",
-                            "url": "https://www.vrmaitechnology.com/"
-                        }
-                    })}
-                </script>
-            </Helmet>
+            <SEO />
             <HeaderOne />
 
             {/* 1. Hero Section - Enterprise Gradient */}

@@ -111,7 +111,7 @@ const IsoCertificateModal = ({ isOpen, onClose }) => {
                             ISO 9001:2015 OFFICIAL CERTIFICATE
                         </span>
                         <h4 style={{ margin: 0, fontSize: '14px', fontWeight: '700', color: '#0f172a' }}>
-                            VRM AI Technology (OPC) Pvt Ltd
+                            VRM AI Technology (OPC) Pvt.Ltd.
                         </h4>
                     </div>
 

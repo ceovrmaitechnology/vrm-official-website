@@ -1,6 +1,6 @@
 
 import React, { useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/common/SEO';
 import { Link } from 'react-router-dom';
 import HeaderOne from '../components/header/HeaderOne';
 import FooterOne from '../components/footer/FooterOne';
@@ -26,79 +26,7 @@ function AICallingAgent() {
 
     return (
         <div className="rts-ai-calling-agent">
-            <Helmet>
-                <title>AI Calling Agent Solutions | VRM AI Technology</title>
-                <meta name="description" content="Deploy conversational AI calling agents for automated inbound customer support and outbound campaigns by VRM AI Technology." />
-                <meta property="og:title" content="AI Calling Agent Solutions | VRM AI Technology" />
-                <meta property="og:description" content="Deploy conversational AI calling agents for automated inbound customer support and outbound campaigns by VRM AI Technology." />
-                <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
-                <meta property="og:url" content="https://www.vrmaitechnology.com/solutions/ai-calling-agent" />
-                <link rel="canonical" href="https://www.vrmaitechnology.com/solutions/ai-calling-agent" />
-
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="AI Calling Agent Solutions | VRM AI Technology" />
-                <meta name="twitter:description" content="Deploy conversational AI calling agents for automated inbound customer support and outbound campaigns by VRM AI Technology." />
-                <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "BreadcrumbList",
-                        "itemListElement": [
-                            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.vrmaitechnology.com/" },
-                            { "@type": "ListItem", "position": 2, "name": "Solutions", "item": "https://www.vrmaitechnology.com/solutions" },
-                            { "@type": "ListItem", "position": 3, "name": "AI Calling Agent", "item": "https://www.vrmaitechnology.com/solutions/ai-calling-agent" }
-                        ]
-                    })}
-                </script>
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "FAQPage",
-                        "mainEntity": [
-                            {
-                                "@type": "Question",
-                                "name": "What is an AI Calling Agent?",
-                                "acceptedAnswer": {
-                                    "@type": "Answer",
-                                    "text": "A virtual assistant that handles inbound/outbound calls using natural language processing."
-                                }
-                            },
-                            {
-                                "@type": "Question",
-                                "name": "Does it sound robotic?",
-                                "acceptedAnswer": {
-                                    "@type": "Answer",
-                                    "text": "No, we use advanced neural voice synthesis to ensure human-like intonation and latency."
-                                }
-                            },
-                            {
-                                "@type": "Question",
-                                "name": "Can it integrate with my CRM?",
-                                "acceptedAnswer": {
-                                    "@type": "Answer",
-                                    "text": "Yes, we support native integrations with major CRMs and custom webhooks."
-                                }
-                            },
-                            {
-                                "@type": "Question",
-                                "name": "Is it secure?",
-                                "acceptedAnswer": {
-                                    "@type": "Answer",
-                                    "text": "We adhere to enterprise security standards including data encryption and compliance protocols."
-                                }
-                            },
-                            {
-                                "@type": "Question",
-                                "name": "How fast can we launch?",
-                                "acceptedAnswer": {
-                                    "@type": "Answer",
-                                    "text": "Typical deployment takes 2-4 weeks depending on complexity."
-                                }
-                            }
-                        ]
-                    })}
-                </script>
-            </Helmet>
+            <SEO />
             <HeaderOne className="header-white-text" />
 
             {/* 1. Hero Section - Enterprise Gradient */}

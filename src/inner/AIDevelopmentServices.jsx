@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/common/SEO';
 import { Link } from 'react-router-dom';
 import HeaderOne from '../components/header/HeaderOne';
 import FooterOne from '../components/footer/FooterOne';
@@ -18,78 +18,7 @@ function AIDevelopmentServices() {
     return (
         <div className="rts-ai-development-services">
             <HeaderOne className="header-white-text" />
-            <Helmet>
-                <title>AI Development Services | VRM AI Technology</title>
-                <meta name="description" content="End-to-end custom AI development services including Machine Learning, Computer Vision, and Natural Language Processing for enterprise pipelines." />
-                <meta property="og:title" content="AI Development Services | VRM AI Technology" />
-                <meta property="og:description" content="End-to-end custom AI development services including Machine Learning, Computer Vision, and Natural Language Processing for enterprise pipelines." />
-                <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
-                <link rel="canonical" href="https://www.vrmaitechnology.com/solutions/ai-development-services" />
-            
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="AI Development Services | VRM AI Technology" />
-                <meta name="twitter:description" content="End-to-end custom AI development services including Machine Learning, Computer Vision, and Natural Language Processing for enterprise pipelines." />
-                <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "BreadcrumbList",
-                        "itemListElement": [
-                            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.vrmaitechnology.com/" },
-                            { "@type": "ListItem", "position": 2, "name": "Solutions", "item": "https://www.vrmaitechnology.com/solutions" },
-                            { "@type": "ListItem", "position": 3, "name": "AI Development Services", "item": "https://www.vrmaitechnology.com/solutions/ai-development-services" }
-                        ]
-                    })}
-                </script>
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "FAQPage",
-                        "mainEntity": [
-                            {
-                                "@type": "Question",
-                                "name": "What are AI development services?",
-                                "acceptedAnswer": {
-                                    "@type": "Answer",
-                                    "text": "AI development services include end-to-end creation of AI systems that automate processes, provide predictive insights, and integrate intelligent functionality into enterprise applications."
-                                }
-                            },
-                            {
-                                "@type": "Question",
-                                "name": "How do AI solutions benefit businesses?",
-                                "acceptedAnswer": {
-                                    "@type": "Answer",
-                                    "text": "AI delivers operational efficiency, data-driven decision support, automation of manual tasks, enhanced customer interactions, and insights that drive strategic advantage."
-                                }
-                            },
-                            {
-                                "@type": "Question",
-                                "name": "Can AI handle enterprise-scale operations?",
-                                "acceptedAnswer": {
-                                    "@type": "Answer",
-                                    "text": "Yes. Modern AI systems are engineered for high concurrency, robust performance, and integration with enterprise infrastructure and workflows."
-                                }
-                            },
-                            {
-                                "@type": "Question",
-                                "name": "Which industries benefit from AI development?",
-                                "acceptedAnswer": {
-                                    "@type": "Answer",
-                                    "text": "Industries such as finance, healthcare, retail, manufacturing, real estate, and energy benefit from AI adoption through automation, predictive analytics, and advanced insights."
-                                }
-                            },
-                            {
-                                "@type": "Question",
-                                "name": "How do I begin with your AI development services?",
-                                "acceptedAnswer": {
-                                    "@type": "Answer",
-                                    "text": "Start with a assessment where we assess your business needs, data readiness, and workflow architecture, then define a tailored AI roadmap for implementation."
-                                }
-                            }
-                        ]
-                    })}
-                </script>
-            </Helmet>
+            <SEO />
             {/* 1. Hero Section - Enterprise Gradient */}
             <div className="vrm-full-width-section vrm-enterprise-gradient">
                 <div className="container">
@@ -272,7 +201,7 @@ function AIDevelopmentServices() {
                                     { q: "How do AI solutions benefit businesses?", a: "AI delivers operational efficiency, data-driven decision support, automation of manual tasks, enhanced customer interactions, and insights that drive strategic advantage." },
                                     { q: "Can AI handle enterprise-scale operations?", a: "Yes. Modern AI systems are engineered for high concurrency, robust performance, and integration with enterprise infrastructure and workflows." },
                                     { q: "Which industries benefit from AI development?", a: "Industries such as finance, healthcare, retail, manufacturing, real estate, and energy benefit from AI adoption through automation, predictive analytics, and advanced insights." },
-                                    { q: "How do I begin with your AI development services?", a: "Start with a assessment where we assess your business needs, data readiness, and workflow architecture, then define a tailored AI roadmap for implementation." }
+                                    { q: "How do I begin with your AI development services?", a: "Start with an assessment where we assess your business needs, data readiness, and workflow architecture, then define a tailored AI roadmap for implementation." }
                                 ].map((faq, index) => (
                                     <div key={index} className="accordion-item">
                                         <h2 className="accordion-header" id={`heading${index}`}>

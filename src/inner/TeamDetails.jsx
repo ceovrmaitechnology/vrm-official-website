@@ -1,5 +1,5 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/common/SEO';
 
 import HeaderOne from "../components/header/HeaderOne";
 
@@ -14,19 +14,7 @@ function TeamDetails() {
     ];
     return (
         <div className=''>
-            <Helmet>
-                <title>Team Member Profile | VRM AI Technology</title>
-                <meta name="description" content="Professional profile and skills breakdown of VRM AI Technology leadership and engineering experts." />
-                <link rel="canonical" href="https://www.vrmaitechnology.com/team-details" />
-                <meta name="robots" content="noindex, follow" />
-                <meta property="og:title" content="Team Member Profile | VRM AI Technology" />
-                <meta property="og:description" content="Professional profile and skills breakdown of VRM AI Technology leadership and engineering experts." />
-                <meta property="og:url" content="https://www.vrmaitechnology.com/team-details" />
-                <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="Team Member Profile | VRM AI Technology" />
-                <meta name="twitter:description" content="Professional profile and skills breakdown of VRM AI Technology leadership and engineering experts." />
-            </Helmet>
+            <SEO />
 
             <HeaderOne />
 

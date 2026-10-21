@@ -20,8 +20,8 @@ function CallToAction() {
                                     Contact Our AI Agents For Business Solutions{" "}
                                     <span style={{ color: '#a5b4fc' }}>(24/7 Available)</span>
                                 </p>
-                                <a href="tel:+918123348355" className="number text-white">
-                                    +91 81233 48355
+                                <a href="tel:+917397751037" className="number text-white">
+                                    +91 73977 51037
                                 </a>
                                 <Link to="/contactus" className="rts-btn btn-primary-2" style={{ background: '#fff', color: '#1b277c' }}>
                                     Contact Us

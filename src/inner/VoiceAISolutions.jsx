@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/common/SEO';
 import { Link } from 'react-router-dom';
 import HeaderOne from '../components/header/HeaderOne';
 import FooterOne from '../components/footer/FooterOne';
@@ -43,34 +43,7 @@ function VoiceAISolutions() {
     return (
         <div className="rts-ai-strategy-services basic-font-family">
             <HeaderOne className="header-white-text" />
-            <Helmet>
-                <title>Voice AI Solutions | VRM AI Technology</title>
-                <meta name="description" content="VRM AI Technology delivers voice AI solutions, real-time calling agents, speech synthesis, and conversational telephony automation for modern enterprises." />
-                <meta property="og:title" content="Voice AI Solutions | VRM AI Technology" />
-                <meta property="og:description" content="VRM AI Technology delivers voice AI solutions, real-time calling agents, speech synthesis, and conversational telephony automation for modern enterprises." />
-                <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
-                <link rel="canonical" href="https://www.vrmaitechnology.com/voice-ai-solutions" />
-
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="Voice AI Solutions &amp; Conversational Voice Agents | VRM AI Technology" />
-                <meta name="twitter:description" content="VRM AI Technology delivers voice AI solutions, real-time calling agents, speech synthesis, and conversational telephony automation for modern enterprises." />
-                <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
-
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "FAQPage",
-                        "mainEntity": faqs.map(item => ({
-                            "@type": "Question",
-                            "name": item.q,
-                            "acceptedAnswer": {
-                                "@type": "Answer",
-                                "text": item.a
-                            }
-                        }))
-                    })}
-                </script>
-            </Helmet>
+            <SEO />
 
             {/* 1. Hero Section - Enterprise Gradient */}
             <div className="vrm-full-width-section vrm-enterprise-gradient">
@@ -82,7 +55,7 @@ function VoiceAISolutions() {
                                     Ultra-Low Latency Speech AI &bull; Telephony Automation
                                 </span>
                                 <h1 className="title wow fadeInUp text-white" data-wow-delay=".3s">
-                                    Voice AI Solutions &amp; Conversational Voice Agents
+                                    Voice AI Solutions & Conversational Voice Agents
                                 </h1>
                                 <p className="disc wow fadeInUp text-white-50" data-wow-delay=".4s">
                                     Autonomous voice AI from VRM AI Technology enables conversational voice agents to conduct natural telephone calls for inbound support, automated outbound campaigns, and live candidate screening.

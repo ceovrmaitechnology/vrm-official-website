@@ -17,10 +17,7 @@ function OurService() {
     return (
         <div className=''>
 
-            <Helmet>
-                <title>Pricing Plans | VRM AI Technology</title>
-                <meta name="robots" content="noindex, follow" />
-            </Helmet>
+            <SEO />
             <HeaderOne />
             <Breadcrumb title="Pricing Plane" breadcrumbs={breadcrumbs} />
 

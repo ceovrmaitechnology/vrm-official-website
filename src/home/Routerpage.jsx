@@ -24,6 +24,8 @@ const BenchToDeploy = lazy(() => import('../inner/BenchToDeploy'));
 const AICallingAgent = lazy(() => import('../inner/AICallingAgent'));
 // Removed AIServices
 const AIChatbotDevelopment = lazy(() => import('../inner/AIChatbotDevelopment'));
+const AIChatbotServices = lazy(() => import('../inner/AIChatbotServices'));
+const VoiceAISolutions = lazy(() => import('../inner/VoiceAISolutions'));
 const AIDevelopmentServices = lazy(() => import('../inner/AIDevelopmentServices'));
 const AIIntegrationServices = lazy(() => import('../inner/AIIntegrationServices'));
 const MachineLearningServices = lazy(() => import('../inner/MachineLearningServices'));
@@ -67,9 +69,9 @@ function RouterPage() {
                         <Route path="/generative-ai-development" element={<GenerativeAIDevelopment />}></Route>
                         <Route path="/solutions/generative-ai-development" element={<Navigate to="/generative-ai-development" replace />}></Route>
                         <Route path="/solutions/ai-chatbot-development" element={<AIChatbotDevelopment />}></Route>
-                        <Route path="/ai-chatbot-development" element={<Navigate to="/solutions/ai-chatbot-development" replace />}></Route>
+                        <Route path="/ai-chatbot-development" element={<AIChatbotServices />}></Route>
                         <Route path="/solutions/ai-calling-agent" element={<AICallingAgent />}></Route>
-                        <Route path="/voice-ai-solutions" element={<Navigate to="/solutions/ai-calling-agent" replace />}></Route>
+                        <Route path="/voice-ai-solutions" element={<VoiceAISolutions />}></Route>
                         <Route path="/solutions/ai-consulting-services" element={<Navigate to="/solutions" replace />}></Route>
                         <Route path="/ai-consulting" element={<Navigate to="/solutions" replace />}></Route>
                         <Route path="/solutions/ai-development-services" element={<AIDevelopmentServices />}></Route>

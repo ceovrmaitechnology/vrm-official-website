@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ProductVideo from '../components/common/ProductVideo';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/common/SEO';
 import { Link } from 'react-router-dom';
 import HeaderOne from "../components/header/HeaderOne";
 import FooterOne from "../components/footer/FooterOne";
@@ -27,46 +27,7 @@ function BenchToDeploy() {
 
     return (
         <div className="bench-to-deploy-page basic-font-family">
-            <Helmet>
-                <title>Bench to Deploy (B2D) AI Bench Management | VRM AI Technology</title>
-                <meta name="description" content="Bench to Deploy by VRM AI Technology moves unassigned bench talent into active billing with AI screening, proctored evaluations, and automated upskilling." />
-                <meta property="og:title" content="Bench to Deploy (B2D) AI Bench Management | VRM AI Technology" />
-                <meta property="og:description" content="Bench to Deploy by VRM AI Technology moves unassigned bench talent into active billing with AI screening, proctored evaluations, requisition matching, and automated upskilling." />
-                <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
-                <meta property="og:url" content="https://www.vrmaitechnology.com/products/bench-to-deploy" />
-                <link rel="canonical" href="https://www.vrmaitechnology.com/products/bench-to-deploy" />
-
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="Bench to Deploy (B2D) AI Bench Management | VRM AI Technology" />
-                <meta name="twitter:description" content="Bench to Deploy by VRM AI Technology moves unassigned bench talent into active billing with AI screening, proctored evaluations, requisition matching, and automated upskilling." />
-                <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "BreadcrumbList",
-                        "itemListElement": [
-                            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.vrmaitechnology.com/" },
-                            { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://www.vrmaitechnology.com/products" },
-                            { "@type": "ListItem", "position": 3, "name": "Bench to Deploy", "item": "https://www.vrmaitechnology.com/products/bench-to-deploy" }
-                        ]
-                    })}
-                </script>
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "SoftwareApplication",
-                        "name": "Bench to Deploy (B2D)",
-                        "operatingSystem": "Web",
-                        "applicationCategory": "BusinessApplication",
-                        "description": "Bench to Deploy by VRM AI Technology moves unassigned bench talent into active billing with AI screening, proctored evaluations, requisition matching, and automated upskilling.",
-                        "publisher": {
-                            "@type": "Organization",
-                            "name": "VRM AI Technology",
-                            "url": "https://www.vrmaitechnology.com/"
-                        }
-                    })}
-                </script>
-            </Helmet>
+            <SEO />
             <HeaderOne />
 
             {/* 1. Hero Section - Enterprise Gradient */}

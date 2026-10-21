@@ -48,7 +48,7 @@ function HeaderSeven() {
                                     </div>
                                     <div className="call">
                                         <i className="fas fa-phone-alt" />
-                                        <a href="tel:+918123348355">Hotline: +91 81233 48355</a>
+                                        <a href="tel:+917397751037">Hotline: +91 73977 51037</a>
                                     </div>
                                 </div>
                             </div>

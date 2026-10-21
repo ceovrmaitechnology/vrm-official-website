@@ -50,6 +50,9 @@ const path = require('path');
   if (!routes.includes('/404')) {
     routes.push('/404');
   }
+  if (!routes.includes('/chennai')) {
+    routes.push('/chennai');
+  }
 
   function getChromePath() {
     if (process.env.PUPPETEER_EXECUTABLE_PATH && fs.existsSync(process.env.PUPPETEER_EXECUTABLE_PATH)) {
@@ -114,18 +117,22 @@ const path = require('path');
       // Poll until react-helmet-async injects <title> and <link rel="canonical">
       const canonicalTarget = route === '/' || route === '' ? 'https://www.vrmaitechnology.com' : `https://www.vrmaitechnology.com${route.startsWith('/') ? route : '/' + route}`;
       
+      const isNoindexRoute = route === '/404' || route === '/chennai';
+      
       try {
-        await page.waitForFunction((targetUrl, isErrorRoute) => {
+        await page.waitForFunction((targetUrl, isNoindex) => {
           const t = document.querySelector('title');
           const c = document.querySelector('link[rel="canonical"]');
-          if (isErrorRoute) {
-             return t && t.textContent && t.textContent.trim().length > 0;
+          const rob = document.querySelector('meta[name="robots"]');
+          if (isNoindex) {
+             return t && t.textContent && t.textContent.trim().length > 0 &&
+                    rob && rob.getAttribute('content') && rob.getAttribute('content').includes('noindex');
           }
           return t && t.textContent && t.textContent.trim().length > 0 &&
-                 c && c.href && (c.href === targetUrl || c.href === targetUrl + '/');
-        }, { timeout: 15000 }, canonicalTarget, route === '/404');
+                 c && (c.getAttribute('href') === targetUrl || c.href === targetUrl || c.href === targetUrl + '/');
+        }, { timeout: 15000 }, canonicalTarget, isNoindexRoute);
       } catch (e) {
-        console.error(`[PRERENDER ERROR] ${route}: Timeout waiting for title and canonical (${canonicalTarget}).`);
+        console.error(`[PRERENDER ERROR] ${route}: Timeout waiting for title and metadata (${canonicalTarget}).`);
         process.exit(1);
       }
 
@@ -156,6 +163,11 @@ const path = require('path');
         return updated;
       });
 
+      // Ensure no literal &amp; in title and meta tags as required by SEO specification
+      let cleanHtml = finalHtml
+        .replace(/<title>([\s\S]*?)<\/title>/gi, (match, t) => `<title>${t.replace(/&amp;/g, '&')}</title>`)
+        .replace(/<meta\s+([^>]*?(?:title|description)[^>]*?)>/gi, (match) => match.replace(/&amp;/g, '&'));
+
       let outPath;
       if (route === '/' || route === '') {
         outPath = path.join(buildDir, 'index.html');
@@ -168,7 +180,7 @@ const path = require('path');
         outPath = path.join(targetDir, 'index.html');
       }
 
-      fs.writeFileSync(outPath, finalHtml, 'utf8');
+      fs.writeFileSync(outPath, cleanHtml, 'utf8');
       successCount++;
       console.log(`[PRERENDER ${successCount}/${routes.length}] ${route} -> ${path.relative(buildDir, outPath)}`);
     } catch (err) {

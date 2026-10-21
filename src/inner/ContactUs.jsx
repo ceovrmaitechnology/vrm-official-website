@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/common/SEO';
 import HeaderOne from '../components/header/HeaderOne';
 import FooterOne from '../components/footer/FooterOne';
 import GlobalMap from '../components/map/GlobalMap';
@@ -131,40 +131,7 @@ const ContactUs = () => {
 
     return (
         <div className="contact-us-page basic-font-family">
-            <Helmet>
-                <title>Contact Us | VRM AI Technology</title>
-                <meta name="description" content="Contact VRM AI Technology: Madurai development center and Bengaluru headquarters. Call or write to discuss your AI project." />
-                <meta property="og:title" content="Contact VRM AI Technology" />
-                <meta property="og:description" content="Contact VRM AI Technology: Madurai development center and Bengaluru headquarters. Call or write to discuss your AI project." />
-                <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
-                <link rel="canonical" href="https://www.vrmaitechnology.com/contactus" />
-              
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="Contact VRM AI Technology" />
-                <meta name="twitter:description" content="Contact VRM AI Technology: Madurai development center and Bengaluru headquarters. Call or write to discuss your AI project." />
-                <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
-
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "BreadcrumbList",
-                        "itemListElement": [
-                            {
-                                "@type": "ListItem",
-                                "position": 1,
-                                "name": "Home",
-                                "item": "https://www.vrmaitechnology.com/"
-                            },
-                            {
-                                "@type": "ListItem",
-                                "position": 2,
-                                "name": "Contact Us",
-                                "item": "https://www.vrmaitechnology.com/contactus"
-                            }
-                        ]
-                    })}
-                </script>
-            </Helmet>
+            <SEO />
             <HeaderOne className="header-white-text" />
 
             {/* 1. Premium Hero Section */}
@@ -457,7 +424,7 @@ Bengaluru, Karnataka 560100.</span>
                                     </li>
                                     <li>
                                         <i className="fas fa-phone-alt"></i>
-                                        <span>+91 81233 48355</span>
+                                        <span><a href="tel:+917397751037" style={{ color: "inherit" }}>+91 73977 51037</a></span>
                                     </li>
                                     <li>
                                         <i className="fas fa-envelope"></i>
@@ -496,7 +463,7 @@ Bengaluru, Karnataka 560100.</span>
                                     </li>
                                     <li>
                                         <i className="fas fa-phone-alt"></i>
-                                        <span>+91 81233 48355</span>
+                                        <span><a href="tel:+917397751037" style={{ color: "inherit" }}>+91 73977 51037</a></span>
                                     </li>
                                     <li>
                                         <i className="fas fa-envelope"></i>
@@ -515,7 +482,7 @@ Bengaluru, Karnataka 560100.</span>
                                     <div>
                                         <h4 className="fw-bold text-dark mb-1">Madurai Development Center Map</h4>
                                         <p className="text-muted mb-0" style={{ fontSize: '14px' }}>
-                                            Door No,209, 1ST Floor, No.147, 5th St, Poriyalar Nagar, Tiruppalai, Madurai, Tamil Nadu 625014, India
+                                            Door No.209, 1st Floor, No.147, 5th St, Poriyalar Nagar, Tiruppalai, Madurai, Tamil Nadu 625014, India
                                         </p>
                                     </div>
                                     <div className="d-flex gap-2 mt-2 mt-sm-0">

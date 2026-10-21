@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/common/SEO';
 import { Link } from 'react-router-dom';
 import HeaderOne from "../components/header/HeaderOne";
 import FooterOne from "../components/footer/FooterOne";
@@ -23,7 +23,7 @@ function SolutionsOverview() {
             disc: "Seamlessly embed advanced AI capabilities, generative models, and LLM APIs into your existing enterprise software, CRM, ERP, and cloud infrastructure.",
             link: "/solutions/ai-integration-services",
             img: "/assets/images/service/solution-ai-integration.png",
-            alt: "AI Integration Services Architecture with Indian Engineering Team"
+            alt: "AI Integration Services Architecture"
         },
         {
             id: "ai-development-services",
@@ -32,7 +32,7 @@ function SolutionsOverview() {
             disc: "Custom AI software engineering, bespoke neural networks, autonomous agents, and scalable cloud-native architectures tailored to your business needs.",
             link: "/solutions/ai-development-services",
             img: "/assets/images/service/solution-ai-development.png",
-            alt: "Custom AI Development Engineering by Indian Developers"
+            alt: "Custom AI Development Engineering"
         },
         {
             id: "ai-chatbot-development",
@@ -41,7 +41,7 @@ function SolutionsOverview() {
             disc: "Build multi-channel conversational AI chatbots with natural language understanding (NLU), automated lead qualification, and continuous customer support.",
             link: "/solutions/ai-chatbot-development",
             img: "/assets/images/service/solution-ai-chatbot.png",
-            alt: "AI Chatbot Development Interface with Indian Specialists"
+            alt: "AI Chatbot Development Interface"
         },
         {
             id: "ai-calling-agent",
@@ -50,7 +50,7 @@ function SolutionsOverview() {
             disc: "Automate inbound and outbound voice interactions with human-like, low-latency AI voice agents for appointment booking, support, and sales outreach.",
             link: "/solutions/ai-calling-agent",
             img: "/assets/images/service/solution-ai-calling.png",
-            alt: "AI Calling Agent Dashboard Managed by Indian Support Specialist"
+            alt: "AI Calling Agent Dashboard"
         },
         {
             id: "machine-learning-services",
@@ -59,34 +59,13 @@ function SolutionsOverview() {
             disc: "Harness predictive analytics, computer vision, automated data pipelines, and deep learning algorithms to unlock actionable business intelligence.",
             link: "/solutions/machine-learning-services",
             img: "/assets/images/service/solution-machine-learning.png",
-            alt: "Machine Learning Predictive Analytics with Indian Data Science Team"
+            alt: "Machine Learning Predictive Analytics"
         }
     ];
 
     return (
         <div className="solutions-overview-page workflow-page basic-font-family">
-            <Helmet>
-                <title>AI Solutions &amp; Services | VRM AI Technology</title>
-                <meta name="description" content="Explore AI solutions by VRM AI Technology: AI chatbot development, AI calling agents, machine learning services, and enterprise software development." />
-                <meta property="og:title" content="AI Solutions &amp; Services | VRM AI Technology" />
-                <meta property="og:description" content="Explore AI solutions by VRM AI Technology: AI chatbot development, AI calling agents, machine learning services, and enterprise software development." />
-                <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
-                <link rel="canonical" href="https://www.vrmaitechnology.com/solutions" />
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="AI Solutions &amp; Services | VRM AI Technology" />
-                <meta name="twitter:description" content="Explore AI solutions by VRM AI Technology: AI chatbot development, AI calling agents, machine learning services, and enterprise software development." />
-                <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "BreadcrumbList",
-                        "itemListElement": [
-                            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.vrmaitechnology.com/" },
-                            { "@type": "ListItem", "position": 2, "name": "Solutions", "item": "https://www.vrmaitechnology.com/solutions" }
-                        ]
-                    })}
-                </script>
-            </Helmet>
+            <SEO />
             
             <HeaderOne />
 
@@ -105,7 +84,7 @@ function SolutionsOverview() {
                         <div className="col-lg-7 text-start">
                             <div className="vrm-hero__content text-start">
                                 <h1 className="title wow fadeInUp text-white vrm-workflow-hero-title mt-2" data-wow-delay=".2s">
-                                    AI Software Services &amp; Solutions
+                                    AI Software Services & Solutions
                                 </h1>
                                 <p className="disc wow fadeInUp mt-3 mb-4 vrm-workflow-hero-disc" data-wow-delay=".3s" style={{ color: 'rgba(255, 255, 255, 0.85)', fontSize: '17px', maxWidth: '650px', lineHeight: '1.7' }}>
                                     Transforming businesses through enterprise system integration, custom LLM software engineering, conversational voice agents, and predictive machine learning models.
@@ -157,7 +136,7 @@ function SolutionsOverview() {
                                             {item.disc}
                                         </p>
                                         <Link className="vrm-btn-product-blue" to={item.link}>
-                                            Learn More <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>
+                                            Explore Solution <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>
                                         </Link>
                                     </div>
                                 </div>

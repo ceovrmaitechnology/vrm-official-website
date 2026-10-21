@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/common/SEO';
 import { Link } from 'react-router-dom';
 import HeaderOne from '../components/header/HeaderOne';
 import FooterOne from '../components/footer/FooterOne';
@@ -34,89 +34,7 @@ function Chennai() {
 
     return (
         <div className="rts-ai-strategy-services basic-font-family">
-            <Helmet>
-                <html lang="en-IN" />
-                <title>AI Software Services for Chennai Businesses | VRM AI</title>
-                <meta name="description" content="Generative AI, AI calling agents, chatbots and custom software for Chennai businesses. Delivered online by VRM AI Technology's Bengaluru and Madurai teams." />
-                <link rel="canonical" href="https://www.vrmaitechnology.com/chennai" />
-
-                <meta property="og:title" content="AI Software Services for Chennai Businesses | VRM AI" />
-                <meta property="og:description" content="Generative AI, AI calling agents, chatbots and custom software for Chennai businesses. Delivered online by VRM AI Technology's Bengaluru and Madurai teams." />
-                <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
-                <meta property="og:url" content="https://www.vrmaitechnology.com/chennai" />
-                <meta property="og:type" content="website" />
-
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="AI Software Services for Chennai Businesses | VRM AI" />
-                <meta name="twitter:description" content="Generative AI, AI calling agents, chatbots and custom software for Chennai businesses. Delivered online by VRM AI Technology's Bengaluru and Madurai teams." />
-                <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
-
-                {/* Breadcrumbs JSON-LD */}
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "BreadcrumbList",
-                        "itemListElement": [
-                            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.vrmaitechnology.com/" },
-                            { "@type": "ListItem", "position": 2, "name": "AI Software Services for Chennai Businesses", "item": "https://www.vrmaitechnology.com/chennai" }
-                        ]
-                    })}
-                </script>
-
-                {/* Service JSON-LD Schema */}
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "Service",
-                        "name": "AI Software Services for Chennai Businesses",
-                        "description": "Generative AI, AI calling agents, chatbots and custom software for Chennai businesses. Delivered online by VRM AI Technology's Bengaluru and Madurai teams.",
-                        "areaServed": {
-                            "@type": "City",
-                            "name": "Chennai"
-                        },
-                        "provider": {
-                            "@type": "Organization",
-                            "name": "VRM AI Technology (OPC) Pvt.Ltd",
-                            "url": "https://www.vrmaitechnology.com",
-                            "telephone": "+91 81233 48355",
-                            "address": [
-                                {
-                                    "@type": "PostalAddress",
-                                    "streetAddress": "GoodWorks Infinity Park, 21, 2nd Main Rd, Electronic City Phase I",
-                                    "addressLocality": "Bengaluru",
-                                    "addressRegion": "Karnataka",
-                                    "postalCode": "560100",
-                                    "addressCountry": "IN"
-                                },
-                                {
-                                    "@type": "PostalAddress",
-                                    "streetAddress": "Door No.209, 1st Floor, No.147, 5th St, Poriyalar Nagar, Tiruppalai",
-                                    "addressLocality": "Madurai",
-                                    "addressRegion": "Tamil Nadu",
-                                    "postalCode": "625014",
-                                    "addressCountry": "IN"
-                                }
-                            ]
-                        }
-                    })}
-                </script>
-
-                {/* FAQPage JSON-LD Schema */}
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "FAQPage",
-                        "mainEntity": faqs.map(item => ({
-                            "@type": "Question",
-                            "name": item.q,
-                            "acceptedAnswer": {
-                                "@type": "Answer",
-                                "text": item.a
-                            }
-                        }))
-                    })}
-                </script>
-            </Helmet>
+            <SEO />
 
             <HeaderOne className="header-white-text" />
 
@@ -337,7 +255,7 @@ function Chennai() {
                                     </div>
                                     <div className="col-md-4 col-sm-6">
                                         <h6 style={{ color: '#00C6FF', marginBottom: '8px' }}>
-                                            <Link to="/products#bench-to-deploy" style={{ color: '#00C6FF' }}>Bench to Deploy</Link>
+                                            <Link to="/products/bench-to-deploy" style={{ color: '#00C6FF' }}>Bench to Deploy</Link>
                                         </h6>
                                         <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.7)', margin: 0 }}>Talent management platform for assessing and deploying enterprise engineers.</p>
                                     </div>
@@ -454,7 +372,7 @@ function Chennai() {
                                                 Bengaluru (Headquarters)
                                             </h6>
                                             <p style={{ fontSize: '13px', color: '#475569', lineHeight: '1.6', margin: 0 }}>
-                                                VRM AI Technology (OPC) Pvt.Ltd<br />
+                                                VRM AI Technology (OPC) Pvt.Ltd.<br />
                                                 GoodWorks Infinity Park, 21, 2nd Main Rd,<br />
                                                 Electronic City Phase I,<br />
                                                 Bengaluru, Karnataka 560100
@@ -467,7 +385,7 @@ function Chennai() {
                                                 Madurai (Development Center)
                                             </h6>
                                             <p style={{ fontSize: '13px', color: '#475569', lineHeight: '1.6', margin: 0 }}>
-                                                VRM AI Technology (OPC) Pvt.Ltd<br />
+                                                VRM AI Technology (OPC) Pvt.Ltd.<br />
                                                 Door No.209, 1st Floor, No.147, 5th St,<br />
                                                 Poriyalar Nagar, Tiruppalai,<br />
                                                 Madurai, Tamil Nadu 625014
@@ -481,7 +399,7 @@ function Chennai() {
                                     <Link to="/ai-company-bangalore" style={{ color: '#3B4ECC', textDecoration: 'underline' }}>Bengaluru</Link> &bull;
                                     <Link to="/ai-company-madurai" style={{ color: '#3B4ECC', textDecoration: 'underline' }}>Madurai</Link> &bull;
                                     <Link to="/ai-company-tamil-nadu" style={{ color: '#3B4ECC', textDecoration: 'underline' }}>Tamil Nadu</Link> &bull;
-                                    <Link to="/solutions" style={{ color: '#3B4ECC', textDecoration: 'underline' }}>AI Services &amp; Solutions</Link>
+                                    <Link to="/solutions" style={{ color: '#3B4ECC', textDecoration: 'underline' }}>AI Services & Solutions</Link>
                                 </div>
                             </div>
                         </div>

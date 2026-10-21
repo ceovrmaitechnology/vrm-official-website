@@ -99,8 +99,8 @@ function HeaderTwo() {
                                 </div>
                                 <div className="number-area">
                                     <span>Call us anytime</span>
-                                    <a href="tel:+918123348355">
-                                        <h6 className="call">+91 81233 48355</h6>
+                                    <a href="tel:+917397751037">
+                                        <h6 className="call">+91 73977 51037</h6>
                                     </a>
                                 </div>
                             </div>

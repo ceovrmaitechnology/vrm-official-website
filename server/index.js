@@ -20,17 +20,25 @@ app.use((req, res, next) => {
   next();
 });
 
-// Canonical redirect: enforce HTTPS and www in production
+// 1. Guaranteed One-hop canonical domain, protocol & trailing-slash redirect (301)
+// Enforces:
+// http://vrmaitechnology.com/* -> https://www.vrmaitechnology.com/*
+// https://vrmaitechnology.com/* -> https://www.vrmaitechnology.com/*
+// http://www.vrmaitechnology.com/* -> https://www.vrmaitechnology.com/*
+// Any path with a trailing slash (except /) -> same path without it, e.g. /about-us/ -> /about-us
 app.use((req, res, next) => {
-  const host = req.headers.host || "";
-  const proto = req.headers["x-forwarded-proto"] || req.protocol;
-  if (process.env.NODE_ENV === "production" && host && !host.includes("localhost") && !host.includes("127.0.0.1")) {
-    const isWww = host.startsWith("www.");
-    const isHttps = proto === "https";
-    if (!isWww || !isHttps) {
-      const canonicalHost = isWww ? host : `www.${host}`;
-      return res.redirect(301, `https://${canonicalHost}${req.originalUrl}`);
-    }
+  const host = (req.headers.host || "").toLowerCase();
+  const isLocal = host.includes("localhost") || host.includes("127.0.0.1") || host.includes("::1");
+  if (isLocal) return next();
+
+  const isHttps = req.secure || req.headers["x-forwarded-proto"] === "https";
+  const isCanonicalHost = host === "www.vrmaitechnology.com";
+  const hasTrailingSlash = req.path.length > 1 && req.path.endsWith("/");
+
+  if (!isHttps || !isCanonicalHost || hasTrailingSlash) {
+    const cleanPath = hasTrailingSlash ? req.path.replace(/\/+$/, "") : req.path;
+    const query = req.url.slice(req.path.length);
+    return res.redirect(301, `https://www.vrmaitechnology.com${cleanPath}${query}`);
   }
   next();
 });
@@ -356,34 +364,10 @@ app.post(
   })
 );
 
-// WWW and HTTPS redirect
-app.use((req, res, next) => {
-  const host = req.headers.host || '';
-  const isLocal = host.includes('localhost') || host.includes('127.0.0.1');
-  if (isLocal) return next();
-
-  const isHttp = !req.secure && req.headers['x-forwarded-proto'] !== 'https';
-  const isNonWww = host === 'vrmaitechnology.com';
-
-  if (isHttp || isNonWww) {
-    return res.redirect(301, `https://www.vrmaitechnology.com${req.originalUrl}`);
-  }
-  next();
-});
-
-// Trailing slash redirect: force non-trailing slash for all routes (SEO canonical)
-app.use((req, res, next) => {
-  if (req.path.length > 1 && req.path.endsWith('/')) {
-    const newPath = req.path.replace(/\/+$/, '');
-    const query = req.url.slice(req.path.length);
-    return res.redirect(301, newPath + query);
-  }
-  next();
-});
+// Duplicate canonical/slash redirect moved to top
 
 const REDIRECT_MAP = {
-  "/ai-chatbot-development": "/solutions/ai-chatbot-development",
-  "/voice-ai-solutions": "/solutions/ai-calling-agent",
+  "/products/b2d": "/products/bench-to-deploy",
   "/products/vrm-real-estate": "/products/vrm-reality",
   "/solutions/ai-consulting-services": "/solutions",
   "/ai-consulting": "/solutions",
@@ -422,15 +406,22 @@ app.use((req, res, next) => {
   next();
 });
 
-// SPA Fallback for client-side routing (non-API GET requests)
+// SPA Fallback: serve 404 for unknown non-API routes
 app.use((req, res, next) => {
   if (req.method !== "GET" || req.path.startsWith("/api")) return next();
+  const prerendered404 = path.resolve(__dirname, "../build/404/index.html");
+  const fallback404 = path.resolve(__dirname, "../build/404.html");
+  const file404 = fs.existsSync(prerendered404) ? prerendered404 : (fs.existsSync(fallback404) ? fallback404 : null);
+
+  if (file404) {
+    res.status(404);
+    return res.sendFile(file404);
+  }
+
   const buildIndex = path.resolve(__dirname, "../build/index.html");
   if (fs.existsSync(buildIndex)) {
-    // Return 404 status if it's not a root request and doesn't match an actual file
-    // Prerendered files are handled by express.static before this
     if (req.path !== "/") {
-       res.status(404);
+      res.status(404);
     }
     return res.sendFile(buildIndex);
   }

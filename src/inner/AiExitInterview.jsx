@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import ProductVideo from '../components/common/ProductVideo';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/common/SEO';
 import { Link } from 'react-router-dom';
 import HeaderOne from "../components/header/HeaderOne";
 import FooterOne from "../components/footer/FooterOne";
@@ -27,45 +27,7 @@ function AiExitInterview() {
     return (
         <div className="exitinterview-page basic-font-family">
             <HeaderOne />
-            <Helmet>
-                <title>Exit Intelligence AI | VRM AI Technology</title>
-                <meta name="description" content="Transform employee departures into actionable workforce intelligence with Exit Intelligence. Uncover turnover trends and improve retention." />
-                <meta property="og:title" content="Exit Intelligence AI | VRM AI Technology" />
-                <meta property="og:description" content="Transform employee departures into actionable workforce intelligence with Exit Intelligence. Uncover turnover trends and improve retention." />
-                <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
-                <link rel="canonical" href="https://www.vrmaitechnology.com/products/exitinterview" />
-            
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="Exit Intelligence AI | VRM AI Technology" />
-                <meta name="twitter:description" content="Transform employee departures into actionable workforce intelligence with Exit Intelligence. Uncover turnover trends and improve retention." />
-                <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "BreadcrumbList",
-                        "itemListElement": [
-                            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.vrmaitechnology.com/" },
-                            { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://www.vrmaitechnology.com/products" },
-                            { "@type": "ListItem", "position": 3, "name": "Exit Intelligence", "item": "https://www.vrmaitechnology.com/products/exitinterview" }
-                        ]
-                    })}
-                </script>
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "SoftwareApplication",
-                        "name": "Exit Intelligence",
-                        "operatingSystem": "Web",
-                        "applicationCategory": "BusinessApplication",
-                        "description": "Transform employee departures into actionable workforce intelligence with Exit Intelligence. Uncover turnover trends and improve retention.",
-                        "publisher": {
-                            "@type": "Organization",
-                            "name": "VRM AI Technology",
-                            "url": "https://www.vrmaitechnology.com/"
-                        }
-                    })}
-                </script>
-            </Helmet>
+            <SEO />
 
             {/* 1. Hero Section - Enterprise Gradient */}
             <div className="vrm-full-width-section vrm-enterprise-gradient ptb--120 position-relative">

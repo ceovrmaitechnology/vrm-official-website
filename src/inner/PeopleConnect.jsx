@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import ProductVideo from '../components/common/ProductVideo';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/common/SEO';
 import { Link } from 'react-router-dom';
 import HeaderOne from "../components/header/HeaderOne";
 import FooterOne from "../components/footer/FooterOne";
@@ -27,45 +27,7 @@ function PeopleConnect() {
     return (
         <div className="people-connect-page basic-font-family">
             <HeaderOne />
-            <Helmet>
-                <title>People Connect AI Platform | VRM AI Technology</title>
-                <meta name="description" content="People Connect by VRM AI Technology connects communities and institutions using voice, WhatsApp, and automated workflows for citizen engagement." />
-                <meta property="og:title" content="People Connect AI Platform | VRM AI Technology" />
-                <meta property="og:description" content="People Connect by VRM AI Technology connects communities and institutions using voice, WhatsApp, and automated workflows for citizen engagement." />
-                <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
-                <link rel="canonical" href="https://www.vrmaitechnology.com/products/people-connect" />
-            
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="People Connect AI Platform | VRM AI Technology" />
-                <meta name="twitter:description" content="People Connect by VRM AI Technology connects communities and institutions using voice, WhatsApp, and automated workflows for citizen engagement." />
-                <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "BreadcrumbList",
-                        "itemListElement": [
-                            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.vrmaitechnology.com/" },
-                            { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://www.vrmaitechnology.com/products" },
-                            { "@type": "ListItem", "position": 3, "name": "People Connect", "item": "https://www.vrmaitechnology.com/products/people-connect" }
-                        ]
-                    })}
-                </script>
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "SoftwareApplication",
-                        "name": "People Connect",
-                        "operatingSystem": "Web",
-                        "applicationCategory": "BusinessApplication",
-                        "description": "Transform public feedback into regional insights with People Connect. Orchestrate voice, WhatsApp, and GPS-verified resolution workflows at scale.",
-                        "publisher": {
-                            "@type": "Organization",
-                            "name": "VRM AI Technology",
-                            "url": "https://www.vrmaitechnology.com/"
-                        }
-                    })}
-                </script>
-            </Helmet>
+            <SEO />
 
             {/* 1. Hero Section - Enterprise Gradient */}
             <div className="vrm-full-width-section vrm-enterprise-gradient ptb--120 position-relative">

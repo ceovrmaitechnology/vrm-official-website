@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/common/SEO';
 import { Link } from 'react-router-dom';
 import HeaderOne from '../components/header/HeaderOne';
 import FooterOne from '../components/footer/FooterOne';
@@ -18,78 +18,7 @@ function MachineLearningServices() {
     return (
         <div className="rts-machine-learning-services">
             <HeaderOne className="header-white-text" />
-            <Helmet>
-                <title>Machine Learning Services | VRM AI Technology</title>
-                <meta name="description" content="Deploy custom machine learning models and neural networks with VRM AI Technology. Integrate scalable ML pipelines for real-time inference and analytics." />
-                <meta property="og:title" content="Machine Learning Services | VRM AI Technology" />
-                <meta property="og:description" content="Deploy custom machine learning models and neural networks with VRM AI Technology. Integrate scalable ML pipelines for real-time inference and analytics." />
-                <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
-                <link rel="canonical" href="https://www.vrmaitechnology.com/solutions/machine-learning-services" />
-            
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="Machine Learning Services | VRM AI Technology" />
-                <meta name="twitter:description" content="Deploy custom machine learning models and neural networks with VRM AI Technology. Integrate scalable ML pipelines for real-time inference and analytics." />
-                <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "BreadcrumbList",
-                        "itemListElement": [
-                            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.vrmaitechnology.com/" },
-                            { "@type": "ListItem", "position": 2, "name": "Solutions", "item": "https://www.vrmaitechnology.com/solutions" },
-                            { "@type": "ListItem", "position": 3, "name": "Machine Learning Services", "item": "https://www.vrmaitechnology.com/solutions/machine-learning-services" }
-                        ]
-                    })}
-                </script>
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "FAQPage",
-                        "mainEntity": [
-                            {
-                                "@type": "Question",
-                                "name": "What are machine learning services?",
-                                "acceptedAnswer": {
-                                    "@type": "Answer",
-                                    "text": "Machine learning services involve the design, development, and integration of ML models and systems that enable data-driven predictions, automation, and intelligence across business processes."
-                                }
-                            },
-                            {
-                                "@type": "Question",
-                                "name": "What are custom machine learning solutions?",
-                                "acceptedAnswer": {
-                                    "@type": "Answer",
-                                    "text": "Custom ML solutions are tailored data-intelligence systems built to address specific organizational requirements, from automation workflows to personalization and predictive insights."
-                                }
-                            },
-                            {
-                                "@type": "Question",
-                                "name": "What is machine learning model development?",
-                                "acceptedAnswer": {
-                                    "@type": "Answer",
-                                    "text": "Machine learning model development encompasses algorithm selection, data preprocessing, training, validation, and deployment of models that produce accurate and reliable predictions or classifications."
-                                }
-                            },
-                            {
-                                "@type": "Question",
-                                "name": "Which industries benefit from ML?",
-                                "acceptedAnswer": {
-                                    "@type": "Answer",
-                                    "text": "Industries including finance, healthcare, retail, manufacturing, real estate, and energy benefit from ML through automation, enhanced insights, risk reduction, and process optimization."
-                                }
-                            },
-                            {
-                                "@type": "Question",
-                                "name": "How long does it take to implement ML solutions?",
-                                "acceptedAnswer": {
-                                    "@type": "Answer",
-                                    "text": "Implementation timelines vary by complexity, data maturity, and integration needs. Typical enterprise ML engagements range from a few weeks for initial models to several months for full production integration and optimization."
-                                }
-                            }
-                        ]
-                    })}
-                </script>
-            </Helmet>
+            <SEO />
             {/* 1. Hero Section - Enterprise Gradient */}
             <div className="vrm-full-width-section vrm-enterprise-gradient">
                 <div className="container">

@@ -62,7 +62,7 @@ function FooterFour() {
                                                     </ul>
                                                     <div className="info">
                                                         <span>Call Us 24/7</span>
-                                                        <a href="/">+91 81233 48355</a>
+                                                        <a href="tel:+917397751037">+91 73977 51037</a>
                                                     </div>
                                                 </div>
                                                 <div className="single">

@@ -5,11 +5,8 @@
 # 301 Permanent Redirect for permanently removed Chennai page
 /ai-software-services-chennai    /                                   301!
 
-# 301 Redirects for duplicate/alias routes
-/ai-chatbot-development         /solutions/ai-chatbot-development   301!
-/voice-ai-solutions             /solutions/ai-calling-agent         301!
-/products/b2d                   /products                           301!
-/products/bench-to-deploy       /products                           301!
+# 301 Redirects for alias routes
+/products/b2d                   /products/bench-to-deploy           301!
 /products/vrm-real-estate       /products/vrm-reality               301!
 /products/vevora                /products/vrm-reality               301!
 /solutions/generative-ai-development /generative-ai-development      301!

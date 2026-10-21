@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ProductVideo from '../components/common/ProductVideo';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/common/SEO';
 import HeaderOne from "../components/header/HeaderOne";
 import FooterOne from "../components/footer/FooterOne";
 import { Link } from 'react-router-dom';
@@ -159,47 +159,7 @@ function VrmReality() {
 
     return (
         <div className="vrm-reality-page basic-font-family">
-            <Helmet>
-                <title>VRM Reality | Smart Real Estate Platform & Agent CRM</title>
-                <meta name="description" content="VRM Reality connects buyers, sellers, and agents with map-first search, virtual Zoom visits, AI enquiry handling, and a built-in real estate CRM." />
-                <link rel="canonical" href="https://www.vrmaitechnology.com/products/vrm-reality" />
-                <meta property="og:title" content="VRM Reality | Smart Real Estate Platform & Agent CRM" />
-                <meta property="og:description" content="VRM Reality connects buyers, sellers, and agents with map-first search, virtual Zoom visits, AI enquiry handling, and a built-in real estate CRM." />
-                <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="VRM Reality | Smart Real Estate Platform & Agent CRM" />
-                <meta name="twitter:description" content="VRM Reality connects buyers, sellers, and agents with map-first search, virtual Zoom visits, AI enquiry handling, and a built-in real estate CRM." />
-                <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@graph": [
-                            {
-                                "@type": "SoftwareApplication",
-                                "name": "VRM Reality",
-                                "operatingSystem": "Web, iOS, Android",
-                                "applicationCategory": "BusinessApplication",
-                                "description": "VRM Reality connects buyers, sellers, and agents with map-first search, virtual Zoom visits, AI enquiry handling, and a built-in real estate CRM.",
-                                "brand": {
-                                    "@type": "Organization",
-                                    "name": "VRM AI Technology"
-                                }
-                            },
-                            {
-                                "@type": "FAQPage",
-                                "mainEntity": faqItems.map(item => ({
-                                    "@type": "Question",
-                                    "name": item.question,
-                                    "acceptedAnswer": {
-                                        "@type": "Answer",
-                                        "text": item.answer
-                                    }
-                                }))
-                            }
-                        ]
-                    })}
-                </script>
-            </Helmet>
+            <SEO />
 
             <HeaderOne />
 

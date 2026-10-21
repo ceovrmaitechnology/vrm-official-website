@@ -28,7 +28,7 @@ function ContactTwo() {
                                             </div>
                                             <div className="discription">
                                                 <span>Need any help?</span>
-                                                <h5 className="title-sm"><a href="tel:+918123348355" style={{ color: "inherit" }}>+91 81233 48355</a></h5>
+                                                <h5 className="title-sm"><a href="tel:+917397751037" style={{ color: "inherit" }}>+91 73977 51037</a></h5>
                                             </div>
                                         </div>
                                         {/* single-contact info End */}

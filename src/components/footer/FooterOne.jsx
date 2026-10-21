@@ -35,7 +35,7 @@ function FooterOne() {
                                 <picture><source srcSet="/assets/images/logo/logo.webp" type="image/webp" /><img src="/assets/images/logo/logo.png" alt="VRM AI Technology" className="img-fluid" width="197" height="92" loading="lazy" /></picture>
                             </Link>
                             <p className="vrm-footer-desc">
-                                We delivered intelligent GenAI, automation platforms, and machine learning systems for modern businesses to drive measurable impact.
+                                We build Generative AI systems, automation platforms and machine learning software for modern businesses.
                             </p>
                             <div className="vrm-footer-address">
                                 <div style={{ marginBottom: '12px' }}>
@@ -43,8 +43,8 @@ function FooterOne() {
                                         <Link to="/ai-company-madurai" style={{ color: 'inherit', textDecoration: 'none' }}>Development Center (ODC)</Link>
                                     </div>
                                     <p style={{ fontSize: '13px', lineHeight: '1.6', margin: 0, color: '#555' }}>
-                                        VRM AI Technology (OPC) Pvt.Ltd<br />
-                                        Door No,209, 1ST Floor, No.147, 5th St,<br />
+                                        VRM AI Technology (OPC) Pvt.Ltd.<br />
+                                        Door No.209, 1st Floor, No.147, 5th St,<br />
                                         Poriyalar Nagar, Tiruppalai,<br />
                                         Madurai, Tamil Nadu 625014, India
                                     </p>
@@ -54,7 +54,7 @@ function FooterOne() {
                                         <Link to="/ai-company-bangalore" style={{ color: 'inherit', textDecoration: 'none' }}>Headquarter</Link>
                                     </div>
                                     <p style={{ fontSize: '13px', lineHeight: '1.6', margin: 0, color: '#555' }}>
-                                        VRM AI Technology (OPC) Pvt.Ltd<br />
+                                        VRM AI Technology (OPC) Pvt.Ltd.<br />
                                         GoodWorks Infinity Park, 21, 2nd Main Rd,<br />
                                         Electronic City Phase I,<br />
                                         Bengaluru, Karnataka 560100, India
@@ -67,8 +67,8 @@ function FooterOne() {
                             <div className="vrm-social-icons">
                                 <a href="https://www.linkedin.com/company/vrm-ai-technology-pvt-ltd/" target="_blank" rel="noreferrer" className="vrm-social-link" aria-label="LinkedIn"><i className="fab fa-linkedin-in"></i></a>
                                 <a href="https://x.com/vrmaitechnology" target="_blank" rel="noreferrer" className="vrm-social-link" aria-label="Twitter"><i className="fab fa-twitter"></i></a>
-                                <a href="https://www.instagram.com/vrmaitechnology/" target="_blank" rel="noreferrer" className="vrm-social-link" aria-label="Instagram"><i className="fab fa-instagram"></i></a>
-                                <a href="https://www.facebook.com/profile.php?id=61589969476629" target="_blank" rel="noreferrer" className="vrm-social-link" aria-label="Facebook"><i className="fab fa-facebook-f"></i></a>
+                                <a href="https://www.instagram.com/vrm_ai_technology/" target="_blank" rel="noreferrer" className="vrm-social-link" aria-label="Instagram"><i className="fab fa-instagram"></i></a>
+                                <a href="https://www.facebook.com/profile.php?id=61595572251148" target="_blank" rel="noreferrer" className="vrm-social-link" aria-label="Facebook"><i className="fab fa-facebook-f"></i></a>
                             </div>
                         </div>
                     </div>
@@ -92,7 +92,7 @@ function FooterOne() {
                                 </li>
                                 <li className="vrm-contact-link">
                                     <span className="vrm-contact-label">Phone</span>
-                                    <a href="tel:+918123348355" className="vrm-contact-value" style={{ fontSize: '13px' }}>+91 81233 48355</a>
+                                    <a href="tel:+917397751037" className="vrm-contact-value" style={{ fontSize: '13px' }}>+91 73977 51037</a>
                                 </li>
                             </ul>
                             <div className="vrm-footer-global mt-4">

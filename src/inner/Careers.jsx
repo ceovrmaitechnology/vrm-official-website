@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/common/SEO';
 import HeaderOne from "../components/header/HeaderOne";
 import { Link } from 'react-router-dom';
 import FooterOne from "../components/footer/FooterOne";
@@ -95,28 +95,7 @@ function Careers() {
 
     return (
         <div className='careers-page'>
-            <Helmet>
-        <title>Careers | VRM AI Technology</title>
-        <meta name="description" content="Join VRM AI Technology — a born Gen AI company. Explore open roles in AI engineering, product design, and more. Build the future of intelligent automation." />
-        <meta property="og:title" content="Careers at VRM AI Technology" />
-        <meta property="og:description" content="Join VRM AI Technology — a born Gen AI company. Explore open roles in AI engineering, product design, and more. Build the future of intelligent automation." />
-                <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
-        <link rel="canonical" href="https://www.vrmaitechnology.com/careers" />
-      
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="Careers at VRM AI Technology" />
-                <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "BreadcrumbList",
-                        "itemListElement": [
-                            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.vrmaitechnology.com/" },
-                            { "@type": "ListItem", "position": 2, "name": "Careers", "item": "https://www.vrmaitechnology.com/careers" }
-                        ]
-                    })}
-                </script>
-            </Helmet>
+            <SEO />
             <HeaderOne className="careers-header-panel" />
 
             {/* Hero Section */}
@@ -278,7 +257,7 @@ function Careers() {
                                 </div>
                                 <div className="col-md-6">
                                     <label className="form-label fw-bold small text-dark">Phone Number <span className="text-danger">*</span></label>
-                                    <input type="text" name="phone" placeholder="+91 81233 48355" required style={{ border: '1px solid #eee', borderRadius: '8px', padding: '12px 15px', height: 'auto', marginBottom: '0' }} />
+                                    <input type="text" name="phone" placeholder="+91 73977 51037" required style={{ border: '1px solid #eee', borderRadius: '8px', padding: '12px 15px', height: 'auto', marginBottom: '0' }} />
                                 </div>
                                 <div className="col-md-6">
                                     <label className="form-label fw-bold small text-dark">Experience (Years) <span className="text-danger">*</span></label>

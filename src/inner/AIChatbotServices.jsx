@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/common/SEO';
 import { Link } from 'react-router-dom';
 import HeaderOne from '../components/header/HeaderOne';
 import FooterOne from '../components/footer/FooterOne';
@@ -43,34 +43,7 @@ function AIChatbotServices() {
     return (
         <div className="rts-ai-strategy-services basic-font-family">
             <HeaderOne className="header-white-text" />
-            <Helmet>
-                <title>AI Chatbot &amp; Conversational AI Services | VRM AI Technology</title>
-                <meta name="description" content="VRM AI Technology builds conversational AI chatbots, multilingual virtual assistants, and automated customer support platforms for enterprise workflows." />
-                <meta property="og:title" content="AI Chatbot &amp; Conversational AI Services | VRM AI Technology" />
-                <meta property="og:description" content="VRM AI Technology builds conversational AI chatbots, multilingual virtual assistants, and automated customer support platforms for enterprise workflows." />
-                <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
-                <link rel="canonical" href="https://www.vrmaitechnology.com/ai-chatbot-development" />
-
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="AI Chatbot &amp; Conversational AI Services | VRM AI Technology" />
-                <meta name="twitter:description" content="VRM AI Technology builds conversational AI chatbots, multilingual virtual assistants, and automated customer support platforms for enterprise workflows." />
-                <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
-
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "FAQPage",
-                        "mainEntity": faqs.map(item => ({
-                            "@type": "Question",
-                            "name": item.q,
-                            "acceptedAnswer": {
-                                "@type": "Answer",
-                                "text": item.a
-                            }
-                        }))
-                    })}
-                </script>
-            </Helmet>
+            <SEO />
 
             {/* 1. Hero Section - Enterprise Gradient */}
             <div className="vrm-full-width-section vrm-enterprise-gradient">
@@ -82,7 +55,7 @@ function AIChatbotServices() {
                                     Enterprise Conversational AI &bull; Omnichannel Automation
                                 </span>
                                 <h1 className="title wow fadeInUp text-white" data-wow-delay=".3s">
-                                    AI Chatbot &amp; Conversational AI Services
+                                    AI Chatbot & Conversational AI Services
                                 </h1>
                                 <p className="disc wow fadeInUp text-white-50" data-wow-delay=".4s">
                                     Transform customer engagement and internal operations with intelligent conversational AI. VRM AI Technology designs, trains, and deploys high-accuracy AI chatbots and virtual assistants that automate a significant portion of routine inquiries with context-aware, multilingual fluency.

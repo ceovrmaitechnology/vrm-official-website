@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/common/SEO';
 import { Link } from 'react-router-dom';
 import HeaderOne from "../components/header/HeaderOne";
 import FooterOne from "../components/footer/FooterOne";
@@ -38,82 +38,7 @@ export default function AICompanyBangalore() {
 
     return (
         <div className="rts-ai-strategy-services basic-font-family">
-            <Helmet>
-                <html lang="en-IN" />
-                <title>AI Company in Bengaluru (Bangalore) | VRM AI Technology</title>
-                <meta name="description" content="VRM AI Technology is an AI company in Bengaluru, headquartered in Electronic City. We build custom GenAI solutions, chatbots, voice agents, and ML systems." />
-                <link rel="canonical" href="https://www.vrmaitechnology.com/ai-company-bangalore" />
-
-                <meta property="og:title" content="AI Company in Bengaluru (Bangalore) | VRM AI Technology" />
-                <meta property="og:description" content="VRM AI Technology is an AI company in Bengaluru, headquartered in Electronic City. We build custom GenAI solutions, chatbots, voice agents, and ML systems." />
-                <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
-                <meta property="og:url" content="https://www.vrmaitechnology.com/ai-company-bangalore" />
-                <meta property="og:type" content="website" />
-
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="AI Company in Bengaluru (Bangalore) | VRM AI Technology" />
-                <meta name="twitter:description" content="VRM AI Technology is an AI company in Bengaluru, headquartered in Electronic City. We build custom GenAI solutions, chatbots, voice agents, and ML systems." />
-                <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
-
-                {/* Breadcrumbs JSON-LD */}
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "BreadcrumbList",
-                        "itemListElement": [
-                            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.vrmaitechnology.com/" },
-                            { "@type": "ListItem", "position": 2, "name": "AI Company in Bangalore", "item": "https://www.vrmaitechnology.com/ai-company-bangalore" }
-                        ]
-                    })}
-                </script>
-
-                {/* ProfessionalService (LocalBusiness) JSON-LD Schema */}
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": ["ProfessionalService", "LocalBusiness"],
-                        "name": "VRM AI Technology",
-                        "legalName": "VRM AI Technology (OPC) Pvt.Ltd",
-                        "alternateName": "VRM AI Technology - Bengaluru Headquarters",
-                        "url": "https://www.vrmaitechnology.com/ai-company-bangalore",
-                        "image": "https://www.vrmaitechnology.com/assets/images/logo/logo.png",
-                        "telephone": "+918123348355",
-                        "email": "contactus@vrmaitechnology.com",
-                        "address": {
-                            "@type": "PostalAddress",
-                            "streetAddress": "GoodWorks Infinity Park, 21, 2nd Main Rd, Electronic City Phase I",
-                            "addressLocality": "Bengaluru",
-                            "addressRegion": "Karnataka",
-                            "postalCode": "560100",
-                            "addressCountry": "IN"
-                        },
-                        "sameAs": [
-                            "https://www.linkedin.com/company/vrm-ai-technology-pvt-ltd/",
-                            "https://x.com/vrmaitechnology",
-                            "https://www.instagram.com/vrmaitechnology/",
-                            "https://www.facebook.com/profile.php?id=61589969476629",
-                            "https://www.youtube.com/@vrmaitech"
-                        ],
-                        "areaServed": ["Bengaluru", "Karnataka", "India"]
-                    })}
-                </script>
-
-                {/* FAQPage JSON-LD Schema */}
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "FAQPage",
-                        "mainEntity": faqs.map(item => ({
-                            "@type": "Question",
-                            "name": item.q,
-                            "acceptedAnswer": {
-                                "@type": "Answer",
-                                "text": item.a
-                            }
-                        }))
-                    })}
-                </script>
-            </Helmet>
+            <SEO />
 
             <HeaderOne className="header-white-text" />
 
@@ -127,7 +52,7 @@ export default function AICompanyBangalore() {
                                     Corporate Headquarters &bull; Bengaluru, Karnataka
                                 </span>
                                 <h1 className="title text-white" style={{ fontSize: '42px', fontWeight: '800', marginBottom: '16px' }}>
-                                    Top AI Innovation Company in Bangalore
+                                    AI Development Company in Bengaluru
                                 </h1>
                                 <p className="text-white-50 mx-auto" style={{ maxWidth: '780px', fontSize: '18px', lineHeight: '1.6' }}>
                                     Powering high-growth tech companies and enterprises across Bangalore with generative AI systems, machine learning architectures, and autonomous agents.
@@ -252,11 +177,11 @@ export default function AICompanyBangalore() {
                                     <div className="col-lg-8">
                                         <h3 className="fw-bold text-dark mb-2" style={{ fontSize: '22px' }}>Headquarters / Registered Office</h3>
                                         <p className="text-muted mb-2" style={{ fontSize: '15px', lineHeight: '1.6' }}>
-                                            <strong>VRM AI Technology (OPC) Pvt.Ltd</strong><br />
+                                            <strong>VRM AI Technology (OPC) Pvt.Ltd.</strong><br />
                                             GoodWorks Infinity Park, 21, 2nd Main Rd, Electronic City Phase I, Bengaluru, Karnataka 560100, India
                                         </p>
                                         <p className="text-muted mb-0" style={{ fontSize: '14px' }}>
-                                            Corporate Identity Number (CIN): <span className="text-primary fw-bold">U63999KA2026OPC215399</span> &bull; Phone: <span className="text-dark fw-bold">+91 81233 48355</span>
+                                            Corporate Identity Number (CIN): <span className="text-primary fw-bold">U63999KA2026OPC215399</span> &bull; Phone: <span className="text-dark fw-bold">+91 73977 51037</span>
                                         </p>
                                     </div>
                                     <div className="col-lg-4 text-lg-end mt-3 mt-lg-0">
@@ -309,8 +234,8 @@ export default function AICompanyBangalore() {
                                     <Link to="/contactus#send-message" className="btn btn-primary px-4 py-3 fw-bold">
                                         Schedule Discovery Call
                                     </Link>
-                                    <a href="tel:+918123348355" className="btn btn-outline-light px-4 py-3 fw-bold">
-                                        Call: +91 81233 48355
+                                    <a href="tel:+917397751037" className="btn btn-outline-light px-4 py-3 fw-bold">
+                                        Call: +91 73977 51037
                                     </a>
                                 </div>
                             </div>

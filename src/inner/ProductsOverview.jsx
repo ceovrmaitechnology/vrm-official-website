@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/common/SEO';
 import { Link } from 'react-router-dom';
 import HeaderOne from "../components/header/HeaderOne";
 import FooterOne from "../components/footer/FooterOne";
@@ -16,28 +16,7 @@ function ProductsOverview() {
 
     return (
         <div className="products-overview-page workflow-page basic-font-family">
-            <Helmet>
-                <title>AI Products Suite | VRM AI Technology</title>
-                <meta name="description" content="Explore VRM AI Technology enterprise AI products: Workflow AI recruitment suite, People Connect, AI Buddy, Exit Intelligence, Visionix, and VRM Reality." />
-                <meta property="og:title" content="AI Products Suite | VRM AI Technology" />
-                <meta property="og:description" content="Explore VRM AI Technology enterprise AI products: Workflow AI recruitment suite, People Connect, AI Buddy, Exit Intelligence, Visionix, and VRM Reality." />
-                <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
-                <link rel="canonical" href="https://www.vrmaitechnology.com/products" />
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="AI Products Suite | VRM AI Technology" />
-                <meta name="twitter:description" content="Explore VRM AI Technology enterprise AI products: Workflow AI recruitment suite, People Connect, AI Buddy, Exit Intelligence, Visionix, and VRM Reality." />
-                <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "BreadcrumbList",
-                        "itemListElement": [
-                            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.vrmaitechnology.com/" },
-                            { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://www.vrmaitechnology.com/products" }
-                        ]
-                    })}
-                </script>
-            </Helmet>
+            <SEO />
             <HeaderOne />
 
             {/* --- Hero Section --- */}
@@ -56,7 +35,7 @@ function ProductsOverview() {
                             <div className="vrm-hero__content">
                                 <span className="pre-title wow fadeInUp text-white-50" data-wow-delay=".1s">Enterprise AI Suite</span>
                                 <h1 className="title wow fadeInUp text-white vrm-workflow-hero-title" data-wow-delay=".2s">
-                                    AI Software Products &amp; Platforms
+                                    AI Software Products & Platforms
                                 </h1>
                                 <p className="disc wow fadeInUp mt-4 mb-5 vrm-workflow-hero-disc" data-wow-delay=".3s" style={{ color: 'rgba(255, 255, 255, 0.8)' }}>
                                     Discover our suite of next-generation intelligent platforms, automation systems, and speech training modules built on VRM's state-of-the-art AI technology.
@@ -98,7 +77,7 @@ function ProductsOverview() {
                                     AI-powered resume screening that analyzes, matches, and ranks candidates to accelerate hiring and improve recruitment accuracy.
                                 </p>
                                 <Link className="vrm-btn-product-blue" to="/products/workflow/xpress-screening">
-                                    Learn More <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>
+                                    Explore Product <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>
                                 </Link>
                             </div>
                         </div>
@@ -125,7 +104,7 @@ function ProductsOverview() {
                                     AI-powered voice interviews that automate candidate screening and deliver structured hiring insights through intelligent conversations.
                                 </p>
                                 <Link className="vrm-btn-product-blue" to="/products/workflow/screensage">
-                                    Learn More <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>
+                                    Explore Product <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>
                                 </Link>
                             </div>
                         </div>
@@ -152,7 +131,7 @@ function ProductsOverview() {
                                     AI-powered video interviews that evaluate communication, technical expertise, and behavioral skills for smarter hiring decisions.
                                 </p>
                                 <Link className="vrm-btn-product-blue" to="/products/workflow/videosage">
-                                    Learn More <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>
+                                    Explore Product <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>
                                 </Link>
                             </div>
                         </div>
@@ -179,7 +158,7 @@ function ProductsOverview() {
                                     AI-powered coding assessments and technical interviews with intelligent proctoring and comprehensive candidate evaluation.
                                 </p>
                                 <Link className="vrm-btn-product-blue" to="/products/workflow/codesage">
-                                    Learn More <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>
+                                    Explore Product <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>
                                 </Link>
                             </div>
                         </div>
@@ -205,7 +184,7 @@ function ProductsOverview() {
                                     AI-powered citizen engagement platform that modernizes public services through intelligent communication and digital governance.
                                 </p>
                                 <Link className="vrm-btn-product-blue" to="/products/people-connect">
-                                    Learn More <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>
+                                    Explore Product <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>
                                 </Link>
                             </div>
                         </div>
@@ -231,7 +210,7 @@ function ProductsOverview() {
                                     AI-powered language learning platform with personalized coaching, interactive voice practice, and multilingual communication training.
                                 </p>
                                 <Link className="vrm-btn-product-blue" to="/products/aibuddy">
-                                    Learn More <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>
+                                    Explore Product <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>
                                 </Link>
                             </div>
                         </div>
@@ -257,7 +236,7 @@ function ProductsOverview() {
                                     AI-powered workforce intelligence that transforms employee feedback into actionable retention and organizational insights.
                                 </p>
                                 <Link className="vrm-btn-product-blue" to="/products/exitinterview">
-                                    Learn More <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>
+                                    Explore Product <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>
                                 </Link>
                             </div>
                         </div>
@@ -283,7 +262,7 @@ function ProductsOverview() {
                                     Visionix AI is a high-speed, secure facial recognition and visual authentication bot. It automates security checks, identity verification, liveness tracking, and employee check-ins/check-outs, giving organizations robust visual logs and high accuracy.
                                 </p>
                                 <Link className="vrm-btn-product-blue" to="/products/visionix">
-                                    Learn More <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>
+                                    Explore Product <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>
                                 </Link>
                             </div>
                         </div>
@@ -316,7 +295,7 @@ function ProductsOverview() {
                                     <li><i className="far fa-check-circle me-2" style={{ color: '#3B4ECC' }}></i>Built-in agent CRM with complete pipeline tracking</li>
                                 </ul>
                                 <Link className="vrm-btn-product-blue" to="/products/vrm-reality">
-                                    Learn More <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>
+                                    Explore Product <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>
                                 </Link>
                             </div>
                         </div>
@@ -349,7 +328,7 @@ function ProductsOverview() {
                                     <li><i className="far fa-check-circle me-2" style={{ color: '#3B4ECC' }}></i>AI voice counseling with automated upskilling roadmaps</li>
                                 </ul>
                                 <Link className="vrm-btn-product-blue" to="/products/bench-to-deploy">
-                                    Learn More <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>
+                                    Explore Product <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>
                                 </Link>
                             </div>
                         </div>

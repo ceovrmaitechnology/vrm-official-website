@@ -1,5 +1,5 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/common/SEO';
 import HeaderOne from "../components/header/HeaderOne";
 import { Link } from 'react-router-dom';
 import FooterOne from "../components/footer/FooterOne";
@@ -10,28 +10,7 @@ import '../about-us.css'; // Import custom styles
 function AboutUs() {
     return (
         <div className='about-page'>
-            <Helmet>
-                <title>About Us | VRM AI Technology</title>
-                <meta name="description" content="Learn about VRM AI Technology — a born Gen AI company delivering intelligent platforms, ML systems, and AI solutions for enterprises worldwide." />
-                <meta property="og:title" content="About VRM AI Technology" />
-                <meta property="og:description" content="Learn about VRM AI Technology — a born Gen AI company delivering intelligent platforms, ML systems, and AI solutions for enterprises worldwide." />
-                <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
-                <link rel="canonical" href="https://www.vrmaitechnology.com/about-us" />
-            
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="About VRM AI Technology" />
-                <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "BreadcrumbList",
-                        "itemListElement": [
-                            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.vrmaitechnology.com/" },
-                            { "@type": "ListItem", "position": 2, "name": "About Us", "item": "https://www.vrmaitechnology.com/about-us" }
-                        ]
-                    })}
-                </script>
-            </Helmet>
+            <SEO />
             <HeaderOne className="about-header-panel" />
 
             {/* Hero Section */}

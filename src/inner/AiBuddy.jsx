@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import ProductVideo from '../components/common/ProductVideo';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/common/SEO';
 import { Link } from 'react-router-dom';
 import HeaderOne from "../components/header/HeaderOne";
 import FooterOne from "../components/footer/FooterOne";
@@ -27,45 +27,7 @@ function AiBuddy() {
     return (
         <div className="aibuddy-page basic-font-family">
             <HeaderOne />
-            <Helmet>
-                <title>AI Buddy Language Coach | VRM AI Technology</title>
-                <meta name="description" content="AI Buddy by VRM AI Technology helps learners practice English and multiple languages through real-time AI voice conversations and pronunciation coaching." />
-                <meta property="og:title" content="AI Buddy Language Coach | VRM AI Technology" />
-                <meta property="og:description" content="AI Buddy by VRM AI Technology helps learners practice English and multiple languages through real-time AI voice conversations and pronunciation coaching." />
-                <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
-                <link rel="canonical" href="https://www.vrmaitechnology.com/products/aibuddy" />
-            
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="AI Buddy Language Coach | VRM AI Technology" />
-                <meta name="twitter:description" content="AI Buddy by VRM AI Technology helps learners practice English and multiple languages through real-time AI voice conversations and pronunciation coaching." />
-                <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "BreadcrumbList",
-                        "itemListElement": [
-                            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.vrmaitechnology.com/" },
-                            { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://www.vrmaitechnology.com/products" },
-                            { "@type": "ListItem", "position": 3, "name": "AI Buddy", "item": "https://www.vrmaitechnology.com/products/aibuddy" }
-                        ]
-                    })}
-                </script>
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "SoftwareApplication",
-                        "name": "AI Buddy",
-                        "operatingSystem": "Web",
-                        "applicationCategory": "EducationalApplication",
-                        "description": "Learn, practice, and communicate confidently in multiple languages with AI Buddy. Build speaking fluency, improve pronunciation, and master real-world conversations.",
-                        "publisher": {
-                            "@type": "Organization",
-                            "name": "VRM AI Technology",
-                            "url": "https://www.vrmaitechnology.com/"
-                        }
-                    })}
-                </script>
-            </Helmet>
+            <SEO />
 
             {/* 1. Hero Section - Enterprise Gradient */}
             <div className="vrm-full-width-section vrm-enterprise-gradient ptb--120 position-relative">

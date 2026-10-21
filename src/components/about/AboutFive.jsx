@@ -73,7 +73,7 @@ function AboutFive() {
                                         <div className="details-area">
                                             <span>Call us anytime</span>
                                             <a href="/" className="number">
-                                                +91 81233 48355
+                                                +91 73977 51037
                                             </a>
                                         </div>
                                     </div>

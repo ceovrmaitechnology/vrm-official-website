@@ -18,15 +18,29 @@ const sitemapContent = fs.readFileSync(sitemapFile, 'utf8');
 const locMatches = [...sitemapContent.matchAll(/<loc>https:\/\/www\.vrmaitechnology\.com([^<]*)<\/loc>/g)];
 const routes = locMatches.map(m => m[1] || '/');
 
-console.log(`[PRERENDER SAFETY CHECK] Validating ${routes.length} routes against SEO criteria...`);
+console.log(`[PRERENDER SAFETY CHECK] Validating ${routes.length} canonical routes + /404 against strict SEO criteria...\n`);
 
 let hasFailure = false;
 const failures = [];
 const tableData = [];
 const seenTitles = new Set();
-const defaultTitle = "VRM AI Technology"; // Expected default title in index.html
+const seenDescriptions = new Set();
+const defaultTitle = "VRM AI Technology";
 
-for (const route of routes) {
+const allRoutesToTest = [...routes];
+if (!allRoutesToTest.includes('/404')) {
+  allRoutesToTest.push('/404');
+}
+if (!allRoutesToTest.includes('/chennai')) {
+  allRoutesToTest.push('/chennai');
+}
+
+if (sitemapContent.toLowerCase().includes('chennai')) {
+  failures.push({ route: '/chennai', error: 'Chennai URL or keyword must NOT be present in public/sitemap.xml' });
+  hasFailure = true;
+}
+
+for (const route of allRoutesToTest) {
   let filePath;
   if (route === '/' || route === '') {
     filePath = path.join(buildDir, 'index.html');
@@ -42,7 +56,7 @@ for (const route of routes) {
   }
 
   const html = fs.readFileSync(filePath, 'utf8');
-  let title = '', canonical = '', h1 = '', descLen = 0;
+  let title = '', canonical = '', h1 = '', descLen = 0, schemas = [];
 
   // 1. Check <title>
   const titleMatch = html.match(/<title[^>]*>([\s\S]*?)<\/title>/i);
@@ -50,16 +64,22 @@ for (const route of routes) {
     failures.push({ route, error: 'Missing or empty <title>' });
     hasFailure = true;
   } else {
-    title = titleMatch[1].trim().replace(/&amp;/g, '&');
-    if (title === defaultTitle) {
-      failures.push({ route, error: 'Title equals default index.html title' });
+    title = titleMatch[1].trim();
+    if (title.includes('&amp;')) {
+      failures.push({ route, error: `Title contains literal '&amp;' entity: "${title}"` });
       hasFailure = true;
     }
-    if (seenTitles.has(title)) {
-      failures.push({ route, error: `Duplicate title found: "${title}"` });
-      hasFailure = true;
+    if (route !== '/404') {
+      if (title === defaultTitle) {
+        failures.push({ route, error: 'Title equals default index.html fallback title' });
+        hasFailure = true;
+      }
+      if (seenTitles.has(title)) {
+        failures.push({ route, error: `Duplicate title found: "${title}"` });
+        hasFailure = true;
+      }
+      seenTitles.add(title);
     }
-    seenTitles.add(title);
   }
 
   // 2. Check meta description
@@ -69,25 +89,45 @@ for (const route of routes) {
     failures.push({ route, error: 'Missing or empty <meta name="description">' });
     hasFailure = true;
   } else {
-    descLen = descMatch[1].trim().length;
+    const descText = descMatch[1].trim();
+    descLen = descText.length;
     if (descLen > 155) {
-      failures.push({ route, error: `Meta description too long (${descLen} chars > 155)` });
+      failures.push({ route, error: `Meta description too long (${descLen} chars > 155): "${descText}"` });
       hasFailure = true;
+    }
+    if (route !== '/404') {
+      if (seenDescriptions.has(descText)) {
+        failures.push({ route, error: `Duplicate meta description found: "${descText}"` });
+        hasFailure = true;
+      }
+      seenDescriptions.add(descText);
     }
   }
 
-  // 3. Check canonical
-  const expectedCanonical = route === '/' || route === '' ? 'https://www.vrmaitechnology.com/' : `https://www.vrmaitechnology.com${route.startsWith('/') ? route : '/' + route}/`;
-  const expectedCanonicalNoSlash = expectedCanonical.slice(0, -1);
-  const canonMatch = html.match(/<link[^>]*rel=["']canonical["'][^>]*href=["']([^"']*)["']/i) ||
-                     html.match(/<link[^>]*href=["']([^"']*)["'][^>]*rel=["']canonical["']/i);
-  if (!canonMatch || !canonMatch[1].trim()) {
-    failures.push({ route, error: 'Missing or empty canonical <link rel="canonical">' });
-    hasFailure = true;
+  // 3. Check canonical (strictly no trailing slash for canonical origin, except noindex routes which have none)
+  const isNoindex = route === '/404' || route === '/chennai';
+  if (!isNoindex) {
+    const expectedCanonical = route === '/' || route === '' 
+      ? 'https://www.vrmaitechnology.com' 
+      : `https://www.vrmaitechnology.com${route.startsWith('/') ? route : '/' + route}`;
+    
+    const canonMatch = html.match(/<link[^>]*rel=["']canonical["'][^>]*href=["']([^"']*)["']/i) ||
+                       html.match(/<link[^>]*href=["']([^"']*)["'][^>]*rel=["']canonical["']/i);
+    if (!canonMatch || !canonMatch[1].trim()) {
+      failures.push({ route, error: 'Missing canonical <link rel="canonical">' });
+      hasFailure = true;
+    } else {
+      canonical = canonMatch[1].trim();
+      if (canonical !== expectedCanonical) {
+        failures.push({ route, error: `Canonical mismatch. Expected ${expectedCanonical}, got ${canonical}` });
+        hasFailure = true;
+      }
+    }
   } else {
-    canonical = canonMatch[1].trim();
-    if (canonical !== expectedCanonical && canonical !== expectedCanonicalNoSlash) {
-      failures.push({ route, error: `Canonical mismatch. Expected ${expectedCanonicalNoSlash}, got ${canonical}` });
+    canonical = 'N/A (noindex)';
+    const noindexMatch = html.match(/<meta[^>]*name=["']robots["'][^>]*content=["'][^"']*noindex/i);
+    if (!noindexMatch) {
+      failures.push({ route, error: `${route} route missing <meta name="robots" content="noindex">` });
       hasFailure = true;
     }
   }
@@ -100,7 +140,7 @@ for (const route of routes) {
   } else if (h1Matches.length > 1) {
     failures.push({ 
       route, 
-      error: `Multiple <h1> tags found (${h1Matches.length})` 
+      error: `Multiple <h1> tags found (${h1Matches.length}): ${h1Matches.map(m => m[1].replace(/<[^>]+>/g, '').trim()).join(' | ')}` 
     });
     hasFailure = true;
   } else {
@@ -109,13 +149,37 @@ for (const route of routes) {
       failures.push({ route, error: 'Empty <h1> tag' });
       hasFailure = true;
     }
-    h1 = h1Content.slice(0, 30) + (h1Content.length > 30 ? '...' : '');
+    h1 = h1Content;
   }
 
-  tableData.push({ route, title: title.slice(0, 30) + (title.length > 30 ? '...' : ''), canonical, h1, descLen });
+  // 5. Extract JSON-LD schemas
+  const scriptMatches = [...html.matchAll(/<script\s+[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)];
+  scriptMatches.forEach(sm => {
+    try {
+      const parsed = JSON.parse(sm[1]);
+      if (Array.isArray(parsed)) {
+        parsed.forEach(p => schemas.push(p['@type'] || 'Object'));
+      } else if (parsed['@type']) {
+        schemas.push(Array.isArray(parsed['@type']) ? parsed['@type'].join('+') : parsed['@type']);
+      }
+    } catch (e) {
+      failures.push({ route, error: `Invalid JSON-LD syntax: ${e.message}` });
+      hasFailure = true;
+    }
+  });
+
+  tableData.push({
+    route,
+    title: title.slice(0, 32) + (title.length > 32 ? '...' : ''),
+    descLen,
+    canonical: canonical.replace('https://www.vrmaitechnology.com', ''),
+    h1: h1.slice(0, 30) + (h1.length > 30 ? '...' : ''),
+    schemas: schemas.join(', ') || 'None',
+    status: 'PASS'
+  });
 }
 
-console.log('\n--- PRERENDER DATA TABLE ---');
+console.log('--- PRERENDER DATA TABLE ---');
 console.table(tableData);
 
 if (hasFailure) {
@@ -129,11 +193,12 @@ if (hasFailure) {
   process.exit(1);
 } else {
   console.log('\n======================================================');
-  console.log(`✅ All ${routes.length} prerendered routes passed STRICT safety checks!`);
-  console.log('- Every route has UNIQUE <title>');
-  console.log('- Every route has meta description <= 155 chars');
-  console.log('- Every route has exact matching canonical link');
+  console.log(`✅ All ${allRoutesToTest.length} routes passed STRICT safety checks!`);
+  console.log('- Every route has UNIQUE <title> (no &amp;)');
+  console.log('- Every route has meta description <= 155 chars and unique');
+  console.log('- Every route has exact matching canonical link (no trailing slash)');
   console.log('- Every route has EXACTLY ONE non-empty <h1>');
+  console.log('- Every route has valid JSON-LD schemas');
   console.log('======================================================\n');
   process.exit(0);
 }

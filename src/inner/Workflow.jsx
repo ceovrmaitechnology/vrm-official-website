@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/common/SEO';
 import WOW from 'wow.js';
 import HeaderOne from "../components/header/HeaderOne";
 import FooterOne from "../components/footer/FooterOne";
@@ -16,34 +16,7 @@ function Workflow() {
 
     return (
         <div className="workflow-page">
-            <Helmet>
-                <title>Workflow AI | Recruitment Intelligence Suite | VRM AI</title>
-                <meta name="description" content="A unified enterprise recruitment intelligence suite by VRM AI Technology. Optimize talent acquisition with ScreenSage, VideoSage, and CodeSage." />
-                <meta property="og:title" content="Workflow AI — Enterprise Recruitment Intelligence Suite" />
-                <meta property="og:description" content="A unified enterprise recruitment intelligence suite by VRM AI Technology. Optimize talent acquisition with ScreenSage, VideoSage, and CodeSage." />
-                <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
-                <link rel="canonical" href="https://www.vrmaitechnology.com/products/workflow" />
-            
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="Workflow AI — Enterprise Recruitment Intelligence Suite" />
-                <meta name="twitter:description" content="A unified enterprise recruitment intelligence suite by VRM AI Technology. Optimize talent acquisition with ScreenSage, VideoSage, and CodeSage." />
-                <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "SoftwareApplication",
-                        "name": "Workflow AI",
-                        "operatingSystem": "Web",
-                        "applicationCategory": "BusinessApplication",
-                        "description": "A unified enterprise recruitment intelligence suite by VRM AI Technology. Optimize talent acquisition with ScreenSage, VideoSage, and CodeSage.",
-                        "publisher": {
-                            "@type": "Organization",
-                            "name": "VRM AI Technology",
-                            "url": "https://www.vrmaitechnology.com/"
-                        }
-                    })}
-                </script>
-            </Helmet>
+            <SEO />
             <HeaderOne />
 
             {/* --- Hero Section --- */}

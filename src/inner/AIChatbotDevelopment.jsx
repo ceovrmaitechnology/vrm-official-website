@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/common/SEO';
 import { Link } from 'react-router-dom';
 import HeaderOne from '../components/header/HeaderOne';
 import FooterOne from '../components/footer/FooterOne';
@@ -19,78 +19,7 @@ function AIChatbotDevelopment() {
     return (
         <div className="rts-ai-chatbot-development">
             <HeaderOne className="header-white-text" />
-            <Helmet>
-                <title>AI Chatbot Development | VRM AI Technology</title>
-                <meta name="description" content="Build intelligent, scalable AI-powered chatbot solutions. Enhance customer support, e-commerce, and HR workflows with advanced NLP and machine learning." />
-                <meta property="og:title" content="AI Chatbot Development | VRM AI Technology" />
-                <meta property="og:description" content="Build intelligent, scalable AI-powered chatbot solutions. Enhance customer support, e-commerce, and HR workflows with advanced NLP and machine learning." />
-                <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
-                <link rel="canonical" href="https://www.vrmaitechnology.com/solutions/ai-chatbot-development" />
-            
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="AI Chatbot Development | VRM AI Technology" />
-                <meta name="twitter:description" content="Build intelligent, scalable AI-powered chatbot solutions. Enhance customer support, e-commerce, and HR workflows with advanced NLP and machine learning." />
-                <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "BreadcrumbList",
-                        "itemListElement": [
-                            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.vrmaitechnology.com/" },
-                            { "@type": "ListItem", "position": 2, "name": "Solutions", "item": "https://www.vrmaitechnology.com/solutions" },
-                            { "@type": "ListItem", "position": 3, "name": "AI Chatbot Development", "item": "https://www.vrmaitechnology.com/solutions/ai-chatbot-development" }
-                        ]
-                    })}
-                </script>
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "FAQPage",
-                        "mainEntity": [
-                            {
-                                "@type": "Question",
-                                "name": "What are AI chatbot development services?",
-                                "acceptedAnswer": {
-                                    "@type": "Answer",
-                                    "text": "AI chatbot development services involve designing, building, and deploying intelligent conversational systems that use natural language processing and machine learning to interact with users. These chatbots automate communication, execute tasks, and integrate with enterprise systems."
-                                }
-                            },
-                            {
-                                "@type": "Question",
-                                "name": "How do AI chatbots improve business operations?",
-                                "acceptedAnswer": {
-                                    "@type": "Answer",
-                                    "text": "AI chatbots improve business operations by automating repetitive interactions, reducing response times, and providing consistent, accurate information. They streamline workflows and reduce manual workload across teams."
-                                }
-                            },
-                            {
-                                "@type": "Question",
-                                "name": "Can AI chatbots be customized for my business needs?",
-                                "acceptedAnswer": {
-                                    "@type": "Answer",
-                                    "text": "Yes. AI chatbots are fully customizable based on your business workflows, industry requirements, and use cases. Conversation flows, integrations, and intelligence models are tailored to align with your operational goals."
-                                }
-                            },
-                            {
-                                "@type": "Question",
-                                "name": "Can chatbots integrate with existing systems?",
-                                "acceptedAnswer": {
-                                    "@type": "Answer",
-                                    "text": "Absolutely. AI chatbots are designed to integrate seamlessly with existing platforms such as CRM, ERP, ticketing systems, and databases through secure APIs and data pipelines."
-                                }
-                            },
-                            {
-                                "@type": "Question",
-                                "name": "Are AI chatbots scalable for enterprise use?",
-                                "acceptedAnswer": {
-                                    "@type": "Answer",
-                                    "text": "Yes. Enterprise chatbots are built on scalable, cloud-native architectures that support high-concurrency traffic and growing user demands while maintaining performance and reliability."
-                                }
-                            }
-                        ]
-                    })}
-                </script>
-            </Helmet>
+            <SEO />
 
             {/* 1. Hero Section - Enterprise Gradient */}
             <div className="vrm-full-width-section vrm-enterprise-gradient">

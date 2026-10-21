@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/common/SEO';
 import { Link } from 'react-router-dom';
 import HeaderOne from "../components/header/HeaderOne";
 import FooterOne from "../components/footer/FooterOne";
@@ -15,7 +15,7 @@ export default function AICompanyMadurai() {
     const faqs = [
         {
             q: "Where is VRM AI Technology's development center located in Madurai?",
-            a: "Our staffed engineering development center is located at Door No,209, 1ST Floor, No.147, 5th St, Poriyalar Nagar, Tiruppalai, Madurai, Tamil Nadu 625014."
+            a: "Our staffed engineering development center is located at Door No.209, 1st Floor, No.147, 5th St, Poriyalar Nagar, Tiruppalai, Madurai, Tamil Nadu 625014."
         },
         {
             q: "What AI software solutions are engineered at the Madurai facility?",
@@ -37,84 +37,7 @@ export default function AICompanyMadurai() {
 
     return (
         <div className="rts-ai-strategy-services basic-font-family">
-            <Helmet>
-                <html lang="en-IN" />
-                <title>AI Development Company in Madurai | VRM AI Technology</title>
-                <meta name="description" content="VRM AI Technology is an AI development company in Madurai, engineering generative AI, voice bots, and ML systems for businesses across India." />
-                <link rel="canonical" href="https://www.vrmaitechnology.com/ai-company-madurai" />
-
-                <meta property="og:title" content="AI Development Company in Madurai | VRM AI Technology" />
-                <meta property="og:description" content="VRM AI Technology operates a staffed engineering development center in Tiruppalai, Madurai, delivering GenAI, conversational voice agents, and ML software." />
-                <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
-                <meta property="og:url" content="https://www.vrmaitechnology.com/ai-company-madurai" />
-                <meta property="og:type" content="website" />
-
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="AI Development Company in Madurai | VRM AI Technology" />
-                <meta name="twitter:description" content="VRM AI Technology operates a staffed engineering development center in Tiruppalai, Madurai, delivering GenAI, conversational voice agents, and ML software." />
-                <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
-
-                {/* Breadcrumbs JSON-LD */}
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "BreadcrumbList",
-                        "itemListElement": [
-                            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.vrmaitechnology.com/" },
-                            { "@type": "ListItem", "position": 2, "name": "AI Development Company in Madurai", "item": "https://www.vrmaitechnology.com/ai-company-madurai" }
-                        ]
-                    })}
-                </script>
-
-                {/* LocalBusiness / ProfessionalService Schema */}
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "ProfessionalService",
-                        "name": "VRM AI Technology",
-                        "legalName": "VRM AI Technology (OPC) Pvt.Ltd",
-                        "alternateName": "VRM AI Technology - Madurai Development Center",
-                        "url": "https://www.vrmaitechnology.com/ai-company-madurai",
-                        "image": "https://www.vrmaitechnology.com/assets/images/logo/logo.png",
-                        "telephone": "+918123348355",
-                        "email": "contactus@vrmaitechnology.com",
-                        "address": {
-                            "@type": "PostalAddress",
-                            "streetAddress": "Door No,209, 1ST Floor, No.147, 5th St, Poriyalar Nagar, Tiruppalai",
-                            "addressLocality": "Madurai",
-                            "addressRegion": "Tamil Nadu",
-                            "postalCode": "625014",
-                            "addressCountry": "IN"
-                        },
-                        "hasMap": "https://share.google/Low7HbzJnoFKyBI1d",
-                        "sameAs": [
-                            "https://www.linkedin.com/company/vrm-ai-technology-pvt-ltd/",
-                            "https://x.com/vrmaitechnology",
-                            "https://www.instagram.com/vrmaitechnology/",
-                            "https://www.facebook.com/profile.php?id=61589969476629",
-                            "https://www.youtube.com/@vrmaitech",
-                            "https://share.google/Low7HbzJnoFKyBI1d"
-                        ],
-                        "areaServed": ["Madurai", "Tamil Nadu", "India"]
-                    })}
-                </script>
-
-                {/* FAQPage JSON-LD Schema */}
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "FAQPage",
-                        "mainEntity": faqs.map(item => ({
-                            "@type": "Question",
-                            "name": item.q,
-                            "acceptedAnswer": {
-                                "@type": "Answer",
-                                "text": item.a
-                            }
-                        }))
-                    })}
-                </script>
-            </Helmet>
+            <SEO />
 
             <HeaderOne className="header-white-text" />
 
@@ -256,7 +179,7 @@ export default function AICompanyMadurai() {
                                     <div>
                                         <h3 className="fw-bold text-dark mb-1" style={{ fontSize: '22px' }}>Visit Our Madurai Development Center</h3>
                                         <p className="text-muted mb-0" style={{ fontSize: '14px' }}>
-                                            Door No,209, 1ST Floor, No.147, 5th St, Poriyalar Nagar, Tiruppalai, Madurai, Tamil Nadu 625014
+                                            Door No.209, 1st Floor, No.147, 5th St, Poriyalar Nagar, Tiruppalai, Madurai, Tamil Nadu 625014
                                         </p>
                                     </div>
                                     <div className="d-flex gap-2">
@@ -324,8 +247,8 @@ export default function AICompanyMadurai() {
                                     <Link to="/contactus#send-message" className="btn btn-primary px-4 py-3 fw-bold">
                                         Contact Madurai Office
                                     </Link>
-                                    <a href="tel:+918123348355" className="btn btn-outline-light px-4 py-3 fw-bold">
-                                        Call: +91 81233 48355
+                                    <a href="tel:+917397751037" className="btn btn-outline-light px-4 py-3 fw-bold">
+                                        Call: +91 73977 51037
                                     </a>
                                 </div>
                             </div>

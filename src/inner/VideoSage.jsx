@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import ProductVideo from '../components/common/ProductVideo';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/common/SEO';
 import { Link } from 'react-router-dom';
 import HeaderOne from "../components/header/HeaderOne";
 import FooterOne from "../components/footer/FooterOne";
@@ -26,47 +26,7 @@ function VideoSage() {
 
     return (
         <div className="videosage-page basic-font-family">
-            <Helmet>
-                <title>VideoSage AI Video Interview | VRM AI Technology</title>
-                <meta name="description" content="VideoSage by VRM AI Technology delivers AI video interviews, evaluating candidate responses, communication skills, and role readiness with clear scoring." />
-                <meta property="og:title" content="VideoSage AI Video Interview | VRM AI Technology" />
-                <meta property="og:description" content="VideoSage by VRM AI Technology delivers AI video interviews, evaluating candidate responses, communication skills, and role readiness with clear scoring." />
-                <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
-                <meta property="og:url" content="https://www.vrmaitechnology.com/products/workflow/videosage" />
-                <link rel="canonical" href="https://www.vrmaitechnology.com/products/workflow/videosage" />
-
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="VideoSage AI Video Interview | VRM AI Technology" />
-                <meta name="twitter:description" content="VideoSage by VRM AI Technology delivers AI video interviews, evaluating candidate responses, communication skills, and role readiness with clear scoring." />
-                <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "BreadcrumbList",
-                        "itemListElement": [
-                            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.vrmaitechnology.com/" },
-                            { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://www.vrmaitechnology.com/products" },
-                            { "@type": "ListItem", "position": 3, "name": "Workflow AI", "item": "https://www.vrmaitechnology.com/products/workflow" },
-                            { "@type": "ListItem", "position": 4, "name": "VideoSage", "item": "https://www.vrmaitechnology.com/products/workflow/videosage" }
-                        ]
-                    })}
-                </script>
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "SoftwareApplication",
-                        "name": "VideoSage",
-                        "operatingSystem": "Web",
-                        "applicationCategory": "BusinessApplication",
-                        "description": "Streamline recruitment with VideoSage AI video interviews. Automatically evaluate communication, technical responses, confidence, and candidate performance.",
-                        "publisher": {
-                            "@type": "Organization",
-                            "name": "VRM AI Technology",
-                            "url": "https://www.vrmaitechnology.com/"
-                        }
-                    })}
-                </script>
-            </Helmet>
+            <SEO />
             <HeaderOne />
 
             {/* 1. Hero Section - Enterprise Gradient */}

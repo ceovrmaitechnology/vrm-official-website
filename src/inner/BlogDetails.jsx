@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/common/SEO';
 
 import HeaderOne from "../components/header/HeaderOne";
 import FooterOne from "../components/footer/FooterOne";
@@ -18,10 +18,7 @@ function BlogDetails() {
     if (!blogPost) {
         return (
             <div>
-                <Helmet>
-                    <title>Blog Post | VRM AI Technology</title>
-                    <meta name="robots" content="noindex, follow" />
-                </Helmet>
+                <SEO />
                 <div>Post not found!</div>
             </div>
         );

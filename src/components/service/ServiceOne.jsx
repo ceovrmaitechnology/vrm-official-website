@@ -41,7 +41,7 @@ function ServiceOne() {
                                         to={'/solutions/ai-integration-services'}
                                     >
                                         <i className="far fa-arrow-right" />
-                                        Read More
+                                        Explore Service
                                     </Link>
                                 </div>
                             </div>
@@ -67,7 +67,7 @@ function ServiceOne() {
                                         to={'/solutions/ai-development-services'}
                                     >
                                         <i className="far fa-arrow-right" />
-                                        Read More
+                                        Explore Service
                                     </Link>
                                 </div>
                             </div>
@@ -93,7 +93,7 @@ function ServiceOne() {
                                         to={'/solutions/ai-chatbot-development'}
                                     >
                                         <i className="far fa-arrow-right" />
-                                        Read More
+                                        Explore Service
                                     </Link>
                                 </div>
                             </div>
@@ -119,7 +119,7 @@ function ServiceOne() {
                                         to={'/solutions/ai-calling-agent'}
                                     >
                                         <i className="far fa-arrow-right" />
-                                        Read More
+                                        Explore Service
                                     </Link>
                                 </div>
                             </div>
@@ -145,7 +145,7 @@ function ServiceOne() {
                                         to={'/solutions/machine-learning-services'}
                                     >
                                         <i className="far fa-arrow-right" />
-                                        Read More
+                                        Explore Service
                                     </Link>
                                 </div>
                             </div>

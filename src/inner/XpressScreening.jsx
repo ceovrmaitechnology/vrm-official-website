@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import ProductVideo from '../components/common/ProductVideo';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/common/SEO';
 import { Link } from 'react-router-dom';
 import HeaderOne from "../components/header/HeaderOne";
 import FooterOne from "../components/footer/FooterOne";
@@ -27,46 +27,7 @@ function XpressScreening() {
     return (
         <div className="xpress-screening-page basic-font-family">
             <HeaderOne />
-            <Helmet>
-                <title>Xpress Screening AI | VRM AI Technology</title>
-                <meta name="description" content="AI resume screening by VRM AI Technology. Automatically parse resumes, match candidate skills to role requirements, and rank applicants with precision." />
-                <meta property="og:title" content="Xpress Screening AI | VRM AI Technology" />
-                <meta property="og:description" content="AI resume screening by VRM AI Technology. Automatically parse resumes, match candidate skills to role requirements, and rank applicants with precision." />
-                <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
-                <link rel="canonical" href="https://www.vrmaitechnology.com/products/workflow/xpress-screening" />
-            
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="Xpress Screening AI | VRM AI Technology" />
-                <meta name="twitter:description" content="AI resume screening by VRM AI Technology. Automatically parse resumes, match candidate skills to role requirements, and rank applicants with precision." />
-                <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "BreadcrumbList",
-                        "itemListElement": [
-                            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.vrmaitechnology.com/" },
-                            { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://www.vrmaitechnology.com/products" },
-                            { "@type": "ListItem", "position": 3, "name": "Workflow AI", "item": "https://www.vrmaitechnology.com/products/workflow" },
-                            { "@type": "ListItem", "position": 4, "name": "Xpress Screening", "item": "https://www.vrmaitechnology.com/products/workflow/xpress-screening" }
-                        ]
-                    })}
-                </script>
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "SoftwareApplication",
-                        "name": "Xpress Screening",
-                        "operatingSystem": "Web",
-                        "applicationCategory": "BusinessApplication",
-                        "description": "Optimize early-stage recruitment with Xpress Screening. Automatically parse resumes, align qualifications with role requirements, and rank candidate profiles.",
-                        "publisher": {
-                            "@type": "Organization",
-                            "name": "VRM AI Technology",
-                            "url": "https://www.vrmaitechnology.com/"
-                        }
-                    })}
-                </script>
-            </Helmet>
+            <SEO />
 
             {/* 1. Hero Section - Enterprise Gradient */}
             <div className="vrm-full-width-section vrm-enterprise-gradient ptb--120 position-relative">

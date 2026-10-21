@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import ProductVideo from '../components/common/ProductVideo';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/common/SEO';
 import { Link } from 'react-router-dom';
 import HeaderOne from "../components/header/HeaderOne";
 import FooterOne from "../components/footer/FooterOne";
@@ -27,45 +27,7 @@ function Visionix() {
     return (
         <div className="visionix-page basic-font-family">
             <HeaderOne />
-            <Helmet>
-                <title>Visionix Face Recognition AI | VRM AI Technology</title>
-                <meta name="description" content="Visionix AI by VRM AI Technology provides facial recognition, identity verification, and attendance tracking with high biometric accuracy." />
-                <meta property="og:title" content="Visionix Face Recognition AI | VRM AI Technology" />
-                <meta property="og:description" content="Visionix AI by VRM AI Technology provides facial recognition, identity verification, and attendance tracking with high biometric accuracy." />
-                <meta property="og:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
-                <link rel="canonical" href="https://www.vrmaitechnology.com/products/visionix" />
-            
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="Visionix Face Recognition AI | VRM AI Technology" />
-                <meta name="twitter:description" content="Visionix AI by VRM AI Technology provides facial recognition, identity verification, and attendance tracking with high biometric accuracy." />
-                <meta name="twitter:image" content="https://www.vrmaitechnology.com/assets/images/logo/vrm-og-image.png" />
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "BreadcrumbList",
-                        "itemListElement": [
-                            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.vrmaitechnology.com/" },
-                            { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://www.vrmaitechnology.com/products" },
-                            { "@type": "ListItem", "position": 3, "name": "Visionix AI", "item": "https://www.vrmaitechnology.com/products/visionix" }
-                        ]
-                    })}
-                </script>
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "SoftwareApplication",
-                        "name": "Visionix AI",
-                        "operatingSystem": "Web",
-                        "applicationCategory": "BusinessApplication",
-                        "description": "Visionix AI by VRM AI Technology provides facial recognition, identity verification, and attendance tracking with high biometric accuracy.",
-                        "publisher": {
-                            "@type": "Organization",
-                            "name": "VRM AI Technology",
-                            "url": "https://www.vrmaitechnology.com/"
-                        }
-                    })}
-                </script>
-            </Helmet>
+            <SEO />
 
             {/* 1. Hero Section */}
             <div className="vrm-full-width-section vrm-enterprise-gradient ptb--120 position-relative">

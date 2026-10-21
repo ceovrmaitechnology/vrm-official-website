@@ -58,7 +58,7 @@ function SideMenu({ isSidebarOpen, toggleSidebar }) {
                                 </li>
 
                                 <li className="has-droupdown menu-item">
-                                    <Link className={`menu-link ${openMenu === 1 ? 'open' : ''}`} to={'#'} onClick={(e) => { e.preventDefault(); e.stopPropagation(); toggleMenu(1); }}>
+                                    <Link className={`menu-link ${openMenu === 1 ? 'open' : ''}`} to={'/solutions'} onClick={(e) => { e.preventDefault(); e.stopPropagation(); toggleMenu(1); }}>
                                         Solutions
                                     </Link>
                                     <ul className={`submenu ${openMenu === 1 ? 'active' : ''}`}>
@@ -78,7 +78,7 @@ function SideMenu({ isSidebarOpen, toggleSidebar }) {
                                 </li>
 
                                 <li className="has-droupdown menu-item">
-                                    <Link className={`menu-link ${openMenu === 2 ? 'open' : ''}`} to={'#'} onClick={(e) => { e.preventDefault(); e.stopPropagation(); toggleMenu(2); }}>
+                                    <Link className={`menu-link ${openMenu === 2 ? 'open' : ''}`} to={'/products'} onClick={(e) => { e.preventDefault(); e.stopPropagation(); toggleMenu(2); }}>
                                         Products
                                     </Link>
                                     <ul className={`submenu ${openMenu === 2 ? 'active' : ''}`}>
