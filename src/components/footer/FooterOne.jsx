@@ -115,13 +115,13 @@ function FooterOne() {
                             <h4 className="vrm-footer-sub-title">AI Development</h4>
                             <ul className="vrm-footer-links">
                                 <li className="vrm-contact-link"><Link to="/generative-ai-development">Generative AI</Link></li>
-                                <li className="vrm-contact-link"><Link to="/ai-chatbot-development">AI Chatbots</Link></li>
+                                <li className="vrm-contact-link"><Link to="/solutions/ai-chatbot-development">AI Chatbots</Link></li>
                                 <li className="vrm-contact-link"><Link to="/solutions/ai-development-services">AI Development Services</Link></li>
                             </ul>
 
                             <h4 className="vrm-footer-sub-title">AI &amp; Speech</h4>
                             <ul className="vrm-footer-links">
-                                <li className="vrm-contact-link"><Link to="/voice-ai-solutions">Voice AI Solutions</Link></li>
+                                <li className="vrm-contact-link"><Link to="/solutions/ai-calling-agent">Voice AI Solutions</Link></li>
                                 <li className="vrm-contact-link"><Link to="/solutions/ai-calling-agent">AI Calling Agent</Link></li>
                                 <li className="vrm-contact-link"><Link to="/solutions/machine-learning-services">Machine Learning Services</Link></li>
                             </ul>

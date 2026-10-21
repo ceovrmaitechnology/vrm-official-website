@@ -601,23 +601,6 @@ export const SEO_CONFIG = {
       ])
     ]
   },
-  '/chennai': {
-    title: 'AI Software Services for Chennai | VRM AI Technology',
-    description: 'Generative AI, AI calling agents, chatbots and custom software for Chennai businesses. Delivered online by VRM AI Technology.',
-    canonical: `${CANONICAL_ORIGIN}/chennai`,
-    h1: 'AI Software Services for Chennai Businesses',
-    schemas: [
-      ORGANIZATION_SCHEMA,
-      createBreadcrumbSchema([
-        { name: 'Home', url: '/' },
-        { name: 'Chennai', url: '/chennai' }
-      ]),
-      createFAQSchema([
-        { q: 'Do you offer on-site meetings for Chennai clients?', a: 'Yes. Our technical leads and strategy teams regularly visit Chennai for in-person alignment, architecture reviews, and discovery workshops.' },
-        { q: 'What industries in Chennai benefit most from your AI solutions?', a: 'Automotive manufacturing, SaaS, healthcare, BFSI, and logistics organizations across OMR, Guindy, Ambattur, and T. Nagar.' }
-      ])
-    ]
-  },
   '/privacy-policy': {
     title: 'Privacy Policy | VRM AI Technology',
     description: 'Read the Privacy Policy of VRM AI Technology to understand how we collect, protect, and use your personal information across our platform and services.',

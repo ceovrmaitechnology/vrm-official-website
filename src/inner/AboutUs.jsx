@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import FooterOne from "../components/footer/FooterOne";
 import Accordion from 'react-bootstrap/Accordion';
 import AboutQualityCompliance from '../components/iso/AboutQualityCompliance';
+import SuperintelligenceDirection from '../components/common/SuperintelligenceDirection';
 import '../about-us.css'; // Import custom styles
 
 function AboutUs() {
@@ -272,6 +273,9 @@ function AboutUs() {
 
             {/* PART 2 — ABOUT US PAGE: Quality & Compliance Section */}
             <AboutQualityCompliance />
+
+            {/* Our Direction Section */}
+            <SuperintelligenceDirection withCtaBand={false} />
 
             {/* Let's Discuss / CTA Section */}
             <div className="about-cta">

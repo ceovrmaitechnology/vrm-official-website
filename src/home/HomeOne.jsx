@@ -11,6 +11,7 @@ import WorkflowTestimonials from "../components/testimonials/WorkflowTestimonial
 import ContactForm from "../components/contactform/ContactForm";
 import FooterOne from "../components/footer/FooterOne";
 import WhyChooseUsFooter from "../components/whychooseus/WhyChooseUsFooter";
+import SuperintelligenceDirection from "../components/common/SuperintelligenceDirection";
 
 function HomeOne() {
   useEffect(() => {
@@ -37,6 +38,7 @@ function HomeOne() {
         title="Why teams keep choosing Workflow AI by VRM AI Technology"
         description="Hiring teams use Workflow AI by VRM AI Technology to move faster with better screening quality, while candidates get a cleaner and more consistent interview experience."
       />
+      <SuperintelligenceDirection withCtaBand={true} />
       <ContactForm />
       <WhyChooseUsFooter />
       <FooterOne />
