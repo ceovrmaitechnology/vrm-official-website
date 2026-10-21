@@ -93,6 +93,12 @@ npm run build
 echo "[6/6] Restarting PM2 app: $PM2_APP ..."
 pm2 restart "$PM2_APP"
 
+# 7. Reload Nginx if installed
+if command -v nginx &> /dev/null; then
+  echo "[7/7] Checking and reloading Nginx ..."
+  nginx -t && (systemctl reload nginx || nginx -s reload) || true
+fi
+
 # Wait a moment for the server to start
 echo "      Waiting for server to start ..."
 sleep 4
