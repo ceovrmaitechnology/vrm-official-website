@@ -389,7 +389,7 @@ Bengaluru, Karnataka 560100.</span>
 
                     <div className="row g-4 justify-content-center">
                         {/* Offshore Development Center (ODC) - Madurai */}
-                        <div className="col-lg-5 col-md-6 wow fadeInUp" data-wow-delay=".2s">
+                        <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".2s">
                             <div className="vrm-office-card h-100">
                                 <div className="office-card-header">
                                     <div className="d-flex align-items-center gap-3">
@@ -435,7 +435,7 @@ Bengaluru, Karnataka 560100.</span>
                         </div>
 
                         {/* Headquarter - Bengaluru */}
-                        <div className="col-lg-5 col-md-6 wow fadeInUp" data-wow-delay=".4s">
+                        <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".4s">
                             <div className="vrm-office-card h-100">
                                 <div className="office-card-header">
                                     <div className="d-flex align-items-center gap-3">
@@ -472,6 +472,37 @@ Bengaluru, Karnataka 560100.</span>
                                 </ul>
                             </div>
                         </div>
+
+                        {/* Singapore Office */}
+                        <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".6s">
+                            <div className="vrm-office-card h-100">
+                                <div className="office-card-header">
+                                    <div className="d-flex align-items-center gap-3">
+                                        <div className="office-flag-wrapper">
+                                            <img src="/assets/images/singapore.png"
+                                                alt="Flag of Singapore"
+                                                className="vrm-flag-icon"
+                                                style={{ width: '48px', height: 'auto', borderRadius: '4px', objectFit: 'cover' }}
+                                                loading="lazy" />
+                                        </div>
+                                        <div>
+                                            <h4 className="office-card-title mb-0">Singapore Office</h4>
+                                        </div>
+                                    </div>
+                                    <div className="office-location-icon">
+                                        <i className="fas fa-globe-asia"></i>
+                                    </div>
+                                </div>
+                                <ul className="office-details-list">
+                                    <li>
+                                        <i className="fas fa-location-arrow"></i>
+                                        <span>
+                                            <span className="text-white">GLOSAP Consulting Pte Ltd,<br />#05-25, 11 Woodlands Close,<br />Singapore 737853</span>
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
 
                     {/* Embedded Google Map for Madurai Development Center */}
@@ -480,7 +511,7 @@ Bengaluru, Karnataka 560100.</span>
                             <div className="bg-white p-4 rounded-4 shadow-sm border">
                                 <div className="d-flex flex-wrap justify-content-between align-items-center mb-3 gap-2">
                                     <div>
-                                        <h4 className="fw-bold text-dark mb-1">Madurai Development Center Map</h4>
+                                        <h3 className="h4 fw-bold text-dark mb-1">Madurai Development Center Map</h3>
                                         <p className="text-muted mb-0" style={{ fontSize: '14px' }}>
                                             Door No.209, 1st Floor, No.147, 5th St, Poriyalar Nagar, Tiruppalai, Madurai, Tamil Nadu 625014, India
                                         </p>
@@ -498,6 +529,78 @@ Bengaluru, Karnataka 560100.</span>
                                     <iframe
                                         title="VRM AI Technology Madurai Development Center Map"
                                         src="https://maps.google.com/maps?q=Door+No.209,+1st+Floor,+No.147,+5th+St,+Poriyalar+Nagar,+Tiruppalai,+Madurai,+Tamil+Nadu+625014&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                                        width="100%"
+                                        height="100%"
+                                        style={{ border: 0 }}
+                                        allowFullScreen=""
+                                        loading="lazy"
+                                        referrerPolicy="no-referrer-when-downgrade"
+                                    ></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Embedded Google Map for Headquarter (Bengaluru) */}
+                    <div className="row mt-4 justify-content-center">
+                        <div className="col-lg-10">
+                            <div className="bg-white p-4 rounded-4 shadow-sm border">
+                                <div className="d-flex flex-wrap justify-content-between align-items-center mb-3 gap-2">
+                                    <div>
+                                        <h3 className="h4 fw-bold text-dark mb-1">Headquarter Map</h3>
+                                        <p className="text-muted mb-0" style={{ fontSize: '14px' }}>
+                                            GoodWorks Infinity Park, 21, 2nd Main Rd, Electronic City Phase I, Bengaluru, Karnataka 560100, India
+                                        </p>
+                                    </div>
+                                    <div className="d-flex gap-2 mt-2 mt-sm-0">
+                                        <a href="https://share.google/7LiK49fAJDNwOpQ48" target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-outline-primary">
+                                            <i className="fas fa-directions me-1"></i> Get Directions
+                                        </a>
+                                        <a href="https://share.google/7LiK49fAJDNwOpQ48" target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-primary">
+                                            <i className="fas fa-external-link-alt me-1"></i> Open in Maps
+                                        </a>
+                                    </div>
+                                </div>
+                                <div style={{ borderRadius: '12px', overflow: 'hidden', height: '360px', border: '1px solid #e2e8f0' }}>
+                                    <iframe
+                                        title="VRM AI Technology Headquarter Bengaluru Map"
+                                        src="https://www.google.com/maps?q=GoodWorks+Infinity+Park+Electronic+City+Phase+1+Bengaluru+560100&output=embed"
+                                        width="100%"
+                                        height="100%"
+                                        style={{ border: 0 }}
+                                        allowFullScreen=""
+                                        loading="lazy"
+                                        referrerPolicy="no-referrer-when-downgrade"
+                                    ></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Embedded Google Map for Singapore Office */}
+                    <div className="row mt-4 justify-content-center">
+                        <div className="col-lg-10">
+                            <div className="bg-white p-4 rounded-4 shadow-sm border">
+                                <div className="d-flex flex-wrap justify-content-between align-items-center mb-3 gap-2">
+                                    <div>
+                                        <h3 className="h4 fw-bold text-dark mb-1">Singapore Office Map</h3>
+                                        <p className="text-muted mb-0" style={{ fontSize: '14px' }}>
+                                            GLOSAP Consulting Pte Ltd, #05-25, 11 Woodlands Close, Singapore 737853
+                                        </p>
+                                    </div>
+                                    <div className="d-flex gap-2 mt-2 mt-sm-0">
+                                        <a href="https://www.google.com/maps?q=11+Woodlands+Close+Singapore+737853" target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-outline-primary">
+                                            <i className="fas fa-directions me-1"></i> Get Directions
+                                        </a>
+                                        <a href="https://www.google.com/maps?q=11+Woodlands+Close+Singapore+737853" target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-primary">
+                                            <i className="fas fa-external-link-alt me-1"></i> Open in Maps
+                                        </a>
+                                    </div>
+                                </div>
+                                <div style={{ borderRadius: '12px', overflow: 'hidden', height: '360px', border: '1px solid #e2e8f0' }}>
+                                    <iframe
+                                        title="VRM AI Technology Singapore Office Map"
+                                        src="https://www.google.com/maps?q=11+Woodlands+Close+Singapore+737853&output=embed"
                                         width="100%"
                                         height="100%"
                                         style={{ border: 0 }}

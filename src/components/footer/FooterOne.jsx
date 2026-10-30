@@ -49,7 +49,7 @@ function FooterOne() {
                                         Madurai, Tamil Nadu 625014, India
                                     </p>
                                 </div>
-                                <div>
+                                <div style={{ marginBottom: '12px' }}>
                                     <div style={{ fontSize: '14px', marginBottom: '4px', color: '#11142c', fontWeight: '700' }}>
                                         <Link to="/ai-company-bangalore" style={{ color: 'inherit', textDecoration: 'none' }}>Headquarter</Link>
                                     </div>
@@ -58,6 +58,16 @@ function FooterOne() {
                                         GoodWorks Infinity Park, 21, 2nd Main Rd,<br />
                                         Electronic City Phase I,<br />
                                         Bengaluru, Karnataka 560100, India
+                                    </p>
+                                </div>
+                                <div>
+                                    <div style={{ fontSize: '14px', marginBottom: '4px', color: '#11142c', fontWeight: '700' }}>
+                                        Singapore Office
+                                    </div>
+                                    <p style={{ fontSize: '13px', lineHeight: '1.6', margin: 0, color: '#555' }}>
+                                        GLOSAP Consulting Pte Ltd<br />
+                                        #05-25, 11 Woodlands Close,<br />
+                                        Singapore 737853
                                     </p>
                                 </div>
                                 <div style={{ marginTop: '10px', fontSize: '12px', color: '#666', fontWeight: '500' }}>

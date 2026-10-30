@@ -39,6 +39,14 @@ const ADDRESS_MADURAI = {
   addressCountry: 'IN'
 };
 
+const ADDRESS_SINGAPORE = {
+  '@type': 'PostalAddress',
+  streetAddress: '#05-25, 11 Woodlands Close',
+  addressLocality: 'Singapore',
+  postalCode: '737853',
+  addressCountry: 'SG'
+};
+
 const ORGANIZATION_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
@@ -48,7 +56,12 @@ const ORGANIZATION_SCHEMA = {
   logo: LOGO_URL,
   email: CONTACT_EMAIL,
   telephone: CONTACT_PHONE_TEL,
-  sameAs: SOCIAL_PROFILES
+  sameAs: SOCIAL_PROFILES,
+  location: [
+    ADDRESS_BENGALURU,
+    ADDRESS_MADURAI,
+    ADDRESS_SINGAPORE
+  ]
 };
 
 const PROFESSIONAL_SERVICE_BLR = {
@@ -665,6 +678,7 @@ export {
   SOCIAL_PROFILES,
   ADDRESS_BENGALURU,
   ADDRESS_MADURAI,
+  ADDRESS_SINGAPORE,
   ORGANIZATION_SCHEMA,
   PROFESSIONAL_SERVICE_BLR,
   PROFESSIONAL_SERVICE_MADURAI
