@@ -526,27 +526,26 @@ const ContactUs = () => {
                         </div>
                     </div>
 
-                    {/* Embedded Google Map for Madurai Development Center */}
-                    <div className="row mt-5 justify-content-center">
-                        <div className="col-lg-10">
-                            <div className="bg-white p-4 rounded-4 shadow-sm border">
-                                <div className="d-flex flex-wrap justify-content-between align-items-center mb-3 gap-2">
-                                    <div>
-                                        <h3 className="h4 fw-bold text-dark mb-1">Madurai Development Center Map</h3>
-                                        <p className="text-muted mb-0" style={{ fontSize: '14px' }}>
-                                            Door No.209, 1st Floor, No.147, 5th St, Poriyalar Nagar, Tiruppalai, Madurai, Tamil Nadu 625014, India
-                                        </p>
-                                    </div>
-                                    <div className="d-flex gap-2 mt-2 mt-sm-0">
-                                        <a href="https://share.google/Low7HbzJnoFKyBI1d" target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-outline-primary">
-                                            <i className="fas fa-directions me-1"></i> Get Directions
-                                        </a>
-                                        <a href="https://share.google/Low7HbzJnoFKyBI1d" target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-primary">
-                                            <i className="fas fa-star me-1"></i> Review us on Google
-                                        </a>
-                                    </div>
+                    {/* Embedded Google Maps (3 Maps Side-by-Side in 1 Row) */}
+                    <div className="row g-4 mt-5">
+                        {/* 1. Madurai Development Center Map */}
+                        <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".2s">
+                            <div className="bg-white p-4 rounded-4 shadow-sm border h-100 d-flex flex-column">
+                                <div className="mb-3" style={{ minHeight: '80px' }}>
+                                    <h3 className="fw-bold text-dark mb-1" style={{ fontSize: '18px' }}>Madurai Development Center Map</h3>
+                                    <p className="text-muted mb-0" style={{ fontSize: '13px', lineHeight: '1.5' }}>
+                                        Door No.209, 1st Floor, No.147, 5th St, Poriyalar Nagar, Tiruppalai, Madurai, Tamil Nadu 625014, India
+                                    </p>
                                 </div>
-                                <div style={{ borderRadius: '12px', overflow: 'hidden', height: '360px', border: '1px solid #e2e8f0' }}>
+                                <div className="d-flex flex-wrap gap-2 mb-3">
+                                    <a href="https://share.google/Low7HbzJnoFKyBI1d" target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-outline-primary" style={{ fontSize: '12px', padding: '6px 12px' }}>
+                                        <i className="fas fa-directions me-1"></i> Get Directions
+                                    </a>
+                                    <a href="https://share.google/Low7HbzJnoFKyBI1d" target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-primary" style={{ fontSize: '12px', padding: '6px 12px' }}>
+                                        <i className="fas fa-star me-1"></i> Review us on Google
+                                    </a>
+                                </div>
+                                <div className="mt-auto" style={{ borderRadius: '12px', overflow: 'hidden', height: '320px', border: '1px solid #e2e8f0' }}>
                                     <iframe
                                         title="VRM AI Technology Madurai Development Center Map"
                                         src="https://maps.google.com/maps?q=Door+No.209,+1st+Floor,+No.147,+5th+St,+Poriyalar+Nagar,+Tiruppalai,+Madurai,+Tamil+Nadu+625014&t=&z=15&ie=UTF8&iwloc=&output=embed"
@@ -560,29 +559,25 @@ const ContactUs = () => {
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    {/* Embedded Google Map for Headquarter (Bengaluru) */}
-                    <div className="row mt-4 justify-content-center">
-                        <div className="col-lg-10">
-                            <div className="bg-white p-4 rounded-4 shadow-sm border">
-                                <div className="d-flex flex-wrap justify-content-between align-items-center mb-3 gap-2">
-                                    <div>
-                                        <h3 className="h4 fw-bold text-dark mb-1">Headquarter Map</h3>
-                                        <p className="text-muted mb-0" style={{ fontSize: '14px' }}>
-                                            GoodWorks Infinity Park, 21, 2nd Main Rd, Electronic City Phase I, Bengaluru, Karnataka 560100, India
-                                        </p>
-                                    </div>
-                                    <div className="d-flex gap-2 mt-2 mt-sm-0">
-                                        <a href="https://share.google/SwRyPGwXgSwC8iN4X" target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-outline-primary">
-                                            <i className="fas fa-directions me-1"></i> Get Directions
-                                        </a>
-                                        <a href="https://share.google/SwRyPGwXgSwC8iN4X" target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-primary">
-                                            <i className="fas fa-external-link-alt me-1"></i> Open in Maps
-                                        </a>
-                                    </div>
+                        {/* 2. Headquarter Map (Bengaluru) */}
+                        <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".4s">
+                            <div className="bg-white p-4 rounded-4 shadow-sm border h-100 d-flex flex-column">
+                                <div className="mb-3" style={{ minHeight: '80px' }}>
+                                    <h3 className="fw-bold text-dark mb-1" style={{ fontSize: '18px' }}>Headquarter Map</h3>
+                                    <p className="text-muted mb-0" style={{ fontSize: '13px', lineHeight: '1.5' }}>
+                                        GoodWorks Infinity Park, 21, 2nd Main Rd, Electronic City Phase I, Bengaluru, Karnataka 560100, India
+                                    </p>
                                 </div>
-                                <div style={{ borderRadius: '12px', overflow: 'hidden', height: '360px', border: '1px solid #e2e8f0' }}>
+                                <div className="d-flex flex-wrap gap-2 mb-3">
+                                    <a href="https://share.google/SwRyPGwXgSwC8iN4X" target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-outline-primary" style={{ fontSize: '12px', padding: '6px 12px' }}>
+                                        <i className="fas fa-directions me-1"></i> Get Directions
+                                    </a>
+                                    <a href="https://share.google/SwRyPGwXgSwC8iN4X" target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-primary" style={{ fontSize: '12px', padding: '6px 12px' }}>
+                                        <i className="fas fa-external-link-alt me-1"></i> Open in Maps
+                                    </a>
+                                </div>
+                                <div className="mt-auto" style={{ borderRadius: '12px', overflow: 'hidden', height: '320px', border: '1px solid #e2e8f0' }}>
                                     <iframe
                                         title="VRM AI Technology Headquarter Bengaluru Map"
                                         src="https://maps.google.com/maps?q=VRM+AI+Technology+Private+Limited,+GoodWorks+Infinity+Park,+Electronic+City+Phase+1,+Bengaluru+560100&t=&z=15&ie=UTF8&iwloc=&output=embed"
@@ -596,29 +591,25 @@ const ContactUs = () => {
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    {/* Embedded Google Map for Singapore Office */}
-                    <div className="row mt-4 justify-content-center">
-                        <div className="col-lg-10">
-                            <div className="bg-white p-4 rounded-4 shadow-sm border">
-                                <div className="d-flex flex-wrap justify-content-between align-items-center mb-3 gap-2">
-                                    <div>
-                                        <h3 className="h4 fw-bold text-dark mb-1">Singapore Office Map</h3>
-                                        <p className="text-muted mb-0" style={{ fontSize: '14px' }}>
-                                            GLOSAP Consulting Pte Ltd, #05-25, 11 Woodlands Close, Singapore 737853
-                                        </p>
-                                    </div>
-                                    <div className="d-flex gap-2 mt-2 mt-sm-0">
-                                        <a href="https://maps.app.goo.gl/foT6AZH5V3Gb7y5f8" target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-outline-primary">
-                                            <i className="fas fa-directions me-1"></i> Get Directions
-                                        </a>
-                                        <a href="https://maps.app.goo.gl/foT6AZH5V3Gb7y5f8" target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-primary">
-                                            <i className="fas fa-external-link-alt me-1"></i> Open in Maps
-                                        </a>
-                                    </div>
+                        {/* 3. Singapore Office Map */}
+                        <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".6s">
+                            <div className="bg-white p-4 rounded-4 shadow-sm border h-100 d-flex flex-column">
+                                <div className="mb-3" style={{ minHeight: '80px' }}>
+                                    <h3 className="fw-bold text-dark mb-1" style={{ fontSize: '18px' }}>Singapore Office Map</h3>
+                                    <p className="text-muted mb-0" style={{ fontSize: '13px', lineHeight: '1.5' }}>
+                                        GLOSAP Consulting Pte Ltd, #05-25, 11 Woodlands Close, Singapore 737853
+                                    </p>
                                 </div>
-                                <div style={{ borderRadius: '12px', overflow: 'hidden', height: '360px', border: '1px solid #e2e8f0' }}>
+                                <div className="d-flex flex-wrap gap-2 mb-3">
+                                    <a href="https://maps.app.goo.gl/foT6AZH5V3Gb7y5f8" target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-outline-primary" style={{ fontSize: '12px', padding: '6px 12px' }}>
+                                        <i className="fas fa-directions me-1"></i> Get Directions
+                                    </a>
+                                    <a href="https://maps.app.goo.gl/foT6AZH5V3Gb7y5f8" target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-primary" style={{ fontSize: '12px', padding: '6px 12px' }}>
+                                        <i className="fas fa-external-link-alt me-1"></i> Open in Maps
+                                    </a>
+                                </div>
+                                <div className="mt-auto" style={{ borderRadius: '12px', overflow: 'hidden', height: '320px', border: '1px solid #e2e8f0' }}>
                                     <iframe
                                         title="VRM AI Technology Singapore Office Map"
                                         src="https://maps.google.com/maps?q=Glosap+Consulting+Group,+11+Woodlands+Close,+Singapore+737853&t=&z=16&ie=UTF8&iwloc=&output=embed"
