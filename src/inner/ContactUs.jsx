@@ -334,9 +334,16 @@ const ContactUs = () => {
                                 </div>
                                 <h4 className="title mb-3">Corporate Office</h4>
                                 <p className="disc text-muted">
-                                    <span className="text-muted">GoodWorks Infinity Park,<br />
-21, 2nd main Rd, near 21, Electronic City Phase I, Electronic City,<br />
-Bengaluru, Karnataka 560100.</span>
+                                    <a
+                                        href="https://share.google/SwRyPGwXgSwC8iN4X"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-muted text-decoration-none hover-primary"
+                                    >
+                                        GoodWorks Infinity Park,<br />
+                                        21, 2nd main Rd, near 21, Electronic City Phase I, Electronic City,<br />
+                                        Bengaluru, Karnataka 560100.
+                                    </a>
                                 </p>
                             </div>
                         </div>
@@ -458,7 +465,14 @@ Bengaluru, Karnataka 560100.</span>
                                     <li>
                                         <i className="fas fa-location-arrow"></i>
                                         <span>
-                                            <span className="text-white">GoodWorks Infinity Park,<br />21, 2nd Main Rd, Electronic City Phase I,<br />Bengaluru, Karnataka 560100, India</span>
+                                            <a
+                                                href="https://share.google/SwRyPGwXgSwC8iN4X"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="text-white text-decoration-none hover-primary"
+                                            >
+                                                GoodWorks Infinity Park,<br />21, 2nd Main Rd, Electronic City Phase I,<br />Bengaluru, Karnataka 560100, India
+                                            </a>
                                         </span>
                                     </li>
                                     <li>
@@ -497,7 +511,14 @@ Bengaluru, Karnataka 560100.</span>
                                     <li>
                                         <i className="fas fa-location-arrow"></i>
                                         <span>
-                                            <span className="text-white">GLOSAP Consulting Pte Ltd,<br />#05-25, 11 Woodlands Close,<br />Singapore 737853</span>
+                                            <a
+                                                href="https://maps.app.goo.gl/foT6AZH5V3Gb7y5f8"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="text-white text-decoration-none hover-primary"
+                                            >
+                                                GLOSAP Consulting Pte Ltd,<br />#05-25, 11 Woodlands Close,<br />Singapore 737853
+                                            </a>
                                         </span>
                                     </li>
                                 </ul>
@@ -553,10 +574,10 @@ Bengaluru, Karnataka 560100.</span>
                                         </p>
                                     </div>
                                     <div className="d-flex gap-2 mt-2 mt-sm-0">
-                                        <a href="https://share.google/7LiK49fAJDNwOpQ48" target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-outline-primary">
+                                        <a href="https://share.google/SwRyPGwXgSwC8iN4X" target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-outline-primary">
                                             <i className="fas fa-directions me-1"></i> Get Directions
                                         </a>
-                                        <a href="https://share.google/7LiK49fAJDNwOpQ48" target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-primary">
+                                        <a href="https://share.google/SwRyPGwXgSwC8iN4X" target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-primary">
                                             <i className="fas fa-external-link-alt me-1"></i> Open in Maps
                                         </a>
                                     </div>
@@ -564,7 +585,7 @@ Bengaluru, Karnataka 560100.</span>
                                 <div style={{ borderRadius: '12px', overflow: 'hidden', height: '360px', border: '1px solid #e2e8f0' }}>
                                     <iframe
                                         title="VRM AI Technology Headquarter Bengaluru Map"
-                                        src="https://www.google.com/maps?q=GoodWorks+Infinity+Park+Electronic+City+Phase+1+Bengaluru+560100&output=embed"
+                                        src="https://maps.google.com/maps?q=VRM+AI+Technology+Private+Limited,+GoodWorks+Infinity+Park,+Electronic+City+Phase+1,+Bengaluru+560100&t=&z=15&ie=UTF8&iwloc=&output=embed"
                                         width="100%"
                                         height="100%"
                                         style={{ border: 0 }}
@@ -589,10 +610,10 @@ Bengaluru, Karnataka 560100.</span>
                                         </p>
                                     </div>
                                     <div className="d-flex gap-2 mt-2 mt-sm-0">
-                                        <a href="https://www.google.com/maps?q=11+Woodlands+Close+Singapore+737853" target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-outline-primary">
+                                        <a href="https://maps.app.goo.gl/foT6AZH5V3Gb7y5f8" target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-outline-primary">
                                             <i className="fas fa-directions me-1"></i> Get Directions
                                         </a>
-                                        <a href="https://www.google.com/maps?q=11+Woodlands+Close+Singapore+737853" target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-primary">
+                                        <a href="https://maps.app.goo.gl/foT6AZH5V3Gb7y5f8" target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-primary">
                                             <i className="fas fa-external-link-alt me-1"></i> Open in Maps
                                         </a>
                                     </div>
@@ -600,7 +621,7 @@ Bengaluru, Karnataka 560100.</span>
                                 <div style={{ borderRadius: '12px', overflow: 'hidden', height: '360px', border: '1px solid #e2e8f0' }}>
                                     <iframe
                                         title="VRM AI Technology Singapore Office Map"
-                                        src="https://www.google.com/maps?q=11+Woodlands+Close+Singapore+737853&output=embed"
+                                        src="https://maps.google.com/maps?q=Glosap+Consulting+Group,+11+Woodlands+Close,+Singapore+737853&t=&z=16&ie=UTF8&iwloc=&output=embed"
                                         width="100%"
                                         height="100%"
                                         style={{ border: 0 }}
