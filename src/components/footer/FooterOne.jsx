@@ -65,7 +65,6 @@ function FooterOne() {
                                         Singapore Office
                                     </div>
                                     <p style={{ fontSize: '13px', lineHeight: '1.6', margin: 0, color: '#555' }}>
-                                        GLOSAP Consulting Pte Ltd<br />
                                         #05-25, 11 Woodlands Close,<br />
                                         Singapore 737853
                                     </p>

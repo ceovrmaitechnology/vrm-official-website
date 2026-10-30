@@ -512,14 +512,18 @@ const ContactUs = () => {
                                         <i className="fas fa-location-arrow"></i>
                                         <span>
                                             <a
-                                                href="https://maps.app.goo.gl/foT6AZH5V3Gb7y5f8"
+                                                href="https://www.google.com/maps?q=11+Woodlands+Close,+%2305-25,+Singapore+737853"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 className="text-white text-decoration-none hover-primary"
                                             >
-                                                GLOSAP Consulting Pte Ltd,<br />#05-25, 11 Woodlands Close,<br />Singapore 737853
+                                                #05-25, 11 Woodlands Close,<br />Singapore 737853
                                             </a>
                                         </span>
+                                    </li>
+                                    <li>
+                                        <i className="fas fa-envelope"></i>
+                                        <span><a href="mailto:contactus@vrmaitechnology.com" style={{ color: "inherit" }}>contactus@vrmaitechnology.com</a></span>
                                     </li>
                                 </ul>
                             </div>
@@ -598,21 +602,21 @@ const ContactUs = () => {
                                 <div className="mb-3" style={{ minHeight: '80px' }}>
                                     <h3 className="fw-bold text-dark mb-1" style={{ fontSize: '18px' }}>Singapore Office Map</h3>
                                     <p className="text-muted mb-0" style={{ fontSize: '13px', lineHeight: '1.5' }}>
-                                        GLOSAP Consulting Pte Ltd, #05-25, 11 Woodlands Close, Singapore 737853
+                                        #05-25, 11 Woodlands Close, Singapore 737853
                                     </p>
                                 </div>
                                 <div className="d-flex flex-wrap gap-2 mb-3">
-                                    <a href="https://maps.app.goo.gl/foT6AZH5V3Gb7y5f8" target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-outline-primary" style={{ fontSize: '12px', padding: '6px 12px' }}>
+                                    <a href="https://www.google.com/maps?q=11+Woodlands+Close,+%2305-25,+Singapore+737853" target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-outline-primary" style={{ fontSize: '12px', padding: '6px 12px' }}>
                                         <i className="fas fa-directions me-1"></i> Get Directions
                                     </a>
-                                    <a href="https://maps.app.goo.gl/foT6AZH5V3Gb7y5f8" target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-primary" style={{ fontSize: '12px', padding: '6px 12px' }}>
+                                    <a href="https://www.google.com/maps?q=11+Woodlands+Close,+%2305-25,+Singapore+737853" target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-primary" style={{ fontSize: '12px', padding: '6px 12px' }}>
                                         <i className="fas fa-external-link-alt me-1"></i> Open in Maps
                                     </a>
                                 </div>
                                 <div className="mt-auto" style={{ borderRadius: '12px', overflow: 'hidden', height: '320px', border: '1px solid #e2e8f0' }}>
                                     <iframe
                                         title="VRM AI Technology Singapore Office Map"
-                                        src="https://maps.google.com/maps?q=Glosap+Consulting+Group,+11+Woodlands+Close,+Singapore+737853&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                                        src="https://maps.google.com/maps?q=11+Woodlands+Close,+%2305-25,+Singapore+737853&t=&z=16&ie=UTF8&iwloc=&output=embed"
                                         width="100%"
                                         height="100%"
                                         style={{ border: 0 }}
