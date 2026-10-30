@@ -36,8 +36,11 @@ function AiBuddy() {
                         <div className="col-lg-7">
                             <div className="banner-content-two">
                                 <h1 className="title wow fadeInUp text-white" data-wow-delay=".2s">
-                                    AI Buddy
+                                    SI Buddy
                                 </h1>
+                                <p className="text-white-50 mb-2 wow fadeInUp" data-wow-delay=".25s" style={{ fontSize: '14px', fontWeight: 500 }}>
+                                    Formerly AI Buddy.
+                                </p>
                                 <p className="disc wow fadeInUp text-white-50" data-wow-delay=".3s">
                                     Learn, practice, and communicate confidently in multiple languages with your personal AI language coach. Build speaking fluency, improve pronunciation, and master real-world conversations through intelligent, interactive learning.
                                 </p>
@@ -50,21 +53,21 @@ function AiBuddy() {
                         </div>
                         <div className="col-lg-5">
                             <div className="banner-image-two wow fadeInUp" data-wow-delay=".3s">
-                                <img src="/assets/images/aibuddy/aibuddy-image.webp" alt="AI Buddy Employee Voice Training Dashboard" style={{ borderRadius: '20px', boxShadow: '0 20px 50px rgba(0,0,0,0.3)' }} width="600" height="600" decoding="async" loading="lazy" />
+                                <img src="/assets/images/aibuddy/aibuddy-image.webp" alt="SI Buddy Employee Voice Training Dashboard" style={{ borderRadius: '20px', boxShadow: '0 20px 50px rgba(0,0,0,0.3)' }} width="600" height="600" decoding="async" loading="lazy" />
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            {/* 2. Why Choose AI Buddy - White BG */}
+            {/* 2. Why Choose SI Buddy - White BG */}
             <div className="vrm-full-width-section vrm-white-bg">
                 <div className="container">
                     <div className="row">
                         <div className="col-12 text-center">
                             <div className="rts-title-area" data-text="">
                                 <span className="pre-title" style={{ color: '#3B4ECC' }}>KEY BENEFITS</span>
-                                <h2 className="title">Why Choose AI Buddy?</h2>
+                                <h2 className="title">Why Choose SI Buddy?</h2>
                                 <p className="disc mt-3">
                                     Transform language learning with AI-powered conversations, personalized coaching, instant pronunciation feedback, and immersive real-world communication practice.
                                 </p>
@@ -91,13 +94,13 @@ function AiBuddy() {
                 </div>
             </div>
 
-            {/* 3. See AI Buddy in Action - Light Blue BG */}
+            {/* 3. See SI Buddy in Action - Light Blue BG */}
             <div className="vrm-full-width-section vrm-light-blue-bg">
                 <div className="container">
                     <div className="row">
                         <div className="col-12 text-center">
                             <div className="rts-title-area mb--50" data-text="">
-                                <h2 className="title">See AI Buddy in Action</h2>
+                                <h2 className="title">See SI Buddy in Action</h2>
                                 <p className="disc mt-3">Observe how the pronunciation engine tracks candidate audio segments and scores phoneme articulation.</p>
                             </div>
                         </div>
@@ -108,7 +111,7 @@ function AiBuddy() {
                                 <ProductVideo
                                     src="/assets/images/aibuddy/aibuddy-promo.mp4"
                                     poster="/assets/images/aibuddy/aibuddy-poster-16-9.webp"
-                                    title="AI Buddy"
+                                    title="SI Buddy"
                                 />
                             </div>
                         </div>
@@ -149,7 +152,7 @@ function AiBuddy() {
                                 {images.map((img, index) => (
                                     <SwiperSlide key={index}>
                                         <div className="gallery-item wow fadeInUp" data-wow-delay={`.${index + 2}s`} style={{ borderRadius: '15px', overflow: 'hidden', boxShadow: '0 10px 30px rgba(0,0,0,0.08)', border: '1px solid #eee' }}>
-                                            <img src={img} alt={`AI Buddy Interface Dashboard ${index + 1}`} style={{ width: '100%', height: 'auto', display: 'block' }} loading="lazy" />
+                                            <img src={img} alt={`SI Buddy Interface Dashboard ${index + 1}`} style={{ width: '100%', height: 'auto', display: 'block' }} loading="lazy" />
                                         </div>
                                     </SwiperSlide>
                                 ))}
@@ -227,7 +230,7 @@ function AiBuddy() {
                     <div className="row align-items-center">
                         <div className="col-lg-6">
                             <div className="content-left text-start">
-                                <h2 className="title text-white wow fadeInUp" style={{ fontSize: '36px', lineHeight: '1.25' }}>Start Your Language Learning Journey with AI Buddy</h2>
+                                <h2 className="title text-white wow fadeInUp" style={{ fontSize: '36px', lineHeight: '1.25' }}>Start Your Language Learning Journey with SI Buddy</h2>
                                 <p className="disc text-white-50 mt-4 wow fadeInUp" data-wow-delay=".2s">
                                     Experience personalized AI-powered language learning that helps you speak naturally, build confidence, and communicate fluently in multiple languages.
                                 </p>

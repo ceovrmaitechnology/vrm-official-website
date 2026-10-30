@@ -36,10 +36,13 @@ function Visionix() {
                         <div className="col-lg-7">
                             <div className="banner-content-two">
                                 <h1 className="title wow fadeInUp text-white" data-wow-delay=".2s">
-                                    Visionix AI
+                                    Visionix SI
                                 </h1>
+                                <p className="text-white-50 mb-2 wow fadeInUp" data-wow-delay=".25s" style={{ fontSize: '14px', fontWeight: 500 }}>
+                                    Formerly Visionix AI.
+                                </p>
                                 <p className="disc wow fadeInUp text-white-50" data-wow-delay=".3s">
-                                    Automate security, attendance, and biometric verification with Visionix AI face recognition engine. Our visual intelligence platform uses deep learning models to identify, match, and verify individuals with high accuracy and low latency.
+                                    Automate security, attendance, and biometric verification with Visionix SI face recognition engine. Our visual intelligence platform uses deep learning models to identify, match, and verify individuals with high accuracy and low latency.
                                 </p>
                                 <div className="button-area wow fadeInUp" data-wow-delay=".4s">
                                     <Link to="/contactus#send-message" className="vrm-blue-to-white-btn">
@@ -50,23 +53,23 @@ function Visionix() {
                         </div>
                         <div className="col-lg-5">
                             <div className="banner-image-two wow fadeInUp" data-wow-delay=".3s">
-                                <img src="/assets/images/visionix/visionix-image.webp" alt="Visionix AI Face Recognition Dashboard" style={{ borderRadius: '20px', boxShadow: '0 20px 50px rgba(0,0,0,0.3)' }} width="600" height="600" decoding="async" loading="lazy" />
+                                <img src="/assets/images/visionix/visionix-image.webp" alt="Visionix SI Face Recognition Dashboard" style={{ borderRadius: '20px', boxShadow: '0 20px 50px rgba(0,0,0,0.3)' }} width="600" height="600" decoding="async" loading="lazy" />
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            {/* 2. Why Choose Visionix AI */}
+            {/* 2. Why Choose Visionix SI */}
             <div className="vrm-full-width-section vrm-white-bg">
                 <div className="container">
                     <div className="row">
                         <div className="col-12 text-center">
                             <div className="rts-title-area" data-text="">
                                 <span className="pre-title" style={{ color: '#3B4ECC' }}>Key Benefits</span>
-                                <h2 className="title">Why Choose Visionix AI?</h2>
+                                <h2 className="title">Why Choose Visionix SI?</h2>
                                 <p className="disc mt-3">
-                                    Traditional security gates and manual attendance logs create operational bottlenecks and compromise accuracy. Visionix AI replaces manual processes with real-time biometric identification, scaling verification speeds with low latency.
+                                    Traditional security gates and manual attendance logs create operational bottlenecks and compromise accuracy. Visionix SI replaces manual processes with real-time biometric identification, scaling verification speeds with low latency.
                                 </p>
                             </div>
                         </div>
@@ -92,13 +95,13 @@ function Visionix() {
                 </div>
             </div>
 
-            {/* 3. See Visionix AI in Action */}
+            {/* 3. See Visionix SI in Action */}
             <div className="vrm-full-width-section vrm-light-blue-bg">
                 <div className="container">
                     <div className="row">
                         <div className="col-12 text-center">
                             <div className="rts-title-area mb--50" data-text="">
-                                <h2 className="title">See Visionix AI in Action</h2>
+                                <h2 className="title">See Visionix SI in Action</h2>
                                 <p className="disc mt-3">Observe how the facial mesh technology maps features and authenticates access in real time.</p>
                             </div>
                         </div>
@@ -109,7 +112,7 @@ function Visionix() {
                                 <ProductVideo
                                     src="/assets/images/visionix/visionix-promo.mp4"
                                     poster="/assets/images/visionix/visionix-poster-16-9.webp"
-                                    title="Visionix AI"
+                                    title="Visionix SI"
                                 />
                             </div>
                         </div>
@@ -150,7 +153,7 @@ function Visionix() {
                                 {images.map((img, index) => (
                                     <SwiperSlide key={index}>
                                         <div className="gallery-item wow fadeInUp" data-wow-delay={`.${index + 2}s`} style={{ borderRadius: '15px', overflow: 'hidden', boxShadow: '0 10px 30px rgba(0,0,0,0.08)', border: '1px solid #eee' }}>
-                                            <img src={img} alt={`Visionix AI Interface Dashboard ${index + 1}`} style={{ width: '100%', height: 'auto', display: 'block' }} loading="lazy" />
+                                            <img src={img} alt={`Visionix SI Interface Dashboard ${index + 1}`} style={{ width: '100%', height: 'auto', display: 'block' }} loading="lazy" />
                                         </div>
                                     </SwiperSlide>
                                 ))}
@@ -230,7 +233,7 @@ function Visionix() {
                             <div className="content-left text-start">
                                 <h2 className="title text-white wow fadeInUp">Scale Your Biometric Verification</h2>
                                 <p className="disc text-white-50 mt-4 wow fadeInUp" data-wow-delay=".2s">
-                                    Visionix AI integrates into your enterprise security workflow to automate identity verification. Our platform scales across regional offices and facilities, delivering secure visual authentication metrics to maintain high-security standards.
+                                    Visionix SI integrates into your enterprise security workflow to automate identity verification. Our platform scales across regional offices and facilities, delivering secure visual authentication metrics to maintain high-security standards.
                                 </p>
                                 <div className="button-area mt-5 wow fadeInUp" data-wow-delay=".4s">
                                     <Link to="/contactus#send-message" className="vrm-blue-to-white-btn">

@@ -20,7 +20,7 @@ export default function AICompanyBangalore() {
         },
         {
             q: "What AI services and solutions do you provide to Bangalore enterprises?",
-            a: "We engineer enterprise Generative AI applications, custom domain LLMs, conversational voice calling agents, predictive machine learning pipelines, and Workflow AI recruitment automation."
+            a: "We engineer enterprise Generative AI applications, custom domain LLMs, conversational voice calling agents, predictive machine learning pipelines, and Workflow SI recruitment automation."
         },
         {
             q: "How does VRM AI Technology deliver projects for Bangalore clients?",
@@ -130,7 +130,7 @@ export default function AICompanyBangalore() {
                                 <div className="mb-3 text-primary" style={{ fontSize: '28px' }}><i className="fas fa-layer-group"></i></div>
                                 <h3 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '12px' }}>Custom ML &amp; Enterprise Platforms</h3>
                                 <p style={{ color: '#64748b', fontSize: '15px', lineHeight: '1.7' }}>
-                                    End-to-end machine learning infrastructure, predictive analytics, and automated recruitment workflows via our proprietary <Link to="/products/workflow">Workflow AI</Link> suite.
+                                    End-to-end machine learning infrastructure, predictive analytics, and automated recruitment workflows via our proprietary <Link to="/products/workflow">Workflow SI</Link> suite.
                                 </p>
                                 <Link to="/solutions/ai-development-services" className="text-primary fw-bold mt-auto text-decoration-none">Explore AI Services &rarr;</Link>
                             </div>
@@ -159,7 +159,7 @@ export default function AICompanyBangalore() {
                                     ISO 9001:2015 Quality &amp; Security Standards
                                 </h4>
                                 <p style={{ fontSize: '14px', lineHeight: '1.7', color: '#475569' }}>
-                                    VRM AI Technology operates in compliance with ISO 9001:2015 Quality Management specifications (Certificate No. E20260749630, Valid through 20 July 2029). From automated candidate screening in Workflow AI to intelligent property pipelines in VRM Reality, all systems adhere to rigorous enterprise security and performance benchmarks.
+                                    VRM AI Technology operates in compliance with ISO 9001:2015 Quality Management specifications (Certificate No. E20260749630, Valid through 20 July 2029). From automated candidate screening in Workflow SI to intelligent property pipelines in VRM Reality, all systems adhere to rigorous enterprise security and performance benchmarks.
                                 </p>
                                 <div className="mt-3">
                                     <Link to="/contactus#send-message" className="btn btn-primary px-4 py-2 me-2">Connect in Bangalore</Link>

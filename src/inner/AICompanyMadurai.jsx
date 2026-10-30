@@ -19,7 +19,7 @@ export default function AICompanyMadurai() {
         },
         {
             q: "What AI software solutions are engineered at the Madurai facility?",
-            a: "Our Madurai engineering hub develops Generative AI platforms, intelligent conversational chatbots, autonomous voice calling agents, machine learning pipelines, Visionix AI computer vision, and Workflow AI modules."
+            a: "Our Madurai engineering hub develops Generative AI platforms, intelligent conversational chatbots, autonomous voice calling agents, machine learning pipelines, Visionix SI computer vision, and Workflow SI modules."
         },
         {
             q: "Can businesses in Madurai schedule an in-person meeting or technical consultation?",
@@ -132,7 +132,7 @@ export default function AICompanyMadurai() {
                                 <div className="mb-3 text-primary" style={{ fontSize: '28px' }}><i className="fas fa-cogs"></i></div>
                                 <h3 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '12px' }}>Workflow Automation &amp; ML</h3>
                                 <p style={{ color: '#64748b', fontSize: '15px', lineHeight: '1.7' }}>
-                                    Automate multi-step operational pipelines with our proprietary platforms, including <Link to="/products/workflow">Workflow AI</Link> for recruitment screening and <Link to="/products/vrm-reality">VRM Reality</Link> for smart real estate discovery and agent CRM.
+                                    Automate multi-step operational pipelines with our proprietary platforms, including <Link to="/products/workflow">Workflow SI</Link> for recruitment screening and <Link to="/products/vrm-reality">VRM Reality</Link> for smart real estate discovery and agent CRM.
                                 </p>
                                 <Link to="/solutions/machine-learning-services" className="text-primary fw-bold mt-auto text-decoration-none">Explore ML Services &rarr;</Link>
                             </div>

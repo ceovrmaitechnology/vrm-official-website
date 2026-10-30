@@ -37,8 +37,11 @@ function ProductsOverview() {
                                 <h1 className="title wow fadeInUp text-white vrm-workflow-hero-title" data-wow-delay=".2s">
                                     AI Software Products & Platforms
                                 </h1>
-                                <p className="disc wow fadeInUp mt-4 mb-5 vrm-workflow-hero-disc" data-wow-delay=".3s" style={{ color: 'rgba(255, 255, 255, 0.8)' }}>
+                                <p className="disc wow fadeInUp mt-4 mb-3 vrm-workflow-hero-disc" data-wow-delay=".3s" style={{ color: 'rgba(255, 255, 255, 0.8)' }}>
                                     Discover our suite of next-generation intelligent platforms, automation systems, and speech training modules built on VRM's state-of-the-art AI technology.
+                                </p>
+                                <p className="wow fadeInUp mb-5" data-wow-delay=".35s" style={{ color: 'rgba(255, 255, 255, 0.7)', fontSize: '15px', maxWidth: '640px' }}>
+                                    Our &ldquo;SI&rdquo; series represents our Superintelligence direction—our engineering vision toward enterprise systems that reason, automate, and orchestrate complex workflows.
                                 </p>
                                 <div className="banner-btn wow fadeInUp" data-wow-delay=".4s">
                                     <Link to="/contactus#send-message" className="vrm-blue-to-white-btn">
@@ -70,7 +73,7 @@ function ProductsOverview() {
                         <div className="col-lg-6 wow fadeInRight" data-wow-delay=".2s">
                             <div className="about-inner">
                                 <div className="rts-title-area" data-text="Xpress Screening">
-                                    <span className="pre-title" style={{ color: '#3B4ECC', display: 'block', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '13px', fontWeight: '700', marginBottom: '5px' }}>Workflow AI</span>
+                                    <span className="pre-title" style={{ color: '#3B4ECC', display: 'block', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '13px', fontWeight: '700', marginBottom: '5px' }}>Workflow SI</span>
                                     <h2 className="title">Xpress Screening</h2>
                                 </div>
                                 <p className="disc">
@@ -97,7 +100,7 @@ function ProductsOverview() {
                         <div className="col-lg-6 order-lg-1 wow fadeInLeft" data-wow-delay=".2s">
                             <div className="about-inner">
                                 <div className="rts-title-area" data-text="ScreenSage">
-                                    <span className="pre-title" style={{ color: '#3B4ECC', display: 'block', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '13px', fontWeight: '700', marginBottom: '5px' }}>Workflow AI</span>
+                                    <span className="pre-title" style={{ color: '#3B4ECC', display: 'block', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '13px', fontWeight: '700', marginBottom: '5px' }}>Workflow SI</span>
                                     <h2 className="title">ScreenSage</h2>
                                 </div>
                                 <p className="disc">
@@ -124,7 +127,7 @@ function ProductsOverview() {
                         <div className="col-lg-6 wow fadeInRight" data-wow-delay=".2s">
                             <div className="about-inner">
                                 <div className="rts-title-area" data-text="VideoSage">
-                                    <span className="pre-title" style={{ color: '#3B4ECC', display: 'block', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '13px', fontWeight: '700', marginBottom: '5px' }}>Workflow AI</span>
+                                    <span className="pre-title" style={{ color: '#3B4ECC', display: 'block', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '13px', fontWeight: '700', marginBottom: '5px' }}>Workflow SI</span>
                                     <h2 className="title">VideoSage</h2>
                                 </div>
                                 <p className="disc">
@@ -151,7 +154,7 @@ function ProductsOverview() {
                         <div className="col-lg-6 order-lg-1 wow fadeInLeft" data-wow-delay=".2s">
                             <div className="about-inner">
                                 <div className="rts-title-area" data-text="CodeSage">
-                                    <span className="pre-title" style={{ color: '#3B4ECC', display: 'block', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '13px', fontWeight: '700', marginBottom: '5px' }}>Workflow AI</span>
+                                    <span className="pre-title" style={{ color: '#3B4ECC', display: 'block', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '13px', fontWeight: '700', marginBottom: '5px' }}>Workflow SI</span>
                                     <h2 className="title">CodeSage</h2>
                                 </div>
                                 <p className="disc">
@@ -192,19 +195,19 @@ function ProductsOverview() {
                 </div>
             </div>
 
-            {/* --- Product 6: AI Buddy --- */}
+            {/* --- Product 6: SI Buddy --- */}
             <div id="aibuddy" className="rts-about-area rts-section-gap" style={{ background: '#ffffff' }}>
                 <div className="container">
                     <div className="row g-5 align-items-center">
                         <div className="col-lg-6 order-lg-2 wow fadeInRight" data-wow-delay=".2s">
                             <div className="vrm-product-thumbnail">
-                                <img src="/assets/images/aibuddy/aibuddy-image.webp" alt="AI Buddy Employee Voice Training Dashboard" width="600" height="600" decoding="async" loading="lazy" />
+                                <img src="/assets/images/aibuddy/aibuddy-image.webp" alt="SI Buddy Employee Voice Training Dashboard" width="600" height="600" decoding="async" loading="lazy" />
                             </div>
                         </div>
                         <div className="col-lg-6 order-lg-1 wow fadeInLeft" data-wow-delay=".2s">
                             <div className="about-inner">
-                                <div className="rts-title-area" data-text="AI Buddy">
-                                    <h2 className="title">AI Buddy</h2>
+                                <div className="rts-title-area" data-text="SI Buddy">
+                                    <h2 className="title">SI Buddy</h2>
                                 </div>
                                 <p className="disc">
                                     AI-powered language learning platform with personalized coaching, interactive voice practice, and multilingual communication training.
@@ -244,22 +247,22 @@ function ProductsOverview() {
                 </div>
             </div>
 
-            {/* --- Product 8: Visionix AI --- */}
+            {/* --- Product 8: Visionix SI --- */}
             <div id="visionix" className="rts-about-area rts-section-gap" style={{ background: '#ffffff' }}>
                 <div className="container">
                     <div className="row g-5 align-items-center">
                         <div className="col-lg-6 order-lg-2 wow fadeInRight" data-wow-delay=".2s">
                             <div className="vrm-product-thumbnail">
-                                <img src="/assets/images/visionix/visionix-image.webp" alt="Visionix AI Face Recognition Dashboard" width="600" height="600" decoding="async" loading="lazy" />
+                                <img src="/assets/images/visionix/visionix-image.webp" alt="Visionix SI Face Recognition Dashboard" width="600" height="600" decoding="async" loading="lazy" />
                             </div>
                         </div>
                         <div className="col-lg-6 order-lg-1 wow fadeInLeft" data-wow-delay=".2s">
                             <div className="about-inner">
-                                <div className="rts-title-area" data-text="Visionix AI">
-                                    <h2 className="title">Visionix AI</h2>
+                                <div className="rts-title-area" data-text="Visionix SI">
+                                    <h2 className="title">Visionix SI</h2>
                                 </div>
                                 <p className="disc">
-                                    Visionix AI is a high-speed, secure facial recognition and visual authentication bot. It automates security checks, identity verification, liveness tracking, and employee check-ins/check-outs, giving organizations robust visual logs and high accuracy.
+                                    Visionix SI is a high-speed, secure facial recognition and visual authentication bot. It automates security checks, identity verification, liveness tracking, and employee check-ins/check-outs, giving organizations robust visual logs and high accuracy.
                                 </p>
                                 <Link className="vrm-btn-product-blue" to="/products/visionix">
                                     Explore Product <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>

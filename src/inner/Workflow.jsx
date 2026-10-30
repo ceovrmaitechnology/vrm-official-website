@@ -52,8 +52,11 @@ function Workflow() {
                             <div className="vrm-hero__content">
                                 <span className="pre-title wow fadeInUp text-white-50" data-wow-delay=".1s">Talent Acquisition Suite</span>
                                 <h1 className="title wow fadeInUp text-white vrm-workflow-hero-title" data-wow-delay=".2s">
-                                    Workflow AI
+                                    Workflow SI
                                 </h1>
+                                <p className="text-white-50 mb-2 wow fadeInUp" data-wow-delay=".25s" style={{ fontSize: '14px', fontWeight: 500 }}>
+                                    Formerly Workflow AI.
+                                </p>
                                 <p className="disc wow fadeInUp text-white-50 mt-4 mb-5 vrm-workflow-hero-disc" data-wow-delay=".3s">
                                     An enterprise AI platform that automates business workflows, streamlines operations, and orchestrates intelligent processes across the organization.
                                 </p>
@@ -80,7 +83,7 @@ function Workflow() {
                         <div className="col-lg-6 wow fadeInRight" data-wow-delay=".2s">
                             <div className="about-inner">
                                 <div className="rts-title-area" data-text="Xpress Screening">
-                                    <span className="pre-title" style={{ color: '#3B4ECC', display: 'block', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '13px', fontWeight: '700', marginBottom: '5px' }}>Workflow AI</span>
+                                    <span className="pre-title" style={{ color: '#3B4ECC', display: 'block', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '13px', fontWeight: '700', marginBottom: '5px' }}>Workflow SI</span>
                                     <h2 className="title">Xpress Screening</h2>
                                 </div>
                                 <p className="disc">
@@ -107,7 +110,7 @@ function Workflow() {
                         <div className="col-lg-6 order-lg-1 wow fadeInLeft" data-wow-delay=".2s">
                             <div className="about-inner">
                                 <div className="rts-title-area" data-text="ScreenSage">
-                                    <span className="pre-title" style={{ color: '#3B4ECC', display: 'block', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '13px', fontWeight: '700', marginBottom: '5px' }}>Workflow AI</span>
+                                    <span className="pre-title" style={{ color: '#3B4ECC', display: 'block', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '13px', fontWeight: '700', marginBottom: '5px' }}>Workflow SI</span>
                                     <h2 className="title">ScreenSage</h2>
                                 </div>
                                 <p className="disc">
@@ -134,7 +137,7 @@ function Workflow() {
                         <div className="col-lg-6 wow fadeInRight" data-wow-delay=".2s">
                             <div className="about-inner">
                                 <div className="rts-title-area" data-text="VideoSage">
-                                    <span className="pre-title" style={{ color: '#3B4ECC', display: 'block', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '13px', fontWeight: '700', marginBottom: '5px' }}>Workflow AI</span>
+                                    <span className="pre-title" style={{ color: '#3B4ECC', display: 'block', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '13px', fontWeight: '700', marginBottom: '5px' }}>Workflow SI</span>
                                     <h2 className="title">VideoSage</h2>
                                 </div>
                                 <p className="disc">
@@ -161,7 +164,7 @@ function Workflow() {
                         <div className="col-lg-6 order-lg-1 wow fadeInLeft" data-wow-delay=".2s">
                             <div className="about-inner">
                                 <div className="rts-title-area" data-text="">
-                                    <span className="pre-title" style={{ color: '#3B4ECC', display: 'block', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '13px', fontWeight: '700', marginBottom: '5px' }}>Workflow AI</span>
+                                    <span className="pre-title" style={{ color: '#3B4ECC', display: 'block', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '13px', fontWeight: '700', marginBottom: '5px' }}>Workflow SI</span>
                                     <h2 className="title">CodeSage</h2>
                                 </div>
                                 <p className="disc">
@@ -177,8 +180,8 @@ function Workflow() {
             </div>
 
             <WorkflowTestimonials
-                title="Proof that Workflow AI improves both sides of hiring"
-                description="From faster shortlisting for recruiters to structured assessments for candidates, these reviews capture how the Workflow AI suite performs in real hiring environments."
+                title="Proof that Workflow SI improves both sides of hiring"
+                description="From faster shortlisting for recruiters to structured assessments for candidates, these reviews capture how the Workflow SI suite performs in real hiring environments."
             />
 
             <FooterOne />

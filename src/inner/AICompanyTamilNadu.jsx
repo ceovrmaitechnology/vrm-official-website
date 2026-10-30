@@ -24,7 +24,7 @@ function AICompanyTamilNadu() {
         },
         {
             q: "What AI products does VRM AI Technology offer?",
-            a: "Workflow AI, People Connect (Global), AI Buddy, Exit Intelligence, Visionix AI, VRM Reality and Bench to Deploy (B2D)."
+            a: "Workflow SI, People Connect (Global), SI Buddy, Exit Intelligence, Visionix SI, VRM Reality and Bench to Deploy (B2D)."
         },
         {
             q: "What AI services are available across Tamil Nadu?",
@@ -123,7 +123,7 @@ function AICompanyTamilNadu() {
                                 <ul style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: '15px', color: '#334155' }}>
                                     <li style={{ marginBottom: '14px', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
                                         <i className="fas fa-users-cog text-primary mt-1"></i>
-                                        <span><strong style={{ color: '#0e1022' }}>Workflow AI:</strong> Recruitment intelligence platform including <Link to="/products/workflow" style={{ color: '#1b277c', fontWeight: '700', textDecoration: 'underline' }}>Workflow AI</Link>.</span>
+                                        <span><strong style={{ color: '#0e1022' }}>Workflow SI:</strong> Recruitment intelligence platform including <Link to="/products/workflow" style={{ color: '#1b277c', fontWeight: '700', textDecoration: 'underline' }}>Workflow SI</Link>.</span>
                                     </li>
                                     <li style={{ marginBottom: '14px', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
                                         <i className="fas fa-landmark text-primary mt-1"></i>
@@ -131,11 +131,11 @@ function AICompanyTamilNadu() {
                                     </li>
                                     <li style={{ marginBottom: '14px', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
                                         <i className="fas fa-comments text-primary mt-1"></i>
-                                        <span><strong style={{ color: '#0e1022' }}>AI Buddy:</strong> Speaking practice and interactive language tutoring via <Link to="/products/aibuddy" style={{ color: '#1b277c', fontWeight: '700', textDecoration: 'underline' }}>AI Buddy</Link>.</span>
+                                        <span><strong style={{ color: '#0e1022' }}>SI Buddy:</strong> Speaking practice and interactive language tutoring via <Link to="/products/aibuddy" style={{ color: '#1b277c', fontWeight: '700', textDecoration: 'underline' }}>SI Buddy</Link>.</span>
                                     </li>
                                     <li style={{ marginBottom: '14px', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
                                         <i className="fas fa-check-circle text-primary mt-1"></i>
-                                        <span><strong style={{ color: '#0e1022' }}>Additional Products:</strong> <Link to="/products/exitinterview" style={{ color: '#1b277c', fontWeight: '600', textDecoration: 'underline' }}>Exit Intelligence</Link>, <Link to="/products/visionix" style={{ color: '#1b277c', fontWeight: '600', textDecoration: 'underline' }}>Visionix AI</Link>, <Link to="/products/vrm-reality" style={{ color: '#1b277c', fontWeight: '600', textDecoration: 'underline' }}>VRM Reality</Link>, and <Link to="/products/bench-to-deploy" style={{ color: '#1b277c', fontWeight: '600', textDecoration: 'underline' }}>Bench to Deploy (B2D)</Link>.</span>
+                                        <span><strong style={{ color: '#0e1022' }}>Additional Products:</strong> <Link to="/products/exitinterview" style={{ color: '#1b277c', fontWeight: '600', textDecoration: 'underline' }}>Exit Intelligence</Link>, <Link to="/products/visionix" style={{ color: '#1b277c', fontWeight: '600', textDecoration: 'underline' }}>Visionix SI</Link>, <Link to="/products/vrm-reality" style={{ color: '#1b277c', fontWeight: '600', textDecoration: 'underline' }}>VRM Reality</Link>, and <Link to="/products/bench-to-deploy" style={{ color: '#1b277c', fontWeight: '600', textDecoration: 'underline' }}>Bench to Deploy (B2D)</Link>.</span>
                                     </li>
                                     <li style={{ marginBottom: '0px', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
                                         <i className="fas fa-laptop-code text-primary mt-1"></i>
@@ -191,7 +191,7 @@ function AICompanyTamilNadu() {
                             {
                                 icon: "fa-id-badge",
                                 title: "Visual Attendance & Security",
-                                desc: "Contactless face recognition attendance and perimeter access control using Visionix AI facial intelligence engine.",
+                                desc: "Contactless face recognition attendance and perimeter access control using Visionix SI facial intelligence engine.",
                                 link: "/products/visionix"
                             },
                             {

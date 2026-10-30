@@ -77,7 +77,7 @@ function HomeOverview() {
                     {/* Workflow Section */}
                     <div className="vrm-overview__section-header wow fadeInUp" data-wow-delay=".2s" style={{ textAlign: 'center', marginBottom: '50px' }}>
                         <p className="vrm-overview__eyebrow" style={{ color: '#3B4ECC', fontWeight: '700', textAlign: 'center', margin: '0 auto', display: 'block' }}>Products Highlight</p>
-                        <h2 className="title" style={{ textAlign: 'center', margin: '0 auto' }}>Enterprise AI Solutions Built on the WorkflowAI Platform</h2>
+                        <h2 className="title" style={{ textAlign: 'center', margin: '0 auto' }}>Enterprise AI Solutions Built on the WorkflowSI Platform</h2>
                     </div>
                     <div className="vrm-hero__cards--two-columns" style={{ marginBottom: '80px' }}>
                         {[
@@ -168,7 +168,7 @@ function HomeOverview() {
                                 id: 5,
                                 icon: "assets/images/service/icon/04.svg",
                                 category: "Interactive Voice Training",
-                                title: "AI Buddy",
+                                title: "SI Buddy",
                                 desc: "An intelligent AI language coach that helps users learn, practice, and communicate naturally in multiple languages with personalized AI coaching.",
                                 link: "/products/aibuddy",
                                 bgImage: "assets/images/aibuddy/aibuddy-image.webp"
@@ -186,8 +186,8 @@ function HomeOverview() {
                                 id: 9,
                                 icon: "assets/images/service/icon/02.svg",
                                 category: "Visual Intelligence",
-                                title: "Visionix AI",
-                                desc: "Automate visual authentication, security tracking, and attendance management with Visionix AI face recognition engine.",
+                                title: "Visionix SI",
+                                desc: "Automate visual authentication, security tracking, and attendance management with Visionix SI face recognition engine.",
                                 link: "/products/visionix",
                                 bgImage: "assets/images/visionix/visionix-image.webp"
                             },

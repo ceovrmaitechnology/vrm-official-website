@@ -35,8 +35,8 @@ function HomeOne() {
       <ServiceOne />
       <BusinessGoalOne />
       <WorkflowTestimonials
-        title="Why teams keep choosing Workflow AI by VRM AI Technology"
-        description="Hiring teams use Workflow AI by VRM AI Technology to move faster with better screening quality, while candidates get a cleaner and more consistent interview experience."
+        title="Why teams keep choosing Workflow SI by VRM AI Technology"
+        description="Hiring teams use Workflow SI by VRM AI Technology to move faster with better screening quality, while candidates get a cleaner and more consistent interview experience."
       />
       <SuperintelligenceDirection withCtaBand={true} />
       <ContactForm />

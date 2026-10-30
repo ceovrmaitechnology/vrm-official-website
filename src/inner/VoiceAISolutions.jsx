@@ -32,7 +32,7 @@ function VoiceAISolutions() {
         },
         {
             q: "What use cases do Voice AI solutions excel at?",
-            a: "Primary use cases include inbound customer support, outbound payment reminders, appointment scheduling, technical candidate screening (via ScreenSage), language speaking coaching (via AI Buddy), and real estate lead qualification (via VRM Reality)."
+            a: "Primary use cases include inbound customer support, outbound payment reminders, appointment scheduling, technical candidate screening (via ScreenSage), language speaking coaching (via SI Buddy), and real estate lead qualification (via VRM Reality)."
         },
         {
             q: "What happens when a caller asks a question outside the agent's scope?",
@@ -166,7 +166,7 @@ function VoiceAISolutions() {
                                 </div>
                                 <h5 className="title text-white mb-2">ScreenSage Voice Screening</h5>
                                 <p className="disc text-white-50 mb-4">
-                                    Automated first-round candidate voice interviews powered by <Link to="/products/workflow" style={{ color: '#00C6FF' }}>Workflow AI</Link>. Evaluates verbal communication, role competency, and candidate fluency with structured scoring.
+                                    Automated first-round candidate voice interviews powered by <Link to="/products/workflow" style={{ color: '#00C6FF' }}>Workflow SI</Link>. Evaluates verbal communication, role competency, and candidate fluency with structured scoring.
                                 </p>
                                 <Link to="/products/workflow/screensage" className="vrm-btn-detail" style={{ color: '#00C6FF' }}>
                                     Explore ScreenSage <i className="fas fa-arrow-right ms-1"></i>
@@ -178,12 +178,12 @@ function VoiceAISolutions() {
                                 <div className="thumbnail mb-3">
                                     <i className="fas fa-volume-up fa-3x" style={{ color: '#00C6FF' }}></i>
                                 </div>
-                                <h5 className="title text-white mb-2">AI Buddy Language Coach</h5>
+                                <h5 className="title text-white mb-2">SI Buddy Language Coach</h5>
                                 <p className="disc text-white-50 mb-4">
                                     Personalized interactive speaking tutor providing real-time acoustic feedback, pronunciation grading, and natural spoken dialogue in multiple languages.
                                 </p>
                                 <Link to="/products/aibuddy" className="vrm-btn-detail" style={{ color: '#00C6FF' }}>
-                                    Explore AI Buddy <i className="fas fa-arrow-right ms-1"></i>
+                                    Explore SI Buddy <i className="fas fa-arrow-right ms-1"></i>
                                 </Link>
                             </div>
                         </div>

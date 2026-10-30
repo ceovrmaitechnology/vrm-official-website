@@ -136,7 +136,7 @@ function FooterOne() {
                                 <li className="vrm-footer-dropdown" style={{ marginBottom: '18px' }}>
                                     <div style={{ display: 'inline-flex', alignItems: 'center' }}>
                                         <Link to="/products/workflow" style={{ fontWeight: '700', color: '#11142c', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-                                            Workflow AI
+                                            Workflow SI
                                         </Link>
                                         <span 
                                             onClick={(e) => {
@@ -169,13 +169,13 @@ function FooterOne() {
                                     <Link to="/products/people-connect" style={{ fontWeight: '700', color: '#11142c', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>People Connect (Global)</Link>
                                 </li>
                                 <li style={{ marginBottom: '18px' }}>
-                                    <Link to="/products/aibuddy" style={{ fontWeight: '700', color: '#11142c', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>AI Buddy</Link>
+                                    <Link to="/products/aibuddy" style={{ fontWeight: '700', color: '#11142c', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>SI Buddy</Link>
                                 </li>
                                 <li style={{ marginBottom: '18px' }}>
                                     <Link to="/products/exitinterview" style={{ fontWeight: '700', color: '#11142c', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Exit Intelligence</Link>
                                 </li>
                                 <li style={{ marginBottom: '18px' }}>
-                                    <Link to="/products/visionix" style={{ fontWeight: '700', color: '#11142c', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Visionix AI</Link>
+                                    <Link to="/products/visionix" style={{ fontWeight: '700', color: '#11142c', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Visionix SI</Link>
                                 </li>
                                 <li style={{ marginBottom: '18px' }}>
                                     <Link to="/products/vrm-reality" style={{ fontWeight: '700', color: '#11142c', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>VRM Reality</Link>

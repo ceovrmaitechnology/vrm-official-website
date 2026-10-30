@@ -225,7 +225,7 @@ function Chennai() {
                                 <div className="row g-4 text-white">
                                     <div className="col-md-4 col-sm-6">
                                         <h6 style={{ color: '#00C6FF', marginBottom: '8px' }}>
-                                            <Link to="/products/workflow" style={{ color: '#00C6FF' }}>Workflow AI</Link>
+                                            <Link to="/products/workflow" style={{ color: '#00C6FF' }}>Workflow SI</Link>
                                         </h6>
                                         <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.7)', margin: 0 }}>Automated resume evaluation, candidate screening, and recruitment intelligence platform.</p>
                                     </div>
@@ -237,7 +237,7 @@ function Chennai() {
                                     </div>
                                     <div className="col-md-4 col-sm-6">
                                         <h6 style={{ color: '#00C6FF', marginBottom: '8px' }}>
-                                            <Link to="/products/aibuddy" style={{ color: '#00C6FF' }}>AI Buddy</Link>
+                                            <Link to="/products/aibuddy" style={{ color: '#00C6FF' }}>SI Buddy</Link>
                                         </h6>
                                         <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.7)', margin: 0 }}>Interactive language learning companion and conversational fluency training tool.</p>
                                     </div>

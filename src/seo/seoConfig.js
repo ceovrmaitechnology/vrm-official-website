@@ -259,7 +259,7 @@ export const SEO_CONFIG = {
   },
   '/products': {
     title: 'AI Products Suite | VRM AI Technology',
-    description: 'Workflow AI, People Connect, AI Buddy, Exit Intelligence, Visionix AI, VRM Reality and Bench to Deploy: AI products by VRM AI Technology.',
+    description: 'Workflow SI, People Connect, SI Buddy, Exit Intelligence, Visionix SI, VRM Reality and Bench to Deploy: AI products by VRM AI Technology.',
     canonical: `${CANONICAL_ORIGIN}/products`,
     h1: 'AI Software Products & Platforms',
     schemas: [
@@ -271,16 +271,16 @@ export const SEO_CONFIG = {
     ]
   },
   '/products/workflow': {
-    title: 'Workflow AI | VRM AI Technology',
+    title: 'Workflow SI | AI Recruitment Screening | VRM AI Technology',
     description: 'An enterprise AI platform that automates business workflows, streamlines operations, and orchestrates intelligent processes across the organization.',
     canonical: `${CANONICAL_ORIGIN}/products/workflow`,
-    h1: 'Workflow AI',
+    h1: 'Workflow SI',
     schemas: [
       ORGANIZATION_SCHEMA,
       createBreadcrumbSchema([
         { name: 'Home', url: '/' },
         { name: 'Products', url: '/products' },
-        { name: 'Workflow AI', url: '/products/workflow' }
+        { name: 'Workflow SI', url: '/products/workflow' }
       ])
     ]
   },
@@ -294,7 +294,7 @@ export const SEO_CONFIG = {
       createBreadcrumbSchema([
         { name: 'Home', url: '/' },
         { name: 'Products', url: '/products' },
-        { name: 'Workflow AI', url: '/products/workflow' },
+        { name: 'Workflow SI', url: '/products/workflow' },
         { name: 'Xpress Screening', url: '/products/workflow/xpress-screening' }
       ])
     ]
@@ -309,7 +309,7 @@ export const SEO_CONFIG = {
       createBreadcrumbSchema([
         { name: 'Home', url: '/' },
         { name: 'Products', url: '/products' },
-        { name: 'Workflow AI', url: '/products/workflow' },
+        { name: 'Workflow SI', url: '/products/workflow' },
         { name: 'ScreenSage', url: '/products/workflow/screensage' }
       ])
     ]
@@ -324,7 +324,7 @@ export const SEO_CONFIG = {
       createBreadcrumbSchema([
         { name: 'Home', url: '/' },
         { name: 'Products', url: '/products' },
-        { name: 'Workflow AI', url: '/products/workflow' },
+        { name: 'Workflow SI', url: '/products/workflow' },
         { name: 'VideoSage', url: '/products/workflow/videosage' }
       ])
     ]
@@ -339,7 +339,7 @@ export const SEO_CONFIG = {
       createBreadcrumbSchema([
         { name: 'Home', url: '/' },
         { name: 'Products', url: '/products' },
-        { name: 'Workflow AI', url: '/products/workflow' },
+        { name: 'Workflow SI', url: '/products/workflow' },
         { name: 'CodeSage', url: '/products/workflow/codesage' }
       ])
     ]
@@ -359,16 +359,16 @@ export const SEO_CONFIG = {
     ]
   },
   '/products/aibuddy': {
-    title: 'AI Buddy | VRM AI Technology',
+    title: 'SI Buddy | AI Language Coach | VRM AI Technology',
     description: 'Learn, practice, and communicate confidently in multiple languages with your personal AI language coach to build speaking fluency and pronunciation.',
     canonical: `${CANONICAL_ORIGIN}/products/aibuddy`,
-    h1: 'AI Buddy',
+    h1: 'SI Buddy',
     schemas: [
       ORGANIZATION_SCHEMA,
       createBreadcrumbSchema([
         { name: 'Home', url: '/' },
         { name: 'Products', url: '/products' },
-        { name: 'AI Buddy', url: '/products/aibuddy' }
+        { name: 'SI Buddy', url: '/products/aibuddy' }
       ])
     ]
   },
@@ -387,16 +387,16 @@ export const SEO_CONFIG = {
     ]
   },
   '/products/visionix': {
-    title: 'Visionix AI | VRM AI Technology',
-    description: 'Automate security, attendance, and biometric verification with Visionix AI face recognition engine using deep learning models with high accuracy.',
+    title: 'Visionix SI | AI Face Recognition | VRM AI Technology',
+    description: 'Automate security, attendance, and biometric verification with Visionix SI face recognition engine using deep learning models with high accuracy.',
     canonical: `${CANONICAL_ORIGIN}/products/visionix`,
-    h1: 'Visionix AI',
+    h1: 'Visionix SI',
     schemas: [
       ORGANIZATION_SCHEMA,
       createBreadcrumbSchema([
         { name: 'Home', url: '/' },
         { name: 'Products', url: '/products' },
-        { name: 'Visionix AI', url: '/products/visionix' }
+        { name: 'Visionix SI', url: '/products/visionix' }
       ])
     ]
   },
@@ -483,7 +483,7 @@ export const SEO_CONFIG = {
       ]),
       createFAQSchema([
         { q: "Where is VRM AI Technology's headquarters located in Bangalore?", a: 'Our corporate headquarters and registered office are situated at GoodWorks Infinity Park, 21, 2nd Main Rd, Electronic City Phase I, Bengaluru, Karnataka 560100.' },
-        { q: 'What AI services and solutions do you provide to Bangalore enterprises?', a: 'We engineer enterprise Generative AI applications, custom domain LLMs, conversational voice calling agents, predictive machine learning pipelines, and Workflow AI recruitment automation.' },
+        { q: 'What AI services and solutions do you provide to Bangalore enterprises?', a: 'We engineer enterprise Generative AI applications, custom domain LLMs, conversational voice calling agents, predictive machine learning pipelines, and Workflow SI recruitment automation.' },
         { q: 'How does VRM AI Technology deliver projects for Bangalore clients?', a: 'We offer a blended delivery model: executive strategy, technical architecture, and on-site alignment meetings in Bangalore, backed by robust, high-velocity engineering delivery from our staffed Madurai development center.' },
         { q: 'Which tech corridors and business hubs in Bangalore do you serve?', a: 'We serve organizations across Electronic City Phase I & II, Whitefield, Koramangala, Indiranagar, HSR Layout, Outer Ring Road (ORR), Manyata Tech Park, and the wider Bengaluru metropolitan region.' },
         { q: 'Is VRM AI Technology ISO 9001:2015 certified?', a: 'Yes. VRM AI Technology is an ISO 9001:2015 Certified company (Certificate No. E20260749630, Valid through 20 July 2029), ensuring structured quality management and secure AI system governance.' }
@@ -504,7 +504,7 @@ export const SEO_CONFIG = {
       ]),
       createFAQSchema([
         { q: "Where is VRM AI Technology's development center located in Madurai?", a: 'Our staffed engineering development center is located at Door No.209, 1st Floor, No.147, 5th St, Poriyalar Nagar, Tiruppalai, Madurai, Tamil Nadu 625014.' },
-        { q: 'What AI software solutions are engineered at the Madurai facility?', a: 'Our Madurai engineering hub develops Generative AI platforms, intelligent conversational chatbots, autonomous voice calling agents, machine learning pipelines, Visionix AI computer vision, and Workflow AI modules.' },
+        { q: 'What AI software solutions are engineered at the Madurai facility?', a: 'Our Madurai engineering hub develops Generative AI platforms, intelligent conversational chatbots, autonomous voice calling agents, machine learning pipelines, Visionix SI computer vision, and Workflow SI modules.' },
         { q: 'Can businesses in Madurai schedule an in-person meeting or technical consultation?', a: 'Yes. Local enterprises, startups, and institutions in Madurai can schedule on-site discussions, product demonstrations, and technical discovery workshops directly at our Tiruppalai facility or at their premises.' },
         { q: 'Which areas and industrial zones in Madurai do you serve?', a: 'We actively serve businesses across Tiruppalai, Poriyalar Nagar, Iyer Bungalow, K.K. Nagar, Anna Nagar, Mattuthavani, Othakadai, Tallakulam, and surrounding industrial corridors across Madurai district.' },
         { q: 'Is VRM AI Technology an ISO certified software company in Madurai?', a: 'Yes. VRM AI Technology is an ISO 9001:2015 Certified company (Certificate No. E20260749630, Valid through 20 July 2029) ensuring rigorous software quality and data security across every product release.' }
@@ -542,7 +542,7 @@ export const SEO_CONFIG = {
       ]),
       createFAQSchema([
         { q: 'Where are VRM AI Technology operations located in India?', a: 'VRM AI Technology operates its registered headquarters in Electronic City, Bengaluru, Karnataka, and an offshore engineering development center in Tiruppalai, Madurai, Tamil Nadu.' },
-        { q: 'What proprietary AI products does VRM AI Technology offer in India?', a: 'Workflow AI, People Connect (Global), AI Buddy, Exit Intelligence, Visionix AI, VRM Reality and Bench to Deploy (B2D).' },
+        { q: 'What proprietary AI products does VRM AI Technology offer in India?', a: 'Workflow SI, People Connect (Global), SI Buddy, Exit Intelligence, Visionix SI, VRM Reality and Bench to Deploy (B2D).' },
         { q: 'How does VRM AI Technology ensure enterprise quality standards?', a: 'We hold an ISO 9001:2015 Quality Management certification (Certificate No. E20260749630, Valid through 20 July 2029) and implement structured engineering frameworks.' }
       ])
     ]

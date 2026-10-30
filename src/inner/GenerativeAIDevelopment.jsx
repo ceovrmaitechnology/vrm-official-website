@@ -36,7 +36,7 @@ function GenerativeAIDevelopment() {
         },
         {
             q: "What business functions benefit most from GenAI platforms?",
-            a: "High-value use cases include automated talent acquisition and screening (via Workflow AI), intelligent customer service orchestration, contract and RFP analysis, real estate lead routing (via VRM Reality), and automated code generation."
+            a: "High-value use cases include automated talent acquisition and screening (via Workflow SI), intelligent customer service orchestration, contract and RFP analysis, real estate lead routing (via VRM Reality), and automated code generation."
         }
     ];
 
@@ -224,7 +224,7 @@ function GenerativeAIDevelopment() {
                             {
                                 badge: "Recruitment Automation",
                                 badgeClass: "bg-primary text-white",
-                                title: "Workflow AI",
+                                title: "Workflow SI",
                                 desc: (
                                     <>
                                         End-to-end recruitment intelligence leveraging generative AI to conduct voice interviews in <Link to="/products/workflow/screensage">ScreenSage</Link>, parse high-volume resumes in <Link to="/products/workflow/xpress-screening">Xpress Screening</Link>, and evaluate real-world code in <Link to="/products/workflow/codesage">CodeSage</Link>.
@@ -235,7 +235,7 @@ function GenerativeAIDevelopment() {
                             {
                                 badge: "Language Training",
                                 badgeClass: "bg-info text-white",
-                                title: "AI Buddy",
+                                title: "SI Buddy",
                                 desc: "An interactive generative speech coach providing personalized conversational immersion, dynamic accent feedback, and real-time pronunciation guidance in multiple languages.",
                                 link: "/products/aibuddy"
                             },
@@ -256,7 +256,7 @@ function GenerativeAIDevelopment() {
                             {
                                 badge: "Visual Intelligence",
                                 badgeClass: "bg-dark text-white",
-                                title: "Visionix AI",
+                                title: "Visionix SI",
                                 desc: "Edge-compatible facial recognition and computer vision suite delivering contactless biometric attendance, liveness verification, and automated enterprise security.",
                                 link: "/products/visionix"
                             },

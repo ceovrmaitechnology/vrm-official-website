@@ -13,7 +13,7 @@ export default function Nav() {
     };
 
     const defaultWorkflowContent = {
-        title: "Workflow AI Modules",
+        title: "Workflow SI Modules",
         description: "Streamline your recruitment process with our advanced AI-driven screening and interviewing tools.",
         link: "/products",
         linkText: "Explore Modules",
@@ -31,16 +31,16 @@ export default function Nav() {
         'calling-agent': { title: "AI Calling Agent", description: "Automated calling systems for efficient communication.", link: "/solutions/ai-calling-agent", linkText: "Learn More", image: "/assets/images/service/06.jpg" },
         'ml-services': { title: "Machine Learning", description: "Advanced ML models to drive data-backed decisions.", link: "/solutions/machine-learning-services", linkText: "Learn More", image: "/assets/images/service/07.jpg" },
 
-        // Products - Workflow AI Modules
+        // Products - Workflow SI Modules
         'xpress-screening': { title: "Xpress Screening", description: "AI-powered resume screening that analyzes, matches, and ranks candidates to accelerate hiring and improve recruitment accuracy.", link: "/products/workflow/xpress-screening", linkText: "View Product", image: "/assets/images/workflow/xpress-screening/xpress-screening-image.webp" },
         'screensage': { title: "ScreenSage", description: "AI-powered voice interviews that automate candidate screening and deliver structured hiring insights through intelligent conversations.", link: "/products/workflow/screensage", linkText: "View Product", image: "/assets/images/workflow/screensage/screensage-image.webp" },
         'videosage': { title: "VideoSage", description: "AI-powered video interviews that evaluate communication, technical expertise, and behavioral skills for smarter hiring decisions.", link: "/products/workflow/videosage", linkText: "Book Demo", image: "/assets/images/workflow/videosage/videosage-image-3.webp" },
         'codesage': { title: "CodeSage", description: "AI-powered coding assessments and technical interviews with intelligent proctoring and comprehensive candidate evaluation.", link: "/products/workflow/codesage", linkText: "View Product", image: "/assets/images/workflow/codesage/codesage-image.webp" },
 
         // Products - Standalone Engines
-        'workflow': { title: "Workflow AI", description: "An enterprise AI platform that automates business workflows, streamlines operations, and orchestrates intelligent processes across the organization.", link: "/products/workflow", linkText: "View Product", image: "/assets/images/service/desk.jpg" },
+        'workflow': { title: "Workflow SI", description: "An enterprise AI platform that automates business workflows, streamlines operations, and orchestrates intelligent processes across the organization.", link: "/products/workflow", linkText: "View Product", image: "/assets/images/service/desk.jpg" },
         'aibuddy': { 
-            title: "AI Buddy", 
+            title: "SI Buddy", 
             description: "AI-powered language learning platform with personalized coaching, interactive voice practice, and multilingual communication training.", 
             link: "/products/aibuddy", 
             linkText: "View Product", 
@@ -79,7 +79,7 @@ export default function Nav() {
             ]
         },
         'visionix': { 
-            title: "Visionix AI", 
+            title: "Visionix SI", 
             description: "Automate biometric security, liveness verification, and employee check-ins.", 
             link: "/products/visionix", 
             linkText: "View Product", 
@@ -207,7 +207,7 @@ export default function Nav() {
                                             className={`platform-btn ${activeSubMenu === 'workflow' ? 'active' : ''}`}
                                             onMouseEnter={() => handleTabHover('workflow')}
                                         >
-                                            Workflow AI <i className="far fa-chevron-right"></i>
+                                            Workflow SI <i className="far fa-chevron-right"></i>
                                         </Link>
                                     </li>
                                     <li>
@@ -231,7 +231,7 @@ export default function Nav() {
                                                 handleLinkHover('aibuddy');
                                             }}
                                         >
-                                            AI Buddy
+                                            SI Buddy
                                         </Link>
                                     </li>
                                     <li>
@@ -255,7 +255,7 @@ export default function Nav() {
                                                 handleLinkHover('visionix');
                                             }}
                                         >
-                                            Visionix AI
+                                            Visionix SI
                                         </Link>
                                     </li>
                                     <li>
@@ -293,7 +293,7 @@ export default function Nav() {
                                             fontSize: '18px',
                                             fontWeight: '800',
                                             paddingLeft: '10px'
-                                        }}>Workflow AI Modules</h5>
+                                        }}>Workflow SI Modules</h5>
                                         <ul style={{ paddingLeft: '0' }}>
                                             <li style={{ marginBottom: '5px' }}>
                                                 <Link

@@ -1,5 +1,5 @@
 """
-Visionix AI – Promo Video Generator  (no ImageMagick needed)
+Visionix SI – Promo Video Generator  (no ImageMagick needed)
 Composes a ~12-second MP4 from 4 gallery images + AI voice narration.
 Images are resized/cropped to 1280x720, cross-faded at 0.5s.
 """
