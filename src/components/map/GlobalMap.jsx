@@ -9,7 +9,7 @@ const GlobalMap = () => {
     {
       id: 'india',
       name: 'India',
-      title: 'India Office',
+      title: 'India Headquarters & ODC',
       info: 'Bengaluru & Madurai, India',
       top: '50%',
       left: '69%',
@@ -40,6 +40,22 @@ const GlobalMap = () => {
           </g>
         </svg>
       )
+    },
+    {
+      id: 'singapore',
+      name: 'Singapore',
+      title: 'Singapore Office',
+      info: '#05-25, 11 Woodlands Close, Singapore 737853',
+      top: '61.5%',
+      left: '77%',
+      pulseColor: 'rgba(237, 41, 57, 0.7)', // Singapore Red
+      flag: (
+        <img
+          src="/assets/images/singapore.png"
+          alt="Singapore Flag"
+          style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+        />
+      )
     }
   ];
 
@@ -50,9 +66,9 @@ const GlobalMap = () => {
           <div className="col-12">
             <div className="title-area-center text-center mb--50">
               <span className="pre-title fw-bold text-primary">Our Presence</span>
-              <h2 className="title text-white">Headquartered in India</h2>
+              <h2 className="title text-white">Global Presence &amp; Headquarters</h2>
               <p className="disc text-gray-light">
-                We serve global clients from our state-of-the-art innovation hubs and headquarters in India.
+                We serve global clients from our innovation hubs &amp; headquarters in India and our Singapore office.
               </p>
             </div>
           </div>
@@ -74,15 +90,20 @@ const GlobalMap = () => {
                   </Tooltip>
                 }
               >
-                <div
-                  className="map-pin-wrapper"
+                <a
+                  href="#locations"
+                  className="map-pin-wrapper text-decoration-none"
                   style={{ top: loc.top, left: loc.left }}
+                  aria-label={`${loc.title} - ${loc.info}`}
                 >
                   <div className="pin-pulse" style={{ background: loc.pulseColor }}></div>
                   <div className="pin-core">
                     {loc.flag}
                   </div>
-                </div>
+                  <span className="pin-label">
+                    {loc.name}
+                  </span>
+                </a>
               </OverlayTrigger>
             ))}
           </div>
@@ -120,6 +141,23 @@ const GlobalMap = () => {
           position: relative;
           z-index: 2;
           box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+        .pin-label {
+          position: absolute;
+          top: 100%;
+          margin-top: 6px;
+          white-space: nowrap;
+          font-size: 11px;
+          font-weight: 600;
+          color: #ffffff;
+          background: rgba(15, 23, 42, 0.85);
+          backdrop-filter: blur(4px);
+          padding: 2px 8px;
+          border-radius: 12px;
+          border: 1px solid rgba(255, 255, 255, 0.25);
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+          pointer-events: none;
+          letter-spacing: 0.3px;
         }
         .pin-pulse {
           position: absolute;
