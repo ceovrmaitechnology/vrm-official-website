@@ -196,7 +196,7 @@ function ProductsOverview() {
             </div>
 
             {/* --- Product 6: SI Buddy --- */}
-            <div id="aibuddy" className="rts-about-area rts-section-gap" style={{ background: '#ffffff' }}>
+            <div id="sibuddy" className="rts-about-area rts-section-gap" style={{ background: '#ffffff' }}>
                 <div className="container">
                     <div className="row g-5 align-items-center">
                         <div className="col-lg-6 order-lg-2 wow fadeInRight" data-wow-delay=".2s">
@@ -212,7 +212,7 @@ function ProductsOverview() {
                                 <p className="disc">
                                     AI-powered language learning platform with personalized coaching, interactive voice practice, and multilingual communication training.
                                 </p>
-                                <Link className="vrm-btn-product-blue" to="/products/aibuddy">
+                                <Link className="vrm-btn-product-blue" to="/products/sibuddy">
                                     Explore Product <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>
                                 </Link>
                             </div>

@@ -237,7 +237,7 @@ function GenerativeAIDevelopment() {
                                 badgeClass: "bg-info text-white",
                                 title: "SI Buddy",
                                 desc: "An interactive generative speech coach providing personalized conversational immersion, dynamic accent feedback, and real-time pronunciation guidance in multiple languages.",
-                                link: "/products/aibuddy"
+                                link: "/products/sibuddy"
                             },
                             {
                                 badge: "Public Governance",

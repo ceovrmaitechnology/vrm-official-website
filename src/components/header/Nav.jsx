@@ -42,7 +42,7 @@ export default function Nav() {
         'aibuddy': { 
             title: "SI Buddy", 
             description: "AI-powered language learning platform with personalized coaching, interactive voice practice, and multilingual communication training.", 
-            link: "/products/aibuddy", 
+            link: "/products/sibuddy", 
             linkText: "View Product", 
             image: "/assets/images/aibuddy/aibuddy-image.webp",
             features: [
@@ -224,7 +224,7 @@ export default function Nav() {
                                     </li>
                                     <li>
                                         <Link
-                                            to="/products/aibuddy"
+                                            to="/products/sibuddy"
                                             className={`platform-btn ${activeSubMenu === 'aibuddy' ? 'active' : ''}`}
                                             onMouseEnter={() => {
                                                 setActiveSubMenu('aibuddy');

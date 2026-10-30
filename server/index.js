@@ -20,6 +20,21 @@ app.use((req, res, next) => {
   next();
 });
 
+// 0. 301 Permanent Redirects for renamed products (1-hop, no chain, no trailing slash)
+app.use((req, res, next) => {
+  const cleanPath = req.path.replace(/\/+$/, "");
+  if (cleanPath === "/products/aibuddy") {
+    const host = (req.headers.host || "").toLowerCase();
+    const isLocal = host.includes("localhost") || host.includes("127.0.0.1") || host.includes("::1");
+    const query = req.url.slice(req.path.length);
+    const target = isLocal
+      ? `/products/sibuddy${query}`
+      : `https://www.vrmaitechnology.com/products/sibuddy${query}`;
+    return res.redirect(301, target);
+  }
+  next();
+});
+
 // 1. Guaranteed One-hop canonical domain, protocol & trailing-slash redirect (301)
 // Enforces:
 // http://vrmaitechnology.com/* -> https://www.vrmaitechnology.com/*

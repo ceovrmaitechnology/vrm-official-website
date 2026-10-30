@@ -6,6 +6,7 @@
 /ai-software-services-chennai    /                                   301!
 
 # 301 Redirects for alias routes
+/products/aibuddy               /products/sibuddy                   301!
 /products/b2d                   /products/bench-to-deploy           301!
 /products/vrm-real-estate       /products/vrm-reality               301!
 /products/vevora                /products/vrm-reality               301!

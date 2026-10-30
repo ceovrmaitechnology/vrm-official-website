@@ -45,6 +45,7 @@ ErrorDocument 404 /404.html
   RewriteRule ^ai-software-services-chennai/?$ https://www.vrmaitechnology.com/ [R=301,L]
 
   # 301 Redirects for alias / duplicate URLs
+  RewriteRule ^products/aibuddy/?$ /products/sibuddy [R=301,L]
   RewriteRule ^products/b2d/?$ /products/bench-to-deploy [R=301,L]
   RewriteRule ^products/vrm-real-estate/?$ /products/vrm-reality [R=301,L]
   RewriteRule ^products/vevora/?$ /products/vrm-reality [R=301,L]

@@ -131,7 +131,7 @@ function AIInnovationIndia() {
                                     </li>
                                     <li style={{ marginBottom: '14px', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
                                         <i className="fas fa-check-circle text-primary mt-1"></i>
-                                        <span><strong style={{ color: '#0e1022' }}>SI Buddy:</strong> Speaking practice and interactive language tutoring via <Link to="/products/aibuddy" style={{ color: '#1b277c', fontWeight: '700', textDecoration: 'underline' }}>SI Buddy</Link>.</span>
+                                        <span><strong style={{ color: '#0e1022' }}>SI Buddy:</strong> Speaking practice and interactive language tutoring via <Link to="/products/sibuddy" style={{ color: '#1b277c', fontWeight: '700', textDecoration: 'underline' }}>SI Buddy</Link>.</span>
                                     </li>
                                     <li style={{ marginBottom: '14px', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
                                         <i className="fas fa-check-circle text-primary mt-1"></i>

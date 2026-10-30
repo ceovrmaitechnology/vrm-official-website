@@ -170,7 +170,7 @@ function HomeOverview() {
                                 category: "Interactive Voice Training",
                                 title: "SI Buddy",
                                 desc: "An intelligent AI language coach that helps users learn, practice, and communicate naturally in multiple languages with personalized AI coaching.",
-                                link: "/products/aibuddy",
+                                link: "/products/sibuddy",
                                 bgImage: "assets/images/aibuddy/aibuddy-image.webp"
                             },
                             {

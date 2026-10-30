@@ -85,7 +85,8 @@ function RouterPage() {
                         <Route path="/products/workflow/videosage" element={<VideoSage />}></Route>
                         <Route path="/products/workflow/codesage" element={<CodeSage />}></Route>
                         <Route path="/products/people-connect" element={<PeopleConnect />}></Route>
-                        <Route path="/products/aibuddy" element={<AiBuddy />}></Route>
+                        <Route path="/products/sibuddy" element={<AiBuddy />}></Route>
+                        <Route path="/products/aibuddy" element={<Navigate to="/products/sibuddy" replace />}></Route>
                         <Route path="/products/exitinterview" element={<AiExitInterview />}></Route>
                         <Route path="/products/visionix" element={<Visionix />}></Route>
                         <Route path="/products/vrm-reality" element={<VrmReality />}></Route>

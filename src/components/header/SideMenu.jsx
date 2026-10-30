@@ -92,7 +92,7 @@ function SideMenu({ isSidebarOpen, toggleSidebar }) {
 
                                         <li className="mobile-menu-link tag mt-2">Other AI Products</li>
                                         <li className="mobile-menu-link"><Link to={'/products/people-connect'} onClick={toggleSidebar}>People Connect (Global)</Link></li>
-                                        <li className="mobile-menu-link"><Link to={'/products/aibuddy'} onClick={toggleSidebar}>SI Buddy</Link></li>
+                                        <li className="mobile-menu-link"><Link to={'/products/sibuddy'} onClick={toggleSidebar}>SI Buddy</Link></li>
                                         <li className="mobile-menu-link"><Link to={'/products/exitinterview'} onClick={toggleSidebar}>Exit Intelligence</Link></li>
                                         <li className="mobile-menu-link"><Link to={'/products/visionix'} onClick={toggleSidebar}>Visionix SI</Link></li>
                                         <li className="mobile-menu-link"><Link to={'/products/vrm-reality'} onClick={toggleSidebar}>VRM Reality</Link></li>

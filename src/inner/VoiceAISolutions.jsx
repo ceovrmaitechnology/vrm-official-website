@@ -182,7 +182,7 @@ function VoiceAISolutions() {
                                 <p className="disc text-white-50 mb-4">
                                     Personalized interactive speaking tutor providing real-time acoustic feedback, pronunciation grading, and natural spoken dialogue in multiple languages.
                                 </p>
-                                <Link to="/products/aibuddy" className="vrm-btn-detail" style={{ color: '#00C6FF' }}>
+                                <Link to="/products/sibuddy" className="vrm-btn-detail" style={{ color: '#00C6FF' }}>
                                     Explore SI Buddy <i className="fas fa-arrow-right ms-1"></i>
                                 </Link>
                             </div>

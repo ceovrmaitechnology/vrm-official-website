@@ -358,17 +358,17 @@ export const SEO_CONFIG = {
       ])
     ]
   },
-  '/products/aibuddy': {
+  '/products/sibuddy': {
     title: 'SI Buddy | AI Language Coach | VRM AI Technology',
     description: 'Learn, practice, and communicate confidently in multiple languages with your personal AI language coach to build speaking fluency and pronunciation.',
-    canonical: `${CANONICAL_ORIGIN}/products/aibuddy`,
+    canonical: `${CANONICAL_ORIGIN}/products/sibuddy`,
     h1: 'SI Buddy',
     schemas: [
       ORGANIZATION_SCHEMA,
       createBreadcrumbSchema([
         { name: 'Home', url: '/' },
         { name: 'Products', url: '/products' },
-        { name: 'SI Buddy', url: '/products/aibuddy' }
+        { name: 'SI Buddy', url: '/products/sibuddy' }
       ])
     ]
   },
