@@ -91,7 +91,7 @@ function SolutionsOverview() {
                                 </p>
                                 <div className="banner-btn wow fadeInUp" data-wow-delay=".4s">
                                     <Link to="/contactus#send-message" className="vrm-blue-to-white-btn">
-                                        Schedule an Assessment <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>
+                                        Get Started <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>
                                     </Link>
                                 </div>
                             </div>

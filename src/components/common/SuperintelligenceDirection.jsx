@@ -30,11 +30,11 @@ function SuperintelligenceDirection({ withCtaBand = false }) {
                         <div className="row justify-content-center">
                             <div className="col-lg-9">
                                 <h3 className="vrm-cta-band__text text-white mb-4" style={{ fontSize: '26px', fontWeight: '700', lineHeight: '1.4' }}>
-                                    Ready to put intelligence to work in your business? Book a free AI assessment.
+                                    Ready to put intelligence to work in your business?
                                 </h3>
                                 <div>
                                     <Link to="/contactus#send-message" className="vrm-blue-to-white-btn" style={{ padding: '14px 34px', fontSize: '15px' }}>
-                                        Book a Free AI Assessment <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>
+                                        Get Started <i className="far fa-arrow-right ms-2" style={{ fontSize: '13px' }}></i>
                                     </Link>
                                 </div>
                             </div>
