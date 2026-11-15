@@ -109,8 +109,8 @@ function XpressScreening() {
                         <div className="col-lg-10">
                             <div className="wow fadeInUp" data-wow-delay=".3s">
                                 <ProductVideo
-                                    src="/assets/images/workflow/xpress-screening/xpress-screening-promo.mp4"
-                                    poster="/assets/images/workflow/xpress-screening/xpress-screening-poster-16-9.webp"
+                                    src="/assets/videos/xpress-screening-demo.mp4"
+                                    poster="/assets/videos/xpress-screening-poster.jpg"
                                     title="Xpress Screening"
                                 />
                             </div>
