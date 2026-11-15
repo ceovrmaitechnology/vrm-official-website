@@ -109,8 +109,8 @@ function AiBuddy() {
                         <div className="col-lg-10">
                             <div className="wow fadeInUp" data-wow-delay=".3s">
                                 <ProductVideo
-                                    src="/assets/images/aibuddy/aibuddy-promo.mp4"
-                                    poster="/assets/images/aibuddy/aibuddy-poster-16-9.webp"
+                                    src="/assets/videos/si-buddy-demo.mp4"
+                                    poster="/assets/videos/si-buddy-poster.jpg"
                                     title="SI Buddy"
                                 />
                             </div>
