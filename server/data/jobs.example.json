@@ -1,0 +1,29 @@
+[
+  {
+    "id": "job_example_1",
+    "slug": "senior-ai-engineer",
+    "title": "Senior AI Engineer",
+    "department": "Engineering",
+    "location": "Bengaluru",
+    "employmentType": "Full-time",
+    "experience": "3+ years",
+    "shortDescription": "Lead the design and deployment of enterprise agentic AI systems and LLM workflows.",
+    "responsibilities": [
+      "Architect and scale multi-agent LLM systems and RAG pipelines.",
+      "Collaborate with cross-functional teams to integrate AI models into enterprise products.",
+      "Optimize inference performance, latency, and reliability."
+    ],
+    "requirements": [
+      "3+ years experience with Python, PyTorch/TensorFlow, and modern LLM frameworks.",
+      "Strong background in distributed systems, REST APIs, and cloud infrastructure.",
+      "Track record of deploying AI applications to production."
+    ],
+    "applyEmail": "contactus@vrmaitechnology.com",
+    "applyLink": "",
+    "status": "draft",
+    "postedAt": "2026-11-15T00:00:00.000Z",
+    "validThrough": "2027-02-15T00:00:00.000Z",
+    "createdAt": "2026-11-15T00:00:00.000Z",
+    "updatedAt": "2026-11-15T00:00:00.000Z"
+  }
+]

@@ -9,7 +9,7 @@ require("dotenv").config(); // loads .env from project root (works on Windows & 
 const careersDb = require("./careers-db");
 
 const app = express();
-const PORT = Number(process.env.SERVER_PORT || process.env.PORT || 5000);
+const PORT = Number(process.env.SERVER_PORT || process.env.PORT || 3000);
 
 app.use(cors());
 app.use(express.json({ limit: "10mb" }));

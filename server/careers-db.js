@@ -64,7 +64,10 @@ function slugify(text) {
 
 function readJobsRaw() {
   try {
-    if (!fs.existsSync(JOBS_FILE)) return [];
+    if (!fs.existsSync(JOBS_FILE)) {
+      writeJsonAtomic(JOBS_FILE, []);
+      return [];
+    }
     const content = fs.readFileSync(JOBS_FILE, 'utf8');
     const parsed = JSON.parse(content);
     return Array.isArray(parsed) ? parsed : [];
@@ -513,3 +516,4 @@ module.exports = {
   recordLoginResult,
   injectJobPrerenderMeta
 };
+
