@@ -110,8 +110,8 @@ function Visionix() {
                         <div className="col-lg-10">
                             <div className="wow fadeInUp" data-wow-delay=".3s">
                                 <ProductVideo
-                                    src="/assets/images/visionix/visionix-promo.mp4"
-                                    poster="/assets/images/visionix/visionix-poster-16-9.webp"
+                                    src="/assets/videos/visionix-si-demo.mp4"
+                                    poster="/assets/videos/visionix-si-poster.jpg"
                                     title="Visionix SI"
                                 />
                             </div>
