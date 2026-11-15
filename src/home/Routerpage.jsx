@@ -9,6 +9,8 @@ const SolutionsOverview = lazy(() => import('../inner/SolutionsOverview'));
 const AboutUs = lazy(() => import('../inner/AboutUs'));
 const ContactUs = lazy(() => import('../inner/ContactUs'));
 const Careers = lazy(() => import('../inner/Careers'));
+const JobDetail = lazy(() => import('../inner/JobDetail'));
+const AdminCareers = lazy(() => import('../inner/admin/AdminCareers'));
 const Workflow = lazy(() => import('../inner/Workflow'));
 const XpressScreening = lazy(() => import('../inner/XpressScreening'));
 const ScreenSage = lazy(() => import('../inner/ScreenSage'));
@@ -54,6 +56,10 @@ function RouterPage() {
                         <Route path="/about-us" element={<AboutUs />}></Route>
                         <Route path="/contactus" element={<ContactUs />}></Route>
                         <Route path="/careers" element={<Careers />}></Route>
+                        <Route path="/careers/:slug" element={<JobDetail />}></Route>
+                        <Route path="/admin/careers" element={<AdminCareers />}></Route>
+                        <Route path="/admin" element={<Navigate to="/admin/careers" replace />}></Route>
+                        <Route path="/admin/login" element={<Navigate to="/admin/careers" replace />}></Route>
                         <Route path="/solutions" element={<SolutionsOverview />}></Route>
                         <Route path="/our-service" element={<Navigate to="/solutions" replace />}></Route>
                         <Route path="/products" element={<ProductsOverview />}></Route>

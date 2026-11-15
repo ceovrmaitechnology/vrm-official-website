@@ -6,6 +6,7 @@ const http = require("http");
 const fs = require("fs");
 const path = require("path");
 require("dotenv").config(); // loads .env from project root (works on Windows & Linux)
+const careersDb = require("./careers-db");
 
 const app = express();
 const PORT = Number(process.env.SERVER_PORT || process.env.PORT || 5000);
@@ -60,11 +61,17 @@ app.use((req, res, next) => {
 
 // Explicit XML/text content-type handlers for sitemap and robots.txt
 app.get("/sitemap.xml", (req, res) => {
-  const sitemapBuild = path.resolve(__dirname, "../build/sitemap.xml");
-  const sitemapPublic = path.resolve(__dirname, "../public/sitemap.xml");
-  const filePath = fs.existsSync(sitemapBuild) ? sitemapBuild : sitemapPublic;
-  res.header("Content-Type", "application/xml");
-  res.sendFile(filePath);
+  try {
+    const xml = careersDb.generateDynamicSitemapXml();
+    res.header("Content-Type", "application/xml");
+    return res.send(xml);
+  } catch (err) {
+    const sitemapBuild = path.resolve(__dirname, "../build/sitemap.xml");
+    const sitemapPublic = path.resolve(__dirname, "../public/sitemap.xml");
+    const filePath = fs.existsSync(sitemapBuild) ? sitemapBuild : sitemapPublic;
+    res.header("Content-Type", "application/xml");
+    return res.sendFile(filePath);
+  }
 });
 
 app.get("/robots.txt", (req, res) => {
@@ -91,6 +98,31 @@ app.use((req, res, next) => {
   if (fs.existsSync(prerenderedFile)) {
     return res.sendFile(prerenderedFile);
   }
+
+  // Dynamic Careers Job Detail Pages (/careers/:slug)
+  if (cleanPath.startsWith("careers/") && cleanPath !== "careers") {
+    const slug = cleanPath.slice("careers/".length).replace(/\/.*$/, "");
+    const job = careersDb.getJobBySlug(slug);
+    if (job && job.status !== "draft") {
+      const buildIndex = path.resolve(__dirname, "../build/index.html");
+      if (fs.existsSync(buildIndex)) {
+        const rawHtml = fs.readFileSync(buildIndex, "utf8");
+        const injectedHtml = careersDb.injectJobPrerenderMeta(rawHtml, job);
+        res.setHeader("Content-Type", "text/html; charset=utf-8");
+        return res.send(injectedHtml);
+      }
+    }
+  }
+
+  // Admin SPA routes: /admin, /admin/careers, /admin/login
+  if (cleanPath === "admin" || cleanPath.startsWith("admin/")) {
+    const buildIndex = path.resolve(__dirname, "../build/index.html");
+    if (fs.existsSync(buildIndex)) {
+      res.setHeader("X-Robots-Tag", "noindex, nofollow");
+      return res.sendFile(buildIndex);
+    }
+  }
+
   next();
 });
 
@@ -210,6 +242,163 @@ function asyncHandler(handler) {
 
 app.get("/api/health", (_req, res) => {
   res.json({ ok: true, service: "mail-api" });
+});
+
+// ==============================================================================
+// CAREERS & ADMIN API
+// ==============================================================================
+
+// Admin Authentication Middleware
+function requireAdmin(req, res, next) {
+  const authHeader = req.headers.authorization || "";
+  const token = authHeader.startsWith("Bearer ") ? authHeader.slice(7) : null;
+  if (!token) {
+    return res.status(401).json({ success: false, message: "Unauthorized. Authentication token missing." });
+  }
+  const decoded = careersDb.verifyToken(token);
+  if (!decoded) {
+    return res.status(401).json({ success: false, message: "Unauthorized. Session expired or token invalid." });
+  }
+  req.admin = decoded;
+  next();
+}
+
+// 1. Public Careers Endpoints (No Auth Required)
+app.get("/api/careers/jobs", (req, res) => {
+  try {
+    const jobs = careersDb.getJobs(false);
+    res.json({ success: true, jobs });
+  } catch (err) {
+    console.error("Error fetching published jobs:", err.message);
+    res.status(500).json({ success: false, message: "Failed to retrieve job openings." });
+  }
+});
+
+app.get("/api/careers/jobs/:slug", (req, res) => {
+  try {
+    const job = careersDb.getJobBySlug(req.params.slug);
+    if (!job || job.status === "draft") {
+      return res.status(404).json({ success: false, message: "Job opening not found." });
+    }
+    if (job.status === "closed") {
+      return res.json({
+        success: true,
+        job: { ...job, closed: true },
+        message: "This position has been closed and is no longer accepting applications."
+      });
+    }
+    res.json({ success: true, job });
+  } catch (err) {
+    console.error("Error fetching job details:", err.message);
+    res.status(500).json({ success: false, message: "Failed to retrieve job details." });
+  }
+});
+
+// 2. Admin Authentication Endpoints
+app.post("/api/admin/login", (req, res) => {
+  const clientIp = req.headers["x-forwarded-for"] || req.socket.remoteAddress || "ip";
+  const rate = careersDb.checkRateLimit(clientIp);
+  if (!rate.allowed) {
+    return res.status(429).json({
+      success: false,
+      message: rate.message || `Too many failed attempts. Try again in ${rate.waitMinutes} minute(s).`
+    });
+  }
+
+  const { username = "", password = "" } = req.body || {};
+  if (!username.trim() || !password) {
+    return res.status(400).json({ success: false, message: "Username and password are required." });
+  }
+
+  const admin = careersDb.verifyAdminCredentials(username, password);
+  if (!admin) {
+    careersDb.recordLoginResult(clientIp, false);
+    return res.status(401).json({ success: false, message: "Invalid username or password." });
+  }
+
+  careersDb.recordLoginResult(clientIp, true);
+  const token = careersDb.signToken({ username: admin.username, id: admin.id });
+  res.json({
+    success: true,
+    token,
+    user: { username: admin.username }
+  });
+});
+
+app.get("/api/admin/me", requireAdmin, (req, res) => {
+  res.json({ success: true, user: { username: req.admin.username } });
+});
+
+// 3. Admin Job Management Endpoints (Auth Required)
+app.get("/api/admin/careers/jobs", requireAdmin, (req, res) => {
+  try {
+    const jobs = careersDb.getJobs(true);
+    res.json({ success: true, jobs });
+  } catch (err) {
+    res.status(500).json({ success: false, message: err.message });
+  }
+});
+
+app.post("/api/admin/careers/jobs", requireAdmin, (req, res) => {
+  try {
+    const { title, department, location, employmentType, experience, shortDescription } = req.body || {};
+    if (!title || !title.trim()) {
+      return res.status(400).json({ success: false, message: "Job title is required." });
+    }
+    if (!department || !department.trim()) {
+      return res.status(400).json({ success: false, message: "Department is required." });
+    }
+    if (!shortDescription || !shortDescription.trim()) {
+      return res.status(400).json({ success: false, message: "Short description is required." });
+    }
+
+    const job = careersDb.saveJob(req.body);
+    res.json({ success: true, job });
+  } catch (err) {
+    res.status(400).json({ success: false, message: err.message });
+  }
+});
+
+app.put("/api/admin/careers/jobs/:id", requireAdmin, (req, res) => {
+  try {
+    const { title, department, shortDescription } = req.body || {};
+    if (!title || !title.trim()) {
+      return res.status(400).json({ success: false, message: "Job title is required." });
+    }
+    if (!department || !department.trim()) {
+      return res.status(400).json({ success: false, message: "Department is required." });
+    }
+    if (!shortDescription || !shortDescription.trim()) {
+      return res.status(400).json({ success: false, message: "Short description is required." });
+    }
+
+    const job = careersDb.saveJob(req.body, req.params.id);
+    res.json({ success: true, job });
+  } catch (err) {
+    res.status(400).json({ success: false, message: err.message });
+  }
+});
+
+app.patch("/api/admin/careers/jobs/:id/status", requireAdmin, (req, res) => {
+  try {
+    const { status } = req.body || {};
+    if (!status || !['draft', 'published', 'closed'].includes(status)) {
+      return res.status(400).json({ success: false, message: "Status must be 'draft', 'published', or 'closed'." });
+    }
+    const job = careersDb.updateJobStatus(req.params.id, status);
+    res.json({ success: true, job });
+  } catch (err) {
+    res.status(400).json({ success: false, message: err.message });
+  }
+});
+
+app.delete("/api/admin/careers/jobs/:id", requireAdmin, (req, res) => {
+  try {
+    careersDb.deleteJob(req.params.id);
+    res.json({ success: true, message: "Job deleted successfully." });
+  } catch (err) {
+    res.status(400).json({ success: false, message: err.message });
+  }
 });
 
 app.post(

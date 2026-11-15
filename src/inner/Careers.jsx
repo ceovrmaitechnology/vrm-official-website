@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import SEO from '../components/common/SEO';
 import HeaderOne from "../components/header/HeaderOne";
 import { Link } from 'react-router-dom';
@@ -11,6 +11,26 @@ function Careers() {
     const [selectedJob, setSelectedJob] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState({ type: '', message: '' });
+    const [openings, setOpenings] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        let isMounted = true;
+        fetch('/api/careers/jobs')
+            .then(res => res.json())
+            .then(data => {
+                if (isMounted && data.success && Array.isArray(data.jobs)) {
+                    setOpenings(data.jobs);
+                }
+            })
+            .catch(() => {
+                // Ignore fetch error on initial prerender
+            })
+            .finally(() => {
+                if (isMounted) setIsLoading(false);
+            });
+        return () => { isMounted = false; };
+    }, []);
 
     const handleClose = () => {
         setShow(false);
@@ -27,42 +47,24 @@ function Careers() {
         setIsSubmitting(true);
         setSubmitStatus({ type: '', message: '' });
 
-        const formData = new FormData(e.target);
-        const data = Object.fromEntries(formData.entries());
-
-        const payload = {
-            _subject: 'Website Contact Form | careers',
-            _captcha: 'false',
-            _template: 'table',
-            'Name': data.fullName || '',
-            'Email': data.email || '',
-            'Phone': data.phone || '',
-            'Inquiry Type': 'careers',
-            'Position': data.position || selectedJob || 'General Application',
-            'Experience': data.experience || 'Not specified',
-            'Message': data.coverLetter || 'General Application',
-            'Sent from VRM AI website form on': new Date().toISOString()
-        };
+        const formElement = e.target;
+        const formData = new FormData(formElement);
 
         try {
-            const applyEndpoint = process.env.REACT_APP_APPLY_ENDPOINT || 'https://formsubmit.co/ajax/hr@vrmaitechnology.com';
-            const response = await fetch(applyEndpoint, {
+            const response = await fetch('/api/apply', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify(payload)
+                body: formData
             });
 
-            if (response.ok) {
-                setSubmitStatus({ type: 'success', message: 'Application submitted successfully! Our HR team will contact you soon.' });
-                e.target.reset();
+            const result = await response.json().catch(() => ({}));
+            if (response.ok && result.success) {
+                setSubmitStatus({ type: 'success', message: 'Application submitted successfully! Our team will contact you soon.' });
+                formElement.reset();
             } else {
-                setSubmitStatus({ type: 'error', message: 'Failed to submit application. Please try again later.' });
+                setSubmitStatus({ type: 'error', message: result.message || 'Failed to submit application. Please email contactus@vrmaitechnology.com.' });
             }
         } catch (error) {
-            setSubmitStatus({ type: 'error', message: 'An error occurred while submitting your application.' });
+            setSubmitStatus({ type: 'error', message: 'An error occurred while submitting your application. Please email your resume to contactus@vrmaitechnology.com.' });
         } finally {
             setIsSubmitting(false);
         }
@@ -90,8 +92,6 @@ function Careers() {
             desc: 'Join a team of passionate innovators who support and challenge each other.'
         }
     ];
-
-    const openings = [];
 
     return (
         <div className='careers-page'>
@@ -183,19 +183,45 @@ function Careers() {
                     </div>
                     <div className="row justify-content-center">
                         <div className="col-lg-10">
-                            {openings.length > 0 ? (
+                            {isLoading ? (
+                                <div className="text-center py-5">
+                                    <div className="spinner-border text-primary" role="status">
+                                        <span className="visually-hidden">Loading opportunities...</span>
+                                    </div>
+                                    <p className="text-muted mt-3">Loading open roles...</p>
+                                </div>
+                            ) : openings.length > 0 ? (
                                 openings.map((job, index) => (
-                                    <div className="job-card" key={index}>
-                                        <div className="job-info">
-                                            <h4>{job.title}</h4>
-                                            <div className="job-meta">
-                                                <span className="job-badge"><i className="far fa-briefcase"></i> {job.experience}</span>
-                                                <span className="job-badge"><i className="far fa-map-marker-alt"></i> {job.location}</span>
-                                                <span className="job-badge"><i className="far fa-clock"></i> {job.type}</span>
+                                    <div className="job-card mb-4" key={job.id || job.slug || index} style={{ background: '#fff', borderRadius: '12px', padding: '28px', border: '1px solid #eef2f6', boxShadow: '0 4px 18px rgba(0,0,0,0.03)' }}>
+                                        <div className="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3">
+                                            <div className="job-info">
+                                                <div className="d-flex align-items-center gap-2 mb-2">
+                                                    <span className="badge bg-light text-primary border" style={{ fontSize: '12px', padding: '5px 12px', borderRadius: '20px' }}>{job.department}</span>
+                                                    <span className="badge bg-light text-dark border" style={{ fontSize: '12px', padding: '5px 12px', borderRadius: '20px' }}>{job.employmentType || 'Full-time'}</span>
+                                                </div>
+                                                <h4 style={{ margin: '0 0 8px', fontSize: '20px', fontWeight: '700' }}>
+                                                    <Link to={`/careers/${job.slug}`} style={{ color: '#1c2539', textDecoration: 'none' }}>
+                                                        {job.title}
+                                                    </Link>
+                                                </h4>
+                                                <div className="job-meta d-flex flex-wrap gap-3 text-muted small mb-2">
+                                                    <span><i className="far fa-map-marker-alt text-primary me-1"></i> {job.location}</span>
+                                                    <span><i className="far fa-briefcase text-primary me-1"></i> {job.experience}</span>
+                                                </div>
+                                                {job.shortDescription && (
+                                                    <p className="text-muted small mb-0" style={{ maxWidth: '650px', lineHeight: '1.5' }}>
+                                                        {job.shortDescription}
+                                                    </p>
+                                                )}
                                             </div>
-                                        </div>
-                                        <div className="job-action text-end mt-3 mt-lg-0">
-                                            <button className="rts-btn btn-primary" onClick={() => handleShow(job.title)}>Apply Now</button>
+                                            <div className="job-action d-flex align-items-center gap-2 mt-2 mt-md-0 flex-shrink-0">
+                                                <Link to={`/careers/${job.slug}`} className="rts-btn btn-secondary" style={{ padding: '10px 18px', fontSize: '14px' }}>
+                                                    View Details
+                                                </Link>
+                                                <button className="rts-btn btn-primary" onClick={() => handleShow(job.title)} style={{ padding: '10px 18px', fontSize: '14px' }}>
+                                                    Apply Now
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
                                 ))
@@ -204,10 +230,11 @@ function Careers() {
                                     <div className="no-openings-icon mb-4" style={{ fontSize: '48px', color: 'var(--color-primary)' }}>
                                         <i className="far fa-briefcase"></i>
                                     </div>
-                                    <h4 className="mb-2" style={{ fontWeight: '700', color: '#1c2539' }}>No Positions Available Right Now</h4>
-                                    <p className="text-muted mx-auto" style={{ maxWidth: '500px', fontSize: '15px', lineHeight: '1.6', marginBottom: 0 }}>
-                                        We don't have any active job openings at the moment. However, we are always looking for talented minds. Feel free to submit a general application below!
+                                    <h4 className="mb-2" style={{ fontWeight: '700', color: '#1c2539' }}>No Openings Right Now</h4>
+                                    <p className="text-muted mx-auto" style={{ maxWidth: '540px', fontSize: '15px', lineHeight: '1.6', marginBottom: '22px' }}>
+                                        No openings right now, send your resume to <a href="mailto:contactus@vrmaitechnology.com" style={{ color: 'var(--color-primary)', fontWeight: '600', textDecoration: 'underline' }}>contactus@vrmaitechnology.com</a>.
                                     </p>
+                                    <button className="rts-btn btn-primary" onClick={() => handleShow('General Application')}>Send Resume / Apply</button>
                                 </div>
                             )}
                         </div>

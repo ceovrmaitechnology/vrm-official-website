@@ -456,7 +456,7 @@ export const SEO_CONFIG = {
   },
   '/careers': {
     title: 'Careers | VRM AI Technology',
-    description: 'No open roles right now. Send your profile to hr@vrmaitechnology.com and we will contact you when a matching role opens.',
+    description: 'No open roles right now. Send your profile to contactus@vrmaitechnology.com and we will contact you when a matching role opens.',
     canonical: `${CANONICAL_ORIGIN}/careers`,
     h1: 'Careers',
     schemas: [
