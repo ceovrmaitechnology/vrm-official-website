@@ -12,6 +12,9 @@ function AdminCareers() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [authChecking, setAuthChecking] = useState(true);
 
+    // Active Navigation Tab: 'jobs' | 'applications'
+    const [activeTab, setActiveTab] = useState('jobs');
+
     // Login Form State
     const [loginUser, setLoginUser] = useState('');
     const [loginPass, setLoginPass] = useState('');
@@ -25,13 +28,13 @@ function AdminCareers() {
     const [filterStatus, setFilterStatus] = useState('all');
     const [searchQuery, setSearchQuery] = useState('');
 
-    // Modal State
+    // Job Add/Edit Modal State
     const [showEditModal, setShowEditModal] = useState(false);
     const [editingJobId, setEditingJobId] = useState(null);
     const [isSaving, setIsSaving] = useState(false);
     const [formError, setFormError] = useState('');
 
-    // Form Fields
+    // Job Form Fields
     const [formTitle, setFormTitle] = useState('');
     const [formSlug, setFormSlug] = useState('');
     const [formDepartment, setFormDepartment] = useState('Engineering');
@@ -45,9 +48,18 @@ function AdminCareers() {
     const [formApplyEmail, setFormApplyEmail] = useState('contactus@vrmaitechnology.com');
     const [formApplyLink, setFormApplyLink] = useState('');
 
-    // Delete Modal State
+    // Job Delete Modal State
     const [jobToDelete, setJobToDelete] = useState(null);
     const [isDeleting, setIsDeleting] = useState(false);
+
+    // Applications State
+    const [applications, setApplications] = useState([]);
+    const [isLoadingApps, setIsLoadingApps] = useState(false);
+    const [appFilterStatus, setAppFilterStatus] = useState('all');
+    const [appSearchQuery, setAppSearchQuery] = useState('');
+    const [selectedApp, setSelectedApp] = useState(null);
+    const [appToDelete, setAppToDelete] = useState(null);
+    const [isDeletingApp, setIsDeletingApp] = useState(false);
 
     const logout = useCallback(() => {
         sessionStorage.removeItem(TOKEN_KEY);
@@ -58,6 +70,7 @@ function AdminCareers() {
         setCurrentUser('');
         setIsAuthenticated(false);
         setJobs([]);
+        setApplications([]);
     }, []);
 
     // Verify Auth on mount / token change
@@ -122,11 +135,41 @@ function AdminCareers() {
             });
     }, [token, logout]);
 
+    // Fetch Applications
+    const fetchApplications = useCallback(() => {
+        if (!token) return;
+        setIsLoadingApps(true);
+
+        fetch('/api/admin/careers/applications', {
+            headers: { 'Authorization': `Bearer ${token}` }
+        })
+            .then(res => {
+                if (res.ok) return res.json();
+                if (res.status === 401) {
+                    logout();
+                    throw new Error('Session expired');
+                }
+                throw new Error('Failed to fetch applications');
+            })
+            .then(data => {
+                if (data && data.success && Array.isArray(data.applications)) {
+                    setApplications(data.applications);
+                }
+            })
+            .catch(err => {
+                console.error(err);
+            })
+            .finally(() => {
+                setIsLoadingApps(false);
+            });
+    }, [token, logout]);
+
     useEffect(() => {
         if (isAuthenticated) {
             fetchJobs();
+            fetchApplications();
         }
-    }, [isAuthenticated, fetchJobs]);
+    }, [isAuthenticated, fetchJobs, fetchApplications]);
 
     // Handle Login Submit
     const handleLoginSubmit = async (e) => {
@@ -176,7 +219,7 @@ function AdminCareers() {
         }
     };
 
-    // Open Add Modal
+    // Open Add Job Modal
     const handleOpenAddModal = () => {
         setEditingJobId(null);
         setFormTitle('');
@@ -195,7 +238,7 @@ function AdminCareers() {
         setShowEditModal(true);
     };
 
-    // Open Edit Modal
+    // Open Edit Job Modal
     const handleOpenEditModal = (job) => {
         setEditingJobId(job.id);
         setFormTitle(job.title || '');
@@ -262,7 +305,7 @@ function AdminCareers() {
         }
     };
 
-    // Quick Status Toggle
+    // Quick Job Status Toggle
     const handleQuickStatusChange = async (jobId, newStatus) => {
         try {
             const res = await fetch(`/api/admin/careers/jobs/${jobId}/status`, {
@@ -281,7 +324,7 @@ function AdminCareers() {
         }
     };
 
-    // Confirm Delete
+    // Confirm Job Delete
     const handleDeleteJob = async () => {
         if (!jobToDelete) return;
         setIsDeleting(true);
@@ -302,6 +345,76 @@ function AdminCareers() {
         }
     };
 
+    // Application Status Toggle
+    const handleUpdateAppStatus = async (appId, newStatus) => {
+        try {
+            const res = await fetch(`/api/admin/careers/applications/${appId}/status`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({ status: newStatus })
+            });
+            if (res.ok) {
+                fetchApplications();
+                if (selectedApp && selectedApp.id === appId) {
+                    setSelectedApp(prev => ({ ...prev, status: newStatus }));
+                }
+            }
+        } catch (err) {
+            console.error('Failed to update application status', err);
+        }
+    };
+
+    // Confirm Application Delete
+    const handleDeleteApplication = async () => {
+        if (!appToDelete) return;
+        setIsDeletingApp(true);
+
+        try {
+            const res = await fetch(`/api/admin/careers/applications/${appToDelete.id}`, {
+                method: 'DELETE',
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
+            if (res.ok) {
+                setAppToDelete(null);
+                if (selectedApp && selectedApp.id === appToDelete.id) {
+                    setSelectedApp(null);
+                }
+                fetchApplications();
+            }
+        } catch (err) {
+            console.error('Failed to delete application', err);
+        } finally {
+            setIsDeletingApp(false);
+        }
+    };
+
+    // Authenticated Resume Download
+    const handleDownloadResume = async (appId, originalFileName) => {
+        try {
+            const res = await fetch(`/api/admin/careers/applications/${appId}/resume`, {
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
+            if (!res.ok) {
+                const errData = await res.json().catch(() => ({}));
+                throw new Error(errData.message || 'Failed to download resume');
+            }
+            const blob = await res.blob();
+            const blobUrl = window.URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = blobUrl;
+            link.download = originalFileName || 'resume.pdf';
+            document.body.appendChild(link);
+            link.click();
+            window.URL.revokeObjectURL(blobUrl);
+            document.body.removeChild(link);
+        } catch (err) {
+            alert('Resume Download Error: ' + err.message);
+        }
+    };
+
     // Filtered Jobs
     const filteredJobs = jobs.filter(j => {
         const matchesStatus = filterStatus === 'all' || j.status === filterStatus;
@@ -312,11 +425,30 @@ function AdminCareers() {
         return matchesStatus && matchesSearch;
     });
 
-    const stats = {
+    // Filtered Applications
+    const filteredApps = applications.filter(a => {
+        const matchesStatus = appFilterStatus === 'all' || a.status === appFilterStatus;
+        const matchesSearch = !appSearchQuery ||
+            a.fullName.toLowerCase().includes(appSearchQuery.toLowerCase()) ||
+            a.email.toLowerCase().includes(appSearchQuery.toLowerCase()) ||
+            a.phone.toLowerCase().includes(appSearchQuery.toLowerCase()) ||
+            a.position.toLowerCase().includes(appSearchQuery.toLowerCase());
+        return matchesStatus && matchesSearch;
+    });
+
+    const jobStats = {
         total: jobs.length,
         published: jobs.filter(j => j.status === 'published').length,
         draft: jobs.filter(j => j.status === 'draft').length,
         closed: jobs.filter(j => j.status === 'closed').length
+    };
+
+    const appStats = {
+        total: applications.length,
+        new: applications.filter(a => a.status === 'new').length,
+        reviewed: applications.filter(a => a.status === 'reviewed').length,
+        shortlisted: applications.filter(a => a.status === 'shortlisted').length,
+        rejected: applications.filter(a => a.status === 'rejected').length
     };
 
     if (authChecking) {
@@ -451,216 +583,573 @@ function AdminCareers() {
             </nav>
 
             <div className="container-fluid px-4 py-4">
-                {/* Header & Stats */}
-                <div className="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3 mb-4">
-                    <div>
-                        <h2 className="h3 fw-bold mb-1" style={{ color: '#1c2539' }}>Job Openings Management</h2>
-                        <p className="text-muted small mb-0">Create, edit, publish and close career positions without code changes.</p>
-                    </div>
-                    <button onClick={handleOpenAddModal} className="btn btn-primary px-4 py-2 fw-semibold d-flex align-items-center gap-2">
-                        <i className="fas fa-plus"></i> Post New Job
-                    </button>
-                </div>
+                {/* Navigation Tabs */}
+                <div className="d-flex justify-content-between align-items-center mb-4 border-bottom pb-3">
+                    <ul className="nav nav-pills gap-2 mb-0">
+                        <li className="nav-item">
+                            <button
+                                className={`nav-link px-4 py-2 fw-semibold ${activeTab === 'jobs' ? 'active' : 'text-dark bg-white border'}`}
+                                onClick={() => setActiveTab('jobs')}
+                            >
+                                <i className="fas fa-briefcase me-2"></i>
+                                Job Openings ({jobStats.total})
+                            </button>
+                        </li>
+                        <li className="nav-item">
+                            <button
+                                className={`nav-link px-4 py-2 fw-semibold position-relative ${activeTab === 'applications' ? 'active' : 'text-dark bg-white border'}`}
+                                onClick={() => setActiveTab('applications')}
+                            >
+                                <i className="fas fa-users me-2"></i>
+                                Applications ({appStats.total})
+                                {appStats.new > 0 && (
+                                    <span className="badge bg-danger rounded-pill ms-2" style={{ fontSize: '11px' }}>
+                                        {appStats.new} new
+                                    </span>
+                                )}
+                            </button>
+                        </li>
+                    </ul>
 
-                {/* Stats Cards */}
-                <div className="row g-3 mb-4">
-                    <div className="col-6 col-md-3">
-                        <div className="bg-white p-3 rounded-3 shadow-sm border border-light">
-                            <div className="text-muted small fw-semibold">Total Roles</div>
-                            <div className="h3 fw-bold text-dark mb-0 mt-1">{stats.total}</div>
-                        </div>
-                    </div>
-                    <div className="col-6 col-md-3">
-                        <div className="bg-white p-3 rounded-3 shadow-sm border border-light">
-                            <div className="text-muted small fw-semibold">Published (Live)</div>
-                            <div className="h3 fw-bold text-success mb-0 mt-1">{stats.published}</div>
-                        </div>
-                    </div>
-                    <div className="col-6 col-md-3">
-                        <div className="bg-white p-3 rounded-3 shadow-sm border border-light">
-                            <div className="text-muted small fw-semibold">Drafts</div>
-                            <div className="h3 fw-bold text-warning mb-0 mt-1">{stats.draft}</div>
-                        </div>
-                    </div>
-                    <div className="col-6 col-md-3">
-                        <div className="bg-white p-3 rounded-3 shadow-sm border border-light">
-                            <div className="text-muted small fw-semibold">Closed</div>
-                            <div className="h3 fw-bold text-secondary mb-0 mt-1">{stats.closed}</div>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Filters & Search */}
-                <div className="bg-white p-3 rounded-3 shadow-sm border border-light mb-4 d-flex flex-column flex-md-row justify-content-between align-items-stretch align-items-md-center gap-3">
-                    <div className="btn-group" role="group">
-                        <button
-                            type="button"
-                            className={`btn btn-sm ${filterStatus === 'all' ? 'btn-primary' : 'btn-outline-secondary'}`}
-                            onClick={() => setFilterStatus('all')}
-                        >
-                            All ({stats.total})
+                    {activeTab === 'jobs' && (
+                        <button onClick={handleOpenAddModal} className="btn btn-primary px-4 py-2 fw-semibold d-flex align-items-center gap-2">
+                            <i className="fas fa-plus"></i> Post New Job
                         </button>
-                        <button
-                            type="button"
-                            className={`btn btn-sm ${filterStatus === 'published' ? 'btn-primary' : 'btn-outline-secondary'}`}
-                            onClick={() => setFilterStatus('published')}
-                        >
-                            Published ({stats.published})
-                        </button>
-                        <button
-                            type="button"
-                            className={`btn btn-sm ${filterStatus === 'draft' ? 'btn-primary' : 'btn-outline-secondary'}`}
-                            onClick={() => setFilterStatus('draft')}
-                        >
-                            Drafts ({stats.draft})
-                        </button>
-                        <button
-                            type="button"
-                            className={`btn btn-sm ${filterStatus === 'closed' ? 'btn-primary' : 'btn-outline-secondary'}`}
-                            onClick={() => setFilterStatus('closed')}
-                        >
-                            Closed ({stats.closed})
-                        </button>
-                    </div>
-
-                    <div style={{ maxWidth: '320px', width: '100%' }}>
-                        <input
-                            type="text"
-                            className="form-control form-control-sm"
-                            placeholder="Search by title, dept or city..."
-                            value={searchQuery}
-                            onChange={(e) => setSearchQuery(e.target.value)}
-                        />
-                    </div>
-                </div>
-
-                {/* Jobs Table */}
-                <div className="bg-white rounded-3 shadow-sm border border-light overflow-hidden">
-                    {isLoadingJobs ? (
-                        <div className="text-center py-5">
-                            <div className="spinner-border text-primary" role="status"></div>
-                            <p className="text-muted mt-2 small">Loading job postings...</p>
-                        </div>
-                    ) : filteredJobs.length === 0 ? (
-                        <div className="text-center py-5 px-3">
-                            <i className="far fa-folder-open text-muted mb-3" style={{ fontSize: '42px' }}></i>
-                            <h5 className="fw-semibold text-dark">No Jobs Found</h5>
-                            <p className="text-muted small mb-3">
-                                {jobs.length === 0
-                                    ? 'No job openings exist yet. Click "Post New Job" to create your first posting.'
-                                    : 'No jobs match your selected filter or search term.'}
-                            </p>
-                            {jobs.length === 0 && (
-                                <button onClick={handleOpenAddModal} className="btn btn-primary btn-sm">
-                                    <i className="fas fa-plus me-1"></i> Post New Job
-                                </button>
-                            )}
-                        </div>
-                    ) : (
-                        <div className="table-responsive">
-                            <table className="table table-hover align-middle mb-0">
-                                <thead className="table-light">
-                                    <tr>
-                                        <th style={{ width: '32%' }}>Title &amp; Slug</th>
-                                        <th>Department</th>
-                                        <th>Location</th>
-                                        <th>Type &amp; Exp</th>
-                                        <th>Status</th>
-                                        <th className="text-end">Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {filteredJobs.map(job => (
-                                        <tr key={job.id}>
-                                            <td>
-                                                <div className="fw-bold text-dark">{job.title}</div>
-                                                <div className="small text-muted font-monospace">/careers/{job.slug}</div>
-                                            </td>
-                                            <td>
-                                                <span className="badge bg-light text-dark border">{job.department}</span>
-                                            </td>
-                                            <td>
-                                                <span className="small text-muted"><i className="far fa-map-marker-alt me-1"></i>{job.location}</span>
-                                            </td>
-                                            <td>
-                                                <div className="small fw-semibold">{job.employmentType}</div>
-                                                <div className="small text-muted">{job.experience}</div>
-                                            </td>
-                                            <td>
-                                                {job.status === 'published' && <span className="badge bg-success-subtle text-success border border-success-subtle px-2 py-1">Published</span>}
-                                                {job.status === 'draft' && <span className="badge bg-warning-subtle text-warning-emphasis border border-warning-subtle px-2 py-1">Draft</span>}
-                                                {job.status === 'closed' && <span className="badge bg-secondary-subtle text-secondary border border-secondary-subtle px-2 py-1">Closed</span>}
-                                            </td>
-                                            <td className="text-end">
-                                                <div className="d-flex justify-content-end align-items-center gap-1">
-                                                    {/* Quick Status Toggles */}
-                                                    {job.status !== 'published' && (
-                                                        <button
-                                                            className="btn btn-sm btn-outline-success"
-                                                            title="Publish"
-                                                            onClick={() => handleQuickStatusChange(job.id, 'published')}
-                                                        >
-                                                            Publish
-                                                        </button>
-                                                    )}
-                                                    {job.status === 'published' && (
-                                                        <button
-                                                            className="btn btn-sm btn-outline-secondary"
-                                                            title="Unpublish (Save as Draft)"
-                                                            onClick={() => handleQuickStatusChange(job.id, 'draft')}
-                                                        >
-                                                            Unpublish
-                                                        </button>
-                                                    )}
-                                                    {job.status !== 'closed' && (
-                                                        <button
-                                                            className="btn btn-sm btn-outline-warning"
-                                                            title="Close Position"
-                                                            onClick={() => handleQuickStatusChange(job.id, 'closed')}
-                                                        >
-                                                            Close
-                                                        </button>
-                                                    )}
-
-                                                    {/* View Live */}
-                                                    {job.status === 'published' && (
-                                                        <Link
-                                                            to={`/careers/${job.slug}`}
-                                                            target="_blank"
-                                                            className="btn btn-sm btn-light border text-muted"
-                                                            title="View Live Job Page"
-                                                        >
-                                                            <i className="far fa-external-link"></i>
-                                                        </Link>
-                                                    )}
-
-                                                    {/* Edit */}
-                                                    <button
-                                                        className="btn btn-sm btn-light border text-primary"
-                                                        title="Edit Job"
-                                                        onClick={() => handleOpenEditModal(job)}
-                                                    >
-                                                        <i className="fas fa-pencil-alt"></i>
-                                                    </button>
-
-                                                    {/* Delete */}
-                                                    <button
-                                                        className="btn btn-sm btn-light border text-danger"
-                                                        title="Delete Job"
-                                                        onClick={() => setJobToDelete(job)}
-                                                    >
-                                                        <i className="fas fa-trash-alt"></i>
-                                                    </button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    ))}
-                                </tbody>
-                            </table>
-                        </div>
                     )}
                 </div>
+
+                {/* ============================================================== */}
+                {/* TAB 1: JOB OPENINGS                                            */}
+                {/* ============================================================== */}
+                {activeTab === 'jobs' && (
+                    <>
+                        {/* Stats Cards */}
+                        <div className="row g-3 mb-4">
+                            <div className="col-6 col-md-3">
+                                <div className="bg-white p-3 rounded-3 shadow-sm border border-light">
+                                    <div className="text-muted small fw-semibold">Total Roles</div>
+                                    <div className="h3 fw-bold text-dark mb-0 mt-1">{jobStats.total}</div>
+                                </div>
+                            </div>
+                            <div className="col-6 col-md-3">
+                                <div className="bg-white p-3 rounded-3 shadow-sm border border-light">
+                                    <div className="text-muted small fw-semibold">Published (Live)</div>
+                                    <div className="h3 fw-bold text-success mb-0 mt-1">{jobStats.published}</div>
+                                </div>
+                            </div>
+                            <div className="col-6 col-md-3">
+                                <div className="bg-white p-3 rounded-3 shadow-sm border border-light">
+                                    <div className="text-muted small fw-semibold">Drafts</div>
+                                    <div className="h3 fw-bold text-warning mb-0 mt-1">{jobStats.draft}</div>
+                                </div>
+                            </div>
+                            <div className="col-6 col-md-3">
+                                <div className="bg-white p-3 rounded-3 shadow-sm border border-light">
+                                    <div className="text-muted small fw-semibold">Closed</div>
+                                    <div className="h3 fw-bold text-secondary mb-0 mt-1">{jobStats.closed}</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Filters & Search */}
+                        <div className="bg-white p-3 rounded-3 shadow-sm border border-light mb-4 d-flex flex-column flex-md-row justify-content-between align-items-stretch align-items-md-center gap-3">
+                            <div className="btn-group" role="group">
+                                <button
+                                    type="button"
+                                    className={`btn btn-sm ${filterStatus === 'all' ? 'btn-primary' : 'btn-outline-secondary'}`}
+                                    onClick={() => setFilterStatus('all')}
+                                >
+                                    All ({jobStats.total})
+                                </button>
+                                <button
+                                    type="button"
+                                    className={`btn btn-sm ${filterStatus === 'published' ? 'btn-primary' : 'btn-outline-secondary'}`}
+                                    onClick={() => setFilterStatus('published')}
+                                >
+                                    Published ({jobStats.published})
+                                </button>
+                                <button
+                                    type="button"
+                                    className={`btn btn-sm ${filterStatus === 'draft' ? 'btn-primary' : 'btn-outline-secondary'}`}
+                                    onClick={() => setFilterStatus('draft')}
+                                >
+                                    Drafts ({jobStats.draft})
+                                </button>
+                                <button
+                                    type="button"
+                                    className={`btn btn-sm ${filterStatus === 'closed' ? 'btn-primary' : 'btn-outline-secondary'}`}
+                                    onClick={() => setFilterStatus('closed')}
+                                >
+                                    Closed ({jobStats.closed})
+                                </button>
+                            </div>
+
+                            <div style={{ maxWidth: '320px', width: '100%' }}>
+                                <input
+                                    type="text"
+                                    className="form-control form-control-sm"
+                                    placeholder="Search by title, dept or city..."
+                                    value={searchQuery}
+                                    onChange={(e) => setSearchQuery(e.target.value)}
+                                />
+                            </div>
+                        </div>
+
+                        {/* Jobs Table */}
+                        <div className="bg-white rounded-3 shadow-sm border border-light overflow-hidden">
+                            {isLoadingJobs ? (
+                                <div className="text-center py-5">
+                                    <div className="spinner-border text-primary" role="status"></div>
+                                    <p className="text-muted mt-2 small">Loading job postings...</p>
+                                </div>
+                            ) : filteredJobs.length === 0 ? (
+                                <div className="text-center py-5 px-3">
+                                    <i className="far fa-folder-open text-muted mb-3" style={{ fontSize: '42px' }}></i>
+                                    <h5 className="fw-semibold text-dark">No Jobs Found</h5>
+                                    <p className="text-muted small mb-3">
+                                        {jobs.length === 0
+                                            ? 'No job openings exist yet. Click "Post New Job" to create your first posting.'
+                                            : 'No jobs match your selected filter or search term.'}
+                                    </p>
+                                    {jobs.length === 0 && (
+                                        <button onClick={handleOpenAddModal} className="btn btn-primary btn-sm">
+                                            <i className="fas fa-plus me-1"></i> Post New Job
+                                        </button>
+                                    )}
+                                </div>
+                            ) : (
+                                <div className="table-responsive">
+                                    <table className="table table-hover align-middle mb-0">
+                                        <thead className="table-light">
+                                            <tr>
+                                                <th style={{ width: '32%' }}>Title &amp; Slug</th>
+                                                <th>Department</th>
+                                                <th>Location</th>
+                                                <th>Type &amp; Exp</th>
+                                                <th>Status</th>
+                                                <th className="text-end">Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {filteredJobs.map(job => (
+                                                <tr key={job.id}>
+                                                    <td>
+                                                        <div className="fw-bold text-dark">{job.title}</div>
+                                                        <div className="small text-muted font-monospace">/careers/{job.slug}</div>
+                                                    </td>
+                                                    <td>
+                                                        <span className="badge bg-light text-dark border">{job.department}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span className="small text-muted"><i className="far fa-map-marker-alt me-1"></i>{job.location}</span>
+                                                    </td>
+                                                    <td>
+                                                        <div className="small fw-semibold">{job.employmentType}</div>
+                                                        <div className="small text-muted">{job.experience}</div>
+                                                    </td>
+                                                    <td>
+                                                        {job.status === 'published' && <span className="badge bg-success-subtle text-success border border-success-subtle px-2 py-1">Published</span>}
+                                                        {job.status === 'draft' && <span className="badge bg-warning-subtle text-warning-emphasis border border-warning-subtle px-2 py-1">Draft</span>}
+                                                        {job.status === 'closed' && <span className="badge bg-secondary-subtle text-secondary border border-secondary-subtle px-2 py-1">Closed</span>}
+                                                    </td>
+                                                    <td className="text-end">
+                                                        <div className="d-flex justify-content-end align-items-center gap-1">
+                                                            {job.status !== 'published' && (
+                                                                <button
+                                                                    className="btn btn-sm btn-outline-success"
+                                                                    title="Publish"
+                                                                    onClick={() => handleQuickStatusChange(job.id, 'published')}
+                                                                >
+                                                                    Publish
+                                                                </button>
+                                                            )}
+                                                            {job.status === 'published' && (
+                                                                <button
+                                                                    className="btn btn-sm btn-outline-secondary"
+                                                                    title="Unpublish (Save as Draft)"
+                                                                    onClick={() => handleQuickStatusChange(job.id, 'draft')}
+                                                                >
+                                                                    Unpublish
+                                                                </button>
+                                                            )}
+                                                            {job.status !== 'closed' && (
+                                                                <button
+                                                                    className="btn btn-sm btn-outline-warning"
+                                                                    title="Close Position"
+                                                                    onClick={() => handleQuickStatusChange(job.id, 'closed')}
+                                                                >
+                                                                    Close
+                                                                </button>
+                                                            )}
+
+                                                            {job.status === 'published' && (
+                                                                <Link
+                                                                    to={`/careers/${job.slug}`}
+                                                                    target="_blank"
+                                                                    className="btn btn-sm btn-light border text-muted"
+                                                                    title="View Live Job Page"
+                                                                >
+                                                                    <i className="far fa-external-link"></i>
+                                                                </Link>
+                                                            )}
+
+                                                            <button
+                                                                className="btn btn-sm btn-light border text-primary"
+                                                                title="Edit Job"
+                                                                onClick={() => handleOpenEditModal(job)}
+                                                            >
+                                                                <i className="fas fa-pencil-alt"></i>
+                                                            </button>
+
+                                                            <button
+                                                                className="btn btn-sm btn-light border text-danger"
+                                                                title="Delete Job"
+                                                                onClick={() => setJobToDelete(job)}
+                                                            >
+                                                                <i className="fas fa-trash-alt"></i>
+                                                            </button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            ))}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            )}
+                        </div>
+                    </>
+                )}
+
+                {/* ============================================================== */}
+                {/* TAB 2: APPLICATIONS                                           */}
+                {/* ============================================================== */}
+                {activeTab === 'applications' && (
+                    <>
+                        {/* Stats Cards */}
+                        <div className="row g-3 mb-4">
+                            <div className="col-6 col-md-3">
+                                <div className="bg-white p-3 rounded-3 shadow-sm border border-light">
+                                    <div className="text-muted small fw-semibold">Total Received</div>
+                                    <div className="h3 fw-bold text-dark mb-0 mt-1">{appStats.total}</div>
+                                </div>
+                            </div>
+                            <div className="col-6 col-md-3">
+                                <div className="bg-white p-3 rounded-3 shadow-sm border border-light">
+                                    <div className="text-muted small fw-semibold">New / Unread</div>
+                                    <div className="h3 fw-bold text-primary mb-0 mt-1">{appStats.new}</div>
+                                </div>
+                            </div>
+                            <div className="col-6 col-md-3">
+                                <div className="bg-white p-3 rounded-3 shadow-sm border border-light">
+                                    <div className="text-muted small fw-semibold">Shortlisted</div>
+                                    <div className="h3 fw-bold text-success mb-0 mt-1">{appStats.shortlisted}</div>
+                                </div>
+                            </div>
+                            <div className="col-6 col-md-3">
+                                <div className="bg-white p-3 rounded-3 shadow-sm border border-light">
+                                    <div className="text-muted small fw-semibold">Reviewed / Closed</div>
+                                    <div className="h3 fw-bold text-secondary mb-0 mt-1">{appStats.reviewed + appStats.rejected}</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Filters & Search */}
+                        <div className="bg-white p-3 rounded-3 shadow-sm border border-light mb-4 d-flex flex-column flex-md-row justify-content-between align-items-stretch align-items-md-center gap-3">
+                            <div className="btn-group" role="group">
+                                <button
+                                    type="button"
+                                    className={`btn btn-sm ${appFilterStatus === 'all' ? 'btn-primary' : 'btn-outline-secondary'}`}
+                                    onClick={() => setAppFilterStatus('all')}
+                                >
+                                    All ({appStats.total})
+                                </button>
+                                <button
+                                    type="button"
+                                    className={`btn btn-sm ${appFilterStatus === 'new' ? 'btn-primary' : 'btn-outline-secondary'}`}
+                                    onClick={() => setAppFilterStatus('new')}
+                                >
+                                    New ({appStats.new})
+                                </button>
+                                <button
+                                    type="button"
+                                    className={`btn btn-sm ${appFilterStatus === 'reviewed' ? 'btn-primary' : 'btn-outline-secondary'}`}
+                                    onClick={() => setAppFilterStatus('reviewed')}
+                                >
+                                    Reviewed ({appStats.reviewed})
+                                </button>
+                                <button
+                                    type="button"
+                                    className={`btn btn-sm ${appFilterStatus === 'shortlisted' ? 'btn-primary' : 'btn-outline-secondary'}`}
+                                    onClick={() => setAppFilterStatus('shortlisted')}
+                                >
+                                    Shortlisted ({appStats.shortlisted})
+                                </button>
+                                <button
+                                    type="button"
+                                    className={`btn btn-sm ${appFilterStatus === 'rejected' ? 'btn-primary' : 'btn-outline-secondary'}`}
+                                    onClick={() => setAppFilterStatus('rejected')}
+                                >
+                                    Rejected ({appStats.rejected})
+                                </button>
+                            </div>
+
+                            <div style={{ maxWidth: '340px', width: '100%' }}>
+                                <input
+                                    type="text"
+                                    className="form-control form-control-sm"
+                                    placeholder="Search candidate name, email, phone or role..."
+                                    value={appSearchQuery}
+                                    onChange={(e) => setAppSearchQuery(e.target.value)}
+                                />
+                            </div>
+                        </div>
+
+                        {/* Applications Table */}
+                        <div className="bg-white rounded-3 shadow-sm border border-light overflow-hidden">
+                            {isLoadingApps ? (
+                                <div className="text-center py-5">
+                                    <div className="spinner-border text-primary" role="status"></div>
+                                    <p className="text-muted mt-2 small">Loading applications...</p>
+                                </div>
+                            ) : filteredApps.length === 0 ? (
+                                <div className="text-center py-5 px-3">
+                                    <i className="far fa-user-friends text-muted mb-3" style={{ fontSize: '42px' }}></i>
+                                    <h5 className="fw-semibold text-dark">No Applications Found</h5>
+                                    <p className="text-muted small mb-0">
+                                        {applications.length === 0
+                                            ? 'No candidate applications have been received yet.'
+                                            : 'No applications match your selected status or search term.'}
+                                    </p>
+                                </div>
+                            ) : (
+                                <div className="table-responsive">
+                                    <table className="table table-hover align-middle mb-0">
+                                        <thead className="table-light">
+                                            <tr>
+                                                <th style={{ width: '25%' }}>Candidate Name</th>
+                                                <th>Position</th>
+                                                <th>Contact Details</th>
+                                                <th>Experience</th>
+                                                <th>Applied Date</th>
+                                                <th>Status</th>
+                                                <th className="text-end">Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {filteredApps.map(app => (
+                                                <tr key={app.id}>
+                                                    <td>
+                                                        <div className="fw-bold text-dark">{app.fullName}</div>
+                                                        <div className="small text-muted font-monospace">ID: {app.id}</div>
+                                                    </td>
+                                                    <td>
+                                                        <span className="badge bg-light text-primary border">{app.position}</span>
+                                                    </td>
+                                                    <td>
+                                                        <div className="small text-dark">{app.email}</div>
+                                                        <div className="small text-muted">{app.phone}</div>
+                                                    </td>
+                                                    <td>
+                                                        <span className="small fw-semibold text-secondary">{app.experience}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span className="small text-muted">
+                                                            {app.appliedAt ? new Date(app.appliedAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : 'N/A'}
+                                                        </span>
+                                                    </td>
+                                                    <td>
+                                                        {app.status === 'new' && (
+                                                            <span className="badge bg-primary-subtle text-primary border border-primary-subtle px-2 py-1">New</span>
+                                                        )}
+                                                        {app.status === 'reviewed' && (
+                                                            <span className="badge bg-info-subtle text-info-emphasis border border-info-subtle px-2 py-1">Reviewed</span>
+                                                        )}
+                                                        {app.status === 'shortlisted' && (
+                                                            <span className="badge bg-success-subtle text-success border border-success-subtle px-2 py-1">Shortlisted</span>
+                                                        )}
+                                                        {app.status === 'rejected' && (
+                                                            <span className="badge bg-danger-subtle text-danger border border-danger-subtle px-2 py-1">Rejected</span>
+                                                        )}
+                                                    </td>
+                                                    <td className="text-end">
+                                                        <div className="d-flex justify-content-end align-items-center gap-1">
+                                                            {/* View Details */}
+                                                            <button
+                                                                className="btn btn-sm btn-light border text-primary"
+                                                                title="View Details"
+                                                                onClick={() => setSelectedApp(app)}
+                                                            >
+                                                                <i className="fas fa-eye me-1"></i> View
+                                                            </button>
+
+                                                            {/* Download Resume */}
+                                                            {app.storedFileName && (
+                                                                <button
+                                                                    className="btn btn-sm btn-light border text-success"
+                                                                    title="Download Resume"
+                                                                    onClick={() => handleDownloadResume(app.id, app.originalFileName)}
+                                                                >
+                                                                    <i className="fas fa-file-download me-1"></i> CV
+                                                                </button>
+                                                            )}
+
+                                                            {/* Delete */}
+                                                            <button
+                                                                className="btn btn-sm btn-light border text-danger"
+                                                                title="Delete Application"
+                                                                onClick={() => setAppToDelete(app)}
+                                                            >
+                                                                <i className="fas fa-trash-alt"></i>
+                                                            </button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            ))}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            )}
+                        </div>
+                    </>
+                )}
             </div>
+
+            {/* View Application Details Modal */}
+            <Modal show={!!selectedApp} onHide={() => setSelectedApp(null)} size="lg" centered>
+                <Modal.Header closeButton>
+                    <Modal.Title className="h5 fw-bold" style={{ color: '#1c2539' }}>
+                        Application: {selectedApp?.fullName}
+                    </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    {selectedApp && (
+                        <div>
+                            <div className="row g-3 mb-4">
+                                <div className="col-md-6">
+                                    <div className="p-3 bg-light rounded-3">
+                                        <div className="text-muted small fw-semibold">Position Applied For</div>
+                                        <div className="fw-bold text-dark mt-1">{selectedApp.position}</div>
+                                    </div>
+                                </div>
+                                <div className="col-md-6">
+                                    <div className="p-3 bg-light rounded-3">
+                                        <div className="text-muted small fw-semibold">Experience Level</div>
+                                        <div className="fw-bold text-dark mt-1">{selectedApp.experience}</div>
+                                    </div>
+                                </div>
+                                <div className="col-md-6">
+                                    <div className="p-3 bg-light rounded-3">
+                                        <div className="text-muted small fw-semibold">Email Address</div>
+                                        <div className="fw-bold text-dark mt-1">
+                                            <a href={`mailto:${selectedApp.email}`} className="text-primary text-decoration-none">
+                                                {selectedApp.email}
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col-md-6">
+                                    <div className="p-3 bg-light rounded-3">
+                                        <div className="text-muted small fw-semibold">Phone Number</div>
+                                        <div className="fw-bold text-dark mt-1">
+                                            <a href={`tel:${selectedApp.phone}`} className="text-primary text-decoration-none">
+                                                {selectedApp.phone}
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Cover Letter */}
+                            <div className="mb-4">
+                                <label className="form-label small fw-bold text-dark">Cover Letter / Candidate Message</label>
+                                <div className="p-3 rounded-3 border bg-white" style={{ minHeight: '100px', whiteSpace: 'pre-line', color: '#475569', fontSize: '14px', lineHeight: '1.6' }}>
+                                    {selectedApp.coverLetter || 'No cover letter provided.'}
+                                </div>
+                            </div>
+
+                            {/* Resume Download Action */}
+                            <div className="d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-3 p-3 bg-light rounded-3 mb-4">
+                                <div>
+                                    <div className="fw-semibold text-dark small">Uploaded Resume File:</div>
+                                    <div className="text-muted small">{selectedApp.originalFileName || 'resume.pdf'}</div>
+                                </div>
+                                {selectedApp.storedFileName ? (
+                                    <button
+                                        type="button"
+                                        className="btn btn-primary btn-sm px-3"
+                                        onClick={() => handleDownloadResume(selectedApp.id, selectedApp.originalFileName)}
+                                    >
+                                        <i className="fas fa-download me-1"></i> Download Resume
+                                    </button>
+                                ) : (
+                                    <span className="badge bg-secondary">No file uploaded</span>
+                                )}
+                            </div>
+
+                            {/* Status Changer */}
+                            <div>
+                                <label className="form-label small fw-bold text-dark">Application Status</label>
+                                <div className="btn-group w-100" role="group">
+                                    <button
+                                        type="button"
+                                        className={`btn btn-sm ${selectedApp.status === 'new' ? 'btn-primary' : 'btn-outline-primary'}`}
+                                        onClick={() => handleUpdateAppStatus(selectedApp.id, 'new')}
+                                    >
+                                        New
+                                    </button>
+                                    <button
+                                        type="button"
+                                        className={`btn btn-sm ${selectedApp.status === 'reviewed' ? 'btn-info text-white' : 'btn-outline-info'}`}
+                                        onClick={() => handleUpdateAppStatus(selectedApp.id, 'reviewed')}
+                                    >
+                                        Reviewed
+                                    </button>
+                                    <button
+                                        type="button"
+                                        className={`btn btn-sm ${selectedApp.status === 'shortlisted' ? 'btn-success' : 'btn-outline-success'}`}
+                                        onClick={() => handleUpdateAppStatus(selectedApp.id, 'shortlisted')}
+                                    >
+                                        Shortlisted
+                                    </button>
+                                    <button
+                                        type="button"
+                                        className={`btn btn-sm ${selectedApp.status === 'rejected' ? 'btn-danger' : 'btn-outline-danger'}`}
+                                        onClick={() => handleUpdateAppStatus(selectedApp.id, 'rejected')}
+                                    >
+                                        Rejected
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+                </Modal.Body>
+                <Modal.Footer>
+                    <button type="button" className="btn btn-outline-secondary" onClick={() => setSelectedApp(null)}>
+                        Close
+                    </button>
+                </Modal.Footer>
+            </Modal>
+
+            {/* Delete Application Modal */}
+            <Modal show={!!appToDelete} onHide={() => setAppToDelete(null)} centered>
+                <Modal.Header closeButton>
+                    <Modal.Title className="h5 text-danger fw-bold">Delete Application</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <p className="mb-0">
+                        Are you sure you want to permanently delete the application from <strong>{appToDelete?.fullName}</strong>?
+                        This will also remove their attached resume from disk.
+                    </p>
+                </Modal.Body>
+                <Modal.Footer>
+                    <button type="button" className="btn btn-outline-secondary" onClick={() => setAppToDelete(null)}>
+                        Cancel
+                    </button>
+                    <button type="button" disabled={isDeletingApp} className="btn btn-danger px-4" onClick={handleDeleteApplication}>
+                        {isDeletingApp ? 'Deleting...' : 'Delete Application'}
+                    </button>
+                </Modal.Footer>
+            </Modal>
 
             {/* Add / Edit Job Modal */}
             <Modal show={showEditModal} onHide={() => setShowEditModal(false)} size="lg" centered backdrop="static">
@@ -854,7 +1343,7 @@ function AdminCareers() {
                 </form>
             </Modal>
 
-            {/* Delete Confirmation Modal */}
+            {/* Delete Job Confirmation Modal */}
             <Modal show={!!jobToDelete} onHide={() => setJobToDelete(null)} centered>
                 <Modal.Header closeButton>
                     <Modal.Title className="h5 text-danger fw-bold">Delete Job Opening</Modal.Title>
@@ -878,4 +1367,3 @@ function AdminCareers() {
 }
 
 export default AdminCareers;
-

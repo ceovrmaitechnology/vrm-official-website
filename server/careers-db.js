@@ -5,18 +5,29 @@ const crypto = require('crypto');
 const DATA_DIR = path.resolve(__dirname, 'data');
 const JOBS_FILE = path.join(DATA_DIR, 'jobs.json');
 const ADMIN_FILE = path.join(DATA_DIR, 'admin.json');
+const APPLICATIONS_FILE = path.join(DATA_DIR, 'applications.json');
 const SECRET_FILE = path.join(DATA_DIR, '.jwt_secret');
+const UPLOADS_DIR = path.resolve(__dirname, 'uploads');
+const RESUMES_DIR = path.join(UPLOADS_DIR, 'resumes');
 const SITEMAP_PUBLIC = path.resolve(__dirname, '../public/sitemap.xml');
 const SITEMAP_BUILD = path.resolve(__dirname, '../build/sitemap.xml');
 
-// Ensure data directory exists
+// Ensure data directory and uploads exist
 if (!fs.existsSync(DATA_DIR)) {
   fs.mkdirSync(DATA_DIR, { recursive: true });
+}
+if (!fs.existsSync(RESUMES_DIR)) {
+  fs.mkdirSync(RESUMES_DIR, { recursive: true });
 }
 
 // Ensure jobs.json exists
 if (!fs.existsSync(JOBS_FILE)) {
   fs.writeFileSync(JOBS_FILE, JSON.stringify([], null, 2), 'utf8');
+}
+
+// Ensure applications.json exists
+if (!fs.existsSync(APPLICATIONS_FILE)) {
+  fs.writeFileSync(APPLICATIONS_FILE, JSON.stringify([], null, 2), 'utf8');
 }
 
 // Get or initialize JWT Secret
@@ -499,6 +510,118 @@ function injectJobPrerenderMeta(html, job) {
   return modified;
 }
 
+// -------------------------------------------------------------
+// APPLICATIONS REPOSITORY
+// -------------------------------------------------------------
+
+function readApplicationsRaw() {
+  try {
+    if (!fs.existsSync(APPLICATIONS_FILE)) {
+      writeJsonAtomic(APPLICATIONS_FILE, []);
+      return [];
+    }
+    const content = fs.readFileSync(APPLICATIONS_FILE, 'utf8');
+    const parsed = JSON.parse(content);
+    return Array.isArray(parsed) ? parsed : [];
+  } catch (error) {
+    console.error('Error reading applications file:', error.message);
+    return [];
+  }
+}
+
+function getApplications() {
+  const all = readApplicationsRaw();
+  return all.sort((a, b) => new Date(b.appliedAt || 0) - new Date(a.appliedAt || 0));
+}
+
+function getApplicationById(id) {
+  if (!id) return null;
+  const all = readApplicationsRaw();
+  return all.find(a => String(a.id) === String(id)) || null;
+}
+
+function saveApplication({ fullName, email, phone, experience, position, coverLetter, originalFileName, fileBuffer }) {
+  const all = readApplicationsRaw();
+  const now = new Date().toISOString();
+
+  let storedFileName = null;
+  // If resume file buffer is provided, store securely in RESUMES_DIR
+  if (fileBuffer && originalFileName) {
+    const rawExt = path.extname(originalFileName).toLowerCase();
+    const safeExt = ['.pdf', '.doc', '.docx'].includes(rawExt) ? rawExt : '.pdf';
+    storedFileName = `resume_${Date.now()}_${crypto.randomBytes(4).toString('hex')}${safeExt}`;
+    const targetPath = path.join(RESUMES_DIR, storedFileName);
+    fs.writeFileSync(targetPath, fileBuffer);
+  }
+
+  const appRecord = {
+    id: `app_${Date.now()}_${crypto.randomBytes(3).toString('hex')}`,
+    fullName: String(fullName || '').trim(),
+    email: String(email || '').trim().toLowerCase(),
+    phone: String(phone || '').trim(),
+    experience: String(experience || '').trim(),
+    position: String(position || 'General Application').trim(),
+    coverLetter: String(coverLetter || '').trim(),
+    originalFileName: originalFileName ? String(originalFileName).replace(/[^\w\s.-]/g, '_') : null,
+    storedFileName,
+    status: 'new', // 'new' | 'reviewed' | 'shortlisted' | 'rejected'
+    appliedAt: now,
+    updatedAt: now
+  };
+
+  const updated = [appRecord, ...all];
+  writeJsonAtomic(APPLICATIONS_FILE, updated);
+  return appRecord;
+}
+
+function updateApplicationStatus(id, newStatus) {
+  const allowed = ['new', 'reviewed', 'shortlisted', 'rejected'];
+  if (!allowed.includes(newStatus)) {
+    throw new Error(`Invalid status. Must be one of: ${allowed.join(', ')}`);
+  }
+  const all = readApplicationsRaw();
+  const idx = all.findIndex(a => String(a.id) === String(id));
+  if (idx === -1) throw new Error(`Application with id ${id} not found`);
+
+  all[idx].status = newStatus;
+  all[idx].updatedAt = new Date().toISOString();
+  writeJsonAtomic(APPLICATIONS_FILE, all);
+  return all[idx];
+}
+
+function deleteApplication(id) {
+  const all = readApplicationsRaw();
+  const app = all.find(a => String(a.id) === String(id));
+  if (!app) throw new Error(`Application with id ${id} not found`);
+
+  // Delete resume file if exists
+  if (app.storedFileName) {
+    const filePath = path.join(RESUMES_DIR, app.storedFileName);
+    if (fs.existsSync(filePath)) {
+      try {
+        fs.unlinkSync(filePath);
+      } catch (err) {
+        console.error('Error deleting resume file:', err.message);
+      }
+    }
+  }
+
+  const filtered = all.filter(a => String(a.id) !== String(id));
+  writeJsonAtomic(APPLICATIONS_FILE, filtered);
+  return true;
+}
+
+function getResumeFilePath(storedFileName) {
+  if (!storedFileName) return null;
+  // Prevent directory traversal attacks
+  const safeBase = path.basename(storedFileName);
+  const targetPath = path.join(RESUMES_DIR, safeBase);
+  if (fs.existsSync(targetPath)) {
+    return targetPath;
+  }
+  return null;
+}
+
 module.exports = {
   getJobs,
   getJobBySlug,
@@ -514,6 +637,12 @@ module.exports = {
   verifyToken,
   checkRateLimit,
   recordLoginResult,
-  injectJobPrerenderMeta
+  injectJobPrerenderMeta,
+  getApplications,
+  getApplicationById,
+  saveApplication,
+  updateApplicationStatus,
+  deleteApplication,
+  getResumeFilePath
 };
 

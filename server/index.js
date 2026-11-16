@@ -401,6 +401,64 @@ app.delete("/api/admin/careers/jobs/:id", requireAdmin, (req, res) => {
   }
 });
 
+// 4. Admin Applications Management Endpoints (Auth Required)
+app.get("/api/admin/careers/applications", requireAdmin, (req, res) => {
+  try {
+    const applications = careersDb.getApplications();
+    res.json({ success: true, applications });
+  } catch (err) {
+    res.status(500).json({ success: false, message: err.message });
+  }
+});
+
+app.get("/api/admin/careers/applications/:id", requireAdmin, (req, res) => {
+  try {
+    const application = careersDb.getApplicationById(req.params.id);
+    if (!application) {
+      return res.status(404).json({ success: false, message: "Application not found." });
+    }
+    res.json({ success: true, application });
+  } catch (err) {
+    res.status(500).json({ success: false, message: err.message });
+  }
+});
+
+app.patch("/api/admin/careers/applications/:id/status", requireAdmin, (req, res) => {
+  try {
+    const { status } = req.body || {};
+    const updated = careersDb.updateApplicationStatus(req.params.id, status);
+    res.json({ success: true, application: updated });
+  } catch (err) {
+    res.status(400).json({ success: false, message: err.message });
+  }
+});
+
+app.delete("/api/admin/careers/applications/:id", requireAdmin, (req, res) => {
+  try {
+    careersDb.deleteApplication(req.params.id);
+    res.json({ success: true, message: "Application deleted successfully." });
+  } catch (err) {
+    res.status(400).json({ success: false, message: err.message });
+  }
+});
+
+app.get("/api/admin/careers/applications/:id/resume", requireAdmin, (req, res) => {
+  try {
+    const application = careersDb.getApplicationById(req.params.id);
+    if (!application || !application.storedFileName) {
+      return res.status(404).json({ success: false, message: "No resume attached to this application." });
+    }
+    const filePath = careersDb.getResumeFilePath(application.storedFileName);
+    if (!filePath || !fs.existsSync(filePath)) {
+      return res.status(404).json({ success: false, message: "Resume file not found on server disk." });
+    }
+    const downloadName = application.originalFileName || `resume_${application.fullName.replace(/\s+/g, '_')}${path.extname(application.storedFileName)}`;
+    res.download(filePath, downloadName);
+  } catch (err) {
+    res.status(500).json({ success: false, message: err.message });
+  }
+});
+
 app.post(
   "/api/contact",
   asyncHandler(async (req, res) => {
@@ -480,28 +538,70 @@ app.post(
 app.post(
   "/api/apply",
   upload.single("resume"),
-  asyncHandler(async (req, res) => {
-    const { fullName, email, phone, experience, position, coverLetter } = req.body;
-    if (!fullName || !email || !phone || !experience || !position) {
-      return res.status(400).json({ success: false, message: "Please fill all required fields." });
+  async (req, res) => {
+    try {
+      const { fullName, email, phone, experience, position, coverLetter } = req.body || {};
+      if (!fullName || !email || !phone || !experience || !position) {
+        return res.status(400).json({ success: false, message: "Please fill all required fields." });
+      }
+
+      // Upload security: Validate file format if attached
+      if (req.file) {
+        const ext = path.extname(req.file.originalname || '').toLowerCase();
+        if (!['.pdf', '.doc', '.docx'].includes(ext)) {
+          return res.status(400).json({
+            success: false,
+            message: "Invalid file type. Only PDF, DOC, and DOCX resumes are accepted."
+          });
+        }
+      }
+
+      // 1. Save application record & resume file persistently to server/data and server/uploads
+      const appRecord = careersDb.saveApplication({
+        fullName,
+        email,
+        phone,
+        experience,
+        position,
+        coverLetter,
+        originalFileName: req.file ? req.file.originalname : null,
+        fileBuffer: req.file ? req.file.buffer : null
+      });
+
+      // 2. Email notification to contactus@vrmaitechnology.com
+      try {
+        await sendFormMail({
+          subject: `Careers Application | ${position} - ${fullName}`,
+          replyTo: email,
+          fields: {
+            "Applicant Name": fullName,
+            "Email Address": email,
+            "Phone Number": phone,
+            "Experience": experience,
+            "Position": position,
+            "Cover Letter": coverLetter || "None provided",
+            "Application ID": appRecord.id,
+            "Submission Time": new Date().toISOString()
+          },
+          file: req.file,
+        });
+        console.log(`[CAREERS] Application email notification sent for ${fullName} (${position})`);
+      } catch (mailErr) {
+        console.warn(`[CAREERS] Application ${appRecord.id} saved to disk, but email notification failed: ${mailErr.message}`);
+      }
+
+      return res.json({
+        success: true,
+        message: "Application submitted successfully! Our talent acquisition team will review your profile shortly."
+      });
+    } catch (err) {
+      console.error("[CAREERS ERROR] Failed to process application:", err);
+      return res.status(500).json({
+        success: false,
+        message: "An error occurred while saving your application. Please email contactus@vrmaitechnology.com."
+      });
     }
-
-    await sendFormMail({
-      subject: `Careers Application | ${position}`,
-      replyTo: email,
-      fields: {
-        "Full Name": fullName,
-        Email: email,
-        Phone: phone,
-        Experience: experience,
-        Position: position,
-        "Cover Letter": coverLetter,
-      },
-      file: req.file,
-    });
-
-    res.json({ success: true });
-  })
+  }
 );
 
 app.post(

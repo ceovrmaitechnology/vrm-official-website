@@ -1,0 +1,16 @@
+[
+  {
+    "id": "app_example_1",
+    "fullName": "Jane Doe",
+    "email": "jane.doe@example.com",
+    "phone": "+91 98765 43210",
+    "experience": "3-5 Years",
+    "position": "Senior AI Engineer",
+    "coverLetter": "Passionate about building autonomous agentic workflows and LLM deployment.",
+    "originalFileName": "Jane_Doe_Resume.pdf",
+    "storedFileName": "resume_example_1.pdf",
+    "status": "new",
+    "appliedAt": "2026-11-16T12:00:00.000Z",
+    "updatedAt": "2026-11-16T12:00:00.000Z"
+  }
+]

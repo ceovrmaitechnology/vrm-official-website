@@ -284,7 +284,7 @@ function Careers() {
                                 </div>
                                 <div className="col-md-6">
                                     <label className="form-label fw-bold small text-dark">Phone Number <span className="text-danger">*</span></label>
-                                    <input type="text" name="phone" placeholder="+91 73977 51037" required style={{ border: '1px solid #eee', borderRadius: '8px', padding: '12px 15px', height: 'auto', marginBottom: '0' }} />
+                                    <input type="tel" name="phone" placeholder="e.g. +91 98765 43210" required style={{ border: '1px solid #eee', borderRadius: '8px', padding: '12px 15px', height: 'auto', marginBottom: '0' }} />
                                 </div>
                                 <div className="col-md-6">
                                     <label className="form-label fw-bold small text-dark">Experience (Years) <span className="text-danger">*</span></label>
@@ -308,7 +308,13 @@ function Careers() {
                                     <label className="form-label fw-bold small text-dark">Cover Letter</label>
                                     <textarea name="coverLetter" placeholder="Tell us why you're a great fit..." rows={4} style={{ border: '1px solid #eee', borderRadius: '8px', padding: '12px 15px', marginBottom: '0', fontSize: '14px' }} />
                                 </div>
-                                <div className="col-12 mt-4 text-center">
+                                <div className="col-12 mt-2">
+                                    <p className="text-muted" style={{ fontSize: '12px', lineHeight: '1.5', marginBottom: 0 }}>
+                                        <i className="fas fa-shield-alt text-primary me-1"></i>
+                                        By submitting this application, you consent to VRM AI Technology processing your personal data and resume for recruitment purposes in accordance with our <Link to="/privacy-policy" target="_blank" style={{ color: 'var(--color-primary)', textDecoration: 'underline' }}>Privacy Policy</Link>.
+                                    </p>
+                                </div>
+                                <div className="col-12 mt-3 text-center">
                                     <button type="submit" disabled={isSubmitting} className="rts-btn btn-primary" style={{ width: '100%', padding: '14px', borderRadius: '8px', opacity: isSubmitting ? 0.7 : 1 }}>
                                         {isSubmitting ? 'Submitting Application...' : 'Submit Application'}
                                     </button>
