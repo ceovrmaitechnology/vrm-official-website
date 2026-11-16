@@ -1,14 +1,15 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Modal } from 'react-bootstrap';
+import './AdminCareers.css';
 
 const TOKEN_KEY = 'vrm_admin_token';
 const USER_KEY = 'vrm_admin_user_data';
 
 function AdminCareers() {
     const location = useLocation();
-    const navigate = useNavigate();
+    const searchInputRef = useRef(null);
 
     // Check if on reset-password view
     const isResetPasswordPath = location.pathname.includes('/admin/reset-password');
@@ -28,8 +29,17 @@ function AdminCareers() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [authChecking, setAuthChecking] = useState(true);
 
-    // Active Navigation Tab: 'jobs' | 'applications' | 'gallery' | 'admins'
-    const [activeTab, setActiveTab] = useState('jobs');
+    // Mobile Sidebar Drawer
+    const [sidebarOpen, setSidebarOpen] = useState(false);
+
+    // Active Navigation Tab: 'dashboard' | 'jobs' | 'applications' | 'gallery' | 'admins'
+    const [activeTab, setActiveTab] = useState('gallery');
+
+    // Global Search & Shortcut State
+    const [globalSearch, setGlobalSearch] = useState('');
+
+    // User Profile Dropdown State
+    const [showUserDropdown, setShowUserDropdown] = useState(false);
 
     // Login Form State
     const [loginUser, setLoginUser] = useState('');
@@ -44,14 +54,14 @@ function AdminCareers() {
     const [forgotStatus, setForgotStatus] = useState({ type: '', message: '' });
     const [isSendingForgot, setIsSendingForgot] = useState(false);
 
-    // Reset Password Form State (for /admin/reset-password?token=...)
+    // Reset Password Form State
     const [resetToken, setResetToken] = useState(resetTokenParam);
     const [resetNewPass, setResetNewPass] = useState('');
     const [resetConfirmPass, setResetConfirmPass] = useState('');
     const [resetStatus, setResetStatus] = useState({ type: '', message: '' });
     const [isResetting, setIsResetting] = useState(false);
 
-    // Change Password Modal State (for logged-in user)
+    // Change Password Modal State
     const [showChangePassModal, setShowChangePassModal] = useState(false);
     const [currentPassword, setCurrentPassword] = useState('');
     const [newPassword, setNewPassword] = useState('');
@@ -62,14 +72,13 @@ function AdminCareers() {
     // Jobs State
     const [jobs, setJobs] = useState([]);
     const [isLoadingJobs, setIsLoadingJobs] = useState(false);
-    const [filterStatus, setFilterStatus] = useState('all');
-    const [searchQuery, setSearchQuery] = useState('');
-
-    // Job Add/Edit Modal State
-    const [showEditModal, setShowEditModal] = useState(false);
+    const [jobFilterStatus, setJobFilterStatus] = useState('all');
+    const [showEditJobModal, setShowEditJobModal] = useState(false);
     const [editingJobId, setEditingJobId] = useState(null);
-    const [isSaving, setIsSaving] = useState(false);
-    const [formError, setFormError] = useState('');
+    const [isSavingJob, setIsSavingJob] = useState(false);
+    const [jobFormError, setJobFormError] = useState('');
+    const [jobToDelete, setJobToDelete] = useState(null);
+    const [isDeletingJob, setIsDeletingJob] = useState(false);
 
     // Job Form Fields
     const [formTitle, setFormTitle] = useState('');
@@ -81,26 +90,28 @@ function AdminCareers() {
     const [formShortDesc, setFormShortDesc] = useState('');
     const [formResponsibilities, setFormResponsibilities] = useState('');
     const [formRequirements, setFormRequirements] = useState('');
-    const [formStatus, setFormStatus] = useState('draft');
-    const [formApplyEmail, setFormApplyEmail] = useState('contactus@vrmaitechnology.com');
+    const [formJobStatus, setFormJobStatus] = useState('draft');
+    const [formApplyEmail] = useState('contactus@vrmaitechnology.com');
     const [formApplyLink, setFormApplyLink] = useState('');
-
-    // Job Delete Modal State
-    const [jobToDelete, setJobToDelete] = useState(null);
-    const [isDeleting, setIsDeleting] = useState(false);
 
     // Applications State
     const [applications, setApplications] = useState([]);
     const [isLoadingApps, setIsLoadingApps] = useState(false);
     const [appFilterStatus, setAppFilterStatus] = useState('all');
-    const [appSearchQuery, setAppSearchQuery] = useState('');
     const [selectedApp, setSelectedApp] = useState(null);
     const [appToDelete, setAppToDelete] = useState(null);
     const [isDeletingApp, setIsDeletingApp] = useState(false);
 
-    // Gallery State
+    // Gallery State (Life at VRM)
     const [gallery, setGallery] = useState([]);
     const [isLoadingGallery, setIsLoadingGallery] = useState(false);
+    const [gallerySubTab, setGallerySubTab] = useState('all'); // 'all' | 'approvals' | 'published' | 'hidden'
+    const [galleryCategoryFilter, setGalleryCategoryFilter] = useState('all');
+    const [galleryDateFilter, setGalleryDateFilter] = useState('all');
+    const [galleryViewMode, setGalleryViewMode] = useState('list'); // 'list' | 'grid'
+    const [selectedPhotoIds, setSelectedPhotoIds] = useState(new Set());
+
+    // Gallery Modals
     const [showUploadModal, setShowUploadModal] = useState(false);
     const [editingPhoto, setEditingPhoto] = useState(null);
     const [photoToDelete, setPhotoToDelete] = useState(null);
@@ -115,9 +126,9 @@ function AdminCareers() {
     const [photoCategory, setPhotoCategory] = useState('Fun Friday');
     const [photoEventDate, setPhotoEventDate] = useState(() => new Date().toISOString().slice(0, 10));
     const [photoAltText, setPhotoAltText] = useState('');
-    const [photoStatus, setPhotoStatus] = useState('published');
+    const [photoStatus, setPhotoStatus] = useState('hidden'); // Default Hidden/Pending on upload as per spec
 
-    // Admin Users Management State (Superadmin only)
+    // Admin Users State (Superadmin only)
     const [adminUsers, setAdminUsers] = useState([]);
     const [isLoadingAdmins, setIsLoadingAdmins] = useState(false);
     const [showAddAdminModal, setShowAddAdminModal] = useState(false);
@@ -127,7 +138,7 @@ function AdminCareers() {
     const [isDeletingAdmin, setIsDeletingAdmin] = useState(false);
     const [adminFormError, setAdminFormError] = useState('');
 
-    // Generated Temp Password Modal (Shown once!)
+    // Generated Temp Password Modal
     const [tempPasswordModal, setTempPasswordModal] = useState({ show: false, username: '', password: '', message: '' });
     const [copySuccess, setCopySuccess] = useState(false);
 
@@ -150,9 +161,9 @@ function AdminCareers() {
         setApplications([]);
         setGallery([]);
         setAdminUsers([]);
+        setShowUserDropdown(false);
     }, []);
 
-    // Save token and user object
     const saveSession = useCallback((newToken, userObj, remember = true) => {
         const storage = remember ? localStorage : sessionStorage;
         storage.setItem(TOKEN_KEY, newToken);
@@ -162,7 +173,21 @@ function AdminCareers() {
         setIsAuthenticated(true);
     }, []);
 
-    // Verify Auth on mount / token change
+    // Ctrl+K Global Search Keyboard Shortcut Listener
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+                e.preventDefault();
+                searchInputRef.current?.focus();
+            } else if (e.key === 'Escape') {
+                setShowUserDropdown(false);
+            }
+        };
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, []);
+
+    // Verify Auth on mount
     useEffect(() => {
         if (!token) {
             setIsAuthenticated(false);
@@ -188,12 +213,8 @@ function AdminCareers() {
                     logout();
                 }
             })
-            .catch(() => {
-                logout();
-            })
-            .finally(() => {
-                setAuthChecking(false);
-            });
+            .catch(() => logout())
+            .finally(() => setAuthChecking(false));
     }, [token, logout]);
 
     // Fetch Jobs
@@ -206,11 +227,8 @@ function AdminCareers() {
         })
             .then(res => {
                 if (res.ok) return res.json();
-                if (res.status === 401) {
-                    logout();
-                    throw new Error('Session expired');
-                }
-                throw new Error('Failed to fetch jobs');
+                if (res.status === 401) { logout(); throw new Error('Expired'); }
+                throw new Error('Failed');
             })
             .then(data => {
                 if (data && data.success && Array.isArray(data.jobs)) {
@@ -231,11 +249,8 @@ function AdminCareers() {
         })
             .then(res => {
                 if (res.ok) return res.json();
-                if (res.status === 401) {
-                    logout();
-                    throw new Error('Session expired');
-                }
-                throw new Error('Failed to fetch applications');
+                if (res.status === 401) { logout(); throw new Error('Expired'); }
+                throw new Error('Failed');
             })
             .then(data => {
                 if (data && data.success && Array.isArray(data.applications)) {
@@ -256,11 +271,8 @@ function AdminCareers() {
         })
             .then(res => {
                 if (res.ok) return res.json();
-                if (res.status === 401) {
-                    logout();
-                    throw new Error('Session expired');
-                }
-                throw new Error('Failed to fetch gallery');
+                if (res.status === 401) { logout(); throw new Error('Expired'); }
+                throw new Error('Failed');
             })
             .then(data => {
                 if (data && data.success && Array.isArray(data.gallery)) {
@@ -281,11 +293,8 @@ function AdminCareers() {
         })
             .then(res => {
                 if (res.ok) return res.json();
-                if (res.status === 401) {
-                    logout();
-                    throw new Error('Session expired');
-                }
-                throw new Error('Failed to fetch admins');
+                if (res.status === 401) { logout(); throw new Error('Expired'); }
+                throw new Error('Failed');
             })
             .then(data => {
                 if (data && data.success && Array.isArray(data.users)) {
@@ -307,7 +316,9 @@ function AdminCareers() {
         }
     }, [isAuthenticated, currentUser?.role, fetchJobs, fetchApplications, fetchGallery, fetchAdminUsers]);
 
-    // Handle Login Submit
+    // --------------------------------------------------------------------------
+    // AUTH HANDLERS
+    // --------------------------------------------------------------------------
     const handleLoginSubmit = async (e) => {
         e.preventDefault();
         setLoginError('');
@@ -339,7 +350,6 @@ function AdminCareers() {
         }
     };
 
-    // Handle Forgot Password Submit
     const handleForgotSubmit = async (e) => {
         e.preventDefault();
         setForgotStatus({ type: '', message: '' });
@@ -363,7 +373,6 @@ function AdminCareers() {
         }
     };
 
-    // Handle Reset Password Submit (From reset link)
     const handleResetSubmit = async (e) => {
         e.preventDefault();
         if (resetNewPass.length < 12) {
@@ -403,7 +412,6 @@ function AdminCareers() {
         }
     };
 
-    // Handle Change Password Submit (Logged-in admin)
     const handleChangePasswordSubmit = async (e) => {
         e.preventDefault();
         if (newPassword.length < 12) {
@@ -452,195 +460,6 @@ function AdminCareers() {
     };
 
     // --------------------------------------------------------------------------
-    // JOBS ACTIONS
-    // --------------------------------------------------------------------------
-    const handleTitleChange = (val) => {
-        setFormTitle(val);
-        if (!editingJobId) {
-            const autoSlug = val
-                .toLowerCase()
-                .trim()
-                .replace(/[^\w\s-]/g, '')
-                .replace(/[\s_-]+/g, '-')
-                .replace(/^-+|-+$/g, '');
-            setFormSlug(autoSlug);
-        }
-    };
-
-    const handleOpenAddModal = () => {
-        setEditingJobId(null);
-        setFormTitle('');
-        setFormSlug('');
-        setFormDepartment('Engineering');
-        setFormLocation('Bengaluru');
-        setFormEmploymentType('Full-time');
-        setFormExperience('2-4 Years');
-        setFormShortDesc('');
-        setFormResponsibilities('');
-        setFormRequirements('');
-        setFormStatus('draft');
-        setFormApplyEmail('contactus@vrmaitechnology.com');
-        setFormApplyLink('');
-        setFormError('');
-        setShowEditModal(true);
-    };
-
-    const handleOpenEditModal = (job) => {
-        setEditingJobId(job.id);
-        setFormTitle(job.title || '');
-        setFormSlug(job.slug || '');
-        setFormDepartment(job.department || 'Engineering');
-        setFormLocation(job.location || 'Bengaluru');
-        setFormEmploymentType(job.employmentType || 'Full-time');
-        setFormExperience(job.experience || '');
-        setFormShortDesc(job.shortDescription || '');
-        setFormResponsibilities(Array.isArray(job.responsibilities) ? job.responsibilities.join('\n') : (job.responsibilities || ''));
-        setFormRequirements(Array.isArray(job.requirements) ? job.requirements.join('\n') : (job.requirements || ''));
-        setFormStatus(job.status || 'draft');
-        setFormApplyEmail(job.applyEmail || 'contactus@vrmaitechnology.com');
-        setFormApplyLink(job.applyLink || '');
-        setFormError('');
-        setShowEditModal(true);
-    };
-
-    const handleSaveJob = async (e) => {
-        e.preventDefault();
-        setFormError('');
-        setIsSaving(true);
-
-        const payload = {
-            title: formTitle.trim(),
-            slug: formSlug.trim(),
-            department: formDepartment.trim(),
-            location: formLocation.trim(),
-            employmentType: formEmploymentType.trim(),
-            experience: formExperience.trim(),
-            shortDescription: formShortDesc.trim(),
-            responsibilities: formResponsibilities.split('\n').map(s => s.trim()).filter(Boolean),
-            requirements: formRequirements.split('\n').map(s => s.trim()).filter(Boolean),
-            status: formStatus,
-            applyEmail: 'contactus@vrmaitechnology.com',
-            applyLink: formApplyLink.trim()
-        };
-
-        const url = editingJobId ? `/api/admin/careers/jobs/${editingJobId}` : '/api/admin/careers/jobs';
-        const method = editingJobId ? 'PUT' : 'POST';
-
-        try {
-            const res = await fetch(url, {
-                method,
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`
-                },
-                body: JSON.stringify(payload)
-            });
-
-            const data = await res.json().catch(() => ({}));
-            if (res.ok && data.success) {
-                setShowEditModal(false);
-                fetchJobs();
-            } else {
-                setFormError(data.message || 'Failed to save job posting.');
-            }
-        } catch (err) {
-            setFormError('Connection error. Failed to save job.');
-        } finally {
-            setIsSaving(false);
-        }
-    };
-
-    const handleQuickStatusChange = async (jobId, newStatus) => {
-        try {
-            const res = await fetch(`/api/admin/careers/jobs/${jobId}/status`, {
-                method: 'PATCH',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`
-                },
-                body: JSON.stringify({ status: newStatus })
-            });
-            if (res.ok) {
-                fetchJobs();
-            }
-        } catch (err) {
-            console.error('Failed to update job status:', err);
-        }
-    };
-
-    const handleDeleteJob = async () => {
-        if (!jobToDelete) return;
-        setIsDeleting(true);
-
-        try {
-            const res = await fetch(`/api/admin/careers/jobs/${jobToDelete.id}`, {
-                method: 'DELETE',
-                headers: { 'Authorization': `Bearer ${token}` }
-            });
-            if (res.ok) {
-                setJobToDelete(null);
-                fetchJobs();
-            }
-        } catch (err) {
-            console.error('Failed to delete job:', err);
-        } finally {
-            setIsDeleting(false);
-        }
-    };
-
-    // --------------------------------------------------------------------------
-    // APPLICATIONS ACTIONS
-    // --------------------------------------------------------------------------
-    const handleUpdateAppStatus = async (appId, newStatus) => {
-        try {
-            const res = await fetch(`/api/admin/careers/applications/${appId}/status`, {
-                method: 'PATCH',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`
-                },
-                body: JSON.stringify({ status: newStatus })
-            });
-            if (res.ok) {
-                fetchApplications();
-                if (selectedApp && selectedApp.id === appId) {
-                    setSelectedApp(prev => ({ ...prev, status: newStatus }));
-                }
-            }
-        } catch (err) {
-            console.error('Failed to update application status:', err);
-        }
-    };
-
-    const handleDeleteApp = async () => {
-        if (!appToDelete) return;
-        setIsDeletingApp(true);
-
-        try {
-            const res = await fetch(`/api/admin/careers/applications/${appToDelete.id}`, {
-                method: 'DELETE',
-                headers: { 'Authorization': `Bearer ${token}` }
-            });
-            if (res.ok) {
-                setAppToDelete(null);
-                if (selectedApp && selectedApp.id === appToDelete.id) {
-                    setSelectedApp(null);
-                }
-                fetchApplications();
-            }
-        } catch (err) {
-            console.error('Failed to delete application:', err);
-        } finally {
-            setIsDeletingApp(false);
-        }
-    };
-
-    const handleDownloadResume = (app) => {
-        if (!app || !app.storedFileName) return;
-        window.open(`/api/admin/careers/applications/${app.id}/resume?token=${encodeURIComponent(token)}`, '_blank');
-    };
-
-    // --------------------------------------------------------------------------
     // GALLERY ACTIONS (Life at VRM)
     // --------------------------------------------------------------------------
     const handleOpenUploadModal = () => {
@@ -651,7 +470,7 @@ function AdminCareers() {
         setPhotoCategory('Fun Friday');
         setPhotoEventDate(new Date().toISOString().slice(0, 10));
         setPhotoAltText('');
-        setPhotoStatus('published');
+        setPhotoStatus('hidden'); // Default Hidden/Pending as specified
         setGalleryFormError('');
         setShowUploadModal(true);
     };
@@ -698,7 +517,6 @@ function AdminCareers() {
 
         try {
             if (editingPhoto) {
-                // Update photo metadata
                 const res = await fetch(`/api/admin/gallery/${editingPhoto.id}`, {
                     method: 'PUT',
                     headers: {
@@ -721,9 +539,8 @@ function AdminCareers() {
                     setGalleryFormError(data.message || 'Failed to update photo.');
                 }
             } else {
-                // Upload new photo
                 if (!photoFile) {
-                    setGalleryFormError('Please select a photo to upload.');
+                    setGalleryFormError('Please select a photo file to upload.');
                     setIsSavingPhoto(false);
                     return;
                 }
@@ -756,7 +573,7 @@ function AdminCareers() {
         }
     };
 
-    const handleTogglePhotoStatus = async (photo) => {
+    const handleTogglePhotoPublish = async (photo) => {
         const nextStatus = photo.status === 'published' ? 'hidden' : 'published';
         try {
             const res = await fetch(`/api/admin/gallery/${photo.id}`, {
@@ -769,7 +586,7 @@ function AdminCareers() {
             });
             if (res.ok) fetchGallery();
         } catch (err) {
-            console.error('Failed to toggle status:', err);
+            console.error(err);
         }
     };
 
@@ -794,7 +611,6 @@ function AdminCareers() {
                 body: JSON.stringify({ orderedIds })
             });
         } catch (err) {
-            console.error('Failed to persist order:', err);
             fetchGallery();
         }
     };
@@ -817,6 +633,248 @@ function AdminCareers() {
         } finally {
             setIsDeletingPhoto(false);
         }
+    };
+
+    // Bulk Actions for Gallery
+    const toggleSelectPhoto = (id) => {
+        setSelectedPhotoIds(prev => {
+            const next = new Set(prev);
+            if (next.has(id)) next.delete(id);
+            else next.add(id);
+            return next;
+        });
+    };
+
+    const toggleSelectAllPhotos = (currentPhotos) => {
+        if (selectedPhotoIds.size === currentPhotos.length && currentPhotos.length > 0) {
+            setSelectedPhotoIds(new Set());
+        } else {
+            setSelectedPhotoIds(new Set(currentPhotos.map(p => p.id)));
+        }
+    };
+
+    const handleBulkPublish = async () => {
+        if (selectedPhotoIds.size === 0) return;
+        for (const id of selectedPhotoIds) {
+            await fetch(`/api/admin/gallery/${id}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
+                body: JSON.stringify({ status: 'published' })
+            }).catch(() => {});
+        }
+        setSelectedPhotoIds(new Set());
+        fetchGallery();
+    };
+
+    const handleBulkHide = async () => {
+        if (selectedPhotoIds.size === 0) return;
+        for (const id of selectedPhotoIds) {
+            await fetch(`/api/admin/gallery/${id}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
+                body: JSON.stringify({ status: 'hidden' })
+            }).catch(() => {});
+        }
+        setSelectedPhotoIds(new Set());
+        fetchGallery();
+    };
+
+    const handleBulkDelete = async () => {
+        if (selectedPhotoIds.size === 0) return;
+        if (!window.confirm(`Permanently delete ${selectedPhotoIds.size} selected photos?`)) return;
+        for (const id of selectedPhotoIds) {
+            await fetch(`/api/admin/gallery/${id}`, {
+                method: 'DELETE',
+                headers: { 'Authorization': `Bearer ${token}` }
+            }).catch(() => {});
+        }
+        setSelectedPhotoIds(new Set());
+        fetchGallery();
+    };
+
+    // --------------------------------------------------------------------------
+    // JOBS ACTIONS
+    // --------------------------------------------------------------------------
+    const handleTitleChange = (val) => {
+        setFormTitle(val);
+        if (!editingJobId) {
+            const autoSlug = val
+                .toLowerCase()
+                .trim()
+                .replace(/[^\w\s-]/g, '')
+                .replace(/[\s_-]+/g, '-')
+                .replace(/^-+|-+$/g, '');
+            setFormSlug(autoSlug);
+        }
+    };
+
+    const handleOpenAddJobModal = () => {
+        setEditingJobId(null);
+        setFormTitle('');
+        setFormSlug('');
+        setFormDepartment('Engineering');
+        setFormLocation('Bengaluru');
+        setFormEmploymentType('Full-time');
+        setFormExperience('2-4 Years');
+        setFormShortDesc('');
+        setFormResponsibilities('');
+        setFormRequirements('');
+        setFormJobStatus('draft');
+        setFormApplyLink('');
+        setJobFormError('');
+        setShowEditJobModal(true);
+    };
+
+    const handleOpenEditJobModal = (job) => {
+        setEditingJobId(job.id);
+        setFormTitle(job.title || '');
+        setFormSlug(job.slug || '');
+        setFormDepartment(job.department || 'Engineering');
+        setFormLocation(job.location || 'Bengaluru');
+        setFormEmploymentType(job.employmentType || 'Full-time');
+        setFormExperience(job.experience || '');
+        setFormShortDesc(job.shortDescription || '');
+        setFormResponsibilities(Array.isArray(job.responsibilities) ? job.responsibilities.join('\n') : (job.responsibilities || ''));
+        setFormRequirements(Array.isArray(job.requirements) ? job.requirements.join('\n') : (job.requirements || ''));
+        setFormJobStatus(job.status || 'draft');
+        setFormApplyLink(job.applyLink || '');
+        setJobFormError('');
+        setShowEditJobModal(true);
+    };
+
+    const handleSaveJob = async (e) => {
+        e.preventDefault();
+        setJobFormError('');
+        setIsSavingJob(true);
+
+        const payload = {
+            title: formTitle.trim(),
+            slug: formSlug.trim(),
+            department: formDepartment.trim(),
+            location: formLocation.trim(),
+            employmentType: formEmploymentType.trim(),
+            experience: formExperience.trim(),
+            shortDescription: formShortDesc.trim(),
+            responsibilities: formResponsibilities.split('\n').map(s => s.trim()).filter(Boolean),
+            requirements: formRequirements.split('\n').map(s => s.trim()).filter(Boolean),
+            status: formJobStatus,
+            applyEmail: 'contactus@vrmaitechnology.com',
+            applyLink: formApplyLink.trim()
+        };
+
+        const url = editingJobId ? `/api/admin/careers/jobs/${editingJobId}` : '/api/admin/careers/jobs';
+        const method = editingJobId ? 'PUT' : 'POST';
+
+        try {
+            const res = await fetch(url, {
+                method,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify(payload)
+            });
+
+            const data = await res.json().catch(() => ({}));
+            if (res.ok && data.success) {
+                setShowEditJobModal(false);
+                fetchJobs();
+            } else {
+                setJobFormError(data.message || 'Failed to save job posting.');
+            }
+        } catch (err) {
+            setJobFormError('Connection error. Failed to save job.');
+        } finally {
+            setIsSavingJob(false);
+        }
+    };
+
+    const handleQuickJobStatusChange = async (jobId, newStatus) => {
+        try {
+            const res = await fetch(`/api/admin/careers/jobs/${jobId}/status`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({ status: newStatus })
+            });
+            if (res.ok) fetchJobs();
+        } catch (err) {
+            console.error(err);
+        }
+    };
+
+    const handleDeleteJob = async () => {
+        if (!jobToDelete) return;
+        setIsDeletingJob(true);
+
+        try {
+            const res = await fetch(`/api/admin/careers/jobs/${jobToDelete.id}`, {
+                method: 'DELETE',
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
+            if (res.ok) {
+                setJobToDelete(null);
+                fetchJobs();
+            }
+        } catch (err) {
+            console.error('Failed to delete job:', err);
+        } finally {
+            setIsDeletingJob(false);
+        }
+    };
+
+    // --------------------------------------------------------------------------
+    // APPLICATIONS ACTIONS
+    // --------------------------------------------------------------------------
+    const handleUpdateAppStatus = async (appId, newStatus) => {
+        try {
+            const res = await fetch(`/api/admin/careers/applications/${appId}/status`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({ status: newStatus })
+            });
+            if (res.ok) {
+                fetchApplications();
+                if (selectedApp && selectedApp.id === appId) {
+                    setSelectedApp(prev => ({ ...prev, status: newStatus }));
+                }
+            }
+        } catch (err) {
+            console.error(err);
+        }
+    };
+
+    const handleDeleteApp = async () => {
+        if (!appToDelete) return;
+        setIsDeletingApp(true);
+
+        try {
+            const res = await fetch(`/api/admin/careers/applications/${appToDelete.id}`, {
+                method: 'DELETE',
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
+            if (res.ok) {
+                setAppToDelete(null);
+                if (selectedApp && selectedApp.id === appToDelete.id) {
+                    setSelectedApp(null);
+                }
+                fetchApplications();
+            }
+        } catch (err) {
+            console.error(err);
+        } finally {
+            setIsDeletingApp(false);
+        }
+    };
+
+    const handleDownloadResume = (app) => {
+        if (!app || !app.storedFileName) return;
+        window.open(`/api/admin/careers/applications/${app.id}/resume?token=${encodeURIComponent(token)}`, '_blank');
     };
 
     // --------------------------------------------------------------------------
@@ -889,7 +947,6 @@ function AdminCareers() {
                 if (res.ok && data.success) {
                     setShowAddAdminModal(false);
                     fetchAdminUsers();
-                    // Display One-Time Temporary Password
                     setTempPasswordModal({
                         show: true,
                         username: data.user.username,
@@ -925,7 +982,7 @@ function AdminCareers() {
                     show: true,
                     username: adminUsername,
                     password: data.tempPassword,
-                    message: `Password reset for "${adminUsername}". Please copy and securely share this one-time temporary password with them.`
+                    message: `Password reset for "${adminUsername}". Please copy and share this temporary password with them.`
                 });
                 setCopySuccess(false);
             } else {
@@ -968,27 +1025,9 @@ function AdminCareers() {
         }
     };
 
-    // Filtered Jobs
-    const filteredJobs = jobs.filter(job => {
-        const matchesStatus = filterStatus === 'all' || job.status === filterStatus;
-        const matchesSearch = !searchQuery ||
-            job.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            job.department.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            job.location.toLowerCase().includes(searchQuery.toLowerCase());
-        return matchesStatus && matchesSearch;
-    });
-
-    // Filtered Applications
-    const filteredApplications = applications.filter(app => {
-        const matchesStatus = appFilterStatus === 'all' || app.status === appFilterStatus;
-        const matchesSearch = !appSearchQuery ||
-            app.fullName.toLowerCase().includes(appSearchQuery.toLowerCase()) ||
-            app.email.toLowerCase().includes(appSearchQuery.toLowerCase()) ||
-            app.position.toLowerCase().includes(appSearchQuery.toLowerCase()) ||
-            app.phone.toLowerCase().includes(appSearchQuery.toLowerCase());
-        return matchesStatus && matchesSearch;
-    });
-
+    // --------------------------------------------------------------------------
+    // STATS COMPUTATION
+    // --------------------------------------------------------------------------
     const jobStats = {
         total: jobs.length,
         published: jobs.filter(j => j.status === 'published').length,
@@ -1007,12 +1046,87 @@ function AdminCareers() {
     const galleryStats = {
         total: gallery.length,
         published: gallery.filter(g => g.status === 'published').length,
-        hidden: gallery.filter(g => g.status === 'hidden').length
+        hidden: gallery.filter(g => g.status === 'hidden').length,
+        approvals: gallery.filter(g => g.status === 'hidden').length // Pending / approvals
     };
+
+    // --------------------------------------------------------------------------
+    // FILTER LOGIC
+    // --------------------------------------------------------------------------
+    const searchLower = globalSearch.toLowerCase().trim();
+
+    // Filtered Gallery
+    const filteredGallery = gallery.filter(photo => {
+        // Sub-tab filter
+        if (gallerySubTab === 'approvals' && photo.status !== 'hidden') return false;
+        if (gallerySubTab === 'published' && photo.status !== 'published') return false;
+        if (gallerySubTab === 'hidden' && photo.status !== 'hidden') return false;
+
+        // Category filter
+        if (galleryCategoryFilter !== 'all' && photo.category !== galleryCategoryFilter) return false;
+
+        // Date filter
+        if (galleryDateFilter !== 'all') {
+            const photoDate = new Date(photo.eventDate || photo.createdAt || 0);
+            const now = new Date();
+            if (galleryDateFilter === '7d' && (now - photoDate) > 7 * 86400000) return false;
+            if (galleryDateFilter === '30d' && (now - photoDate) > 30 * 86400000) return false;
+            if (galleryDateFilter === 'year' && photoDate.getFullYear() !== now.getFullYear()) return false;
+        }
+
+        // Global / Caption search
+        if (searchLower) {
+            const matchCaption = (photo.caption || '').toLowerCase().includes(searchLower);
+            const matchAlt = (photo.altText || '').toLowerCase().includes(searchLower);
+            const matchCat = (photo.category || '').toLowerCase().includes(searchLower);
+            if (!matchCaption && !matchAlt && !matchCat) return false;
+        }
+
+        return true;
+    });
+
+    // Filtered Jobs
+    const filteredJobs = jobs.filter(job => {
+        if (jobFilterStatus !== 'all' && job.status !== jobFilterStatus) return false;
+        if (searchLower) {
+            const matchTitle = (job.title || '').toLowerCase().includes(searchLower);
+            const matchDept = (job.department || '').toLowerCase().includes(searchLower);
+            const matchLoc = (job.location || '').toLowerCase().includes(searchLower);
+            if (!matchTitle && !matchDept && !matchLoc) return false;
+        }
+        return true;
+    });
+
+    // Filtered Applications
+    const filteredApplications = applications.filter(app => {
+        if (appFilterStatus !== 'all' && app.status !== appFilterStatus) return false;
+        if (searchLower) {
+            const matchName = (app.fullName || '').toLowerCase().includes(searchLower);
+            const matchRole = (app.position || '').toLowerCase().includes(searchLower);
+            const matchEmail = (app.email || '').toLowerCase().includes(searchLower);
+            const matchPhone = (app.phone || '').toLowerCase().includes(searchLower);
+            if (!matchName && !matchRole && !matchEmail && !matchPhone) return false;
+        }
+        return true;
+    });
+
+    // Filtered Admins
+    const filteredAdmins = adminUsers.filter(adm => {
+        if (searchLower) {
+            const matchUser = (adm.username || '').toLowerCase().includes(searchLower);
+            const matchName = (adm.displayName || '').toLowerCase().includes(searchLower);
+            const matchEmail = (adm.email || '').toLowerCase().includes(searchLower);
+            if (!matchUser && !matchName && !matchEmail) return false;
+        }
+        return true;
+    });
+
+    const isSuperAdmin = currentUser?.role === 'superadmin';
+    const userInitial = (currentUser?.displayName || currentUser?.username || 'A')[0].toUpperCase();
 
     if (authChecking) {
         return (
-            <div className="d-flex align-items-center justify-content-center" style={{ minHeight: '100vh', background: '#f8fafc' }}>
+            <div className="d-flex align-items-center justify-content-center" style={{ minHeight: '100vh', background: '#090d16' }}>
                 <div className="spinner-border text-primary" role="status">
                     <span className="visually-hidden">Loading...</span>
                 </div>
@@ -1021,21 +1135,21 @@ function AdminCareers() {
     }
 
     // --------------------------------------------------------------------------
-    // VIEW: RESET PASSWORD (From email link /admin/reset-password?token=...)
+    // VIEW: RESET PASSWORD (From email link)
     // --------------------------------------------------------------------------
     if (isResetPasswordPath || (resetTokenParam && !isAuthenticated)) {
         return (
-            <div style={{ minHeight: '100vh', background: 'linear-gradient(135deg, #0b132b 0%, #1c2539 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px' }}>
+            <div style={{ minHeight: '100vh', background: 'radial-gradient(ellipse at top, #1e1338 0%, #090d16 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px' }}>
                 <Helmet>
                     <title>Reset Password | VRM AI Technology</title>
                     <meta name="robots" content="noindex, nofollow" />
                 </Helmet>
 
-                <div className="card shadow-lg border-0" style={{ maxWidth: '440px', width: '100%', borderRadius: '16px', overflow: 'hidden' }}>
-                    <div className="p-4 p-md-5 bg-white">
+                <div className="card border-0 shadow-lg" style={{ maxWidth: '440px', width: '100%', borderRadius: '16px', background: '#0f172a', border: '1px solid rgba(255,255,255,0.1)' }}>
+                    <div className="p-4 p-md-5 text-white">
                         <div className="text-center mb-4">
-                            <img src="/assets/images/logo/logo-header.webp" alt="VRM AI Technology" style={{ height: '44px', marginBottom: '16px' }} />
-                            <h3 className="h4 fw-bold" style={{ color: '#1c2539' }}>Reset Admin Password</h3>
+                            <img src="/assets/images/logo/logo-header.webp" alt="VRM AI Technology" style={{ height: '42px', marginBottom: '16px' }} />
+                            <h3 className="h4 fw-bold">Reset Admin Password</h3>
                             <p className="text-muted small">Choose a secure new password (min 12 characters)</p>
                         </div>
 
@@ -1056,36 +1170,35 @@ function AdminCareers() {
                             <form onSubmit={handleResetSubmit}>
                                 {!resetTokenParam && (
                                     <div className="mb-3">
-                                        <label className="form-label small fw-semibold text-dark">Reset Token</label>
+                                        <label className="form-label small fw-semibold text-light">Reset Token</label>
                                         <input
                                             type="text"
                                             className="form-control"
-                                            placeholder="Paste reset token from email"
+                                            placeholder="Paste token from email"
                                             value={resetToken}
                                             onChange={(e) => setResetToken(e.target.value)}
                                             required
-                                            style={{ borderRadius: '8px', padding: '10px 14px' }}
+                                            style={{ background: '#1e293b', border: '1px solid rgba(255,255,255,0.12)', color: '#fff' }}
                                         />
                                     </div>
                                 )}
 
                                 <div className="mb-3">
-                                    <label className="form-label small fw-semibold text-dark">New Password (min 12 chars)</label>
+                                    <label className="form-label small fw-semibold text-light">New Password (min 12 chars)</label>
                                     <input
                                         type="password"
                                         className="form-control"
-                                        placeholder="Enter new password"
+                                        placeholder="Enter strong new password"
                                         value={resetNewPass}
                                         onChange={(e) => setResetNewPass(e.target.value)}
                                         required
                                         minLength={12}
-                                        style={{ borderRadius: '8px', padding: '10px 14px' }}
+                                        style={{ background: '#1e293b', border: '1px solid rgba(255,255,255,0.12)', color: '#fff' }}
                                     />
-                                    <div className="form-text" style={{ fontSize: '11px' }}>Must be at least 12 characters with mixed case and numbers.</div>
                                 </div>
 
                                 <div className="mb-4">
-                                    <label className="form-label small fw-semibold text-dark">Confirm New Password</label>
+                                    <label className="form-label small fw-semibold text-light">Confirm New Password</label>
                                     <input
                                         type="password"
                                         className="form-control"
@@ -1094,7 +1207,7 @@ function AdminCareers() {
                                         onChange={(e) => setResetConfirmPass(e.target.value)}
                                         required
                                         minLength={12}
-                                        style={{ borderRadius: '8px', padding: '10px 14px' }}
+                                        style={{ background: '#1e293b', border: '1px solid rgba(255,255,255,0.12)', color: '#fff' }}
                                     />
                                 </div>
 
@@ -1102,16 +1215,16 @@ function AdminCareers() {
                                     type="submit"
                                     disabled={isResetting}
                                     className="btn btn-primary w-100 py-2 fw-semibold"
-                                    style={{ borderRadius: '8px' }}
+                                    style={{ borderRadius: '8px', background: 'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)', border: 'none' }}
                                 >
-                                    {isResetting ? 'Resetting Password...' : 'Save New Password'}
+                                    {isResetting ? 'Saving Password...' : 'Save New Password'}
                                 </button>
                             </form>
                         )}
 
-                        <div className="text-center mt-4 pt-3 border-top">
+                        <div className="text-center mt-4 pt-3 border-top border-secondary">
                             <Link to="/admin/careers" className="text-muted small text-decoration-none">
-                                <i className="far fa-arrow-left me-1"></i> Back to login
+                                <i className="far fa-arrow-left me-1"></i> Back to sign in
                             </Link>
                         </div>
                     </div>
@@ -1125,17 +1238,17 @@ function AdminCareers() {
     // --------------------------------------------------------------------------
     if (!isAuthenticated) {
         return (
-            <div style={{ minHeight: '100vh', background: 'linear-gradient(135deg, #0b132b 0%, #1c2539 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px' }}>
+            <div style={{ minHeight: '100vh', background: 'radial-gradient(ellipse at top, #1e1338 0%, #090d16 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px' }}>
                 <Helmet>
                     <title>Admin Login | VRM AI Technology</title>
                     <meta name="robots" content="noindex, nofollow" />
                 </Helmet>
 
-                <div className="card shadow-lg border-0" style={{ maxWidth: '440px', width: '100%', borderRadius: '16px', overflow: 'hidden' }}>
-                    <div className="p-4 p-md-5 bg-white">
+                <div className="card shadow-lg border-0" style={{ maxWidth: '440px', width: '100%', borderRadius: '16px', background: '#0f172a', border: '1px solid rgba(255,255,255,0.1)' }}>
+                    <div className="p-4 p-md-5 text-white">
                         <div className="text-center mb-4">
-                            <img src="/assets/images/logo/logo-header.webp" alt="VRM AI Technology" style={{ height: '44px', marginBottom: '16px' }} />
-                            <h3 className="h4 fw-bold" style={{ color: '#1c2539' }}>Careers Admin</h3>
+                            <img src="/assets/images/logo/logo-header.webp" alt="VRM AI Technology" style={{ height: '42px', marginBottom: '16px' }} />
+                            <h3 className="h4 fw-bold">Careers Admin</h3>
                             <p className="text-muted small">
                                 {showForgotPassword ? 'Reset your admin password' : 'Sign in to manage openings, candidates & gallery'}
                             </p>
@@ -1158,7 +1271,7 @@ function AdminCareers() {
                         {showForgotPassword ? (
                             <form onSubmit={handleForgotSubmit}>
                                 <div className="mb-3">
-                                    <label className="form-label small fw-semibold text-dark">Username or Registered Email</label>
+                                    <label className="form-label small fw-semibold text-light">Username or Registered Email</label>
                                     <input
                                         type="text"
                                         className="form-control"
@@ -1166,10 +1279,10 @@ function AdminCareers() {
                                         value={forgotIdentifier}
                                         onChange={(e) => setForgotIdentifier(e.target.value)}
                                         required
-                                        style={{ borderRadius: '8px', padding: '10px 14px' }}
+                                        style={{ background: '#1e293b', border: '1px solid rgba(255,255,255,0.12)', color: '#fff' }}
                                     />
-                                    <div className="form-text" style={{ fontSize: '11px' }}>
-                                        A secure password reset link (valid for 30 minutes) will be emailed to the registered address.
+                                    <div className="form-text text-muted" style={{ fontSize: '11px' }}>
+                                        A secure password reset link (valid for 30 minutes) will be emailed to you.
                                     </div>
                                 </div>
 
@@ -1177,7 +1290,7 @@ function AdminCareers() {
                                     type="submit"
                                     disabled={isSendingForgot}
                                     className="btn btn-primary w-100 py-2 fw-semibold mb-3"
-                                    style={{ borderRadius: '8px' }}
+                                    style={{ borderRadius: '8px', background: 'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)', border: 'none' }}
                                 >
                                     {isSendingForgot ? 'Sending Reset Link...' : 'Send Reset Link'}
                                 </button>
@@ -1196,24 +1309,24 @@ function AdminCareers() {
                         ) : (
                             <form onSubmit={handleLoginSubmit}>
                                 <div className="mb-3">
-                                    <label className="form-label small fw-semibold text-dark">Username or Email</label>
+                                    <label className="form-label small fw-semibold text-light">Username or Email</label>
                                     <input
                                         type="text"
                                         className="form-control"
-                                        placeholder="Enter username or email"
+                                        placeholder="Enter admin username or email"
                                         value={loginUser}
                                         onChange={(e) => setLoginUser(e.target.value)}
                                         required
-                                        style={{ borderRadius: '8px', padding: '10px 14px' }}
+                                        style={{ background: '#1e293b', border: '1px solid rgba(255,255,255,0.12)', color: '#fff' }}
                                     />
                                 </div>
 
                                 <div className="mb-2">
                                     <div className="d-flex justify-content-between align-items-center">
-                                        <label className="form-label small fw-semibold text-dark mb-0">Password</label>
+                                        <label className="form-label small fw-semibold text-light mb-0">Password</label>
                                         <button
                                             type="button"
-                                            className="btn btn-link p-0 text-decoration-none small"
+                                            className="btn btn-link p-0 text-decoration-none small text-info"
                                             style={{ fontSize: '12px' }}
                                             onClick={() => {
                                                 setShowForgotPassword(true);
@@ -1230,7 +1343,7 @@ function AdminCareers() {
                                         value={loginPass}
                                         onChange={(e) => setLoginPass(e.target.value)}
                                         required
-                                        style={{ borderRadius: '8px', padding: '10px 14px' }}
+                                        style={{ background: '#1e293b', border: '1px solid rgba(255,255,255,0.12)', color: '#fff' }}
                                     />
                                 </div>
 
@@ -1253,16 +1366,14 @@ function AdminCareers() {
                                     type="submit"
                                     disabled={isLoggingIn}
                                     className="btn btn-primary w-100 py-2 fw-semibold"
-                                    style={{ borderRadius: '8px' }}
+                                    style={{ borderRadius: '8px', background: 'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)', border: 'none' }}
                                 >
-                                    {isLoggingIn ? (
-                                        <span><span className="spinner-border spinner-border-sm me-2"></span>Signing In...</span>
-                                    ) : 'Sign In'}
+                                    {isLoggingIn ? 'Signing In...' : 'Sign In'}
                                 </button>
                             </form>
                         )}
 
-                        <div className="text-center mt-4 pt-3 border-top">
+                        <div className="text-center mt-4 pt-3 border-top border-secondary">
                             <Link to="/careers" className="text-muted small text-decoration-none">
                                 <i className="far fa-arrow-left me-1"></i> Back to public site
                             </Link>
@@ -1274,774 +1385,1313 @@ function AdminCareers() {
     }
 
     // --------------------------------------------------------------------------
-    // VIEW: AUTHENTICATED ADMIN DASHBOARD
+    // VIEW: AUTHENTICATED REDESIGNED DASHBOARD
     // --------------------------------------------------------------------------
-    const isSuperAdmin = currentUser?.role === 'superadmin';
-
     return (
-        <div style={{ minHeight: '100vh', background: '#f8fafc' }}>
+        <div className="vrm-admin-root">
             <Helmet>
                 <title>Careers Admin | VRM AI Technology</title>
                 <meta name="robots" content="noindex, nofollow" />
             </Helmet>
 
-            {/* Top Navigation */}
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark py-3" style={{ background: '#0b132b' }}>
-                <div className="container-fluid px-4">
+            {/* Mobile Drawer Overlay */}
+            {sidebarOpen && (
+                <div className="vrm-admin-sidebar-overlay" onClick={() => setSidebarOpen(false)} />
+            )}
+
+            {/* ============================================================== */}
+            {/* 1. LEFT FIXED SIDEBAR (~270px)                                */}
+            {/* ============================================================== */}
+            <aside className={`vrm-admin-sidebar ${sidebarOpen ? 'open' : ''}`}>
+                <div>
+                    {/* Brand Logo */}
+                    <Link to="/" className="vrm-admin-sidebar-brand">
+                        <img src="/assets/images/logo/logo-header.webp" alt="VRM AI™" style={{ height: '34px', objectFit: 'contain' }} />
+                    </Link>
+
+                    {/* Nav Items */}
+                    <div className="vrm-admin-sidebar-nav">
+                        {/* Admin Dashboard */}
+                        <button
+                            type="button"
+                            className={`vrm-admin-nav-item ${activeTab === 'dashboard' ? 'active' : ''}`}
+                            onClick={() => { setActiveTab('dashboard'); setSidebarOpen(false); }}
+                        >
+                            <span className="vrm-admin-nav-label">
+                                <i className="fas fa-th-large vrm-admin-nav-icon"></i>
+                                <span>Admin Dashboard</span>
+                            </span>
+                        </button>
+
+                        {/* Job Openings */}
+                        <button
+                            type="button"
+                            className={`vrm-admin-nav-item ${activeTab === 'jobs' ? 'active' : ''}`}
+                            onClick={() => { setActiveTab('jobs'); setSidebarOpen(false); }}
+                        >
+                            <span className="vrm-admin-nav-label">
+                                <i className="fas fa-briefcase vrm-admin-nav-icon"></i>
+                                <span>Job Openings</span>
+                            </span>
+                            <span className="vrm-admin-nav-badge">{jobStats.total}</span>
+                        </button>
+
+                        {/* Applications */}
+                        <button
+                            type="button"
+                            className={`vrm-admin-nav-item ${activeTab === 'applications' ? 'active' : ''}`}
+                            onClick={() => { setActiveTab('applications'); setSidebarOpen(false); }}
+                        >
+                            <span className="vrm-admin-nav-label">
+                                <i className="fas fa-file-alt vrm-admin-nav-icon"></i>
+                                <span>Applications</span>
+                            </span>
+                            <span className="vrm-admin-nav-badge">
+                                {appStats.new > 0 ? `${appStats.new} new` : appStats.total}
+                            </span>
+                        </button>
+
+                        {/* Life at VRM */}
+                        <button
+                            type="button"
+                            className={`vrm-admin-nav-item ${activeTab === 'gallery' ? 'active' : ''}`}
+                            onClick={() => { setActiveTab('gallery'); setSidebarOpen(false); }}
+                        >
+                            <span className="vrm-admin-nav-label">
+                                <i className="fas fa-images vrm-admin-nav-icon"></i>
+                                <span>Life at VRM</span>
+                            </span>
+                            <span className="vrm-admin-nav-badge">{galleryStats.total}</span>
+                        </button>
+
+                        {/* Manage Admins (Superadmin only) */}
+                        {isSuperAdmin && (
+                            <button
+                                type="button"
+                                className={`vrm-admin-nav-item ${activeTab === 'admins' ? 'active' : ''}`}
+                                onClick={() => { setActiveTab('admins'); setSidebarOpen(false); }}
+                            >
+                                <span className="vrm-admin-nav-label">
+                                    <i className="fas fa-user-shield vrm-admin-nav-icon"></i>
+                                    <span>Manage Admins</span>
+                                </span>
+                                <span className="vrm-admin-nav-badge">{adminUsers.length}</span>
+                            </button>
+                        )}
+                    </div>
+                </div>
+
+                {/* Quick Actions */}
+                <div className="vrm-admin-quick-actions">
+                    <div className="vrm-admin-quick-title">Quick Actions</div>
+                    <button
+                        type="button"
+                        className="vrm-admin-btn-upload-quick"
+                        onClick={() => {
+                            setActiveTab('gallery');
+                            handleOpenUploadModal();
+                            setSidebarOpen(false);
+                        }}
+                    >
+                        <i className="fas fa-cloud-upload-alt"></i>
+                        <span>Upload Photos</span>
+                    </button>
+                    <Link to="/careers" target="_blank" className="vrm-admin-btn-live-quick">
+                        <i className="fas fa-external-link-alt"></i>
+                        <span>View Live Site</span>
+                    </Link>
+                </div>
+            </aside>
+
+            {/* ============================================================== */}
+            {/* 2. MAIN VIEWPORT                                               */}
+            {/* ============================================================== */}
+            <main className="vrm-admin-main">
+                {/* Top Bar */}
+                <header className="vrm-admin-topbar">
                     <div className="d-flex align-items-center gap-3">
-                        <Link to="/" className="navbar-brand d-flex align-items-center gap-2">
-                            <img src="/assets/images/logo/logo-header.webp" alt="VRM AI" style={{ height: '32px' }} />
-                            <span className="badge bg-primary text-uppercase" style={{ fontSize: '10px', letterSpacing: '1px' }}>Admin</span>
-                        </Link>
+                        <button
+                            type="button"
+                            className="vrm-admin-hamburger"
+                            onClick={() => setSidebarOpen(prev => !prev)}
+                            title="Toggle Menu"
+                        >
+                            <i className="fas fa-bars"></i>
+                        </button>
+
+                        <div className="vrm-admin-page-title-box">
+                            <div className="vrm-admin-title-icon-tile">
+                                <i className="fas fa-user-shield"></i>
+                            </div>
+                            <div>
+                                <h1 className="h6 fw-bold mb-0 text-white" style={{ fontSize: '15px' }}>Careers Admin</h1>
+                                <small className="text-muted d-block" style={{ fontSize: '11px', marginTop: '-2px' }}>VRM AI Technology</small>
+                            </div>
+                        </div>
                     </div>
 
-                    <div className="d-flex align-items-center gap-2 gap-md-3">
-                        <Link to="/careers" target="_blank" className="btn btn-outline-light btn-sm px-3 d-none d-sm-inline-flex align-items-center">
-                            <i className="far fa-external-link me-1"></i> View Live Site
-                        </Link>
-
-                        <div className="d-flex align-items-center gap-2 bg-white bg-opacity-10 px-3 py-1 rounded-pill">
-                            <span className="text-white small fw-semibold">
-                                {currentUser?.displayName || currentUser?.username}
-                            </span>
-                            <span className={`badge ${isSuperAdmin ? 'bg-danger' : 'bg-primary'} text-uppercase`} style={{ fontSize: '9px' }}>
-                                {currentUser?.role || 'admin'}
-                            </span>
+                    {/* Global Search Input */}
+                    <div className="vrm-admin-topbar-center">
+                        <div className="vrm-admin-search-box">
+                            <i className="fas fa-search vrm-admin-search-icon"></i>
+                            <input
+                                ref={searchInputRef}
+                                type="text"
+                                className="vrm-admin-search-input"
+                                placeholder="Search photos, events, or admins..."
+                                value={globalSearch}
+                                onChange={(e) => setGlobalSearch(e.target.value)}
+                            />
+                            <span className="vrm-admin-search-shortcut">Ctrl + K</span>
                         </div>
+                    </div>
 
+                    {/* Right User Actions */}
+                    <div className="vrm-admin-topbar-actions">
+                        {/* Notification Bell */}
                         <button
+                            type="button"
+                            className="vrm-admin-bell-btn"
+                            title={appStats.new > 0 ? `${appStats.new} new application(s)` : 'No new notifications'}
+                            onClick={() => {
+                                setActiveTab('applications');
+                                setAppFilterStatus('new');
+                            }}
+                        >
+                            <i className="far fa-bell"></i>
+                            {appStats.new > 0 && <span className="vrm-admin-bell-dot"></span>}
+                        </button>
+
+                        {/* User Menu Trigger */}
+                        <div className="position-relative">
+                            <div
+                                className="vrm-admin-user-pill"
+                                onClick={() => setShowUserDropdown(prev => !prev)}
+                            >
+                                <div className="vrm-admin-avatar-circle">
+                                    {userInitial}
+                                </div>
+                                <span className="small fw-semibold text-white d-none d-sm-inline">
+                                    {currentUser?.role === 'superadmin' ? 'Superadmin' : (currentUser?.displayName || currentUser?.username || 'Admin')}
+                                </span>
+                                <i className="fas fa-chevron-down text-muted ms-1" style={{ fontSize: '10px' }}></i>
+                            </div>
+
+                            {/* Dropdown Menu */}
+                            {showUserDropdown && (
+                                <div className="vrm-admin-user-menu">
+                                    <div className="px-3 py-2 border-bottom border-secondary mb-1">
+                                        <div className="fw-bold text-white small">{currentUser?.displayName || currentUser?.username}</div>
+                                        <div className="text-muted" style={{ fontSize: '11px' }}>{currentUser?.email}</div>
+                                        <span className={`badge ${isSuperAdmin ? 'bg-danger' : 'bg-primary'} mt-1 text-uppercase`} style={{ fontSize: '9px' }}>
+                                            {currentUser?.role || 'admin'}
+                                        </span>
+                                    </div>
+                                    <button
+                                        type="button"
+                                        className="vrm-admin-menu-item"
+                                        onClick={() => {
+                                            setShowUserDropdown(false);
+                                            setChangePassStatus({ type: '', message: '' });
+                                            setShowChangePassModal(true);
+                                        }}
+                                    >
+                                        <i className="fas fa-key text-muted"></i>
+                                        <span>Change Password</span>
+                                    </button>
+                                    <button
+                                        type="button"
+                                        className="vrm-admin-menu-item danger"
+                                        onClick={logout}
+                                    >
+                                        <i className="fas fa-sign-out-alt"></i>
+                                        <span>Logout</span>
+                                    </button>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                </header>
+
+                {/* Temporary Password Warning Banner */}
+                {currentUser?.forcePasswordChange && (
+                    <div className="alert alert-warning mb-0 border-0 rounded-0 py-2 px-4 d-flex justify-content-between align-items-center">
+                        <div className="small">
+                            <i className="fas fa-shield-alt text-warning me-2"></i>
+                            <strong>Temporary Password:</strong> Please set a new password (min 12 chars) to secure your account.
+                        </div>
+                        <button
+                            className="btn btn-warning btn-sm fw-bold px-3 py-1"
                             onClick={() => {
                                 setChangePassStatus({ type: '', message: '' });
                                 setShowChangePassModal(true);
                             }}
-                            className="btn btn-outline-light btn-sm"
-                            title="Change Password"
                         >
-                            <i className="fas fa-key me-1"></i>
-                            <span className="d-none d-md-inline">Password</span>
-                        </button>
-
-                        <button onClick={logout} className="btn btn-outline-danger btn-sm">
-                            <i className="far fa-sign-out me-1"></i> Logout
+                            Change Password
                         </button>
                     </div>
-                </div>
-            </nav>
+                )}
 
-            {/* Forced Password Change Notice Banner */}
-            {currentUser?.forcePasswordChange && (
-                <div className="alert alert-warning mb-0 border-0 rounded-0 py-3 px-4 d-flex justify-content-between align-items-center">
-                    <div>
-                        <i className="fas fa-shield-alt text-warning me-2 fs-5"></i>
-                        <strong>Temporary Password In Use:</strong> You are currently logged in with a temporary password. Please set a new personal password (min 12 characters) to secure your account.
-                    </div>
-                    <button
-                        className="btn btn-warning btn-sm fw-bold px-3"
-                        onClick={() => {
-                            setChangePassStatus({ type: '', message: '' });
-                            setShowChangePassModal(true);
-                        }}
-                    >
-                        Change Password Now
-                    </button>
-                </div>
-            )}
+                {/* Content Container */}
+                <div className="vrm-admin-content">
 
-            <div className="container-fluid px-4 py-4">
-                {/* Navigation Tabs */}
-                <div className="d-flex flex-wrap justify-content-between align-items-center mb-4 border-bottom pb-3 gap-3">
-                    <ul className="nav nav-pills gap-2 mb-0">
-                        <li className="nav-item">
-                            <button
-                                className={`nav-link px-4 py-2 fw-semibold ${activeTab === 'jobs' ? 'active' : 'text-dark bg-white border'}`}
-                                onClick={() => setActiveTab('jobs')}
-                            >
-                                <i className="fas fa-briefcase me-2"></i>
-                                Job Openings ({jobStats.total})
-                            </button>
-                        </li>
-                        <li className="nav-item">
-                            <button
-                                className={`nav-link px-4 py-2 fw-semibold position-relative ${activeTab === 'applications' ? 'active' : 'text-dark bg-white border'}`}
-                                onClick={() => setActiveTab('applications')}
-                            >
-                                <i className="fas fa-file-alt me-2"></i>
-                                Applications ({appStats.total})
-                                {appStats.new > 0 && (
-                                    <span className="badge bg-danger rounded-pill ms-2" style={{ fontSize: '11px' }}>
-                                        {appStats.new} new
-                                    </span>
-                                )}
-                            </button>
-                        </li>
-                        <li className="nav-item">
-                            <button
-                                className={`nav-link px-4 py-2 fw-semibold ${activeTab === 'gallery' ? 'active' : 'text-dark bg-white border'}`}
-                                onClick={() => setActiveTab('gallery')}
-                            >
-                                <i className="fas fa-images me-2"></i>
-                                Life at VRM ({galleryStats.total})
-                            </button>
-                        </li>
-                        {isSuperAdmin && (
-                            <li className="nav-item">
-                                <button
-                                    className={`nav-link px-4 py-2 fw-semibold ${activeTab === 'admins' ? 'active' : 'text-dark bg-white border'}`}
-                                    onClick={() => setActiveTab('admins')}
-                                >
-                                    <i className="fas fa-user-shield me-2"></i>
-                                    Manage Admins ({adminUsers.length})
-                                </button>
-                            </li>
-                        )}
-                    </ul>
-
-                    {activeTab === 'jobs' && (
-                        <button onClick={handleOpenAddModal} className="btn btn-primary px-4 py-2 fw-semibold d-flex align-items-center gap-2">
-                            <i className="fas fa-plus"></i> Post New Job
-                        </button>
-                    )}
-
+                    {/* ============================================================== */}
+                    {/* TAB: LIFE AT VRM (PHOTO GALLERY) - EXACT MOCKUP MATCH          */}
+                    {/* ============================================================== */}
                     {activeTab === 'gallery' && (
-                        <button onClick={handleOpenUploadModal} className="btn btn-primary px-4 py-2 fw-semibold d-flex align-items-center gap-2">
-                            <i className="fas fa-camera"></i> Upload Photo
-                        </button>
-                    )}
+                        <>
+                            {/* 3. Hero Banner with Abstract Illustration */}
+                            <div className="vrm-admin-hero-banner">
+                                <div className="vrm-admin-hero-content">
+                                    <h1 className="vrm-admin-hero-title">
+                                        Life at <span className="text-cyan-gradient">VRM</span>
+                                    </h1>
+                                    <p className="vrm-admin-hero-desc">
+                                        Manage, review, and publish employee moments on the VRM website.
+                                    </p>
+                                </div>
 
-                    {activeTab === 'admins' && isSuperAdmin && (
-                        <button onClick={handleOpenAddAdminModal} className="btn btn-primary px-4 py-2 fw-semibold d-flex align-items-center gap-2">
-                            <i className="fas fa-user-plus"></i> Add New Admin
-                        </button>
-                    )}
-                </div>
+                                {/* Abstract Geometric / Camera Illustration (Strictly zero photos of people) */}
+                                <div className="vrm-admin-hero-graphic" aria-hidden="true">
+                                    <div className="vrm-abstract-frame frame-1"></div>
+                                    <div className="vrm-abstract-frame frame-2"></div>
+                                    <div className="vrm-abstract-frame frame-3"></div>
+                                    <div className="vrm-abstract-camera-badge">
+                                        <i className="fas fa-camera"></i>
+                                    </div>
+                                </div>
+                            </div>
 
-                {/* ============================================================== */}
-                {/* TAB 1: JOB OPENINGS                                            */}
-                {/* ============================================================== */}
-                {activeTab === 'jobs' && (
-                    <>
-                        {/* Stats Cards */}
-                        <div className="row g-3 mb-4">
-                            <div className="col-6 col-md-3">
-                                <div className="bg-white p-3 rounded-3 shadow-sm border border-light">
-                                    <div className="text-muted small fw-semibold">Total Roles</div>
-                                    <div className="h3 fw-bold text-dark mb-0 mt-1">{jobStats.total}</div>
-                                </div>
-                            </div>
-                            <div className="col-6 col-md-3">
-                                <div className="bg-white p-3 rounded-3 shadow-sm border border-light">
-                                    <div className="text-muted small fw-semibold">Published (Live)</div>
-                                    <div className="h3 fw-bold text-success mb-0 mt-1">{jobStats.published}</div>
-                                </div>
-                            </div>
-                            <div className="col-6 col-md-3">
-                                <div className="bg-white p-3 rounded-3 shadow-sm border border-light">
-                                    <div className="text-muted small fw-semibold">Drafts</div>
-                                    <div className="h3 fw-bold text-warning mb-0 mt-1">{jobStats.draft}</div>
-                                </div>
-                            </div>
-                            <div className="col-6 col-md-3">
-                                <div className="bg-white p-3 rounded-3 shadow-sm border border-light">
-                                    <div className="text-muted small fw-semibold">Closed</div>
-                                    <div className="h3 fw-bold text-secondary mb-0 mt-1">{jobStats.closed}</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Search & Filter Bar */}
-                        <div className="card shadow-sm border-0 mb-4 rounded-3">
-                            <div className="card-body p-3">
-                                <div className="row g-2 align-items-center">
-                                    <div className="col-md-6 col-lg-7">
-                                        <div className="input-group">
-                                            <span className="input-group-text bg-white border-end-0">
-                                                <i className="fas fa-search text-muted"></i>
-                                            </span>
-                                            <input
-                                                type="text"
-                                                className="form-control border-start-0"
-                                                placeholder="Search by job title, department, location..."
-                                                value={searchQuery}
-                                                onChange={(e) => setSearchQuery(e.target.value)}
-                                            />
+                            {/* 4. Stat Cards with Sparkline Waves */}
+                            <div className="vrm-admin-stats-grid">
+                                {/* Total Photos */}
+                                <div className="vrm-admin-stat-card">
+                                    <div className="vrm-stat-left">
+                                        <div className="vrm-stat-icon-tile blue">
+                                            <i className="far fa-images"></i>
+                                        </div>
+                                        <div>
+                                            <div className="vrm-stat-label">Total Photos</div>
+                                            <div className="vrm-stat-value">{galleryStats.total}</div>
                                         </div>
                                     </div>
-                                    <div className="col-md-6 col-lg-5 d-flex gap-2 justify-content-md-end">
-                                        <select
-                                            className="form-select"
-                                            value={filterStatus}
-                                            onChange={(e) => setFilterStatus(e.target.value)}
-                                            style={{ maxWidth: '200px' }}
-                                        >
-                                            <option value="all">All Statuses ({jobs.length})</option>
-                                            <option value="published">Published ({jobStats.published})</option>
-                                            <option value="draft">Drafts ({jobStats.draft})</option>
-                                            <option value="closed">Closed ({jobStats.closed})</option>
-                                        </select>
-                                        <button onClick={fetchJobs} className="btn btn-outline-secondary" title="Refresh">
-                                            <i className="fas fa-sync-alt"></i>
-                                        </button>
-                                    </div>
+                                    <svg className="vrm-stat-sparkline" viewBox="0 0 100 40" fill="none">
+                                        <path d="M0 34 Q 25 38, 45 22 T 80 12 T 100 24" stroke="#3b82f6" strokeWidth="2.5" strokeLinecap="round" />
+                                    </svg>
                                 </div>
-                            </div>
-                        </div>
 
-                        {/* Jobs Table */}
-                        <div className="card shadow-sm border-0 rounded-3 overflow-hidden">
-                            <div className="table-responsive">
-                                <table className="table table-hover align-middle mb-0">
-                                    <thead className="table-light">
-                                        <tr>
-                                            <th className="ps-4 py-3">Job Title & Details</th>
-                                            <th className="py-3">Department</th>
-                                            <th className="py-3">Location</th>
-                                            <th className="py-3">Type</th>
-                                            <th className="py-3">Status</th>
-                                            <th className="py-3">Posted Date</th>
-                                            <th className="pe-4 py-3 text-end">Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {isLoadingJobs ? (
-                                            <tr>
-                                                <td colSpan="7" className="text-center py-5">
-                                                    <div className="spinner-border text-primary spinner-border-sm me-2" role="status"></div>
-                                                    Loading job postings...
-                                                </td>
-                                            </tr>
-                                        ) : filteredJobs.length === 0 ? (
-                                            <tr>
-                                                <td colSpan="7" className="text-center py-5 text-muted">
-                                                    <div className="mb-2"><i className="far fa-folder-open fs-2"></i></div>
-                                                    No job postings found. Click <strong>Post New Job</strong> to create one.
-                                                </td>
-                                            </tr>
-                                        ) : (
-                                            filteredJobs.map(job => (
-                                                <tr key={job.id}>
-                                                    <td className="ps-4">
-                                                        <div className="fw-bold text-dark">{job.title}</div>
-                                                        <div className="small text-muted font-monospace">/careers/{job.slug}</div>
-                                                    </td>
-                                                    <td><span className="badge bg-light text-dark border">{job.department}</span></td>
-                                                    <td><i className="far fa-map-marker-alt text-muted me-1"></i> {job.location}</td>
-                                                    <td>{job.employmentType}</td>
-                                                    <td>
-                                                        <select
-                                                            className={`form-select form-select-sm fw-semibold ${
-                                                                job.status === 'published' ? 'text-success border-success' :
-                                                                job.status === 'draft' ? 'text-warning border-warning' : 'text-secondary border-secondary'
-                                                            }`}
-                                                            value={job.status}
-                                                            onChange={(e) => handleQuickStatusChange(job.id, e.target.value)}
-                                                            style={{ width: '130px' }}
-                                                        >
-                                                            <option value="published">Published</option>
-                                                            <option value="draft">Draft</option>
-                                                            <option value="closed">Closed</option>
-                                                        </select>
-                                                    </td>
-                                                    <td className="small text-muted">
-                                                        {job.postedAt ? new Date(job.postedAt).toLocaleDateString() : '—'}
-                                                    </td>
-                                                    <td className="pe-4 text-end">
-                                                        <div className="btn-group btn-group-sm">
-                                                            <Link
-                                                                to={`/careers/${job.slug}`}
-                                                                target="_blank"
-                                                                className="btn btn-outline-secondary"
-                                                                title="Preview live page"
-                                                            >
-                                                                <i className="far fa-external-link"></i>
-                                                            </Link>
-                                                            <button
-                                                                onClick={() => handleOpenEditModal(job)}
-                                                                className="btn btn-outline-primary"
-                                                                title="Edit job"
-                                                            >
-                                                                <i className="far fa-edit"></i>
-                                                            </button>
-                                                            <button
-                                                                onClick={() => setJobToDelete(job)}
-                                                                className="btn btn-outline-danger"
-                                                                title="Delete job"
-                                                            >
-                                                                <i className="far fa-trash-alt"></i>
-                                                            </button>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            ))
-                                        )}
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </>
-                )}
-
-                {/* ============================================================== */}
-                {/* TAB 2: APPLICATIONS                                            */}
-                {/* ============================================================== */}
-                {activeTab === 'applications' && (
-                    <>
-                        {/* Stats Cards */}
-                        <div className="row g-3 mb-4">
-                            <div className="col-6 col-md-3">
-                                <div className="bg-white p-3 rounded-3 shadow-sm border border-light">
-                                    <div className="text-muted small fw-semibold">Total Received</div>
-                                    <div className="h3 fw-bold text-dark mb-0 mt-1">{appStats.total}</div>
-                                </div>
-                            </div>
-                            <div className="col-6 col-md-3">
-                                <div className="bg-white p-3 rounded-3 shadow-sm border border-light">
-                                    <div className="text-muted small fw-semibold">New Applications</div>
-                                    <div className="h3 fw-bold text-danger mb-0 mt-1">{appStats.new}</div>
-                                </div>
-                            </div>
-                            <div className="col-6 col-md-3">
-                                <div className="bg-white p-3 rounded-3 shadow-sm border border-light">
-                                    <div className="text-muted small fw-semibold">Shortlisted</div>
-                                    <div className="h3 fw-bold text-success mb-0 mt-1">{appStats.shortlisted}</div>
-                                </div>
-                            </div>
-                            <div className="col-6 col-md-3">
-                                <div className="bg-white p-3 rounded-3 shadow-sm border border-light">
-                                    <div className="text-muted small fw-semibold">Reviewed</div>
-                                    <div className="h3 fw-bold text-primary mb-0 mt-1">{appStats.reviewed}</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Search & Filter Bar */}
-                        <div className="card shadow-sm border-0 mb-4 rounded-3">
-                            <div className="card-body p-3">
-                                <div className="row g-2 align-items-center">
-                                    <div className="col-md-6 col-lg-7">
-                                        <div className="input-group">
-                                            <span className="input-group-text bg-white border-end-0">
-                                                <i className="fas fa-search text-muted"></i>
-                                            </span>
-                                            <input
-                                                type="text"
-                                                className="form-control border-start-0"
-                                                placeholder="Search candidates by name, email, phone, position..."
-                                                value={appSearchQuery}
-                                                onChange={(e) => setAppSearchQuery(e.target.value)}
-                                            />
+                                {/* Published (Live) */}
+                                <div className="vrm-admin-stat-card">
+                                    <div className="vrm-stat-left">
+                                        <div className="vrm-stat-icon-tile green">
+                                            <i className="far fa-check-circle"></i>
+                                        </div>
+                                        <div>
+                                            <div className="vrm-stat-label">Published (Live)</div>
+                                            <div className="vrm-stat-value green">{galleryStats.published}</div>
                                         </div>
                                     </div>
-                                    <div className="col-md-6 col-lg-5 d-flex gap-2 justify-content-md-end">
-                                        <select
-                                            className="form-select"
-                                            value={appFilterStatus}
-                                            onChange={(e) => setAppFilterStatus(e.target.value)}
-                                            style={{ maxWidth: '200px' }}
+                                    <svg className="vrm-stat-sparkline" viewBox="0 0 100 40" fill="none">
+                                        <path d="M0 32 Q 30 36, 50 18 T 85 8 T 100 20" stroke="#10b981" strokeWidth="2.5" strokeLinecap="round" />
+                                    </svg>
+                                </div>
+
+                                {/* Hidden */}
+                                <div className="vrm-admin-stat-card">
+                                    <div className="vrm-stat-left">
+                                        <div className="vrm-stat-icon-tile slate">
+                                            <i className="far fa-eye-slash"></i>
+                                        </div>
+                                        <div>
+                                            <div className="vrm-stat-label">Hidden</div>
+                                            <div className="vrm-stat-value">{galleryStats.hidden}</div>
+                                        </div>
+                                    </div>
+                                    <svg className="vrm-stat-sparkline" viewBox="0 0 100 40" fill="none">
+                                        <path d="M0 26 Q 35 24, 60 32 T 100 22" stroke="#94a3b8" strokeWidth="2.5" strokeLinecap="round" />
+                                    </svg>
+                                </div>
+                            </div>
+
+                            {/* 5. Employee Privacy Notice Bar */}
+                            <div className="vrm-admin-privacy-bar">
+                                <i className="fas fa-shield-alt"></i>
+                                <div>
+                                    <strong>Employee Privacy Notice:</strong> Only upload photos of employees who have explicitly agreed to their photo being published on the public website.
+                                </div>
+                            </div>
+
+                            {/* 6. Gallery Section Controls Card */}
+                            <div className="vrm-admin-controls-card">
+                                {/* Top Tab Pills & Upload Button */}
+                                <div className="vrm-gallery-tabs-row">
+                                    <div className="vrm-gallery-pill-nav">
+                                        <button
+                                            type="button"
+                                            className={`vrm-gallery-pill-btn ${gallerySubTab === 'approvals' ? 'active' : ''}`}
+                                            onClick={() => setGallerySubTab('approvals')}
                                         >
-                                            <option value="all">All Statuses ({applications.length})</option>
-                                            <option value="new">New ({appStats.new})</option>
-                                            <option value="reviewed">Reviewed ({appStats.reviewed})</option>
-                                            <option value="shortlisted">Shortlisted ({appStats.shortlisted})</option>
-                                            <option value="rejected">Rejected ({appStats.rejected})</option>
-                                        </select>
-                                        <button onClick={fetchApplications} className="btn btn-outline-secondary" title="Refresh">
-                                            <i className="fas fa-sync-alt"></i>
+                                            <i className="far fa-images"></i>
+                                            <span>Photo Approvals ({galleryStats.approvals})</span>
+                                        </button>
+                                        <button
+                                            type="button"
+                                            className={`vrm-gallery-pill-btn ${gallerySubTab === 'published' ? 'active' : ''}`}
+                                            onClick={() => setGallerySubTab('published')}
+                                        >
+                                            <i className="far fa-check-circle"></i>
+                                            <span>Published ({galleryStats.published})</span>
+                                        </button>
+                                        <button
+                                            type="button"
+                                            className={`vrm-gallery-pill-btn ${gallerySubTab === 'hidden' ? 'active' : ''}`}
+                                            onClick={() => setGallerySubTab('hidden')}
+                                        >
+                                            <i className="far fa-eye-slash"></i>
+                                            <span>Hidden ({galleryStats.hidden})</span>
+                                        </button>
+                                        <button
+                                            type="button"
+                                            className={`vrm-gallery-pill-btn ${gallerySubTab === 'all' ? 'active' : ''}`}
+                                            onClick={() => setGallerySubTab('all')}
+                                        >
+                                            <i className="fas fa-layer-group"></i>
+                                            <span>All ({galleryStats.total})</span>
                                         </button>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
 
-                        {/* Applications Table */}
-                        <div className="card shadow-sm border-0 rounded-3 overflow-hidden">
-                            <div className="table-responsive">
-                                <table className="table table-hover align-middle mb-0">
-                                    <thead className="table-light">
-                                        <tr>
-                                            <th className="ps-4 py-3">Applicant Name</th>
-                                            <th className="py-3">Position Applied</th>
-                                            <th className="py-3">Contact</th>
-                                            <th className="py-3">Experience</th>
-                                            <th className="py-3">Resume</th>
-                                            <th className="py-3">Status</th>
-                                            <th className="py-3">Applied At</th>
-                                            <th className="pe-4 py-3 text-end">Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {isLoadingApps ? (
-                                            <tr>
-                                                <td colSpan="8" className="text-center py-5">
-                                                    <div className="spinner-border text-primary spinner-border-sm me-2" role="status"></div>
-                                                    Loading applications...
-                                                </td>
-                                            </tr>
-                                        ) : filteredApplications.length === 0 ? (
-                                            <tr>
-                                                <td colSpan="8" className="text-center py-5 text-muted">
-                                                    <div className="mb-2"><i className="far fa-inbox fs-2"></i></div>
-                                                    No applications match your filter criteria.
-                                                </td>
-                                            </tr>
-                                        ) : (
-                                            filteredApplications.map(app => (
-                                                <tr key={app.id}>
-                                                    <td className="ps-4">
-                                                        <div className="fw-bold text-dark">{app.fullName}</div>
-                                                        <div className="small text-muted">{app.email}</div>
-                                                    </td>
-                                                    <td>
-                                                        <span className="badge bg-light text-primary border">{app.position}</span>
-                                                    </td>
-                                                    <td className="small">
-                                                        <div><i className="fas fa-phone-alt text-muted me-1"></i> {app.phone}</div>
-                                                    </td>
-                                                    <td className="small">{app.experience}</td>
-                                                    <td>
-                                                        {app.storedFileName ? (
-                                                            <button
-                                                                onClick={() => handleDownloadResume(app)}
-                                                                className="btn btn-sm btn-outline-primary d-inline-flex align-items-center gap-1"
-                                                                style={{ fontSize: '12px' }}
-                                                            >
-                                                                <i className="fas fa-file-download"></i> Download
-                                                            </button>
-                                                        ) : (
-                                                            <span className="text-muted small">None</span>
-                                                        )}
-                                                    </td>
-                                                    <td>
-                                                        <select
-                                                            className={`form-select form-select-sm fw-semibold ${
-                                                                app.status === 'new' ? 'text-danger border-danger' :
-                                                                app.status === 'shortlisted' ? 'text-success border-success' :
-                                                                app.status === 'reviewed' ? 'text-primary border-primary' : 'text-secondary border-secondary'
-                                                            }`}
-                                                            value={app.status}
-                                                            onChange={(e) => handleUpdateAppStatus(app.id, e.target.value)}
-                                                            style={{ width: '130px' }}
-                                                        >
-                                                            <option value="new">New</option>
-                                                            <option value="reviewed">Reviewed</option>
-                                                            <option value="shortlisted">Shortlisted</option>
-                                                            <option value="rejected">Rejected</option>
-                                                        </select>
-                                                    </td>
-                                                    <td className="small text-muted">
-                                                        {app.appliedAt ? new Date(app.appliedAt).toLocaleDateString() : '—'}
-                                                    </td>
-                                                    <td className="pe-4 text-end">
-                                                        <div className="btn-group btn-group-sm">
-                                                            <button
-                                                                onClick={() => setSelectedApp(app)}
-                                                                className="btn btn-outline-primary"
-                                                                title="View details"
-                                                            >
-                                                                <i className="far fa-eye"></i>
-                                                            </button>
-                                                            <button
-                                                                onClick={() => setAppToDelete(app)}
-                                                                className="btn btn-outline-danger"
-                                                                title="Delete application"
-                                                            >
-                                                                <i className="far fa-trash-alt"></i>
-                                                            </button>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            ))
-                                        )}
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </>
-                )}
-
-                {/* ============================================================== */}
-                {/* TAB 3: LIFE AT VRM GALLERY                                     */}
-                {/* ============================================================== */}
-                {activeTab === 'gallery' && (
-                    <>
-                        {/* Stats Cards */}
-                        <div className="row g-3 mb-4">
-                            <div className="col-4">
-                                <div className="bg-white p-3 rounded-3 shadow-sm border border-light">
-                                    <div className="text-muted small fw-semibold">Total Photos</div>
-                                    <div className="h3 fw-bold text-dark mb-0 mt-1">{galleryStats.total}</div>
-                                </div>
-                            </div>
-                            <div className="col-4">
-                                <div className="bg-white p-3 rounded-3 shadow-sm border border-light">
-                                    <div className="text-muted small fw-semibold">Published (Live)</div>
-                                    <div className="h3 fw-bold text-success mb-0 mt-1">{galleryStats.published}</div>
-                                </div>
-                            </div>
-                            <div className="col-4">
-                                <div className="bg-white p-3 rounded-3 shadow-sm border border-light">
-                                    <div className="text-muted small fw-semibold">Hidden</div>
-                                    <div className="h3 fw-bold text-secondary mb-0 mt-1">{galleryStats.hidden}</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Privacy Reminder Banner */}
-                        <div className="alert alert-info py-3 px-4 rounded-3 mb-4 d-flex align-items-center">
-                            <i className="fas fa-shield-alt text-primary fs-4 me-3"></i>
-                            <div>
-                                <strong>Employee Privacy Notice:</strong> Only upload photos of employees who have explicitly agreed to their photo being published on the public website.
-                            </div>
-                        </div>
-
-                        {/* Gallery Table / Grid */}
-                        <div className="card shadow-sm border-0 rounded-3 overflow-hidden">
-                            <div className="table-responsive">
-                                <table className="table table-hover align-middle mb-0">
-                                    <thead className="table-light">
-                                        <tr>
-                                            <th className="ps-4 py-3" style={{ width: '80px' }}>Order</th>
-                                            <th className="py-3" style={{ width: '100px' }}>Thumbnail</th>
-                                            <th className="py-3">Caption & Alt Text</th>
-                                            <th className="py-3">Category</th>
-                                            <th className="py-3">Event Date</th>
-                                            <th className="py-3">Status</th>
-                                            <th className="pe-4 py-3 text-end">Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {isLoadingGallery ? (
-                                            <tr>
-                                                <td colSpan="7" className="text-center py-5">
-                                                    <div className="spinner-border text-primary spinner-border-sm me-2" role="status"></div>
-                                                    Loading team gallery...
-                                                </td>
-                                            </tr>
-                                        ) : gallery.length === 0 ? (
-                                            <tr>
-                                                <td colSpan="7" className="text-center py-5 text-muted">
-                                                    <div className="mb-2"><i className="far fa-images fs-2"></i></div>
-                                                    No photos uploaded yet. Click <strong>Upload Photo</strong> to share employee moments.
-                                                </td>
-                                            </tr>
-                                        ) : (
-                                            gallery.map((item, idx) => (
-                                                <tr key={item.id}>
-                                                    <td className="ps-4">
-                                                        <div className="d-flex align-items-center gap-1">
-                                                            <span className="fw-bold text-muted me-1">{idx + 1}</span>
-                                                            <div className="btn-group-vertical btn-group-sm">
-                                                                <button
-                                                                    className="btn btn-outline-secondary btn-sm py-0 px-1"
-                                                                    disabled={idx === 0}
-                                                                    onClick={() => handleReorderPhoto(idx, -1)}
-                                                                    title="Move Up"
-                                                                >
-                                                                    <i className="fas fa-caret-up"></i>
-                                                                </button>
-                                                                <button
-                                                                    className="btn btn-outline-secondary btn-sm py-0 px-1"
-                                                                    disabled={idx === gallery.length - 1}
-                                                                    onClick={() => handleReorderPhoto(idx, 1)}
-                                                                    title="Move Down"
-                                                                >
-                                                                    <i className="fas fa-caret-down"></i>
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <img
-                                                            src={item.thumbPath || item.imagePath}
-                                                            alt={item.altText || item.caption}
-                                                            style={{ width: '80px', height: '56px', objectFit: 'cover', borderRadius: '6px', border: '1px solid #eee' }}
-                                                        />
-                                                    </td>
-                                                    <td>
-                                                        <div className="fw-semibold text-dark">{item.caption || 'No caption'}</div>
-                                                        <small className="text-muted d-block">
-                                                            <i className="fas fa-universal-access me-1 text-primary"></i> Alt: {item.altText}
-                                                        </small>
-                                                    </td>
-                                                    <td>
-                                                        <span className="badge bg-light text-primary border">{item.category}</span>
-                                                    </td>
-                                                    <td className="small text-muted">
-                                                        <i className="far fa-calendar-alt me-1"></i> {item.eventDate || '—'}
-                                                    </td>
-                                                    <td>
-                                                        <button
-                                                            onClick={() => handleTogglePhotoStatus(item)}
-                                                            className={`btn btn-sm ${item.status === 'published' ? 'btn-success' : 'btn-outline-secondary'} rounded-pill px-3 py-1`}
-                                                            style={{ fontSize: '12px' }}
-                                                        >
-                                                            <i className={`fas ${item.status === 'published' ? 'fa-eye' : 'fa-eye-slash'} me-1`}></i>
-                                                            {item.status === 'published' ? 'Published' : 'Hidden'}
-                                                        </button>
-                                                    </td>
-                                                    <td className="pe-4 text-end">
-                                                        <div className="btn-group btn-group-sm">
-                                                            <button
-                                                                onClick={() => handleOpenEditPhotoModal(item)}
-                                                                className="btn btn-outline-primary"
-                                                                title="Edit photo details"
-                                                            >
-                                                                <i className="far fa-edit"></i>
-                                                            </button>
-                                                            <button
-                                                                onClick={() => setPhotoToDelete(item)}
-                                                                className="btn btn-outline-danger"
-                                                                title="Delete photo"
-                                                            >
-                                                                <i className="far fa-trash-alt"></i>
-                                                            </button>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            ))
-                                        )}
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </>
-                )}
-
-                {/* ============================================================== */}
-                {/* TAB 4: MANAGE ADMINS (Superadmin only)                         */}
-                {/* ============================================================== */}
-                {activeTab === 'admins' && isSuperAdmin && (
-                    <>
-                        <div className="card shadow-sm border-0 mb-4 rounded-3">
-                            <div className="card-body p-4">
-                                <div className="d-flex justify-content-between align-items-center">
-                                    <div>
-                                        <h5 className="fw-bold mb-1" style={{ color: '#1c2539' }}>Admin Account Management</h5>
-                                        <p className="text-muted small mb-0">Create, manage roles, disable accounts, and trigger password resets.</p>
-                                    </div>
-                                    <button onClick={handleOpenAddAdminModal} className="btn btn-primary btn-sm px-3 fw-semibold">
-                                        <i className="fas fa-plus me-1"></i> Add Admin
+                                    <button
+                                        type="button"
+                                        className="vrm-btn-primary-upload"
+                                        onClick={handleOpenUploadModal}
+                                    >
+                                        <i className="fas fa-cloud-upload-alt"></i>
+                                        <span>Upload Photo</span>
                                     </button>
                                 </div>
-                            </div>
-                        </div>
 
-                        <div className="card shadow-sm border-0 rounded-3 overflow-hidden">
-                            <div className="table-responsive">
-                                <table className="table table-hover align-middle mb-0">
-                                    <thead className="table-light">
-                                        <tr>
-                                            <th className="ps-4 py-3">Username & Display Name</th>
-                                            <th className="py-3">Email Address</th>
-                                            <th className="py-3">Role</th>
-                                            <th className="py-3">Account Status</th>
-                                            <th className="py-3">Last Updated</th>
-                                            <th className="pe-4 py-3 text-end">Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {isLoadingAdmins ? (
-                                            <tr>
-                                                <td colSpan="6" className="text-center py-5">
-                                                    <div className="spinner-border text-primary spinner-border-sm me-2" role="status"></div>
-                                                    Loading admin accounts...
-                                                </td>
-                                            </tr>
-                                        ) : adminUsers.length === 0 ? (
-                                            <tr>
-                                                <td colSpan="6" className="text-center py-5 text-muted">
-                                                    No admin accounts found.
-                                                </td>
-                                            </tr>
+                                {/* Filter Toolbar Row */}
+                                <div className="vrm-filter-toolbar-row">
+                                    <div className="vrm-filter-left-group">
+                                        {/* In-tab search */}
+                                        <div className="position-relative">
+                                            <i className="fas fa-search position-absolute top-50 translate-middle-y text-muted" style={{ left: '12px' }}></i>
+                                            <input
+                                                type="text"
+                                                className="vrm-filter-search-input"
+                                                placeholder="Search by caption or event..."
+                                                value={globalSearch}
+                                                onChange={(e) => setGlobalSearch(e.target.value)}
+                                            />
+                                        </div>
+
+                                        {/* Category Dropdown */}
+                                        <select
+                                            className="vrm-filter-select"
+                                            value={galleryCategoryFilter}
+                                            onChange={(e) => setGalleryCategoryFilter(e.target.value)}
+                                        >
+                                            <option value="all">All Categories</option>
+                                            <option value="Fun Friday">Fun Friday</option>
+                                            <option value="Festival">Festival</option>
+                                            <option value="Team Event">Team Event</option>
+                                            <option value="Office">Office</option>
+                                        </select>
+
+                                        {/* Dates Dropdown */}
+                                        <select
+                                            className="vrm-filter-select"
+                                            value={galleryDateFilter}
+                                            onChange={(e) => setGalleryDateFilter(e.target.value)}
+                                        >
+                                            <option value="all">All Dates</option>
+                                            <option value="7d">Last 7 Days</option>
+                                            <option value="30d">Last 30 Days</option>
+                                            <option value="year">This Year</option>
+                                        </select>
+                                    </div>
+
+                                    {/* View Toggle */}
+                                    <div className="vrm-view-toggle-group">
+                                        <button
+                                            type="button"
+                                            className={`vrm-view-toggle-btn ${galleryViewMode === 'grid' ? 'active' : ''}`}
+                                            onClick={() => setGalleryViewMode('grid')}
+                                            title="Grid View"
+                                        >
+                                            <i className="fas fa-th-large"></i>
+                                        </button>
+                                        <button
+                                            type="button"
+                                            className={`vrm-view-toggle-btn ${galleryViewMode === 'list' ? 'active' : ''}`}
+                                            onClick={() => setGalleryViewMode('list')}
+                                            title="List View"
+                                        >
+                                            <i className="fas fa-list"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                {/* Bulk Action Bar (when photos are selected) */}
+                                {selectedPhotoIds.size > 0 && (
+                                    <div className="mt-3 p-2 bg-dark rounded-3 border border-secondary d-flex align-items-center justify-content-between flex-wrap gap-2">
+                                        <div className="small text-white ps-2">
+                                            <i className="fas fa-check-square text-primary me-2"></i>
+                                            <strong>{selectedPhotoIds.size}</strong> photo(s) selected
+                                        </div>
+                                        <div className="d-flex gap-2">
+                                            <button className="btn btn-sm btn-success" onClick={handleBulkPublish}>
+                                                <i className="fas fa-check me-1"></i> Publish Selected
+                                            </button>
+                                            <button className="btn btn-sm btn-secondary" onClick={handleBulkHide}>
+                                                <i className="fas fa-eye-slash me-1"></i> Hide Selected
+                                            </button>
+                                            <button className="btn btn-sm btn-danger" onClick={handleBulkDelete}>
+                                                <i className="fas fa-trash-alt me-1"></i> Delete Selected
+                                            </button>
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
+
+                            {/* Table or Grid View */}
+                            <div className="vrm-admin-table-card">
+                                {isLoadingGallery ? (
+                                    <div className="text-center py-5">
+                                        <div className="spinner-border text-primary spinner-border-sm me-2" role="status"></div>
+                                        <span className="text-muted">Loading photos...</span>
+                                    </div>
+                                ) : filteredGallery.length === 0 ? (
+                                    /* Empty State as in Mockup */
+                                    <div className="vrm-empty-state-box">
+                                        <div className="vrm-empty-icon-wrap">
+                                            <i className="far fa-images"></i>
+                                        </div>
+                                        <div className="vrm-empty-title">No photos uploaded yet</div>
+                                        <div className="vrm-empty-desc">
+                                            Upload photos to share employee moments on the VRM website.
+                                        </div>
+                                        <button
+                                            type="button"
+                                            className="vrm-btn-primary-upload d-inline-flex mx-auto"
+                                            onClick={handleOpenUploadModal}
+                                        >
+                                            <i className="fas fa-cloud-upload-alt"></i>
+                                            <span>Upload Photo</span>
+                                        </button>
+                                    </div>
+                                ) : galleryViewMode === 'list' ? (
+                                    /* List Table View */
+                                    <div className="table-responsive">
+                                        <table className="vrm-dark-table">
+                                            <thead>
+                                                <tr>
+                                                    <th style={{ width: '40px' }}>
+                                                        <input
+                                                            type="checkbox"
+                                                            className="vrm-checkbox-custom"
+                                                            checked={selectedPhotoIds.size === filteredGallery.length && filteredGallery.length > 0}
+                                                            onChange={() => toggleSelectAllPhotos(filteredGallery)}
+                                                        />
+                                                    </th>
+                                                    <th style={{ width: '50px' }}>#</th>
+                                                    <th style={{ width: '100px' }}>Thumbnail</th>
+                                                    <th>Caption & Alt Text</th>
+                                                    <th>Category</th>
+                                                    <th>Event Date</th>
+                                                    <th>Status</th>
+                                                    <th className="text-end pe-3">Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {filteredGallery.map((item, idx) => {
+                                                    const isChecked = selectedPhotoIds.has(item.id);
+                                                    return (
+                                                        <tr key={item.id} style={{ background: isChecked ? 'rgba(59, 130, 246, 0.08)' : undefined }}>
+                                                            <td>
+                                                                <input
+                                                                    type="checkbox"
+                                                                    className="vrm-checkbox-custom"
+                                                                    checked={isChecked}
+                                                                    onChange={() => toggleSelectPhoto(item.id)}
+                                                                />
+                                                            </td>
+                                                            <td className="text-muted fw-bold small">
+                                                                <div className="d-flex align-items-center gap-1">
+                                                                    <span>{idx + 1}</span>
+                                                                    <div className="btn-group-vertical btn-group-sm">
+                                                                        <button
+                                                                            type="button"
+                                                                            className="btn btn-link p-0 text-muted"
+                                                                            disabled={idx === 0}
+                                                                            onClick={() => handleReorderPhoto(idx, -1)}
+                                                                            style={{ lineHeight: 1, fontSize: '10px' }}
+                                                                        >
+                                                                            <i className="fas fa-caret-up"></i>
+                                                                        </button>
+                                                                        <button
+                                                                            type="button"
+                                                                            className="btn btn-link p-0 text-muted"
+                                                                            disabled={idx === filteredGallery.length - 1}
+                                                                            onClick={() => handleReorderPhoto(idx, 1)}
+                                                                            style={{ lineHeight: 1, fontSize: '10px' }}
+                                                                        >
+                                                                            <i className="fas fa-caret-down"></i>
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <img
+                                                                    src={item.thumbPath || item.imagePath}
+                                                                    alt={item.altText || item.caption}
+                                                                    className="vrm-table-thumb"
+                                                                />
+                                                            </td>
+                                                            <td>
+                                                                <div className="fw-semibold text-white">{item.caption || 'No caption'}</div>
+                                                                <small className="text-muted d-block mt-1">
+                                                                    <i className="fas fa-universal-access text-info me-1"></i> {item.altText}
+                                                                </small>
+                                                            </td>
+                                                            <td>
+                                                                <span className="vrm-badge-cat">{item.category}</span>
+                                                            </td>
+                                                            <td className="small text-muted">
+                                                                {item.eventDate || '—'}
+                                                            </td>
+                                                            <td>
+                                                                <span className={`vrm-status-badge ${item.status === 'published' ? 'published' : 'hidden'}`}>
+                                                                    <i className={`fas ${item.status === 'published' ? 'fa-check-circle' : 'fa-eye-slash'}`}></i>
+                                                                    {item.status === 'published' ? 'Published' : 'Hidden'}
+                                                                </span>
+                                                            </td>
+                                                            <td className="text-end pe-3">
+                                                                <div className="btn-group btn-group-sm">
+                                                                    <button
+                                                                        type="button"
+                                                                        className={`btn ${item.status === 'published' ? 'btn-outline-secondary' : 'btn-outline-success'} btn-sm`}
+                                                                        onClick={() => handleTogglePhotoPublish(item)}
+                                                                        title={item.status === 'published' ? 'Hide Photo' : 'Approve & Publish'}
+                                                                    >
+                                                                        <i className={`fas ${item.status === 'published' ? 'fa-eye-slash' : 'fa-check'}`}></i>
+                                                                    </button>
+                                                                    <button
+                                                                        type="button"
+                                                                        className="btn btn-outline-primary btn-sm"
+                                                                        onClick={() => handleOpenEditPhotoModal(item)}
+                                                                        title="Edit Details"
+                                                                    >
+                                                                        <i className="far fa-edit"></i>
+                                                                    </button>
+                                                                    <button
+                                                                        type="button"
+                                                                        className="btn btn-outline-danger btn-sm"
+                                                                        onClick={() => setPhotoToDelete(item)}
+                                                                        title="Delete Photo"
+                                                                    >
+                                                                        <i className="far fa-trash-alt"></i>
+                                                                    </button>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    );
+                                                })}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                ) : (
+                                    /* Grid View */
+                                    <div className="vrm-photo-grid">
+                                        {filteredGallery.map((item, idx) => (
+                                            <div className="vrm-grid-photo-card" key={item.id}>
+                                                <div className="vrm-grid-thumb-box">
+                                                    <img
+                                                        src={item.thumbPath || item.imagePath}
+                                                        alt={item.altText || item.caption}
+                                                        className="vrm-grid-thumb-img"
+                                                    />
+                                                    <span className="badge bg-dark bg-opacity-75 text-white position-absolute top-0 start-0 m-2 px-2 py-1 rounded-pill small">
+                                                        {item.category}
+                                                    </span>
+                                                </div>
+                                                <div className="p-3 d-flex flex-column justify-content-between flex-1">
+                                                    <div>
+                                                        <div className="fw-semibold text-white mb-1" style={{ fontSize: '14px' }}>
+                                                            {item.caption || 'No caption'}
+                                                        </div>
+                                                        <small className="text-muted d-block" style={{ fontSize: '11px' }}>
+                                                            {item.altText}
+                                                        </small>
+                                                    </div>
+                                                    <div className="d-flex align-items-center justify-content-between mt-3 pt-2 border-top border-secondary">
+                                                        <span className="small text-muted">{item.eventDate}</span>
+                                                        <div className="btn-group btn-group-sm">
+                                                            <button
+                                                                type="button"
+                                                                className={`btn ${item.status === 'published' ? 'btn-outline-secondary' : 'btn-outline-success'} btn-sm py-0`}
+                                                                onClick={() => handleTogglePhotoPublish(item)}
+                                                            >
+                                                                {item.status === 'published' ? 'Hide' : 'Approve'}
+                                                            </button>
+                                                            <button
+                                                                type="button"
+                                                                className="btn btn-outline-primary btn-sm py-0"
+                                                                onClick={() => handleOpenEditPhotoModal(item)}
+                                                            >
+                                                                Edit
+                                                            </button>
+                                                            <button
+                                                                type="button"
+                                                                className="btn btn-outline-danger btn-sm py-0"
+                                                                onClick={() => setPhotoToDelete(item)}
+                                                            >
+                                                                <i className="far fa-trash-alt"></i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
+                        </>
+                    )}
+
+                    {/* ============================================================== */}
+                    {/* TAB: ADMIN DASHBOARD                                           */}
+                    {/* ============================================================== */}
+                    {activeTab === 'dashboard' && (
+                        <>
+                            <div className="d-flex justify-content-between align-items-center mb-4">
+                                <div>
+                                    <h2 className="h4 fw-bold text-white mb-1">Admin Dashboard Overview</h2>
+                                    <p className="text-muted small mb-0">High-level operational metrics across recruitment, team culture, and admins.</p>
+                                </div>
+                            </div>
+
+                            {/* 4 Stats Cards */}
+                            <div className="vrm-admin-stats-grid mb-4">
+                                <div className="vrm-admin-stat-card" onClick={() => setActiveTab('jobs')} style={{ cursor: 'pointer' }}>
+                                    <div className="vrm-stat-left">
+                                        <div className="vrm-stat-icon-tile blue">
+                                            <i className="fas fa-briefcase"></i>
+                                        </div>
+                                        <div>
+                                            <div className="vrm-stat-label">Open Job Roles</div>
+                                            <div className="vrm-stat-value">{jobStats.published} <small className="text-muted fs-6">/ {jobStats.total}</small></div>
+                                        </div>
+                                    </div>
+                                    <svg className="vrm-stat-sparkline" viewBox="0 0 100 40" fill="none">
+                                        <path d="M0 34 Q 25 38, 45 22 T 80 12 T 100 24" stroke="#3b82f6" strokeWidth="2.5" strokeLinecap="round" />
+                                    </svg>
+                                </div>
+
+                                <div className="vrm-admin-stat-card" onClick={() => setActiveTab('applications')} style={{ cursor: 'pointer' }}>
+                                    <div className="vrm-stat-left">
+                                        <div className="vrm-stat-icon-tile purple">
+                                            <i className="fas fa-file-alt"></i>
+                                        </div>
+                                        <div>
+                                            <div className="vrm-stat-label">Applications</div>
+                                            <div className="vrm-stat-value">{appStats.total} {appStats.new > 0 && <span className="badge bg-danger rounded-pill fs-6 ms-1">{appStats.new} new</span>}</div>
+                                        </div>
+                                    </div>
+                                    <svg className="vrm-stat-sparkline" viewBox="0 0 100 40" fill="none">
+                                        <path d="M0 28 Q 30 36, 50 18 T 85 8 T 100 20" stroke="#8b5cf6" strokeWidth="2.5" strokeLinecap="round" />
+                                    </svg>
+                                </div>
+
+                                <div className="vrm-admin-stat-card" onClick={() => setActiveTab('gallery')} style={{ cursor: 'pointer' }}>
+                                    <div className="vrm-stat-left">
+                                        <div className="vrm-stat-icon-tile green">
+                                            <i className="far fa-images"></i>
+                                        </div>
+                                        <div>
+                                            <div className="vrm-stat-label">Life at VRM Photos</div>
+                                            <div className="vrm-stat-value green">{galleryStats.published} <small className="text-muted fs-6">Live</small></div>
+                                        </div>
+                                    </div>
+                                    <svg className="vrm-stat-sparkline" viewBox="0 0 100 40" fill="none">
+                                        <path d="M0 32 Q 30 36, 50 18 T 85 8 T 100 20" stroke="#10b981" strokeWidth="2.5" strokeLinecap="round" />
+                                    </svg>
+                                </div>
+
+                                {isSuperAdmin && (
+                                    <div className="vrm-admin-stat-card" onClick={() => setActiveTab('admins')} style={{ cursor: 'pointer' }}>
+                                        <div className="vrm-stat-left">
+                                            <div className="vrm-stat-icon-tile slate">
+                                                <i className="fas fa-user-shield"></i>
+                                            </div>
+                                            <div>
+                                                <div className="vrm-stat-label">Admins</div>
+                                                <div className="vrm-stat-value">{adminUsers.length} <small className="text-muted fs-6">Accounts</small></div>
+                                            </div>
+                                        </div>
+                                        <svg className="vrm-stat-sparkline" viewBox="0 0 100 40" fill="none">
+                                            <path d="M0 26 Q 35 24, 60 32 T 100 22" stroke="#94a3b8" strokeWidth="2.5" strokeLinecap="round" />
+                                        </svg>
+                                    </div>
+                                )}
+                            </div>
+
+                            {/* Recent Activity Rows */}
+                            <div className="row g-4">
+                                <div className="col-lg-6">
+                                    <div className="vrm-admin-table-card p-4">
+                                        <div className="d-flex justify-content-between align-items-center mb-3">
+                                            <h5 className="fw-bold text-white mb-0" style={{ fontSize: '16px' }}>Latest Applications</h5>
+                                            <button className="btn btn-sm btn-link text-primary text-decoration-none" onClick={() => setActiveTab('applications')}>
+                                                View All ({applications.length})
+                                            </button>
+                                        </div>
+                                        {applications.length === 0 ? (
+                                            <div className="text-muted text-center py-4 small">No candidate applications received yet.</div>
                                         ) : (
-                                            adminUsers.map(adm => {
-                                                const isSelf = String(adm.id) === String(currentUser?.id);
-                                                return (
-                                                    <tr key={adm.id}>
-                                                        <td className="ps-4">
-                                                            <div className="fw-bold text-dark">
-                                                                {adm.displayName || adm.username}
-                                                                {isSelf && <span className="badge bg-secondary ms-2" style={{ fontSize: '10px' }}>You</span>}
-                                                            </div>
-                                                            <div className="small text-muted font-monospace">{adm.username}</div>
-                                                        </td>
-                                                        <td>{adm.email || '—'}</td>
-                                                        <td>
-                                                            <span className={`badge ${adm.role === 'superadmin' ? 'bg-danger' : 'bg-primary'} text-uppercase`} style={{ fontSize: '11px' }}>
-                                                                {adm.role}
+                                            <div className="d-flex flex-column gap-2">
+                                                {applications.slice(0, 5).map(app => (
+                                                    <div key={app.id} className="p-3 rounded-3 d-flex align-items-center justify-content-between" style={{ background: '#131b2e' }}>
+                                                        <div>
+                                                            <div className="fw-bold text-white">{app.fullName}</div>
+                                                            <small className="text-muted">{app.position} • {app.appliedAt ? new Date(app.appliedAt).toLocaleDateString() : ''}</small>
+                                                        </div>
+                                                        <div className="d-flex align-items-center gap-2">
+                                                            <span className={`badge ${app.status === 'new' ? 'bg-danger' : 'bg-primary'} rounded-pill`} style={{ fontSize: '10px' }}>
+                                                                {app.status}
                                                             </span>
-                                                        </td>
-                                                        <td>
-                                                            <span className={`badge ${adm.active ? 'bg-success' : 'bg-secondary'} rounded-pill px-2 py-1`}>
-                                                                {adm.active ? 'Active' : 'Disabled'}
+                                                            <button
+                                                                className="btn btn-sm btn-outline-primary"
+                                                                onClick={() => {
+                                                                    setSelectedApp(app);
+                                                                    setActiveTab('applications');
+                                                                }}
+                                                            >
+                                                                View
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
+
+                                <div className="col-lg-6">
+                                    <div className="vrm-admin-table-card p-4">
+                                        <div className="d-flex justify-content-between align-items-center mb-3">
+                                            <h5 className="fw-bold text-white mb-0" style={{ fontSize: '16px' }}>Recent Job Postings</h5>
+                                            <button className="btn btn-sm btn-link text-primary text-decoration-none" onClick={() => setActiveTab('jobs')}>
+                                                View All ({jobs.length})
+                                            </button>
+                                        </div>
+                                        {jobs.length === 0 ? (
+                                            <div className="text-muted text-center py-4 small">No job postings created yet.</div>
+                                        ) : (
+                                            <div className="d-flex flex-column gap-2">
+                                                {jobs.slice(0, 5).map(job => (
+                                                    <div key={job.id} className="p-3 rounded-3 d-flex align-items-center justify-content-between" style={{ background: '#131b2e' }}>
+                                                        <div>
+                                                            <div className="fw-bold text-white">{job.title}</div>
+                                                            <small className="text-muted">{job.department} • {job.location}</small>
+                                                        </div>
+                                                        <div className="d-flex align-items-center gap-2">
+                                                            <span className={`badge ${job.status === 'published' ? 'bg-success' : 'bg-secondary'} rounded-pill`} style={{ fontSize: '10px' }}>
+                                                                {job.status}
                                                             </span>
-                                                            {adm.forcePasswordChange && (
-                                                                <span className="badge bg-warning text-dark ms-1" style={{ fontSize: '10px' }}>Temp Pwd</span>
-                                                            )}
+                                                            <Link to={`/careers/${job.slug}`} target="_blank" className="btn btn-sm btn-outline-secondary">
+                                                                <i className="far fa-external-link"></i>
+                                                            </Link>
+                                                        </div>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
+                            </div>
+                        </>
+                    )}
+
+                    {/* ============================================================== */}
+                    {/* TAB: JOB OPENINGS                                              */}
+                    {/* ============================================================== */}
+                    {activeTab === 'jobs' && (
+                        <>
+                            <div className="d-flex flex-wrap justify-content-between align-items-center mb-4 gap-3">
+                                <div>
+                                    <h2 className="h4 fw-bold text-white mb-1">Job Openings Management</h2>
+                                    <p className="text-muted small mb-0">Publish, modify, and track career opportunities live on the website.</p>
+                                </div>
+                                <button
+                                    type="button"
+                                    className="vrm-btn-primary-upload"
+                                    onClick={handleOpenAddJobModal}
+                                >
+                                    <i className="fas fa-plus"></i>
+                                    <span>Post New Job</span>
+                                </button>
+                            </div>
+
+                            {/* Metric Cards */}
+                            <div className="vrm-admin-stats-grid mb-4">
+                                <div className="vrm-admin-stat-card">
+                                    <div className="vrm-stat-left">
+                                        <div className="vrm-stat-icon-tile blue"><i className="fas fa-briefcase"></i></div>
+                                        <div>
+                                            <div className="vrm-stat-label">Total Openings</div>
+                                            <div className="vrm-stat-value">{jobStats.total}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="vrm-admin-stat-card">
+                                    <div className="vrm-stat-left">
+                                        <div className="vrm-stat-icon-tile green"><i className="far fa-check-circle"></i></div>
+                                        <div>
+                                            <div className="vrm-stat-label">Published (Live)</div>
+                                            <div className="vrm-stat-value green">{jobStats.published}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="vrm-admin-stat-card">
+                                    <div className="vrm-stat-left">
+                                        <div className="vrm-stat-icon-tile purple"><i className="far fa-edit"></i></div>
+                                        <div>
+                                            <div className="vrm-stat-label">Drafts</div>
+                                            <div className="vrm-stat-value">{jobStats.draft}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="vrm-admin-stat-card">
+                                    <div className="vrm-stat-left">
+                                        <div className="vrm-stat-icon-tile slate"><i className="fas fa-archive"></i></div>
+                                        <div>
+                                            <div className="vrm-stat-label">Closed</div>
+                                            <div className="vrm-stat-value">{jobStats.closed}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Control Card */}
+                            <div className="vrm-admin-controls-card mb-4">
+                                <div className="d-flex flex-wrap justify-content-between align-items-center gap-3">
+                                    <div className="vrm-gallery-pill-nav">
+                                        <button
+                                            className={`vrm-gallery-pill-btn ${jobFilterStatus === 'all' ? 'active' : ''}`}
+                                            onClick={() => setJobFilterStatus('all')}
+                                        >
+                                            All ({jobs.length})
+                                        </button>
+                                        <button
+                                            className={`vrm-gallery-pill-btn ${jobFilterStatus === 'published' ? 'active' : ''}`}
+                                            onClick={() => setJobFilterStatus('published')}
+                                        >
+                                            Published ({jobStats.published})
+                                        </button>
+                                        <button
+                                            className={`vrm-gallery-pill-btn ${jobFilterStatus === 'draft' ? 'active' : ''}`}
+                                            onClick={() => setJobFilterStatus('draft')}
+                                        >
+                                            Drafts ({jobStats.draft})
+                                        </button>
+                                        <button
+                                            className={`vrm-gallery-pill-btn ${jobFilterStatus === 'closed' ? 'active' : ''}`}
+                                            onClick={() => setJobFilterStatus('closed')}
+                                        >
+                                            Closed ({jobStats.closed})
+                                        </button>
+                                    </div>
+
+                                    <div className="position-relative">
+                                        <i className="fas fa-search position-absolute top-50 translate-middle-y text-muted" style={{ left: '12px' }}></i>
+                                        <input
+                                            type="text"
+                                            className="vrm-filter-search-input"
+                                            placeholder="Search openings..."
+                                            value={globalSearch}
+                                            onChange={(e) => setGlobalSearch(e.target.value)}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Jobs Table */}
+                            <div className="vrm-admin-table-card">
+                                {isLoadingJobs ? (
+                                    <div className="text-center py-5">
+                                        <div className="spinner-border text-primary spinner-border-sm me-2" role="status"></div>
+                                        <span className="text-muted">Loading job openings...</span>
+                                    </div>
+                                ) : filteredJobs.length === 0 ? (
+                                    <div className="vrm-empty-state-box">
+                                        <div className="vrm-empty-icon-wrap"><i className="fas fa-briefcase"></i></div>
+                                        <div className="vrm-empty-title">No job openings found</div>
+                                        <div className="vrm-empty-desc">Create your first role to start attracting talent.</div>
+                                        <button className="vrm-btn-primary-upload d-inline-flex mx-auto" onClick={handleOpenAddJobModal}>
+                                            <i className="fas fa-plus"></i> Post New Job
+                                        </button>
+                                    </div>
+                                ) : (
+                                    <div className="table-responsive">
+                                        <table className="vrm-dark-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Role Title</th>
+                                                    <th>Department</th>
+                                                    <th>Location</th>
+                                                    <th>Type</th>
+                                                    <th>Status</th>
+                                                    <th>Posted Date</th>
+                                                    <th className="text-end pe-3">Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {filteredJobs.map(job => (
+                                                    <tr key={job.id}>
+                                                        <td>
+                                                            <div className="fw-bold text-white">{job.title}</div>
+                                                            <small className="text-muted font-monospace">/careers/{job.slug}</small>
+                                                        </td>
+                                                        <td><span className="vrm-badge-cat">{job.department}</span></td>
+                                                        <td><i className="far fa-map-marker-alt text-muted me-1"></i> {job.location}</td>
+                                                        <td>{job.employmentType}</td>
+                                                        <td>
+                                                            <select
+                                                                className="vrm-filter-select py-1 px-2"
+                                                                value={job.status}
+                                                                onChange={(e) => handleQuickJobStatusChange(job.id, e.target.value)}
+                                                                style={{ fontSize: '12px' }}
+                                                            >
+                                                                <option value="published">Published</option>
+                                                                <option value="draft">Draft</option>
+                                                                <option value="closed">Closed</option>
+                                                            </select>
                                                         </td>
                                                         <td className="small text-muted">
-                                                            {adm.updatedAt ? new Date(adm.updatedAt).toLocaleDateString() : '—'}
+                                                            {job.postedAt ? new Date(job.postedAt).toLocaleDateString() : '—'}
                                                         </td>
-                                                        <td className="pe-4 text-end">
+                                                        <td className="text-end pe-3">
                                                             <div className="btn-group btn-group-sm">
-                                                                <button
-                                                                    onClick={() => handleOpenEditAdminModal(adm)}
-                                                                    className="btn btn-outline-primary"
-                                                                    title="Edit Admin"
-                                                                >
+                                                                <Link to={`/careers/${job.slug}`} target="_blank" className="btn btn-outline-secondary btn-sm" title="Preview live">
+                                                                    <i className="far fa-external-link"></i>
+                                                                </Link>
+                                                                <button className="btn btn-outline-primary btn-sm" onClick={() => handleOpenEditJobModal(job)} title="Edit">
                                                                     <i className="far fa-edit"></i>
                                                                 </button>
-                                                                <button
-                                                                    onClick={() => handleResetAdminPassword(adm.id, adm.username)}
-                                                                    className="btn btn-outline-warning text-dark"
-                                                                    title="Reset Password (Generates One-Time Temp Password)"
-                                                                >
-                                                                    <i className="fas fa-key"></i>
-                                                                </button>
-                                                                <button
-                                                                    onClick={() => setAdminToDelete(adm)}
-                                                                    className="btn btn-outline-danger"
-                                                                    disabled={isSelf}
-                                                                    title={isSelf ? 'Cannot delete your own account' : 'Delete Admin'}
-                                                                >
+                                                                <button className="btn btn-outline-danger btn-sm" onClick={() => setJobToDelete(job)} title="Delete">
                                                                     <i className="far fa-trash-alt"></i>
                                                                 </button>
                                                             </div>
                                                         </td>
                                                     </tr>
-                                                );
-                                            })
-                                        )}
-                                    </tbody>
-                                </table>
+                                                ))}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                )}
                             </div>
-                        </div>
-                    </>
-                )}
-            </div>
+                        </>
+                    )}
+
+                    {/* ============================================================== */}
+                    {/* TAB: APPLICATIONS                                              */}
+                    {/* ============================================================== */}
+                    {activeTab === 'applications' && (
+                        <>
+                            <div className="d-flex justify-content-between align-items-center mb-4">
+                                <div>
+                                    <h2 className="h4 fw-bold text-white mb-1">Candidate Applications</h2>
+                                    <p className="text-muted small mb-0">Review applicants, download resumes, and manage recruitment pipeline.</p>
+                                </div>
+                            </div>
+
+                            {/* Metric Cards */}
+                            <div className="vrm-admin-stats-grid mb-4">
+                                <div className="vrm-admin-stat-card">
+                                    <div className="vrm-stat-left">
+                                        <div className="vrm-stat-icon-tile blue"><i className="fas fa-users"></i></div>
+                                        <div>
+                                            <div className="vrm-stat-label">Total Received</div>
+                                            <div className="vrm-stat-value">{appStats.total}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="vrm-admin-stat-card">
+                                    <div className="vrm-stat-left">
+                                        <div className="vrm-stat-icon-tile purple"><i className="fas fa-bell"></i></div>
+                                        <div>
+                                            <div className="vrm-stat-label">New Applications</div>
+                                            <div className="vrm-stat-value text-danger">{appStats.new}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="vrm-admin-stat-card">
+                                    <div className="vrm-stat-left">
+                                        <div className="vrm-stat-icon-tile green"><i className="fas fa-star"></i></div>
+                                        <div>
+                                            <div className="vrm-stat-label">Shortlisted</div>
+                                            <div className="vrm-stat-value green">{appStats.shortlisted}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="vrm-admin-stat-card">
+                                    <div className="vrm-stat-left">
+                                        <div className="vrm-stat-icon-tile slate"><i className="fas fa-user-check"></i></div>
+                                        <div>
+                                            <div className="vrm-stat-label">Reviewed</div>
+                                            <div className="vrm-stat-value">{appStats.reviewed}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Controls Card */}
+                            <div className="vrm-admin-controls-card mb-4">
+                                <div className="d-flex flex-wrap justify-content-between align-items-center gap-3">
+                                    <div className="vrm-gallery-pill-nav">
+                                        <button className={`vrm-gallery-pill-btn ${appFilterStatus === 'all' ? 'active' : ''}`} onClick={() => setAppFilterStatus('all')}>
+                                            All ({applications.length})
+                                        </button>
+                                        <button className={`vrm-gallery-pill-btn ${appFilterStatus === 'new' ? 'active' : ''}`} onClick={() => setAppFilterStatus('new')}>
+                                            New ({appStats.new})
+                                        </button>
+                                        <button className={`vrm-gallery-pill-btn ${appFilterStatus === 'reviewed' ? 'active' : ''}`} onClick={() => setAppFilterStatus('reviewed')}>
+                                            Reviewed ({appStats.reviewed})
+                                        </button>
+                                        <button className={`vrm-gallery-pill-btn ${appFilterStatus === 'shortlisted' ? 'active' : ''}`} onClick={() => setAppFilterStatus('shortlisted')}>
+                                            Shortlisted ({appStats.shortlisted})
+                                        </button>
+                                        <button className={`vrm-gallery-pill-btn ${appFilterStatus === 'rejected' ? 'active' : ''}`} onClick={() => setAppFilterStatus('rejected')}>
+                                            Rejected ({appStats.rejected})
+                                        </button>
+                                    </div>
+
+                                    <div className="position-relative">
+                                        <i className="fas fa-search position-absolute top-50 translate-middle-y text-muted" style={{ left: '12px' }}></i>
+                                        <input
+                                            type="text"
+                                            className="vrm-filter-search-input"
+                                            placeholder="Search candidates..."
+                                            value={globalSearch}
+                                            onChange={(e) => setGlobalSearch(e.target.value)}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Applications Table */}
+                            <div className="vrm-admin-table-card">
+                                {isLoadingApps ? (
+                                    <div className="text-center py-5">
+                                        <div className="spinner-border text-primary spinner-border-sm me-2" role="status"></div>
+                                        <span className="text-muted">Loading applications...</span>
+                                    </div>
+                                ) : filteredApplications.length === 0 ? (
+                                    <div className="vrm-empty-state-box">
+                                        <div className="vrm-empty-icon-wrap"><i className="fas fa-file-alt"></i></div>
+                                        <div className="vrm-empty-title">No candidate applications found</div>
+                                        <div className="vrm-empty-desc">New applications submitted via /careers will appear here.</div>
+                                    </div>
+                                ) : (
+                                    <div className="table-responsive">
+                                        <table className="vrm-dark-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Applicant Name</th>
+                                                    <th>Position</th>
+                                                    <th>Contact</th>
+                                                    <th>Experience</th>
+                                                    <th>Resume</th>
+                                                    <th>Status</th>
+                                                    <th>Applied Date</th>
+                                                    <th className="text-end pe-3">Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {filteredApplications.map(app => (
+                                                    <tr key={app.id}>
+                                                        <td>
+                                                            <div className="fw-bold text-white">{app.fullName}</div>
+                                                            <small className="text-muted">{app.email}</small>
+                                                        </td>
+                                                        <td><span className="vrm-badge-cat">{app.position}</span></td>
+                                                        <td className="small text-muted">{app.phone}</td>
+                                                        <td className="small">{app.experience}</td>
+                                                        <td>
+                                                            {app.storedFileName ? (
+                                                                <button
+                                                                    className="btn btn-sm btn-outline-primary py-1 px-2"
+                                                                    onClick={() => handleDownloadResume(app)}
+                                                                >
+                                                                    <i className="fas fa-file-download me-1"></i> Download
+                                                                </button>
+                                                            ) : (
+                                                                <span className="text-muted small">None</span>
+                                                            )}
+                                                        </td>
+                                                        <td>
+                                                            <select
+                                                                className="vrm-filter-select py-1 px-2"
+                                                                value={app.status}
+                                                                onChange={(e) => handleUpdateAppStatus(app.id, e.target.value)}
+                                                                style={{ fontSize: '12px' }}
+                                                            >
+                                                                <option value="new">New</option>
+                                                                <option value="reviewed">Reviewed</option>
+                                                                <option value="shortlisted">Shortlisted</option>
+                                                                <option value="rejected">Rejected</option>
+                                                            </select>
+                                                        </td>
+                                                        <td className="small text-muted">
+                                                            {app.appliedAt ? new Date(app.appliedAt).toLocaleDateString() : '—'}
+                                                        </td>
+                                                        <td className="text-end pe-3">
+                                                            <div className="btn-group btn-group-sm">
+                                                                <button className="btn btn-outline-primary btn-sm" onClick={() => setSelectedApp(app)} title="View Details">
+                                                                    <i className="far fa-eye"></i>
+                                                                </button>
+                                                                <button className="btn btn-outline-danger btn-sm" onClick={() => setAppToDelete(app)} title="Delete">
+                                                                    <i className="far fa-trash-alt"></i>
+                                                                </button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                ))}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                )}
+                            </div>
+                        </>
+                    )}
+
+                    {/* ============================================================== */}
+                    {/* TAB: MANAGE ADMINS (Superadmin only)                           */}
+                    {/* ============================================================== */}
+                    {activeTab === 'admins' && isSuperAdmin && (
+                        <>
+                            <div className="d-flex flex-wrap justify-content-between align-items-center mb-4 gap-3">
+                                <div>
+                                    <h2 className="h4 fw-bold text-white mb-1">Admin Account Management</h2>
+                                    <p className="text-muted small mb-0">Control team access, issue temporary credentials, and enforce role permissions.</p>
+                                </div>
+                                <button
+                                    type="button"
+                                    className="vrm-btn-primary-upload"
+                                    onClick={handleOpenAddAdminModal}
+                                >
+                                    <i className="fas fa-user-plus"></i>
+                                    <span>Add New Admin</span>
+                                </button>
+                            </div>
+
+                            {/* Admins Table */}
+                            <div className="vrm-admin-table-card">
+                                {isLoadingAdmins ? (
+                                    <div className="text-center py-5">
+                                        <div className="spinner-border text-primary spinner-border-sm me-2" role="status"></div>
+                                        <span className="text-muted">Loading administrators...</span>
+                                    </div>
+                                ) : (
+                                    <div className="table-responsive">
+                                        <table className="vrm-dark-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Admin User</th>
+                                                    <th>Email</th>
+                                                    <th>Role</th>
+                                                    <th>Status</th>
+                                                    <th>Last Updated</th>
+                                                    <th className="text-end pe-3">Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {filteredAdmins.map(adm => {
+                                                    const isSelf = String(adm.id) === String(currentUser?.id);
+                                                    return (
+                                                        <tr key={adm.id}>
+                                                            <td>
+                                                                <div className="fw-bold text-white">
+                                                                    {adm.displayName || adm.username}
+                                                                    {isSelf && <span className="badge bg-secondary ms-2 small">You</span>}
+                                                                </div>
+                                                                <small className="text-muted font-monospace">{adm.username}</small>
+                                                            </td>
+                                                            <td>{adm.email}</td>
+                                                            <td>
+                                                                <span className={`badge ${adm.role === 'superadmin' ? 'bg-danger' : 'bg-primary'} text-uppercase`}>
+                                                                    {adm.role}
+                                                                </span>
+                                                            </td>
+                                                            <td>
+                                                                <span className={`vrm-status-badge ${adm.active ? 'published' : 'hidden'}`}>
+                                                                    {adm.active ? 'Active' : 'Disabled'}
+                                                                </span>
+                                                                {adm.forcePasswordChange && (
+                                                                    <span className="badge bg-warning text-dark ms-1 small">Temp Password</span>
+                                                                )}
+                                                            </td>
+                                                            <td className="small text-muted">
+                                                                {adm.updatedAt ? new Date(adm.updatedAt).toLocaleDateString() : '—'}
+                                                            </td>
+                                                            <td className="text-end pe-3">
+                                                                <div className="btn-group btn-group-sm">
+                                                                    <button
+                                                                        className="btn btn-outline-primary btn-sm"
+                                                                        onClick={() => handleOpenEditAdminModal(adm)}
+                                                                        title="Edit"
+                                                                    >
+                                                                        <i className="far fa-edit"></i>
+                                                                    </button>
+                                                                    <button
+                                                                        className="btn btn-outline-warning btn-sm text-warning"
+                                                                        onClick={() => handleResetAdminPassword(adm.id, adm.username)}
+                                                                        title="Reset Password"
+                                                                    >
+                                                                        <i className="fas fa-key"></i>
+                                                                    </button>
+                                                                    <button
+                                                                        className="btn btn-outline-danger btn-sm"
+                                                                        disabled={isSelf}
+                                                                        onClick={() => setAdminToDelete(adm)}
+                                                                        title={isSelf ? 'Cannot delete self' : 'Delete'}
+                                                                    >
+                                                                        <i className="far fa-trash-alt"></i>
+                                                                    </button>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    );
+                                                })}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                )}
+                            </div>
+                        </>
+                    )}
+                </div>
+            </main>
 
             {/* ============================================================== */}
-            {/* MODALS SECTION                                                 */}
+            {/* 3. MODALS (STYLED FOR DARK THEME)                              */}
             {/* ============================================================== */}
 
-            {/* 1. Change Password Modal (Logged-In User) */}
-            <Modal show={showChangePassModal} onHide={() => setShowChangePassModal(false)} centered>
+            {/* Change Password Modal */}
+            <Modal show={showChangePassModal} onHide={() => setShowChangePassModal(false)} centered className="vrm-dark-modal">
                 <form onSubmit={handleChangePasswordSubmit}>
                     <Modal.Header closeButton>
-                        <Modal.Title className="h5 fw-bold" style={{ color: '#1c2539' }}>
-                            <i className="fas fa-lock me-2 text-primary"></i> Change Admin Password
-                        </Modal.Title>
+                        <Modal.Title><i className="fas fa-lock me-2 text-primary"></i> Change Admin Password</Modal.Title>
                     </Modal.Header>
-                    <Modal.Body className="p-4">
+                    <Modal.Body>
                         {changePassStatus.message && (
                             <div className={`alert ${changePassStatus.type === 'success' ? 'alert-success' : 'alert-danger'} py-2 px-3 small rounded-3 mb-3`}>
                                 {changePassStatus.message}
                             </div>
                         )}
-
                         <div className="mb-3">
-                            <label className="form-label small fw-semibold text-dark">
-                                Current Password {!currentUser?.forcePasswordChange && <span className="text-danger">*</span>}
-                            </label>
+                            <label className="form-label">Current Password {!currentUser?.forcePasswordChange && <span className="text-danger">*</span>}</label>
                             <input
                                 type="password"
                                 className="form-control"
@@ -2051,11 +2701,8 @@ function AdminCareers() {
                                 required={!currentUser?.forcePasswordChange}
                             />
                         </div>
-
                         <div className="mb-3">
-                            <label className="form-label small fw-semibold text-dark">
-                                New Password (min 12 characters) <span className="text-danger">*</span>
-                            </label>
+                            <label className="form-label">New Password (min 12 characters) <span className="text-danger">*</span></label>
                             <input
                                 type="password"
                                 className="form-control"
@@ -2065,13 +2712,9 @@ function AdminCareers() {
                                 required
                                 minLength={12}
                             />
-                            <div className="form-text" style={{ fontSize: '11px' }}>Minimum 12 characters with letters, numbers, and symbols.</div>
                         </div>
-
                         <div className="mb-2">
-                            <label className="form-label small fw-semibold text-dark">
-                                Confirm New Password <span className="text-danger">*</span>
-                            </label>
+                            <label className="form-label">Confirm New Password <span className="text-danger">*</span></label>
                             <input
                                 type="password"
                                 className="form-control"
@@ -2084,9 +2727,7 @@ function AdminCareers() {
                         </div>
                     </Modal.Body>
                     <Modal.Footer>
-                        <button type="button" className="btn btn-outline-secondary" onClick={() => setShowChangePassModal(false)}>
-                            Cancel
-                        </button>
+                        <button type="button" className="btn btn-outline-secondary" onClick={() => setShowChangePassModal(false)}>Cancel</button>
                         <button type="submit" disabled={isChangingPass} className="btn btn-primary px-4">
                             {isChangingPass ? 'Updating...' : 'Update Password'}
                         </button>
@@ -2094,36 +2735,20 @@ function AdminCareers() {
                 </form>
             </Modal>
 
-            {/* 2. One-Time Temporary Password Display Modal */}
-            <Modal show={tempPasswordModal.show} onHide={() => setTempPasswordModal(prev => ({ ...prev, show: false }))} centered>
-                <Modal.Header closeButton className="bg-light">
-                    <Modal.Title className="h5 fw-bold text-dark">
-                        <i className="fas fa-key text-warning me-2"></i> Temporary Password Generated
-                    </Modal.Title>
+            {/* Temporary Password Modal */}
+            <Modal show={tempPasswordModal.show} onHide={() => setTempPasswordModal(prev => ({ ...prev, show: false }))} centered className="vrm-dark-modal">
+                <Modal.Header closeButton>
+                    <Modal.Title><i className="fas fa-key text-warning me-2"></i> Temporary Password Generated</Modal.Title>
                 </Modal.Header>
-                <Modal.Body className="p-4">
-                    <p className="text-muted small mb-3">
-                        {tempPasswordModal.message}
-                    </p>
-
-                    <div className="p-3 bg-light rounded-3 border text-center my-3">
-                        <div className="text-muted small mb-1">One-Time Temporary Password for <strong>{tempPasswordModal.username}</strong>:</div>
-                        <div className="font-monospace h4 fw-bold text-dark mb-2 user-select-all" style={{ letterSpacing: '1px' }}>
-                            {tempPasswordModal.password}
-                        </div>
-                        <button
-                            type="button"
-                            onClick={copyTempPasswordToClipboard}
-                            className={`btn btn-sm ${copySuccess ? 'btn-success' : 'btn-outline-primary'} px-3`}
-                        >
+                <Modal.Body>
+                    <p className="text-muted small mb-3">{tempPasswordModal.message}</p>
+                    <div className="p-3 bg-black bg-opacity-50 rounded-3 border border-secondary text-center my-3">
+                        <div className="text-muted small mb-1">Temporary Password for <strong>{tempPasswordModal.username}</strong>:</div>
+                        <div className="h4 fw-bold text-white mb-2 user-select-all font-monospace">{tempPasswordModal.password}</div>
+                        <button type="button" onClick={copyTempPasswordToClipboard} className={`btn btn-sm ${copySuccess ? 'btn-success' : 'btn-outline-primary'}`}>
                             <i className={`fas ${copySuccess ? 'fa-check' : 'fa-copy'} me-1`}></i>
                             {copySuccess ? 'Copied to Clipboard!' : 'Copy Temporary Password'}
                         </button>
-                    </div>
-
-                    <div className="alert alert-warning py-2 px-3 small rounded-3 mb-0">
-                        <i className="fas fa-exclamation-triangle me-1"></i>
-                        This password will not be shown again. The user will be required to change it immediately on their first login.
                     </div>
                 </Modal.Body>
                 <Modal.Footer>
@@ -2133,155 +2758,23 @@ function AdminCareers() {
                 </Modal.Footer>
             </Modal>
 
-            {/* 3. Add / Edit Admin User Modal */}
-            <Modal show={showAddAdminModal} onHide={() => setShowAddAdminModal(false)} centered>
-                <form onSubmit={handleSaveAdminUser}>
-                    <Modal.Header closeButton>
-                        <Modal.Title className="h5 fw-bold text-dark">
-                            {editingAdmin ? `Edit Admin: ${editingAdmin.username}` : 'Add New Admin Account'}
-                        </Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body className="p-4">
-                        {adminFormError && (
-                            <div className="alert alert-danger py-2 px-3 small rounded-3 mb-3">
-                                {adminFormError}
-                            </div>
-                        )}
-
-                        {!editingAdmin && (
-                            <div className="mb-3">
-                                <label className="form-label small fw-semibold text-dark">Username <span className="text-danger">*</span></label>
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    placeholder="e.g. johndoe"
-                                    value={adminFormUsername}
-                                    onChange={(e) => setAdminFormUsername(e.target.value)}
-                                    required
-                                />
-                                <div className="form-text" style={{ fontSize: '11px' }}>Alphanumeric, lowercase, dots, underscores or hyphens.</div>
-                            </div>
-                        )}
-
-                        <div className="mb-3">
-                            <label className="form-label small fw-semibold text-dark">Display Name <span className="text-danger">*</span></label>
-                            <input
-                                type="text"
-                                className="form-control"
-                                placeholder="e.g. John Doe"
-                                value={adminFormDisplayName}
-                                onChange={(e) => setAdminFormDisplayName(e.target.value)}
-                                required
-                            />
-                        </div>
-
-                        <div className="mb-3">
-                            <label className="form-label small fw-semibold text-dark">Email Address <span className="text-danger">*</span></label>
-                            <input
-                                type="email"
-                                className="form-control"
-                                placeholder="e.g. john@vrmaitechnology.com"
-                                value={adminFormEmail}
-                                onChange={(e) => setAdminFormEmail(e.target.value)}
-                                required
-                            />
-                            <div className="form-text" style={{ fontSize: '11px' }}>Used for password recovery and notifications.</div>
-                        </div>
-
-                        <div className="mb-3">
-                            <label className="form-label small fw-semibold text-dark">Role <span className="text-danger">*</span></label>
-                            <select
-                                className="form-select"
-                                value={adminFormRole}
-                                onChange={(e) => setAdminFormRole(e.target.value)}
-                                required
-                            >
-                                <option value="admin">Admin (Manage Jobs, Applications & Gallery)</option>
-                                <option value="superadmin">Superadmin (Full Control + Manage Admins)</option>
-                            </select>
-                        </div>
-
-                        {editingAdmin && (
-                            <div className="mb-2">
-                                <div className="form-check form-switch">
-                                    <input
-                                        className="form-check-input"
-                                        type="checkbox"
-                                        id="adminActiveCheck"
-                                        checked={adminFormActive}
-                                        onChange={(e) => setAdminFormActive(e.target.checked)}
-                                    />
-                                    <label className="form-check-label small fw-semibold text-dark" htmlFor="adminActiveCheck">
-                                        Account Active (uncheck to disable access)
-                                    </label>
-                                </div>
-                            </div>
-                        )}
-
-                        {!editingAdmin && (
-                            <div className="alert alert-info py-2 px-3 small rounded-3 mt-3 mb-0">
-                                <i className="fas fa-info-circle me-1"></i>
-                                A secure temporary password will be automatically generated and displayed on the next screen.
-                            </div>
-                        )}
-                    </Modal.Body>
-                    <Modal.Footer>
-                        <button type="button" className="btn btn-outline-secondary" onClick={() => setShowAddAdminModal(false)}>
-                            Cancel
-                        </button>
-                        <button type="submit" disabled={isSavingAdmin} className="btn btn-primary px-4">
-                            {isSavingAdmin ? 'Saving...' : (editingAdmin ? 'Save Changes' : 'Create Admin')}
-                        </button>
-                    </Modal.Footer>
-                </form>
-            </Modal>
-
-            {/* 4. Delete Admin Confirmation Modal */}
-            <Modal show={!!adminToDelete} onHide={() => setAdminToDelete(null)} centered>
-                <Modal.Header closeButton>
-                    <Modal.Title className="h5 text-danger fw-bold">Delete Admin Account</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <p className="mb-0">
-                        Are you sure you want to permanently delete admin account <strong>{adminToDelete?.username}</strong>?
-                        This will revoke all access immediately and cannot be undone.
-                    </p>
-                </Modal.Body>
-                <Modal.Footer>
-                    <button type="button" className="btn btn-outline-secondary" onClick={() => setAdminToDelete(null)}>
-                        Cancel
-                    </button>
-                    <button type="button" disabled={isDeletingAdmin} className="btn btn-danger px-4" onClick={handleDeleteAdmin}>
-                        {isDeletingAdmin ? 'Deleting...' : 'Delete Admin'}
-                    </button>
-                </Modal.Footer>
-            </Modal>
-
-            {/* 5. Upload / Edit Gallery Photo Modal */}
-            <Modal show={showUploadModal} onHide={() => setShowUploadModal(false)} size="lg" centered>
+            {/* Upload / Edit Gallery Photo Modal */}
+            <Modal show={showUploadModal} onHide={() => setShowUploadModal(false)} size="lg" centered className="vrm-dark-modal">
                 <form onSubmit={handleSavePhoto}>
                     <Modal.Header closeButton>
-                        <Modal.Title className="h5 fw-bold text-dark">
-                            <i className="fas fa-camera text-primary me-2"></i>
-                            {editingPhoto ? 'Edit Photo Details' : 'Upload Team Photo'}
-                        </Modal.Title>
+                        <Modal.Title><i className="fas fa-camera text-primary me-2"></i> {editingPhoto ? 'Edit Photo Details' : 'Upload Team Photo'}</Modal.Title>
                     </Modal.Header>
-                    <Modal.Body className="p-4">
+                    <Modal.Body>
                         {galleryFormError && (
-                            <div className="alert alert-danger py-2 px-3 small rounded-3 mb-3">
-                                {galleryFormError}
-                            </div>
+                            <div className="alert alert-danger py-2 px-3 small rounded-3 mb-3">{galleryFormError}</div>
                         )}
-
-                        {/* Privacy Reminder Note */}
                         <div className="alert alert-info py-2 px-3 small rounded-3 mb-3">
-                            <i className="fas fa-info-circle me-1"></i>
-                            <strong>Privacy Compliance:</strong> Only upload photos of employees who have agreed to their photo being published.
+                            <i className="fas fa-info-circle me-1"></i> <strong>Employee Privacy:</strong> Only upload photos of employees who agreed to be published.
                         </div>
 
                         {!editingPhoto && (
                             <div className="mb-3">
-                                <label className="form-label small fw-semibold text-dark">Select Photo (JPG, PNG, WebP; Max 8 MB) <span className="text-danger">*</span></label>
+                                <label className="form-label">Select Photo (JPG, PNG, WebP; Max 8 MB) <span className="text-danger">*</span></label>
                                 <input
                                     type="file"
                                     className="form-control"
@@ -2289,51 +2782,31 @@ function AdminCareers() {
                                     onChange={handlePhotoFileChange}
                                     required={!editingPhoto}
                                 />
-                                <div className="form-text" style={{ fontSize: '11px' }}>
-                                    Images are automatically converted to WebP, resized to max 1600px width with 600px thumbnail, and GPS/EXIF metadata is stripped.
-                                </div>
                             </div>
                         )}
 
                         {photoPreview && (
-                            <div className="mb-3 text-center p-2 bg-light rounded-3 border">
-                                <img
-                                    src={photoPreview}
-                                    alt="Preview"
-                                    style={{ maxHeight: '200px', maxWidth: '100%', objectFit: 'contain', borderRadius: '6px' }}
-                                />
+                            <div className="mb-3 text-center p-2 bg-black bg-opacity-40 rounded-3 border border-secondary">
+                                <img src={photoPreview} alt="Preview" style={{ maxHeight: '180px', maxWidth: '100%', objectFit: 'contain', borderRadius: '6px' }} />
                             </div>
                         )}
 
                         <div className="row g-3">
                             <div className="col-md-6">
-                                <label className="form-label small fw-semibold text-dark">Event Category <span className="text-danger">*</span></label>
-                                <select
-                                    className="form-select"
-                                    value={photoCategory}
-                                    onChange={(e) => setPhotoCategory(e.target.value)}
-                                    required
-                                >
+                                <label className="form-label">Event Category <span className="text-danger">*</span></label>
+                                <select className="form-select" value={photoCategory} onChange={(e) => setPhotoCategory(e.target.value)} required>
                                     <option value="Fun Friday">Fun Friday</option>
                                     <option value="Festival">Festival</option>
                                     <option value="Team Event">Team Event</option>
                                     <option value="Office">Office</option>
                                 </select>
                             </div>
-
                             <div className="col-md-6">
-                                <label className="form-label small fw-semibold text-dark">Event Date <span className="text-danger">*</span></label>
-                                <input
-                                    type="date"
-                                    className="form-control"
-                                    value={photoEventDate}
-                                    onChange={(e) => setPhotoEventDate(e.target.value)}
-                                    required
-                                />
+                                <label className="form-label">Event Date <span className="text-danger">*</span></label>
+                                <input type="date" className="form-control" value={photoEventDate} onChange={(e) => setPhotoEventDate(e.target.value)} required />
                             </div>
-
                             <div className="col-12">
-                                <label className="form-label small fw-semibold text-dark">Alt Text (Accessibility & SEO) <span className="text-danger">*</span></label>
+                                <label className="form-label">Alt Text (Required for accessibility & SEO) <span className="text-danger">*</span></label>
                                 <input
                                     type="text"
                                     className="form-control"
@@ -2342,104 +2815,185 @@ function AdminCareers() {
                                     onChange={(e) => setPhotoAltText(e.target.value)}
                                     required
                                 />
-                                <div className="form-text" style={{ fontSize: '11px' }}>Required descriptive text for screen readers and SEO.</div>
                             </div>
-
                             <div className="col-12">
-                                <label className="form-label small fw-semibold text-dark">Caption</label>
+                                <label className="form-label">Caption (Visible below photo)</label>
                                 <input
                                     type="text"
                                     className="form-control"
-                                    placeholder="e.g. Festive smiles and team celebrations"
+                                    placeholder="e.g. Festive smiles and team celebration"
                                     value={photoCaption}
                                     onChange={(e) => setPhotoCaption(e.target.value)}
                                 />
                             </div>
-
                             <div className="col-12">
-                                <label className="form-label small fw-semibold text-dark">Publication Status</label>
-                                <select
-                                    className="form-select"
-                                    value={photoStatus}
-                                    onChange={(e) => setPhotoStatus(e.target.value)}
-                                >
-                                    <option value="published">Published (Visible on /careers page)</option>
-                                    <option value="hidden">Hidden (Draft / Saved on server only)</option>
+                                <label className="form-label">Status</label>
+                                <select className="form-select" value={photoStatus} onChange={(e) => setPhotoStatus(e.target.value)}>
+                                    <option value="hidden">Hidden / Pending Approval (Private)</option>
+                                    <option value="published">Published (Live on Website)</option>
                                 </select>
                             </div>
                         </div>
                     </Modal.Body>
                     <Modal.Footer>
-                        <button type="button" className="btn btn-outline-secondary" onClick={() => setShowUploadModal(false)}>
-                            Cancel
-                        </button>
+                        <button type="button" className="btn btn-outline-secondary" onClick={() => setShowUploadModal(false)}>Cancel</button>
                         <button type="submit" disabled={isSavingPhoto} className="btn btn-primary px-4">
-                            {isSavingPhoto ? 'Processing & Saving...' : (editingPhoto ? 'Save Changes' : 'Upload & Publish')}
+                            {isSavingPhoto ? 'Saving Photo...' : (editingPhoto ? 'Save Changes' : 'Upload Photo')}
                         </button>
                     </Modal.Footer>
                 </form>
             </Modal>
 
-            {/* 6. Delete Photo Confirmation Modal */}
-            <Modal show={!!photoToDelete} onHide={() => setPhotoToDelete(null)} centered>
+            {/* Delete Photo Modal */}
+            <Modal show={!!photoToDelete} onHide={() => setPhotoToDelete(null)} centered className="vrm-dark-modal">
                 <Modal.Header closeButton>
-                    <Modal.Title className="h5 text-danger fw-bold">Delete Photo</Modal.Title>
+                    <Modal.Title className="text-danger"><i className="far fa-trash-alt me-2"></i> Delete Photo</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <p className="mb-0">
-                        Are you sure you want to delete this photo? This will permanently remove the image and thumbnail files from the server.
-                    </p>
+                    Are you sure you want to delete this photo? This will permanently remove the original and thumbnail files from the server.
                 </Modal.Body>
                 <Modal.Footer>
-                    <button type="button" className="btn btn-outline-secondary" onClick={() => setPhotoToDelete(null)}>
-                        Cancel
-                    </button>
-                    <button type="button" disabled={isDeletingPhoto} className="btn btn-danger px-4" onClick={handleDeletePhoto}>
+                    <button className="btn btn-outline-secondary" onClick={() => setPhotoToDelete(null)}>Cancel</button>
+                    <button className="btn btn-danger" disabled={isDeletingPhoto} onClick={handleDeletePhoto}>
                         {isDeletingPhoto ? 'Deleting...' : 'Delete Photo'}
                     </button>
                 </Modal.Footer>
             </Modal>
 
-            {/* 7. Application Details Modal */}
-            <Modal show={!!selectedApp} onHide={() => setSelectedApp(null)} size="lg" centered>
+            {/* Add / Edit Job Modal */}
+            <Modal show={showEditJobModal} onHide={() => setShowEditJobModal(false)} size="lg" centered className="vrm-dark-modal">
+                <form onSubmit={handleSaveJob}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>{editingJobId ? 'Edit Job Opening' : 'Post New Job Opening'}</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        {jobFormError && <div className="alert alert-danger py-2 px-3 small rounded-3 mb-3">{jobFormError}</div>}
+                        <div className="row g-3">
+                            <div className="col-md-8">
+                                <label className="form-label">Job Title <span className="text-danger">*</span></label>
+                                <input type="text" className="form-control" value={formTitle} onChange={(e) => handleTitleChange(e.target.value)} required />
+                            </div>
+                            <div className="col-md-4">
+                                <label className="form-label">Status</label>
+                                <select className="form-select" value={formJobStatus} onChange={(e) => setFormJobStatus(e.target.value)}>
+                                    <option value="draft">Draft</option>
+                                    <option value="published">Published</option>
+                                    <option value="closed">Closed</option>
+                                </select>
+                            </div>
+                            <div className="col-12">
+                                <label className="form-label">URL Slug <span className="text-danger">*</span></label>
+                                <div className="input-group">
+                                    <span className="input-group-text bg-dark border-secondary text-muted small">/careers/</span>
+                                    <input type="text" className="form-control" value={formSlug} onChange={(e) => setFormSlug(e.target.value)} required />
+                                </div>
+                            </div>
+                            <div className="col-md-4">
+                                <label className="form-label">Department <span className="text-danger">*</span></label>
+                                <input type="text" className="form-control" value={formDepartment} onChange={(e) => setFormDepartment(e.target.value)} required />
+                            </div>
+                            <div className="col-md-4">
+                                <label className="form-label">Location <span className="text-danger">*</span></label>
+                                <select className="form-select" value={formLocation} onChange={(e) => setFormLocation(e.target.value)} required>
+                                    <option value="Bengaluru">Bengaluru</option>
+                                    <option value="Madurai">Madurai</option>
+                                    <option value="Remote">Remote</option>
+                                </select>
+                            </div>
+                            <div className="col-md-4">
+                                <label className="form-label">Employment Type</label>
+                                <select className="form-select" value={formEmploymentType} onChange={(e) => setFormEmploymentType(e.target.value)}>
+                                    <option value="Full-time">Full-time</option>
+                                    <option value="Internship">Internship</option>
+                                    <option value="Contract">Contract</option>
+                                </select>
+                            </div>
+                            <div className="col-12">
+                                <label className="form-label">Experience</label>
+                                <input type="text" className="form-control" value={formExperience} onChange={(e) => setFormExperience(e.target.value)} />
+                            </div>
+                            <div className="col-12">
+                                <label className="form-label">Short Description <span className="text-danger">*</span></label>
+                                <textarea className="form-control" rows={2} value={formShortDesc} onChange={(e) => setFormShortDesc(e.target.value)} required />
+                            </div>
+                            <div className="col-12">
+                                <label className="form-label">Key Responsibilities (one per line)</label>
+                                <textarea className="form-control font-monospace small" rows={3} value={formResponsibilities} onChange={(e) => setFormResponsibilities(e.target.value)} />
+                            </div>
+                            <div className="col-12">
+                                <label className="form-label">Requirements (one per line)</label>
+                                <textarea className="form-control font-monospace small" rows={3} value={formRequirements} onChange={(e) => setFormRequirements(e.target.value)} />
+                            </div>
+                            <div className="col-md-6">
+                                <label className="form-label">Apply Email</label>
+                                <input type="email" className="form-control" value={formApplyEmail} readOnly disabled style={{ opacity: 0.7 }} />
+                            </div>
+                            <div className="col-md-6">
+                                <label className="form-label">External Apply Link (Optional)</label>
+                                <input type="url" className="form-control" placeholder="https://..." value={formApplyLink} onChange={(e) => setFormApplyLink(e.target.value)} />
+                            </div>
+                        </div>
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <button type="button" className="btn btn-outline-secondary" onClick={() => setShowEditJobModal(false)}>Cancel</button>
+                        <button type="submit" disabled={isSavingJob} className="btn btn-primary px-4">
+                            {isSavingJob ? 'Saving...' : (editingJobId ? 'Save Changes' : 'Create Job')}
+                        </button>
+                    </Modal.Footer>
+                </form>
+            </Modal>
+
+            {/* Delete Job Modal */}
+            <Modal show={!!jobToDelete} onHide={() => setJobToDelete(null)} centered className="vrm-dark-modal">
                 <Modal.Header closeButton>
-                    <Modal.Title className="h5 fw-bold text-dark">
-                        Application: {selectedApp?.fullName}
-                    </Modal.Title>
+                    <Modal.Title className="text-danger"><i className="far fa-trash-alt me-2"></i> Delete Job Opening</Modal.Title>
                 </Modal.Header>
-                <Modal.Body className="p-4">
+                <Modal.Body>
+                    Are you sure you want to delete <strong>{jobToDelete?.title}</strong>? This action cannot be undone.
+                </Modal.Body>
+                <Modal.Footer>
+                    <button className="btn btn-outline-secondary" onClick={() => setJobToDelete(null)}>Cancel</button>
+                    <button className="btn btn-danger" disabled={isDeletingJob} onClick={handleDeleteJob}>
+                        {isDeletingJob ? 'Deleting...' : 'Delete Job'}
+                    </button>
+                </Modal.Footer>
+            </Modal>
+
+            {/* Application Detail Modal */}
+            <Modal show={!!selectedApp} onHide={() => setSelectedApp(null)} size="lg" centered className="vrm-dark-modal">
+                <Modal.Header closeButton>
+                    <Modal.Title><i className="fas fa-file-alt me-2 text-primary"></i> Application: {selectedApp?.fullName}</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
                     {selectedApp && (
                         <div className="row g-3">
                             <div className="col-md-6">
-                                <label className="form-label small text-muted mb-0">Position</label>
-                                <div className="fw-bold text-dark">{selectedApp.position}</div>
+                                <label className="small text-muted mb-0">Position</label>
+                                <div className="fw-bold text-white">{selectedApp.position}</div>
                             </div>
                             <div className="col-md-6">
-                                <label className="form-label small text-muted mb-0">Experience</label>
-                                <div className="fw-bold text-dark">{selectedApp.experience}</div>
+                                <label className="small text-muted mb-0">Experience</label>
+                                <div className="fw-bold text-white">{selectedApp.experience}</div>
                             </div>
                             <div className="col-md-6">
-                                <label className="form-label small text-muted mb-0">Email</label>
-                                <div><a href={`mailto:${selectedApp.email}`}>{selectedApp.email}</a></div>
+                                <label className="small text-muted mb-0">Email</label>
+                                <div><a href={`mailto:${selectedApp.email}`} className="text-info">{selectedApp.email}</a></div>
                             </div>
                             <div className="col-md-6">
-                                <label className="form-label small text-muted mb-0">Phone</label>
-                                <div><a href={`tel:${selectedApp.phone}`}>{selectedApp.phone}</a></div>
+                                <label className="small text-muted mb-0">Phone</label>
+                                <div className="text-white">{selectedApp.phone}</div>
                             </div>
                             <div className="col-12">
-                                <label className="form-label small text-muted mb-0">Cover Letter</label>
-                                <div className="p-3 bg-light rounded-3 border" style={{ maxHeight: '150px', overflowY: 'auto', whiteSpace: 'pre-wrap' }}>
+                                <label className="small text-muted mb-0">Cover Letter</label>
+                                <div className="p-3 bg-black bg-opacity-40 rounded-3 border border-secondary text-light small" style={{ maxHeight: '140px', overflowY: 'auto', whiteSpace: 'pre-wrap' }}>
                                     {selectedApp.coverLetter || 'No cover letter submitted.'}
                                 </div>
                             </div>
                             <div className="col-md-6">
-                                <label className="form-label small text-muted mb-0">Attached Resume</label>
+                                <label className="small text-muted mb-0">Resume</label>
                                 <div>
                                     {selectedApp.storedFileName ? (
-                                        <button
-                                            onClick={() => handleDownloadResume(selectedApp)}
-                                            className="btn btn-sm btn-primary mt-1"
-                                        >
+                                        <button className="btn btn-sm btn-primary mt-1" onClick={() => handleDownloadResume(selectedApp)}>
                                             <i className="fas fa-download me-1"></i> Download {selectedApp.originalFileName || 'Resume'}
                                         </button>
                                     ) : (
@@ -2448,7 +3002,7 @@ function AdminCareers() {
                                 </div>
                             </div>
                             <div className="col-md-6">
-                                <label className="form-label small text-muted mb-0">Update Status</label>
+                                <label className="small text-muted mb-0">Status</label>
                                 <select
                                     className="form-select form-select-sm mt-1"
                                     value={selectedApp.status}
@@ -2464,231 +3018,85 @@ function AdminCareers() {
                     )}
                 </Modal.Body>
                 <Modal.Footer>
-                    <button type="button" className="btn btn-outline-secondary" onClick={() => setSelectedApp(null)}>
-                        Close
-                    </button>
+                    <button className="btn btn-outline-secondary" onClick={() => setSelectedApp(null)}>Close</button>
                 </Modal.Footer>
             </Modal>
 
-            {/* 8. Delete Application Confirmation Modal */}
-            <Modal show={!!appToDelete} onHide={() => setAppToDelete(null)} centered>
+            {/* Delete Application Modal */}
+            <Modal show={!!appToDelete} onHide={() => setAppToDelete(null)} centered className="vrm-dark-modal">
                 <Modal.Header closeButton>
-                    <Modal.Title className="h5 text-danger fw-bold">Delete Application</Modal.Title>
+                    <Modal.Title className="text-danger"><i className="far fa-trash-alt me-2"></i> Delete Application</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <p className="mb-0">
-                        Are you sure you want to delete the application from <strong>{appToDelete?.fullName}</strong> ({appToDelete?.position})?
-                        This will also delete the uploaded resume file from the server.
-                    </p>
+                    Delete application from <strong>{appToDelete?.fullName}</strong>? The resume file will also be removed from disk.
                 </Modal.Body>
                 <Modal.Footer>
-                    <button type="button" className="btn btn-outline-secondary" onClick={() => setAppToDelete(null)}>
-                        Cancel
-                    </button>
-                    <button type="button" disabled={isDeletingApp} className="btn btn-danger px-4" onClick={handleDeleteApp}>
+                    <button className="btn btn-outline-secondary" onClick={() => setAppToDelete(null)}>Cancel</button>
+                    <button className="btn btn-danger" disabled={isDeletingApp} onClick={handleDeleteApp}>
                         {isDeletingApp ? 'Deleting...' : 'Delete Application'}
                     </button>
                 </Modal.Footer>
             </Modal>
 
-            {/* 9. Add / Edit Job Modal */}
-            <Modal show={showEditModal} onHide={() => setShowEditModal(false)} size="lg" centered>
-                <form onSubmit={handleSaveJob}>
+            {/* Add / Edit Admin Modal */}
+            <Modal show={showAddAdminModal} onHide={() => setShowAddAdminModal(false)} centered className="vrm-dark-modal">
+                <form onSubmit={handleSaveAdminUser}>
                     <Modal.Header closeButton>
-                        <Modal.Title className="h5 fw-bold text-dark">
-                            {editingJobId ? 'Edit Job Opening' : 'Post New Job Opening'}
-                        </Modal.Title>
+                        <Modal.Title>{editingAdmin ? `Edit Admin: ${editingAdmin.username}` : 'Add New Admin Account'}</Modal.Title>
                     </Modal.Header>
-                    <Modal.Body className="p-4">
-                        {formError && (
-                            <div className="alert alert-danger py-2 px-3 small rounded-3 mb-3">
-                                {formError}
+                    <Modal.Body>
+                        {adminFormError && <div className="alert alert-danger py-2 px-3 small rounded-3 mb-3">{adminFormError}</div>}
+                        {!editingAdmin && (
+                            <div className="mb-3">
+                                <label className="form-label">Username <span className="text-danger">*</span></label>
+                                <input type="text" className="form-control" value={adminFormUsername} onChange={(e) => setAdminFormUsername(e.target.value)} required />
                             </div>
                         )}
-
-                        <div className="row g-3">
-                            <div className="col-md-8">
-                                <label className="form-label small fw-semibold text-dark">Job Title <span className="text-danger">*</span></label>
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    placeholder="e.g. Lead Generative AI Engineer"
-                                    value={formTitle}
-                                    onChange={(e) => handleTitleChange(e.target.value)}
-                                    required
-                                />
-                            </div>
-
-                            <div className="col-md-4">
-                                <label className="form-label small fw-semibold text-dark">Status</label>
-                                <select
-                                    className="form-select"
-                                    value={formStatus}
-                                    onChange={(e) => setFormStatus(e.target.value)}
-                                >
-                                    <option value="draft">Draft (Private)</option>
-                                    <option value="published">Published (Live)</option>
-                                    <option value="closed">Closed</option>
-                                </select>
-                            </div>
-
-                            <div className="col-12">
-                                <label className="form-label small fw-semibold text-dark">URL Slug <span className="text-danger">*</span></label>
-                                <div className="input-group">
-                                    <span className="input-group-text bg-light text-muted small">/careers/</span>
-                                    <input
-                                        type="text"
-                                        className="form-control font-monospace"
-                                        placeholder="lead-generative-ai-engineer"
-                                        value={formSlug}
-                                        onChange={(e) => setFormSlug(e.target.value)}
-                                        required
-                                    />
+                        <div className="mb-3">
+                            <label className="form-label">Display Name <span className="text-danger">*</span></label>
+                            <input type="text" className="form-control" value={adminFormDisplayName} onChange={(e) => setAdminFormDisplayName(e.target.value)} required />
+                        </div>
+                        <div className="mb-3">
+                            <label className="form-label">Email Address <span className="text-danger">*</span></label>
+                            <input type="email" className="form-control" value={adminFormEmail} onChange={(e) => setAdminFormEmail(e.target.value)} required />
+                        </div>
+                        <div className="mb-3">
+                            <label className="form-label">Role <span className="text-danger">*</span></label>
+                            <select className="form-select" value={adminFormRole} onChange={(e) => setAdminFormRole(e.target.value)}>
+                                <option value="admin">Admin (Manage Jobs, Applications & Gallery)</option>
+                                <option value="superadmin">Superadmin (Full Control + Manage Admins)</option>
+                            </select>
+                        </div>
+                        {editingAdmin && (
+                            <div className="mb-2">
+                                <div className="form-check form-switch">
+                                    <input className="form-check-input" type="checkbox" id="activeSwitch" checked={adminFormActive} onChange={(e) => setAdminFormActive(e.target.checked)} />
+                                    <label className="form-check-label text-white small" htmlFor="activeSwitch">Account Active</label>
                                 </div>
                             </div>
-
-                            <div className="col-md-4">
-                                <label className="form-label small fw-semibold text-dark">Department <span className="text-danger">*</span></label>
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    placeholder="e.g. Engineering, Sales"
-                                    value={formDepartment}
-                                    onChange={(e) => setFormDepartment(e.target.value)}
-                                    required
-                                />
-                            </div>
-
-                            <div className="col-md-4">
-                                <label className="form-label small fw-semibold text-dark">Location <span className="text-danger">*</span></label>
-                                <select
-                                    className="form-select"
-                                    value={formLocation}
-                                    onChange={(e) => setFormLocation(e.target.value)}
-                                    required
-                                >
-                                    <option value="Bengaluru">Bengaluru</option>
-                                    <option value="Madurai">Madurai</option>
-                                    <option value="Remote">Remote</option>
-                                    <option value="Hybrid - Bengaluru">Hybrid - Bengaluru</option>
-                                    <option value="Hybrid - Madurai">Hybrid - Madurai</option>
-                                </select>
-                            </div>
-
-                            <div className="col-md-4">
-                                <label className="form-label small fw-semibold text-dark">Employment Type</label>
-                                <select
-                                    className="form-select"
-                                    value={formEmploymentType}
-                                    onChange={(e) => setFormEmploymentType(e.target.value)}
-                                >
-                                    <option value="Full-time">Full-time</option>
-                                    <option value="Internship">Internship</option>
-                                    <option value="Contract">Contract</option>
-                                    <option value="Part-time">Part-time</option>
-                                </select>
-                            </div>
-
-                            <div className="col-12">
-                                <label className="form-label small fw-semibold text-dark">Experience Level</label>
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    placeholder="e.g. 2-4 Years or Fresher"
-                                    value={formExperience}
-                                    onChange={(e) => setFormExperience(e.target.value)}
-                                />
-                            </div>
-
-                            <div className="col-12">
-                                <label className="form-label small fw-semibold text-dark">Short Description <span className="text-danger">*</span></label>
-                                <textarea
-                                    className="form-control"
-                                    rows={2}
-                                    placeholder="1-2 sentences summarizing the role and impact (used in search meta & listing cards)..."
-                                    value={formShortDesc}
-                                    onChange={(e) => setFormShortDesc(e.target.value)}
-                                    required
-                                />
-                            </div>
-
-                            <div className="col-12">
-                                <label className="form-label small fw-semibold text-dark">Key Responsibilities</label>
-                                <textarea
-                                    className="form-control font-monospace small"
-                                    rows={4}
-                                    placeholder="Design and build production AI agents&#10;Collaborate with product and data engineering teams&#10;Deploy and monitor ML pipelines"
-                                    value={formResponsibilities}
-                                    onChange={(e) => setFormResponsibilities(e.target.value)}
-                                />
-                                <div className="form-text" style={{ fontSize: '11px' }}>Enter each responsibility on a new line. Rendered as bullet points.</div>
-                            </div>
-
-                            <div className="col-12">
-                                <label className="form-label small fw-semibold text-dark">Requirements & Qualifications</label>
-                                <textarea
-                                    className="form-control font-monospace small"
-                                    rows={4}
-                                    placeholder="Strong proficiency in Python and modern LLM frameworks&#10;Experience with Docker, Kubernetes, and cloud deployment&#10;Problem-solving mindset and teamwork"
-                                    value={formRequirements}
-                                    onChange={(e) => setFormRequirements(e.target.value)}
-                                />
-                                <div className="form-text" style={{ fontSize: '11px' }}>Enter each requirement on a new line. Rendered as bullet points.</div>
-                            </div>
-
-                            <div className="col-md-6">
-                                <label className="form-label small fw-semibold text-dark">Application Email</label>
-                                <input
-                                    type="email"
-                                    className="form-control"
-                                    value={formApplyEmail}
-                                    readOnly
-                                    disabled
-                                    style={{ backgroundColor: '#f8f9fa' }}
-                                />
-                                <div className="form-text" style={{ fontSize: '11px' }}>Public NAP standardized to contactus@vrmaitechnology.com</div>
-                            </div>
-
-                            <div className="col-md-6">
-                                <label className="form-label small fw-semibold text-dark">Optional External Apply Link</label>
-                                <input
-                                    type="url"
-                                    className="form-control"
-                                    placeholder="https://..."
-                                    value={formApplyLink}
-                                    onChange={(e) => setFormApplyLink(e.target.value)}
-                                />
-                                <div className="form-text" style={{ fontSize: '11px' }}>Leave blank to use the built-in modal application form.</div>
-                            </div>
-                        </div>
+                        )}
                     </Modal.Body>
                     <Modal.Footer>
-                        <button type="button" className="btn btn-outline-secondary" onClick={() => setShowEditModal(false)}>
-                            Cancel
-                        </button>
-                        <button type="submit" disabled={isSaving} className="btn btn-primary px-4">
-                            {isSaving ? 'Saving...' : (editingJobId ? 'Save Changes' : 'Create Job')}
+                        <button type="button" className="btn btn-outline-secondary" onClick={() => setShowAddAdminModal(false)}>Cancel</button>
+                        <button type="submit" disabled={isSavingAdmin} className="btn btn-primary px-4">
+                            {isSavingAdmin ? 'Saving...' : (editingAdmin ? 'Save Changes' : 'Create Admin')}
                         </button>
                     </Modal.Footer>
                 </form>
             </Modal>
 
-            {/* 10. Delete Job Confirmation Modal */}
-            <Modal show={!!jobToDelete} onHide={() => setJobToDelete(null)} centered>
+            {/* Delete Admin Modal */}
+            <Modal show={!!adminToDelete} onHide={() => setAdminToDelete(null)} centered className="vrm-dark-modal">
                 <Modal.Header closeButton>
-                    <Modal.Title className="h5 text-danger fw-bold">Delete Job Opening</Modal.Title>
+                    <Modal.Title className="text-danger"><i className="far fa-trash-alt me-2"></i> Delete Admin</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <p className="mb-0">
-                        Are you sure you want to permanently delete <strong>{jobToDelete?.title}</strong>? This action cannot be undone.
-                    </p>
+                    Are you sure you want to delete admin account <strong>{adminToDelete?.username}</strong>?
                 </Modal.Body>
                 <Modal.Footer>
-                    <button type="button" className="btn btn-outline-secondary" onClick={() => setJobToDelete(null)}>
-                        Cancel
-                    </button>
-                    <button type="button" disabled={isDeleting} className="btn btn-danger px-4" onClick={handleDeleteJob}>
-                        {isDeleting ? 'Deleting...' : 'Delete Job'}
+                    <button className="btn btn-outline-secondary" onClick={() => setAdminToDelete(null)}>Cancel</button>
+                    <button className="btn btn-danger" disabled={isDeletingAdmin} onClick={handleDeleteAdmin}>
+                        {isDeletingAdmin ? 'Deleting...' : 'Delete Admin'}
                     </button>
                 </Modal.Footer>
             </Modal>
