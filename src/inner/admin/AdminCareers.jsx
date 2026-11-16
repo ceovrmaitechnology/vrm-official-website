@@ -1774,8 +1774,8 @@ function AdminCareers() {
                                 <div className="vrm-filter-toolbar-row">
                                     <div className="vrm-filter-left-group">
                                         {/* In-tab search */}
-                                        <div className="position-relative">
-                                            <i className="fas fa-search position-absolute top-50 translate-middle-y text-muted" style={{ left: '12px' }}></i>
+                                        <div className="vrm-filter-search-box">
+                                            <i className="fas fa-search vrm-filter-search-icon"></i>
                                             <input
                                                 type="text"
                                                 className="vrm-filter-search-input"
@@ -2303,8 +2303,8 @@ function AdminCareers() {
                                         </button>
                                     </div>
 
-                                    <div className="position-relative">
-                                        <i className="fas fa-search position-absolute top-50 translate-middle-y text-muted" style={{ left: '12px' }}></i>
+                                    <div className="vrm-filter-search-box">
+                                        <i className="fas fa-search vrm-filter-search-icon"></i>
                                         <input
                                             type="text"
                                             className="vrm-filter-search-input"
@@ -2467,8 +2467,8 @@ function AdminCareers() {
                                         </button>
                                     </div>
 
-                                    <div className="position-relative">
-                                        <i className="fas fa-search position-absolute top-50 translate-middle-y text-muted" style={{ left: '12px' }}></i>
+                                    <div className="vrm-filter-search-box">
+                                        <i className="fas fa-search vrm-filter-search-icon"></i>
                                         <input
                                             type="text"
                                             className="vrm-filter-search-input"
