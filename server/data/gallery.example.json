@@ -1,0 +1,19 @@
+[
+  {
+    "id": "gal_example_1",
+    "caption": "VRM AI Engineering team celebrating project milestone",
+    "category": "Team Event",
+    "eventDate": "2026-10-15",
+    "altText": "VRM AI Engineering team in Bengaluru celebrating our recent enterprise release",
+    "status": "published",
+    "imagePath": "/uploads/gallery/example-celebration.webp",
+    "thumbPath": "/uploads/gallery/thumbs/example-celebration.webp",
+    "fileName": "example-celebration.webp",
+    "order": 0,
+    "width": 1600,
+    "height": 1067,
+    "createdAt": "2026-10-15T10:00:00.000Z",
+    "updatedAt": "2026-10-15T10:00:00.000Z"
+  }
+]
+

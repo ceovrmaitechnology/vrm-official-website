@@ -58,6 +58,7 @@ function RouterPage() {
                         <Route path="/careers" element={<Careers />}></Route>
                         <Route path="/careers/:slug" element={<JobDetail />}></Route>
                         <Route path="/admin/careers" element={<AdminCareers />}></Route>
+                        <Route path="/admin/reset-password" element={<AdminCareers />}></Route>
                         <Route path="/admin" element={<Navigate to="/admin/careers" replace />}></Route>
                         <Route path="/admin/login" element={<Navigate to="/admin/careers" replace />}></Route>
                         <Route path="/solutions" element={<SolutionsOverview />}></Route>

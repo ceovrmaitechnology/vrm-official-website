@@ -13,6 +13,9 @@ function Careers() {
     const [submitStatus, setSubmitStatus] = useState({ type: '', message: '' });
     const [openings, setOpenings] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [gallery, setGallery] = useState([]);
+    const [activeCategory, setActiveCategory] = useState('All');
+    const [lightboxPhoto, setLightboxPhoto] = useState(null);
 
     useEffect(() => {
         let isMounted = true;
@@ -29,6 +32,18 @@ function Careers() {
             .finally(() => {
                 if (isMounted) setIsLoading(false);
             });
+
+        fetch('/api/careers/gallery')
+            .then(res => res.json())
+            .then(data => {
+                if (isMounted && data.success && Array.isArray(data.gallery)) {
+                    setGallery(data.gallery);
+                }
+            })
+            .catch(() => {
+                // Ignore fetch error on initial prerender
+            });
+
         return () => { isMounted = false; };
     }, []);
 
@@ -92,6 +107,9 @@ function Careers() {
             desc: 'Join a team of passionate innovators who support and challenge each other.'
         }
     ];
+
+    const categories = ['All', ...new Set(gallery.map(g => g.category).filter(Boolean))];
+    const filteredGallery = activeCategory === 'All' ? gallery : gallery.filter(g => g.category === activeCategory);
 
     return (
         <div className='careers-page'>
@@ -174,6 +192,99 @@ function Careers() {
                 </div>
             </div>
 
+            {/* Life at VRM Section (Completely hidden if 0 published photos) */}
+            {gallery && gallery.length > 0 && (
+                <div className="careers-gallery-section py-5" id="life-at-vrm" style={{ background: '#f8fafc', borderTop: '1px solid #eef2f6', borderBottom: '1px solid #eef2f6' }}>
+                    <div className="container">
+                        <div className="text-center mb-5">
+                            <div className="about-hero__badge mb-2 d-inline-block" style={{ color: 'var(--color-primary)', background: 'rgba(13,110,253,0.08)', padding: '6px 16px', borderRadius: '30px', fontSize: '13px', fontWeight: '600' }}>
+                                Team & Culture
+                            </div>
+                            <h2 className="careers-section-title mb-2">Life at VRM</h2>
+                            <p className="careers-section-desc mx-auto" style={{ maxWidth: '640px' }}>
+                                A glimpse into our team culture, Fun Fridays, festive celebrations, and everyday moments of innovation.
+                            </p>
+
+                            {/* Category Filter Tabs */}
+                            {categories.length > 1 && (
+                                <div className="d-flex flex-wrap justify-content-center gap-2 mt-4">
+                                    {categories.map(cat => (
+                                        <button
+                                            key={cat}
+                                            type="button"
+                                            className={`btn btn-sm px-3 py-2 rounded-pill fw-semibold ${activeCategory === cat ? 'btn-primary' : 'btn-outline-secondary'}`}
+                                            onClick={() => setActiveCategory(cat)}
+                                            style={{ fontSize: '13px', transition: 'all 0.2s ease' }}
+                                        >
+                                            {cat} {cat === 'All' ? `(${gallery.length})` : `(${gallery.filter(g => g.category === cat).length})`}
+                                        </button>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+
+                        {/* Photo Grid */}
+                        <div className="row g-4 justify-content-center">
+                            {filteredGallery.map((photo) => (
+                                <div className="col-12 col-sm-6 col-lg-4" key={photo.id}>
+                                    <div
+                                        className="card border-0 shadow-sm overflow-hidden h-100"
+                                        style={{
+                                            borderRadius: '16px',
+                                            cursor: 'pointer',
+                                            transition: 'transform 0.25s ease, box-shadow 0.25s ease',
+                                            background: '#fff'
+                                        }}
+                                        onClick={() => setLightboxPhoto(photo)}
+                                        onMouseEnter={(e) => {
+                                            e.currentTarget.style.transform = 'translateY(-5px)';
+                                            e.currentTarget.style.boxShadow = '0 12px 28px rgba(0,0,0,0.1)';
+                                        }}
+                                        onMouseLeave={(e) => {
+                                            e.currentTarget.style.transform = 'translateY(0)';
+                                            e.currentTarget.style.boxShadow = '';
+                                        }}
+                                    >
+                                        <div style={{ position: 'relative', paddingTop: '68%', background: '#e2e8f0', overflow: 'hidden' }}>
+                                            <img
+                                                src={photo.thumbPath || photo.imagePath}
+                                                alt={photo.altText || photo.caption || 'Life at VRM AI Technology'}
+                                                loading="lazy"
+                                                style={{
+                                                    position: 'absolute',
+                                                    top: 0,
+                                                    left: 0,
+                                                    width: '100%',
+                                                    height: '100%',
+                                                    objectFit: 'cover'
+                                                }}
+                                            />
+                                            <span
+                                                className="badge bg-dark bg-opacity-75 text-white position-absolute top-0 start-0 m-3 px-3 py-2 rounded-pill"
+                                                style={{ backdropFilter: 'blur(4px)', fontSize: '11px', letterSpacing: '0.5px' }}
+                                            >
+                                                {photo.category}
+                                            </span>
+                                        </div>
+                                        <div className="card-body p-4 d-flex flex-column justify-content-between">
+                                            {photo.caption && (
+                                                <p className="card-text text-dark fw-semibold mb-2" style={{ fontSize: '15px', lineHeight: '1.4' }}>
+                                                    {photo.caption}
+                                                </p>
+                                            )}
+                                            <div className="d-flex align-items-center justify-content-between text-muted small mt-2 pt-2 border-top">
+                                                <span><i className="far fa-calendar-alt text-primary me-1"></i> {photo.eventDate || (photo.createdAt || '').slice(0, 10)}</span>
+                                                <span className="text-primary fw-semibold"><i className="far fa-expand-alt me-1"></i> View Photo</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            )}
+
             {/* Current Openings */}
             <div className="careers-openings" id="openings">
                 <div className="container">
@@ -254,6 +365,62 @@ function Careers() {
                     </div>
                 </div>
             </div>
+
+            {/* Gallery Lightbox Modal */}
+            <Modal
+                show={!!lightboxPhoto}
+                onHide={() => setLightboxPhoto(null)}
+                size="lg"
+                centered
+                className="gallery-lightbox-modal"
+            >
+                <Modal.Header closeButton style={{ borderBottom: '1px solid #eee', padding: '16px 24px' }}>
+                    <div className="d-flex align-items-center gap-2">
+                        {lightboxPhoto && (
+                            <>
+                                <span className="badge bg-primary px-3 py-2 rounded-pill" style={{ fontSize: '12px' }}>
+                                    {lightboxPhoto.category}
+                                </span>
+                                <span className="text-muted small">
+                                    <i className="far fa-calendar-alt me-1"></i> {lightboxPhoto.eventDate || (lightboxPhoto.createdAt || '').slice(0, 10)}
+                                </span>
+                            </>
+                        )}
+                    </div>
+                </Modal.Header>
+                <Modal.Body className="p-0 text-center bg-black" style={{ minHeight: '320px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    {lightboxPhoto && (
+                        <img
+                            src={lightboxPhoto.imagePath}
+                            alt={lightboxPhoto.altText || lightboxPhoto.caption}
+                            style={{
+                                maxWidth: '100%',
+                                maxHeight: '75vh',
+                                objectFit: 'contain',
+                                display: 'block',
+                                margin: '0 auto'
+                            }}
+                        />
+                    )}
+                </Modal.Body>
+                {lightboxPhoto && (lightboxPhoto.caption || lightboxPhoto.altText) && (
+                    <Modal.Footer className="bg-light d-flex justify-content-between align-items-center px-4 py-3">
+                        <div className="text-start">
+                            {lightboxPhoto.caption && (
+                                <p className="mb-0 fw-semibold text-dark" style={{ fontSize: '15px' }}>
+                                    {lightboxPhoto.caption}
+                                </p>
+                            )}
+                            {lightboxPhoto.altText && lightboxPhoto.altText !== lightboxPhoto.caption && (
+                                <small className="text-muted d-block mt-1">{lightboxPhoto.altText}</small>
+                            )}
+                        </div>
+                        <button className="btn btn-outline-secondary btn-sm" onClick={() => setLightboxPhoto(null)}>
+                            Close
+                        </button>
+                    </Modal.Footer>
+                )}
+            </Modal>
 
             {/* Application Modal */}
             <Modal show={show} onHide={handleClose} size="lg" centered className="careers-modal">

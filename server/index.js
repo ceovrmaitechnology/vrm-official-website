@@ -129,9 +129,28 @@ app.use((req, res, next) => {
 // Serve build & public static files
 app.use(express.static(path.resolve(__dirname, "../build"), { maxAge: "1d", redirect: false }));
 app.use(express.static(path.resolve(__dirname, "../public"), { maxAge: "1d", redirect: false }));
+// Serve public gallery uploads (persists on server disk, cached for performance)
+app.use("/uploads/gallery", express.static(path.resolve(__dirname, "uploads/gallery"), { maxAge: "30d" }));
+
 const upload = multer({
   storage: multer.memoryStorage(),
   limits: { fileSize: 15 * 1024 * 1024 },
+});
+
+// Photo uploads for Life at VRM Gallery (Max 8 MB, JPG/PNG/WebP)
+const galleryUpload = multer({
+  storage: multer.memoryStorage(),
+  limits: { fileSize: 8 * 1024 * 1024 },
+  fileFilter: (req, file, cb) => {
+    const ext = path.extname(file.originalname || "").toLowerCase();
+    const validExts = [".jpg", ".jpeg", ".png", ".webp"];
+    const validMimes = ["image/jpeg", "image/png", "image/webp"];
+    if (validMimes.includes(file.mimetype) || validExts.includes(ext)) {
+      cb(null, true);
+    } else {
+      cb(new Error("Invalid image format. Only JPG, PNG, and WebP photos are accepted."));
+    }
+  }
 });
 
 function escapeHtml(value) {
@@ -255,12 +274,22 @@ function requireAdmin(req, res, next) {
   if (!token) {
     return res.status(401).json({ success: false, message: "Unauthorized. Authentication token missing." });
   }
-  const decoded = careersDb.verifyToken(token);
-  if (!decoded) {
+  const admin = careersDb.verifyToken(token);
+  if (!admin) {
     return res.status(401).json({ success: false, message: "Unauthorized. Session expired or token invalid." });
   }
-  req.admin = decoded;
+  req.admin = admin;
   next();
+}
+
+// Superadmin Privilege Middleware
+function requireSuperadmin(req, res, next) {
+  requireAdmin(req, res, () => {
+    if (req.admin.role !== "superadmin") {
+      return res.status(403).json({ success: false, message: "Access forbidden. Superadmin privileges required." });
+    }
+    next();
+  });
 }
 
 // 1. Public Careers Endpoints (No Auth Required)
@@ -297,36 +326,164 @@ app.get("/api/careers/jobs/:slug", (req, res) => {
 // 2. Admin Authentication Endpoints
 app.post("/api/admin/login", (req, res) => {
   const clientIp = req.headers["x-forwarded-for"] || req.socket.remoteAddress || "ip";
-  const rate = careersDb.checkRateLimit(clientIp);
-  if (!rate.allowed) {
-    return res.status(429).json({
-      success: false,
-      message: rate.message || `Too many failed attempts. Try again in ${rate.waitMinutes} minute(s).`
-    });
-  }
-
   const { username = "", password = "" } = req.body || {};
-  if (!username.trim() || !password) {
-    return res.status(400).json({ success: false, message: "Username and password are required." });
+  const identifier = String(username).trim();
+
+  // Rate limit check: per IP and per username/email
+  const ipRate = careersDb.checkRateLimit(`ip:${clientIp}`);
+  if (!ipRate.allowed) {
+    return res.status(429).json({ success: false, message: ipRate.message });
+  }
+  if (identifier) {
+    const userRate = careersDb.checkRateLimit(`user:${identifier.toLowerCase()}`);
+    if (!userRate.allowed) {
+      return res.status(429).json({ success: false, message: userRate.message });
+    }
   }
 
-  const admin = careersDb.verifyAdminCredentials(username, password);
+  if (!identifier || !password) {
+    return res.status(400).json({ success: false, message: "Username/email and password are required." });
+  }
+
+  const admin = careersDb.verifyAdminCredentials(identifier, password);
   if (!admin) {
-    careersDb.recordLoginResult(clientIp, false);
+    careersDb.recordLoginResult(`ip:${clientIp}`, false);
+    careersDb.recordLoginResult(`user:${identifier.toLowerCase()}`, false);
     return res.status(401).json({ success: false, message: "Invalid username or password." });
   }
 
-  careersDb.recordLoginResult(clientIp, true);
-  const token = careersDb.signToken({ username: admin.username, id: admin.id });
+  if (admin.disabled) {
+    return res.status(403).json({ success: false, message: "This account has been disabled. Please contact a superadmin." });
+  }
+
+  careersDb.recordLoginResult(`ip:${clientIp}`, true);
+  careersDb.recordLoginResult(`user:${identifier.toLowerCase()}`, true);
+
+  const token = careersDb.signToken({
+    id: admin.id,
+    username: admin.username,
+    tokenVersion: admin.tokenVersion
+  });
+
   res.json({
     success: true,
     token,
-    user: { username: admin.username }
+    user: {
+      id: admin.id,
+      username: admin.username,
+      displayName: admin.displayName,
+      email: admin.email,
+      role: admin.role,
+      forcePasswordChange: !!admin.forcePasswordChange
+    }
   });
 });
 
 app.get("/api/admin/me", requireAdmin, (req, res) => {
-  res.json({ success: true, user: { username: req.admin.username } });
+  res.json({
+    success: true,
+    user: {
+      id: req.admin.id,
+      username: req.admin.username,
+      displayName: req.admin.displayName,
+      email: req.admin.email,
+      role: req.admin.role,
+      forcePasswordChange: !!req.admin.forcePasswordChange
+    }
+  });
+});
+
+app.post("/api/admin/change-password", requireAdmin, (req, res) => {
+  try {
+    const { currentPassword = "", newPassword = "" } = req.body || {};
+    if (!newPassword || newPassword.length < 12) {
+      return res.status(400).json({ success: false, message: "New password must be at least 12 characters long." });
+    }
+
+    const updated = careersDb.changeAdminPassword(req.admin.id, currentPassword, newPassword);
+    const newToken = careersDb.signToken({
+      id: updated.id,
+      username: updated.username,
+      tokenVersion: updated.tokenVersion
+    });
+
+    res.json({
+      success: true,
+      message: "Password changed successfully.",
+      token: newToken,
+      user: updated
+    });
+  } catch (err) {
+    res.status(400).json({ success: false, message: err.message });
+  }
+});
+
+app.post("/api/admin/forgot-password", async (req, res) => {
+  const clientIp = req.headers["x-forwarded-for"] || req.socket.remoteAddress || "ip";
+  const rate = careersDb.checkRateLimit(`forgot:${clientIp}`);
+  if (!rate.allowed) {
+    return res.status(429).json({ success: false, message: rate.message });
+  }
+
+  const { identifier = "" } = req.body || {};
+  if (!identifier.trim()) {
+    return res.status(400).json({ success: false, message: "Username or email is required." });
+  }
+
+  try {
+    const resetReq = careersDb.requestPasswordReset(identifier);
+    if (resetReq && resetReq.email) {
+      const host = req.get("host") || "www.vrmaitechnology.com";
+      const isLocal = host.includes("localhost") || host.includes("127.0.0.1");
+      const proto = isLocal ? "http" : "https";
+      const resetLink = `${proto}://${host}/admin/reset-password?token=${resetReq.token}`;
+
+      try {
+        await sendFormMail({
+          subject: "VRM AI Admin | Password Reset Request",
+          replyTo: "contactus@vrmaitechnology.com",
+          fields: {
+            "Admin Account": resetReq.username,
+            "Recipient": resetReq.displayName || resetReq.username,
+            "Reset Link": `<a href="${resetLink}" style="display:inline-block;padding:10px 20px;background:#0d6efd;color:#ffffff;text-decoration:none;border-radius:6px;font-weight:bold;">Reset Admin Password</a><br><small style="color:#888;">Link URL: ${resetLink}</small>`,
+            "Valid For": "30 minutes (Single use only)",
+            "Security Notice": "If you did not initiate this request, you can safely ignore this email. Your password has not been changed."
+          }
+        });
+        console.log(`[AUTH] Password reset email sent to ${resetReq.email} for admin "${resetReq.username}"`);
+      } catch (mailErr) {
+        console.error(`[AUTH ERROR] Could not dispatch reset email: ${mailErr.message}`);
+      }
+    }
+  } catch (err) {
+    console.error("[AUTH ERROR] Forgot password processing error:", err.message);
+  }
+
+  // Consistent response to prevent user enumeration
+  return res.json({
+    success: true,
+    message: "If the account exists, a reset email was sent."
+  });
+});
+
+app.post("/api/admin/reset-password", (req, res) => {
+  try {
+    const { token = "", newPassword = "" } = req.body || {};
+    if (!token.trim()) {
+      return res.status(400).json({ success: false, message: "Reset token is required." });
+    }
+    if (!newPassword || newPassword.length < 12) {
+      return res.status(400).json({ success: false, message: "New password must be at least 12 characters long." });
+    }
+
+    careersDb.completePasswordReset(token, newPassword);
+    res.json({
+      success: true,
+      message: "Password has been reset successfully. You can now log in with your new password."
+    });
+  } catch (err) {
+    res.status(400).json({ success: false, message: err.message });
+  }
 });
 
 // 3. Admin Job Management Endpoints (Auth Required)
@@ -456,6 +613,149 @@ app.get("/api/admin/careers/applications/:id/resume", requireAdmin, (req, res) =
     res.download(filePath, downloadName);
   } catch (err) {
     res.status(500).json({ success: false, message: err.message });
+  }
+});
+
+// 5. Superadmin Account Management Endpoints
+app.get("/api/admin/users", requireSuperadmin, (req, res) => {
+  try {
+    const users = careersDb.getAdminUsers();
+    res.json({ success: true, users });
+  } catch (err) {
+    res.status(500).json({ success: false, message: err.message });
+  }
+});
+
+app.post("/api/admin/users", requireSuperadmin, (req, res) => {
+  try {
+    const { username, displayName, email, role, customPassword } = req.body || {};
+    const created = careersDb.createAdminUser({
+      username,
+      displayName,
+      email,
+      role,
+      customPassword
+    });
+    res.json({
+      success: true,
+      user: created.user,
+      tempPassword: created.tempPassword,
+      message: `Admin user "${created.user.username}" created successfully.`
+    });
+  } catch (err) {
+    res.status(400).json({ success: false, message: err.message });
+  }
+});
+
+app.patch("/api/admin/users/:id", requireSuperadmin, (req, res) => {
+  try {
+    const updated = careersDb.updateAdminUser(req.params.id, req.body, req.admin.id);
+    res.json({ success: true, user: updated, message: "Admin user updated successfully." });
+  } catch (err) {
+    res.status(400).json({ success: false, message: err.message });
+  }
+});
+
+app.post("/api/admin/users/:id/reset-password", requireSuperadmin, (req, res) => {
+  try {
+    const result = careersDb.superadminResetPassword(req.params.id);
+    res.json({
+      success: true,
+      user: result.user,
+      tempPassword: result.tempPassword,
+      message: "Password reset successfully. Temporary password generated."
+    });
+  } catch (err) {
+    res.status(400).json({ success: false, message: err.message });
+  }
+});
+
+app.delete("/api/admin/users/:id", requireSuperadmin, (req, res) => {
+  try {
+    careersDb.deleteAdminUser(req.params.id, req.admin.id);
+    res.json({ success: true, message: "Admin account deleted successfully." });
+  } catch (err) {
+    res.status(400).json({ success: false, message: err.message });
+  }
+});
+
+// 6. Public & Admin Gallery Endpoints (Life at VRM)
+app.get("/api/careers/gallery", (req, res) => {
+  try {
+    const gallery = careersDb.getGallery(false);
+    res.json({ success: true, gallery });
+  } catch (err) {
+    console.error("Error fetching gallery:", err.message);
+    res.status(500).json({ success: false, message: "Failed to retrieve gallery photos." });
+  }
+});
+
+app.get("/api/admin/gallery", requireAdmin, (req, res) => {
+  try {
+    const gallery = careersDb.getGallery(true);
+    res.json({ success: true, gallery });
+  } catch (err) {
+    res.status(500).json({ success: false, message: err.message });
+  }
+});
+
+app.post("/api/admin/gallery", requireAdmin, galleryUpload.single("photo"), async (req, res) => {
+  try {
+    if (!req.file) {
+      return res.status(400).json({ success: false, message: "Please select an image file to upload." });
+    }
+
+    const { caption = "", category = "Team Event", eventDate = "", altText = "", status = "published" } = req.body || {};
+    if (!altText.trim()) {
+      return res.status(400).json({ success: false, message: "Alt text is required for accessibility and SEO." });
+    }
+
+    const photo = await careersDb.processAndSaveGalleryImage({
+      fileBuffer: req.file.buffer,
+      originalName: req.file.originalname,
+      caption,
+      category,
+      eventDate,
+      altText,
+      status
+    });
+
+    res.json({
+      success: true,
+      photo,
+      message: "Photo uploaded and processed successfully."
+    });
+  } catch (err) {
+    console.error("[GALLERY UPLOAD ERROR]", err);
+    res.status(400).json({ success: false, message: err.message });
+  }
+});
+
+app.put("/api/admin/gallery/:id", requireAdmin, (req, res) => {
+  try {
+    const updated = careersDb.updateGalleryItem(req.params.id, req.body || {});
+    res.json({ success: true, photo: updated, message: "Gallery photo updated successfully." });
+  } catch (err) {
+    res.status(400).json({ success: false, message: err.message });
+  }
+});
+
+app.patch("/api/admin/gallery/reorder", requireAdmin, (req, res) => {
+  try {
+    const { orderedIds } = req.body || {};
+    const reordered = careersDb.reorderGallery(orderedIds);
+    res.json({ success: true, gallery: reordered, message: "Gallery order updated successfully." });
+  } catch (err) {
+    res.status(400).json({ success: false, message: err.message });
+  }
+});
+
+app.delete("/api/admin/gallery/:id", requireAdmin, (req, res) => {
+  try {
+    careersDb.deleteGalleryItem(req.params.id);
+    res.json({ success: true, message: "Photo deleted successfully." });
+  } catch (err) {
+    res.status(400).json({ success: false, message: err.message });
   }
 });
 
