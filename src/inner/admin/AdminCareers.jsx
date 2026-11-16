@@ -1532,7 +1532,7 @@ function AdminCareers() {
 
                     {/* Global Search Input */}
                     <div className="vrm-admin-topbar-center">
-                        <div className="vrm-admin-search-box">
+                        <div className="vrm-admin-search-box" onClick={() => searchInputRef.current?.focus()}>
                             <i className="fas fa-search vrm-admin-search-icon"></i>
                             <input
                                 ref={searchInputRef}
@@ -2584,6 +2584,20 @@ function AdminCareers() {
                                     <i className="fas fa-user-plus"></i>
                                     <span>Add New Admin</span>
                                 </button>
+                            </div>
+
+                            {/* Toolbar with Search */}
+                            <div className="vrm-filter-toolbar-row mb-4">
+                                <div className="vrm-filter-search-box">
+                                    <i className="fas fa-search vrm-filter-search-icon"></i>
+                                    <input
+                                        type="text"
+                                        className="vrm-filter-search-input"
+                                        placeholder="Search admins by name, email or role..."
+                                        value={globalSearch}
+                                        onChange={(e) => setGlobalSearch(e.target.value)}
+                                    />
+                                </div>
                             </div>
 
                             {/* Admins Table */}
