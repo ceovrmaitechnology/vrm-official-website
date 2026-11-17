@@ -1588,4 +1588,268 @@ body:has(.admin-careers) .progress-wrap,
   }
 }
 
+/* ==========================================================================
+   ADMIN AUTH PAGES (LOGIN, FORGOT PASSWORD, RESET PASSWORD)
+   ========================================================================== */
+.vrm-admin-auth-page {
+  min-height: 100vh !important;
+  background: radial-gradient(ellipse at top, #1e1338 0%, #090d16 100%) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 32px 16px !important;
+  box-sizing: border-box !important;
+}
+
+.vrm-admin-auth-card {
+  max-width: 440px !important;
+  width: 100% !important;
+  border-radius: 18px !important;
+  background: #0f172a !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  padding: 40px !important;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6) !important;
+  box-sizing: border-box !important;
+  color: #ffffff !important;
+}
+
+.vrm-admin-auth-logo {
+  height: 64px !important;
+  max-height: 64px !important;
+  object-fit: contain !important;
+  display: block !important;
+  margin: 0 auto 16px auto !important;
+}
+
+/* Force heading to be pure white and immune to global theme dark text overrides */
+.vrm-admin-auth-card h1,
+.vrm-admin-auth-card h2,
+.vrm-admin-auth-card h3,
+.vrm-admin-auth-card h4,
+.vrm-admin-auth-title {
+  color: #ffffff !important;
+  font-size: 32px !important;
+  font-weight: 700 !important;
+  text-align: center !important;
+  margin: 0 0 6px 0 !important;
+  letter-spacing: -0.5px !important;
+  line-height: 1.2 !important;
+  font-family: inherit !important;
+}
+
+.vrm-admin-auth-subtitle {
+  color: #94a3b8 !important;
+  font-size: 15px !important;
+  text-align: center !important;
+  margin: 0 0 28px 0 !important;
+  line-height: 1.4 !important;
+}
+
+.vrm-admin-auth-label {
+  color: #e2e8f0 !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  display: block !important;
+  margin-bottom: 6px !important;
+}
+
+.vrm-admin-auth-password-row {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  margin-bottom: 6px !important;
+}
+
+.vrm-admin-auth-forgot-link {
+  width: auto !important;
+  color: #38bdf8 !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  text-decoration: none !important;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  cursor: pointer !important;
+  transition: color 0.2s ease, text-decoration 0.2s ease !important;
+  box-shadow: none !important;
+}
+
+.vrm-admin-auth-forgot-link:hover,
+.vrm-admin-auth-forgot-link:focus {
+  color: #7dd3fc !important;
+  text-decoration: underline !important;
+  outline: none !important;
+}
+
+.vrm-admin-auth-input {
+  height: 48px !important;
+  background: #0b1220 !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  color: #ffffff !important;
+  border-radius: 10px !important;
+  padding: 0 16px !important;
+  font-size: 14px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  outline: none !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease !important;
+}
+
+.vrm-admin-auth-input::placeholder {
+  color: #94a3b8 !important;
+  opacity: 1 !important;
+}
+
+.vrm-admin-auth-input:focus {
+  background: #0b1220 !important;
+  border-color: #3b82f6 !important;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25) !important;
+  color: #ffffff !important;
+  outline: none !important;
+}
+
+.vrm-password-input-wrap {
+  position: relative !important;
+  width: 100% !important;
+  display: block !important;
+}
+
+.vrm-password-input-wrap .vrm-admin-auth-input {
+  padding-right: 48px !important;
+}
+
+.vrm-password-eye-btn {
+  position: absolute !important;
+  right: 0 !important;
+  top: 0 !important;
+  height: 48px !important;
+  width: 48px !important;
+  min-width: 48px !important;
+  max-width: 48px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: transparent !important;
+  border: none !important;
+  color: #94a3b8 !important;
+  font-size: 16px !important;
+  cursor: pointer !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  transition: color 0.2s ease !important;
+  z-index: 2 !important;
+  box-shadow: none !important;
+}
+
+.vrm-password-eye-btn:hover,
+.vrm-password-eye-btn:focus {
+  color: #ffffff !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.vrm-admin-auth-checkbox-wrap {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  margin-bottom: 24px !important;
+  margin-top: 14px !important;
+}
+
+.vrm-admin-auth-checkbox-wrap input[type="checkbox"] {
+  width: 16px !important;
+  height: 16px !important;
+  accent-color: #3b82f6 !important;
+  cursor: pointer !important;
+  margin: 0 !important;
+}
+
+.vrm-admin-auth-checkbox-label {
+  color: #cbd5e1 !important;
+  font-size: 13.5px !important;
+  cursor: pointer !important;
+  user-select: none !important;
+  margin-bottom: 0 !important;
+  line-height: 1 !important;
+}
+
+.vrm-admin-auth-submit-btn {
+  width: 100% !important;
+  min-width: 100% !important;
+  max-width: 100% !important;
+  height: 48px !important;
+  border-radius: 10px !important;
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%) !important;
+  border: none !important;
+  color: #ffffff !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 4px 14px rgba(59, 130, 246, 0.35) !important;
+  padding: 0 16px !important;
+  text-decoration: none !important;
+  box-sizing: border-box !important;
+}
+
+.vrm-admin-auth-submit-btn:hover:not(:disabled) {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5) !important;
+  filter: brightness(1.08) !important;
+  color: #ffffff !important;
+}
+
+.vrm-admin-auth-submit-btn:disabled {
+  opacity: 0.65 !important;
+  cursor: not-allowed !important;
+}
+
+.vrm-admin-auth-footer {
+  text-align: center !important;
+  margin-top: 24px !important;
+  padding-top: 20px !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+.vrm-admin-auth-back-link {
+  color: #94a3b8 !important;
+  font-size: 14px !important;
+  text-decoration: none !important;
+  transition: color 0.2s ease, text-decoration 0.2s ease !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  background: transparent !important;
+  border: none !important;
+  cursor: pointer !important;
+  padding: 0 !important;
+  width: auto !important;
+  box-shadow: none !important;
+}
+
+.vrm-admin-auth-back-link:hover,
+.vrm-admin-auth-back-link:focus {
+  color: #ffffff !important;
+  text-decoration: underline !important;
+  outline: none !important;
+}
+
+@media (max-width: 480px) {
+  .vrm-admin-auth-card {
+    padding: 30px 20px !important;
+    border-radius: 14px !important;
+  }
+  .vrm-admin-auth-card h1,
+  .vrm-admin-auth-card h2,
+  .vrm-admin-auth-card h3,
+  .vrm-admin-auth-card h4,
+  .vrm-admin-auth-title {
+    font-size: 26px !important;
+  }
+}
+
+
 

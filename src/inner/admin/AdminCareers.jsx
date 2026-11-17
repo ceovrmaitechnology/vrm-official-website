@@ -47,6 +47,7 @@ function AdminCareers() {
     const [rememberMe, setRememberMe] = useState(true);
     const [loginError, setLoginError] = useState('');
     const [isLoggingIn, setIsLoggingIn] = useState(false);
+    const [showLoginPassword, setShowLoginPassword] = useState(false);
 
     // Forgot Password State
     const [showForgotPassword, setShowForgotPassword] = useState(false);
@@ -60,6 +61,8 @@ function AdminCareers() {
     const [resetConfirmPass, setResetConfirmPass] = useState('');
     const [resetStatus, setResetStatus] = useState({ type: '', message: '' });
     const [isResetting, setIsResetting] = useState(false);
+    const [showResetNewPassword, setShowResetNewPassword] = useState(false);
+    const [showResetConfirmPassword, setShowResetConfirmPassword] = useState(false);
 
     // Change Password Modal State
     const [showChangePassModal, setShowChangePassModal] = useState(false);
@@ -1216,94 +1219,108 @@ function AdminCareers() {
     // --------------------------------------------------------------------------
     if (isResetPasswordPath || (resetTokenParam && !isAuthenticated)) {
         return (
-            <div style={{ minHeight: '100vh', background: 'radial-gradient(ellipse at top, #1e1338 0%, #090d16 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px' }}>
+            <div className="vrm-admin-auth-page">
                 <Helmet>
                     <title>Reset Password | VRM AI Technology</title>
                     <meta name="robots" content="noindex, nofollow" />
                 </Helmet>
 
-                <div className="card border-0 shadow-lg" style={{ maxWidth: '440px', width: '100%', borderRadius: '16px', background: '#0f172a', border: '1px solid rgba(255,255,255,0.1)' }}>
-                    <div className="p-4 p-md-5 text-white">
-                        <div className="text-center mb-4">
-                            <img src="/assets/images/logo/logo-header.webp" alt="VRM AI Technology" style={{ height: '42px', marginBottom: '16px' }} />
-                            <h3 className="h4 fw-bold">Reset Admin Password</h3>
-                            <p className="text-muted small">Choose a secure new password (min 12 characters)</p>
+                <div className="vrm-admin-auth-card">
+                    <img src="/assets/images/logo/logo-header.webp" alt="VRM AI Technology" className="vrm-admin-auth-logo" />
+                    <h1 className="vrm-admin-auth-title">Reset Admin Password</h1>
+                    <p className="vrm-admin-auth-subtitle">Choose a secure new password (min 12 characters)</p>
+
+                    {resetStatus.message && (
+                        <div className={`alert ${resetStatus.type === 'success' ? 'alert-success' : 'alert-danger'} py-2 px-3 small rounded-3 mb-4`}>
+                            <i className={`fas ${resetStatus.type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'} me-2`}></i>
+                            {resetStatus.message}
                         </div>
+                    )}
 
-                        {resetStatus.message && (
-                            <div className={`alert ${resetStatus.type === 'success' ? 'alert-success' : 'alert-danger'} py-2 px-3 small rounded-3 mb-4`}>
-                                <i className={`fas ${resetStatus.type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'} me-2`}></i>
-                                {resetStatus.message}
-                            </div>
-                        )}
-
-                        {resetStatus.type === 'success' ? (
-                            <div className="text-center">
-                                <Link to="/admin/careers" className="btn btn-primary w-100 py-2 fw-semibold" style={{ borderRadius: '8px' }}>
-                                    Proceed to Sign In
-                                </Link>
-                            </div>
-                        ) : (
-                            <form onSubmit={handleResetSubmit}>
-                                {!resetTokenParam && (
-                                    <div className="mb-3">
-                                        <label className="form-label small fw-semibold text-light">Reset Token</label>
-                                        <input
-                                            type="text"
-                                            className="form-control"
-                                            placeholder="Paste token from email"
-                                            value={resetToken}
-                                            onChange={(e) => setResetToken(e.target.value)}
-                                            required
-                                            style={{ background: '#1e293b', border: '1px solid rgba(255,255,255,0.12)', color: '#fff' }}
-                                        />
-                                    </div>
-                                )}
-
+                    {resetStatus.type === 'success' ? (
+                        <div className="text-center">
+                            <Link to="/admin/careers" className="vrm-admin-auth-submit-btn">
+                                Proceed to Sign In
+                            </Link>
+                        </div>
+                    ) : (
+                        <form onSubmit={handleResetSubmit}>
+                            {!resetTokenParam && (
                                 <div className="mb-3">
-                                    <label className="form-label small fw-semibold text-light">New Password (min 12 chars)</label>
+                                    <label className="vrm-admin-auth-label">Reset Token</label>
                                     <input
-                                        type="password"
-                                        className="form-control"
+                                        type="text"
+                                        className="vrm-admin-auth-input"
+                                        placeholder="Paste token from email"
+                                        value={resetToken}
+                                        onChange={(e) => setResetToken(e.target.value)}
+                                        required
+                                    />
+                                </div>
+                            )}
+
+                            <div className="mb-3">
+                                <label className="vrm-admin-auth-label">New Password (min 12 chars)</label>
+                                <div className="vrm-password-input-wrap">
+                                    <input
+                                        type={showResetNewPassword ? "text" : "password"}
+                                        className="vrm-admin-auth-input"
                                         placeholder="Enter strong new password"
                                         value={resetNewPass}
                                         onChange={(e) => setResetNewPass(e.target.value)}
                                         required
                                         minLength={12}
-                                        style={{ background: '#1e293b', border: '1px solid rgba(255,255,255,0.12)', color: '#fff' }}
                                     />
+                                    <button
+                                        type="button"
+                                        className="vrm-password-eye-btn"
+                                        onClick={() => setShowResetNewPassword(prev => !prev)}
+                                        aria-label={showResetNewPassword ? "Hide password" : "Show password"}
+                                        title={showResetNewPassword ? "Hide password" : "Show password"}
+                                    >
+                                        <i className={`fas ${showResetNewPassword ? 'fa-eye-slash' : 'fa-eye'}`}></i>
+                                    </button>
                                 </div>
+                            </div>
 
-                                <div className="mb-4">
-                                    <label className="form-label small fw-semibold text-light">Confirm New Password</label>
+                            <div className="mb-4">
+                                <label className="vrm-admin-auth-label">Confirm New Password</label>
+                                <div className="vrm-password-input-wrap">
                                     <input
-                                        type="password"
-                                        className="form-control"
+                                        type={showResetConfirmPassword ? "text" : "password"}
+                                        className="vrm-admin-auth-input"
                                         placeholder="Repeat new password"
                                         value={resetConfirmPass}
                                         onChange={(e) => setResetConfirmPass(e.target.value)}
                                         required
                                         minLength={12}
-                                        style={{ background: '#1e293b', border: '1px solid rgba(255,255,255,0.12)', color: '#fff' }}
                                     />
+                                    <button
+                                        type="button"
+                                        className="vrm-password-eye-btn"
+                                        onClick={() => setShowResetConfirmPassword(prev => !prev)}
+                                        aria-label={showResetConfirmPassword ? "Hide password" : "Show password"}
+                                        title={showResetConfirmPassword ? "Hide password" : "Show password"}
+                                    >
+                                        <i className={`fas ${showResetConfirmPassword ? 'fa-eye-slash' : 'fa-eye'}`}></i>
+                                    </button>
                                 </div>
+                            </div>
 
-                                <button
-                                    type="submit"
-                                    disabled={isResetting}
-                                    className="btn btn-primary w-100 py-2 fw-semibold"
-                                    style={{ borderRadius: '8px', background: 'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)', border: 'none' }}
-                                >
-                                    {isResetting ? 'Saving Password...' : 'Save New Password'}
-                                </button>
-                            </form>
-                        )}
+                            <button
+                                type="submit"
+                                disabled={isResetting}
+                                className="vrm-admin-auth-submit-btn"
+                            >
+                                {isResetting ? 'Saving Password...' : 'Save New Password'}
+                            </button>
+                        </form>
+                    )}
 
-                        <div className="text-center mt-4 pt-3 border-top border-secondary">
-                            <Link to="/admin/careers" className="text-muted small text-decoration-none">
-                                <i className="far fa-arrow-left me-1"></i> Back to sign in
-                            </Link>
-                        </div>
+                    <div className="vrm-admin-auth-footer">
+                        <Link to="/admin/careers" className="vrm-admin-auth-back-link">
+                            <i className="far fa-arrow-left"></i> Back to sign in
+                        </Link>
                     </div>
                 </div>
             </div>
@@ -1315,146 +1332,148 @@ function AdminCareers() {
     // --------------------------------------------------------------------------
     if (!isAuthenticated) {
         return (
-            <div style={{ minHeight: '100vh', background: 'radial-gradient(ellipse at top, #1e1338 0%, #090d16 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px' }}>
+            <div className="vrm-admin-auth-page">
                 <Helmet>
-                    <title>Admin Login | VRM AI Technology</title>
+                    <title>{showForgotPassword ? 'Forgot Password | VRM AI Technology' : 'Careers Admin Login | VRM AI Technology'}</title>
                     <meta name="robots" content="noindex, nofollow" />
                 </Helmet>
 
-                <div className="card shadow-lg border-0" style={{ maxWidth: '440px', width: '100%', borderRadius: '16px', background: '#0f172a', border: '1px solid rgba(255,255,255,0.1)' }}>
-                    <div className="p-4 p-md-5 text-white">
-                        <div className="text-center mb-4">
-                            <img src="/assets/images/logo/logo-header.webp" alt="VRM AI Technology" style={{ height: '42px', marginBottom: '16px' }} />
-                            <h3 className="h4 fw-bold">Careers Admin</h3>
-                            <p className="text-muted small">
-                                {showForgotPassword ? 'Reset your admin password' : 'Sign in to manage openings, candidates & gallery'}
-                            </p>
+                <div className="vrm-admin-auth-card">
+                    <img src="/assets/images/logo/logo-header.webp" alt="VRM AI Technology" className="vrm-admin-auth-logo" />
+                    <h1 className="vrm-admin-auth-title">{showForgotPassword ? 'Reset Password' : 'Careers Admin'}</h1>
+                    <p className="vrm-admin-auth-subtitle">
+                        {showForgotPassword ? 'Reset your admin password' : 'Sign in to manage openings, candidates & gallery'}
+                    </p>
+
+                    {loginError && !showForgotPassword && (
+                        <div className="alert alert-danger py-2 px-3 small rounded-3 mb-4">
+                            <i className="fas fa-exclamation-circle me-2"></i>
+                            {loginError}
                         </div>
+                    )}
 
-                        {loginError && !showForgotPassword && (
-                            <div className="alert alert-danger py-2 px-3 small rounded-3 mb-4">
-                                <i className="fas fa-exclamation-circle me-2"></i>
-                                {loginError}
-                            </div>
-                        )}
+                    {forgotStatus.message && showForgotPassword && (
+                        <div className={`alert ${forgotStatus.type === 'success' ? 'alert-success' : 'alert-danger'} py-2 px-3 small rounded-3 mb-4`}>
+                            <i className={`fas ${forgotStatus.type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'} me-2`}></i>
+                            {forgotStatus.message}
+                        </div>
+                    )}
 
-                        {forgotStatus.message && showForgotPassword && (
-                            <div className={`alert ${forgotStatus.type === 'success' ? 'alert-success' : 'alert-danger'} py-2 px-3 small rounded-3 mb-4`}>
-                                <i className={`fas ${forgotStatus.type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'} me-2`}></i>
-                                {forgotStatus.message}
-                            </div>
-                        )}
-
-                        {showForgotPassword ? (
-                            <form onSubmit={handleForgotSubmit}>
-                                <div className="mb-3">
-                                    <label className="form-label small fw-semibold text-light">Username or Registered Email</label>
-                                    <input
-                                        type="text"
-                                        className="form-control"
-                                        placeholder="e.g. admin or contactus@vrmaitechnology.com"
-                                        value={forgotIdentifier}
-                                        onChange={(e) => setForgotIdentifier(e.target.value)}
-                                        required
-                                        style={{ background: '#1e293b', border: '1px solid rgba(255,255,255,0.12)', color: '#fff' }}
-                                    />
-                                    <div className="form-text text-muted" style={{ fontSize: '11px' }}>
-                                        A secure password reset link (valid for 30 minutes) will be emailed to you.
-                                    </div>
+                    {showForgotPassword ? (
+                        <form onSubmit={handleForgotSubmit}>
+                            <div className="mb-4">
+                                <label className="vrm-admin-auth-label">Username or Registered Email</label>
+                                <input
+                                    type="text"
+                                    className="vrm-admin-auth-input"
+                                    placeholder="e.g. admin or contactus@vrmaitechnology.com"
+                                    value={forgotIdentifier}
+                                    onChange={(e) => setForgotIdentifier(e.target.value)}
+                                    required
+                                    autoFocus
+                                />
+                                <div className="text-muted small mt-2" style={{ fontSize: '12px', color: '#94a3b8' }}>
+                                    A secure password reset link (valid for 30 minutes) will be emailed to you.
                                 </div>
+                            </div>
 
-                                <button
-                                    type="submit"
-                                    disabled={isSendingForgot}
-                                    className="btn btn-primary w-100 py-2 fw-semibold mb-3"
-                                    style={{ borderRadius: '8px', background: 'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)', border: 'none' }}
-                                >
-                                    {isSendingForgot ? 'Sending Reset Link...' : 'Send Reset Link'}
-                                </button>
+                            <button
+                                type="submit"
+                                disabled={isSendingForgot}
+                                className="vrm-admin-auth-submit-btn mb-3"
+                            >
+                                {isSendingForgot ? 'Sending Reset Link...' : 'Send Reset Link'}
+                            </button>
 
+                            <div className="text-center mt-3">
                                 <button
                                     type="button"
-                                    className="btn btn-link text-decoration-none w-100 small text-muted"
+                                    className="vrm-admin-auth-back-link"
                                     onClick={() => {
                                         setShowForgotPassword(false);
                                         setForgotStatus({ type: '', message: '' });
                                     }}
                                 >
-                                    <i className="far fa-arrow-left me-1"></i> Back to sign in
+                                    <i className="far fa-arrow-left"></i> Back to sign in
                                 </button>
-                            </form>
-                        ) : (
-                            <form onSubmit={handleLoginSubmit}>
-                                <div className="mb-3">
-                                    <label className="form-label small fw-semibold text-light">Username or Email</label>
-                                    <input
-                                        type="text"
-                                        className="form-control"
-                                        placeholder="Enter admin username or email"
-                                        value={loginUser}
-                                        onChange={(e) => setLoginUser(e.target.value)}
-                                        required
-                                        style={{ background: '#1e293b', border: '1px solid rgba(255,255,255,0.12)', color: '#fff' }}
-                                    />
-                                </div>
+                            </div>
+                        </form>
+                    ) : (
+                        <form onSubmit={handleLoginSubmit}>
+                            <div className="mb-3">
+                                <label className="vrm-admin-auth-label">Username or Email</label>
+                                <input
+                                    type="text"
+                                    className="vrm-admin-auth-input"
+                                    placeholder="Enter admin username or email"
+                                    value={loginUser}
+                                    onChange={(e) => setLoginUser(e.target.value)}
+                                    required
+                                    autoFocus
+                                />
+                            </div>
 
-                                <div className="mb-2">
-                                    <div className="d-flex justify-content-between align-items-center">
-                                        <label className="form-label small fw-semibold text-light mb-0">Password</label>
-                                        <button
-                                            type="button"
-                                            className="btn btn-link p-0 text-decoration-none small text-info"
-                                            style={{ fontSize: '12px' }}
-                                            onClick={() => {
-                                                setShowForgotPassword(true);
-                                                setLoginError('');
-                                            }}
-                                        >
-                                            Forgot password?
-                                        </button>
-                                    </div>
+                            <div className="mb-2">
+                                <div className="vrm-admin-auth-password-row">
+                                    <label className="vrm-admin-auth-label mb-0">Password</label>
+                                    <button
+                                        type="button"
+                                        className="vrm-admin-auth-forgot-link"
+                                        onClick={() => {
+                                            setShowForgotPassword(true);
+                                            setLoginError('');
+                                        }}
+                                    >
+                                        Forgot password?
+                                    </button>
+                                </div>
+                                <div className="vrm-password-input-wrap">
                                     <input
-                                        type="password"
-                                        className="form-control mt-1"
+                                        type={showLoginPassword ? "text" : "password"}
+                                        className="vrm-admin-auth-input"
                                         placeholder="Enter password"
                                         value={loginPass}
                                         onChange={(e) => setLoginPass(e.target.value)}
                                         required
-                                        style={{ background: '#1e293b', border: '1px solid rgba(255,255,255,0.12)', color: '#fff' }}
                                     />
+                                    <button
+                                        type="button"
+                                        className="vrm-password-eye-btn"
+                                        onClick={() => setShowLoginPassword(prev => !prev)}
+                                        aria-label={showLoginPassword ? "Hide password" : "Show password"}
+                                        title={showLoginPassword ? "Hide password" : "Show password"}
+                                    >
+                                        <i className={`fas ${showLoginPassword ? 'fa-eye-slash' : 'fa-eye'}`}></i>
+                                    </button>
                                 </div>
+                            </div>
 
-                                <div className="d-flex justify-content-between align-items-center mb-4 mt-3">
-                                    <div className="form-check">
-                                        <input
-                                            className="form-check-input"
-                                            type="checkbox"
-                                            id="rememberMe"
-                                            checked={rememberMe}
-                                            onChange={(e) => setRememberMe(e.target.checked)}
-                                        />
-                                        <label className="form-check-label small text-muted" htmlFor="rememberMe">
-                                            Keep me logged in
-                                        </label>
-                                    </div>
-                                </div>
+                            <div className="vrm-admin-auth-checkbox-wrap">
+                                <input
+                                    type="checkbox"
+                                    id="rememberMe"
+                                    checked={rememberMe}
+                                    onChange={(e) => setRememberMe(e.target.checked)}
+                                />
+                                <label className="vrm-admin-auth-checkbox-label" htmlFor="rememberMe">
+                                    Keep me logged in
+                                </label>
+                            </div>
 
-                                <button
-                                    type="submit"
-                                    disabled={isLoggingIn}
-                                    className="btn btn-primary w-100 py-2 fw-semibold"
-                                    style={{ borderRadius: '8px', background: 'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)', border: 'none' }}
-                                >
-                                    {isLoggingIn ? 'Signing In...' : 'Sign In'}
-                                </button>
-                            </form>
-                        )}
+                            <button
+                                type="submit"
+                                disabled={isLoggingIn}
+                                className="vrm-admin-auth-submit-btn"
+                            >
+                                {isLoggingIn ? 'Signing In...' : 'Sign In'}
+                            </button>
+                        </form>
+                    )}
 
-                        <div className="text-center mt-4 pt-3 border-top border-secondary">
-                            <Link to="/careers" className="text-muted small text-decoration-none">
-                                <i className="far fa-arrow-left me-1"></i> Back to public site
-                            </Link>
-                        </div>
+                    <div className="vrm-admin-auth-footer">
+                        <Link to="/careers" className="vrm-admin-auth-back-link">
+                            <i className="far fa-arrow-left"></i> Back to public site
+                        </Link>
                     </div>
                 </div>
             </div>
