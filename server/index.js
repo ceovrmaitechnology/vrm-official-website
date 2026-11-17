@@ -206,8 +206,9 @@ const transporter = nodemailer.createTransport({
   socketTimeout: 15000,
 });
 
-async function sendFormMail({ subject, replyTo, fields, file }) {
-  if (!SMTP_HOST || !SMTP_PORT || !SMTP_USER || !SMTP_PASS || !MAIL_TO) {
+async function sendFormMail({ to, subject, replyTo, fields, file }) {
+  const recipient = to || MAIL_TO;
+  if (!SMTP_HOST || !SMTP_PORT || !SMTP_USER || !SMTP_PASS || !recipient) {
     throw new Error("Mail server is not configured. Set SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, and MAIL_TO.");
   }
 
@@ -223,7 +224,7 @@ async function sendFormMail({ subject, replyTo, fields, file }) {
 
   const mailOptions = {
     from: MAIL_FROM,
-    to: MAIL_TO,
+    to: recipient,
     subject,
     html,
   };
@@ -294,7 +295,37 @@ function requireSuperadmin(req, res, next) {
   });
 }
 
+// Action rate limiter for sensitive administrative operations (test email, CSV export)
+const actionRateLimits = new Map();
+function checkActionRateLimit(key, maxCalls = 5, windowMs = 10 * 60 * 1000) {
+  const now = Date.now();
+  let timestamps = actionRateLimits.get(key) || [];
+  timestamps = timestamps.filter(ts => now - ts < windowMs);
+  if (timestamps.length >= maxCalls) {
+    const oldest = timestamps[0];
+    const waitMins = Math.ceil((windowMs - (now - oldest)) / 60000);
+    return { allowed: false, message: `Rate limit reached. Please wait ${waitMins} minute(s) before trying again.` };
+  }
+  timestamps.push(now);
+  actionRateLimits.set(key, timestamps);
+  return { allowed: true };
+}
+
 // 1. Public Careers Endpoints (No Auth Required)
+app.get("/api/careers/settings/public", (req, res) => {
+  try {
+    const settings = careersDb.getSettings();
+    res.json({
+      success: true,
+      settings: {
+        showGallerySection: settings.showGallerySection !== false,
+        acceptApplications: settings.acceptApplications !== false
+      }
+    });
+  } catch (err) {
+    res.status(500).json({ success: false, message: "Failed to retrieve public settings." });
+  }
+});
 app.get("/api/careers/jobs", (req, res) => {
   try {
     const jobs = careersDb.getJobs(false);
@@ -789,13 +820,224 @@ app.delete("/api/admin/gallery/:id", requireAdmin, (req, res) => {
   }
 });
 
+app.post("/api/admin/gallery/:id/replace", requireAdmin, galleryUpload.single("photo"), async (req, res) => {
+  try {
+    if (!req.file) {
+      return res.status(400).json({ success: false, message: "Please select an image file to upload." });
+    }
+    const photo = await careersDb.replaceGalleryImage(req.params.id, {
+      fileBuffer: req.file.buffer,
+      originalName: req.file.originalname
+    });
+    careersDb.logActivity({
+      type: 'photo',
+      text: `Replaced image for photo "${photo.caption || photo.altText || photo.id}"`,
+      admin: req.admin?.displayName || req.admin?.username || 'Admin'
+    });
+    res.json({ success: true, photo, message: "Gallery photo image replaced successfully." });
+  } catch (err) {
+    res.status(400).json({ success: false, message: err.message });
+  }
+});
+
+app.post("/api/admin/gallery/bulk-action", requireAdmin, (req, res) => {
+  try {
+    const { ids = [], action = "" } = req.body || {};
+    if (!Array.isArray(ids) || ids.length === 0) {
+      return res.status(400).json({ success: false, message: "Please select at least one photo." });
+    }
+    if (!["publish", "hide", "delete"].includes(action)) {
+      return res.status(400).json({ success: false, message: "Action must be publish, hide, or delete." });
+    }
+    const result = careersDb.bulkGalleryAction(ids, action);
+    careersDb.logActivity({
+      type: 'photo',
+      text: `Bulk ${action} applied to ${result.affected} photo(s)`,
+      admin: req.admin?.displayName || req.admin?.username || 'Admin'
+    });
+    res.json({ success: true, message: `Successfully applied ${action} to ${result.affected} photo(s).`, result });
+  } catch (err) {
+    res.status(400).json({ success: false, message: err.message });
+  }
+});
+
 // 7. Recent Admin Activity Log
 app.get("/api/admin/careers/activity", requireAdmin, (req, res) => {
   try {
-    const activity = careersDb.getActivity(5);
+    const activity = careersDb.getActivity(10);
     res.json({ success: true, activity });
   } catch (err) {
     res.status(500).json({ success: false, message: err.message });
+  }
+});
+
+// 8. Admin Career Page Preview API
+app.get("/api/admin/careers/preview", requireAdmin, (req, res) => {
+  try {
+    const jobs = careersDb.getJobs(true);
+    const gallery = careersDb.getGallery(true);
+    const settings = careersDb.getSettings();
+    res.json({
+      success: true,
+      jobs,
+      gallery,
+      settings,
+      admin: {
+        id: req.admin.id,
+        username: req.admin.username,
+        displayName: req.admin.displayName,
+        role: req.admin.role
+      }
+    });
+  } catch (err) {
+    res.status(500).json({ success: false, message: err.message });
+  }
+});
+
+// 9. Admin Profile & Session Invalidation
+app.patch("/api/admin/me/profile", requireAdmin, (req, res) => {
+  try {
+    const { displayName, email } = req.body || {};
+    const updated = careersDb.updateAdminProfile(req.admin.id, { displayName, email });
+    careersDb.logActivity({
+      type: 'auth',
+      text: `Updated admin profile settings`,
+      admin: updated.displayName || updated.username
+    });
+    res.json({ success: true, user: updated, message: "Profile updated successfully." });
+  } catch (err) {
+    res.status(400).json({ success: false, message: err.message });
+  }
+});
+
+app.post("/api/admin/auth/signout-all", requireAdmin, (req, res) => {
+  try {
+    careersDb.bumpTokenVersion(req.admin.id);
+    careersDb.logActivity({
+      type: 'auth',
+      text: `Signed out of all active devices (session tokens revoked)`,
+      admin: req.admin?.displayName || req.admin?.username || 'Admin'
+    });
+    res.json({ success: true, message: "All active sessions revoked. Please sign in again." });
+  } catch (err) {
+    res.status(400).json({ success: false, message: err.message });
+  }
+});
+
+// 10. Careers Settings & Data Endpoints (Superadmin Only)
+app.get("/api/admin/careers/settings", requireSuperadmin, (req, res) => {
+  try {
+    const settings = careersDb.getSettings();
+    const smtpInfo = {
+      host: SMTP_HOST || "Not configured",
+      port: SMTP_PORT || 587,
+      from: MAIL_FROM || "Not configured",
+      user: SMTP_USER ? SMTP_USER.replace(/(.{2})(.*)(@.*)/, "$1***$3") : "Not configured",
+      configured: !!(SMTP_HOST && SMTP_USER && SMTP_PASS)
+    };
+    res.json({ success: true, settings, smtpInfo });
+  } catch (err) {
+    res.status(500).json({ success: false, message: err.message });
+  }
+});
+
+app.put("/api/admin/careers/settings", requireSuperadmin, (req, res) => {
+  try {
+    const updated = careersDb.updateSettings(req.body || {});
+    careersDb.logActivity({
+      type: 'settings',
+      text: 'Updated careers configuration & system settings',
+      admin: req.admin?.displayName || req.admin?.username || 'Superadmin'
+    });
+    res.json({ success: true, settings: updated, message: "Settings saved successfully." });
+  } catch (err) {
+    res.status(400).json({ success: false, message: err.message });
+  }
+});
+
+app.post("/api/admin/careers/test-email", requireSuperadmin, async (req, res) => {
+  const clientIp = req.headers["x-forwarded-for"] || req.socket.remoteAddress || "ip";
+  const rateCheck = checkActionRateLimit(`test-email:${req.admin.id}:${clientIp}`, 3, 10 * 60 * 1000);
+  if (!rateCheck.allowed) {
+    return res.status(429).json({ success: false, message: rateCheck.message });
+  }
+
+  const { targetEmail } = req.body || {};
+  const settings = careersDb.getSettings();
+  const recipient = String(targetEmail || req.admin.email || (settings.notificationEmails && settings.notificationEmails[0]) || MAIL_TO).trim();
+
+  if (!recipient || !recipient.includes("@")) {
+    return res.status(400).json({ success: false, message: "A valid recipient email address is required." });
+  }
+
+  try {
+    if (!SMTP_HOST || !SMTP_PORT || !SMTP_USER || !SMTP_PASS) {
+      return res.status(500).json({ success: false, message: "SMTP mail server is not configured in server environment." });
+    }
+
+    await transporter.sendMail({
+      from: MAIL_FROM,
+      to: recipient,
+      subject: "VRM AI Careers Admin | SMTP Test Email",
+      html: `
+        <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #1e293b; max-width: 600px; padding: 24px; border: 1px solid #e2e8f0; border-radius: 8px;">
+          <h2 style="color: #0d6efd; margin-top: 0;">SMTP Connection Verified</h2>
+          <p>This is a test notification confirming that the VRM AI website email delivery service is correctly configured and operational.</p>
+          <table style="width: 100%; border-collapse: collapse; margin-top: 16px;">
+            <tr><td style="padding: 6px 0; color: #64748b;"><strong>SMTP Host:</strong></td><td>${escapeHtml(SMTP_HOST)}</td></tr>
+            <tr><td style="padding: 6px 0; color: #64748b;"><strong>SMTP Port:</strong></td><td>${escapeHtml(String(SMTP_PORT))}</td></tr>
+            <tr><td style="padding: 6px 0; color: #64748b;"><strong>From Address:</strong></td><td>${escapeHtml(MAIL_FROM)}</td></tr>
+            <tr><td style="padding: 6px 0; color: #64748b;"><strong>Delivered To:</strong></td><td>${escapeHtml(recipient)}</td></tr>
+            <tr><td style="padding: 6px 0; color: #64748b;"><strong>Timestamp:</strong></td><td>${escapeHtml(new Date().toISOString())}</td></tr>
+          </table>
+        </div>
+      `
+    });
+
+    careersDb.logActivity({
+      type: 'email',
+      text: `Sent SMTP test email to ${recipient}`,
+      admin: req.admin?.displayName || req.admin?.username || 'Superadmin'
+    });
+
+    res.json({ success: true, message: `Test email successfully sent to ${recipient}.` });
+  } catch (err) {
+    console.error("[TEST EMAIL ERROR]", err);
+    res.status(500).json({ success: false, message: `Failed to deliver test email: ${err.message}` });
+  }
+});
+
+app.get("/api/admin/careers/export-csv", requireSuperadmin, (req, res) => {
+  const clientIp = req.headers["x-forwarded-for"] || req.socket.remoteAddress || "ip";
+  const rateCheck = checkActionRateLimit(`export-csv:${req.admin.id}:${clientIp}`, 5, 10 * 60 * 1000);
+  if (!rateCheck.allowed) {
+    return res.status(429).json({ success: false, message: rateCheck.message });
+  }
+
+  try {
+    const csv = careersDb.exportApplicationsCsv();
+    careersDb.logActivity({
+      type: 'data',
+      text: 'Exported job applications dataset as CSV',
+      admin: req.admin?.displayName || req.admin?.username || 'Superadmin'
+    });
+
+    const dateStr = new Date().toISOString().slice(0, 10);
+    res.setHeader("Content-Type", "text/csv; charset=utf-8");
+    res.setHeader("Content-Disposition", `attachment; filename="applications_export_${dateStr}.csv"`);
+    res.send(csv);
+  } catch (err) {
+    res.status(500).json({ success: false, message: err.message });
+  }
+});
+
+// 11. Career Page Analytics Views (GA4 - Real Data Only)
+app.get("/api/admin/careers/views", requireAdmin, async (req, res) => {
+  try {
+    const data = await careersDb.getCareerPageViews();
+    res.json({ success: true, ...data });
+  } catch (err) {
+    res.status(500).json({ success: false, configured: false, error: err.message });
   }
 });
 
@@ -880,6 +1122,14 @@ app.post(
   upload.single("resume"),
   async (req, res) => {
     try {
+      const settings = careersDb.getSettings();
+      if (settings.acceptApplications === false) {
+        return res.status(403).json({
+          success: false,
+          message: "Applications are currently closed. We are not accepting new submissions at this time."
+        });
+      }
+
       const { fullName, email, phone, experience, position, coverLetter } = req.body || {};
       if (!fullName || !email || !phone || !experience || !position) {
         return res.status(400).json({ success: false, message: "Please fill all required fields." });
@@ -916,9 +1166,14 @@ app.post(
         });
       } catch (_) {}
 
-      // 2. Email notification to contactus@vrmaitechnology.com
+      // 2. Email notification to configured notification emails (falls back to MAIL_TO)
+      const recipientEmails = (settings.notificationEmails && settings.notificationEmails.length > 0)
+        ? settings.notificationEmails.join(', ')
+        : MAIL_TO;
+
       try {
         await sendFormMail({
+          to: recipientEmails,
           subject: `Careers Application | ${position} - ${fullName}`,
           replyTo: email,
           fields: {
@@ -933,7 +1188,7 @@ app.post(
           },
           file: req.file,
         });
-        console.log(`[CAREERS] Application email notification sent for ${fullName} (${position})`);
+        console.log(`[CAREERS] Application email notification sent to ${recipientEmails} for ${fullName} (${position})`);
       } catch (mailErr) {
         console.warn(`[CAREERS] Application ${appRecord.id} saved to disk, but email notification failed: ${mailErr.message}`);
       }

@@ -9,6 +9,7 @@ const ADMIN_FILE = path.join(DATA_DIR, 'admin.json');
 const APPLICATIONS_FILE = path.join(DATA_DIR, 'applications.json');
 const GALLERY_FILE = path.join(DATA_DIR, 'gallery.json');
 const ACTIVITY_FILE = path.join(DATA_DIR, 'activity.json');
+const SETTINGS_FILE = path.join(DATA_DIR, 'settings.json');
 const SECRET_FILE = path.join(DATA_DIR, '.jwt_secret');
 
 const UPLOADS_DIR = path.resolve(__dirname, 'uploads');
@@ -51,6 +52,29 @@ if (!fs.existsSync(GALLERY_FILE)) {
 // Ensure activity.json exists
 if (!fs.existsSync(ACTIVITY_FILE)) {
   fs.writeFileSync(ACTIVITY_FILE, JSON.stringify([], null, 2), 'utf8');
+}
+
+const DEFAULT_SETTINGS = {
+  notificationEmails: ['contactus@vrmaitechnology.com'],
+  departments: [
+    'Engineering',
+    'AI & Machine Learning',
+    'Product & Design',
+    'Marketing & Sales',
+    'Operations',
+    'Human Resources',
+    'Customer Success'
+  ],
+  locations: ['Bengaluru', 'Madurai', 'Remote', 'Hybrid'],
+  jobTypes: ['Full-time', 'Part-time', 'Contract', 'Internship'],
+  showGallerySection: true,
+  acceptApplications: true,
+  updatedAt: new Date().toISOString()
+};
+
+// Ensure settings.json exists
+if (!fs.existsSync(SETTINGS_FILE)) {
+  fs.writeFileSync(SETTINGS_FILE, JSON.stringify(DEFAULT_SETTINGS, null, 2), 'utf8');
 }
 
 // Get or initialize JWT Secret
@@ -519,6 +543,44 @@ function updateAdminUser(id, updates = {}, currentUserId = null) {
   return sanitizeAdmin(admin);
 }
 
+function bumpTokenVersion(userId) {
+  const admins = readAdminsRaw();
+  const idx = admins.findIndex(a => String(a.id) === String(userId));
+  if (idx === -1) throw new Error('User not found.');
+
+  const admin = admins[idx];
+  admin.tokenVersion = (admin.tokenVersion || 1) + 1;
+  admin.updatedAt = new Date().toISOString();
+  admins[idx] = admin;
+  writeJsonAtomic(ADMIN_FILE, admins);
+  return sanitizeAdmin(admin);
+}
+
+function updateAdminProfile(userId, { displayName, email }) {
+  const admins = readAdminsRaw();
+  const idx = admins.findIndex(a => String(a.id) === String(userId));
+  if (idx === -1) throw new Error('User not found.');
+
+  const admin = admins[idx];
+  if (displayName !== undefined) {
+    admin.displayName = String(displayName).trim() || admin.username;
+  }
+  if (email !== undefined) {
+    const cleanEmail = String(email).toLowerCase().trim();
+    if (!cleanEmail || !cleanEmail.includes('@')) {
+      throw new Error('Valid email address is required.');
+    }
+    if (admins.some(a => String(a.id) !== String(userId) && a.email.toLowerCase() === cleanEmail)) {
+      throw new Error(`Email "${cleanEmail}" is already used by another admin account.`);
+    }
+    admin.email = cleanEmail;
+  }
+  admin.updatedAt = new Date().toISOString();
+  admins[idx] = admin;
+  writeJsonAtomic(ADMIN_FILE, admins);
+  return sanitizeAdmin(admin);
+}
+
 function deleteAdminUser(id, currentUserId = null) {
   const admins = readAdminsRaw();
   const admin = admins.find(a => String(a.id) === String(id));
@@ -808,7 +870,33 @@ function readGalleryRaw() {
     }
     const content = fs.readFileSync(GALLERY_FILE, 'utf8');
     const parsed = JSON.parse(content);
-    return Array.isArray(parsed) ? parsed : [];
+    if (!Array.isArray(parsed)) return [];
+
+    let modified = false;
+    const items = parsed.map(item => {
+      let changed = false;
+      if ((!item.fileSize || typeof item.fileSize !== 'number') && item.fileName) {
+        const mainPath = path.join(GALLERY_DIR, item.fileName);
+        if (fs.existsSync(mainPath)) {
+          try {
+            item.fileSize = fs.statSync(mainPath).size;
+            changed = true;
+          } catch (_) {}
+        }
+      }
+      if (!item.width || !item.height) {
+        item.width = item.width || 1600;
+        item.height = item.height || 1067;
+        changed = true;
+      }
+      if (changed) modified = true;
+      return item;
+    });
+
+    if (modified) {
+      try { writeJsonAtomic(GALLERY_FILE, items); } catch (_) {}
+    }
+    return items;
   } catch (err) {
     console.error('Error reading gallery file:', err.message);
     return [];
@@ -888,6 +976,7 @@ async function processAndSaveGalleryImage({ fileBuffer, originalName, caption, c
     thumbPath: `/uploads/gallery/thumbs/${baseFileName}`,
     fileName: baseFileName,
     order: allGallery.length,
+    fileSize: mainImageBuffer.length,
     width: mainMeta.width || 1600,
     height: mainMeta.height || 1067,
     createdAt: new Date().toISOString(),
@@ -918,11 +1007,137 @@ function updateGalleryItem(id, updates = {}) {
   if (updates.status !== undefined) {
     if (['published', 'hidden'].includes(updates.status)) item.status = updates.status;
   }
+
+  // Alt text is mandatory before a photo can be published
+  if (item.status === 'published' && (!item.altText || !item.altText.trim())) {
+    throw new Error('Alt text is mandatory before a photo can be published.');
+  }
+
   item.updatedAt = new Date().toISOString();
 
   all[idx] = item;
   writeJsonAtomic(GALLERY_FILE, all);
   return item;
+}
+
+async function replaceGalleryImage(id, { fileBuffer, originalName }) {
+  if (!fileBuffer || !Buffer.isBuffer(fileBuffer)) {
+    throw new Error('Valid image file buffer is required.');
+  }
+
+  let metadata;
+  try {
+    metadata = await sharp(fileBuffer).metadata();
+  } catch (err) {
+    throw new Error('Unsupported or corrupted image file.');
+  }
+
+  const validFormats = ['jpeg', 'jpg', 'png', 'webp'];
+  if (!metadata.format || !validFormats.includes(metadata.format.toLowerCase())) {
+    throw new Error(`Unsupported image format: ${metadata.format}. Only JPG, PNG, and WebP are allowed.`);
+  }
+
+  const all = readGalleryRaw();
+  const idx = all.findIndex(g => String(g.id) === String(id));
+  if (idx === -1) throw new Error(`Gallery item with id ${id} not found.`);
+
+  const item = { ...all[idx] };
+  const baseFileName = item.fileName || `gallery_${Date.now()}_${crypto.randomBytes(4).toString('hex')}.webp`;
+  const mainFilePath = path.join(GALLERY_DIR, baseFileName);
+  const thumbFilePath = path.join(GALLERY_THUMBS_DIR, baseFileName);
+
+  const mainImageBuffer = await sharp(fileBuffer)
+    .rotate()
+    .resize({ width: 1600, withoutEnlargement: true })
+    .webp({ quality: 85 })
+    .toBuffer();
+
+  const mainMeta = await sharp(mainImageBuffer).metadata();
+  fs.writeFileSync(mainFilePath, mainImageBuffer);
+
+  const thumbImageBuffer = await sharp(fileBuffer)
+    .rotate()
+    .resize({ width: 600, withoutEnlargement: true })
+    .webp({ quality: 80 })
+    .toBuffer();
+
+  fs.writeFileSync(thumbFilePath, thumbImageBuffer);
+
+  item.fileName = baseFileName;
+  item.imagePath = `/uploads/gallery/${baseFileName}`;
+  item.thumbPath = `/uploads/gallery/thumbs/${baseFileName}`;
+  item.fileSize = mainImageBuffer.length;
+  item.width = mainMeta.width || 1600;
+  item.height = mainMeta.height || 1067;
+  item.updatedAt = new Date().toISOString();
+
+  all[idx] = item;
+  writeJsonAtomic(GALLERY_FILE, all);
+  return item;
+}
+
+function bulkGalleryAction(ids, action) {
+  if (!Array.isArray(ids) || ids.length === 0) {
+    throw new Error('At least one photo must be selected.');
+  }
+
+  const idSet = new Set(ids.map(String));
+  const all = readGalleryRaw();
+
+  if (action === 'publish') {
+    // Validate that all target photos have non-empty alt text
+    for (const item of all) {
+      if (idSet.has(String(item.id))) {
+        if (!item.altText || !item.altText.trim()) {
+          throw new Error(`Cannot publish: Photo "${item.caption || item.id}" has no alt text. Alt text is mandatory.`);
+        }
+      }
+    }
+    let affected = 0;
+    all.forEach(item => {
+      if (idSet.has(String(item.id))) {
+        item.status = 'published';
+        item.updatedAt = new Date().toISOString();
+        affected++;
+      }
+    });
+    writeJsonAtomic(GALLERY_FILE, all);
+    return { affected, action: 'publish' };
+  } else if (action === 'hide') {
+    let affected = 0;
+    all.forEach(item => {
+      if (idSet.has(String(item.id))) {
+        item.status = 'hidden';
+        item.updatedAt = new Date().toISOString();
+        affected++;
+      }
+    });
+    writeJsonAtomic(GALLERY_FILE, all);
+    return { affected, action: 'hide' };
+  } else if (action === 'delete') {
+    let affected = 0;
+    const remaining = [];
+    all.forEach(item => {
+      if (idSet.has(String(item.id))) {
+        if (item.fileName) {
+          try {
+            const m = path.join(GALLERY_DIR, item.fileName);
+            const t = path.join(GALLERY_THUMBS_DIR, item.fileName);
+            if (fs.existsSync(m)) fs.unlinkSync(m);
+            if (fs.existsSync(t)) fs.unlinkSync(t);
+          } catch (_) {}
+        }
+        affected++;
+      } else {
+        remaining.push(item);
+      }
+    });
+    remaining.forEach((g, idx) => { g.order = idx; });
+    writeJsonAtomic(GALLERY_FILE, remaining);
+    return { affected, action: 'delete' };
+  } else {
+    throw new Error(`Invalid bulk action: ${action}`);
+  }
 }
 
 function reorderGallery(orderedIds) {
@@ -1235,6 +1450,191 @@ function getActivity(limit = 5) {
   return all.slice(0, limit);
 }
 
+// -------------------------------------------------------------
+// SETTINGS REPOSITORY
+// -------------------------------------------------------------
+
+function getSettings() {
+  try {
+    if (!fs.existsSync(SETTINGS_FILE)) {
+      writeJsonAtomic(SETTINGS_FILE, DEFAULT_SETTINGS);
+      return { ...DEFAULT_SETTINGS };
+    }
+    const raw = fs.readFileSync(SETTINGS_FILE, 'utf8');
+    const parsed = JSON.parse(raw);
+    return {
+      notificationEmails: Array.isArray(parsed.notificationEmails) && parsed.notificationEmails.length > 0 ? parsed.notificationEmails : DEFAULT_SETTINGS.notificationEmails,
+      departments: Array.isArray(parsed.departments) && parsed.departments.length > 0 ? parsed.departments : DEFAULT_SETTINGS.departments,
+      locations: Array.isArray(parsed.locations) && parsed.locations.length > 0 ? parsed.locations : DEFAULT_SETTINGS.locations,
+      jobTypes: Array.isArray(parsed.jobTypes) && parsed.jobTypes.length > 0 ? parsed.jobTypes : DEFAULT_SETTINGS.jobTypes,
+      showGallerySection: parsed.showGallerySection !== false,
+      acceptApplications: parsed.acceptApplications !== false,
+      updatedAt: parsed.updatedAt || new Date().toISOString()
+    };
+  } catch (err) {
+    console.error('Error reading settings file:', err.message);
+    return { ...DEFAULT_SETTINGS };
+  }
+}
+
+function updateSettings(updates = {}) {
+  const current = getSettings();
+  const next = { ...current };
+
+  if (updates.notificationEmails !== undefined) {
+    let emails = [];
+    if (Array.isArray(updates.notificationEmails)) {
+      emails = updates.notificationEmails;
+    } else if (typeof updates.notificationEmails === 'string') {
+      emails = updates.notificationEmails.split(',').map(s => s.trim());
+    }
+    const validEmails = emails.map(e => String(e).trim().toLowerCase()).filter(e => e.includes('@'));
+    if (validEmails.length === 0) {
+      throw new Error('At least one valid notification email address is required.');
+    }
+    next.notificationEmails = validEmails;
+  }
+
+  if (updates.departments !== undefined) {
+    if (!Array.isArray(updates.departments) || updates.departments.length === 0) {
+      throw new Error('At least one department is required.');
+    }
+    next.departments = updates.departments.map(d => String(d).trim()).filter(Boolean);
+  }
+
+  if (updates.locations !== undefined) {
+    if (!Array.isArray(updates.locations) || updates.locations.length === 0) {
+      throw new Error('At least one location is required.');
+    }
+    next.locations = updates.locations.map(l => String(l).trim()).filter(Boolean);
+  }
+
+  if (updates.jobTypes !== undefined) {
+    if (!Array.isArray(updates.jobTypes) || updates.jobTypes.length === 0) {
+      throw new Error('At least one job type is required.');
+    }
+    next.jobTypes = updates.jobTypes.map(t => String(t).trim()).filter(Boolean);
+  }
+
+  if (updates.showGallerySection !== undefined) {
+    next.showGallerySection = !!updates.showGallerySection;
+  }
+
+  if (updates.acceptApplications !== undefined) {
+    next.acceptApplications = !!updates.acceptApplications;
+  }
+
+  next.updatedAt = new Date().toISOString();
+  writeJsonAtomic(SETTINGS_FILE, next);
+  return next;
+}
+
+// -------------------------------------------------------------
+// CSV EXPORT
+// -------------------------------------------------------------
+
+function exportApplicationsCsv() {
+  const apps = getApplications();
+  const headers = ['Full Name', 'Email', 'Phone', 'Position', 'Experience', 'Status', 'Applied Date'];
+
+  const escapeCsv = (val) => {
+    if (val === null || val === undefined) return '""';
+    const str = String(val).replace(/"/g, '""');
+    return `"${str}"`;
+  };
+
+  const rows = [headers.map(escapeCsv).join(',')];
+
+  apps.forEach(app => {
+    const row = [
+      app.fullName || '',
+      app.email || '',
+      app.phone || '',
+      app.position || '',
+      app.experience || '',
+      app.status || '',
+      app.appliedAt || ''
+    ];
+    rows.push(row.map(escapeCsv).join(','));
+  });
+
+  return rows.join('\r\n');
+}
+
+// -------------------------------------------------------------
+// GA4 CAREER VIEWS (REAL DATA ONLY)
+// -------------------------------------------------------------
+
+let ga4ViewsCache = {
+  timestamp: 0,
+  data: null
+};
+
+async function getCareerPageViews() {
+  const propertyId = process.env.GA4_PROPERTY_ID;
+  const credentialsPath = process.env.GA4_CREDENTIALS_JSON || process.env.GA4_KEY_FILE || process.env.GOOGLE_APPLICATION_CREDENTIALS;
+
+  if (!propertyId || !credentialsPath) {
+    return { configured: false, reason: 'GA4_PROPERTY_ID or credentials not configured' };
+  }
+
+  const now = Date.now();
+  if (ga4ViewsCache.data && (now - ga4ViewsCache.timestamp < 60 * 60 * 1000)) {
+    return { configured: true, ...ga4ViewsCache.data, cached: true };
+  }
+
+  try {
+    let BetaAnalyticsDataClient;
+    try {
+      const gaModule = require('@google-analytics/data');
+      BetaAnalyticsDataClient = gaModule.BetaAnalyticsDataClient;
+    } catch (_) {
+      return { configured: false, reason: '@google-analytics/data package not installed' };
+    }
+
+    const analyticsDataClient = new BetaAnalyticsDataClient({
+      keyFilename: path.resolve(credentialsPath)
+    });
+
+    const [response] = await analyticsDataClient.runReport({
+      property: `properties/${propertyId}`,
+      dateRanges: [
+        { startDate: '30daysAgo', endDate: 'today' }
+      ],
+      dimensions: [
+        { name: 'pagePath' }
+      ],
+      metrics: [
+        { name: 'screenPageViews' }
+      ],
+      dimensionFilter: {
+        filter: {
+          fieldName: 'pagePath',
+          stringFilter: {
+            matchType: 'BEGINS_WITH',
+            value: '/careers'
+          }
+        }
+      }
+    });
+
+    let totalViews = 0;
+    if (response && response.rows) {
+      response.rows.forEach(row => {
+        const metricVal = row.metricValues && row.metricValues[0]?.value;
+        if (metricVal) totalViews += parseInt(metricVal, 10) || 0;
+      });
+    }
+
+    const result = { totalViews, period: 'Last 30 Days' };
+    ga4ViewsCache = { timestamp: now, data: result };
+    return { configured: true, ...result };
+  } catch (err) {
+    console.warn('[GA4] Failed to fetch GA4 report:', err.message);
+    return { configured: false, error: err.message };
+  }
+}
+
 module.exports = {
   getJobs,
   getJobBySlug,
@@ -1253,6 +1653,8 @@ module.exports = {
   createOrUpdateAdmin,
   createAdminUser,
   updateAdminUser,
+  updateAdminProfile,
+  bumpTokenVersion,
   deleteAdminUser,
   changeAdminPassword,
   superadminResetPassword,
@@ -1274,7 +1676,13 @@ module.exports = {
   getGallery,
   getGalleryItemById,
   processAndSaveGalleryImage,
+  replaceGalleryImage,
+  bulkGalleryAction,
   updateGalleryItem,
   reorderGallery,
-  deleteGalleryItem
+  deleteGalleryItem,
+  getSettings,
+  updateSettings,
+  exportApplicationsCsv,
+  getCareerPageViews
 };

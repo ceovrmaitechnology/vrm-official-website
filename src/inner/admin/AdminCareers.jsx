@@ -222,6 +222,86 @@ function AdminCareers() {
     const [adminFormRole, setAdminFormRole] = useState('admin');
     const [adminFormActive, setAdminFormActive] = useState(true);
 
+    // =========================================================================
+    // PHASE 2 STATE: Settings, Media Library, Career Page Preview, GA4 Views
+    // =========================================================================
+    // Site Settings State
+    const [settings, setSettings] = useState({
+        notificationEmails: ['contactus@vrmaitechnology.com'],
+        departments: ['Engineering', 'AI & Machine Learning', 'Product & Design', 'Marketing & Sales', 'Operations', 'Human Resources', 'Customer Success'],
+        locations: ['Bengaluru', 'Madurai', 'Remote', 'Hybrid'],
+        jobTypes: ['Full-time', 'Part-time', 'Contract', 'Internship'],
+        showGallerySection: true,
+        acceptApplications: true
+    });
+    const [smtpInfo, setSmtpInfo] = useState(null);
+    const [isLoadingSettings, setIsLoadingSettings] = useState(false);
+    const [settingsSubTab, setSettingsSubTab] = useState('profile'); // 'profile' | 'careers' | 'email' | 'data'
+    const [isSavingSettings, setIsSavingSettings] = useState(false);
+    const [settingsMsg, setSettingsMsg] = useState({ type: '', text: '' });
+
+    // My Profile Form State
+    const [profileName, setProfileName] = useState('');
+    const [profileEmail, setProfileEmail] = useState('');
+    const [isSavingProfile, setIsSavingProfile] = useState(false);
+    const [profileMsg, setProfileMsg] = useState({ type: '', text: '' });
+    const [profileCurPass, setProfileCurPass] = useState('');
+    const [profileNewPass, setProfileNewPass] = useState('');
+    const [profileConfPass, setProfileConfPass] = useState('');
+    const [isChangingProfilePass, setIsChangingProfilePass] = useState(false);
+    const [profilePassMsg, setProfilePassMsg] = useState({ type: '', text: '' });
+    const [signOutAllModal, setSignOutAllModal] = useState(false);
+    const [isSigningOutAll, setIsSigningOutAll] = useState(false);
+
+    // Careers Settings Chips Inputs
+    const [newEmailInput, setNewEmailInput] = useState('');
+    const [newDeptInput, setNewDeptInput] = useState('');
+    const [newLocInput, setNewLocInput] = useState('');
+    const [newJobTypeInput, setNewJobTypeInput] = useState('');
+
+    // SMTP Test Email State
+    const [testEmailTarget, setTestEmailTarget] = useState('');
+    const [isSendingTestEmail, setIsSendingTestEmail] = useState(false);
+    const [testEmailMsg, setTestEmailMsg] = useState({ type: '', text: '' });
+
+    // CSV Export State
+    const [isExportingCsv, setIsExportingCsv] = useState(false);
+    const [exportCsvMsg, setExportCsvMsg] = useState({ type: '', text: '' });
+
+    // GA4 Real Page Views State
+    const [ga4Data, setGa4Data] = useState(null);
+
+    // Media Library State
+    const [mediaSelectedIds, setMediaSelectedIds] = useState(new Set());
+    const [mediaStatusFilter, setMediaStatusFilter] = useState('all'); // 'all' | 'published' | 'hidden'
+    const [mediaCategoryFilter, setMediaCategoryFilter] = useState('All');
+    const [mediaSortOrder, setMediaSortOrder] = useState('newest'); // 'newest' | 'oldest'
+    const [mediaSearch, setMediaSearch] = useState('');
+    const [mediaDetailPhoto, setMediaDetailPhoto] = useState(null);
+    const [mediaDetailForm, setMediaDetailForm] = useState({
+        caption: '',
+        category: 'Team Event',
+        eventDate: '',
+        altText: '',
+        status: 'published'
+    });
+    const [mediaDetailError, setMediaDetailError] = useState('');
+    const [isSavingMediaDetail, setIsSavingMediaDetail] = useState(false);
+    const [isReplacingMediaImage, setIsReplacingMediaImage] = useState(false);
+    const [mediaCopyFeedback, setMediaCopyFeedback] = useState(false);
+    const [bulkActionModal, setBulkActionModal] = useState({
+        show: false,
+        action: '',
+        count: 0
+    });
+    const [isExecutingBulk, setIsExecutingBulk] = useState(false);
+    const replaceFileInputRef = useRef(null);
+
+    // Career Page Preview State
+    const [previewDevice, setPreviewDevice] = useState('desktop'); // 'desktop' | 'tablet' | 'mobile'
+    const previewIframeRef = useRef(null);
+    const [previewKey, setPreviewKey] = useState(0);
+
     const logout = useCallback(() => {
         sessionStorage.removeItem(TOKEN_KEY);
         sessionStorage.removeItem(USER_KEY);
@@ -444,6 +524,54 @@ function AdminCareers() {
         }
     }, []);
 
+    // Fetch Site Settings
+    const fetchSettings = useCallback(() => {
+        if (!token) return;
+        setIsLoadingSettings(true);
+        const endpoint = currentUser?.role === 'superadmin' ? '/api/admin/careers/settings' : '/api/careers/settings/public';
+        fetch(endpoint, {
+            headers: { 'Authorization': `Bearer ${token}` }
+        })
+            .then(res => {
+                if (res.status === 401) { logout(); throw new Error('Expired'); }
+                if (res.ok) return res.json();
+                throw new Error('Failed');
+            })
+            .then(data => {
+                if (data && data.success && data.settings) {
+                    setSettings(data.settings);
+                    if (data.smtpInfo) setSmtpInfo(data.smtpInfo);
+                }
+            })
+            .catch(err => console.error('Error fetching settings:', err))
+            .finally(() => setIsLoadingSettings(false));
+    }, [token, currentUser?.role, logout]);
+
+    // Fetch Verified GA4 Views (Real data only)
+    const fetchViews = useCallback(() => {
+        if (!token) return;
+        fetch('/api/admin/careers/views', {
+            headers: { 'Authorization': `Bearer ${token}` }
+        })
+            .then(res => res.ok ? res.json() : null)
+            .then(data => {
+                if (data && data.success && data.configured && typeof data.totalViews === 'number') {
+                    setGa4Data(data);
+                } else {
+                    setGa4Data(null);
+                }
+            })
+            .catch(() => setGa4Data(null));
+    }, [token]);
+
+    useEffect(() => {
+        if (currentUser) {
+            setProfileName(currentUser.displayName || currentUser.username || '');
+            setProfileEmail(currentUser.email || '');
+            setTestEmailTarget(currentUser.email || '');
+        }
+    }, [currentUser]);
+
     // Dashboard Post a Job handlers
     const handleAddDashRequirement = () => {
         const trimmed = dashReqInput.trim();
@@ -629,12 +757,14 @@ function AdminCareers() {
             fetchApplications();
             fetchGallery();
             fetchActivity();
+            fetchSettings();
+            fetchViews();
             checkLiveStatus();
             if (currentUser?.role === 'superadmin') {
                 fetchAdminUsers();
             }
         }
-    }, [isAuthenticated, currentUser?.role, fetchJobs, fetchApplications, fetchGallery, fetchActivity, checkLiveStatus, fetchAdminUsers]);
+    }, [isAuthenticated, currentUser?.role, fetchJobs, fetchApplications, fetchGallery, fetchActivity, fetchSettings, fetchViews, checkLiveStatus, fetchAdminUsers]);
 
     // --------------------------------------------------------------------------
     // AUTH HANDLERS
@@ -1408,6 +1538,427 @@ function AdminCareers() {
     };
 
     // --------------------------------------------------------------------------
+    // PHASE 2: MEDIA LIBRARY HANDLERS
+    // --------------------------------------------------------------------------
+    const handleToggleSelectMedia = (id) => {
+        setMediaSelectedIds(prev => {
+            const next = new Set(prev);
+            if (next.has(id)) next.delete(id);
+            else next.add(id);
+            return next;
+        });
+    };
+
+    const handleSelectAllMedia = (items) => {
+        if (mediaSelectedIds.size === items.length && items.length > 0) {
+            setMediaSelectedIds(new Set());
+        } else {
+            setMediaSelectedIds(new Set(items.map(item => item.id)));
+        }
+    };
+
+    const handleOpenMediaDetail = (photo) => {
+        setMediaDetailPhoto(photo);
+        setMediaDetailForm({
+            caption: photo.caption || '',
+            category: photo.category || 'Team Event',
+            eventDate: photo.eventDate || '',
+            altText: photo.altText || '',
+            status: photo.status || 'published'
+        });
+        setMediaDetailError('');
+    };
+
+    const handleCloseMediaDetail = () => {
+        setMediaDetailPhoto(null);
+        setMediaDetailError('');
+    };
+
+    const handleSaveMediaDetail = async (e) => {
+        e.preventDefault();
+        if (!mediaDetailPhoto) return;
+        if (mediaDetailForm.status === 'published' && !mediaDetailForm.altText.trim()) {
+            setMediaDetailError('Alt text is mandatory for published photos to ensure accessibility.');
+            return;
+        }
+
+        setIsSavingMediaDetail(true);
+        setMediaDetailError('');
+
+        try {
+            const res = await fetch(`/api/admin/gallery/${mediaDetailPhoto.id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify(mediaDetailForm)
+            });
+            const data = await res.json().catch(() => ({}));
+            if (res.ok && data.success) {
+                fetchGallery();
+                fetchActivity();
+                setMediaDetailPhoto(prev => ({ ...prev, ...mediaDetailForm }));
+                setMediaDetailError('');
+            } else {
+                setMediaDetailError(data.message || 'Failed to update photo details.');
+            }
+        } catch (err) {
+            setMediaDetailError('Connection error while updating photo details.');
+        } finally {
+            setIsSavingMediaDetail(false);
+        }
+    };
+
+    const handleReplaceMediaImage = async (e) => {
+        const file = e.target.files && e.target.files[0];
+        if (!file || !mediaDetailPhoto) return;
+
+        const valid = ['image/jpeg', 'image/png', 'image/webp'];
+        if (!valid.includes(file.type)) {
+            setMediaDetailError('Invalid file format. Please upload JPG, PNG, or WEBP.');
+            return;
+        }
+
+        setIsReplacingMediaImage(true);
+        setMediaDetailError('');
+
+        const formData = new FormData();
+        formData.append('photo', file);
+
+        try {
+            const res = await fetch(`/api/admin/gallery/${mediaDetailPhoto.id}/replace`, {
+                method: 'POST',
+                headers: { 'Authorization': `Bearer ${token}` },
+                body: formData
+            });
+            const data = await res.json().catch(() => ({}));
+            if (res.ok && data.success && data.item) {
+                fetchGallery();
+                fetchActivity();
+                setMediaDetailPhoto(data.item);
+                if (replaceFileInputRef.current) replaceFileInputRef.current.value = '';
+            } else {
+                setMediaDetailError(data.message || 'Failed to replace image.');
+            }
+        } catch (err) {
+            setMediaDetailError('Network error while replacing image.');
+        } finally {
+            setIsReplacingMediaImage(false);
+        }
+    };
+
+    const handleCopyMediaUrl = (photo) => {
+        const fullUrl = window.location.origin + photo.imagePath;
+        navigator.clipboard.writeText(fullUrl);
+        setMediaCopyFeedback(true);
+        setTimeout(() => setMediaCopyFeedback(false), 2500);
+    };
+
+    const handleConfirmBulkAction = (action) => {
+        if (mediaSelectedIds.size === 0) return;
+        setBulkActionModal({
+            show: true,
+            action,
+            count: mediaSelectedIds.size
+        });
+    };
+
+    const handleExecuteBulkAction = async () => {
+        const { action } = bulkActionModal;
+        if (!action || mediaSelectedIds.size === 0) return;
+
+        setIsExecutingBulk(true);
+        try {
+            const res = await fetch('/api/admin/gallery/bulk-action', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({
+                    ids: Array.from(mediaSelectedIds),
+                    action
+                })
+            });
+            const data = await res.json().catch(() => ({}));
+            if (res.ok && data.success) {
+                setBulkActionModal({ show: false, action: '', count: 0 });
+                setMediaSelectedIds(new Set());
+                fetchGallery();
+                fetchActivity();
+            } else {
+                alert(data.message || 'Failed to execute bulk action.');
+            }
+        } catch (err) {
+            alert('Connection error during bulk action.');
+        } finally {
+            setIsExecutingBulk(false);
+        }
+    };
+
+    // --------------------------------------------------------------------------
+    // PHASE 2: SETTINGS HANDLERS
+    // --------------------------------------------------------------------------
+    const handleSaveProfile = async (e) => {
+        e.preventDefault();
+        setIsSavingProfile(true);
+        setProfileMsg({ type: '', text: '' });
+
+        try {
+            const res = await fetch('/api/admin/me/profile', {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({
+                    displayName: profileName.trim(),
+                    email: profileEmail.trim()
+                })
+            });
+            const data = await res.json().catch(() => ({}));
+            if (res.ok && data.success && data.user) {
+                setCurrentUser(data.user);
+                saveSession(token, data.user);
+                setProfileMsg({ type: 'success', text: 'Profile updated successfully!' });
+                setTimeout(() => setProfileMsg({ type: '', text: '' }), 4000);
+            } else {
+                setProfileMsg({ type: 'danger', text: data.message || 'Failed to update profile.' });
+            }
+        } catch (err) {
+            setProfileMsg({ type: 'danger', text: 'Connection error while saving profile.' });
+        } finally {
+            setIsSavingProfile(false);
+        }
+    };
+
+    const handleChangeProfilePassword = async (e) => {
+        e.preventDefault();
+        setProfilePassMsg({ type: '', text: '' });
+
+        if (profileNewPass.length < 12) {
+            setProfilePassMsg({ type: 'danger', text: 'New password must be at least 12 characters.' });
+            return;
+        }
+        if (profileNewPass !== profileConfPass) {
+            setProfilePassMsg({ type: 'danger', text: 'New passwords do not match.' });
+            return;
+        }
+
+        setIsChangingProfilePass(true);
+        try {
+            const res = await fetch('/api/admin/change-password', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({
+                    currentPassword: profileCurPass,
+                    newPassword: profileNewPass,
+                    confirmNewPassword: profileConfPass
+                })
+            });
+            const data = await res.json().catch(() => ({}));
+            if (res.ok && data.success) {
+                setProfilePassMsg({ type: 'success', text: 'Password changed successfully!' });
+                setProfileCurPass('');
+                setProfileNewPass('');
+                setProfileConfPass('');
+                setTimeout(() => setProfilePassMsg({ type: '', text: '' }), 5000);
+            } else {
+                setProfilePassMsg({ type: 'danger', text: data.message || 'Failed to change password.' });
+            }
+        } catch (err) {
+            setProfilePassMsg({ type: 'danger', text: 'Connection error while changing password.' });
+        } finally {
+            setIsChangingProfilePass(false);
+        }
+    };
+
+    const handleSignOutAllDevices = async () => {
+        setIsSigningOutAll(true);
+        try {
+            const res = await fetch('/api/admin/auth/signout-all', {
+                method: 'POST',
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
+            const data = await res.json().catch(() => ({}));
+            if (res.ok && data.success) {
+                logout();
+            } else {
+                alert(data.message || 'Failed to sign out of all devices.');
+                setIsSigningOutAll(false);
+            }
+        } catch (err) {
+            alert('Connection error.');
+            setIsSigningOutAll(false);
+        }
+    };
+
+    const handleAddNotificationEmail = () => {
+        const trimmed = newEmailInput.trim();
+        if (!trimmed || !trimmed.includes('@')) return;
+        const curEmails = settings.notificationEmails || [];
+        if (!curEmails.includes(trimmed)) {
+            setSettings(prev => ({ ...prev, notificationEmails: [...curEmails, trimmed] }));
+            setNewEmailInput('');
+        }
+    };
+
+    const handleRemoveNotificationEmail = (idx) => {
+        setSettings(prev => ({
+            ...prev,
+            notificationEmails: (prev.notificationEmails || []).filter((_, i) => i !== idx)
+        }));
+    };
+
+    const handleAddDepartment = () => {
+        const trimmed = newDeptInput.trim();
+        if (!trimmed) return;
+        const list = settings.departments || [];
+        if (!list.includes(trimmed)) {
+            setSettings(prev => ({ ...prev, departments: [...list, trimmed] }));
+            setNewDeptInput('');
+        }
+    };
+
+    const handleRemoveDepartment = (idx) => {
+        setSettings(prev => ({
+            ...prev,
+            departments: (prev.departments || []).filter((_, i) => i !== idx)
+        }));
+    };
+
+    const handleAddLocation = () => {
+        const trimmed = newLocInput.trim();
+        if (!trimmed) return;
+        const list = settings.locations || [];
+        if (!list.includes(trimmed)) {
+            setSettings(prev => ({ ...prev, locations: [...list, trimmed] }));
+            setNewLocInput('');
+        }
+    };
+
+    const handleRemoveLocation = (idx) => {
+        setSettings(prev => ({
+            ...prev,
+            locations: (prev.locations || []).filter((_, i) => i !== idx)
+        }));
+    };
+
+    const handleAddJobType = () => {
+        const trimmed = newJobTypeInput.trim();
+        if (!trimmed) return;
+        const list = settings.jobTypes || [];
+        if (!list.includes(trimmed)) {
+            setSettings(prev => ({ ...prev, jobTypes: [...list, trimmed] }));
+            setNewJobTypeInput('');
+        }
+    };
+
+    const handleRemoveJobType = (idx) => {
+        setSettings(prev => ({
+            ...prev,
+            jobTypes: (prev.jobTypes || []).filter((_, i) => i !== idx)
+        }));
+    };
+
+    const handleSaveCareersSettings = async () => {
+        setIsSavingSettings(true);
+        setSettingsMsg({ type: '', text: '' });
+
+        try {
+            const res = await fetch('/api/admin/careers/settings', {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify(settings)
+            });
+            const data = await res.json().catch(() => ({}));
+            if (res.ok && data.success) {
+                setSettings(data.settings);
+                setSettingsMsg({ type: 'success', text: 'Careers settings saved successfully!' });
+                fetchActivity();
+                setTimeout(() => setSettingsMsg({ type: '', text: '' }), 4000);
+            } else {
+                setSettingsMsg({ type: 'danger', text: data.message || 'Failed to save settings.' });
+            }
+        } catch (err) {
+            setSettingsMsg({ type: 'danger', text: 'Connection error while saving settings.' });
+        } finally {
+            setIsSavingSettings(false);
+        }
+    };
+
+    const handleSendTestEmail = async (e) => {
+        e.preventDefault();
+        if (!testEmailTarget.trim()) return;
+
+        setIsSendingTestEmail(true);
+        setTestEmailMsg({ type: '', text: '' });
+
+        try {
+            const res = await fetch('/api/admin/careers/test-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({ to: testEmailTarget.trim() })
+            });
+            const data = await res.json().catch(() => ({}));
+            if (res.ok && data.success) {
+                setTestEmailMsg({ type: 'success', text: data.message || 'Test email sent successfully!' });
+                fetchActivity();
+            } else {
+                setTestEmailMsg({ type: 'danger', text: data.message || 'Failed to send test email.' });
+            }
+        } catch (err) {
+            setTestEmailMsg({ type: 'danger', text: 'Connection error while sending test email.' });
+        } finally {
+            setIsSendingTestEmail(false);
+        }
+    };
+
+    const handleExportCsv = async () => {
+        setIsExportingCsv(true);
+        setExportCsvMsg({ type: '', text: '' });
+
+        try {
+            const res = await fetch('/api/admin/careers/export-csv', {
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
+            if (!res.ok) {
+                const data = await res.json().catch(() => ({}));
+                throw new Error(data.message || `Export failed (${res.status})`);
+            }
+            const blob = await res.blob();
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.style.display = 'none';
+            a.href = url;
+            a.download = `vrm_applications_${new Date().toISOString().slice(0, 10)}.csv`;
+            document.body.appendChild(a);
+            a.click();
+            setTimeout(() => {
+                window.URL.revokeObjectURL(url);
+                if (a.parentNode) a.parentNode.removeChild(a);
+            }, 1000);
+            setExportCsvMsg({ type: 'success', text: 'Applications CSV downloaded successfully.' });
+            fetchActivity();
+            setTimeout(() => setExportCsvMsg({ type: '', text: '' }), 4000);
+        } catch (err) {
+            setExportCsvMsg({ type: 'danger', text: err.message || 'Failed to export CSV.' });
+        } finally {
+            setIsExportingCsv(false);
+        }
+    };
+
+    // --------------------------------------------------------------------------
     // STATS COMPUTATION
     // --------------------------------------------------------------------------
     const jobStats = {
@@ -1431,6 +1982,30 @@ function AdminCareers() {
         hidden: gallery.filter(g => g.status === 'hidden').length,
         approvals: gallery.filter(g => g.status === 'hidden').length // Pending / approvals
     };
+
+    const totalStorageBytes = gallery.reduce((acc, g) => acc + (g.fileSize || 0), 0);
+    const formatBytes = (bytes) => {
+        if (!bytes || bytes === 0) return '0 KB';
+        if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`;
+        return `${(bytes / (1024 * 1024)).toFixed(2)} MB`;
+    };
+
+    const filteredMedia = gallery.filter(photo => {
+        if (mediaStatusFilter !== 'all' && photo.status !== mediaStatusFilter) return false;
+        if (mediaCategoryFilter !== 'All' && photo.category !== mediaCategoryFilter) return false;
+        if (mediaSearch.trim()) {
+            const q = mediaSearch.toLowerCase().trim();
+            const cap = (photo.caption || '').toLowerCase();
+            const alt = (photo.altText || '').toLowerCase();
+            if (!cap.includes(q) && !alt.includes(q)) return false;
+        }
+        return true;
+    }).sort((a, b) => {
+        if (mediaSortOrder === 'oldest') {
+            return new Date(a.createdAt || 0) - new Date(b.createdAt || 0);
+        }
+        return new Date(b.createdAt || 0) - new Date(a.createdAt || 0);
+    });
 
     // --------------------------------------------------------------------------
     // FILTER LOGIC
@@ -1854,6 +2429,43 @@ function AdminCareers() {
                             <span className="vrm-admin-nav-badge">{galleryStats.total}</span>
                         </button>
 
+                        {/* Media Library */}
+                        <button
+                            type="button"
+                            className={`vrm-admin-nav-item ${activeTab === 'media' ? 'active' : ''}`}
+                            onClick={() => { setActiveTab('media'); setSidebarOpen(false); }}
+                        >
+                            <span className="vrm-admin-nav-label">
+                                <i className="fas fa-photo-video vrm-admin-nav-icon"></i>
+                                <span>Media Library</span>
+                            </span>
+                            <span className="vrm-admin-nav-badge">{gallery.length}</span>
+                        </button>
+
+                        {/* Career Page Preview */}
+                        <button
+                            type="button"
+                            className={`vrm-admin-nav-item ${activeTab === 'preview' ? 'active' : ''}`}
+                            onClick={() => { setActiveTab('preview'); setSidebarOpen(false); }}
+                        >
+                            <span className="vrm-admin-nav-label">
+                                <i className="fas fa-desktop vrm-admin-nav-icon"></i>
+                                <span>Career Page Preview</span>
+                            </span>
+                        </button>
+
+                        {/* Settings */}
+                        <button
+                            type="button"
+                            className={`vrm-admin-nav-item ${activeTab === 'settings' ? 'active' : ''}`}
+                            onClick={() => { setActiveTab('settings'); setSidebarOpen(false); }}
+                        >
+                            <span className="vrm-admin-nav-label">
+                                <i className="fas fa-cog vrm-admin-nav-icon"></i>
+                                <span>Settings</span>
+                            </span>
+                        </button>
+
                         {/* Applications */}
                         <button
                             type="button"
@@ -1997,6 +2609,18 @@ function AdminCareers() {
                                             {currentUser?.role || 'admin'}
                                         </span>
                                     </div>
+                                    <button
+                                        type="button"
+                                        className="vrm-admin-menu-item"
+                                        onClick={() => {
+                                            setShowUserDropdown(false);
+                                            setActiveTab('settings');
+                                            setSettingsSubTab('profile');
+                                        }}
+                                    >
+                                        <i className="fas fa-user-cog text-muted"></i>
+                                        <span>Account Settings</span>
+                                    </button>
                                     <button
                                         type="button"
                                         className="vrm-admin-menu-item"
@@ -2578,6 +3202,26 @@ function AdminCareers() {
                                         <path d="M0 26 Q 35 24, 60 32 T 100 22" stroke="#06b6d4" strokeWidth="2.5" strokeLinecap="round" />
                                     </svg>
                                 </div>
+
+                                {/* 5. GA4 Career Page Views (Strictly real data; hidden if not configured) */}
+                                {ga4Data?.configured && typeof ga4Data?.totalViews === 'number' && (
+                                    <div className="vrm-admin-stat-card" title="Verified Google Analytics 4 page views">
+                                        <div className="vrm-stat-left">
+                                            <div className="vrm-stat-icon-tile purple">
+                                                <i className="fas fa-chart-line"></i>
+                                            </div>
+                                            <div>
+                                                <div className="vrm-stat-label">Careers Page Views</div>
+                                                <div className="vrm-stat-value" style={{ color: '#a855f7' }}>
+                                                    {ga4Data.totalViews.toLocaleString()} <small className="text-muted fs-6">30d</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <svg className="vrm-stat-sparkline" viewBox="0 0 100 40" fill="none">
+                                            <path d="M0 20 Q 30 10, 60 25 T 100 15" stroke="#a855f7" strokeWidth="2.5" strokeLinecap="round" />
+                                        </svg>
+                                    </div>
+                                )}
                             </div>
 
                             {/* Main Dashboard 2-Column Grid */}
@@ -2628,13 +3272,17 @@ function AdminCareers() {
                                                         value={dashJobDept}
                                                         onChange={(e) => setDashJobDept(e.target.value)}
                                                     >
-                                                        <option value="Engineering">Engineering</option>
-                                                        <option value="AI & Machine Learning">AI & Machine Learning</option>
-                                                        <option value="Product & Design">Product & Design</option>
-                                                        <option value="Marketing & Sales">Marketing & Sales</option>
-                                                        <option value="Operations">Operations</option>
-                                                        <option value="Human Resources">Human Resources</option>
-                                                        <option value="Customer Success">Customer Success</option>
+                                                        {(settings?.departments?.length ? settings.departments : [
+                                                            'Engineering',
+                                                            'AI & Machine Learning',
+                                                            'Product & Design',
+                                                            'Marketing & Sales',
+                                                            'Operations',
+                                                            'Human Resources',
+                                                            'Customer Success'
+                                                        ]).map((d) => (
+                                                            <option key={d} value={d}>{d}</option>
+                                                        ))}
                                                     </select>
                                                 </div>
                                                 <div className="col-md-4">
@@ -2644,10 +3292,14 @@ function AdminCareers() {
                                                         value={dashJobLocation}
                                                         onChange={(e) => setDashJobLocation(e.target.value)}
                                                     >
-                                                        <option value="Bengaluru">Bengaluru</option>
-                                                        <option value="Madurai">Madurai</option>
-                                                        <option value="Remote">Remote</option>
-                                                        <option value="Hybrid">Hybrid</option>
+                                                        {(settings?.locations?.length ? settings.locations : [
+                                                            'Bengaluru',
+                                                            'Madurai',
+                                                            'Remote',
+                                                            'Hybrid'
+                                                        ]).map((loc) => (
+                                                            <option key={loc} value={loc}>{loc}</option>
+                                                        ))}
                                                     </select>
                                                 </div>
                                                 <div className="col-md-4">
@@ -2657,10 +3309,14 @@ function AdminCareers() {
                                                         value={dashJobType}
                                                         onChange={(e) => setDashJobType(e.target.value)}
                                                     >
-                                                        <option value="Full-time">Full-time</option>
-                                                        <option value="Part-time">Part-time</option>
-                                                        <option value="Contract">Contract</option>
-                                                        <option value="Internship">Internship</option>
+                                                        {(settings?.jobTypes?.length ? settings.jobTypes : [
+                                                            'Full-time',
+                                                            'Part-time',
+                                                            'Contract',
+                                                            'Internship'
+                                                        ]).map((t) => (
+                                                            <option key={t} value={t}>{t}</option>
+                                                        ))}
                                                     </select>
                                                 </div>
                                             </div>
@@ -3229,6 +3885,891 @@ function AdminCareers() {
                                     </div>
                                 )}
                             </div>
+                        </>
+                    )}
+
+                    {/* ============================================================== */}
+                    {/* TAB: MEDIA LIBRARY                                             */}
+                    {/* ============================================================== */}
+                    {activeTab === 'media' && (
+                        <>
+                            {/* Header */}
+                            <div className="d-flex flex-wrap justify-content-between align-items-center mb-4 gap-3">
+                                <div>
+                                    <div className="d-flex align-items-center gap-3">
+                                        <h2 className="h4 fw-bold text-white mb-0">Media Library</h2>
+                                        <span className="vrm-media-storage-pill">
+                                            <i className="fas fa-database me-1 text-info"></i>
+                                            {gallery.length} photos • {formatBytes(totalStorageBytes)} storage used
+                                        </span>
+                                    </div>
+                                    <p className="text-muted small mb-0 mt-1">Manage team culture photography, verify alt texts, and maintain gallery assets.</p>
+                                </div>
+                                <div className="d-flex align-items-center gap-2">
+                                    <button
+                                        type="button"
+                                        className="vrm-btn-primary-upload"
+                                        onClick={handleOpenUploadModal}
+                                    >
+                                        <i className="fas fa-cloud-upload-alt"></i>
+                                        <span>Upload Photo</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            {/* Filter & Search Bar */}
+                            <div className="vrm-admin-controls-card mb-4">
+                                <div className="d-flex flex-wrap justify-content-between align-items-center gap-3">
+                                    {/* Status Pills */}
+                                    <div className="vrm-gallery-pill-nav">
+                                        <button
+                                            type="button"
+                                            className={`vrm-gallery-pill-btn ${mediaStatusFilter === 'all' ? 'active' : ''}`}
+                                            onClick={() => setMediaStatusFilter('all')}
+                                        >
+                                            All ({gallery.length})
+                                        </button>
+                                        <button
+                                            type="button"
+                                            className={`vrm-gallery-pill-btn ${mediaStatusFilter === 'published' ? 'active' : ''}`}
+                                            onClick={() => setMediaStatusFilter('published')}
+                                        >
+                                            Published ({gallery.filter(g => g.status === 'published').length})
+                                        </button>
+                                        <button
+                                            type="button"
+                                            className={`vrm-gallery-pill-btn ${mediaStatusFilter === 'hidden' ? 'active' : ''}`}
+                                            onClick={() => setMediaStatusFilter('hidden')}
+                                        >
+                                            Hidden ({gallery.filter(g => g.status === 'hidden').length})
+                                        </button>
+                                    </div>
+
+                                    {/* Category, Sort, and Search */}
+                                    <div className="d-flex flex-wrap align-items-center gap-2">
+                                        <select
+                                            className="vrm-filter-select"
+                                            value={mediaCategoryFilter}
+                                            onChange={(e) => setMediaCategoryFilter(e.target.value)}
+                                        >
+                                            <option value="All">All Categories</option>
+                                            <option value="Team Event">Team Event</option>
+                                            <option value="Culture">Culture</option>
+                                            <option value="Office">Office</option>
+                                            <option value="Celebration">Celebration</option>
+                                            <option value="Fun Friday">Fun Friday</option>
+                                            <option value="Hackathon">Hackathon</option>
+                                            <option value="Outing">Outing</option>
+                                        </select>
+
+                                        <select
+                                            className="vrm-filter-select"
+                                            value={mediaSortOrder}
+                                            onChange={(e) => setMediaSortOrder(e.target.value)}
+                                        >
+                                            <option value="newest">Newest First</option>
+                                            <option value="oldest">Oldest First</option>
+                                        </select>
+
+                                        <div className="vrm-filter-search-box">
+                                            <i className="fas fa-search vrm-filter-search-icon"></i>
+                                            <input
+                                                type="text"
+                                                className="vrm-filter-search-input"
+                                                placeholder="Search caption / alt text..."
+                                                value={mediaSearch}
+                                                onChange={(e) => setMediaSearch(e.target.value)}
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Bulk Selection Bar */}
+                            <div className="vrm-bulk-toolbar d-flex flex-wrap justify-content-between align-items-center gap-3 mb-3 p-3 rounded-3" style={{ background: '#0f172a', border: '1px solid rgba(255,255,255,0.08)' }}>
+                                <div className="d-flex align-items-center gap-3">
+                                    <label className="d-flex align-items-center gap-2 text-white small cursor-pointer mb-0">
+                                        <input
+                                            type="checkbox"
+                                            className="vrm-checkbox-custom"
+                                            checked={mediaSelectedIds.size === filteredMedia.length && filteredMedia.length > 0}
+                                            onChange={() => handleSelectAllMedia(filteredMedia)}
+                                        />
+                                        <span>Select All ({filteredMedia.length})</span>
+                                    </label>
+                                    {mediaSelectedIds.size > 0 && (
+                                        <span className="badge bg-primary px-2 py-1 rounded-pill small">
+                                            {mediaSelectedIds.size} selected
+                                        </span>
+                                    )}
+                                </div>
+
+                                {mediaSelectedIds.size > 0 && (
+                                    <div className="d-flex align-items-center gap-2">
+                                        <button
+                                            type="button"
+                                            className="btn btn-sm btn-outline-success d-flex align-items-center gap-1"
+                                            onClick={() => handleConfirmBulkAction('publish')}
+                                        >
+                                            <i className="fas fa-check"></i>
+                                            <span>Publish ({mediaSelectedIds.size})</span>
+                                        </button>
+                                        <button
+                                            type="button"
+                                            className="btn btn-sm btn-outline-warning d-flex align-items-center gap-1"
+                                            onClick={() => handleConfirmBulkAction('hide')}
+                                        >
+                                            <i className="fas fa-eye-slash"></i>
+                                            <span>Hide ({mediaSelectedIds.size})</span>
+                                        </button>
+                                        <button
+                                            type="button"
+                                            className="btn btn-sm btn-outline-danger d-flex align-items-center gap-1"
+                                            onClick={() => handleConfirmBulkAction('delete')}
+                                        >
+                                            <i className="fas fa-trash-alt"></i>
+                                            <span>Delete ({mediaSelectedIds.size})</span>
+                                        </button>
+                                    </div>
+                                )}
+                            </div>
+
+                            {/* Photos Grid */}
+                            {filteredMedia.length === 0 ? (
+                                <div className="vrm-empty-state-box">
+                                    <div className="vrm-empty-icon-wrap"><i className="fas fa-photo-video"></i></div>
+                                    <div className="vrm-empty-title">No media found</div>
+                                    <div className="vrm-empty-desc">No photos match the selected status, category or search query.</div>
+                                    <button className="vrm-btn-primary-upload d-inline-flex mx-auto" onClick={handleOpenUploadModal}>
+                                        <i className="fas fa-cloud-upload-alt"></i> Upload New Photo
+                                    </button>
+                                </div>
+                            ) : (
+                                <div className="vrm-media-lib-grid">
+                                    {filteredMedia.map(item => {
+                                        const isSelected = mediaSelectedIds.has(item.id);
+                                        const hasAlt = !!(item.altText && item.altText.trim());
+                                        return (
+                                            <div
+                                                key={item.id}
+                                                className={`vrm-media-lib-card ${isSelected ? 'selected' : ''}`}
+                                            >
+                                                {/* Selection Checkbox */}
+                                                <div className="vrm-media-card-checkbox" onClick={(e) => e.stopPropagation()}>
+                                                    <input
+                                                        type="checkbox"
+                                                        className="vrm-checkbox-custom"
+                                                        checked={isSelected}
+                                                        onChange={() => handleToggleSelectMedia(item.id)}
+                                                    />
+                                                </div>
+
+                                                {/* Card Image Thumbnail */}
+                                                <div
+                                                    className="vrm-media-thumb-area"
+                                                    onClick={() => handleOpenMediaDetail(item)}
+                                                >
+                                                    <img
+                                                        src={item.thumbPath || item.imagePath}
+                                                        alt={item.altText || item.caption || 'Team photo'}
+                                                        className="vrm-media-img"
+                                                        loading="lazy"
+                                                    />
+                                                    <span className={`vrm-media-status-badge ${item.status === 'published' ? 'published' : 'hidden'}`}>
+                                                        {item.status === 'published' ? 'Published' : 'Hidden'}
+                                                    </span>
+                                                </div>
+
+                                                {/* Card Meta & Details */}
+                                                <div className="p-3" onClick={() => handleOpenMediaDetail(item)}>
+                                                    <div className="d-flex align-items-center justify-content-between mb-1">
+                                                        <span className="badge bg-secondary bg-opacity-50 text-light small px-2 py-0">
+                                                            {item.category || 'Team'}
+                                                        </span>
+                                                        <span className="text-muted" style={{ fontSize: '11px' }}>
+                                                            {formatBytes(item.fileSize)}
+                                                        </span>
+                                                    </div>
+                                                    <div className="text-white fw-semibold text-truncate small mb-1" title={item.caption}>
+                                                        {item.caption || 'Untitled photo'}
+                                                    </div>
+                                                    <div className="d-flex align-items-center justify-content-between text-muted" style={{ fontSize: '11px' }}>
+                                                        <span>{item.eventDate || (item.createdAt ? new Date(item.createdAt).toLocaleDateString() : '—')}</span>
+                                                        {hasAlt ? (
+                                                            <span className="text-success" title="Alt text present"><i className="fas fa-check-circle"></i> Alt</span>
+                                                        ) : (
+                                                            <span className="text-warning" title="Missing alt text!"><i className="fas fa-exclamation-triangle"></i> No Alt</span>
+                                                        )}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        );
+                                    })}
+                                </div>
+                            )}
+                        </>
+                    )}
+
+                    {/* ============================================================== */}
+                    {/* TAB: CAREER PAGE PREVIEW                                       */}
+                    {/* ============================================================== */}
+                    {activeTab === 'preview' && (
+                        <>
+                            <div className="d-flex flex-wrap justify-content-between align-items-center mb-4 gap-3">
+                                <div>
+                                    <div className="d-flex align-items-center gap-2">
+                                        <h2 className="h4 fw-bold text-white mb-0">Career Page Preview</h2>
+                                        <span className="badge bg-warning text-dark fw-bold px-2 py-1 small">
+                                            <i className="fas fa-lock me-1"></i> Admin Preview Mode
+                                        </span>
+                                    </div>
+                                    <p className="text-muted small mb-0 mt-1">
+                                        Live interactive viewport. Draft roles and hidden gallery moments are displayed with clear preview badges.
+                                    </p>
+                                </div>
+                                <div className="d-flex align-items-center gap-2">
+                                    <button
+                                        type="button"
+                                        className="btn btn-sm btn-outline-secondary d-flex align-items-center gap-1"
+                                        onClick={() => setPreviewKey(k => k + 1)}
+                                        title="Reload Preview Frame"
+                                    >
+                                        <i className="fas fa-sync-alt"></i>
+                                        <span>Refresh</span>
+                                    </button>
+                                    <a
+                                        href="/careers?preview=true"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="vrm-btn-publish text-decoration-none d-inline-flex align-items-center gap-1"
+                                    >
+                                        <i className="fas fa-external-link-alt"></i>
+                                        <span>Open in New Tab</span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            {/* Viewport Control Bar */}
+                            <div className="vrm-preview-toolbar d-flex flex-wrap justify-content-center align-items-center gap-2 mb-4 p-2 rounded-3" style={{ background: '#0b1220', border: '1px solid rgba(255,255,255,0.08)' }}>
+                                <button
+                                    type="button"
+                                    className={`btn btn-sm ${previewDevice === 'desktop' ? 'btn-primary' : 'btn-dark text-muted'} d-flex align-items-center gap-2 px-3`}
+                                    onClick={() => setPreviewDevice('desktop')}
+                                >
+                                    <i className="fas fa-desktop"></i>
+                                    <span>Desktop (1440px)</span>
+                                </button>
+                                <button
+                                    type="button"
+                                    className={`btn btn-sm ${previewDevice === 'tablet' ? 'btn-primary' : 'btn-dark text-muted'} d-flex align-items-center gap-2 px-3`}
+                                    onClick={() => setPreviewDevice('tablet')}
+                                >
+                                    <i className="fas fa-tablet-alt"></i>
+                                    <span>Tablet (1024px)</span>
+                                </button>
+                                <button
+                                    type="button"
+                                    className={`btn btn-sm ${previewDevice === 'mobile' ? 'btn-primary' : 'btn-dark text-muted'} d-flex align-items-center gap-2 px-3`}
+                                    onClick={() => setPreviewDevice('mobile')}
+                                >
+                                    <i className="fas fa-mobile-alt"></i>
+                                    <span>Mobile (390px)</span>
+                                </button>
+                            </div>
+
+                            {/* Preview Frame Container */}
+                            <div className="vrm-preview-wrapper d-flex justify-content-center">
+                                <div className={`vrm-preview-device-frame ${previewDevice}`}>
+                                    <div className="vrm-preview-device-header d-flex align-items-center justify-content-between px-3 py-2">
+                                        <div className="d-flex align-items-center gap-2">
+                                            <span className="vrm-frame-dot red"></span>
+                                            <span className="vrm-frame-dot yellow"></span>
+                                            <span className="vrm-frame-dot green"></span>
+                                        </div>
+                                        <div className="text-muted small font-monospace" style={{ fontSize: '11px' }}>
+                                            https://vrmaitechnology.com/careers?preview=true
+                                        </div>
+                                        <div style={{ width: '40px' }}></div>
+                                    </div>
+                                    <iframe
+                                        key={previewKey}
+                                        ref={previewIframeRef}
+                                        src={`/careers?preview=true&k=${previewKey}`}
+                                        title="Careers Preview"
+                                        className="vrm-preview-iframe"
+                                    />
+                                </div>
+                            </div>
+                        </>
+                    )}
+
+                    {/* ============================================================== */}
+                    {/* TAB: SETTINGS                                                  */}
+                    {/* ============================================================== */}
+                    {activeTab === 'settings' && (
+                        <>
+                            <div className="d-flex flex-wrap justify-content-between align-items-center mb-4 gap-3">
+                                <div>
+                                    <h2 className="h4 fw-bold text-white mb-1">System & Careers Settings</h2>
+                                    <p className="text-muted small mb-0">Configure recruiter notifications, dynamic job taxonomies, site flags, and security.</p>
+                                </div>
+                            </div>
+
+                            {/* Settings Navigation Tabs */}
+                            <div className="vrm-settings-tab-bar mb-4">
+                                <button
+                                    type="button"
+                                    className={`vrm-settings-tab-btn ${settingsSubTab === 'profile' ? 'active' : ''}`}
+                                    onClick={() => setSettingsSubTab('profile')}
+                                >
+                                    <i className="fas fa-user-circle me-2"></i>
+                                    <span>My Profile</span>
+                                </button>
+                                {isSuperAdmin && (
+                                    <>
+                                        <button
+                                            type="button"
+                                            className={`vrm-settings-tab-btn ${settingsSubTab === 'careers' ? 'active' : ''}`}
+                                            onClick={() => setSettingsSubTab('careers')}
+                                        >
+                                            <i className="fas fa-sliders-h me-2"></i>
+                                            <span>Careers Settings</span>
+                                        </button>
+                                        <button
+                                            type="button"
+                                            className={`vrm-settings-tab-btn ${settingsSubTab === 'email' ? 'active' : ''}`}
+                                            onClick={() => setSettingsSubTab('email')}
+                                        >
+                                            <i className="fas fa-envelope-open-text me-2"></i>
+                                            <span>Email (SMTP)</span>
+                                        </button>
+                                        <button
+                                            type="button"
+                                            className={`vrm-settings-tab-btn ${settingsSubTab === 'data' ? 'active' : ''}`}
+                                            onClick={() => setSettingsSubTab('data')}
+                                        >
+                                            <i className="fas fa-file-export me-2"></i>
+                                            <span>Data Export</span>
+                                        </button>
+                                    </>
+                                )}
+                            </div>
+
+                            {/* SUBTAB 1: My Profile */}
+                            {settingsSubTab === 'profile' && (
+                                <div className="row g-4">
+                                    <div className="col-lg-6">
+                                        <div className="vrm-dash-card">
+                                            <div className="vrm-dash-card-header">
+                                                <div className="vrm-dash-card-title-group">
+                                                    <div className="vrm-dash-card-icon blue"><i className="fas fa-user-edit"></i></div>
+                                                    <div>
+                                                        <h3 className="vrm-dash-card-title">Profile Information</h3>
+                                                        <p className="vrm-dash-card-sub">Update your display name and email address</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            {profileMsg.text && (
+                                                <div className={`alert alert-${profileMsg.type} py-2 px-3 small rounded-3 mb-3`}>
+                                                    {profileMsg.text}
+                                                </div>
+                                            )}
+
+                                            <form onSubmit={handleSaveProfile}>
+                                                <div className="mb-3">
+                                                    <label className="vrm-admin-auth-label">Username</label>
+                                                    <input
+                                                        type="text"
+                                                        className="vrm-admin-auth-input"
+                                                        value={currentUser?.username || ''}
+                                                        disabled
+                                                        style={{ opacity: 0.6 }}
+                                                    />
+                                                    <small className="text-muted" style={{ fontSize: '11px' }}>Username cannot be changed.</small>
+                                                </div>
+                                                <div className="mb-3">
+                                                    <label className="vrm-admin-auth-label">Display Name *</label>
+                                                    <input
+                                                        type="text"
+                                                        className="vrm-admin-auth-input"
+                                                        value={profileName}
+                                                        onChange={(e) => setProfileName(e.target.value)}
+                                                        required
+                                                    />
+                                                </div>
+                                                <div className="mb-3">
+                                                    <label className="vrm-admin-auth-label">Email Address *</label>
+                                                    <input
+                                                        type="email"
+                                                        className="vrm-admin-auth-input"
+                                                        value={profileEmail}
+                                                        onChange={(e) => setProfileEmail(e.target.value)}
+                                                        required
+                                                    />
+                                                </div>
+                                                <div className="d-flex justify-content-end">
+                                                    <button
+                                                        type="submit"
+                                                        className="vrm-btn-publish"
+                                                        disabled={isSavingProfile}
+                                                    >
+                                                        {isSavingProfile ? 'Saving...' : 'Save Profile Changes'}
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
+
+                                        {/* Active Sessions & Global Signout */}
+                                        <div className="vrm-dash-card mt-4">
+                                            <div className="vrm-dash-card-header">
+                                                <div className="vrm-dash-card-title-group">
+                                                    <div className="vrm-dash-card-icon slate"><i className="fas fa-shield-alt"></i></div>
+                                                    <div>
+                                                        <h3 className="vrm-dash-card-title">Session Security</h3>
+                                                        <p className="vrm-dash-card-sub">Manage active logins across browsers and devices</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <p className="text-muted small">
+                                                If you suspect unauthorized access or logged in on a public workstation, sign out of all active sessions immediately.
+                                            </p>
+                                            <button
+                                                type="button"
+                                                className="btn btn-outline-danger btn-sm d-inline-flex align-items-center gap-2"
+                                                onClick={() => setSignOutAllModal(true)}
+                                            >
+                                                <i className="fas fa-sign-out-alt"></i>
+                                                <span>Sign Out of All Devices</span>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    {/* Password Change Form */}
+                                    <div className="col-lg-6">
+                                        <div className="vrm-dash-card">
+                                            <div className="vrm-dash-card-header">
+                                                <div className="vrm-dash-card-title-group">
+                                                    <div className="vrm-dash-card-icon green"><i className="fas fa-lock"></i></div>
+                                                    <div>
+                                                        <h3 className="vrm-dash-card-title">Change Password</h3>
+                                                        <p className="vrm-dash-card-sub">Must contain at least 12 characters</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            {profilePassMsg.text && (
+                                                <div className={`alert alert-${profilePassMsg.type} py-2 px-3 small rounded-3 mb-3`}>
+                                                    {profilePassMsg.text}
+                                                </div>
+                                            )}
+
+                                            <form onSubmit={handleChangeProfilePassword}>
+                                                <div className="mb-3">
+                                                    <label className="vrm-admin-auth-label">Current Password *</label>
+                                                    <input
+                                                        type="password"
+                                                        className="vrm-admin-auth-input"
+                                                        value={profileCurPass}
+                                                        onChange={(e) => setProfileCurPass(e.target.value)}
+                                                        required
+                                                    />
+                                                </div>
+                                                <div className="mb-3">
+                                                    <label className="vrm-admin-auth-label">New Password (min 12 chars) *</label>
+                                                    <input
+                                                        type="password"
+                                                        className="vrm-admin-auth-input"
+                                                        value={profileNewPass}
+                                                        onChange={(e) => setProfileNewPass(e.target.value)}
+                                                        minLength={12}
+                                                        required
+                                                    />
+                                                </div>
+                                                <div className="mb-4">
+                                                    <label className="vrm-admin-auth-label">Confirm New Password *</label>
+                                                    <input
+                                                        type="password"
+                                                        className="vrm-admin-auth-input"
+                                                        value={profileConfPass}
+                                                        onChange={(e) => setProfileConfPass(e.target.value)}
+                                                        minLength={12}
+                                                        required
+                                                    />
+                                                </div>
+                                                <div className="d-flex justify-content-end">
+                                                    <button
+                                                        type="submit"
+                                                        className="vrm-btn-publish"
+                                                        disabled={isChangingProfilePass}
+                                                    >
+                                                        {isChangingProfilePass ? 'Updating...' : 'Update Password'}
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
+
+                            {/* SUBTAB 2: Careers Settings (Superadmin only) */}
+                            {settingsSubTab === 'careers' && isSuperAdmin && (
+                                <div className="vrm-dash-card">
+                                    <div className="vrm-dash-card-header">
+                                        <div className="vrm-dash-card-title-group">
+                                            <div className="vrm-dash-card-icon blue"><i className="fas fa-sliders-h"></i></div>
+                                            <div>
+                                                <h3 className="vrm-dash-card-title">Careers Portal Configuration</h3>
+                                                <p className="vrm-dash-card-sub">Stored safely on server; instantly controls live website behavior</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {settingsMsg.text && (
+                                        <div className={`alert alert-${settingsMsg.type} py-2 px-3 small rounded-3 mb-4`}>
+                                            {settingsMsg.text}
+                                        </div>
+                                    )}
+
+                                    {/* Section 1: Public Website Toggles */}
+                                    <div className="p-3 rounded-3 mb-4" style={{ background: '#0b1220', border: '1px solid rgba(255,255,255,0.08)' }}>
+                                        <h4 className="h6 fw-bold text-white mb-3">Portal Feature Toggles</h4>
+                                        <div className="row g-4">
+                                            <div className="col-md-6">
+                                                <div className="form-check form-switch d-flex align-items-center justify-content-between p-0">
+                                                    <div>
+                                                        <label className="form-check-label text-white fw-semibold cursor-pointer" htmlFor="toggleAcceptApps">
+                                                            Accept Applications
+                                                        </label>
+                                                        <div className="text-muted small">
+                                                            When turned off, "Apply" buttons show a polite closed message and new submissions are paused.
+                                                        </div>
+                                                    </div>
+                                                    <input
+                                                        className="form-check-input ms-3"
+                                                        type="checkbox"
+                                                        id="toggleAcceptApps"
+                                                        checked={settings.acceptApplications}
+                                                        onChange={(e) => setSettings(prev => ({ ...prev, acceptApplications: e.target.checked }))}
+                                                        style={{ width: '44px', height: '24px' }}
+                                                    />
+                                                </div>
+                                            </div>
+
+                                            <div className="col-md-6">
+                                                <div className="form-check form-switch d-flex align-items-center justify-content-between p-0">
+                                                    <div>
+                                                        <label className="form-check-label text-white fw-semibold cursor-pointer" htmlFor="toggleGallery">
+                                                            Show "Life at VRM" Section
+                                                        </label>
+                                                        <div className="text-muted small">
+                                                            Controls whether the photo gallery culture section appears on the public /careers page.
+                                                        </div>
+                                                    </div>
+                                                    <input
+                                                        className="form-check-input ms-3"
+                                                        type="checkbox"
+                                                        id="toggleGallery"
+                                                        checked={settings.showGallerySection}
+                                                        onChange={(e) => setSettings(prev => ({ ...prev, showGallerySection: e.target.checked }))}
+                                                        style={{ width: '44px', height: '24px' }}
+                                                    />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* Section 2: Notification Email Recipients */}
+                                    <div className="mb-4">
+                                        <label className="vrm-admin-auth-label">Recruitment Notification Email Recipients</label>
+                                        <p className="text-muted small mb-2">When candidates submit an application, notifications are routed to these email addresses.</p>
+                                        <div className="d-flex flex-wrap gap-2 mb-2">
+                                            {(settings.notificationEmails || []).map((email, idx) => (
+                                                <span key={idx} className="badge bg-dark border border-secondary text-light px-3 py-2 d-flex align-items-center gap-2">
+                                                    <i className="fas fa-envelope text-primary"></i>
+                                                    <span>{email}</span>
+                                                    <button
+                                                        type="button"
+                                                        className="btn-close btn-close-white small p-0 ms-1"
+                                                        onClick={() => handleRemoveNotificationEmail(idx)}
+                                                        title="Remove recipient"
+                                                    />
+                                                </span>
+                                            ))}
+                                        </div>
+                                        <div className="d-flex gap-2" style={{ maxWidth: '480px' }}>
+                                            <input
+                                                type="email"
+                                                className="vrm-admin-auth-input"
+                                                placeholder="e.g. hr@vrmaitechnology.com"
+                                                value={newEmailInput}
+                                                onChange={(e) => setNewEmailInput(e.target.value)}
+                                                onKeyDown={(e) => e.key === 'Enter' && (e.preventDefault(), handleAddNotificationEmail())}
+                                            />
+                                            <button
+                                                type="button"
+                                                className="btn btn-outline-primary btn-sm px-3"
+                                                onClick={handleAddNotificationEmail}
+                                            >
+                                                Add
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    {/* Section 3: Dynamic Departments */}
+                                    <div className="mb-4">
+                                        <label className="vrm-admin-auth-label">Departments</label>
+                                        <p className="text-muted small mb-2">Populates department dropdowns when creating job openings.</p>
+                                        <div className="d-flex flex-wrap gap-2 mb-2">
+                                            {(settings.departments || []).map((dept, idx) => (
+                                                <span key={idx} className="badge bg-dark border border-secondary text-light px-3 py-2 d-flex align-items-center gap-2">
+                                                    <span>{dept}</span>
+                                                    <button
+                                                        type="button"
+                                                        className="btn-close btn-close-white small p-0 ms-1"
+                                                        onClick={() => handleRemoveDepartment(idx)}
+                                                    />
+                                                </span>
+                                            ))}
+                                        </div>
+                                        <div className="d-flex gap-2" style={{ maxWidth: '400px' }}>
+                                            <input
+                                                type="text"
+                                                className="vrm-admin-auth-input"
+                                                placeholder="Add department..."
+                                                value={newDeptInput}
+                                                onChange={(e) => setNewDeptInput(e.target.value)}
+                                                onKeyDown={(e) => e.key === 'Enter' && (e.preventDefault(), handleAddDepartment())}
+                                            />
+                                            <button type="button" className="btn btn-outline-primary btn-sm px-3" onClick={handleAddDepartment}>
+                                                Add
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    {/* Section 4: Dynamic Locations */}
+                                    <div className="mb-4">
+                                        <label className="vrm-admin-auth-label">Locations</label>
+                                        <div className="d-flex flex-wrap gap-2 mb-2">
+                                            {(settings.locations || []).map((loc, idx) => (
+                                                <span key={idx} className="badge bg-dark border border-secondary text-light px-3 py-2 d-flex align-items-center gap-2">
+                                                    <span>{loc}</span>
+                                                    <button
+                                                        type="button"
+                                                        className="btn-close btn-close-white small p-0 ms-1"
+                                                        onClick={() => handleRemoveLocation(idx)}
+                                                    />
+                                                </span>
+                                            ))}
+                                        </div>
+                                        <div className="d-flex gap-2" style={{ maxWidth: '400px' }}>
+                                            <input
+                                                type="text"
+                                                className="vrm-admin-auth-input"
+                                                placeholder="Add location..."
+                                                value={newLocInput}
+                                                onChange={(e) => setNewLocInput(e.target.value)}
+                                                onKeyDown={(e) => e.key === 'Enter' && (e.preventDefault(), handleAddLocation())}
+                                            />
+                                            <button type="button" className="btn btn-outline-primary btn-sm px-3" onClick={handleAddLocation}>
+                                                Add
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    {/* Section 5: Dynamic Job Types */}
+                                    <div className="mb-4">
+                                        <label className="vrm-admin-auth-label">Job Types</label>
+                                        <div className="d-flex flex-wrap gap-2 mb-2">
+                                            {(settings.jobTypes || []).map((type, idx) => (
+                                                <span key={idx} className="badge bg-dark border border-secondary text-light px-3 py-2 d-flex align-items-center gap-2">
+                                                    <span>{type}</span>
+                                                    <button
+                                                        type="button"
+                                                        className="btn-close btn-close-white small p-0 ms-1"
+                                                        onClick={() => handleRemoveJobType(idx)}
+                                                    />
+                                                </span>
+                                            ))}
+                                        </div>
+                                        <div className="d-flex gap-2" style={{ maxWidth: '400px' }}>
+                                            <input
+                                                type="text"
+                                                className="vrm-admin-auth-input"
+                                                placeholder="Add employment type..."
+                                                value={newJobTypeInput}
+                                                onChange={(e) => setNewJobTypeInput(e.target.value)}
+                                                onKeyDown={(e) => e.key === 'Enter' && (e.preventDefault(), handleAddJobType())}
+                                            />
+                                            <button type="button" className="btn btn-outline-primary btn-sm px-3" onClick={handleAddJobType}>
+                                                Add
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    {/* Save Button */}
+                                    <div className="pt-3 border-top border-secondary d-flex justify-content-end">
+                                        <button
+                                            type="button"
+                                            className="vrm-btn-publish"
+                                            disabled={isSavingSettings}
+                                            onClick={handleSaveCareersSettings}
+                                        >
+                                            {isSavingSettings ? 'Saving Settings...' : 'Save Careers Settings'}
+                                        </button>
+                                    </div>
+                                </div>
+                            )}
+
+                            {/* SUBTAB 3: Email SMTP (Superadmin only) */}
+                            {settingsSubTab === 'email' && isSuperAdmin && (
+                                <div className="row g-4">
+                                    <div className="col-lg-6">
+                                        <div className="vrm-dash-card">
+                                            <div className="vrm-dash-card-header">
+                                                <div className="vrm-dash-card-title-group">
+                                                    <div className="vrm-dash-card-icon green"><i className="fas fa-server"></i></div>
+                                                    <div>
+                                                        <h3 className="vrm-dash-card-title">SMTP Server Configuration</h3>
+                                                        <p className="vrm-dash-card-sub">Active email transport configuration (passwords safely masked)</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div className="table-responsive">
+                                                <table className="table table-dark table-sm mb-0">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td className="text-muted py-2">SMTP Host</td>
+                                                            <td className="text-white font-monospace py-2">{smtpInfo?.host || 'smtp.gmail.com'}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td className="text-muted py-2">SMTP Port</td>
+                                                            <td className="text-white font-monospace py-2">{smtpInfo?.port || '465'}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td className="text-muted py-2">Encryption</td>
+                                                            <td className="text-white py-2">
+                                                                <span className="badge bg-success">
+                                                                    {smtpInfo?.secure ? 'SSL/TLS (Port 465)' : 'STARTTLS (Port 587)'}
+                                                                </span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td className="text-muted py-2">Sender Address</td>
+                                                            <td className="text-white font-monospace py-2">{smtpInfo?.from || 'contactus@vrmaitechnology.com'}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td className="text-muted py-2">Auth User</td>
+                                                            <td className="text-white font-monospace py-2">{smtpInfo?.auth?.user || 'contactus@vrmaitechnology.com'}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td className="text-muted py-2">Password</td>
+                                                            <td className="text-muted font-monospace py-2">•••••••••••••• (stored in .env)</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* Test Email Dispatcher */}
+                                    <div className="col-lg-6">
+                                        <div className="vrm-dash-card">
+                                            <div className="vrm-dash-card-header">
+                                                <div className="vrm-dash-card-title-group">
+                                                    <div className="vrm-dash-card-icon blue"><i className="fas fa-paper-plane"></i></div>
+                                                    <div>
+                                                        <h3 className="vrm-dash-card-title">Send Test Email</h3>
+                                                        <p className="vrm-dash-card-sub">Verify SMTP handshake and deliverability</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            {testEmailMsg.text && (
+                                                <div className={`alert alert-${testEmailMsg.type} py-2 px-3 small rounded-3 mb-3`}>
+                                                    {testEmailMsg.text}
+                                                </div>
+                                            )}
+
+                                            <form onSubmit={handleSendTestEmail}>
+                                                <div className="mb-3">
+                                                    <label className="vrm-admin-auth-label">Recipient Email *</label>
+                                                    <input
+                                                        type="email"
+                                                        className="vrm-admin-auth-input"
+                                                        placeholder="e.g. your-email@domain.com"
+                                                        value={testEmailTarget}
+                                                        onChange={(e) => setTestEmailTarget(e.target.value)}
+                                                        required
+                                                    />
+                                                </div>
+                                                <p className="text-muted small">
+                                                    Sends a test delivery verification from the server via NodeMailer. Rate-limited to 3 test emails per 10 minutes.
+                                                </p>
+                                                <div className="d-flex justify-content-end">
+                                                    <button
+                                                        type="submit"
+                                                        className="vrm-btn-publish"
+                                                        disabled={isSendingTestEmail}
+                                                    >
+                                                        {isSendingTestEmail ? 'Sending Test...' : 'Send Test Email'}
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
+
+                            {/* SUBTAB 4: Data Export (Superadmin only) */}
+                            {settingsSubTab === 'data' && isSuperAdmin && (
+                                <div className="vrm-dash-card">
+                                    <div className="vrm-dash-card-header">
+                                        <div className="vrm-dash-card-title-group">
+                                            <div className="vrm-dash-card-icon purple"><i className="fas fa-file-export"></i></div>
+                                            <div>
+                                                <h3 className="vrm-dash-card-title">Applicant Data Export</h3>
+                                                <p className="vrm-dash-card-sub">Extract recruitment data for offline analysis or ATS integration</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {exportCsvMsg.text && (
+                                        <div className={`alert alert-${exportCsvMsg.type} py-2 px-3 small rounded-3 mb-3`}>
+                                            {exportCsvMsg.text}
+                                        </div>
+                                    )}
+
+                                    <div className="p-4 rounded-3 text-center my-3" style={{ background: '#0b1220', border: '1px solid rgba(255,255,255,0.08)' }}>
+                                        <div className="display-6 text-primary mb-3">
+                                            <i className="fas fa-file-csv"></i>
+                                        </div>
+                                        <h4 className="h5 fw-bold text-white mb-2">Export Candidate Applications (.CSV)</h4>
+                                        <p className="text-muted small mx-auto mb-4" style={{ maxWidth: '540px' }}>
+                                            Generates a clean CSV file containing candidate names, email addresses, phone numbers, applied positions, years of experience, application statuses, and submission dates. Private resume binaries are excluded for security.
+                                        </p>
+                                        <button
+                                            type="button"
+                                            className="vrm-btn-publish d-inline-flex mx-auto align-items-center gap-2"
+                                            onClick={handleExportCsv}
+                                            disabled={isExportingCsv}
+                                        >
+                                            {isExportingCsv ? (
+                                                <>
+                                                    <span className="spinner-border spinner-border-sm" role="status"></span>
+                                                    <span>Generating CSV...</span>
+                                                </>
+                                            ) : (
+                                                <>
+                                                    <i className="fas fa-download"></i>
+                                                    <span>Download Applications CSV</span>
+                                                </>
+                                            )}
+                                        </button>
+                                    </div>
+                                </div>
+                            )}
                         </>
                     )}
 
@@ -4091,6 +5632,263 @@ function AdminCareers() {
                     <button className="btn btn-outline-secondary" onClick={() => setAdminToDelete(null)}>Cancel</button>
                     <button className="btn btn-danger" disabled={isDeletingAdmin} onClick={handleDeleteAdmin}>
                         {isDeletingAdmin ? 'Deleting...' : 'Delete Admin'}
+                    </button>
+                </Modal.Footer>
+            </Modal>
+
+            {/* Hidden Input for Replacing Media Image */}
+            <input
+                ref={replaceFileInputRef}
+                type="file"
+                accept="image/jpeg,image/png,image/webp"
+                style={{ display: 'none' }}
+                onChange={handleReplaceMediaImage}
+            />
+
+            {/* Media Detail & Edit Modal */}
+            <Modal
+                show={!!mediaDetailPhoto}
+                onHide={handleCloseMediaDetail}
+                size="lg"
+                centered
+                className="vrm-dark-modal"
+            >
+                {mediaDetailPhoto && (
+                    <form onSubmit={handleSaveMediaDetail}>
+                        <Modal.Header closeButton>
+                            <Modal.Title className="d-flex align-items-center gap-2">
+                                <i className="fas fa-image text-primary"></i>
+                                <span>Media Asset Details</span>
+                            </Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
+                            {mediaDetailError && (
+                                <div className="alert alert-danger py-2 px-3 small rounded-3 mb-3">
+                                    {mediaDetailError}
+                                </div>
+                            )}
+
+                            <div className="row g-4">
+                                {/* Left: Large Preview & Quick Image Actions */}
+                                <div className="col-md-5">
+                                    <div className="rounded-3 overflow-hidden border border-secondary mb-3 text-center" style={{ background: '#0b1220' }}>
+                                        <img
+                                            src={mediaDetailPhoto.imagePath}
+                                            alt={mediaDetailPhoto.altText || 'Preview'}
+                                            className="img-fluid w-100"
+                                            style={{ maxHeight: '280px', objectFit: 'cover' }}
+                                        />
+                                    </div>
+
+                                    {/* Technical Specs */}
+                                    <div className="p-3 rounded-3 mb-3 small" style={{ background: '#0b1220', border: '1px solid rgba(255,255,255,0.08)' }}>
+                                        <div className="d-flex justify-content-between text-muted py-1 border-bottom border-secondary">
+                                            <span>File Size:</span>
+                                            <span className="text-white font-monospace">{formatBytes(mediaDetailPhoto.fileSize)}</span>
+                                        </div>
+                                        <div className="d-flex justify-content-between text-muted py-1 border-bottom border-secondary">
+                                            <span>Dimensions:</span>
+                                            <span className="text-white font-monospace">
+                                                {mediaDetailPhoto.width && mediaDetailPhoto.height
+                                                    ? `${mediaDetailPhoto.width} × ${mediaDetailPhoto.height} px`
+                                                    : 'Responsive HD'}
+                                            </span>
+                                        </div>
+                                        <div className="d-flex justify-content-between text-muted py-1">
+                                            <span>Uploaded:</span>
+                                            <span className="text-white">
+                                                {mediaDetailPhoto.createdAt ? new Date(mediaDetailPhoto.createdAt).toLocaleDateString() : '—'}
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    {/* Action Buttons */}
+                                    <div className="d-flex flex-column gap-2">
+                                        <button
+                                            type="button"
+                                            className="btn btn-sm btn-outline-primary d-flex align-items-center justify-content-center gap-2"
+                                            onClick={() => replaceFileInputRef.current?.click()}
+                                            disabled={isReplacingMediaImage}
+                                        >
+                                            <i className="fas fa-sync-alt"></i>
+                                            <span>{isReplacingMediaImage ? 'Replacing...' : 'Replace Image File'}</span>
+                                        </button>
+                                        <button
+                                            type="button"
+                                            className="btn btn-sm btn-outline-secondary d-flex align-items-center justify-content-center gap-2"
+                                            onClick={() => handleCopyMediaUrl(mediaDetailPhoto)}
+                                        >
+                                            <i className={`fas ${mediaCopyFeedback ? 'fa-check text-success' : 'fa-link'}`}></i>
+                                            <span>{mediaCopyFeedback ? 'Public URL Copied!' : 'Copy Public URL'}</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                {/* Right: Editable Metadata */}
+                                <div className="col-md-7">
+                                    <div className="mb-3">
+                                        <label className="vrm-admin-auth-label">Caption / Title</label>
+                                        <input
+                                            type="text"
+                                            className="vrm-admin-auth-input"
+                                            placeholder="e.g. Annual Tech Symposium 2026"
+                                            value={mediaDetailForm.caption}
+                                            onChange={(e) => setMediaDetailForm(prev => ({ ...prev, caption: e.target.value }))}
+                                        />
+                                    </div>
+
+                                    <div className="row g-2 mb-3">
+                                        <div className="col-sm-6">
+                                            <label className="vrm-admin-auth-label">Category</label>
+                                            <select
+                                                className="vrm-admin-auth-input"
+                                                value={mediaDetailForm.category}
+                                                onChange={(e) => setMediaDetailForm(prev => ({ ...prev, category: e.target.value }))}
+                                            >
+                                                <option value="Team Event">Team Event</option>
+                                                <option value="Culture">Culture</option>
+                                                <option value="Office">Office</option>
+                                                <option value="Celebration">Celebration</option>
+                                                <option value="Fun Friday">Fun Friday</option>
+                                                <option value="Hackathon">Hackathon</option>
+                                                <option value="Outing">Outing</option>
+                                            </select>
+                                        </div>
+                                        <div className="col-sm-6">
+                                            <label className="vrm-admin-auth-label">Event Date</label>
+                                            <input
+                                                type="date"
+                                                className="vrm-admin-auth-input"
+                                                value={mediaDetailForm.eventDate}
+                                                onChange={(e) => setMediaDetailForm(prev => ({ ...prev, eventDate: e.target.value }))}
+                                            />
+                                        </div>
+                                    </div>
+
+                                    <div className="mb-3">
+                                        <label className="vrm-admin-auth-label">
+                                            Alt Text <span className="text-danger">* (Required for Published)</span>
+                                        </label>
+                                        <textarea
+                                            className="vrm-admin-auth-input"
+                                            rows="3"
+                                            placeholder="Descriptive text for visually impaired visitors and SEO..."
+                                            value={mediaDetailForm.altText}
+                                            onChange={(e) => setMediaDetailForm(prev => ({ ...prev, altText: e.target.value }))}
+                                            required={mediaDetailForm.status === 'published'}
+                                        />
+                                        <small className="text-muted" style={{ fontSize: '11px' }}>
+                                            Mandatory: photos cannot be published without accessible alt text.
+                                        </small>
+                                    </div>
+
+                                    <div className="mb-3">
+                                        <label className="vrm-admin-auth-label">Publishing Status</label>
+                                        <select
+                                            className="vrm-admin-auth-input"
+                                            value={mediaDetailForm.status}
+                                            onChange={(e) => setMediaDetailForm(prev => ({ ...prev, status: e.target.value }))}
+                                        >
+                                            <option value="published">Published (Visible on Live /careers)</option>
+                                            <option value="hidden">Hidden (Draft / Archive)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </Modal.Body>
+                        <Modal.Footer>
+                            <button
+                                type="button"
+                                className="btn btn-outline-danger me-auto"
+                                onClick={() => {
+                                    handleCloseMediaDetail();
+                                    setPhotoToDelete(mediaDetailPhoto);
+                                }}
+                            >
+                                <i className="far fa-trash-alt me-1"></i> Delete
+                            </button>
+                            <button type="button" className="btn btn-outline-secondary" onClick={handleCloseMediaDetail}>
+                                Close
+                            </button>
+                            <button type="submit" className="vrm-btn-publish" disabled={isSavingMediaDetail}>
+                                {isSavingMediaDetail ? 'Saving...' : 'Save Changes'}
+                            </button>
+                        </Modal.Footer>
+                    </form>
+                )}
+            </Modal>
+
+            {/* Bulk Action Confirmation Modal */}
+            <Modal
+                show={bulkActionModal.show}
+                onHide={() => setBulkActionModal({ show: false, action: '', count: 0 })}
+                centered
+                className="vrm-dark-modal"
+            >
+                <Modal.Header closeButton>
+                    <Modal.Title className={bulkActionModal.action === 'delete' ? 'text-danger' : 'text-white'}>
+                        <i className={`fas ${bulkActionModal.action === 'delete' ? 'fa-trash-alt' : bulkActionModal.action === 'publish' ? 'fa-check' : 'fa-eye-slash'} me-2`}></i>
+                        Confirm Bulk {bulkActionModal.action.toUpperCase()}
+                    </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    Are you sure you want to <strong>{bulkActionModal.action}</strong> {bulkActionModal.count} selected photo(s)?
+                    {bulkActionModal.action === 'delete' && (
+                        <div className="alert alert-danger py-2 px-3 small rounded-3 mt-3 mb-0">
+                            <i className="fas fa-exclamation-triangle me-1"></i> This action permanently deletes these files from storage.
+                        </div>
+                    )}
+                </Modal.Body>
+                <Modal.Footer>
+                    <button
+                        type="button"
+                        className="btn btn-outline-secondary"
+                        onClick={() => setBulkActionModal({ show: false, action: '', count: 0 })}
+                    >
+                        Cancel
+                    </button>
+                    <button
+                        type="button"
+                        className={`btn ${bulkActionModal.action === 'delete' ? 'btn-danger' : bulkActionModal.action === 'publish' ? 'btn-success' : 'btn-warning'}`}
+                        disabled={isExecutingBulk}
+                        onClick={handleExecuteBulkAction}
+                    >
+                        {isExecutingBulk ? 'Processing...' : `Yes, ${bulkActionModal.action} (${bulkActionModal.count})`}
+                    </button>
+                </Modal.Footer>
+            </Modal>
+
+            {/* Sign Out of All Devices Modal */}
+            <Modal
+                show={signOutAllModal}
+                onHide={() => setSignOutAllModal(false)}
+                centered
+                className="vrm-dark-modal"
+            >
+                <Modal.Header closeButton>
+                    <Modal.Title className="text-warning">
+                        <i className="fas fa-shield-alt me-2"></i> Sign Out of All Devices
+                    </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <p className="mb-2">
+                        This action will immediately rotate your authentication token version on the server.
+                    </p>
+                    <div className="alert alert-warning py-2 px-3 small rounded-3 mb-0">
+                        All currently active sessions on your mobile devices, tablets, and desktop browsers will be terminated, including this one. You will be redirected to sign in again.
+                    </div>
+                </Modal.Body>
+                <Modal.Footer>
+                    <button type="button" className="btn btn-outline-secondary" onClick={() => setSignOutAllModal(false)}>
+                        Cancel
+                    </button>
+                    <button
+                        type="button"
+                        className="btn btn-warning"
+                        disabled={isSigningOutAll}
+                        onClick={handleSignOutAllDevices}
+                    >
+                        {isSigningOutAll ? 'Signing out...' : 'Sign Out Everywhere'}
                     </button>
                 </Modal.Footer>
             </Modal>

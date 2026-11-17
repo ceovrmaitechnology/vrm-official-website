@@ -16,6 +16,18 @@ function JobDetail() {
     const [showModal, setShowModal] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState({ type: '', message: '' });
+    const [acceptApplications, setAcceptApplications] = useState(true);
+
+    useEffect(() => {
+        fetch('/api/careers/settings/public')
+            .then(res => res.json())
+            .then(data => {
+                if (data && data.success && data.settings && data.settings.acceptApplications === false) {
+                    setAcceptApplications(false);
+                }
+            })
+            .catch(() => {});
+    }, []);
 
     useEffect(() => {
         let isMounted = true;
@@ -250,6 +262,10 @@ function JobDetail() {
                                 <button className="rts-btn btn-secondary disabled" disabled style={{ opacity: 0.65 }}>
                                     Position Closed
                                 </button>
+                            ) : !acceptApplications ? (
+                                <button className="rts-btn btn-secondary disabled" disabled style={{ opacity: 0.65, cursor: 'not-allowed' }} title="Applications are currently closed">
+                                    Applications Closed
+                                </button>
                             ) : (
                                 <button className="rts-btn btn-primary" onClick={handleOpenModal} style={{ padding: '14px 30px', fontSize: '16px' }}>
                                     Apply for this Role
@@ -318,9 +334,15 @@ function JobDetail() {
                                             <h4 className="h5 fw-bold mb-1" style={{ color: '#1c2539' }}>Interested in this position?</h4>
                                             <p className="text-muted small mb-0">Submit your application today and build the future of AI with us.</p>
                                         </div>
-                                        <button className="rts-btn btn-primary" onClick={handleOpenModal} style={{ padding: '12px 28px' }}>
-                                            Apply Now
-                                        </button>
+                                        {!acceptApplications ? (
+                                            <button className="rts-btn btn-secondary disabled" disabled style={{ padding: '12px 28px', opacity: 0.65, cursor: 'not-allowed' }}>
+                                                Applications Closed
+                                            </button>
+                                        ) : (
+                                            <button className="rts-btn btn-primary" onClick={handleOpenModal} style={{ padding: '12px 28px' }}>
+                                                Apply Now
+                                            </button>
+                                        )}
                                     </div>
                                 )}
                             </div>

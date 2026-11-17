@@ -16,33 +16,74 @@ function Careers() {
     const [gallery, setGallery] = useState([]);
     const [activeCategory, setActiveCategory] = useState('All');
     const [lightboxPhoto, setLightboxPhoto] = useState(null);
+    const [siteSettings, setSiteSettings] = useState({ showGallerySection: true, acceptApplications: true });
+    const [isPreviewMode, setIsPreviewMode] = useState(false);
 
     useEffect(() => {
         let isMounted = true;
-        fetch('/api/careers/jobs')
-            .then(res => res.json())
+        const isPreviewReq = typeof window !== 'undefined' && window.location.search.includes('preview=true');
+        const adminToken = typeof window !== 'undefined' ? localStorage.getItem('vrm_admin_token') : null;
+
+        const loadPublicData = (mounted) => {
+            fetch('/api/careers/settings/public')
+                .then(res => res.json())
+                .then(data => {
+                    if (mounted && data.success && data.settings) {
+                        setSiteSettings(data.settings);
+                    }
+                })
+                .catch(() => {});
+
+            fetch('/api/careers/jobs')
+                .then(res => res.json())
+                .then(data => {
+                    if (mounted && data.success && Array.isArray(data.jobs)) {
+                        setOpenings(data.jobs);
+                    }
+                })
+                .catch(() => {})
+                .finally(() => {
+                    if (mounted) setIsLoading(false);
+                });
+
+            fetch('/api/careers/gallery')
+                .then(res => res.json())
+                .then(data => {
+                    if (mounted && data.success && Array.isArray(data.gallery)) {
+                        setGallery(data.gallery);
+                    }
+                })
+                .catch(() => {});
+        };
+
+        if (isPreviewReq && adminToken) {
+            // Attempt authenticated preview via preview endpoint
+            fetch('/api/admin/careers/preview', {
+                headers: { 'Authorization': `Bearer ${adminToken}` }
+            })
+            .then(res => {
+                if (!res.ok) throw new Error('Not authorized for preview');
+                return res.json();
+            })
             .then(data => {
-                if (isMounted && data.success && Array.isArray(data.jobs)) {
-                    setOpenings(data.jobs);
+                if (isMounted && data.success) {
+                    if (Array.isArray(data.jobs)) setOpenings(data.jobs);
+                    if (Array.isArray(data.gallery)) setGallery(data.gallery);
+                    if (data.settings) setSiteSettings(data.settings);
+                    setIsPreviewMode(true);
+                } else {
+                    loadPublicData(isMounted);
                 }
             })
             .catch(() => {
-                // Ignore fetch error on initial prerender
+                loadPublicData(isMounted);
             })
             .finally(() => {
                 if (isMounted) setIsLoading(false);
             });
-
-        fetch('/api/careers/gallery')
-            .then(res => res.json())
-            .then(data => {
-                if (isMounted && data.success && Array.isArray(data.gallery)) {
-                    setGallery(data.gallery);
-                }
-            })
-            .catch(() => {
-                // Ignore fetch error on initial prerender
-            });
+        } else {
+            loadPublicData(isMounted);
+        }
 
         return () => { isMounted = false; };
     }, []);
@@ -115,6 +156,13 @@ function Careers() {
         <div className='careers-page'>
             <SEO />
             <HeaderOne className="careers-header-panel" />
+
+            {/* Admin Preview Mode Banner */}
+            {isPreviewMode && (
+                <div className="vrm-preview-mode-banner bg-warning text-dark py-2 px-3 text-center fw-bold small sticky-top d-flex justify-content-center align-items-center gap-2 shadow-sm" style={{ zIndex: 1060 }}>
+                    <i className="fas fa-eye"></i> Admin Preview Mode Active &mdash; Viewing published &amp; draft job openings, plus hidden gallery moments.
+                </div>
+            )}
 
             {/* Hero Section */}
             <div className="careers-hero">
@@ -192,8 +240,8 @@ function Careers() {
                 </div>
             </div>
 
-            {/* Life at VRM Section (Completely hidden if 0 published photos) */}
-            {gallery && gallery.length > 0 && (
+            {/* Life at VRM Section (respects showGallerySection setting and preview mode) */}
+            {(siteSettings.showGallerySection !== false || isPreviewMode) && gallery && gallery.length > 0 && (
                 <div className="careers-gallery-section py-5" id="life-at-vrm" style={{ background: '#f8fafc', borderTop: '1px solid #eef2f6', borderBottom: '1px solid #eef2f6' }}>
                     <div className="container">
                         <div className="text-center mb-5">
@@ -304,6 +352,14 @@ function Careers() {
                                             >
                                                 {photo.category}
                                             </span>
+                                            {photo.status === 'hidden' && (
+                                                <span
+                                                    className="badge bg-secondary text-white position-absolute top-0 end-0 m-3 px-3 py-2 rounded-pill fw-bold"
+                                                    style={{ backdropFilter: 'blur(4px)', fontSize: '11px', letterSpacing: '0.5px' }}
+                                                >
+                                                    <i className="fas fa-eye-slash me-1"></i> HIDDEN
+                                                </span>
+                                            )}
                                         </div>
                                         <div className="card-body p-4 d-flex flex-column justify-content-between">
                                             {photo.caption && (
@@ -348,6 +404,16 @@ function Careers() {
                                         <div className="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3">
                                             <div className="job-info">
                                                 <div className="d-flex align-items-center gap-2 mb-2">
+                                                    {job.status === 'draft' && (
+                                                        <span className="badge bg-warning text-dark border fw-bold" style={{ fontSize: '11px', padding: '5px 10px', borderRadius: '20px' }}>
+                                                            <i className="fas fa-pencil-alt me-1"></i> DRAFT
+                                                        </span>
+                                                    )}
+                                                    {job.status === 'closed' && (
+                                                        <span className="badge bg-secondary text-white border fw-bold" style={{ fontSize: '11px', padding: '5px 10px', borderRadius: '20px' }}>
+                                                            CLOSED
+                                                        </span>
+                                                    )}
                                                     <span className="badge bg-light text-primary border" style={{ fontSize: '12px', padding: '5px 12px', borderRadius: '20px' }}>{job.department}</span>
                                                     <span className="badge bg-light text-dark border" style={{ fontSize: '12px', padding: '5px 12px', borderRadius: '20px' }}>{job.employmentType || 'Full-time'}</span>
                                                 </div>
@@ -370,9 +436,15 @@ function Careers() {
                                                 <Link to={`/careers/${job.slug}`} className="rts-btn btn-secondary" style={{ padding: '10px 18px', fontSize: '14px' }}>
                                                     View Details
                                                 </Link>
-                                                <button className="rts-btn btn-primary" onClick={() => handleShow(job.title)} style={{ padding: '10px 18px', fontSize: '14px' }}>
-                                                    Apply Now
-                                                </button>
+                                                {siteSettings.acceptApplications === false ? (
+                                                    <button className="rts-btn btn-secondary disabled" disabled style={{ padding: '10px 18px', fontSize: '14px', opacity: 0.65, cursor: 'not-allowed' }} title="Applications are currently closed">
+                                                        Applications Closed
+                                                    </button>
+                                                ) : (
+                                                    <button className="rts-btn btn-primary" onClick={() => handleShow(job.title)} style={{ padding: '10px 18px', fontSize: '14px' }}>
+                                                        Apply Now
+                                                    </button>
+                                                )}
                                             </div>
                                         </div>
                                     </div>
@@ -386,7 +458,11 @@ function Careers() {
                                     <p className="text-muted mx-auto" style={{ maxWidth: '540px', fontSize: '15px', lineHeight: '1.6', marginBottom: '22px' }}>
                                         No openings right now, send your resume to <a href="mailto:contactus@vrmaitechnology.com" style={{ color: 'var(--color-primary)', fontWeight: '600', textDecoration: 'underline' }}>contactus@vrmaitechnology.com</a>.
                                     </p>
-                                    <button className="rts-btn btn-primary" onClick={() => handleShow('General Application')}>Send Resume / Apply</button>
+                                    {siteSettings.acceptApplications === false ? (
+                                        <button className="rts-btn btn-secondary disabled" disabled style={{ opacity: 0.65, cursor: 'not-allowed' }}>Applications Closed</button>
+                                    ) : (
+                                        <button className="rts-btn btn-primary" onClick={() => handleShow('General Application')}>Send Resume / Apply</button>
+                                    )}
                                 </div>
                             )}
                         </div>
@@ -401,7 +477,11 @@ function Careers() {
                         <div className="col-lg-8">
                             <h2>Ready to Start Your Journey?</h2>
                             <p>If you don't see a role that fits but are passionate about what we do, we'd still love to hear from you.</p>
-                            <button className="rts-btn btn-white" onClick={() => handleShow('General Application')}>Send General Application</button>
+                            {siteSettings.acceptApplications === false ? (
+                                <button className="rts-btn btn-secondary disabled" disabled style={{ opacity: 0.65, cursor: 'not-allowed' }}>Applications Closed</button>
+                            ) : (
+                                <button className="rts-btn btn-white" onClick={() => handleShow('General Application')}>Send General Application</button>
+                            )}
                         </div>
                     </div>
                 </div>

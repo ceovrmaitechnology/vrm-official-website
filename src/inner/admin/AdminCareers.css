@@ -2295,3 +2295,233 @@ body:has(.admin-careers) .progress-wrap,
 
 
 
+
+/* ========================================================================== */
+/* PHASE 2: MEDIA LIBRARY, PREVIEW & SETTINGS STYLES                          */
+/* ========================================================================== */
+
+/* Media Library Storage Pill */
+.vrm-media-storage-pill {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(59, 130, 246, 0.12);
+  border: 1px solid rgba(59, 130, 246, 0.28);
+  color: #93c5fd;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 12.5px;
+  font-weight: 500;
+}
+
+/* Media Library Grid */
+.vrm-media-lib-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 18px;
+  margin-top: 16px;
+}
+
+.vrm-media-lib-card {
+  background: #0f172a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.vrm-media-lib-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(59, 130, 246, 0.4);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.vrm-media-lib-card.selected {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.4);
+  background: rgba(15, 23, 42, 0.95);
+}
+
+.vrm-media-card-checkbox {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 10;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(4px);
+  border-radius: 6px;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vrm-media-thumb-area {
+  position: relative;
+  width: 100%;
+  height: 160px;
+  overflow: hidden;
+  background: #090d16;
+}
+
+.vrm-media-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.vrm-media-lib-card:hover .vrm-media-img {
+  transform: scale(1.04);
+}
+
+.vrm-media-status-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 5;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.vrm-media-status-badge.published {
+  background: rgba(16, 185, 129, 0.85);
+  color: #ffffff;
+}
+
+.vrm-media-status-badge.hidden {
+  background: rgba(100, 116, 139, 0.85);
+  color: #f1f5f9;
+}
+
+/* Bulk Toolbar */
+.vrm-bulk-toolbar {
+  animation: fadeIn 0.2s ease-in;
+}
+
+/* Career Page Preview Frame */
+.vrm-preview-wrapper {
+  width: 100%;
+  padding: 0 10px;
+  overflow-x: auto;
+}
+
+.vrm-preview-device-frame {
+  background: #0f172a;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  transition: width 0.3s ease, max-width 0.3s ease;
+}
+
+.vrm-preview-device-frame.desktop {
+  width: 100%;
+  max-width: 1440px;
+}
+
+.vrm-preview-device-frame.tablet {
+  width: 768px;
+  max-width: 100%;
+}
+
+.vrm-preview-device-frame.mobile {
+  width: 390px;
+  max-width: 100%;
+}
+
+.vrm-preview-device-header {
+  background: #090d16;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.vrm-frame-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.vrm-frame-dot.red { background: #ef4444; }
+.vrm-frame-dot.yellow { background: #f59e0b; }
+.vrm-frame-dot.green { background: #10b981; }
+
+.vrm-preview-iframe {
+  width: 100%;
+  height: 800px;
+  border: none;
+  display: block;
+  background: #090d16;
+}
+
+/* Settings Subtabs */
+.vrm-settings-tab-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.vrm-settings-tab-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  color: #94a3b8;
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-size: 13.5px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: auto !important;
+}
+
+.vrm-settings-tab-btn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.vrm-settings-tab-btn.active {
+  background: rgba(59, 130, 246, 0.15);
+  border-color: rgba(59, 130, 246, 0.35);
+  color: #3b82f6;
+  font-weight: 600;
+}
+
+/* Scope all admin buttons to prevent global theme stretching */
+.admin-careers button:not(.vrm-admin-auth-submit-btn):not(.btn-block):not(.w-100) {
+  width: auto !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .vrm-media-lib-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .vrm-media-lib-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 12px;
+  }
+
+  .vrm-media-thumb-area {
+    height: 130px;
+  }
+
+  .vrm-preview-iframe {
+    height: 600px;
+  }
+}
