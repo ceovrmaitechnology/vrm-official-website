@@ -1977,7 +1977,7 @@ function AdminCareers() {
                                                     <th>Category</th>
                                                     <th>Event Date</th>
                                                     <th>Status</th>
-                                                    <th className="text-end pe-3">Actions</th>
+                                                    <th className="text-end pe-3" style={{ minWidth: '150px' }}>Actions</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -2043,8 +2043,8 @@ function AdminCareers() {
                                                                     {item.status === 'published' ? 'Published' : 'Hidden'}
                                                                 </span>
                                                             </td>
-                                                            <td className="text-end pe-3">
-                                                                <div className="vrm-action-btns">
+                                                            <td className="text-end pe-3" style={{ minWidth: '150px' }}>
+                                                                <div className="vrm-action-btns justify-content-end">
                                                                     <button
                                                                         type="button"
                                                                         className={`vrm-action-icon-btn ${item.status === 'published' ? 'hide' : 'publish'}`}
@@ -2429,7 +2429,7 @@ function AdminCareers() {
                                                     <th>Type</th>
                                                     <th>Status</th>
                                                     <th>Posted Date</th>
-                                                    <th className="text-end pe-3">Actions</th>
+                                                    <th className="text-end pe-3" style={{ minWidth: '150px' }}>Actions</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -2457,15 +2457,33 @@ function AdminCareers() {
                                                         <td className="small text-muted">
                                                             {job.postedAt ? new Date(job.postedAt).toLocaleDateString() : '—'}
                                                         </td>
-                                                        <td className="text-end pe-3">
-                                                            <div className="btn-group btn-group-sm">
-                                                                <Link to={`/careers/${job.slug}`} target="_blank" className="btn btn-outline-secondary btn-sm" title="Preview live">
+                                                        <td className="text-end pe-3" style={{ minWidth: '150px' }}>
+                                                            <div className="vrm-action-btns justify-content-end">
+                                                                <Link
+                                                                    to={`/careers/${job.slug}`}
+                                                                    target="_blank"
+                                                                    className="vrm-action-icon-btn preview"
+                                                                    title="Preview Live Job Posting"
+                                                                    aria-label="Preview Live Job Posting"
+                                                                >
                                                                     <i className="far fa-external-link"></i>
                                                                 </Link>
-                                                                <button className="btn btn-outline-primary btn-sm" onClick={() => handleOpenEditJobModal(job)} title="Edit">
+                                                                <button
+                                                                    type="button"
+                                                                    className="vrm-action-icon-btn edit"
+                                                                    onClick={() => handleOpenEditJobModal(job)}
+                                                                    title="Edit Job Opening"
+                                                                    aria-label="Edit Job Opening"
+                                                                >
                                                                     <i className="far fa-edit"></i>
                                                                 </button>
-                                                                <button className="btn btn-outline-danger btn-sm" onClick={() => setJobToDelete(job)} title="Delete">
+                                                                <button
+                                                                    type="button"
+                                                                    className="vrm-action-icon-btn delete"
+                                                                    onClick={() => setJobToDelete(job)}
+                                                                    title="Delete Job Opening"
+                                                                    aria-label="Delete Job Opening"
+                                                                >
                                                                     <i className="far fa-trash-alt"></i>
                                                                 </button>
                                                             </div>
@@ -2602,7 +2620,7 @@ function AdminCareers() {
                                                     <th>Resume</th>
                                                     <th>Status</th>
                                                     <th>Applied Date</th>
-                                                    <th className="text-end pe-3">Actions</th>
+                                                    <th className="text-end pe-3" style={{ minWidth: '150px' }}>Actions</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -2657,7 +2675,7 @@ function AdminCareers() {
                                                         <td className="small text-muted">
                                                             {app.appliedAt ? new Date(app.appliedAt).toLocaleDateString() : '—'}
                                                         </td>
-                                                        <td className="text-end pe-3">
+                                                        <td className="text-end pe-3" style={{ minWidth: '150px' }}>
                                                             <div className="vrm-action-btns justify-content-end">
                                                                 <button
                                                                     type="button"
@@ -2740,7 +2758,7 @@ function AdminCareers() {
                                                     <th>Role</th>
                                                     <th>Status</th>
                                                     <th>Last Updated</th>
-                                                    <th className="text-end pe-3">Actions</th>
+                                                    <th className="text-end pe-3" style={{ minWidth: '150px' }}>Actions</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -2772,27 +2790,33 @@ function AdminCareers() {
                                                             <td className="small text-muted">
                                                                 {adm.updatedAt ? new Date(adm.updatedAt).toLocaleDateString() : '—'}
                                                             </td>
-                                                            <td className="text-end pe-3">
-                                                                <div className="btn-group btn-group-sm">
+                                                            <td className="text-end pe-3" style={{ minWidth: '150px' }}>
+                                                                <div className="vrm-action-btns justify-content-end">
                                                                     <button
-                                                                        className="btn btn-outline-primary btn-sm"
+                                                                        type="button"
+                                                                        className="vrm-action-icon-btn edit"
                                                                         onClick={() => handleOpenEditAdminModal(adm)}
-                                                                        title="Edit"
+                                                                        title="Edit Admin Account"
+                                                                        aria-label="Edit Admin Account"
                                                                     >
                                                                         <i className="far fa-edit"></i>
                                                                     </button>
                                                                     <button
-                                                                        className="btn btn-outline-warning btn-sm text-warning"
+                                                                        type="button"
+                                                                        className="vrm-action-icon-btn key"
                                                                         onClick={() => handleResetAdminPassword(adm.id, adm.username)}
                                                                         title="Reset Password"
+                                                                        aria-label="Reset Password"
                                                                     >
                                                                         <i className="fas fa-key"></i>
                                                                     </button>
                                                                     <button
-                                                                        className="btn btn-outline-danger btn-sm"
+                                                                        type="button"
+                                                                        className="vrm-action-icon-btn delete"
                                                                         disabled={isSelf}
-                                                                        onClick={() => setAdminToDelete(adm)}
-                                                                        title={isSelf ? 'Cannot delete self' : 'Delete'}
+                                                                        onClick={() => !isSelf && setAdminToDelete(adm)}
+                                                                        title={isSelf ? 'You cannot delete your own account' : 'Delete Admin Account'}
+                                                                        aria-label={isSelf ? 'You cannot delete your own account' : 'Delete Admin Account'}
                                                                     >
                                                                         <i className="far fa-trash-alt"></i>
                                                                     </button>

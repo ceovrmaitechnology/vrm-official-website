@@ -4,8 +4,8 @@
    ========================================================================== */
 
 /* Reset global theme button width rule for all admin elements & modals */
-.vrm-admin-root button,
-.admin-careers button,
+.vrm-admin-root button:not(.vrm-admin-nav-item):not(.vrm-admin-btn-upload-quick):not(.vrm-admin-btn-live-quick),
+.admin-careers button:not(.vrm-admin-nav-item):not(.vrm-admin-btn-upload-quick):not(.vrm-admin-btn-live-quick),
 .vrm-dark-modal button,
 .modal.vrm-dark-modal button,
 .modal-dialog button,
@@ -99,10 +99,13 @@ body:has(.admin-careers) .progress-wrap,
 }
 
 .vrm-admin-nav-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 11px 16px;
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  height: 48px !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  padding: 0 16px !important;
   border-radius: 12px;
   color: var(--vrm-text-secondary);
   font-weight: 500;
@@ -112,8 +115,8 @@ body:has(.admin-careers) .progress-wrap,
   border: 1px solid transparent;
   transition: all 0.2s ease;
   cursor: pointer;
-  width: 100%;
   text-align: left;
+  box-sizing: border-box !important;
 }
 
 .vrm-admin-nav-item:hover {
@@ -129,28 +132,42 @@ body:has(.admin-careers) .progress-wrap,
 }
 
 .vrm-admin-nav-label {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
 }
 
 .vrm-admin-nav-icon {
-  font-size: 16px;
-  width: 20px;
+  font-size: 20px !important;
+  width: 24px !important;
+  min-width: 24px !important;
   text-align: center;
   color: inherit;
+  flex: 0 0 24px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
 .vrm-admin-nav-badge {
+  margin-left: auto !important;
+  min-width: 28px !important;
+  height: 24px !important;
+  padding: 0 8px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.12);
   color: #cbd5e1;
-  font-size: 11px;
-  font-weight: 600;
-  padding: 2px 8px;
-  border-radius: 9999px;
-  min-width: 20px;
-  text-align: center;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  border-radius: 9999px !important;
+  line-height: 1 !important;
+  flex: 0 0 auto !important;
+  text-align: center !important;
 }
 
 .vrm-admin-nav-item.active .vrm-admin-nav-badge {
@@ -820,18 +837,36 @@ body:has(.admin-careers) .progress-wrap,
 .vrm-action-icon-btn.edit {
   color: #93c5fd !important;
 }
-.vrm-action-icon-btn.view:hover,
-.vrm-action-icon-btn.edit:hover {
+.vrm-action-icon-btn.view:hover:not(:disabled),
+.vrm-action-icon-btn.edit:hover:not(:disabled) {
   color: #ffffff !important;
   border-color: rgba(96, 165, 250, 0.6) !important;
   background: rgba(59, 130, 246, 0.25) !important;
+}
+
+.vrm-action-icon-btn.key {
+  color: #fbbf24 !important;
+}
+.vrm-action-icon-btn.key:hover:not(:disabled) {
+  color: #ffffff !important;
+  border-color: rgba(251, 191, 36, 0.6) !important;
+  background: rgba(245, 158, 11, 0.25) !important;
+}
+
+.vrm-action-icon-btn.preview {
+  color: #a5b4fc !important;
+}
+.vrm-action-icon-btn.preview:hover:not(:disabled) {
+  color: #ffffff !important;
+  border-color: rgba(165, 180, 252, 0.6) !important;
+  background: rgba(99, 102, 241, 0.25) !important;
 }
 
 .vrm-action-icon-btn.publish {
   color: #4ade80 !important;
   border-color: rgba(74, 222, 128, 0.3) !important;
 }
-.vrm-action-icon-btn.publish:hover {
+.vrm-action-icon-btn.publish:hover:not(:disabled) {
   color: #ffffff !important;
   background: rgba(74, 222, 128, 0.25) !important;
   border-color: rgba(74, 222, 128, 0.6) !important;
@@ -840,7 +875,7 @@ body:has(.admin-careers) .progress-wrap,
 .vrm-action-icon-btn.hide {
   color: #fbbf24 !important;
 }
-.vrm-action-icon-btn.hide:hover {
+.vrm-action-icon-btn.hide:hover:not(:disabled) {
   color: #ffffff !important;
   border-color: rgba(251, 191, 36, 0.5) !important;
   background: rgba(251, 191, 36, 0.25) !important;
@@ -849,10 +884,20 @@ body:has(.admin-careers) .progress-wrap,
 .vrm-action-icon-btn.delete {
   color: #f87171 !important;
 }
-.vrm-action-icon-btn.delete:hover {
+.vrm-action-icon-btn.delete:hover:not(:disabled) {
   color: #ffffff !important;
   border-color: rgba(248, 113, 113, 0.5) !important;
   background: rgba(239, 68, 68, 0.25) !important;
+}
+
+.vrm-action-icon-btn:disabled {
+  opacity: 0.35 !important;
+  cursor: not-allowed !important;
+  pointer-events: auto !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  background: rgba(15, 23, 42, 0.3) !important;
+  color: #64748b !important;
+  transform: none !important;
 }
 
 /* Resume Download Button */
