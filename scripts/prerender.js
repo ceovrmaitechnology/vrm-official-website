@@ -86,11 +86,13 @@ const path = require('path');
 
   console.log(`Starting pre-render for ${routes.length} routes using browser at: ${chromePath}`);
 
+  const tempProfileDir = path.join(require('os').tmpdir(), 'puppeteer_prerender_' + Date.now() + '_' + Math.random().toString(36).slice(2));
   let browser;
   try {
     browser = await puppeteer.launch({
       executablePath: chromePath,
       headless: true,
+      userDataDir: tempProfileDir,
       args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-gpu', '--disable-dev-shm-usage']
     });
   } catch (err) {
@@ -189,6 +191,11 @@ const path = require('path');
   }
 
   await browser.close();
+  try {
+    fs.rmSync(tempProfileDir, { recursive: true, force: true });
+  } catch (e) {
+    // Ignore cleanup errors
+  }
   server.close();
   console.log(`Pre-rendering completed! Successfully rendered ${successCount}/${routes.length} routes.`);
 })();

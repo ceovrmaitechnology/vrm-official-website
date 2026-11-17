@@ -3,6 +3,33 @@
    Pixel-faithful implementation matching target mockup
    ========================================================================== */
 
+/* Reset global theme button width rule for all admin elements & modals */
+.vrm-admin-root button,
+.admin-careers button,
+.vrm-dark-modal button,
+.modal.vrm-dark-modal button,
+.modal-dialog button,
+.modal-footer button,
+.vrm-btn-primary-upload,
+.vrm-action-icon-btn,
+.vrm-view-toggle-btn,
+.vrm-gallery-pill-btn {
+  width: auto !important;
+  max-width: max-content;
+}
+
+/* Hide floating scroll-to-top button completely on admin pages */
+body:has(.vrm-admin-root) .progress-wrap,
+body:has(.admin-careers) .progress-wrap,
+.vrm-admin-root ~ .progress-wrap,
+.admin-careers ~ .progress-wrap,
+.progress-wrap.admin-hidden {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
+}
+
 :root {
   --vrm-admin-bg: #090d16;
   --vrm-sidebar-bg: linear-gradient(180deg, #0d1224 0%, #15102a 60%, #1d1238 100%);
@@ -691,8 +718,13 @@
 }
 
 .vrm-gallery-pill-btn {
-  display: flex;
-  align-items: center;
+  width: auto !important;
+  max-width: max-content !important;
+  flex: 0 0 auto !important;
+  white-space: nowrap !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   gap: 8px;
   padding: 8px 16px;
   border-radius: 8px;
@@ -718,8 +750,12 @@
 }
 
 .vrm-btn-primary-upload {
-  display: flex;
-  align-items: center;
+  width: auto !important;
+  max-width: max-content !important;
+  flex: 0 0 auto !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   gap: 8px;
   background: #2563eb;
   color: #ffffff;
@@ -731,11 +767,81 @@
   cursor: pointer;
   transition: all 0.2s ease;
   box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+  white-space: nowrap;
 }
 
 .vrm-btn-primary-upload:hover {
   background: #1d4ed8;
   transform: translateY(-1px);
+}
+
+/* Compact 36px Action Icon Buttons */
+.vrm-action-btns {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  flex-wrap: nowrap !important;
+}
+
+.vrm-action-icon-btn {
+  width: 36px !important;
+  min-width: 36px !important;
+  max-width: 36px !important;
+  height: 36px !important;
+  padding: 0 !important;
+  border-radius: 8px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 14px !important;
+  cursor: pointer !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  background: rgba(15, 23, 42, 0.7) !important;
+  color: #94a3b8 !important;
+  transition: all 0.2s ease !important;
+  flex: 0 0 36px !important;
+  outline: none !important;
+}
+
+.vrm-action-icon-btn:hover {
+  transform: translateY(-1px) !important;
+}
+
+.vrm-action-icon-btn.edit {
+  color: #93c5fd !important;
+}
+.vrm-action-icon-btn.edit:hover {
+  color: #ffffff !important;
+  border-color: rgba(96, 165, 250, 0.5) !important;
+  background: rgba(59, 130, 246, 0.25) !important;
+}
+
+.vrm-action-icon-btn.publish {
+  color: #4ade80 !important;
+  border-color: rgba(74, 222, 128, 0.3) !important;
+}
+.vrm-action-icon-btn.publish:hover {
+  color: #ffffff !important;
+  background: rgba(74, 222, 128, 0.25) !important;
+  border-color: rgba(74, 222, 128, 0.6) !important;
+}
+
+.vrm-action-icon-btn.hide {
+  color: #fbbf24 !important;
+}
+.vrm-action-icon-btn.hide:hover {
+  color: #ffffff !important;
+  border-color: rgba(251, 191, 36, 0.5) !important;
+  background: rgba(251, 191, 36, 0.25) !important;
+}
+
+.vrm-action-icon-btn.delete {
+  color: #f87171 !important;
+}
+.vrm-action-icon-btn.delete:hover {
+  color: #ffffff !important;
+  border-color: rgba(248, 113, 113, 0.5) !important;
+  background: rgba(239, 68, 68, 0.25) !important;
 }
 
 /* Secondary Filter Toolbar */
@@ -1072,6 +1178,17 @@
 .vrm-dark-modal .modal-footer {
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   padding: 16px 28px;
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: flex-end !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+.vrm-dark-modal .modal-footer button {
+  width: auto !important;
+  max-width: max-content !important;
+  margin: 0 !important;
 }
 
 .vrm-dark-modal .form-label {
@@ -1177,8 +1294,8 @@
     width: 100%;
   }
   .vrm-btn-primary-upload {
-    width: 100%;
-    justify-content: center;
+    width: auto !important;
+    max-width: max-content !important;
   }
 }
 

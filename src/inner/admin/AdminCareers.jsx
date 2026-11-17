@@ -187,6 +187,19 @@ function AdminCareers() {
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, []);
 
+    // Hide floating scroll-to-top button on admin pages
+    useEffect(() => {
+        const btt = document.querySelector('.progress-wrap');
+        if (btt) {
+            btt.style.display = 'none';
+        }
+        return () => {
+            if (btt) {
+                btt.style.display = '';
+            }
+        };
+    }, []);
+
     // Verify Auth on mount
     useEffect(() => {
         if (!token) {
@@ -1388,7 +1401,7 @@ function AdminCareers() {
     // VIEW: AUTHENTICATED REDESIGNED DASHBOARD
     // --------------------------------------------------------------------------
     return (
-        <div className="vrm-admin-root">
+        <div className="vrm-admin-root admin-careers">
             <Helmet>
                 <title>Careers Admin | VRM AI Technology</title>
                 <meta name="robots" content="noindex, nofollow" />
@@ -1967,28 +1980,31 @@ function AdminCareers() {
                                                                 </span>
                                                             </td>
                                                             <td className="text-end pe-3">
-                                                                <div className="btn-group btn-group-sm">
+                                                                <div className="vrm-action-btns">
                                                                     <button
                                                                         type="button"
-                                                                        className={`btn ${item.status === 'published' ? 'btn-outline-secondary' : 'btn-outline-success'} btn-sm`}
+                                                                        className={`vrm-action-icon-btn ${item.status === 'published' ? 'hide' : 'publish'}`}
                                                                         onClick={() => handleTogglePhotoPublish(item)}
                                                                         title={item.status === 'published' ? 'Hide Photo' : 'Approve & Publish'}
+                                                                        aria-label={item.status === 'published' ? 'Hide Photo' : 'Approve & Publish'}
                                                                     >
                                                                         <i className={`fas ${item.status === 'published' ? 'fa-eye-slash' : 'fa-check'}`}></i>
                                                                     </button>
                                                                     <button
                                                                         type="button"
-                                                                        className="btn btn-outline-primary btn-sm"
+                                                                        className="vrm-action-icon-btn edit"
                                                                         onClick={() => handleOpenEditPhotoModal(item)}
                                                                         title="Edit Details"
+                                                                        aria-label="Edit Details"
                                                                     >
                                                                         <i className="far fa-edit"></i>
                                                                     </button>
                                                                     <button
                                                                         type="button"
-                                                                        className="btn btn-outline-danger btn-sm"
+                                                                        className="vrm-action-icon-btn delete"
                                                                         onClick={() => setPhotoToDelete(item)}
                                                                         title="Delete Photo"
+                                                                        aria-label="Delete Photo"
                                                                     >
                                                                         <i className="far fa-trash-alt"></i>
                                                                     </button>
@@ -2026,25 +2042,31 @@ function AdminCareers() {
                                                     </div>
                                                     <div className="d-flex align-items-center justify-content-between mt-3 pt-2 border-top border-secondary">
                                                         <span className="small text-muted">{item.eventDate}</span>
-                                                        <div className="btn-group btn-group-sm">
+                                                        <div className="vrm-action-btns">
                                                             <button
                                                                 type="button"
-                                                                className={`btn ${item.status === 'published' ? 'btn-outline-secondary' : 'btn-outline-success'} btn-sm py-0`}
+                                                                className={`vrm-action-icon-btn ${item.status === 'published' ? 'hide' : 'publish'}`}
                                                                 onClick={() => handleTogglePhotoPublish(item)}
+                                                                title={item.status === 'published' ? 'Hide Photo' : 'Approve & Publish'}
+                                                                aria-label={item.status === 'published' ? 'Hide Photo' : 'Approve & Publish'}
                                                             >
-                                                                {item.status === 'published' ? 'Hide' : 'Approve'}
+                                                                <i className={`fas ${item.status === 'published' ? 'fa-eye-slash' : 'fa-check'}`}></i>
                                                             </button>
                                                             <button
                                                                 type="button"
-                                                                className="btn btn-outline-primary btn-sm py-0"
+                                                                className="vrm-action-icon-btn edit"
                                                                 onClick={() => handleOpenEditPhotoModal(item)}
+                                                                title="Edit Details"
+                                                                aria-label="Edit Details"
                                                             >
-                                                                Edit
+                                                                <i className="far fa-edit"></i>
                                                             </button>
                                                             <button
                                                                 type="button"
-                                                                className="btn btn-outline-danger btn-sm py-0"
+                                                                className="vrm-action-icon-btn delete"
                                                                 onClick={() => setPhotoToDelete(item)}
+                                                                title="Delete Photo"
+                                                                aria-label="Delete Photo"
                                                             >
                                                                 <i className="far fa-trash-alt"></i>
                                                             </button>
@@ -2786,27 +2808,52 @@ function AdminCareers() {
                             <i className="fas fa-info-circle me-1"></i> <strong>Employee Privacy:</strong> Only upload photos of employees who agreed to be published.
                         </div>
 
-                        {!editingPhoto && (
-                            <div className="mb-3">
-                                <label className="form-label">Select Photo (JPG, PNG, WebP; Max 8 MB) <span className="text-danger">*</span></label>
+                        {/* Top: Image Preview & File Selection */}
+                        <div className="mb-3 text-center p-3 bg-black bg-opacity-40 rounded-3 border border-secondary">
+                            {photoPreview ? (
+                                <div>
+                                    <img src={photoPreview} alt="Preview" style={{ maxHeight: '200px', maxWidth: '100%', objectFit: 'contain', borderRadius: '6px' }} />
+                                    {!editingPhoto && (
+                                        <div className="mt-2">
+                                            <label className="btn btn-sm btn-outline-light" style={{ cursor: 'pointer' }}>
+                                                <i className="fas fa-sync-alt me-1"></i> Change Photo
+                                                <input
+                                                    type="file"
+                                                    className="d-none"
+                                                    accept=".jpg,.jpeg,.png,.webp"
+                                                    onChange={handlePhotoFileChange}
+                                                />
+                                            </label>
+                                        </div>
+                                    )}
+                                </div>
+                            ) : (
+                                <div>
+                                    <div className="text-muted small mb-2">Select Photo (JPG, PNG, WebP; Max 8 MB) <span className="text-danger">*</span></div>
+                                    <input
+                                        type="file"
+                                        className="form-control"
+                                        accept=".jpg,.jpeg,.png,.webp"
+                                        onChange={handlePhotoFileChange}
+                                        required={!editingPhoto}
+                                    />
+                                </div>
+                            )}
+                        </div>
+
+                        {/* 2-column grid on desktop, 1-column on mobile */}
+                        <div className="row g-3">
+                            <div className="col-12 col-md-6">
+                                <label className="form-label">Caption (Visible below photo)</label>
                                 <input
-                                    type="file"
+                                    type="text"
                                     className="form-control"
-                                    accept=".jpg,.jpeg,.png,.webp"
-                                    onChange={handlePhotoFileChange}
-                                    required={!editingPhoto}
+                                    placeholder="e.g. Festive smiles and team celebration"
+                                    value={photoCaption}
+                                    onChange={(e) => setPhotoCaption(e.target.value)}
                                 />
                             </div>
-                        )}
-
-                        {photoPreview && (
-                            <div className="mb-3 text-center p-2 bg-black bg-opacity-40 rounded-3 border border-secondary">
-                                <img src={photoPreview} alt="Preview" style={{ maxHeight: '180px', maxWidth: '100%', objectFit: 'contain', borderRadius: '6px' }} />
-                            </div>
-                        )}
-
-                        <div className="row g-3">
-                            <div className="col-md-6">
+                            <div className="col-12 col-md-6">
                                 <label className="form-label">Event Category <span className="text-danger">*</span></label>
                                 <select className="form-select" value={photoCategory} onChange={(e) => setPhotoCategory(e.target.value)} required>
                                     <option value="Fun Friday">Fun Friday</option>
@@ -2815,29 +2862,19 @@ function AdminCareers() {
                                     <option value="Office">Office</option>
                                 </select>
                             </div>
-                            <div className="col-md-6">
+                            <div className="col-12 col-md-6">
                                 <label className="form-label">Event Date <span className="text-danger">*</span></label>
                                 <input type="date" className="form-control" value={photoEventDate} onChange={(e) => setPhotoEventDate(e.target.value)} required />
                             </div>
-                            <div className="col-12">
-                                <label className="form-label">Alt Text (Required for accessibility & SEO) <span className="text-danger">*</span></label>
+                            <div className="col-12 col-md-6">
+                                <label className="form-label">Alt Text (Required for SEO) <span className="text-danger">*</span></label>
                                 <input
                                     type="text"
                                     className="form-control"
-                                    placeholder="e.g. VRM AI team celebrating Diwali festival at Bengaluru office"
+                                    placeholder="e.g. VRM AI team celebrating Diwali festival"
                                     value={photoAltText}
                                     onChange={(e) => setPhotoAltText(e.target.value)}
                                     required
-                                />
-                            </div>
-                            <div className="col-12">
-                                <label className="form-label">Caption (Visible below photo)</label>
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    placeholder="e.g. Festive smiles and team celebration"
-                                    value={photoCaption}
-                                    onChange={(e) => setPhotoCaption(e.target.value)}
                                 />
                             </div>
                             <div className="col-12">
@@ -2849,7 +2886,7 @@ function AdminCareers() {
                             </div>
                         </div>
                     </Modal.Body>
-                    <Modal.Footer>
+                    <Modal.Footer className="d-flex justify-content-end align-items-center gap-3">
                         <button type="button" className="btn btn-outline-secondary" onClick={() => setShowUploadModal(false)}>Cancel</button>
                         <button type="submit" disabled={isSavingPhoto} className="btn btn-primary px-4">
                             {isSavingPhoto ? 'Saving Photo...' : (editingPhoto ? 'Save Changes' : 'Upload Photo')}
