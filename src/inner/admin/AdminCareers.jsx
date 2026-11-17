@@ -101,6 +101,8 @@ function AdminCareers() {
     const [selectedApp, setSelectedApp] = useState(null);
     const [appToDelete, setAppToDelete] = useState(null);
     const [isDeletingApp, setIsDeletingApp] = useState(false);
+    const [downloadingAppId, setDownloadingAppId] = useState(null);
+    const [resumeToast, setResumeToast] = useState(null);
 
     // Gallery State (Life at VRM)
     const [gallery, setGallery] = useState([]);
@@ -885,9 +887,71 @@ function AdminCareers() {
         }
     };
 
-    const handleDownloadResume = (app) => {
-        if (!app || !app.storedFileName) return;
-        window.open(`/api/admin/careers/applications/${app.id}/resume?token=${encodeURIComponent(token)}`, '_blank');
+    const handleDownloadResume = async (app) => {
+        if (!app || !app.storedFileName) {
+            setResumeToast({ type: 'danger', message: 'No resume attached to this application.' });
+            setTimeout(() => setResumeToast(null), 5000);
+            return;
+        }
+
+        try {
+            setDownloadingAppId(app.id);
+            setResumeToast(null);
+
+            const res = await fetch(`/api/admin/careers/applications/${app.id}/resume`, {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+
+            if (!res.ok) {
+                let errorMsg = 'Failed to download resume.';
+                try {
+                    const errorData = await res.json();
+                    if (errorData && errorData.message) {
+                        errorMsg = errorData.message;
+                    }
+                } catch (e) {
+                    errorMsg = `Download failed (${res.status} ${res.statusText})`;
+                }
+                throw new Error(errorMsg);
+            }
+
+            // Extract filename from Content-Disposition header if available, or fallback to candidate name + original extension
+            let filename = app.originalFileName || `resume_${(app.fullName || 'candidate').replace(/\s+/g, '_')}`;
+            const disposition = res.headers.get('Content-Disposition') || res.headers.get('content-disposition');
+            if (disposition && disposition.includes('filename=')) {
+                const match = disposition.match(/filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/);
+                if (match && match[1]) {
+                    filename = match[1].replace(/['"]/g, '').trim();
+                }
+            }
+
+            const blob = await res.blob();
+            const blobUrl = window.URL.createObjectURL(blob);
+            const downloadLink = document.createElement('a');
+            downloadLink.style.display = 'none';
+            downloadLink.href = blobUrl;
+            downloadLink.download = filename;
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+
+            setTimeout(() => {
+                window.URL.revokeObjectURL(blobUrl);
+                if (downloadLink.parentNode) {
+                    downloadLink.parentNode.removeChild(downloadLink);
+                }
+            }, 1000);
+
+            setResumeToast({ type: 'success', message: `Downloaded: ${filename}` });
+            setTimeout(() => setResumeToast(null), 4000);
+        } catch (err) {
+            console.error('Resume download error:', err);
+            setResumeToast({ type: 'danger', message: err.message || 'Error downloading resume file.' });
+            setTimeout(() => setResumeToast(null), 6000);
+        } finally {
+            setDownloadingAppId(null);
+        }
     };
 
     // --------------------------------------------------------------------------
@@ -2502,6 +2566,17 @@ function AdminCareers() {
                                 </div>
                             </div>
 
+                            {/* Resume Download / Action Inline Toast */}
+                            {resumeToast && (
+                                <div className={`alert ${resumeToast.type === 'danger' ? 'alert-danger' : 'alert-success'} d-flex align-items-center justify-content-between py-2 px-3 mb-4 rounded-3 shadow-sm`} role="alert">
+                                    <div className="d-flex align-items-center">
+                                        <i className={`fas ${resumeToast.type === 'danger' ? 'fa-exclamation-circle' : 'fa-check-circle'} me-2`}></i>
+                                        <span style={{ fontSize: '13.5px' }}>{resumeToast.message}</span>
+                                    </div>
+                                    <button type="button" className="btn-close btn-close-white ms-3" onClick={() => setResumeToast(null)} aria-label="Close"></button>
+                                </div>
+                            )}
+
                             {/* Applications Table */}
                             <div className="vrm-admin-table-card">
                                 {isLoadingApps ? (
@@ -2543,10 +2618,24 @@ function AdminCareers() {
                                                         <td>
                                                             {app.storedFileName ? (
                                                                 <button
-                                                                    className="btn btn-sm btn-outline-primary py-1 px-2"
+                                                                    type="button"
+                                                                    className="vrm-btn-download-resume"
                                                                     onClick={() => handleDownloadResume(app)}
+                                                                    disabled={downloadingAppId === app.id}
+                                                                    title={`Download ${app.originalFileName || 'Resume'}`}
+                                                                    aria-label={`Download resume for ${app.fullName}`}
                                                                 >
-                                                                    <i className="fas fa-file-download me-1"></i> Download
+                                                                    {downloadingAppId === app.id ? (
+                                                                        <>
+                                                                            <span className="spinner-border spinner-border-sm" role="status" style={{ width: '13px', height: '13px' }}></span>
+                                                                            <span>Downloading...</span>
+                                                                        </>
+                                                                    ) : (
+                                                                        <>
+                                                                            <i className="fas fa-file-download"></i>
+                                                                            <span>Download</span>
+                                                                        </>
+                                                                    )}
                                                                 </button>
                                                             ) : (
                                                                 <span className="text-muted small">None</span>
@@ -2569,11 +2658,23 @@ function AdminCareers() {
                                                             {app.appliedAt ? new Date(app.appliedAt).toLocaleDateString() : '—'}
                                                         </td>
                                                         <td className="text-end pe-3">
-                                                            <div className="btn-group btn-group-sm">
-                                                                <button className="btn btn-outline-primary btn-sm" onClick={() => setSelectedApp(app)} title="View Details">
+                                                            <div className="vrm-action-btns justify-content-end">
+                                                                <button
+                                                                    type="button"
+                                                                    className="vrm-action-icon-btn view"
+                                                                    onClick={() => setSelectedApp(app)}
+                                                                    title="View Candidate Application"
+                                                                    aria-label="View Candidate Application"
+                                                                >
                                                                     <i className="far fa-eye"></i>
                                                                 </button>
-                                                                <button className="btn btn-outline-danger btn-sm" onClick={() => setAppToDelete(app)} title="Delete">
+                                                                <button
+                                                                    type="button"
+                                                                    className="vrm-action-icon-btn delete"
+                                                                    onClick={() => setAppToDelete(app)}
+                                                                    title="Delete Application"
+                                                                    aria-label="Delete Application"
+                                                                >
                                                                     <i className="far fa-trash-alt"></i>
                                                                 </button>
                                                             </div>
@@ -3044,8 +3145,25 @@ function AdminCareers() {
                                 <label className="small text-muted mb-0">Resume</label>
                                 <div>
                                     {selectedApp.storedFileName ? (
-                                        <button className="btn btn-sm btn-primary mt-1" onClick={() => handleDownloadResume(selectedApp)}>
-                                            <i className="fas fa-download me-1"></i> Download {selectedApp.originalFileName || 'Resume'}
+                                        <button
+                                            type="button"
+                                            className="vrm-btn-download-resume mt-1"
+                                            onClick={() => handleDownloadResume(selectedApp)}
+                                            disabled={downloadingAppId === selectedApp.id}
+                                            title={`Download ${selectedApp.originalFileName || 'Resume'}`}
+                                            aria-label={`Download resume for candidate ${selectedApp.fullName}`}
+                                        >
+                                            {downloadingAppId === selectedApp.id ? (
+                                                <>
+                                                    <span className="spinner-border spinner-border-sm" role="status" style={{ width: '13px', height: '13px' }}></span>
+                                                    <span>Downloading...</span>
+                                                </>
+                                            ) : (
+                                                <>
+                                                    <i className="fas fa-file-download"></i>
+                                                    <span>Download {selectedApp.originalFileName || 'Resume'}</span>
+                                                </>
+                                            )}
                                         </button>
                                     ) : (
                                         <span className="text-muted small">None attached</span>
@@ -3079,12 +3197,13 @@ function AdminCareers() {
                     <Modal.Title className="text-danger"><i className="far fa-trash-alt me-2"></i> Delete Application</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    Delete application from <strong>{appToDelete?.fullName}</strong>? The resume file will also be removed from disk.
+                    <p className="text-white fw-semibold mb-2">Delete this application permanently? This cannot be undone.</p>
+                    <p className="text-muted small mb-0">Candidate: <strong>{appToDelete?.fullName}</strong> ({appToDelete?.position || 'Applicant'}). The attached resume file will also be removed permanently from disk.</p>
                 </Modal.Body>
                 <Modal.Footer>
                     <button className="btn btn-outline-secondary" onClick={() => setAppToDelete(null)}>Cancel</button>
-                    <button className="btn btn-danger" disabled={isDeletingApp} onClick={handleDeleteApp}>
-                        {isDeletingApp ? 'Deleting...' : 'Delete Application'}
+                    <button className="btn btn-danger px-3" disabled={isDeletingApp} onClick={handleDeleteApp}>
+                        {isDeletingApp ? 'Deleting...' : 'Delete Permanently'}
                     </button>
                 </Modal.Footer>
             </Modal>

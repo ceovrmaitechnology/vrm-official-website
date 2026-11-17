@@ -11,6 +11,7 @@
 .modal-dialog button,
 .modal-footer button,
 .vrm-btn-primary-upload,
+.vrm-btn-download-resume,
 .vrm-action-icon-btn,
 .vrm-view-toggle-btn,
 .vrm-gallery-pill-btn {
@@ -793,7 +794,7 @@ body:has(.admin-careers) .progress-wrap,
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  font-size: 14px !important;
+  font-size: 16px !important;
   cursor: pointer !important;
   border: 1px solid rgba(255, 255, 255, 0.12) !important;
   background: rgba(15, 23, 42, 0.7) !important;
@@ -803,16 +804,23 @@ body:has(.admin-careers) .progress-wrap,
   outline: none !important;
 }
 
+.vrm-action-icon-btn i {
+  font-size: 16px !important;
+  line-height: 1 !important;
+}
+
 .vrm-action-icon-btn:hover {
   transform: translateY(-1px) !important;
 }
 
+.vrm-action-icon-btn.view,
 .vrm-action-icon-btn.edit {
   color: #93c5fd !important;
 }
+.vrm-action-icon-btn.view:hover,
 .vrm-action-icon-btn.edit:hover {
   color: #ffffff !important;
-  border-color: rgba(96, 165, 250, 0.5) !important;
+  border-color: rgba(96, 165, 250, 0.6) !important;
   background: rgba(59, 130, 246, 0.25) !important;
 }
 
@@ -842,6 +850,47 @@ body:has(.admin-careers) .progress-wrap,
   color: #ffffff !important;
   border-color: rgba(248, 113, 113, 0.5) !important;
   background: rgba(239, 68, 68, 0.25) !important;
+}
+
+/* Resume Download Button */
+.vrm-btn-download-resume {
+  height: 36px !important;
+  padding: 0 14px !important;
+  font-size: 13.5px !important;
+  font-weight: 500 !important;
+  line-height: 1 !important;
+  border-radius: 8px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  cursor: pointer !important;
+  background: rgba(37, 99, 235, 0.16) !important;
+  border: 1px solid rgba(59, 130, 246, 0.45) !important;
+  color: #93c5fd !important;
+  transition: all 0.2s ease !important;
+  white-space: nowrap !important;
+  width: auto !important;
+  max-width: max-content !important;
+  text-decoration: none !important;
+}
+
+.vrm-btn-download-resume:hover:not(:disabled) {
+  background: #2563eb !important;
+  color: #ffffff !important;
+  border-color: #3b82f6 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35) !important;
+}
+
+.vrm-btn-download-resume:disabled {
+  opacity: 0.6 !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+}
+
+.vrm-btn-download-resume i {
+  font-size: 15px !important;
 }
 
 /* Secondary Filter Toolbar */
@@ -976,8 +1025,15 @@ body:has(.admin-careers) .progress-wrap,
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
 }
 
+.vrm-admin-table-card .table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 .vrm-dark-table {
   width: 100%;
+  min-width: 960px;
   margin-bottom: 0;
   color: #e2e8f0;
   border-collapse: collapse;

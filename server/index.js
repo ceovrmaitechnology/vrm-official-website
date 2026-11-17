@@ -11,7 +11,9 @@ const careersDb = require("./careers-db");
 const app = express();
 const PORT = Number(process.env.SERVER_PORT || process.env.PORT || 3000);
 
-app.use(cors());
+app.use(cors({
+  exposedHeaders: ["Content-Disposition"]
+}));
 app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ extended: true }));
 // Security headers (HSTS, CSP)
@@ -610,9 +612,15 @@ app.get("/api/admin/careers/applications/:id/resume", requireAdmin, (req, res) =
       return res.status(404).json({ success: false, message: "Resume file not found on server disk." });
     }
     const downloadName = application.originalFileName || `resume_${application.fullName.replace(/\s+/g, '_')}${path.extname(application.storedFileName)}`;
-    res.download(filePath, downloadName);
+    res.download(filePath, downloadName, (downloadErr) => {
+      if (downloadErr && !res.headersSent) {
+        res.status(500).json({ success: false, message: "Failed to send resume file." });
+      }
+    });
   } catch (err) {
-    res.status(500).json({ success: false, message: err.message });
+    if (!res.headersSent) {
+      res.status(500).json({ success: false, message: err.message });
+    }
   }
 });
 
