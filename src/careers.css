@@ -315,3 +315,93 @@
 .modal-backdrop {
     z-index: 999998 !important;
 }
+
+/* =======================================
+   Life at VRM (Careers Gallery Section)
+   ======================================= */
+.careers-gallery-section {
+    background: #f8fafc;
+    border-top: 1px solid #eef2f6;
+    border-bottom: 1px solid #eef2f6;
+}
+
+.careers-gallery-filter-wrap {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 10px !important;
+    margin-top: 1.5rem !important;
+    width: 100% !important;
+}
+
+.careers-gallery-filter-wrap .careers-gallery-pill,
+button.careers-gallery-pill {
+    width: auto !important;
+    max-width: max-content !important;
+    flex: 0 0 auto !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    white-space: nowrap !important;
+    padding: 8px 18px !important;
+    border-radius: 9999px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    line-height: 1.4 !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    background: #ffffff !important;
+    border: 1px solid #cbd5e1 !important;
+    color: #475569 !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+}
+
+.careers-gallery-filter-wrap .careers-gallery-pill:hover,
+button.careers-gallery-pill:hover {
+    background: #f1f5f9 !important;
+    color: #1e293b !important;
+    border-color: #94a3b8 !important;
+    transform: translateY(-1px) !important;
+}
+
+.careers-gallery-filter-wrap .careers-gallery-pill.active,
+button.careers-gallery-pill.active {
+    background: var(--color-primary, #0d6efd) !important;
+    color: #ffffff !important;
+    border-color: var(--color-primary, #0d6efd) !important;
+    box-shadow: 0 4px 12px rgba(13, 110, 253, 0.25) !important;
+}
+
+/* Photo Grid */
+.careers-gallery-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important;
+    justify-content: center !important;
+    gap: 24px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+}
+
+.careers-gallery-item {
+    width: 100% !important;
+    max-width: 360px !important;
+    margin: 0 auto !important;
+    display: flex !important;
+}
+
+.careers-gallery-card {
+    width: 100% !important;
+    max-width: 360px !important;
+    border-radius: 16px !important;
+    cursor: pointer !important;
+    transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+    background: #ffffff !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.careers-gallery-card:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1) !important;
+}

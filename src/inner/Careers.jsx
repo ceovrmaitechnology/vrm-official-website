@@ -207,14 +207,29 @@ function Careers() {
 
                             {/* Category Filter Tabs */}
                             {categories.length > 1 && (
-                                <div className="d-flex flex-wrap justify-content-center gap-2 mt-4">
+                                <div
+                                    className="careers-gallery-filter-wrap"
+                                    style={{
+                                        display: 'flex',
+                                        flexWrap: 'wrap',
+                                        justifyContent: 'center',
+                                        alignItems: 'center',
+                                        gap: '10px',
+                                        marginTop: '1.5rem',
+                                        width: '100%'
+                                    }}
+                                >
                                     {categories.map(cat => (
                                         <button
                                             key={cat}
                                             type="button"
-                                            className={`btn btn-sm px-3 py-2 rounded-pill fw-semibold ${activeCategory === cat ? 'btn-primary' : 'btn-outline-secondary'}`}
+                                            className={`careers-gallery-pill ${activeCategory === cat ? 'active' : ''}`}
                                             onClick={() => setActiveCategory(cat)}
-                                            style={{ fontSize: '13px', transition: 'all 0.2s ease' }}
+                                            style={{
+                                                width: 'auto',
+                                                maxWidth: 'max-content',
+                                                flex: '0 0 auto'
+                                            }}
                                         >
                                             {cat} {cat === 'All' ? `(${gallery.length})` : `(${gallery.filter(g => g.category === cat).length})`}
                                         </button>
@@ -224,16 +239,40 @@ function Careers() {
                         </div>
 
                         {/* Photo Grid */}
-                        <div className="row g-4 justify-content-center">
+                        <div
+                            className="careers-gallery-grid"
+                            style={{
+                                display: 'grid',
+                                gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
+                                justifyContent: 'center',
+                                gap: '24px',
+                                width: '100%',
+                                maxWidth: filteredGallery.length === 1 ? '360px' : filteredGallery.length === 2 ? '744px' : '1140px',
+                                margin: '0 auto'
+                            }}
+                        >
                             {filteredGallery.map((photo) => (
-                                <div className="col-12 col-sm-6 col-lg-4" key={photo.id}>
+                                <div
+                                    className="careers-gallery-item"
+                                    key={photo.id}
+                                    style={{
+                                        width: '100%',
+                                        maxWidth: '360px',
+                                        margin: '0 auto',
+                                        display: 'flex'
+                                    }}
+                                >
                                     <div
-                                        className="card border-0 shadow-sm overflow-hidden h-100"
+                                        className="card border-0 shadow-sm overflow-hidden h-100 careers-gallery-card"
                                         style={{
+                                            width: '100%',
+                                            maxWidth: '360px',
                                             borderRadius: '16px',
                                             cursor: 'pointer',
                                             transition: 'transform 0.25s ease, box-shadow 0.25s ease',
-                                            background: '#fff'
+                                            background: '#fff',
+                                            display: 'flex',
+                                            flexDirection: 'column'
                                         }}
                                         onClick={() => setLightboxPhoto(photo)}
                                         onMouseEnter={(e) => {
@@ -274,7 +313,9 @@ function Careers() {
                                             )}
                                             <div className="d-flex align-items-center justify-content-between text-muted small mt-2 pt-2 border-top">
                                                 <span><i className="far fa-calendar-alt text-primary me-1"></i> {photo.eventDate || (photo.createdAt || '').slice(0, 10)}</span>
-                                                <span className="text-primary fw-semibold"><i className="far fa-expand-alt me-1"></i> View Photo</span>
+                                                <span className="text-primary fw-semibold" onClick={(e) => { e.stopPropagation(); setLightboxPhoto(photo); }}>
+                                                    <i className="far fa-expand-alt me-1"></i> View Photo
+                                                </span>
                                             </div>
                                         </div>
                                     </div>
