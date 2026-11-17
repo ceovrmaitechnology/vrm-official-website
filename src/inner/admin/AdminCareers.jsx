@@ -3119,39 +3119,74 @@ function AdminCareers() {
                 <Modal.Body>
                     {selectedApp && (
                         <div className="row g-3">
-                            <div className="col-md-6">
-                                <label className="small text-muted mb-0">Position</label>
-                                <div className="fw-bold text-white">{selectedApp.position}</div>
+                            <div className="col-12 col-md-6">
+                                <label className="form-label text-muted small mb-1">Position Applied</label>
+                                <div className="p-2 px-3 rounded-3 bg-black bg-opacity-30 border border-secondary border-opacity-50">
+                                    <span className="vrm-badge-cat">{selectedApp.position}</span>
+                                </div>
                             </div>
-                            <div className="col-md-6">
-                                <label className="small text-muted mb-0">Experience</label>
-                                <div className="fw-bold text-white">{selectedApp.experience}</div>
+                            <div className="col-12 col-md-6">
+                                <label className="form-label text-muted small mb-1">Candidate Experience</label>
+                                <div className="p-2 px-3 rounded-3 bg-black bg-opacity-30 border border-secondary border-opacity-50 fw-semibold text-white">
+                                    {selectedApp.experience || 'Not specified'}
+                                </div>
                             </div>
-                            <div className="col-md-6">
-                                <label className="small text-muted mb-0">Email</label>
-                                <div><a href={`mailto:${selectedApp.email}`} className="text-info">{selectedApp.email}</a></div>
+                            <div className="col-12 col-md-6">
+                                <label className="form-label text-muted small mb-1">Email Address</label>
+                                <div className="p-2 px-3 rounded-3 bg-black bg-opacity-30 border border-secondary border-opacity-50">
+                                    <a href={`mailto:${selectedApp.email}`} className="text-info text-decoration-none fw-semibold">
+                                        <i className="far fa-envelope me-2"></i>{selectedApp.email}
+                                    </a>
+                                </div>
                             </div>
-                            <div className="col-md-6">
-                                <label className="small text-muted mb-0">Phone</label>
-                                <div className="text-white">{selectedApp.phone}</div>
+                            <div className="col-12 col-md-6">
+                                <label className="form-label text-muted small mb-1">Contact Phone</label>
+                                <div className="p-2 px-3 rounded-3 bg-black bg-opacity-30 border border-secondary border-opacity-50 text-white fw-semibold">
+                                    <i className="fas fa-phone-alt me-2 text-muted"></i>{selectedApp.phone || 'Not provided'}
+                                </div>
                             </div>
+
+                            {/* Cover Letter Box */}
                             <div className="col-12">
-                                <label className="small text-muted mb-0">Cover Letter</label>
-                                <div className="p-3 bg-black bg-opacity-40 rounded-3 border border-secondary text-light small" style={{ maxHeight: '140px', overflowY: 'auto', whiteSpace: 'pre-wrap' }}>
+                                <label className="form-label text-muted small mb-1">Cover Letter</label>
+                                <div className="vrm-cover-letter-box">
                                     {selectedApp.coverLetter || 'No cover letter submitted.'}
                                 </div>
                             </div>
-                            <div className="col-md-6">
-                                <label className="small text-muted mb-0">Resume</label>
-                                <div>
-                                    {selectedApp.storedFileName ? (
+
+                            {/* Attached Resume: Dedicated Full-Width Row */}
+                            <div className="col-12">
+                                <label className="form-label text-muted small mb-1">Attached Resume</label>
+                                {selectedApp.storedFileName ? (
+                                    <div className="vrm-resume-download-card">
+                                        <div className="vrm-resume-file-icon">
+                                            <i className={
+                                                (selectedApp.originalFileName || selectedApp.storedFileName || '').toLowerCase().endsWith('.pdf')
+                                                    ? 'fas fa-file-pdf text-danger'
+                                                    : 'fas fa-file-word text-primary'
+                                            }></i>
+                                        </div>
+                                        <div className="vrm-resume-info">
+                                            <div className="vrm-resume-title-row">
+                                                <span className="fw-semibold text-white">Download Resume</span>
+                                                <span className="badge bg-secondary bg-opacity-50 text-light ms-2" style={{ fontSize: '10.5px' }}>
+                                                    {((selectedApp.originalFileName || selectedApp.storedFileName || '').split('.').pop() || 'FILE').toUpperCase()}
+                                                </span>
+                                            </div>
+                                            <div
+                                                className="vrm-resume-filename"
+                                                title={selectedApp.originalFileName || selectedApp.storedFileName}
+                                            >
+                                                {selectedApp.originalFileName || selectedApp.storedFileName}
+                                            </div>
+                                        </div>
                                         <button
                                             type="button"
-                                            className="vrm-btn-download-resume mt-1"
+                                            className="vrm-btn-download-action"
                                             onClick={() => handleDownloadResume(selectedApp)}
                                             disabled={downloadingAppId === selectedApp.id}
                                             title={`Download ${selectedApp.originalFileName || 'Resume'}`}
-                                            aria-label={`Download resume for candidate ${selectedApp.fullName}`}
+                                            aria-label={`Download resume for ${selectedApp.fullName}`}
                                         >
                                             {downloadingAppId === selectedApp.id ? (
                                                 <>
@@ -3161,33 +3196,64 @@ function AdminCareers() {
                                             ) : (
                                                 <>
                                                     <i className="fas fa-file-download"></i>
-                                                    <span>Download {selectedApp.originalFileName || 'Resume'}</span>
+                                                    <span>Download</span>
                                                 </>
                                             )}
                                         </button>
-                                    ) : (
-                                        <span className="text-muted small">None attached</span>
-                                    )}
-                                </div>
+                                    </div>
+                                ) : (
+                                    <div className="p-3 bg-black bg-opacity-40 rounded-3 border border-secondary text-muted small">
+                                        <i className="fas fa-info-circle me-1"></i> No resume file attached to this application.
+                                    </div>
+                                )}
                             </div>
-                            <div className="col-md-6">
-                                <label className="small text-muted mb-0">Status</label>
-                                <select
-                                    className="form-select form-select-sm mt-1"
-                                    value={selectedApp.status}
-                                    onChange={(e) => handleUpdateAppStatus(selectedApp.id, e.target.value)}
-                                >
-                                    <option value="new">New</option>
-                                    <option value="reviewed">Reviewed</option>
-                                    <option value="shortlisted">Shortlisted</option>
-                                    <option value="rejected">Rejected</option>
-                                </select>
+
+                            {/* Application Status: Dedicated Full-Width Row */}
+                            <div className="col-12">
+                                <label className="form-label text-muted small mb-1">Application Pipeline Status</label>
+                                <div className="d-flex align-items-center gap-3 flex-wrap">
+                                    <select
+                                        className="form-select"
+                                        value={selectedApp.status}
+                                        onChange={(e) => handleUpdateAppStatus(selectedApp.id, e.target.value)}
+                                        style={{ maxWidth: '280px' }}
+                                    >
+                                        <option value="new">New (Awaiting Review)</option>
+                                        <option value="reviewed">Reviewed</option>
+                                        <option value="shortlisted">Shortlisted</option>
+                                        <option value="rejected">Rejected</option>
+                                    </select>
+                                    <span className="small text-muted">Status updates automatically in the pipeline.</span>
+                                </div>
                             </div>
                         </div>
                     )}
                 </Modal.Body>
-                <Modal.Footer>
-                    <button className="btn btn-outline-secondary" onClick={() => setSelectedApp(null)}>Close</button>
+                <Modal.Footer className="d-flex justify-content-between align-items-center flex-wrap gap-3">
+                    <div className="text-muted small d-flex align-items-center">
+                        <i className="far fa-calendar-alt text-primary me-2"></i>
+                        <span>Applied on: {selectedApp?.appliedAt ? new Date(selectedApp.appliedAt).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' }) : '—'}</span>
+                    </div>
+                    <div className="d-flex align-items-center gap-2">
+                        {selectedApp?.email && (
+                            <a
+                                href={`mailto:${selectedApp.email}?subject=${encodeURIComponent(`VRM AI Technology - Application for ${selectedApp.position || 'Open Role'}`)}`}
+                                className="vrm-btn-reply-email"
+                                title={`Send email to ${selectedApp.email}`}
+                                aria-label={`Reply by email to ${selectedApp.fullName}`}
+                            >
+                                <i className="far fa-envelope"></i>
+                                <span>Reply by email</span>
+                            </a>
+                        )}
+                        <button
+                            type="button"
+                            className="btn btn-outline-secondary vrm-modal-close-btn"
+                            onClick={() => setSelectedApp(null)}
+                        >
+                            Close
+                        </button>
+                    </div>
                 </Modal.Footer>
             </Modal>
 

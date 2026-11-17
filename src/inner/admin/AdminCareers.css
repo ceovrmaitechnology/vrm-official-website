@@ -12,6 +12,9 @@
 .modal-footer button,
 .vrm-btn-primary-upload,
 .vrm-btn-download-resume,
+.vrm-btn-download-action,
+.vrm-btn-reply-email,
+.vrm-modal-close-btn,
 .vrm-action-icon-btn,
 .vrm-view-toggle-btn,
 .vrm-gallery-pill-btn {
@@ -1272,6 +1275,161 @@ body:has(.admin-careers) .progress-wrap,
   color: #ffffff;
 }
 
+/* Resume Download Card in Application Modal */
+.vrm-resume-download-card {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 14px !important;
+  background: rgba(15, 23, 42, 0.7) !important;
+  border: 1px solid rgba(59, 130, 246, 0.3) !important;
+  border-radius: 12px !important;
+  padding: 12px 18px !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+}
+
+.vrm-resume-file-icon {
+  font-size: 28px !important;
+  flex: 0 0 auto !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.vrm-resume-info {
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  overflow: hidden !important;
+}
+
+.vrm-resume-title-row {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  font-size: 14px !important;
+}
+
+.vrm-resume-filename {
+  font-size: 12px !important;
+  color: #94a3b8 !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  max-width: 100% !important;
+  margin-top: 2px !important;
+  line-height: 1.4 !important;
+}
+
+.vrm-btn-download-action {
+  flex: 0 0 auto !important;
+  height: 38px !important;
+  padding: 0 16px !important;
+  font-size: 13.5px !important;
+  font-weight: 500 !important;
+  border-radius: 8px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  cursor: pointer !important;
+  background: #2563eb !important;
+  border: 1px solid #3b82f6 !important;
+  color: #ffffff !important;
+  transition: all 0.2s ease !important;
+  white-space: nowrap !important;
+  box-shadow: 0 2px 10px rgba(37, 99, 235, 0.35) !important;
+}
+
+.vrm-btn-download-action:hover:not(:disabled) {
+  background: #1d4ed8 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.5) !important;
+}
+
+.vrm-btn-download-action:disabled {
+  opacity: 0.6 !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+}
+
+/* Cover Letter Box */
+.vrm-cover-letter-box {
+  min-height: 160px !important;
+  max-height: 260px !important;
+  overflow-y: auto !important;
+  white-space: pre-wrap !important;
+  word-break: break-word !important;
+  background: rgba(10, 15, 29, 0.7) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 10px !important;
+  padding: 16px !important;
+  color: #e2e8f0 !important;
+  font-size: 13.5px !important;
+  line-height: 1.6 !important;
+}
+
+.vrm-cover-letter-box::-webkit-scrollbar {
+  width: 6px !important;
+}
+
+.vrm-cover-letter-box::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.6) !important;
+  border-radius: 4px !important;
+}
+
+.vrm-cover-letter-box::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2) !important;
+  border-radius: 4px !important;
+}
+
+.vrm-cover-letter-box::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.35) !important;
+}
+
+/* Application Modal Reply Email Button */
+.vrm-btn-reply-email {
+  height: 40px !important;
+  padding: 0 16px !important;
+  font-size: 13.5px !important;
+  font-weight: 500 !important;
+  border-radius: 8px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  cursor: pointer !important;
+  background: rgba(37, 99, 235, 0.2) !important;
+  border: 1px solid rgba(59, 130, 246, 0.5) !important;
+  color: #93c5fd !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+  transition: all 0.2s ease !important;
+}
+
+.vrm-btn-reply-email:hover {
+  background: #2563eb !important;
+  color: #ffffff !important;
+  border-color: #3b82f6 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35) !important;
+}
+
+/* Modal Close Button */
+.vrm-modal-close-btn {
+  height: 40px !important;
+  min-width: 100px !important;
+  padding: 0 20px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  border-radius: 8px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
 /* --------------------------------------------------------------------------
    RESPONSIVENESS (< 1024px)
    -------------------------------------------------------------------------- */
@@ -1354,4 +1512,35 @@ body:has(.admin-careers) .progress-wrap,
     max-width: max-content !important;
   }
 }
+
+@media (max-width: 576px) {
+  .vrm-resume-download-card {
+    padding: 10px 14px !important;
+    gap: 10px !important;
+  }
+  .vrm-resume-file-icon {
+    font-size: 24px !important;
+  }
+  .vrm-btn-download-action {
+    height: 36px !important;
+    padding: 0 12px !important;
+    font-size: 12.5px !important;
+  }
+  .vrm-dark-modal .modal-footer {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 12px !important;
+  }
+  .vrm-dark-modal .modal-footer > div {
+    width: 100% !important;
+    justify-content: space-between !important;
+  }
+  .vrm-btn-reply-email,
+  .vrm-modal-close-btn {
+    flex: 1 1 auto !important;
+    text-align: center !important;
+    justify-content: center !important;
+  }
+}
+
 
