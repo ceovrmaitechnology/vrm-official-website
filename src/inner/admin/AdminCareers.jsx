@@ -7,6 +7,38 @@ import './AdminCareers.css';
 const TOKEN_KEY = 'vrm_admin_token';
 const USER_KEY = 'vrm_admin_user_data';
 
+// Basic HTML sanitization for rich text description
+function sanitizeHtml(html) {
+    if (!html) return '';
+    return html
+        .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
+        .replace(/<style\b[^<]*(?:(?!<\/style>)<[^<]*)*<\/style>/gi, '')
+        .replace(/<iframe\b[^<]*(?:(?!<\/iframe>)<[^<]*)*<\/iframe>/gi, '')
+        .replace(/on\w+="[^"]*"/gi, '')
+        .replace(/on\w+='[^']*'/gi, '')
+        .replace(/javascript:[^"']*/gi, '');
+}
+
+// Format ISO timestamp to relative time ("2m ago", "1h ago", etc.)
+function formatRelativeTime(isoString) {
+    if (!isoString) return '';
+    try {
+        const date = new Date(isoString);
+        const now = new Date();
+        const diffSec = Math.floor((now - date) / 1000);
+        if (diffSec < 60) return 'Just now';
+        const diffMin = Math.floor(diffSec / 60);
+        if (diffMin < 60) return `${diffMin}m ago`;
+        const diffHour = Math.floor(diffMin / 60);
+        if (diffHour < 24) return `${diffHour}h ago`;
+        const diffDay = Math.floor(diffHour / 24);
+        if (diffDay < 7) return `${diffDay}d ago`;
+        return date.toLocaleDateString();
+    } catch (_) {
+        return '';
+    }
+}
+
 function AdminCareers() {
     const location = useLocation();
     const searchInputRef = useRef(null);
@@ -33,13 +65,49 @@ function AdminCareers() {
     const [sidebarOpen, setSidebarOpen] = useState(false);
 
     // Active Navigation Tab: 'dashboard' | 'jobs' | 'applications' | 'gallery' | 'admins'
-    const [activeTab, setActiveTab] = useState('gallery');
+    const [activeTab, setActiveTab] = useState('dashboard');
 
     // Global Search & Shortcut State
     const [globalSearch, setGlobalSearch] = useState('');
 
     // User Profile Dropdown State
     const [showUserDropdown, setShowUserDropdown] = useState(false);
+
+    // Dashboard Recent Activity State
+    const [recentActivity, setRecentActivity] = useState([]);
+    const [isLoadingActivity, setIsLoadingActivity] = useState(false);
+
+    // Dashboard Live Website Status State
+    const [liveStatus, setLiveStatus] = useState({
+        isLive: true,
+        latency: null,
+        lastChecked: null,
+        checking: false
+    });
+
+    // Dashboard Post a Job State
+    const [dashJobTitle, setDashJobTitle] = useState('');
+    const [dashJobDept, setDashJobDept] = useState('Engineering');
+    const [dashJobLocation, setDashJobLocation] = useState('Bengaluru');
+    const [dashJobType, setDashJobType] = useState('Full-time');
+    const [dashJobDesc, setDashJobDesc] = useState('');
+    const [dashRequirements, setDashRequirements] = useState([]);
+    const [dashReqInput, setDashReqInput] = useState('');
+    const [isSavingDashJob, setIsSavingDashJob] = useState(false);
+    const [dashJobMsg, setDashJobMsg] = useState({ type: '', text: '' });
+    const dashEditorRef = useRef(null);
+
+    // Dashboard Life at VRM Upload State
+    const [dashUploadFiles, setDashUploadFiles] = useState([]);
+    const [dashCategory, setDashCategory] = useState('Team Event');
+    const [dashEventDate, setDashEventDate] = useState(() => new Date().toISOString().split('T')[0]);
+    const [dashAltText, setDashAltText] = useState('');
+    const [dashCaption, setDashCaption] = useState('');
+    const [isDraggingFiles, setIsDraggingFiles] = useState(false);
+    const [isUploadingDashPhotos, setIsUploadingDashPhotos] = useState(false);
+    const [dashUploadProgress, setDashUploadProgress] = useState({ current: 0, total: 0, message: '' });
+    const [dashUploadMsg, setDashUploadMsg] = useState({ type: '', text: '' });
+    const dashFileInputRef = useRef(null);
 
     // Login Form State
     const [loginUser, setLoginUser] = useState('');
@@ -323,16 +391,250 @@ function AdminCareers() {
             .finally(() => setIsLoadingAdmins(false));
     }, [token, currentUser, logout]);
 
+    // Fetch Recent Activity Log
+    const fetchActivity = useCallback(() => {
+        if (!token) return;
+        setIsLoadingActivity(true);
+        fetch('/api/admin/careers/activity', {
+            headers: { 'Authorization': `Bearer ${token}` }
+        })
+            .then(res => {
+                if (res.status === 401) { logout(); throw new Error('Expired'); }
+                if (res.ok) return res.json();
+                throw new Error('Failed');
+            })
+            .then(data => {
+                if (data && data.success && Array.isArray(data.activity)) {
+                    setRecentActivity(data.activity);
+                }
+            })
+            .catch(err => console.error(err))
+            .finally(() => setIsLoadingActivity(false));
+    }, [token, logout]);
+
+    // Live Website Status Health Check
+    const checkLiveStatus = useCallback(async () => {
+        setLiveStatus(prev => ({ ...prev, checking: true }));
+        const t0 = performance.now();
+        try {
+            const res = await fetch('/api/careers/jobs', { cache: 'no-store' });
+            const latency = Math.round(performance.now() - t0);
+            if (res.ok) {
+                setLiveStatus({
+                    isLive: true,
+                    latency,
+                    lastChecked: new Date(),
+                    checking: false
+                });
+            } else {
+                setLiveStatus({
+                    isLive: false,
+                    latency,
+                    lastChecked: new Date(),
+                    checking: false
+                });
+            }
+        } catch (e) {
+            setLiveStatus({
+                isLive: false,
+                latency: null,
+                lastChecked: new Date(),
+                checking: false
+            });
+        }
+    }, []);
+
+    // Dashboard Post a Job handlers
+    const handleAddDashRequirement = () => {
+        const trimmed = dashReqInput.trim();
+        if (trimmed && !dashRequirements.includes(trimmed)) {
+            setDashRequirements(prev => [...prev, trimmed]);
+            setDashReqInput('');
+        }
+    };
+
+    const handleRemoveDashRequirement = (idx) => {
+        setDashRequirements(prev => prev.filter((_, i) => i !== idx));
+    };
+
+    const handleFormatDesc = (command, value = null) => {
+        document.execCommand(command, false, value);
+        if (dashEditorRef.current) {
+            setDashJobDesc(dashEditorRef.current.innerHTML);
+        }
+    };
+
+    const handleSaveDashJob = async (status = 'published') => {
+        if (!dashJobTitle.trim()) {
+            setDashJobMsg({ type: 'danger', text: 'Job title is required.' });
+            return;
+        }
+        const descContent = dashEditorRef.current ? dashEditorRef.current.innerHTML : dashJobDesc;
+        if (!descContent || !descContent.trim() || descContent === '<br>') {
+            setDashJobMsg({ type: 'danger', text: 'Job description is required.' });
+            return;
+        }
+
+        setIsSavingDashJob(true);
+        setDashJobMsg({ type: '', text: '' });
+
+        try {
+            const payload = {
+                title: dashJobTitle.trim(),
+                department: dashJobDept,
+                location: dashJobLocation,
+                employmentType: dashJobType,
+                shortDescription: sanitizeHtml(descContent),
+                requirements: dashRequirements,
+                status
+            };
+
+            const res = await fetch('/api/admin/careers/jobs', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify(payload)
+            });
+            const data = await res.json();
+            if (!res.ok || !data.success) {
+                throw new Error(data.message || 'Failed to save job opening');
+            }
+
+            setDashJobMsg({
+                type: 'success',
+                text: status === 'published' ? `Job "${payload.title}" published live!` : `Job "${payload.title}" saved as draft.`
+            });
+            setDashJobTitle('');
+            setDashJobDesc('');
+            if (dashEditorRef.current) dashEditorRef.current.innerHTML = '';
+            setDashRequirements([]);
+            setDashReqInput('');
+            fetchJobs();
+            fetchActivity();
+        } catch (err) {
+            setDashJobMsg({ type: 'danger', text: err.message });
+        } finally {
+            setIsSavingDashJob(false);
+        }
+    };
+
+    // Dashboard Life at VRM Upload handlers
+    const handleAddFiles = (filesList) => {
+        const validExtensions = ['image/jpeg', 'image/png', 'image/webp'];
+        const newFiles = [];
+        for (let i = 0; i < filesList.length; i++) {
+            const file = filesList[i];
+            if (!validExtensions.includes(file.type)) {
+                alert(`File "${file.name}" is not a supported format (JPG, PNG, WEBP).`);
+                continue;
+            }
+            if (file.size > 10 * 1024 * 1024) {
+                alert(`File "${file.name}" exceeds the 10MB limit.`);
+                continue;
+            }
+            newFiles.push({
+                id: `upload_${Date.now()}_${Math.random().toString(36).substr(2, 6)}`,
+                file,
+                name: file.name,
+                previewUrl: URL.createObjectURL(file)
+            });
+        }
+        setDashUploadFiles(prev => [...prev, ...newFiles]);
+    };
+
+    const handleRemoveDashFile = (id) => {
+        setDashUploadFiles(prev => {
+            const match = prev.find(f => f.id === id);
+            if (match && match.previewUrl) URL.revokeObjectURL(match.previewUrl);
+            return prev.filter(f => f.id !== id);
+        });
+    };
+
+    const handleUploadDashPhotos = async () => {
+        if (dashUploadFiles.length === 0) {
+            setDashUploadMsg({ type: 'danger', text: 'Please select or drag at least one photo to upload.' });
+            return;
+        }
+        if (!dashAltText.trim()) {
+            setDashUploadMsg({ type: 'danger', text: 'Alt text is required for accessibility and SEO.' });
+            return;
+        }
+
+        setIsUploadingDashPhotos(true);
+        setDashUploadMsg({ type: '', text: '' });
+        let successCount = 0;
+        let failCount = 0;
+
+        for (let i = 0; i < dashUploadFiles.length; i++) {
+            const item = dashUploadFiles[i];
+            setDashUploadProgress({
+                current: i + 1,
+                total: dashUploadFiles.length,
+                message: `Uploading ${i + 1} of ${dashUploadFiles.length}: ${item.name}...`
+            });
+
+            const formData = new FormData();
+            formData.append('photo', item.file);
+            formData.append('category', dashCategory);
+            formData.append('eventDate', dashEventDate);
+            formData.append('altText', dashUploadFiles.length > 1 ? `${dashAltText} (${i + 1})` : dashAltText);
+            if (dashCaption.trim()) {
+                formData.append('caption', dashCaption.trim());
+            }
+            formData.append('status', 'published');
+
+            try {
+                const res = await fetch('/api/admin/gallery', {
+                    method: 'POST',
+                    headers: { 'Authorization': `Bearer ${token}` },
+                    body: formData
+                });
+                const data = await res.json();
+                if (res.ok && data.success) {
+                    successCount++;
+                } else {
+                    failCount++;
+                }
+            } catch (err) {
+                failCount++;
+            }
+        }
+
+        setIsUploadingDashPhotos(false);
+        setDashUploadProgress({ current: 0, total: 0, message: '' });
+
+        if (successCount > 0) {
+            setDashUploadMsg({
+                type: failCount > 0 ? 'warning' : 'success',
+                text: failCount > 0
+                    ? `Uploaded ${successCount} photo(s). ${failCount} failed.`
+                    : `Successfully uploaded and published ${successCount} photo(s) to Life at VRM!`
+            });
+            dashUploadFiles.forEach(f => f.previewUrl && URL.revokeObjectURL(f.previewUrl));
+            setDashUploadFiles([]);
+            setDashCaption('');
+            setDashAltText('');
+            fetchGallery();
+            fetchActivity();
+        } else {
+            setDashUploadMsg({ type: 'danger', text: 'Failed to upload selected photos. Please check file format and try again.' });
+        }
+    };
+
     useEffect(() => {
         if (isAuthenticated) {
             fetchJobs();
             fetchApplications();
             fetchGallery();
+            fetchActivity();
+            checkLiveStatus();
             if (currentUser?.role === 'superadmin') {
                 fetchAdminUsers();
             }
         }
-    }, [isAuthenticated, currentUser?.role, fetchJobs, fetchApplications, fetchGallery, fetchAdminUsers]);
+    }, [isAuthenticated, currentUser?.role, fetchJobs, fetchApplications, fetchGallery, fetchActivity, checkLiveStatus, fetchAdminUsers]);
 
     // --------------------------------------------------------------------------
     // AUTH HANDLERS
@@ -1202,7 +1504,14 @@ function AdminCareers() {
     });
 
     const isSuperAdmin = currentUser?.role === 'superadmin';
-    const userInitial = (currentUser?.displayName || currentUser?.username || 'A')[0].toUpperCase();
+    const userInitials = (() => {
+        const name = (currentUser?.displayName || currentUser?.username || 'Admin').trim();
+        const parts = name.split(/\s+/);
+        if (parts.length >= 2 && parts[0] && parts[1]) {
+            return (parts[0][0] + parts[1][0]).toUpperCase();
+        }
+        return name.slice(0, 2).toUpperCase();
+    })();
 
     if (authChecking) {
         return (
@@ -1532,6 +1841,19 @@ function AdminCareers() {
                             <span className="vrm-admin-nav-badge">{jobStats.total}</span>
                         </button>
 
+                        {/* Life at VRM */}
+                        <button
+                            type="button"
+                            className={`vrm-admin-nav-item ${activeTab === 'gallery' ? 'active' : ''}`}
+                            onClick={() => { setActiveTab('gallery'); setSidebarOpen(false); }}
+                        >
+                            <span className="vrm-admin-nav-label">
+                                <i className="fas fa-images vrm-admin-nav-icon"></i>
+                                <span>Life at VRM</span>
+                            </span>
+                            <span className="vrm-admin-nav-badge">{galleryStats.total}</span>
+                        </button>
+
                         {/* Applications */}
                         <button
                             type="button"
@@ -1545,19 +1867,6 @@ function AdminCareers() {
                             <span className="vrm-admin-nav-badge">
                                 {appStats.new > 0 ? `${appStats.new} new` : appStats.total}
                             </span>
-                        </button>
-
-                        {/* Life at VRM */}
-                        <button
-                            type="button"
-                            className={`vrm-admin-nav-item ${activeTab === 'gallery' ? 'active' : ''}`}
-                            onClick={() => { setActiveTab('gallery'); setSidebarOpen(false); }}
-                        >
-                            <span className="vrm-admin-nav-label">
-                                <i className="fas fa-images vrm-admin-nav-icon"></i>
-                                <span>Life at VRM</span>
-                            </span>
-                            <span className="vrm-admin-nav-badge">{galleryStats.total}</span>
                         </button>
 
                         {/* Manage Admins (Superadmin only) */}
@@ -1580,18 +1889,6 @@ function AdminCareers() {
                 {/* Quick Actions */}
                 <div className="vrm-admin-quick-actions">
                     <div className="vrm-admin-quick-title">Quick Actions</div>
-                    <button
-                        type="button"
-                        className="vrm-admin-btn-upload-quick"
-                        onClick={() => {
-                            setActiveTab('gallery');
-                            handleOpenUploadModal();
-                            setSidebarOpen(false);
-                        }}
-                    >
-                        <i className="fas fa-cloud-upload-alt"></i>
-                        <span>Upload Photos</span>
-                    </button>
                     <Link to="/careers" target="_blank" className="vrm-admin-btn-live-quick">
                         <i className="fas fa-external-link-alt"></i>
                         <span>View Live Site</span>
@@ -1620,7 +1917,7 @@ function AdminCareers() {
                                 <i className="fas fa-user-shield"></i>
                             </div>
                             <div>
-                                <h1 className="h6 fw-bold mb-0 text-white" style={{ fontSize: '15px' }}>Careers Admin</h1>
+                                <h1 className="h6 fw-bold mb-0 text-white" style={{ fontSize: '15px' }}>Careers Admin Panel</h1>
                                 <small className="text-muted d-block" style={{ fontSize: '11px', marginTop: '-2px' }}>VRM AI Technology</small>
                             </div>
                         </div>
@@ -1644,6 +1941,18 @@ function AdminCareers() {
 
                     {/* Right User Actions */}
                     <div className="vrm-admin-topbar-actions">
+                        {/* View Live Careers Button */}
+                        <a
+                            href="/careers"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="vrm-admin-btn-live-header d-none d-md-inline-flex"
+                            title="Open live public careers page in a new tab"
+                        >
+                            <i className="fas fa-external-link-alt"></i>
+                            <span>View Live Careers</span>
+                        </a>
+
                         {/* Notification Bell */}
                         <button
                             type="button"
@@ -1665,11 +1974,16 @@ function AdminCareers() {
                                 onClick={() => setShowUserDropdown(prev => !prev)}
                             >
                                 <div className="vrm-admin-avatar-circle">
-                                    {userInitial}
+                                    {userInitials}
                                 </div>
-                                <span className="small fw-semibold text-white d-none d-sm-inline">
-                                    {currentUser?.role === 'superadmin' ? 'Superadmin' : (currentUser?.displayName || currentUser?.username || 'Admin')}
-                                </span>
+                                <div className="d-none d-sm-flex flex-column text-start" style={{ lineHeight: 1.2 }}>
+                                    <span className="small fw-semibold text-white">
+                                        {currentUser?.displayName || currentUser?.username || 'Admin'}
+                                    </span>
+                                    <span className="text-muted" style={{ fontSize: '10.5px' }}>
+                                        {currentUser?.role === 'superadmin' ? 'Superadmin' : 'Admin'}
+                                    </span>
+                                </div>
                                 <i className="fas fa-chevron-down text-muted ms-1" style={{ fontSize: '10px' }}></i>
                             </div>
 
@@ -2169,22 +2483,41 @@ function AdminCareers() {
                     {/* ============================================================== */}
                     {activeTab === 'dashboard' && (
                         <>
-                            <div className="d-flex justify-content-between align-items-center mb-4">
+                            {/* Welcome & Health Status Bar */}
+                            <div className="vrm-dashboard-welcome-bar">
                                 <div>
-                                    <h2 className="h4 fw-bold text-white mb-1">Admin Dashboard Overview</h2>
-                                    <p className="text-muted small mb-0">High-level operational metrics across recruitment, team culture, and admins.</p>
+                                    <h2 className="h4 fw-bold text-white mb-1">
+                                        Welcome back, {currentUser?.displayName || currentUser?.username || 'Admin'} 👋
+                                    </h2>
+                                    <p className="text-muted small mb-0">
+                                        Real-time overview of recruitment openings, candidate applications, and team culture.
+                                    </p>
+                                </div>
+                                <div className="d-flex align-items-center gap-2">
+                                    {liveStatus.isLive ? (
+                                        <div className="vrm-live-badge-pill operational">
+                                            <span className="vrm-pulse-dot"></span>
+                                            <span>Careers Site Live {liveStatus.latency !== null ? `(${liveStatus.latency}ms)` : ''}</span>
+                                        </div>
+                                    ) : (
+                                        <div className="vrm-live-badge-pill failed">
+                                            <i className="fas fa-exclamation-triangle"></i>
+                                            <span>Status Check Failed</span>
+                                        </div>
+                                    )}
                                 </div>
                             </div>
 
-                            {/* 4 Stats Cards */}
+                            {/* 1. Four Stat Cards (Real Data Only) */}
                             <div className="vrm-admin-stats-grid mb-4">
-                                <div className="vrm-admin-stat-card" onClick={() => setActiveTab('jobs')} style={{ cursor: 'pointer' }}>
+                                {/* 1. Active Jobs */}
+                                <div className="vrm-admin-stat-card" onClick={() => setActiveTab('jobs')} style={{ cursor: 'pointer' }} title="View Job Openings">
                                     <div className="vrm-stat-left">
                                         <div className="vrm-stat-icon-tile blue">
                                             <i className="fas fa-briefcase"></i>
                                         </div>
                                         <div>
-                                            <div className="vrm-stat-label">Open Job Roles</div>
+                                            <div className="vrm-stat-label">Active Jobs</div>
                                             <div className="vrm-stat-value">{jobStats.published} <small className="text-muted fs-6">/ {jobStats.total}</small></div>
                                         </div>
                                     </div>
@@ -2193,14 +2526,18 @@ function AdminCareers() {
                                     </svg>
                                 </div>
 
-                                <div className="vrm-admin-stat-card" onClick={() => setActiveTab('applications')} style={{ cursor: 'pointer' }}>
+                                {/* 2. Total Applications */}
+                                <div className="vrm-admin-stat-card" onClick={() => setActiveTab('applications')} style={{ cursor: 'pointer' }} title="View Applications">
                                     <div className="vrm-stat-left">
                                         <div className="vrm-stat-icon-tile purple">
                                             <i className="fas fa-file-alt"></i>
                                         </div>
                                         <div>
-                                            <div className="vrm-stat-label">Applications</div>
-                                            <div className="vrm-stat-value">{appStats.total} {appStats.new > 0 && <span className="badge bg-danger rounded-pill fs-6 ms-1">{appStats.new} new</span>}</div>
+                                            <div className="vrm-stat-label">Total Applications</div>
+                                            <div className="vrm-stat-value">
+                                                {appStats.total}
+                                                {appStats.new > 0 && <span className="badge bg-danger rounded-pill fs-6 ms-2">{appStats.new} new</span>}
+                                            </div>
                                         </div>
                                     </div>
                                     <svg className="vrm-stat-sparkline" viewBox="0 0 100 40" fill="none">
@@ -2208,7 +2545,8 @@ function AdminCareers() {
                                     </svg>
                                 </div>
 
-                                <div className="vrm-admin-stat-card" onClick={() => setActiveTab('gallery')} style={{ cursor: 'pointer' }}>
+                                {/* 3. Life at VRM Photos */}
+                                <div className="vrm-admin-stat-card" onClick={() => setActiveTab('gallery')} style={{ cursor: 'pointer' }} title="View Life at VRM Gallery">
                                     <div className="vrm-stat-left">
                                         <div className="vrm-stat-icon-tile green">
                                             <i className="far fa-images"></i>
@@ -2223,90 +2561,467 @@ function AdminCareers() {
                                     </svg>
                                 </div>
 
-                                {isSuperAdmin && (
-                                    <div className="vrm-admin-stat-card" onClick={() => setActiveTab('admins')} style={{ cursor: 'pointer' }}>
-                                        <div className="vrm-stat-left">
-                                            <div className="vrm-stat-icon-tile slate">
-                                                <i className="fas fa-user-shield"></i>
-                                            </div>
-                                            <div>
-                                                <div className="vrm-stat-label">Admins</div>
-                                                <div className="vrm-stat-value">{adminUsers.length} <small className="text-muted fs-6">Accounts</small></div>
+                                {/* 4. New Applications */}
+                                <div className="vrm-admin-stat-card" onClick={() => { setActiveTab('applications'); setAppFilterStatus('new'); }} style={{ cursor: 'pointer' }} title="Filter New Applications">
+                                    <div className="vrm-stat-left">
+                                        <div className="vrm-stat-icon-tile cyan">
+                                            <i className="fas fa-user-clock"></i>
+                                        </div>
+                                        <div>
+                                            <div className="vrm-stat-label">New Applications</div>
+                                            <div className="vrm-stat-value" style={{ color: '#06b6d4' }}>
+                                                {appStats.new} <small className="text-muted fs-6">Pending</small>
                                             </div>
                                         </div>
-                                        <svg className="vrm-stat-sparkline" viewBox="0 0 100 40" fill="none">
-                                            <path d="M0 26 Q 35 24, 60 32 T 100 22" stroke="#94a3b8" strokeWidth="2.5" strokeLinecap="round" />
-                                        </svg>
                                     </div>
-                                )}
+                                    <svg className="vrm-stat-sparkline" viewBox="0 0 100 40" fill="none">
+                                        <path d="M0 26 Q 35 24, 60 32 T 100 22" stroke="#06b6d4" strokeWidth="2.5" strokeLinecap="round" />
+                                    </svg>
+                                </div>
                             </div>
 
-                            {/* Recent Activity Rows */}
-                            <div className="row g-4">
-                                <div className="col-lg-6">
-                                    <div className="vrm-admin-table-card p-4">
-                                        <div className="d-flex justify-content-between align-items-center mb-3">
-                                            <h5 className="fw-bold text-white mb-0" style={{ fontSize: '16px' }}>Latest Applications</h5>
-                                            <button className="btn btn-sm btn-link text-primary text-decoration-none" onClick={() => setActiveTab('applications')}>
-                                                View All ({applications.length})
-                                            </button>
+                            {/* Main Dashboard 2-Column Grid */}
+                            <div className="vrm-dashboard-grid">
+                                {/* Left Column: Post a Job & Life at VRM Upload */}
+                                <div>
+                                    {/* CARD 1: Post a Job Opening */}
+                                    <div className="vrm-dash-card">
+                                        <div className="vrm-dash-card-header">
+                                            <div className="vrm-dash-card-title-group">
+                                                <div className="vrm-dash-card-icon blue">
+                                                    <i className="fas fa-briefcase"></i>
+                                                </div>
+                                                <div>
+                                                    <h3 className="vrm-dash-card-title">Post a Job Opening</h3>
+                                                    <p className="vrm-dash-card-sub">Publish directly to live /careers page or save as draft</p>
+                                                </div>
+                                            </div>
                                         </div>
-                                        {applications.length === 0 ? (
-                                            <div className="text-muted text-center py-4 small">No candidate applications received yet.</div>
-                                        ) : (
-                                            <div className="d-flex flex-column gap-2">
-                                                {applications.slice(0, 5).map(app => (
-                                                    <div key={app.id} className="p-3 rounded-3 d-flex align-items-center justify-content-between" style={{ background: '#131b2e' }}>
-                                                        <div>
-                                                            <div className="fw-bold text-white">{app.fullName}</div>
-                                                            <small className="text-muted">{app.position} • {app.appliedAt ? new Date(app.appliedAt).toLocaleDateString() : ''}</small>
-                                                        </div>
-                                                        <div className="d-flex align-items-center gap-2">
-                                                            <span className={`badge ${app.status === 'new' ? 'bg-danger' : 'bg-primary'} rounded-pill`} style={{ fontSize: '10px' }}>
-                                                                {app.status}
+
+                                        {dashJobMsg.text && (
+                                            <div className={`alert alert-${dashJobMsg.type} py-2 px-3 small rounded-3 mb-3 d-flex align-items-center justify-content-between`}>
+                                                <span>{dashJobMsg.text}</span>
+                                                <button type="button" className="btn-close btn-close-white small p-0" onClick={() => setDashJobMsg({ type: '', text: '' })}></button>
+                                            </div>
+                                        )}
+
+                                        <form onSubmit={(e) => { e.preventDefault(); handleSaveDashJob('published'); }}>
+                                            {/* Job Title */}
+                                            <div className="mb-3">
+                                                <label className="vrm-admin-auth-label">Job Title *</label>
+                                                <input
+                                                    type="text"
+                                                    className="vrm-admin-auth-input"
+                                                    placeholder="e.g. Senior Machine Learning Engineer"
+                                                    value={dashJobTitle}
+                                                    onChange={(e) => setDashJobTitle(e.target.value)}
+                                                    required
+                                                />
+                                            </div>
+
+                                            {/* Department, Location, Job Type */}
+                                            <div className="row g-2 mb-3">
+                                                <div className="col-md-4">
+                                                    <label className="vrm-admin-auth-label">Department</label>
+                                                    <select
+                                                        className="vrm-admin-auth-input"
+                                                        value={dashJobDept}
+                                                        onChange={(e) => setDashJobDept(e.target.value)}
+                                                    >
+                                                        <option value="Engineering">Engineering</option>
+                                                        <option value="AI & Machine Learning">AI & Machine Learning</option>
+                                                        <option value="Product & Design">Product & Design</option>
+                                                        <option value="Marketing & Sales">Marketing & Sales</option>
+                                                        <option value="Operations">Operations</option>
+                                                        <option value="Human Resources">Human Resources</option>
+                                                        <option value="Customer Success">Customer Success</option>
+                                                    </select>
+                                                </div>
+                                                <div className="col-md-4">
+                                                    <label className="vrm-admin-auth-label">Location</label>
+                                                    <select
+                                                        className="vrm-admin-auth-input"
+                                                        value={dashJobLocation}
+                                                        onChange={(e) => setDashJobLocation(e.target.value)}
+                                                    >
+                                                        <option value="Bengaluru">Bengaluru</option>
+                                                        <option value="Madurai">Madurai</option>
+                                                        <option value="Remote">Remote</option>
+                                                        <option value="Hybrid">Hybrid</option>
+                                                    </select>
+                                                </div>
+                                                <div className="col-md-4">
+                                                    <label className="vrm-admin-auth-label">Job Type</label>
+                                                    <select
+                                                        className="vrm-admin-auth-input"
+                                                        value={dashJobType}
+                                                        onChange={(e) => setDashJobType(e.target.value)}
+                                                    >
+                                                        <option value="Full-time">Full-time</option>
+                                                        <option value="Part-time">Part-time</option>
+                                                        <option value="Contract">Contract</option>
+                                                        <option value="Internship">Internship</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            {/* Job Description (Rich Text) */}
+                                            <div className="mb-3">
+                                                <label className="vrm-admin-auth-label">Job Description *</label>
+                                                <div className="vrm-rich-toolbar">
+                                                    <button type="button" className="vrm-rich-btn" onClick={() => handleFormatDesc('bold')} title="Bold">
+                                                        <b>B</b>
+                                                    </button>
+                                                    <button type="button" className="vrm-rich-btn" onClick={() => handleFormatDesc('italic')} title="Italic">
+                                                        <i>I</i>
+                                                    </button>
+                                                    <button type="button" className="vrm-rich-btn" onClick={() => handleFormatDesc('underline')} title="Underline">
+                                                        <u>U</u>
+                                                    </button>
+                                                    <span className="text-secondary opacity-25 mx-1">|</span>
+                                                    <button type="button" className="vrm-rich-btn" onClick={() => handleFormatDesc('insertUnorderedList')} title="Bullet List">
+                                                        <i className="fas fa-list-ul"></i>
+                                                    </button>
+                                                    <button type="button" className="vrm-rich-btn" onClick={() => handleFormatDesc('insertOrderedList')} title="Numbered List">
+                                                        <i className="fas fa-list-ol"></i>
+                                                    </button>
+                                                    <button
+                                                        type="button"
+                                                        className="vrm-rich-btn"
+                                                        onClick={() => {
+                                                            const url = prompt('Enter link URL:');
+                                                            if (url) handleFormatDesc('createLink', url);
+                                                        }}
+                                                        title="Insert Link"
+                                                    >
+                                                        <i className="fas fa-link"></i>
+                                                    </button>
+                                                </div>
+                                                <div
+                                                    ref={dashEditorRef}
+                                                    contentEditable
+                                                    className="vrm-rich-editor"
+                                                    data-placeholder="Enter role responsibilities, team impact, and required qualifications..."
+                                                    onInput={() => {
+                                                        if (dashEditorRef.current) {
+                                                            setDashJobDesc(dashEditorRef.current.innerHTML);
+                                                        }
+                                                    }}
+                                                />
+                                            </div>
+
+                                            {/* Requirements Chips */}
+                                            <div className="mb-3">
+                                                <label className="vrm-admin-auth-label">Requirements & Qualifications</label>
+                                                <div className="d-flex gap-2">
+                                                    <input
+                                                        type="text"
+                                                        className="vrm-admin-auth-input"
+                                                        placeholder="e.g. 3+ years experience with Python & LLMs"
+                                                        value={dashReqInput}
+                                                        onChange={(e) => setDashReqInput(e.target.value)}
+                                                        onKeyDown={(e) => {
+                                                            if (e.key === 'Enter') {
+                                                                e.preventDefault();
+                                                                handleAddDashRequirement();
+                                                            }
+                                                        }}
+                                                    />
+                                                    <button
+                                                        type="button"
+                                                        className="vrm-btn-draft"
+                                                        onClick={handleAddDashRequirement}
+                                                    >
+                                                        <i className="fas fa-plus me-1"></i> Add
+                                                    </button>
+                                                </div>
+                                                {dashRequirements.length > 0 && (
+                                                    <div className="vrm-chips-wrap">
+                                                        {dashRequirements.map((req, idx) => (
+                                                            <span key={idx} className="vrm-chip-item">
+                                                                <span>{req}</span>
+                                                                <i
+                                                                    className="fas fa-times vrm-chip-close"
+                                                                    onClick={() => handleRemoveDashRequirement(idx)}
+                                                                    title="Remove requirement"
+                                                                ></i>
                                                             </span>
-                                                            <button
-                                                                className="btn btn-sm btn-outline-primary"
-                                                                onClick={() => {
-                                                                    setSelectedApp(app);
-                                                                    setActiveTab('applications');
-                                                                }}
-                                                            >
-                                                                View
-                                                            </button>
-                                                        </div>
+                                                        ))}
+                                                    </div>
+                                                )}
+                                            </div>
+
+                                            {/* Action Buttons */}
+                                            <div className="d-flex justify-content-between align-items-center mt-4 pt-2 border-top border-secondary border-opacity-25">
+                                                <button
+                                                    type="button"
+                                                    className="vrm-btn-draft"
+                                                    onClick={() => handleSaveDashJob('draft')}
+                                                    disabled={isSavingDashJob}
+                                                >
+                                                    <i className="fas fa-save me-2"></i>
+                                                    {isSavingDashJob ? 'Saving...' : 'Save as Draft'}
+                                                </button>
+                                                <button
+                                                    type="submit"
+                                                    className="vrm-btn-publish"
+                                                    disabled={isSavingDashJob}
+                                                >
+                                                    <i className="fas fa-paper-plane me-2"></i>
+                                                    {isSavingDashJob ? 'Publishing...' : 'Publish Job'}
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                    {/* CARD 2: Life at VRM - Upload Photos */}
+                                    <div className="vrm-dash-card">
+                                        <div className="vrm-dash-card-header">
+                                            <div className="vrm-dash-card-title-group">
+                                                <div className="vrm-dash-card-icon green">
+                                                    <i className="fas fa-camera"></i>
+                                                </div>
+                                                <div>
+                                                    <h3 className="vrm-dash-card-title">Life at VRM - Upload Photos</h3>
+                                                    <p className="vrm-dash-card-sub">Publish employee moments, hackathons, and celebrations</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        {dashUploadMsg.text && (
+                                            <div className={`alert alert-${dashUploadMsg.type} py-2 px-3 small rounded-3 mb-3 d-flex align-items-center justify-content-between`}>
+                                                <span>{dashUploadMsg.text}</span>
+                                                <button type="button" className="btn-close btn-close-white small p-0" onClick={() => setDashUploadMsg({ type: '', text: '' })}></button>
+                                            </div>
+                                        )}
+
+                                        {/* Drag and Drop Zone */}
+                                        <div
+                                            className={`vrm-dropzone-box ${isDraggingFiles ? 'dragging' : ''}`}
+                                            onDragOver={(e) => { e.preventDefault(); setIsDraggingFiles(true); }}
+                                            onDragLeave={() => setIsDraggingFiles(false)}
+                                            onDrop={(e) => {
+                                                e.preventDefault();
+                                                setIsDraggingFiles(false);
+                                                if (e.dataTransfer.files) handleAddFiles(e.dataTransfer.files);
+                                            }}
+                                            onClick={() => dashFileInputRef.current?.click()}
+                                        >
+                                            <i className="fas fa-cloud-upload-alt text-primary mb-2" style={{ fontSize: '36px' }}></i>
+                                            <div className="fw-semibold text-white mb-1">Drag and drop employee photos here, or click to browse</div>
+                                            <div className="text-muted small">JPG, PNG, WEBP • Max 10MB each • Multiple files supported</div>
+                                            <input
+                                                ref={dashFileInputRef}
+                                                type="file"
+                                                multiple
+                                                accept="image/jpeg,image/png,image/webp"
+                                                onChange={(e) => handleAddFiles(e.target.files)}
+                                                style={{ display: 'none' }}
+                                            />
+                                        </div>
+
+                                        {/* Thumbnail Previews */}
+                                        {dashUploadFiles.length > 0 && (
+                                            <div className="vrm-upload-previews-grid">
+                                                {dashUploadFiles.map((f) => (
+                                                    <div key={f.id} className="vrm-upload-thumb-card" title={f.name}>
+                                                        <img src={f.previewUrl} alt={f.name} />
+                                                        <button
+                                                            type="button"
+                                                            className="vrm-upload-thumb-delete"
+                                                            onClick={(e) => {
+                                                                e.stopPropagation();
+                                                                handleRemoveDashFile(f.id);
+                                                            }}
+                                                            title="Remove photo"
+                                                        >
+                                                            <i className="fas fa-times"></i>
+                                                        </button>
                                                     </div>
                                                 ))}
                                             </div>
                                         )}
+
+                                        {/* Compact metadata row */}
+                                        <div className="row g-2 mt-2 mb-3">
+                                            <div className="col-md-4">
+                                                <label className="vrm-admin-auth-label">Category</label>
+                                                <select
+                                                    className="vrm-admin-auth-input"
+                                                    value={dashCategory}
+                                                    onChange={(e) => setDashCategory(e.target.value)}
+                                                >
+                                                    <option value="Team Event">Team Event</option>
+                                                    <option value="Fun Friday">Fun Friday</option>
+                                                    <option value="Hackathon">Hackathon</option>
+                                                    <option value="Festival">Festival</option>
+                                                    <option value="Office Life">Office Life</option>
+                                                    <option value="Learning">Learning</option>
+                                                </select>
+                                            </div>
+                                            <div className="col-md-4">
+                                                <label className="vrm-admin-auth-label">Event Date</label>
+                                                <input
+                                                    type="date"
+                                                    className="vrm-admin-auth-input"
+                                                    value={dashEventDate}
+                                                    onChange={(e) => setDashEventDate(e.target.value)}
+                                                />
+                                            </div>
+                                            <div className="col-md-4">
+                                                <label className="vrm-admin-auth-label">Alt Text *</label>
+                                                <input
+                                                    type="text"
+                                                    className="vrm-admin-auth-input"
+                                                    placeholder="Required for SEO & accessibility"
+                                                    value={dashAltText}
+                                                    onChange={(e) => setDashAltText(e.target.value)}
+                                                    required
+                                                />
+                                            </div>
+                                        </div>
+
+                                        <div className="mb-3">
+                                            <label className="vrm-admin-auth-label">Optional Caption</label>
+                                            <input
+                                                type="text"
+                                                className="vrm-admin-auth-input"
+                                                placeholder="e.g. AI Hackathon Winners with CEO"
+                                                value={dashCaption}
+                                                onChange={(e) => setDashCaption(e.target.value)}
+                                            />
+                                        </div>
+
+                                        <button
+                                            type="button"
+                                            className="vrm-btn-publish w-100 mt-2"
+                                            onClick={handleUploadDashPhotos}
+                                            disabled={isUploadingDashPhotos || dashUploadFiles.length === 0}
+                                        >
+                                            <i className="fas fa-cloud-upload-alt me-2"></i>
+                                            {isUploadingDashPhotos
+                                                ? (dashUploadProgress.message || 'Processing photos with sharp...')
+                                                : `Upload & Publish (${dashUploadFiles.length} photo${dashUploadFiles.length === 1 ? '' : 's'})`}
+                                        </button>
                                     </div>
                                 </div>
 
-                                <div className="col-lg-6">
-                                    <div className="vrm-admin-table-card p-4">
-                                        <div className="d-flex justify-content-between align-items-center mb-3">
-                                            <h5 className="fw-bold text-white mb-0" style={{ fontSize: '16px' }}>Recent Job Postings</h5>
-                                            <button className="btn btn-sm btn-link text-primary text-decoration-none" onClick={() => setActiveTab('jobs')}>
-                                                View All ({jobs.length})
-                                            </button>
+                                {/* Right Column: Live Website Status & Recent Activity */}
+                                <div>
+                                    {/* CARD 3: Live Website Status */}
+                                    <div className="vrm-dash-card">
+                                        <div className="vrm-dash-card-header">
+                                            <div className="vrm-dash-card-title-group">
+                                                <div className="vrm-dash-card-icon cyan">
+                                                    <i className="fas fa-globe"></i>
+                                                </div>
+                                                <div>
+                                                    <h3 className="vrm-dash-card-title">Live Website Status</h3>
+                                                    <p className="vrm-dash-card-sub">Public careers endpoint health</p>
+                                                </div>
+                                            </div>
                                         </div>
-                                        {jobs.length === 0 ? (
-                                            <div className="text-muted text-center py-4 small">No job postings created yet.</div>
+
+                                        {liveStatus.isLive ? (
+                                            <div className="vrm-live-badge-pill operational mb-3">
+                                                <span className="vrm-pulse-dot"></span>
+                                                <span>Careers Website Operational</span>
+                                            </div>
                                         ) : (
-                                            <div className="d-flex flex-column gap-2">
-                                                {jobs.slice(0, 5).map(job => (
-                                                    <div key={job.id} className="p-3 rounded-3 d-flex align-items-center justify-content-between" style={{ background: '#131b2e' }}>
-                                                        <div>
-                                                            <div className="fw-bold text-white">{job.title}</div>
-                                                            <small className="text-muted">{job.department} • {job.location}</small>
+                                            <div className="vrm-live-badge-pill failed mb-3">
+                                                <i className="fas fa-exclamation-triangle"></i>
+                                                <span>Status Check Failed</span>
+                                            </div>
+                                        )}
+
+                                        <div className="vrm-status-metric-row">
+                                            <span className="vrm-status-metric-label">Target URL</span>
+                                            <span className="vrm-status-metric-val">vrmaitechnology.com/careers</span>
+                                        </div>
+                                        <div className="vrm-status-metric-row">
+                                            <span className="vrm-status-metric-label">API Health</span>
+                                            <span className="vrm-status-metric-val" style={{ color: liveStatus.isLive ? '#34d399' : '#f87171' }}>
+                                                {liveStatus.isLive ? '200 OK' : 'Unavailable'}
+                                            </span>
+                                        </div>
+                                        <div className="vrm-status-metric-row">
+                                            <span className="vrm-status-metric-label">Response Time</span>
+                                            <span className="vrm-status-metric-val">
+                                                {liveStatus.latency !== null ? `${liveStatus.latency} ms` : 'Checking...'}
+                                            </span>
+                                        </div>
+                                        <div className="vrm-status-metric-row">
+                                            <span className="vrm-status-metric-label">Last Checked</span>
+                                            <span className="vrm-status-metric-val">
+                                                {liveStatus.lastChecked ? formatRelativeTime(liveStatus.lastChecked) : 'Just now'}
+                                            </span>
+                                        </div>
+
+                                        <div className="d-flex flex-column gap-2 mt-4">
+                                            <button
+                                                type="button"
+                                                className="vrm-btn-draft w-100 text-center"
+                                                onClick={checkLiveStatus}
+                                                disabled={liveStatus.checking}
+                                            >
+                                                <i className={`fas fa-sync-alt me-2 ${liveStatus.checking ? 'fa-spin' : ''}`}></i>
+                                                {liveStatus.checking ? 'Checking...' : 'Check Status Again'}
+                                            </button>
+                                            <a
+                                                href="/careers"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="vrm-btn-publish w-100 text-center text-decoration-none d-flex align-items-center justify-content-center"
+                                            >
+                                                <i className="fas fa-external-link-alt me-2"></i>
+                                                <span>Visit Careers Website</span>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    {/* CARD 4: Recent Activity */}
+                                    <div className="vrm-dash-card">
+                                        <div className="vrm-dash-card-header">
+                                            <div className="vrm-dash-card-title-group">
+                                                <div className="vrm-dash-card-icon purple">
+                                                    <i className="fas fa-history"></i>
+                                                </div>
+                                                <div>
+                                                    <h3 className="vrm-dash-card-title">Recent Activity</h3>
+                                                    <p className="vrm-dash-card-sub">Latest recruitment & culture events</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        {isLoadingActivity ? (
+                                            <div className="text-center py-4 text-muted small">
+                                                <div className="spinner-border spinner-border-sm text-primary me-2"></div>
+                                                Loading activity...
+                                            </div>
+                                        ) : recentActivity.length === 0 ? (
+                                            <div className="text-center py-4 text-muted small">
+                                                No recent activity recorded yet.
+                                            </div>
+                                        ) : (
+                                            <div>
+                                                {recentActivity.slice(0, 5).map((item) => (
+                                                    <div key={item.id} className="vrm-activity-item-row">
+                                                        <div className={`vrm-activity-badge-tile ${item.type || 'info'}`}>
+                                                            <i className={
+                                                                item.type === 'job'
+                                                                    ? 'fas fa-briefcase'
+                                                                    : item.type === 'photo'
+                                                                    ? 'fas fa-camera'
+                                                                    : item.type === 'application'
+                                                                    ? 'fas fa-file-alt'
+                                                                    : 'fas fa-info-circle'
+                                                            }></i>
                                                         </div>
-                                                        <div className="d-flex align-items-center gap-2">
-                                                            <span className={`badge ${job.status === 'published' ? 'bg-success' : 'bg-secondary'} rounded-pill`} style={{ fontSize: '10px' }}>
-                                                                {job.status}
-                                                            </span>
-                                                            <Link to={`/careers/${job.slug}`} target="_blank" className="btn btn-sm btn-outline-secondary">
-                                                                <i className="far fa-external-link"></i>
-                                                            </Link>
+                                                        <div className="flex-grow-1">
+                                                            <div className="vrm-activity-text">{item.text}</div>
+                                                            <div className="vrm-activity-meta">
+                                                                <span className="text-light fw-medium">{item.admin || 'System'}</span> • {formatRelativeTime(item.timestamp)}
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 ))}

@@ -512,6 +512,13 @@ app.post("/api/admin/careers/jobs", requireAdmin, (req, res) => {
     }
 
     const job = careersDb.saveJob(req.body);
+    try {
+      careersDb.logActivity({
+        type: 'job',
+        text: job.status === 'published' ? `Published job opening "${job.title}"` : `Saved job opening "${job.title}" as draft`,
+        admin: req.admin?.displayName || req.admin?.username || 'Admin'
+      });
+    } catch (_) {}
     res.json({ success: true, job });
   } catch (err) {
     res.status(400).json({ success: false, message: err.message });
@@ -545,6 +552,13 @@ app.patch("/api/admin/careers/jobs/:id/status", requireAdmin, (req, res) => {
       return res.status(400).json({ success: false, message: "Status must be 'draft', 'published', or 'closed'." });
     }
     const job = careersDb.updateJobStatus(req.params.id, status);
+    try {
+      careersDb.logActivity({
+        type: 'job',
+        text: `Updated job opening "${job.title}" status to ${status}`,
+        admin: req.admin?.displayName || req.admin?.username || 'Admin'
+      });
+    } catch (_) {}
     res.json({ success: true, job });
   } catch (err) {
     res.status(400).json({ success: false, message: err.message });
@@ -728,6 +742,14 @@ app.post("/api/admin/gallery", requireAdmin, galleryUpload.single("photo"), asyn
       status
     });
 
+    try {
+      careersDb.logActivity({
+        type: 'photo',
+        text: `Uploaded photo "${photo.caption || photo.altText || 'employee moment'}" to Life at VRM`,
+        admin: req.admin?.displayName || req.admin?.username || 'Admin'
+      });
+    } catch (_) {}
+
     res.json({
       success: true,
       photo,
@@ -764,6 +786,16 @@ app.delete("/api/admin/gallery/:id", requireAdmin, (req, res) => {
     res.json({ success: true, message: "Photo deleted successfully." });
   } catch (err) {
     res.status(400).json({ success: false, message: err.message });
+  }
+});
+
+// 7. Recent Admin Activity Log
+app.get("/api/admin/careers/activity", requireAdmin, (req, res) => {
+  try {
+    const activity = careersDb.getActivity(5);
+    res.json({ success: true, activity });
+  } catch (err) {
+    res.status(500).json({ success: false, message: err.message });
   }
 });
 
@@ -875,6 +907,14 @@ app.post(
         originalFileName: req.file ? req.file.originalname : null,
         fileBuffer: req.file ? req.file.buffer : null
       });
+
+      try {
+        careersDb.logActivity({
+          type: 'application',
+          text: `New application received from ${fullName} for ${position}`,
+          admin: 'Applicant'
+        });
+      } catch (_) {}
 
       // 2. Email notification to contactus@vrmaitechnology.com
       try {

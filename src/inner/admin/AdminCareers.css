@@ -1851,5 +1851,447 @@ body:has(.admin-careers) .progress-wrap,
   }
 }
 
+/* ==========================================================================
+   ADMIN DASHBOARD HOME SCREEN - ENHANCED LAYOUT
+   ========================================================================== */
+.vrm-admin-btn-live-header {
+  height: 38px;
+  padding: 0 14px;
+  border-radius: 8px;
+  background: rgba(59, 130, 246, 0.12);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  color: #38bdf8 !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none !important;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.vrm-admin-btn-live-header:hover {
+  background: rgba(59, 130, 246, 0.25);
+  border-color: #3b82f6;
+  color: #ffffff !important;
+  transform: translateY(-1px);
+}
+
+.vrm-dashboard-welcome-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.vrm-dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 24px;
+  align-items: start;
+}
+
+@media (max-width: 1100px) {
+  .vrm-dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.vrm-dash-card {
+  background: #0f172a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.vrm-dash-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.vrm-dash-card-title-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.vrm-dash-card-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.vrm-dash-card-icon.blue {
+  background: rgba(59, 130, 246, 0.15);
+  color: #3b82f6;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.vrm-dash-card-icon.green {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.vrm-dash-card-icon.purple {
+  background: rgba(139, 92, 246, 0.15);
+  color: #8b5cf6;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+.vrm-dash-card-icon.cyan {
+  background: rgba(6, 182, 212, 0.15);
+  color: #06b6d4;
+  border: 1px solid rgba(6, 182, 212, 0.3);
+}
+
+.vrm-dash-card-title {
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.vrm-dash-card-sub {
+  color: #94a3b8;
+  font-size: 12.5px;
+  margin: 0;
+}
+
+/* Rich Text Toolbar & Editor */
+.vrm-rich-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 10px;
+  background: #080d1a;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: none;
+  border-radius: 10px 10px 0 0;
+  flex-wrap: wrap;
+}
+
+.vrm-rich-btn {
+  height: 32px;
+  width: 32px;
+  min-width: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  color: #94a3b8;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  padding: 0;
+}
+
+.vrm-rich-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+}
+
+.vrm-rich-editor {
+  min-height: 120px;
+  max-height: 240px;
+  overflow-y: auto;
+  padding: 12px 16px;
+  background: #0b1220;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 0 0 10px 10px;
+  color: #ffffff;
+  font-size: 14px;
+  line-height: 1.6;
+  outline: none;
+}
+
+.vrm-rich-editor:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+.vrm-rich-editor[contenteditable]:empty:before {
+  content: attr(data-placeholder);
+  color: #64748b;
+  pointer-events: none;
+  display: block;
+}
+
+/* Requirements Chips */
+.vrm-chips-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.vrm-chip-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: rgba(59, 130, 246, 0.14);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  color: #93c5fd;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.vrm-chip-close {
+  cursor: pointer;
+  color: #cbd5e1;
+  font-size: 11px;
+  transition: color 0.15s;
+}
+
+.vrm-chip-close:hover {
+  color: #ef4444;
+}
+
+/* Drag and Drop Zone */
+.vrm-dropzone-box {
+  border: 2px dashed rgba(255, 255, 255, 0.16);
+  border-radius: 12px;
+  padding: 28px 20px;
+  text-align: center;
+  background: rgba(11, 18, 32, 0.6);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.vrm-dropzone-box:hover,
+.vrm-dropzone-box.dragging {
+  border-color: #3b82f6;
+  background: rgba(59, 130, 246, 0.08);
+}
+
+.vrm-upload-previews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.vrm-upload-thumb-card {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: #090d16;
+}
+
+.vrm-upload-thumb-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.vrm-upload-thumb-delete {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 22px;
+  height: 22px;
+  min-width: 22px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.75);
+  color: #ffffff;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.15s;
+}
+
+.vrm-upload-thumb-delete:hover {
+  background: #ef4444;
+}
+
+/* Live Website Status Card */
+.vrm-live-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.vrm-live-badge-pill.operational {
+  background: rgba(16, 185, 129, 0.14);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.vrm-live-badge-pill.failed {
+  background: rgba(239, 68, 68, 0.14);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.vrm-pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  animation: vrmPulse 2s infinite;
+}
+
+@keyframes vrmPulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  }
+}
+
+.vrm-status-metric-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 13.5px;
+}
+
+.vrm-status-metric-label {
+  color: #94a3b8;
+}
+
+.vrm-status-metric-val {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Recent Activity List */
+.vrm-activity-item-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.vrm-activity-item-row:last-child {
+  border-bottom: none;
+}
+
+.vrm-activity-badge-tile {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.vrm-activity-badge-tile.job {
+  background: rgba(59, 130, 246, 0.15);
+  color: #3b82f6;
+}
+
+.vrm-activity-badge-tile.photo {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+}
+
+.vrm-activity-badge-tile.application {
+  background: rgba(139, 92, 246, 0.15);
+  color: #8b5cf6;
+}
+
+.vrm-activity-badge-tile.info {
+  background: rgba(6, 182, 212, 0.15);
+  color: #06b6d4;
+}
+
+.vrm-activity-text {
+  color: #f1f5f9;
+  font-size: 13.5px;
+  line-height: 1.4;
+  margin-bottom: 2px;
+}
+
+.vrm-activity-meta {
+  color: #64748b;
+  font-size: 12px;
+}
+
+/* Dashboard buttons */
+.vrm-btn-draft {
+  height: 42px;
+  padding: 0 18px;
+  border-radius: 8px;
+  background: #1e293b;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #cbd5e1 !important;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  width: auto !important;
+}
+
+.vrm-btn-draft:hover:not(:disabled) {
+  background: #334155;
+  color: #ffffff !important;
+}
+
+.vrm-btn-publish {
+  height: 42px;
+  padding: 0 20px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  border: none;
+  color: #ffffff !important;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 14px rgba(59, 130, 246, 0.35);
+  width: auto !important;
+}
+
+.vrm-btn-publish:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(59, 130, 246, 0.5);
+  filter: brightness(1.08);
+}
+
+
 
 

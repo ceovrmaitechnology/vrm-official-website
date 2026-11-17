@@ -8,6 +8,7 @@ const JOBS_FILE = path.join(DATA_DIR, 'jobs.json');
 const ADMIN_FILE = path.join(DATA_DIR, 'admin.json');
 const APPLICATIONS_FILE = path.join(DATA_DIR, 'applications.json');
 const GALLERY_FILE = path.join(DATA_DIR, 'gallery.json');
+const ACTIVITY_FILE = path.join(DATA_DIR, 'activity.json');
 const SECRET_FILE = path.join(DATA_DIR, '.jwt_secret');
 
 const UPLOADS_DIR = path.resolve(__dirname, 'uploads');
@@ -45,6 +46,11 @@ if (!fs.existsSync(APPLICATIONS_FILE)) {
 // Ensure gallery.json exists
 if (!fs.existsSync(GALLERY_FILE)) {
   fs.writeFileSync(GALLERY_FILE, JSON.stringify([], null, 2), 'utf8');
+}
+
+// Ensure activity.json exists
+if (!fs.existsSync(ACTIVITY_FILE)) {
+  fs.writeFileSync(ACTIVITY_FILE, JSON.stringify([], null, 2), 'utf8');
 }
 
 // Get or initialize JWT Secret
@@ -1154,6 +1160,81 @@ function getResumeFilePath(storedFileName) {
   return null;
 }
 
+function readActivityRaw() {
+  try {
+    if (!fs.existsSync(ACTIVITY_FILE)) return [];
+    const content = fs.readFileSync(ACTIVITY_FILE, 'utf8');
+    const parsed = JSON.parse(content);
+    if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+
+    // Backfill from actual real jobs, applications, gallery if activity.json is empty
+    const backfilled = [];
+    const jobs = readJobsRaw();
+    jobs.forEach(j => {
+      backfilled.push({
+        id: `act_init_job_${j.id}`,
+        type: 'job',
+        text: j.status === 'published' ? `Published job opening "${j.title}"` : `Saved job opening "${j.title}" as draft`,
+        admin: 'Admin',
+        timestamp: j.postedAt || j.createdAt || new Date().toISOString()
+      });
+    });
+    const apps = readApplicationsRaw();
+    apps.forEach(a => {
+      backfilled.push({
+        id: `act_init_app_${a.id}`,
+        type: 'application',
+        text: `New application received from ${a.fullName} for ${a.position}`,
+        admin: 'Applicant',
+        timestamp: a.appliedAt || a.createdAt || new Date().toISOString()
+      });
+    });
+    const gallery = readGalleryRaw();
+    gallery.forEach(g => {
+      backfilled.push({
+        id: `act_init_gal_${g.id}`,
+        type: 'photo',
+        text: `Uploaded photo "${g.caption || g.altText || 'employee moment'}" to Life at VRM`,
+        admin: 'Admin',
+        timestamp: g.uploadedAt || g.createdAt || new Date().toISOString()
+      });
+    });
+    backfilled.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+    if (backfilled.length > 0) {
+      writeJsonAtomic(ACTIVITY_FILE, backfilled.slice(0, 50));
+      return backfilled;
+    }
+    return [];
+  } catch (error) {
+    console.error('Error reading activity file:', error.message);
+    return [];
+  }
+}
+
+function logActivity({ type = 'info', text, admin = 'Admin' }) {
+  try {
+    const all = readActivityRaw();
+    const entry = {
+      id: `act_${Date.now()}_${crypto.randomBytes(3).toString('hex')}`,
+      type: type || 'info',
+      text: String(text).trim(),
+      admin: String(admin || 'Admin').trim(),
+      timestamp: new Date().toISOString()
+    };
+    const updated = [entry, ...all].slice(0, 50);
+    writeJsonAtomic(ACTIVITY_FILE, updated);
+    return entry;
+  } catch (err) {
+    console.error('Error logging activity:', err.message);
+    return null;
+  }
+}
+
+function getActivity(limit = 5) {
+  const all = readActivityRaw();
+  return all.slice(0, limit);
+}
+
 module.exports = {
   getJobs,
   getJobBySlug,
@@ -1161,6 +1242,8 @@ module.exports = {
   saveJob,
   updateJobStatus,
   deleteJob,
+  logActivity,
+  getActivity,
   generateDynamicSitemapXml,
   syncSitemap,
   readAdminsRaw,
